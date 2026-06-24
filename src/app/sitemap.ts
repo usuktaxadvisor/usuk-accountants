@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next';
 import { authors, caseStudies } from '@/lib/authority-data';
+import { getAllPostsMeta } from '@/lib/blog';
 
 const base = 'https://www.usukaccountants.com';
 
@@ -18,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/calculators/srt-residence',
     '/resources/calculators/us-expat-deadlines',
     '/resources/calculators/streamlined-eligibility',
+    '/resources/blog',
     '/about/team', '/about/case-studies', '/reviews',
     '/trust-center', '/security', '/credentials', '/compliance',
     '/editorial-policy', '/review-policy', '/privacy',
@@ -46,5 +48,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...authorPages, ...casePages];
+  const blogPages = getAllPostsMeta().map((p) => ({
+    url: `${base}/resources/blog/${p.slug}`,
+    lastModified: p.updated ? new Date(p.updated) : (p.date ? new Date(p.date) : now),
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...authorPages, ...casePages, ...blogPages];
 }
