@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="56" viewBox="0 0 320 56" role="img" aria-label="US UK Accountants">
+  <g>
+    <path d="M5 38 C 16 14, 36 14, 47 38" fill="none" stroke="#C9A84C" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="5" cy="38" r="4" fill="#C9A84C"/>
+    <circle cx="47" cy="38" r="4" fill="#C9A84C"/>
+    <circle cx="26" cy="19.5" r="2.4" fill="#E2CE92"/>
+  </g>
+  <text x="66" y="30" font-family="Fraunces, Georgia, serif" font-size="24" font-weight="500" letter-spacing="0.3">
+    <tspan fill="#FFFFFF">US</tspan><tspan fill="#C9A84C">·</tspan><tspan fill="#FFFFFF">UK </tspan><tspan fill="#EAEDF5">Accountants</tspan>
+  </text>
+  <text x="66" y="46" font-family="Manrope, system-ui, sans-serif" font-size="8.5" letter-spacing="2.6" fill="#C9A84C">CROSS-BORDER TAX &amp; ADVISORY</text>
+</svg>
