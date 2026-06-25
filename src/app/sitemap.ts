@@ -9,7 +9,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const staticPages = [
     '', '/book', '/contact',
-    '/services', '/services/uk-accounting', '/services/us-expat-tax',
+    '/services', '/services/uk-accounting',
+    '/services/uk-accounting/company-accounts', '/services/us-expat-tax',
     '/services/us-expat-tax/streamlined-filing',
     '/services/us-expat-tax/fbar-filing',
     '/services/us-expat-tax/foreign-tax-credit',
