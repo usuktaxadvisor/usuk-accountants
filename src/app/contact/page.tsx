@@ -13,19 +13,51 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.usukaccountants.com/contact' },
 };
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'AccountingService',
-  name: 'US UK Accountants',
-  url: 'https://www.usukaccountants.com',
-  email: SITE.email,
-  telephone: [SITE.phones.uk.number, SITE.phones.us.number],
-  areaServed: ['GB', 'US'],
-  address: [
-    { '@type': 'PostalAddress', addressLocality: 'London', addressCountry: 'GB' },
-    { '@type': 'PostalAddress', addressLocality: 'New York', addressCountry: 'US' },
-  ],
-};
+const SITE_URL = 'https://www.usukaccountants.com';
+const ORG_ID = `${SITE_URL}/#organization`;
+
+const localBusinessSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AccountingService',
+    '@id': `${SITE_URL}/contact/#london`,
+    name: 'US UK Accountants — London',
+    parentOrganization: { '@id': ORG_ID },
+    url: SITE_URL,
+    email: SITE.email,
+    telephone: SITE.phones.uk.number,
+    priceRange: '££££',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '70 Queen Road',
+      addressLocality: 'London',
+      addressRegion: 'England',
+      postalCode: 'E17 8QP',
+      addressCountry: 'GB',
+    },
+    areaServed: 'GB',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AccountingService',
+    '@id': `${SITE_URL}/contact/#new-york`,
+    name: 'US UK Accountants — New York',
+    parentOrganization: { '@id': ORG_ID },
+    url: SITE_URL,
+    email: SITE.email,
+    telephone: SITE.phones.us.number,
+    priceRange: '$$$$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '49 Mill Lane',
+      addressLocality: 'Briarcliff Manor',
+      addressRegion: 'NY',
+      postalCode: '10510',
+      addressCountry: 'US',
+    },
+    areaServed: 'US',
+  },
+];
 
 export default function ContactPage() {
   return (
