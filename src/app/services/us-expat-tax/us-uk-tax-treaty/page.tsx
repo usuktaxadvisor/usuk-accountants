@@ -171,7 +171,7 @@ export default function UsUkTaxTreaty() {
               The treaty is the framework; the{' '}
               <Link href="/services/us-expat-tax/foreign-tax-credit" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Tax Credit</Link>{' '}
               and{' '}
-              <Link href="/services/us-expat-tax/feie" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion</Link>{' '}
+              <Link href="/services/us-expat-tax/foreign-earned-income-exclusion" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion</Link>{' '}
               are the tools used within it. Together with your{' '}
               <Link href="/services/us-expat-tax/us-tax-returns" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">US tax return</Link>, they form the complete picture that keeps you compliant in both countries
               without paying twice.
@@ -195,7 +195,7 @@ export default function UsUkTaxTreaty() {
         title="Related areas we handle"
         links={[
           { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit', description: 'The main relief used within the treaty' },
-          { label: 'FEIE', href: '/services/us-expat-tax/feie', description: 'Exclude foreign earned income' },
+          { label: 'FEIE', href: '/services/us-expat-tax/foreign-earned-income-exclusion', description: 'Exclude foreign earned income' },
           { label: 'US Tax Returns', href: '/services/us-expat-tax/us-tax-returns', description: 'Where treaty benefits are claimed' },
           { label: 'US Citizens in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'How we help Americans abroad' },
           { label: 'Dual Citizens', href: '/who-we-help/dual-citizens', description: 'US/UK dual-citizen tax guidance' },

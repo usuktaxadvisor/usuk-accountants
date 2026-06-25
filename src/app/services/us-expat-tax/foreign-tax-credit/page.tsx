@@ -154,7 +154,7 @@ export default function ForeignTaxCredit() {
           <div className="mx-auto mt-6 max-w-prose text-[15px] leading-relaxed text-muted">
             <p>
               Want to see the FEIE side in full? Read our{' '}
-              <Link href="/services/us-expat-tax/feie" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion guide</Link>, or{' '}
+              <Link href="/services/us-expat-tax/foreign-earned-income-exclusion" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion guide</Link>, or{' '}
               <Link href="/resources/calculators/double-tax-estimator" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">estimate your double-tax position</Link>{' '}
               in under a minute.
             </p>
@@ -198,7 +198,7 @@ export default function ForeignTaxCredit() {
       <RelatedLinks
         title="Related areas we handle"
         links={[
-          { label: 'Foreign Earned Income Exclusion', href: '/services/us-expat-tax/feie', description: 'The other main double-tax relief' },
+          { label: 'Foreign Earned Income Exclusion', href: '/services/us-expat-tax/foreign-earned-income-exclusion', description: 'The other main double-tax relief' },
           { label: 'US–UK Tax Treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'How the treaty fits with the FTC' },
           { label: 'Double-Tax Estimator', href: '/resources/calculators/double-tax-estimator', description: 'Free tool: are you at risk of double tax?' },
           { label: 'US Tax Returns', href: '/services/us-expat-tax/us-tax-returns', description: 'Federal filing for Americans abroad' },

@@ -133,7 +133,7 @@ export default function UsTaxReturns() {
             <p>
               The <Link href="/services/us-expat-tax/foreign-tax-credit" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Tax Credit</Link>{' '}
               and the{' '}
-              <Link href="/services/us-expat-tax/feie" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion</Link>{' '}
+              <Link href="/services/us-expat-tax/foreign-earned-income-exclusion" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion</Link>{' '}
               are the two main ways to avoid paying tax twice — the choice between them matters, and the{' '}
               <Link href="/services/us-expat-tax/us-uk-tax-treaty" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">US–UK tax treaty</Link>{' '}
               sits alongside them for pensions and specific income types.
@@ -175,7 +175,7 @@ export default function UsTaxReturns() {
         title="Related areas we handle"
         links={[
           { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit', description: 'Offset US tax with UK tax paid' },
-          { label: 'FEIE', href: '/services/us-expat-tax/feie', description: 'Exclude foreign earned income' },
+          { label: 'FEIE', href: '/services/us-expat-tax/foreign-earned-income-exclusion', description: 'Exclude foreign earned income' },
           { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing', description: 'Report foreign accounts over $10,000' },
           { label: 'FATCA Compliance', href: '/services/us-expat-tax/fatca-compliance', description: 'Report foreign assets on Form 8938' },
           { label: 'US–UK Tax Treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty relief for pensions and more' },

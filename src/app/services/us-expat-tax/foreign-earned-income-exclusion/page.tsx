@@ -6,7 +6,7 @@ import {
 } from '@/components/library';
 import { authors } from '@/lib/authority-data';
 
-const URL = 'https://www.usukaccountants.com/services/us-expat-tax/feie';
+const URL = 'https://www.usukaccountants.com/services/us-expat-tax/foreign-earned-income-exclusion';
 
 export const metadata: Metadata = {
   title: 'Foreign Earned Income Exclusion (FEIE) for Americans in the UK — Form 2555',
@@ -68,7 +68,7 @@ export default function Feie() {
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
-        { label: 'FEIE', href: '/services/us-expat-tax/feie' },
+        { label: 'FEIE', href: '/services/us-expat-tax/foreign-earned-income-exclusion' },
       ]}
       author={author}
       reviewedBy={reviewedBy}
