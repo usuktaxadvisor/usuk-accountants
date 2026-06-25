@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '', '/book', '/contact',
     '/services', '/services/uk-accounting', '/services/us-expat-tax',
     '/services/us-expat-tax/streamlined-filing',
+    '/services/us-expat-tax/fbar-filing',
     '/who-we-help', '/who-we-help/us-citizens-in-uk',
     '/who-we-help/uk-citizens-in-us', '/who-we-help/dual-citizens',
     '/resources', '/resources/calculators',
