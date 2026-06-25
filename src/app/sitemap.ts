@@ -15,6 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/us-expat-tax/foreign-tax-credit',
     '/services/us-expat-tax/feie',
     '/services/us-expat-tax/fatca-compliance',
+    '/services/us-expat-tax/us-tax-returns',
     '/who-we-help', '/who-we-help/us-citizens-in-uk',
     '/who-we-help/uk-citizens-in-us', '/who-we-help/dual-citizens',
     '/resources', '/resources/calculators',
