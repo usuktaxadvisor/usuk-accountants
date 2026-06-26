@@ -52,7 +52,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-navy-slate pt-8">
-          <p className="max-w-3xl text-xs leading-relaxed text-softwhite/45">
+          <p className="max-w-3xl text-xs leading-relaxed text-softwhite/70">
             Information on this website is provided for general informational purposes only and does not constitute
             tax, legal, accounting or financial advice. It may not reflect your specific circumstances or the most
             current law. Please obtain advice from a qualified professional before acting on anything you read here.

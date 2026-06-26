@@ -21,7 +21,7 @@ export function Field({
   tone?: 'light' | 'dark';
 }) {
   const labelColor = tone === 'dark' ? 'text-softwhite' : 'text-ink';
-  const hintColor = tone === 'dark' ? 'text-softwhite/50' : 'text-muted';
+  const hintColor = tone === 'dark' ? 'text-softwhite/70' : 'text-muted';
   return (
     <div>
       <label htmlFor={htmlFor} className={`mb-1.5 block text-sm font-medium ${labelColor}`}>

@@ -166,7 +166,7 @@ export function Calculator() {
                       Send it <IconArrowRight className="h-4 w-4" />
                     </button>
                   </div>
-                  <p className="text-xs text-softwhite/50">
+                  <p className="text-xs text-softwhite/70">
                     No spam. Estimate only — your specialist confirms exact figures.
                   </p>
                 </div>

@@ -90,7 +90,7 @@ export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
       <Button onClick={submit} withArrow size="lg" className="w-full sm:w-auto">
         {submitting ? 'Sending…' : 'Send message'}
       </Button>
-      <p className={`flex items-center gap-1.5 text-xs ${tone === 'dark' ? 'text-softwhite/50' : 'text-muted'}`}>
+      <p className={`flex items-center gap-1.5 text-xs ${tone === 'dark' ? 'text-softwhite/70' : 'text-muted'}`}>
         <IconShield className="h-3.5 w-3.5 text-gold" /> Secure &amp; confidential · We reply within one business day
       </p>
     </div>
@@ -166,7 +166,7 @@ export function LeadCaptureForm({
       {error ? (
         <p className="mt-1.5 text-xs text-signal" role="alert">{error}</p>
       ) : (
-        <p className={`mt-1.5 text-xs ${tone === 'dark' ? 'text-softwhite/50' : 'text-muted'}`}>{note}</p>
+        <p className={`mt-1.5 text-xs ${tone === 'dark' ? 'text-softwhite/70' : 'text-muted'}`}>{note}</p>
       )}
     </div>
   );
