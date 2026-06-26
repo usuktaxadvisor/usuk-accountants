@@ -51,7 +51,7 @@ export const orgProfiles: EntityProfile[] = [
   // │ Once saved, orgSameAs() includes it and Organization schema emits it. │
   // │ No other file needs changing.                                         │
   // └─────────────────────────────────────────────────────────────────────┘
-  { platform: 'LinkedIn', url: '', status: 'pending', sameAs: true },
+  { platform: 'LinkedIn', url: 'https://www.linkedin.com/company/usukaccountants', status: 'live', sameAs: true },
   { platform: 'Bing Places', url: '', status: 'not-started', sameAs: true },
   { platform: 'Crunchbase', url: '', status: 'not-started', sameAs: true },
   { platform: 'Trustpilot', url: '', status: 'not-started', sameAs: true },
