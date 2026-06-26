@@ -90,7 +90,7 @@ export function localBusinessSchema(officeId: string) {
   };
 }
 
-/* ---------- WebSite (sitewide, with SearchAction) ---------- */
+/* ---------- WebSite (sitewide) ---------- */
 export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
@@ -99,11 +99,6 @@ export function websiteSchema() {
     url: SITE.url,
     name: SITE.name,
     publisher: { '@id': ORG_ID },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: { '@type': 'EntryPoint', urlTemplate: `${SITE.url}/search?q={query}` },
-      'query-input': 'required name=query',
-    },
   };
 }
 
