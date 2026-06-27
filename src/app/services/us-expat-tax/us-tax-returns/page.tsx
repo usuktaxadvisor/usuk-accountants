@@ -172,6 +172,14 @@ export default function UsTaxReturns() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'Running a UK company as a US citizen', href: '/resources/blog/running-a-uk-limited-company-as-a-us-citizen', description: 'Every US obligation a UK Ltd creates' },
+          { label: 'Self-employed in the UK as an American', href: '/resources/blog/self-employed-in-uk-us-tax-obligations', description: 'Your US obligations and the SE-tax exemption' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit', description: 'Offset US tax with UK tax paid' },

@@ -192,6 +192,14 @@ export default function Form5471() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'Form 5471 explained for Americans', href: '/resources/blog/form-5471-explained-americans-uk', description: 'Filer categories, schedules and penalties' },
+          { label: 'GILTI/NCTI rules for UK companies', href: '/resources/blog/gilti-ncti-rules-americans-uk-companies', description: 'Tax on your company\u2019s retained profits' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'US Tax Returns', href: '/services/us-expat-tax/us-tax-returns', description: 'The return Form 5471 attaches to' },

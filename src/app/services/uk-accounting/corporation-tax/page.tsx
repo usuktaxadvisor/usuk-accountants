@@ -179,6 +179,14 @@ export default function CorporationTax() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'How UK corporation tax and US tax interact', href: '/resources/blog/uk-corporation-tax-and-us-tax-interact', description: 'Double-taxation mechanics for US owners' },
+          { label: 'GILTI/NCTI rules for UK companies', href: '/resources/blog/gilti-ncti-rules-americans-uk-companies', description: 'US tax on retained company profits' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Company Accounts', href: '/services/uk-accounting/company-accounts', description: 'The accounts behind your CT600' },

@@ -182,6 +182,13 @@ export default function StartupAccounting() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'Sole trader or limited company for an American?', href: '/resources/blog/sole-trader-or-limited-company-american-in-uk', description: 'The structure decision, both tax systems' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Bookkeeping', href: '/services/uk-accounting/bookkeeping', description: 'Set your books up right from day one' },
