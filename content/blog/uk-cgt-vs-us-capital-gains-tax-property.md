@@ -82,6 +82,9 @@ These gaps are where planning earns its keep — and where a generalist on eithe
 - [The Section 988 mortgage currency gain trap](/resources/blog/section-988-mortgage-currency-gain) — the separate currency charge on the loan.
 - [UK property and US tax: the complete guide](/resources/blog/uk-property-and-us-tax-guide) — the whole ownership journey.
 
+
+**Try the calculator:** [US/UK Double-Tax Estimator](/resources/calculators/double-tax-estimator) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Because the UK and US compute property gains differently — in different currencies, with different reliefs — the only way to know your real combined tax is to model both. [Book a free consultation](/book) and we'll calculate the UK and US position on your disposal and line up the foreign tax credit correctly.*

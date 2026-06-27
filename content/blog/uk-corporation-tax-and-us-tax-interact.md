@@ -86,6 +86,9 @@ How you extract profit is the lever you most directly control, and it's genuinel
 - [Section 962 election explained](/resources/blog/section-962-election-explained) — the key to crediting corporate UK tax against US tax.
 - [Running a UK limited company as a US citizen](/resources/blog/running-a-uk-limited-company-as-a-us-citizen) — the full overview of obligations.
 
+
+**Try the calculator:** [US/UK Double-Tax Estimator](/resources/calculators/double-tax-estimator) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Coordinating UK Corporation Tax and US tax on the same profits depends on your extraction strategy, elections and timing, and the relief is never fully automatic. [Book a free consultation](/book) and we'll model the combined UK and US position on your company's profits and find the most efficient compliant path.*

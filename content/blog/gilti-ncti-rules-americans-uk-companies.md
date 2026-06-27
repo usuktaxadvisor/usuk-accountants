@@ -87,6 +87,9 @@ Which combination wins is **genuinely fact-specific** — it depends on your pro
 - [Section 962 election explained](/resources/blog/section-962-election-explained) — the key tool for offsetting GILTI/NCTI.
 - [How UK corporation tax and US tax interact](/resources/blog/uk-corporation-tax-and-us-tax-interact) — the wider double-taxation picture.
 
+
+**Try the calculator:** [US/UK Double-Tax Estimator](/resources/calculators/double-tax-estimator) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice, and GILTI/NCTI is one of the most complex areas of US international tax — now in transition following the rename. The right elections for your company depend on your specific numbers and should be modelled on current figures. [Book a free consultation](/book) and we'll calculate your GILTI/NCTI position and the most efficient compliant way to manage it.*

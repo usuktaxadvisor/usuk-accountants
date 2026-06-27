@@ -72,6 +72,9 @@ The Streamlined procedures are available to people who come forward **voluntaril
 - [Do I need to file an FBAR?](/resources/blog/do-i-need-to-file-an-fbar) — the foreign-account report that's central to catching up.
 - [Why is my ISA a problem for US taxes?](/resources/blog/why-is-my-isa-a-problem-for-us-taxes) — a common reason past returns need correcting.
 
+
+**Try the calculator:** [Streamlined Filing Eligibility Checker](/resources/calculators/streamlined-eligibility) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice, and eligibility for Streamlined Filing depends on your specific facts — including whether your failure to file was non-willful. [Book a free consultation](/book) and we'll assess your situation confidentially and map the safest route back to compliance.*

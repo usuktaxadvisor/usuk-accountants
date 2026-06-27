@@ -93,6 +93,9 @@ Buying well means anticipating what comes next:
 - [The Section 988 mortgage currency gain trap](/resources/blog/section-988-mortgage-currency-gain) — the pound-mortgage tax most buyers don't see coming.
 - [US tax on UK rental income](/resources/blog/us-tax-on-uk-rental-income) — if you'll let the property out.
 
+
+**Try the calculator:** [FBAR Requirement Checker](/resources/calculators/fbar-checker) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. The buying stage is US-tax-light, but the mortgage and structure choices you make now shape the tax you'll face later. [Book a free consultation](/book) and we'll make sure your UK purchase is set up cleanly for the US stages ahead.*

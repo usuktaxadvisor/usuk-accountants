@@ -87,6 +87,9 @@ The treaty is genuinely powerful for the right person — particularly a **US ci
 - [UK property and US tax for Americans](/resources/blog/uk-property-and-us-tax-guide) — the full property landscape.
 - [Selling a UK home as a US citizen](/resources/blog/selling-uk-home-as-us-citizen) — lifetime disposals, for context alongside estate planning.
 
+
+**Try the calculator:** [UK Statutory Residence Test Calculator](/resources/calculators/srt-residence) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Cross-border estate planning is highly fact-specific — it depends on your residence history, nationality, assets, and the treaty — and the rules changed materially in 2025. [Book a free consultation](/book) and we'll assess your UK and US estate-tax exposure and the planning available under the current regime.*

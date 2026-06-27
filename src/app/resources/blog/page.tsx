@@ -36,8 +36,35 @@ const faqs = [
   },
 ];
 
+// Preferred display order for category clusters; any others fall to the end alphabetically.
+const CATEGORY_ORDER = [
+  'Business & Self-Employment',
+  'Property, Gains & Estate',
+  'Pensions & Retirement',
+  'Foreign Account Reporting',
+  'Filing & Compliance',
+];
+
+function groupByCategory(posts: ReturnType<typeof getAllPostsMeta>) {
+  const groups = new Map<string, typeof posts>();
+  for (const p of posts) {
+    const key = p.category || 'Guides';
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key)!.push(p);
+  }
+  return [...groups.entries()].sort(([a], [b]) => {
+    const ia = CATEGORY_ORDER.indexOf(a);
+    const ib = CATEGORY_ORDER.indexOf(b);
+    if (ia !== -1 && ib !== -1) return ia - ib;
+    if (ia !== -1) return -1;
+    if (ib !== -1) return 1;
+    return a.localeCompare(b);
+  });
+}
+
 export default function BlogIndex() {
   const posts = getAllPostsMeta();
+  const grouped = groupByCategory(posts);
 
   return (
     <PageShell
@@ -63,33 +90,40 @@ export default function BlogIndex() {
               <p className="text-muted">New articles are on the way — check back shortly.</p>
             </div>
           ) : (
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {posts.map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/resources/blog/${p.slug}`}
-                  className="group flex flex-col rounded-2xl border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
-                >
-                  {p.category && (
-                    <span className="inline-flex w-fit rounded-full bg-gold/10 px-2.5 py-1 text-xs font-medium text-gold-antique transition-colors duration-300 group-hover:bg-gold/20 group-hover:text-gold">
-                      {p.category}
+            <div className="space-y-16">
+              {grouped.map(([category, items]) => (
+                <div key={category}>
+                  <h2 className="mb-6 font-display text-2xl font-semibold text-ink">
+                    {category}
+                    <span className="ml-3 align-middle text-sm font-normal text-muted">
+                      {items.length} {items.length === 1 ? 'guide' : 'guides'}
                     </span>
-                  )}
-                  <h2 className="mt-4 font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">
-                    {p.title}
                   </h2>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted transition-colors duration-300 group-hover:text-softwhite/80">
-                    {p.description}
-                  </p>
-                  <div className="mt-5 flex items-center justify-between border-t border-mist pt-4 text-xs text-muted transition-colors duration-300 group-hover:border-white/15 group-hover:text-softwhite/70">
-                    <span>{formatDate(p.date)}</span>
-                    <span>{p.readingMinutes} min read</span>
+                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    {items.map((p) => (
+                      <Link
+                        key={p.slug}
+                        href={`/resources/blog/${p.slug}`}
+                        className="group flex flex-col rounded-2xl border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
+                      >
+                        <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">
+                          {p.title}
+                        </h3>
+                        <p className="mt-2 flex-1 text-sm leading-relaxed text-muted transition-colors duration-300 group-hover:text-softwhite/80">
+                          {p.description}
+                        </p>
+                        <div className="mt-5 flex items-center justify-between border-t border-mist pt-4 text-xs text-muted transition-colors duration-300 group-hover:border-white/15 group-hover:text-softwhite/70">
+                          <span>{formatDate(p.date)}</span>
+                          <span>{p.readingMinutes} min read</span>
+                        </div>
+                        <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors duration-300 group-hover:text-gold">
+                          Read article
+                          <IconArrowRight className="h-4 w-4" />
+                        </span>
+                      </Link>
+                    ))}
                   </div>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-navy transition-colors duration-300 group-hover:text-gold">
-                    Read article
-                    <IconArrowRight className="h-4 w-4" />
-                  </span>
-                </Link>
+                </div>
               ))}
             </div>
           )}

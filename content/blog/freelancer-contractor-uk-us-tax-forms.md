@@ -87,6 +87,9 @@ The classification turns on the **substance** of the relationship — control, m
 - [Sole trader or limited company for an American in the UK?](/resources/blog/sole-trader-or-limited-company-american-in-uk) — whether to incorporate as you grow.
 - [FEIE or Foreign Tax Credit: which should I use in the UK?](/resources/blog/feie-or-foreign-tax-credit-uk) — choosing between Form 2555 and Form 1116.
 
+
+**Try the calculator:** [US Expat Tax Deadlines Calculator](/resources/calculators/us-expat-deadlines) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Your exact US forms depend on your income, accounts, and how you use the available reliefs, and the contractor-versus-employee question can be genuinely fact-specific. [Book a free consultation](/book) and we'll confirm precisely what you need to file as a freelancer or contractor in the UK.*

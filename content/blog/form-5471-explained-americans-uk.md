@@ -105,6 +105,9 @@ As always, the earlier and more proactively you address it, the better the outco
 - [GILTI/NCTI rules for Americans with UK companies](/resources/blog/gilti-ncti-rules-americans-uk-companies) — the tax that Form 5471's information feeds.
 - [Check-the-box election for a UK limited company](/resources/blog/check-the-box-election-uk-limited-company) — when Form 8858 replaces Form 5471.
 
+
+**Try the calculator:** [Streamlined Filing Eligibility Checker](/resources/calculators/streamlined-eligibility) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Your Form 5471 filer category, schedules, and any penalty exposure depend on your specific ownership and history. [Book a free consultation](/book) and we'll confirm your category, prepare the form correctly, and — if you're behind — map the safest route to catch up.*

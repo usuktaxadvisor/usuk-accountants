@@ -89,6 +89,9 @@ The consistent theme: coming forward **proactively**, before the IRS contacts yo
 - [Running a UK limited company as a US citizen](/resources/blog/running-a-uk-limited-company-as-a-us-citizen) — the full overview of every obligation.
 - [What happens if I haven't filed US taxes while living in the UK?](/resources/blog/havent-filed-us-taxes-living-in-uk) — the catch-up routes in detail.
 
+
+**Try the calculator:** [FBAR Requirement Checker](/resources/calculators/fbar-checker) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Which US forms your UK company triggers depends on your ownership, elections, and the company's activity, and the penalties for getting reporting wrong are significant. [Book a free consultation](/book) and we'll confirm exactly what you need to file — and, if you're behind, the safest way to catch up.*

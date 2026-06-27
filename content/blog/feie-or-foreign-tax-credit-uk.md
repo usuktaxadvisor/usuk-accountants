@@ -85,6 +85,9 @@ There's also a **lock-in** point to know: if you claim the FEIE and then **revok
 - [Do I pay US tax on my UK pension?](/resources/blog/do-i-pay-us-tax-on-my-uk-pension) — where the Foreign Tax Credit does most of its work.
 - [What happens if I haven't filed US taxes while living in the UK?](/resources/blog/havent-filed-us-taxes-living-in-uk) — choosing the right method when you're catching up.
 
+
+**Try the calculator:** [US/UK Double-Tax Estimator](/resources/calculators/double-tax-estimator) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. The FEIE-versus-FTC decision depends on your income type, family situation and longer-term plans, and it interacts with credits and carryforwards in ways worth modelling properly. [Book a free consultation](/book) and we'll work out which approach leaves you better off — this year and in future years.*

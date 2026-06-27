@@ -87,6 +87,9 @@ One useful benefit point: your UK National Insurance contributions count toward 
 - [Freelancer or contractor in the UK: what US tax forms do you need?](/resources/blog/freelancer-contractor-uk-us-tax-forms) — the US forms checklist for independent workers.
 - [FEIE or Foreign Tax Credit: which should I use in the UK?](/resources/blog/feie-or-foreign-tax-credit-uk) — choosing the right income-tax relief.
 
+
+**Try the calculator:** [UK Statutory Residence Test Calculator](/resources/calculators/srt-residence) — a quick, free way to sense-check your position before you book.
+
 ---
 
 *This article is general information, not personalised advice. Your exact UK and US obligations as a self-employed American depend on your residence, profit and circumstances, and the certificate-of-coverage process must be done correctly each year. [Book a free consultation](/book) and we'll make sure your UK and US filings align and you claim every exemption you're entitled to.*
