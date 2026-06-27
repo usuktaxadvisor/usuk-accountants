@@ -196,6 +196,14 @@ export default function ForeignTaxCredit() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'FEIE or Foreign Tax Credit in the UK?', href: '/resources/blog/feie-or-foreign-tax-credit-uk', description: 'Which method usually wins in the UK' },
+          { label: 'Do I pay US tax on my UK pension?', href: '/resources/blog/do-i-pay-us-tax-on-my-uk-pension', description: 'Where the credit does most of its work' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Foreign Earned Income Exclusion', href: '/services/us-expat-tax/foreign-earned-income-exclusion', description: 'The other main double-tax relief' },

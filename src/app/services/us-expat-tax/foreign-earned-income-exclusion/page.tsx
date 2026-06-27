@@ -203,6 +203,13 @@ export default function Feie() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'FEIE or Foreign Tax Credit in the UK?', href: '/resources/blog/feie-or-foreign-tax-credit-uk', description: 'When the exclusion is the wrong choice' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit', description: 'Often the stronger option in the UK' },

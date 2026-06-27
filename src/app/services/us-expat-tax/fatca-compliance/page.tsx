@@ -193,6 +193,13 @@ export default function FatcaCompliance() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'Why is my ISA a problem for US taxes?', href: '/resources/blog/why-is-my-isa-a-problem-for-us-taxes', description: 'PFIC rules on UK investments' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing', description: 'The companion foreign-account report' },

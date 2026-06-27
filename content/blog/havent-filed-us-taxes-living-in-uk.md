@@ -5,6 +5,17 @@ date: "2026-06-26"
 author: "sam-h"
 reviewedBy: "katie-m"
 category: "US Tax"
+faqs:
+  - q: "Do I really have to file US taxes if I live in the UK?"
+    a: "Yes. US citizens and green card holders must file annually on worldwide income regardless of where they live, if their income is above the filing threshold."
+  - q: "What happens if I just haven't filed for years?"
+    a: "If your failure was non-willful — typically because you didn't know — you can usually catch up through the Streamlined Filing Compliance Procedures, often with no penalties. The important step is coming forward before the IRS contacts you."
+  - q: "Will I owe a lot of US tax?"
+    a: "Usually not. The Foreign Earned Income Exclusion and Foreign Tax Credit mean most Americans in the UK owe little or nothing, because UK tax is generally comparable to or higher than US tax. Filing is mainly a reporting obligation."
+  - q: "How many years do I have to file to catch up?"
+    a: "Under the Streamlined procedures for those abroad, generally three years of tax returns and six years of FBARs."
+  - q: "Can the IRS find out about my UK accounts?"
+    a: "Yes — under FATCA, UK financial institutions report US-citizen account holders. Coming forward voluntarily is far safer than waiting to be found."
 ---
 
 If you've just realised that, as a US citizen living in the UK, you were supposed to be filing US tax returns all along — and you haven't been — take a breath. You are far from alone, the situation is usually very fixable, and in most cases it does **not** end in the penalties people fear. This is one of the most common conversations we have, and it almost always ends better than the client expected walking in.
@@ -14,6 +25,13 @@ This guide explains what genuinely happens when you're behind, and the safe, est
 ## The short answer
 
 **If you're a US citizen or green card holder, you must file US tax returns every year no matter where you live — but being behind is usually fixable without penalties.** Most Americans who fall behind did so without knowing they had to file, which the IRS treats as "non-willful." For exactly this situation, the IRS created the **Streamlined Filing Compliance Procedures**, which let eligible people catch up on **three years of tax returns and six years of FBARs**, often with **no penalties**. The key is coming forward proactively, before the IRS contacts you.
+
+## Key takeaways
+
+- US citizens must file every year regardless of where they live — but being behind is usually fixable.
+- Most who fall behind did so without knowing, which the IRS treats as non-willful.
+- The Streamlined Filing Compliance Procedures allow catch-up: 3 years of returns, 6 years of FBARs, often penalty-free.
+- Coming forward before the IRS contacts you is what keeps the easiest route open.
 
 ## Why so many Americans don't know they have to file
 
@@ -49,22 +67,10 @@ The Streamlined procedures are available to people who come forward **voluntaril
 - **Overlooking the FBARs.** The FBAR side is separate from the tax returns and is a core part of catching up.
 - **Renouncing citizenship to escape it** without first getting compliant — which can create bigger problems than it solves.
 
-## Frequently asked questions
+## Related reading
 
-**Do I really have to file US taxes if I live in the UK?**
-Yes. US citizens and green card holders must file annually on worldwide income regardless of where they live, if their income is above the filing threshold.
-
-**What happens if I just haven't filed for years?**
-If your failure was non-willful — typically because you didn't know — you can usually catch up through the Streamlined Filing Compliance Procedures, often with no penalties. The important step is coming forward before the IRS contacts you.
-
-**Will I owe a lot of US tax?**
-Usually not. The Foreign Earned Income Exclusion and Foreign Tax Credit mean most Americans in the UK owe little or nothing, because UK tax is generally comparable to or higher than US tax. Filing is mainly a reporting obligation.
-
-**How many years do I have to file to catch up?**
-Under the Streamlined procedures for those abroad, generally three years of tax returns and six years of FBARs.
-
-**Can the IRS find out about my UK accounts?**
-Yes — under FATCA, UK financial institutions report US-citizen account holders. Coming forward voluntarily is far safer than waiting to be found.
+- [Do I need to file an FBAR?](/resources/blog/do-i-need-to-file-an-fbar) — the foreign-account report that's central to catching up.
+- [Why is my ISA a problem for US taxes?](/resources/blog/why-is-my-isa-a-problem-for-us-taxes) — a common reason past returns need correcting.
 
 ---
 

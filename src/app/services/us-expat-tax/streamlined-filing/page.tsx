@@ -135,6 +135,14 @@ export default function StreamlinedFiling() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'Haven\u2019t filed US taxes from the UK?', href: '/resources/blog/havent-filed-us-taxes-living-in-uk', description: 'The safe route back to compliance' },
+          { label: 'Why is my ISA a problem for US taxes?', href: '/resources/blog/why-is-my-isa-a-problem-for-us-taxes', description: 'A common reason returns need fixing' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Explore related areas"
         links={[
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'The full picture of US filing from abroad.' },

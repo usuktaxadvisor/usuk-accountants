@@ -5,6 +5,17 @@ date: "2026-06-26"
 author: "sam-h"
 reviewedBy: "briana"
 category: "US Tax"
+faqs:
+  - q: "Should I use the FEIE or the Foreign Tax Credit in the UK?"
+    a: "For most Americans in the UK, the Foreign Tax Credit is usually the better choice, because UK tax rates are high enough that the credit typically eliminates US tax on the same income and can leave carryforwards. The FEIE can still suit some lower-tax or specific situations."
+  - q: "Can I use both the FEIE and the FTC?"
+    a: "You can use them in the same return, but not on the same dollars of income. Some people exclude income up to the FEIE cap and use the FTC on the rest — but this needs careful handling, especially around the Child Tax Credit."
+  - q: "Does the FEIE cover my UK investment income or pension?"
+    a: "No. The FEIE only applies to earned income (wages, salary, self-employment). Investment income, dividends, rental income and pensions are not covered — the Foreign Tax Credit is generally the relevant tool for those."
+  - q: "Why might the FTC be better for families?"
+    a: "Because excluding income with the FEIE can disqualify you from the refundable Child Tax Credit. Using the FTC instead often lets families keep that credit while still avoiding double taxation."
+  - q: "What is the five-year rule?"
+    a: "If you revoke the FEIE after claiming it, you generally can't use it again for five years without IRS permission — so the choice between the two shouldn't be flipped casually."
 ---
 
 If you're an American filing US taxes from the UK, you'll quickly meet two ways to avoid being taxed twice on the same income: the **Foreign Earned Income Exclusion (FEIE)** and the **Foreign Tax Credit (FTC)**. They're often presented as interchangeable. They aren't — and for most people in the UK specifically, one is usually the better choice. Picking the wrong one can cost you money or close off benefits you'd otherwise keep.
@@ -15,11 +26,26 @@ This guide explains the difference in plain English and why the UK's relatively 
 
 **For most Americans in the UK, the Foreign Tax Credit is usually the better choice.** Because UK income tax rates are generally similar to or higher than US rates, the UK tax you already pay typically generates enough credit to wipe out your US tax on the same income — often with extra credit to carry forward. The **FEIE** excludes a capped amount of *earned* income but can disqualify you from valuable benefits like the **Child Tax Credit** and uses up no carryforward. The right choice depends on your income type and family situation.
 
+## Key takeaways
+
+- For most Americans in the UK, the Foreign Tax Credit beats the FEIE because UK tax rates are high.
+- The FTC can leave surplus credits to carry forward; the FEIE cannot.
+- Using the FEIE can disqualify families from the refundable Child Tax Credit.
+- The FEIE only covers earned income — not investment income or pensions.
+
 ## What each one actually does
 
 **The Foreign Earned Income Exclusion (FEIE)** lets you *exclude* a capped amount of foreign **earned** income (wages, salary, self-employment) from US tax, provided you meet a residence or physical-presence test. Key word: *earned*. It does nothing for investment income, dividends, interest, rental income or pensions.
 
 **The Foreign Tax Credit (FTC)** gives you a dollar-for-dollar *credit* against your US tax for foreign income tax you've already paid. It applies to a much broader range of income — earned and unearned — and crucially, where your foreign tax exceeds your US tax on that income, the excess can be **carried forward** to future years.
+
+| | FEIE | Foreign Tax Credit |
+|---|---|---|
+| **What it does** | Excludes capped earned income | Credits foreign tax paid against US tax |
+| **Income covered** | Earned income only | Earned and unearned income |
+| **Carryforward** | None | Surplus credits carry forward |
+| **Child Tax Credit** | Can disqualify you | Usually preserved |
+| **Best when** | Low-tax country, below cap | Higher-tax country (e.g. the UK) |
 
 ## Why the UK tips the balance toward the FTC
 
@@ -54,22 +80,10 @@ There's also a **lock-in** point to know: if you claim the FEIE and then **revok
 - **Switching back and forth** without realising the five-year revocation lock-in.
 - **Ignoring carryforwards.** FTC surplus credits can be quietly valuable in a later year.
 
-## Frequently asked questions
+## Related reading
 
-**Should I use the FEIE or the Foreign Tax Credit in the UK?**
-For most Americans in the UK, the Foreign Tax Credit is usually the better choice, because UK tax rates are high enough that the credit typically eliminates US tax on the same income and can leave carryforwards. The FEIE can still suit some lower-tax or specific situations.
-
-**Can I use both the FEIE and the FTC?**
-You can use them in the same return, but not on the *same* dollars of income. Some people exclude income up to the FEIE cap and use the FTC on the rest — but this needs careful handling, especially around the Child Tax Credit.
-
-**Does the FEIE cover my UK investment income or pension?**
-No. The FEIE only applies to earned income (wages, salary, self-employment). Investment income, dividends, rental income and pensions are not covered — the Foreign Tax Credit is generally the relevant tool for those.
-
-**Why might the FTC be better for families?**
-Because excluding income with the FEIE can disqualify you from the refundable Child Tax Credit. Using the FTC instead often lets families keep that credit while still avoiding double taxation.
-
-**What is the five-year rule?**
-If you revoke the FEIE after claiming it, you generally can't use it again for five years without IRS permission — so the choice between the two shouldn't be flipped casually.
+- [Do I pay US tax on my UK pension?](/resources/blog/do-i-pay-us-tax-on-my-uk-pension) — where the Foreign Tax Credit does most of its work.
+- [What happens if I haven't filed US taxes while living in the UK?](/resources/blog/havent-filed-us-taxes-living-in-uk) — choosing the right method when you're catching up.
 
 ---
 

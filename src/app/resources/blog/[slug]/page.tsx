@@ -59,6 +59,7 @@ export default async function BlogPostPage({
       reviewedBy={post.reviewedBy}
       datePublished={post.date || undefined}
       dateModified={post.updated || post.date || undefined}
+      faqs={post.faqs}
       ctaTitle="Need this applied to your own situation?"
       ctaIntro="Articles explain the rules; a consultation gives you the answer for your circumstances. Your first call is free."
     >

@@ -5,6 +5,17 @@ date: "2026-06-26"
 author: "sam-h"
 reviewedBy: "briana"
 category: "Cross-Border"
+faqs:
+  - q: "Is an ISA tax-free for US citizens?"
+    a: "No. The US doesn't recognise the ISA wrapper, so income and gains inside it are reportable to the IRS even though they're tax-free in the UK."
+  - q: "What is a PFIC?"
+    a: "A Passive Foreign Investment Company — broadly, a foreign pooled fund. The IRS treats most UK funds (unit trusts, OEICs, investment trusts, many ETFs) as PFICs, which carry punitive default tax treatment and require Form 8621 for each fund."
+  - q: "Can a US citizen have a Stocks and Shares ISA at all?"
+    a: "You can hold one, but it's usually only sensible if it holds individual shares rather than funds, because direct shares aren't PFICs. Funds inside the ISA create the costly PFIC reporting."
+  - q: "What if I've held an ISA for years and never reported it?"
+    a: "The IRS Streamlined Filing procedures often let non-willful taxpayers catch up on past years, frequently without penalties. Getting advice early gives you the widest set of options."
+  - q: "Should I close my ISA?"
+    a: "Not necessarily, and not without advice — selling can trigger the very tax treatment you want to avoid. The right answer depends on your holdings, balances and timeline."
 ---
 
 For most people in the UK, an ISA is a no-brainer: tax-free savings and investment, encouraged by the government. But if you're a US citizen or green card holder, the ISA is one of the most common — and most misunderstood — ways Americans in the UK accidentally create a US tax headache. The wrapper that makes it brilliant in the UK does almost nothing for you in the US, and what's *inside* it can be genuinely punitive.
@@ -14,6 +25,13 @@ This guide explains why, in plain English, and what your realistic options are.
 ## The short answer
 
 **An ISA is not tax-free for US citizens.** The US doesn't recognise the ISA wrapper, so income and gains inside it are reportable to the IRS. Worse, most funds held inside a **Stocks and Shares ISA** — UK unit trusts, OEICs, investment trusts and similar pooled funds — are treated as **PFICs (Passive Foreign Investment Companies)**, which carry punitive US tax treatment and a separate **Form 8621** for each fund. A cash ISA is far simpler; only the PFIC funds inside a stocks-and-shares ISA create the real problem.
+
+## Key takeaways
+
+- An ISA is not tax-free for US citizens — income and gains inside it are reportable to the IRS.
+- Most funds in a Stocks and Shares ISA are PFICs, with punitive tax and a separate Form 8621 each.
+- Individual company shares are not PFICs — only pooled funds trigger the problem.
+- Unreported ISAs can usually be fixed through Streamlined Filing if your failure was non-willful.
 
 ## Why the US ignores the ISA wrapper
 
@@ -59,22 +77,10 @@ Don't panic, and don't make a hasty sale. The right move depends on what's insid
 - **Selling everything in a panic**, which can crystallise exactly the punitive treatment you were trying to avoid — timing matters.
 - **Confusing a cash ISA with a stocks-and-shares ISA.** The cash version is mostly harmless; the funds version is the issue.
 
-## Frequently asked questions
+## Related reading
 
-**Is an ISA tax-free for US citizens?**
-No. The US doesn't recognise the ISA wrapper, so income and gains inside it are reportable to the IRS even though they're tax-free in the UK.
-
-**What is a PFIC?**
-A Passive Foreign Investment Company — broadly, a foreign pooled fund. The IRS treats most UK funds (unit trusts, OEICs, investment trusts, many ETFs) as PFICs, which carry punitive default tax treatment and require Form 8621 for each fund.
-
-**Can a US citizen have a Stocks and Shares ISA at all?**
-You can hold one, but it's usually only sensible if it holds **individual shares** rather than funds, because direct shares aren't PFICs. Funds inside the ISA create the costly PFIC reporting.
-
-**What if I've held an ISA for years and never reported it?**
-The IRS Streamlined Filing procedures often let non-willful taxpayers catch up on past years, frequently without penalties. Getting advice early gives you the widest set of options.
-
-**Should I close my ISA?**
-Not necessarily, and not without advice — selling can trigger the very tax treatment you want to avoid. The right answer depends on your holdings, balances and timeline.
+- [What happens if I haven't filed US taxes while living in the UK?](/resources/blog/havent-filed-us-taxes-living-in-uk) — how to catch up if you've held an unreported ISA for years.
+- [Do I pay US tax on my UK pension?](/resources/blog/do-i-pay-us-tax-on-my-uk-pension) — the other big UK wrapper the IRS treats differently.
 
 ---
 

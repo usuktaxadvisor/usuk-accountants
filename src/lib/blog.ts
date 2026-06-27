@@ -23,6 +23,7 @@ export interface BlogPostMeta {
 
 export interface BlogPost extends BlogPostMeta {
   contentHtml: string;
+  faqs?: { q: string; a: string }[];
 }
 
 function resolveAuthor(slug: string | undefined, fallback = 'sam-h'): Author {
@@ -89,5 +90,11 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     category: data.category ? String(data.category) : undefined,
     readingMinutes: estimateReadingMinutes(content),
     contentHtml: processed.toString(),
+    faqs: Array.isArray(data.faqs)
+      ? data.faqs
+          .filter((f: unknown): f is { q: string; a: string } =>
+            !!f && typeof (f as { q?: unknown }).q === 'string' && typeof (f as { a?: unknown }).a === 'string')
+          .map((f: { q: string; a: string }) => ({ q: String(f.q), a: String(f.a) }))
+      : undefined,
   };
 }

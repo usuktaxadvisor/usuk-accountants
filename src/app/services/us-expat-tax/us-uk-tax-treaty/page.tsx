@@ -192,6 +192,14 @@ export default function UsUkTaxTreaty() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'Do I pay US tax on my UK pension?', href: '/resources/blog/do-i-pay-us-tax-on-my-uk-pension', description: 'How the IRS treats UK pensions' },
+          { label: 'Is the 25% lump sum taxable in the US?', href: '/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us', description: 'The contested treaty question, explained' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit', description: 'The main relief used within the treaty' },

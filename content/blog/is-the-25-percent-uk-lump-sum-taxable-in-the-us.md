@@ -5,6 +5,15 @@ date: "2026-06-26"
 author: "sam-h"
 reviewedBy: "katie-m"
 category: "Cross-Border"
+faqs:
+  - q: "Is the 25% UK pension lump sum taxable in the US?"
+    a: "Under the conservative, IRS-aligned position, yes — the treaty's saving clause preserves the US right to tax it, and there's no exception for the lump-sum article. A minority treaty-based position argues it can be exempt under Article 17(1)(b), but that requires Form 8833 disclosure and carries audit risk. The correct answer depends on your facts."
+  - q: "What is the saving clause?"
+    a: "It's the treaty provision that lets the US continue to tax its own citizens and residents largely as if the treaty didn't exist, subject to a defined list of exceptions. It's the reason many treaty benefits don't help US citizens the way they help non-citizens."
+  - q: "Do I need to file Form 8833?"
+    a: "If you take a treaty-based position that the lump sum is exempt, you generally need to disclose it on Form 8833. Failing to file when required carries a $1,000 penalty, separate from any tax consequences."
+  - q: "Can I avoid US tax on the lump sum legally?"
+    a: "There may be defensible strategies — timing, Foreign Tax Credit carryforwards, or in some cases a disclosed treaty position — but none is a guaranteed tax-free outcome, and the right approach is fact-specific. Be wary of anyone promising certainty here."
 ---
 
 This is arguably the single most contested question in US–UK cross-border tax, and the one where you'll find respected firms giving flatly opposite answers. If you're a US citizen planning to take your UK pension's tax-free cash, the stakes are real — the sums are usually large, and the wrong assumption can be costly. So rather than give you false certainty, this guide lays out **both recognised positions honestly** and explains where the weight of professional opinion sits.
@@ -12,6 +21,13 @@ This is arguably the single most contested question in US–UK cross-border tax,
 ## The short answer
 
 **The conservative, IRS-aligned position is that the 25% UK tax-free lump sum is taxable in the US**, even though it's tax-free in the UK — because the US–UK treaty's "saving clause" preserves the US right to tax its own citizens, with no carve-out for pension lump sums. A minority of practitioners argue the lump sum can be treaty-exempt under Article 17(1)(b), but this is the less conservative view, requires disclosing a treaty position on **Form 8833**, and carries audit risk. The right answer depends on your specific facts.
+
+## Key takeaways
+
+- The conservative, IRS-aligned position: the 25% UK lump sum is taxable in the US because the saving clause applies.
+- A minority treaty position (Article 17(1)(b)) argues it can be exempt — but requires Form 8833 and carries audit risk.
+- If the UK withheld no tax, there may be no Foreign Tax Credit to offset the US bill.
+- The right position is fact-specific; this is not a decision to self-assess from a blog.
 
 ## Why this question is genuinely contested
 
@@ -59,19 +75,10 @@ In practice, the better question is usually not "is it exempt?" but "**what's th
 - **Relying on the treaty exemption without filing Form 8833**, which is both a disclosure failure and a weaker audit position.
 - **Ignoring state tax.** Even if you've left the US, your state-tax position at the time of withdrawal can matter.
 
-## Frequently asked questions
+## Related reading
 
-**Is the 25% UK pension lump sum taxable in the US?**
-Under the conservative, IRS-aligned position, yes — the treaty's saving clause preserves the US right to tax it, and there's no exception for the lump-sum article. A minority treaty-based position argues it can be exempt under Article 17(1)(b), but that requires Form 8833 disclosure and carries audit risk. The correct answer depends on your facts.
-
-**What is the saving clause?**
-It's the treaty provision that lets the US continue to tax its own citizens and residents largely as if the treaty didn't exist, subject to a defined list of exceptions. It's the reason many treaty benefits don't help US citizens the way they help non-citizens.
-
-**Do I need to file Form 8833?**
-If you take a treaty-based position that the lump sum is exempt, you generally need to disclose it on Form 8833. Failing to file when required carries a $1,000 penalty, separate from any tax consequences.
-
-**Can I avoid US tax on the lump sum legally?**
-There may be defensible strategies — timing, Foreign Tax Credit carryforwards, or in some cases a disclosed treaty position — but none is a guaranteed "tax-free" outcome, and the right approach is fact-specific. Be wary of anyone promising certainty here.
+- [Do I pay US tax on my UK pension?](/resources/blog/do-i-pay-us-tax-on-my-uk-pension) — how the US treats UK pensions overall, beyond the lump sum.
+- [FEIE or Foreign Tax Credit: which should I use in the UK?](/resources/blog/feie-or-foreign-tax-credit-uk) — using credit carryforwards to offset a lump-sum bill.
 
 ---
 

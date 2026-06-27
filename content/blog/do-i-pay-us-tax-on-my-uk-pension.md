@@ -5,6 +5,17 @@ date: "2026-06-26"
 author: "sam-h"
 reviewedBy: "katie-m"
 category: "Cross-Border"
+faqs:
+  - q: "Is my UK pension taxable in the US?"
+    a: "Generally yes — the US taxes citizens and green card holders on worldwide income, so UK state, workplace and personal pensions are reportable and can be taxable in the US. In practice the Foreign Tax Credit often reduces or eliminates the extra US tax on ongoing pension payments, but the income must still be reported."
+  - q: "Is the 25% UK tax-free lump sum taxable in the US?"
+    a: "This is genuinely contested. The conservative, IRS-aligned position is that it is taxable in the US, because the treaty's saving clause preserves US taxing rights. A minority treaty-based position argues it can be exempt under Article 17(1)(b), but this requires disclosing a treaty position (Form 8833) and carries audit risk. The right answer depends on your facts — take advice before relying on the exemption."
+  - q: "Can I roll my UK pension into a US IRA or 401(k)?"
+    a: "No. There is no direct rollover permitted between UK and US pension systems in either direction."
+  - q: "Do I have to report my UK pension every year?"
+    a: "Yes, if you're a US citizen or green card holder and your income is above the filing threshold. Depending on account values you may also have FBAR and Form 8938 reporting on the pension and your other UK accounts."
+  - q: "Will I pay tax twice on my UK pension?"
+    a: "Usually not in full. The Foreign Tax Credit is designed to prevent double taxation by crediting UK tax against US tax on the same income. The outcome depends on your circumstances, the type of pension, and timing."
 ---
 
 If you're an American living in the UK, building up a UK pension feels like the responsible thing to do — and it is. But because the United States taxes its citizens on their **worldwide income**, that UK pension doesn't escape the IRS just because it's British. This is one of the questions we're asked most, and one where a lot of confident-sounding advice online is simply wrong.
@@ -14,6 +25,13 @@ This guide explains, in plain English, how the US treats your UK pension, where 
 ## The short answer
 
 **Yes — as a US citizen or green card holder, you generally must report your UK pension to the IRS, and US tax can apply.** The US taxes UK state, workplace and personal pensions (including SIPPs) as ordinary income. In most everyday cases, the US–UK treaty and the Foreign Tax Credit work together so you don't pay tax twice — but the treaty does **not** make UK pension income invisible to the IRS, and you must still report it every year.
+
+## Key takeaways
+
+- US citizens and green card holders must report UK pensions to the IRS — worldwide income includes them.
+- Ongoing pension payments are usually offset by the Foreign Tax Credit, so most owe little or no extra US tax.
+- The 25% tax-free lump sum is contested: the conservative, IRS-aligned position treats it as US-taxable.
+- There is no direct rollover between UK and US pensions in either direction.
 
 ## Why the IRS taxes a UK pension at all
 
@@ -38,7 +56,7 @@ In the UK, you can usually take up to **25% of your pension as a tax-free Pensio
 - **The conservative, IRS-aligned position:** the lump sum is **taxable in the US**. The reasoning is that the treaty's "saving clause" (which preserves the US right to tax its citizens) applies, and there is no carve-out for the relevant lump-sum article — so the US can tax the distribution even though the UK does not. Most major cross-border firms take this position, and the IRS has expressed this view.
 - **The treaty-based position:** some practitioners argue that **Article 17(1)(b)** of the treaty can make the lump sum tax-free in the US as well, mirroring the UK exemption. This is the **less conservative** view, it relies on a contested reading of the treaty, and if you rely on it you would typically need to file **Form 8833** to disclose the treaty-based position (with a $1,000 penalty for failing to disclose when required).
 
-We think the honest summary is this: **the conservative position treats the lump sum as US-taxable, and that is the safer default**; the treaty argument exists but carries real audit risk and depends heavily on your specific facts. Because the sums involved are usually significant, this is precisely the kind of decision to take with personalised advice rather than from a blog — including ours.
+We think the honest summary is this: **the conservative position treats the lump sum as US-taxable, and that is the safer default**; the treaty argument exists but carries real audit risk and depends heavily on your specific facts. Because the sums involved are usually significant, this is precisely the kind of decision to take with personalised advice rather than from a blog — including ours. We explain this fully in our dedicated guide on [the 25% lump sum question](/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us).
 
 ## Avoiding double taxation
 
@@ -55,22 +73,10 @@ One important point that surprises people: there is **no direct rollover** betwe
 - **Forgetting the information returns.** Depending on values, you may also need [FBAR](/services/us-expat-tax/fbar-filing) and [FATCA / Form 8938](/services/us-expat-tax/fatca-compliance) reporting — and some trust-based pension structures can raise Form 3520/3520-A questions.
 - **Trying to exclude pension income with the FEIE.** The Foreign Earned Income Exclusion is for *earned* income; pension income generally isn't earned income, so the Foreign Tax Credit is usually the right mechanism.
 
-## Frequently asked questions
+## Related reading
 
-**Is my UK pension taxable in the US?**
-Generally yes — the US taxes citizens and green card holders on worldwide income, so UK state, workplace and personal pensions are reportable and can be taxable in the US. In practice the Foreign Tax Credit often reduces or eliminates the extra US tax on ongoing pension payments, but the income must still be reported.
-
-**Is the 25% UK tax-free lump sum taxable in the US?**
-This is genuinely contested. The conservative, IRS-aligned position is that it is taxable in the US, because the treaty's saving clause preserves US taxing rights. A minority treaty-based position argues it can be exempt under Article 17(1)(b), but this requires disclosing a treaty position (Form 8833) and carries audit risk. The right answer depends on your facts — take advice before relying on the exemption.
-
-**Can I roll my UK pension into a US IRA or 401(k)?**
-No. There is no direct rollover permitted between UK and US pension systems in either direction.
-
-**Do I have to report my UK pension every year?**
-Yes, if you're a US citizen or green card holder and your income is above the filing threshold. Depending on account values you may also have FBAR and Form 8938 reporting on the pension and your other UK accounts.
-
-**Will I pay tax twice on my UK pension?**
-Usually not in full. The Foreign Tax Credit is designed to prevent double taxation by crediting UK tax against US tax on the same income. The outcome depends on your circumstances, the type of pension, and timing.
+- [Is the 25% UK tax-free lump sum taxable in the US?](/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us) — the most contested question in UK pension taxation, explained in full.
+- [FEIE or Foreign Tax Credit: which should I use in the UK?](/resources/blog/feie-or-foreign-tax-credit-uk) — the credit that usually offsets US tax on your pension.
 
 ---
 
