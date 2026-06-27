@@ -1,3 +1,6 @@
+import { JsonLd } from '@/components/library';
+import { faqSchema } from '@/lib/schema';
+import { faqs as siteFaqs } from '@/lib/site-data';
 import {
   Header, Footer, MobileBar,
   Hero, TrustBar, Pillars, Calculator, ServicesSection,
@@ -7,6 +10,7 @@ import {
 export default function Home() {
   return (
     <>
+      <JsonLd schema={[faqSchema(siteFaqs)]} />
       <Header />
       <main>
         <Hero />

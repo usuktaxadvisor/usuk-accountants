@@ -3,8 +3,7 @@ import { Fraunces, Manrope, Inter } from 'next/font/google';
 import Analytics from '@/components/Analytics';
 import { ConsentProvider } from '@/components/CookieConsent';
 import { JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, faqSchema } from '@/lib/schema';
-import { faqs as siteFaqs } from '@/lib/site-data';
+import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
 const fraunces = Fraunces({
@@ -74,7 +73,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           schema={[
             organizationSchema(),
             websiteSchema(),
-            faqSchema(siteFaqs),
           ]}
         />
       </head>
