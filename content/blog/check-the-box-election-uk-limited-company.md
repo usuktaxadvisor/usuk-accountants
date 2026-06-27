@@ -84,6 +84,8 @@ If you've owned the company for a while and only now learned about Form 5471 and
 - **Trying to use it on a multi-owner company**, where it doesn't fit.
 - **Assuming it's always better than a Section 962 election** — for retained-profit businesses, it often isn't.
 
+**How we help:** We handle the election and the filings that follow it — our [US tax returns service](/services/us-expat-tax/us-tax-returns) covers exactly this work.
+
 ## Related reading
 
 - [Section 962 election explained](/resources/blog/section-962-election-explained) — the alternative election, for owners who keep corporate treatment.

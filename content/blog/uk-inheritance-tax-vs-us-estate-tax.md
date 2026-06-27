@@ -81,6 +81,8 @@ The treaty is genuinely powerful for the right person — particularly a **US ci
 - **Confusing the estate/gift treaty with the income treaty** — they're separate.
 - **Planning with US-style trusts** without checking the UK IHT consequences, which changed in 2025.
 
+**How we help:** We handle cross-border estate and inheritance planning — our [tax planning service](/services/uk-accounting/tax-planning) covers exactly this work.
+
 ## Related reading
 
 - [The US-UK estate and gift tax treaty](/resources/blog/us-uk-estate-gift-tax-treaty) — how the separate death-tax treaty allocates relief.

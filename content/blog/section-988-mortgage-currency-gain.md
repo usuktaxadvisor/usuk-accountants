@@ -77,6 +77,8 @@ This is genuinely technical, and the calculations depend on accurate historical 
 - **Not recording the original dollar value** of the mortgage, making the gain hard to compute.
 - **Forgetting there's no UK tax to credit** against this US-only charge.
 
+**How we help:** We handle the Section 988 calculation on your return — our [US tax returns service](/services/us-expat-tax/us-tax-returns) covers exactly this work.
+
 ## Related reading
 
 - [Selling a UK home as a US citizen](/resources/blog/selling-uk-home-as-us-citizen) — where this gain most often surfaces.

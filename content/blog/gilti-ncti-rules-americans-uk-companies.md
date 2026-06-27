@@ -81,6 +81,8 @@ Which combination wins is **genuinely fact-specific** — it depends on your pro
 - **Never making an election** and overpaying as a result.
 - **Making an election casually** without modelling its multi-year consequences.
 
+**How we help:** We handle the Form 5471 and GILTI/NCTI reporting your company needs — our [Form 5471 service](/services/us-expat-tax/form-5471) covers exactly this work.
+
 ## Related reading
 
 - [Form 5471 explained for Americans in the UK](/resources/blog/form-5471-explained-americans-uk) — the form whose information feeds the GILTI/NCTI calculation.

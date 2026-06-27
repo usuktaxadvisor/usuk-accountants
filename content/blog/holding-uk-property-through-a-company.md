@@ -86,6 +86,8 @@ The point isn't that companies are always wrong — it's that the decision can't
 - **Setting up the company first** and discovering Form 5471/GILTI later.
 - **Trying to unwind** without modelling the UK and US exit costs.
 
+**How we help:** We handle the UK company side, alongside the US analysis — our [corporation tax service](/services/uk-accounting/corporation-tax) covers exactly this work.
+
 ## Related reading
 
 - [Form 5471 explained for Americans in the UK](/resources/blog/form-5471-explained-americans-uk) — the reporting a property company triggers.

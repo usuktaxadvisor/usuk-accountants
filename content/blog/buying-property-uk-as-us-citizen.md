@@ -87,6 +87,8 @@ Buying well means anticipating what comes next:
 - **Not opening clean, separate accounts** for the property, complicating later reporting.
 - **Buying through a company on instinct**, then inheriting the CFC regime.
 
+**How we help:** We handle structuring the purchase cleanly from the start — our [tax planning service](/services/uk-accounting/tax-planning) covers exactly this work.
+
 ## Related reading
 
 - [UK property and US tax: the complete guide](/resources/blog/uk-property-and-us-tax-guide) — the whole ownership journey.

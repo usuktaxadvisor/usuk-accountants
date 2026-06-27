@@ -5,6 +5,15 @@ date: "2026-06-24"
 author: "sam-h"
 reviewedBy: "katie-m"
 category: "US Tax"
+faqs:
+  - q: "Do I need to file an FBAR?"
+    a: "You need to file an FBAR (FinCEN Form 114) if you're a US person — citizen, green card holder, or US resident — and the total of your foreign financial accounts exceeded $10,000 at any point during the calendar year. It's an aggregate test across all your foreign accounts combined, not a per-account threshold, and it includes accounts you have signature authority over even if the money isn't yours."
+  - q: "What is the $10,000 FBAR rule?"
+    a: "The FBAR is triggered when the combined highest balances of all your foreign financial accounts exceed $10,000 at any time during the year, even for a single day. Because it's the aggregate that counts, several smaller accounts can cross the threshold together. If you hit it, you report all your foreign accounts — not just the ones that pushed you over."
+  - q: "When is the FBAR due?"
+    a: "The FBAR is due 15 April, with an automatic extension to 15 October — you don't need to request the extension. It's filed electronically with FinCEN, separately from your federal tax return, so filing your 1040 does not file your FBAR. The two are different filings to different parts of the government."
+  - q: "What happens if I've never filed an FBAR but should have?"
+    a: "You're not alone, and there are established ways to catch up. For non-willful failures — which covers most people who simply didn't know — the IRS Streamlined Filing Compliance Procedures can often bring you current, frequently without penalties. Coming forward proactively, before the IRS contacts you, preserves the most options."
 ---
 
 If you're an American living in the UK — or a dual citizen, or a green card holder who has moved abroad — there's a good chance you've heard the letters "FBAR" and felt a small jolt of worry. It's one of the most common things our clients didn't know they had to do, and one of the easiest to put right once you understand it.
@@ -52,4 +61,4 @@ Because the right route — and the penalties at stake — turn entirely on your
 
 The FBAR sounds intimidating but is usually straightforward once you know where you stand. If you're a US person abroad with foreign accounts, the questions to ask are simply: did my combined balances cross $10,000 at any point last year, and have I filed for the years I needed to?
 
-If you're unsure about either, [our team can help you find out](/book) — the first conversation is free, and there's no obligation.
+If you're unsure about either, [our team can help you find out](/book) — the first conversation is free, and there's no obligation. You can also see how we handle this work on our [FBAR filing service](/services/us-expat-tax/fbar-filing) page.

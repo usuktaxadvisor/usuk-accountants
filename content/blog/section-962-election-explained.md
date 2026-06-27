@@ -86,6 +86,8 @@ In short: **Section 962** is the tool when you want to **keep the company as a c
 - **Making it once and forgetting it** — it's an annual decision that should be re-evaluated.
 - **Trying to handle the tracking without specialist help** — the basis and credit accounting is genuinely intricate.
 
+**How we help:** We handle the election and the return it sits on — our [US tax returns service](/services/us-expat-tax/us-tax-returns) covers exactly this work.
+
 ## Related reading
 
 - [GILTI/NCTI rules for Americans with UK companies](/resources/blog/gilti-ncti-rules-americans-uk-companies) — the regime this election is designed to manage.

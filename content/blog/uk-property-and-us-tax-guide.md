@@ -73,6 +73,8 @@ It can be tempting to hold UK property through a company. For a US citizen, that
 - **Missing FBAR/Form 8938** on the accounts around the property.
 - **Incorporating UK property** without seeing the US controlled-foreign-corporation consequences.
 
+**How we help:** We handle your UK property position across both tax systems — our [tax planning service](/services/uk-accounting/tax-planning) covers exactly this work.
+
 ## Related reading
 
 - [Selling a UK home as a US citizen](/resources/blog/selling-uk-home-as-us-citizen) — the §121-versus-PRR mismatch in depth.
