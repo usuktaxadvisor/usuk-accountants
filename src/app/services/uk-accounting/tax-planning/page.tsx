@@ -180,6 +180,14 @@ export default function TaxPlanning() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'UK property & US tax for Americans', href: '/resources/blog/uk-property-and-us-tax-guide', description: 'The full cross-border property landscape' },
+          { label: 'UK inheritance tax vs US estate tax', href: '/resources/blog/uk-inheritance-tax-vs-us-estate-tax', description: 'Cross-border estate planning after 2025' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Corporation Tax', href: '/services/uk-accounting/corporation-tax', description: 'Plan the company tax bill early' },

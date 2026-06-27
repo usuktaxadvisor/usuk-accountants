@@ -177,6 +177,14 @@ export default function SelfAssessment() {
       />
 
       <RelatedLinks
+        title="Further reading"
+        links={[
+          { label: 'US tax on UK rental income', href: '/resources/blog/us-tax-on-uk-rental-income', description: 'For American landlords filing in both countries' },
+          { label: 'Selling a UK home as a US citizen', href: '/resources/blog/selling-uk-home-as-us-citizen', description: 'Why a tax-free UK sale can still trigger US tax' },
+        ]}
+      />
+
+      <RelatedLinks
         title="Related areas we handle"
         links={[
           { label: 'Bookkeeping', href: '/services/uk-accounting/bookkeeping', description: 'Records that make returns easy' },

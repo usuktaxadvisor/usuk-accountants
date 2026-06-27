@@ -201,6 +201,7 @@ export default function ForeignTaxCredit() {
           { label: 'FEIE or Foreign Tax Credit in the UK?', href: '/resources/blog/feie-or-foreign-tax-credit-uk', description: 'Which method usually wins in the UK' },
           { label: 'Do I pay US tax on my UK pension?', href: '/resources/blog/do-i-pay-us-tax-on-my-uk-pension', description: 'Where the credit does most of its work' },
           { label: 'GILTI/NCTI for Americans with UK companies', href: '/resources/blog/gilti-ncti-rules-americans-uk-companies', description: 'When foreign tax credits apply to company profits' },
+          { label: 'US tax on UK rental income', href: '/resources/blog/us-tax-on-uk-rental-income', description: 'Crediting UK tax on rental profits' },
         ]}
       />
 
