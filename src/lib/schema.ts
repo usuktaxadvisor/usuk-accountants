@@ -232,3 +232,40 @@ export function speakableSchema(url: string, cssSelectors: string[] = ['.speakab
     },
   };
 }
+
+
+/* ---------- Glossary: DefinedTerm + DefinedTermSet ---------- */
+export interface DefinedTermInput {
+  slug: string;
+  term: string;
+  definition: string;
+}
+
+export function definedTermSchema(t: DefinedTermInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTerm',
+    '@id': `${SITE.url}/resources/glossary/${t.slug}#term`,
+    name: t.term,
+    description: t.definition,
+    inDefinedTermSet: `${SITE.url}/resources/glossary#set`,
+    url: `${SITE.url}/resources/glossary/${t.slug}`,
+  };
+}
+
+export function definedTermSetSchema(terms: DefinedTermInput[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    '@id': `${SITE.url}/resources/glossary#set`,
+    name: 'US–UK Cross-Border Tax Glossary',
+    url: `${SITE.url}/resources/glossary`,
+    publisher: { '@id': ORG_ID },
+    hasDefinedTerm: terms.map((t) => ({
+      '@type': 'DefinedTerm',
+      '@id': `${SITE.url}/resources/glossary/${t.slug}#term`,
+      name: t.term,
+      url: `${SITE.url}/resources/glossary/${t.slug}`,
+    })),
+  };
+}
