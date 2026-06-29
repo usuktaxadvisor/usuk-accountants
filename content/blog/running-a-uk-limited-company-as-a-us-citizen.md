@@ -76,6 +76,8 @@ Get one piece wrong and it ripples through the others — which is why American-
 - **Using a UK-efficient salary/dividend mix** that's inefficient once US foreign tax credits are factored in.
 - **Never considering elections** that could materially reduce the US burden.
 
+We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-in-uk) navigate exactly these cross-border issues.
+
 ## Related reading
 
 - [Sole trader or limited company for an American in the UK?](/resources/blog/sole-trader-or-limited-company-american-in-uk) — the structure decision, if you haven't committed yet.

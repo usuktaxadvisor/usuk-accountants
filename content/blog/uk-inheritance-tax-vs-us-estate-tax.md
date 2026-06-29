@@ -83,6 +83,8 @@ The treaty is genuinely powerful for the right person — particularly a **US ci
 
 **How we help:** We handle cross-border estate and inheritance planning — our [tax planning service](/services/uk-accounting/tax-planning) covers exactly this work.
 
+We specialise in helping [US–UK dual citizens](/who-we-help/dual-citizens) navigate exactly these cross-border issues.
+
 ## Related reading
 
 - [The US-UK estate and gift tax treaty](/resources/blog/us-uk-estate-gift-tax-treaty) — how the separate death-tax treaty allocates relief.

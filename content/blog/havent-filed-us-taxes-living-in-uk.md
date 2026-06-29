@@ -67,6 +67,8 @@ The Streamlined procedures are available to people who come forward **voluntaril
 - **Overlooking the FBARs.** The FBAR side is separate from the tax returns and is a core part of catching up.
 - **Renouncing citizenship to escape it** without first getting compliant — which can create bigger problems than it solves.
 
+We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-in-uk) navigate exactly these cross-border issues.
+
 ## Related reading
 
 - [Do I need to file an FBAR?](/resources/blog/do-i-need-to-file-an-fbar) — the foreign-account report that's central to catching up.

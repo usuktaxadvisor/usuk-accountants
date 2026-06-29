@@ -78,6 +78,8 @@ The UK's 6 April 2025 reforms abolished **domicile** as the inheritance tax conn
 - **Ignoring the treaty after 2025** on the assumption the reforms killed it — they didn't.
 - **Failing to document domicile** — executors may need to prove treaty domicile at the relevant date.
 
+We specialise in helping [US–UK dual citizens](/who-we-help/dual-citizens) navigate exactly these cross-border issues.
+
 ## Related reading
 
 - [UK inheritance tax vs US estate tax](/resources/blog/uk-inheritance-tax-vs-us-estate-tax) — the two systems the treaty reconciles.

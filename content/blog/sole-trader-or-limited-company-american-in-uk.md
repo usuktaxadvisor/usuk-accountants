@@ -97,6 +97,8 @@ The honest position — and our consistent editorial stance — is that this is 
 - **Retaining profit in the company** without realising that's what creates current US tax under GILTI/NCTI.
 - **Treating the decision as permanent and casual at once** — it's neither; it deserves modelling, and it's hard to reverse.
 
+We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-in-uk) navigate exactly these cross-border issues.
+
 ## Related reading
 
 - [Running a UK limited company as a US citizen](/resources/blog/running-a-uk-limited-company-as-a-us-citizen) — the full overview once you've chosen the company route.
