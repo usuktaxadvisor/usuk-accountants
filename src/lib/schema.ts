@@ -31,7 +31,7 @@ export function organizationSchema() {
     legalName: SITE.legalName,
     url: SITE.url,
     email: SITE.email,
-    image: `${SITE.url}/brand/favicon.svg`,
+    image: `${SITE.url}/brand/logo-horizontal-dark.svg`,
     logo: `${SITE.url}/brand/favicon.svg`,
     description:
       'Specialist US–UK cross-border tax and accounting firm serving Americans in the UK, Brits in the US, dual citizens, green card holders and international businesses.',
@@ -177,6 +177,7 @@ export function articleSchema(a: ArticleSchemaInput) {
     '@context': 'https://schema.org',
     '@type': 'Article',
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}${a.url}` },
+    image: `${SITE.url}/brand/logo-horizontal-dark.svg`,
     headline: a.headline,
     description: a.description,
     author: {

@@ -18,6 +18,7 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return { title: 'Article not found' };
   const url = `${BASE}/${slug}`;
+  const ogImage = 'https://www.usukaccountants.com/brand/logo-horizontal-dark.svg';
   return {
     title: post.title,
     description: post.description,
@@ -27,8 +28,18 @@ export async function generateMetadata({
       description: post.description,
       type: 'article',
       url,
+      siteName: 'US UK Accountants',
       publishedTime: post.date || undefined,
       modifiedTime: post.updated || post.date || undefined,
+      authors: post.author?.name ? [post.author.name] : undefined,
+      section: post.category || undefined,
+      images: [{ url: ogImage }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [ogImage],
     },
   };
 }
