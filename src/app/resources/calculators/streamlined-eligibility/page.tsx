@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, StreamlinedChecker } from '@/components/library';
+import { PageShell, Section, Container, StreamlinedChecker, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/streamlined-eligibility';
@@ -59,6 +60,7 @@ export default function StreamlinedPage() {
       <Section tone="white">
         <Container>
           <StreamlinedChecker />
+          <CalculatorRelatedLinks {...calculatorLinks['streamlined-eligibility']} />
         </Container>
       </Section>
     </PageShell>

@@ -33,6 +33,8 @@ export { default as SelfAssessmentPenaltyCalculator } from './SelfAssessmentPena
 export { default as CorporationTaxCalculator } from './CorporationTaxCalculator';
 export { default as TakeHomePayCalculator } from './TakeHomePayCalculator';
 export { default as FigRegimeChecker } from './FigRegimeChecker';
+export { default as CalculatorRelatedLinks } from './CalculatorRelatedLinks';
+export type { RelatedLink, CalculatorRelatedLinksProps } from './CalculatorRelatedLinks';
 export { MobileBar } from './MobileBar';
 export {
   Pillars, WhoWeHelp, ProcessStats, ServicesSection, TestimonialsSection, FAQSection,

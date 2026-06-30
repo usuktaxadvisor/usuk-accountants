@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, UsDeadlinesCalculator } from '@/components/library';
+import { PageShell, Section, Container, UsDeadlinesCalculator, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/us-expat-deadlines';
@@ -55,6 +56,7 @@ export default function UsDeadlinesPage() {
       <Section tone="white">
         <Container>
           <UsDeadlinesCalculator />
+          <CalculatorRelatedLinks {...calculatorLinks['us-expat-deadlines']} />
         </Container>
       </Section>
     </PageShell>

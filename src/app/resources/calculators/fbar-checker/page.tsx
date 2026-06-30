@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, FbarChecker } from '@/components/library';
+import { PageShell, Section, Container, FbarChecker, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/fbar-checker';
@@ -59,6 +60,7 @@ export default function FbarCheckerPage() {
       <Section tone="white">
         <Container>
           <FbarChecker />
+          <CalculatorRelatedLinks {...calculatorLinks['fbar-checker']} />
         </Container>
       </Section>
     </PageShell>

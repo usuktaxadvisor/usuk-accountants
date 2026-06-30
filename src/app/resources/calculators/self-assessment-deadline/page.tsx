@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, SelfAssessmentPenaltyCalculator } from '@/components/library';
+import { PageShell, Section, Container, SelfAssessmentPenaltyCalculator, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/self-assessment-deadline';
@@ -55,6 +56,7 @@ export default function SelfAssessmentDeadlinePage() {
       <Section tone="white">
         <Container>
           <SelfAssessmentPenaltyCalculator />
+          <CalculatorRelatedLinks {...calculatorLinks['self-assessment-deadline']} />
         </Container>
       </Section>
     </PageShell>

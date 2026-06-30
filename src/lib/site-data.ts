@@ -361,3 +361,140 @@ export const calculators: CalculatorMeta[] = [
   { slug: 'corporation-tax', title: 'UK Corporation Tax Estimator', description: 'Estimate your UK company\u2019s Corporation Tax, including marginal relief.', iconKey: 'bank', status: 'live', sampleLabel: 'With marginal relief', sampleValue: 'Current-year rates' },
   { slug: 'take-home-pay', title: 'US vs UK Take-Home Pay', description: 'Compare net pay across the two systems when considering a move.', iconKey: 'planning', status: 'live', sampleLabel: 'Side-by-side', sampleValue: 'Take-home %' },
 ];
+
+
+export interface CalculatorLinks {
+  services?: { label: string; href: string }[];
+  glossary?: { label: string; href: string }[];
+  calculators?: { label: string; href: string }[];
+  articles?: { label: string; href: string }[];
+}
+
+export const calculatorLinks: Record<string, CalculatorLinks> = {
+  'double-tax-estimator': {
+    services: [
+      { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit' },
+      { label: 'US\u2013UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty' },
+    ],
+    glossary: [
+      { label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' },
+      { label: 'US\u2013UK Income Tax Treaty', href: '/resources/glossary/us-uk-tax-treaty' },
+      { label: 'Saving Clause', href: '/resources/glossary/saving-clause' },
+    ],
+    calculators: [
+      { label: 'US vs UK Take-Home Pay', href: '/resources/calculators/take-home-pay' },
+      { label: 'US Expat Tax Deadlines', href: '/resources/calculators/us-expat-deadlines' },
+    ],
+  },
+  'fbar-checker': {
+    services: [
+      { label: 'FBAR filing', href: '/services/us-expat-tax/fbar-filing' },
+      { label: 'FATCA compliance', href: '/services/us-expat-tax/fatca-compliance' },
+    ],
+    glossary: [
+      { label: 'FBAR', href: '/resources/glossary/fbar' },
+      { label: 'FATCA', href: '/resources/glossary/fatca' },
+      { label: 'Form 8938', href: '/resources/glossary/form-8938' },
+    ],
+    calculators: [
+      { label: 'Streamlined Filing Eligibility', href: '/resources/calculators/streamlined-eligibility' },
+    ],
+    articles: [
+      { label: 'Do I need to file an FBAR?', href: '/resources/blog/do-i-need-to-file-an-fbar' },
+    ],
+  },
+  'streamlined-eligibility': {
+    services: [
+      { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' },
+      { label: 'US tax returns', href: '/services/us-expat-tax/us-tax-returns' },
+    ],
+    glossary: [
+      { label: 'Streamlined Filing Procedures', href: '/resources/glossary/streamlined-filing' },
+      { label: 'Accidental American', href: '/resources/glossary/accidental-american' },
+    ],
+    calculators: [
+      { label: 'FBAR Requirement Checker', href: '/resources/calculators/fbar-checker' },
+    ],
+    articles: [
+      { label: 'Havent filed US taxes living in the UK?', href: '/resources/blog/havent-filed-us-taxes-living-in-uk' },
+    ],
+  },
+  'srt-residence': {
+    services: [
+      { label: 'Tax planning', href: '/services/uk-accounting/tax-planning' },
+      { label: 'Self Assessment', href: '/services/uk-accounting/self-assessment' },
+    ],
+    glossary: [
+      { label: 'Statutory Residence Test', href: '/resources/glossary/statutory-residence-test' },
+      { label: 'Domicile', href: '/resources/glossary/domicile' },
+      { label: 'Long-Term Resident (IHT)', href: '/resources/glossary/long-term-resident-iht' },
+    ],
+    calculators: [
+      { label: '4-Year FIG Regime Checker', href: '/resources/calculators/fig-regime' },
+    ],
+  },
+  'us-expat-deadlines': {
+    services: [
+      { label: 'US tax returns', href: '/services/us-expat-tax/us-tax-returns' },
+      { label: 'FBAR filing', href: '/services/us-expat-tax/fbar-filing' },
+    ],
+    glossary: [
+      { label: 'FBAR', href: '/resources/glossary/fbar' },
+      { label: 'FEIE', href: '/resources/glossary/feie' },
+    ],
+    calculators: [
+      { label: 'Self Assessment Deadline & Penalty', href: '/resources/calculators/self-assessment-deadline' },
+    ],
+  },
+  'self-assessment-deadline': {
+    services: [
+      { label: 'Self Assessment', href: '/services/uk-accounting/self-assessment' },
+    ],
+    glossary: [
+      { label: 'Self Assessment', href: '/resources/glossary/self-assessment' },
+      { label: 'National Insurance', href: '/resources/glossary/national-insurance' },
+    ],
+    calculators: [
+      { label: 'US Expat Tax Deadlines', href: '/resources/calculators/us-expat-deadlines' },
+    ],
+  },
+  'corporation-tax': {
+    services: [
+      { label: 'Corporation Tax', href: '/services/uk-accounting/corporation-tax' },
+      { label: 'Startup accounting', href: '/services/uk-accounting/startup-accounting' },
+    ],
+    glossary: [
+      { label: 'Corporation Tax', href: '/resources/glossary/corporation-tax' },
+      { label: 'GILTI', href: '/resources/glossary/gilti' },
+      { label: 'Controlled Foreign Corporation', href: '/resources/glossary/cfc' },
+    ],
+    articles: [
+      { label: 'How UK corporation tax and US tax interact', href: '/resources/blog/uk-corporation-tax-and-us-tax-interact' },
+    ],
+  },
+  'take-home-pay': {
+    services: [
+      { label: 'US tax returns', href: '/services/us-expat-tax/us-tax-returns' },
+      { label: 'Tax planning', href: '/services/uk-accounting/tax-planning' },
+    ],
+    glossary: [
+      { label: 'National Insurance', href: '/resources/glossary/national-insurance' },
+      { label: 'Totalization Agreement', href: '/resources/glossary/totalization-agreement' },
+    ],
+    calculators: [
+      { label: 'US/UK Double-Tax Estimator', href: '/resources/calculators/double-tax-estimator' },
+    ],
+  },
+  'fig-regime': {
+    services: [
+      { label: 'Tax planning', href: '/services/uk-accounting/tax-planning' },
+    ],
+    glossary: [
+      { label: 'Domicile', href: '/resources/glossary/domicile' },
+      { label: 'Statutory Residence Test', href: '/resources/glossary/statutory-residence-test' },
+    ],
+    calculators: [
+      { label: 'UK Statutory Residence Test', href: '/resources/calculators/srt-residence' },
+    ],
+  },
+};

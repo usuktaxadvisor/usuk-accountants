@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, FigRegimeChecker } from '@/components/library';
+import { PageShell, Section, Container, FigRegimeChecker, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/fig-regime';
@@ -55,6 +56,7 @@ export default function FigRegimePage() {
       <Section tone="white">
         <Container>
           <FigRegimeChecker />
+          <CalculatorRelatedLinks {...calculatorLinks['fig-regime']} />
         </Container>
       </Section>
     </PageShell>

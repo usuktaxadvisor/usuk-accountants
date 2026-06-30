@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, CorporationTaxCalculator } from '@/components/library';
+import { PageShell, Section, Container, CorporationTaxCalculator, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/corporation-tax';
@@ -55,6 +56,7 @@ export default function CorporationTaxPage() {
       <Section tone="white">
         <Container>
           <CorporationTaxCalculator />
+          <CalculatorRelatedLinks {...calculatorLinks['corporation-tax']} />
         </Container>
       </Section>
     </PageShell>

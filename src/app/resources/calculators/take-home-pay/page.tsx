@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, TakeHomePayCalculator } from '@/components/library';
+import { PageShell, Section, Container, TakeHomePayCalculator, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/take-home-pay';
@@ -55,6 +56,7 @@ export default function TakeHomePayPage() {
       <Section tone="white">
         <Container>
           <TakeHomePayCalculator />
+          <CalculatorRelatedLinks {...calculatorLinks['take-home-pay']} />
         </Container>
       </Section>
     </PageShell>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { PageShell, Section, Container, Calculator } from '@/components/library';
+import { PageShell, Section, Container, Calculator, CalculatorRelatedLinks } from '@/components/library';
+import { calculatorLinks } from '@/lib/site-data';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/calculators/double-tax-estimator';
@@ -42,6 +43,7 @@ export default function DoubleTaxEstimator() {
       <Section tone="white">
         <Container>
           <Calculator />
+          <CalculatorRelatedLinks {...calculatorLinks['double-tax-estimator']} />
         </Container>
       </Section>
     </PageShell>
