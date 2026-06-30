@@ -187,7 +187,7 @@ export const footerColumns: NavColumn[] = [
     title: 'Resources',
     links: [
       { label: 'Calculators', href: '/resources/calculators' },
-      { label: 'Guides', href: '/resources/guides' },
+      { label: 'Guides', href: '/resources/blog' },
       { label: 'Blog', href: '/resources/blog' },
       { label: 'Glossary', href: '/resources/glossary' },
       { label: 'Tax Deadlines', href: '/resources/guides/tax-deadlines-calendar' },
@@ -226,6 +226,9 @@ export const services: ServiceItem[] = [
   { icon: IconBank, title: 'UK Self Assessment', description: 'Self-employed, landlord and high-earner returns to HMRC.', href: '/services/uk-accounting/self-assessment' },
   { icon: IconCalculator, title: 'Company Accounts', description: 'Year-end accounts, Corporation Tax and Companies House filing.', href: '/services/uk-accounting/company-accounts' },
   { icon: IconTreaty, title: 'Treaty & Tax Planning', description: 'Structure income and assets to avoid double taxation.', href: '/services/us-expat-tax/us-uk-tax-treaty' },
+  { icon: IconTreaty, title: 'Cross-Border Tax Planning', description: 'Coordinate income and reliefs across both systems before you file.', href: '/services/cross-border-advisory/cross-border-tax-planning' },
+  { icon: IconPlanning, title: 'Business Structuring', description: 'Set up UK companies the right way for US owners.', href: '/services/cross-border-advisory/business-structuring' },
+  { icon: IconBank, title: 'Pensions (401k / SIPP)', description: 'How pensions are taxed across the Atlantic.', href: '/services/cross-border-advisory/pensions-401k-sipp' },
 ];
 
 export const audiences: AudienceItem[] = [

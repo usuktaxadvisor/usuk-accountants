@@ -67,7 +67,7 @@ export const caseStudies: CaseStudy[] = [
     ],
     services: [
       { label: 'Form 5471', href: '/services/us-expat-tax/form-5471' },
-      { label: 'International Structuring', href: '/services/us-expat-tax/international-business-structuring' },
+      { label: 'International Structuring', href: '/services/cross-border-advisory/business-structuring' },
     ],
   },
   {
@@ -89,7 +89,7 @@ export const caseStudies: CaseStudy[] = [
       { value: '1 yr', label: 'Transition handled' },
     ],
     services: [
-      { label: 'Cross-Border Planning', href: '/services/us-expat-tax/cross-border-tax-planning' },
+      { label: 'Cross-Border Planning', href: '/services/cross-border-advisory/cross-border-tax-planning' },
       { label: 'UK Self Assessment', href: '/services/uk-accounting/self-assessment' },
     ],
   },
