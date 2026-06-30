@@ -29,6 +29,10 @@ export { default as FbarChecker } from './FbarChecker';
 export { default as SrtCalculator } from './SrtCalculator';
 export { default as UsDeadlinesCalculator } from './UsDeadlinesCalculator';
 export { default as StreamlinedChecker } from './StreamlinedChecker';
+export { default as SelfAssessmentPenaltyCalculator } from './SelfAssessmentPenaltyCalculator';
+export { default as CorporationTaxCalculator } from './CorporationTaxCalculator';
+export { default as TakeHomePayCalculator } from './TakeHomePayCalculator';
+export { default as FigRegimeChecker } from './FigRegimeChecker';
 export { MobileBar } from './MobileBar';
 export {
   Pillars, WhoWeHelp, ProcessStats, ServicesSection, TestimonialsSection, FAQSection,
