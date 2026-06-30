@@ -86,7 +86,7 @@ export default function UkCitizensInUs() {
         links={[
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Your US federal and state filing.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Remaining UK obligations, handled.' },
-          { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty, pensions and structuring.' },
+          { label: 'US–UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty, pensions and structuring.' },
           { label: 'Dual citizens', href: '/who-we-help/dual-citizens', description: 'Hold both passports? Start here.' },
           { label: 'US citizens in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'The mirror situation.' },
         ]}

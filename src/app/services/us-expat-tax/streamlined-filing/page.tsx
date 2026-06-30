@@ -147,7 +147,7 @@ export default function StreamlinedFiling() {
         links={[
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'The full picture of US filing from abroad.' },
           { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing', description: 'Reporting foreign accounts over $10,000.' },
-          { label: 'Americans in the UK', href: '/who-we-help/americans-in-the-uk', description: 'Built for US citizens living in the UK.' },
+          { label: 'Americans in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'Built for US citizens living in the UK.' },
         ]}
       />
     </PageShell>

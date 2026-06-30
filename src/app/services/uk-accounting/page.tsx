@@ -123,8 +123,8 @@ export default function UkAccountingPillar() {
         title="Explore related areas"
         links={[
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Your US filing obligations, handled alongside your UK accounts.' },
-          { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty, pensions and structuring across both systems.' },
-          { label: 'Business owners & entrepreneurs', href: '/who-we-help/business-owners-entrepreneurs', description: 'For founders and directors trading across borders.' },
+          { label: 'US–UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty, pensions and structuring across both systems.' },
+          { label: 'Startup accounting', href: '/services/uk-accounting/startup-accounting', description: 'For founders and directors trading across borders.' },
           { label: 'Dual citizens', href: '/who-we-help/dual-citizens', description: 'For those filing in both the UK and the US.' },
         ]}
       />

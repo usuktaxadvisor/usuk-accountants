@@ -124,8 +124,8 @@ export default function UsExpatTaxPillar() {
         links={[
           { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up penalty-free.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Your UK Self Assessment and company accounts, coordinated.' },
-          { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty positions, pensions and double-tax relief.' },
-          { label: 'Americans in the UK', href: '/who-we-help/americans-in-the-uk', description: 'Built for US citizens living in the UK.' },
+          { label: 'US–UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty positions, pensions and double-tax relief.' },
+          { label: 'Americans in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'Built for US citizens living in the UK.' },
         ]}
       />
     </PageShell>
