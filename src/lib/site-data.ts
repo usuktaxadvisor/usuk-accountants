@@ -122,6 +122,75 @@ export const CONSULTATION = {
   freeEmailLine: 'General questions are answered free by email at hello@usukaccountants.com.',
 } as const;
 
+export interface ConsultationTier {
+  id: 'individual' | 'business' | 'private';
+  name: string;
+  price: string;
+  priceValue: number;
+  durationLabel: string;
+  tagline: string;
+  idealFor: string[];
+  credited: boolean;
+  bookHref: string;
+  ctaLabel: string;
+  featured?: boolean;
+}
+
+export const CONSULTATION_TIERS: ConsultationTier[] = [
+  {
+    id: 'individual',
+    name: 'Individual Tax Consultation',
+    price: '£100',
+    priceValue: 100,
+    durationLabel: '30 minutes',
+    tagline: 'A focused session on your personal US–UK tax position, with clear next steps.',
+    idealFor: [
+      'US citizens & Green Card holders in the UK',
+      'UK residents with US obligations',
+      'FBAR, FATCA & tax returns',
+      'FEIE vs Foreign Tax Credit decisions',
+    ],
+    credited: true,
+    bookHref: '/book?tier=individual',
+    ctaLabel: 'Book individual consultation',
+  },
+  {
+    id: 'business',
+    name: 'Business & Cross-Border Strategy Session',
+    price: '£300',
+    priceValue: 300,
+    durationLabel: '60 minutes',
+    tagline: 'A working session on structure, exposure and strategy for owners and businesses operating across both systems.',
+    idealFor: [
+      'Business owners & entrepreneurs',
+      'US owners of UK limited companies',
+      'Form 5471, GILTI & Subpart F',
+      'International structuring & expansion',
+    ],
+    credited: true,
+    bookHref: '/book?tier=business',
+    ctaLabel: 'Book strategy session',
+    featured: true,
+  },
+  {
+    id: 'private',
+    name: 'Private Client Advisory',
+    price: 'By arrangement',
+    priceValue: 0,
+    durationLabel: 'Bespoke engagement',
+    tagline: 'Confidential, bespoke advisory for complex cross-border, estate, exit and restructuring matters. Handled privately, quoted to scope.',
+    idealFor: [
+      'High-net-worth individuals & families',
+      'Estate & succession planning',
+      'Business exit & pre-liquidity planning',
+      'Complex multi-entity restructuring',
+    ],
+    credited: false,
+    bookHref: '/contact?enquiry=private-client',
+    ctaLabel: 'Request a private conversation',
+  },
+];
+
 export const primaryNav: LinkItem[] = [
   { label: 'Services', href: '/services' },
   { label: 'Who We Help', href: '/who-we-help' },

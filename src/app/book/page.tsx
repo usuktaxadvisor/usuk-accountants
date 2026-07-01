@@ -4,26 +4,39 @@ import {
   Header, Footer, Container, BookingEmbed,
 } from '@/components/library';
 import { IconCheck, IconShield } from '@/components/ui/icons';
-import { SITE, CONSULTATION } from '@/lib/site-data';
-
-const CONSULTATION_MINS = CONSULTATION.durationMins;
+import { SITE, CONSULTATION_TIERS } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'Book a Consultation',
   description:
-    'Book a private 30-minute consultation with a US–UK cross-border tax specialist for £100. Choose an available time slot online. General questions are answered free by email.',
+    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£100) or business & cross-border strategy session (£300), credited to your first engagement. General questions answered free by email.',
   alternates: { canonical: 'https://www.usukaccountants.com/book' },
 };
 
-const reassurances = [
-  '30-minute private consultation — £100',
-  'Speak directly to a cross-border specialist',
-  'Clear next steps for your exact situation',
-  'Timezone-friendly slots for US & UK',
-  'Quick questions? Email us free instead',
-];
+function resolveTier(tierParam?: string) {
+  return (
+    CONSULTATION_TIERS.find((t) => t.id === tierParam && t.id !== 'private') ??
+    CONSULTATION_TIERS.find((t) => t.id === 'individual')!
+  );
+}
 
-export default function BookPage() {
+export default async function BookPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ tier?: string }>;
+}) {
+  const { tier: tierParam } = await searchParams;
+  const tier = resolveTier(tierParam);
+  const isBusiness = tier.id === 'business';
+
+  const reassurances = [
+    `${tier.durationLabel} private consultation — ${tier.price}`,
+    'Speak directly to a cross-border specialist',
+    'Clear next steps for your exact situation',
+    'Credited to your first engagement',
+    'Quick questions? Email us free instead',
+  ];
+
   return (
     <>
       <Header />
@@ -34,13 +47,32 @@ export default function BookPage() {
           </svg>
           <Container>
             <div className="relative max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Book a consultation</p>
+              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">{tier.name}</p>
               <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                Let&rsquo;s simplify your US–UK taxes
+                {isBusiness ? 'Plan your cross-border position with confidence' : 'Let\u2019s simplify your US–UK taxes'}
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
-                Choose a time that suits you for a focused 30-minute private consultation with a specialist &mdash; £100, and a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we&rsquo;ll answer general queries free.
+                {isBusiness
+                  ? `A ${tier.durationLabel} working session (${tier.price}, credited to your first engagement) on structure, exposure and strategy for your business across both tax systems. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`
+                  : `Choose a time that suits you for a focused ${tier.durationLabel} private consultation with a specialist \u2014 ${tier.price}, credited to your first engagement, and a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`}
               </p>
+              <div className="mt-6 flex flex-wrap gap-3 text-sm">
+                {CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => (
+                  <Link
+                    key={t.id}
+                    href={t.bookHref}
+                    className={[
+                      'rounded-full px-4 py-2 font-medium transition',
+                      t.id === tier.id ? 'bg-gold text-navy-ink' : 'border border-softwhite/30 text-softwhite/80 hover:border-gold hover:text-white',
+                    ].join(' ')}
+                  >
+                    {t.name.replace(' & Cross-Border Strategy Session', ' Strategy').replace(' Tax Consultation', '')} · {t.price}
+                  </Link>
+                ))}
+                <Link href="/contact?enquiry=private-client" className="rounded-full border border-softwhite/30 px-4 py-2 font-medium text-softwhite/80 transition hover:border-gold hover:text-white">
+                  Private Client · by arrangement
+                </Link>
+              </div>
             </div>
           </Container>
         </header>
@@ -95,7 +127,7 @@ export default function BookPage() {
 
               {/* Scheduler */}
               <div id="schedule">
-                <BookingEmbed source="book_page" />
+                <BookingEmbed source="book_page" tierId={tier.id === 'business' ? 'business' : 'individual'} />
               </div>
             </div>
           </Container>
@@ -121,7 +153,7 @@ export default function BookPage() {
                 <div className="rounded-2xl border border-mist bg-white p-6">
                   <p className="font-display text-lg font-semibold text-ink">During</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
-                    A focused {CONSULTATION_MINS} minutes with a cross-border specialist who understands both
+                    A focused {tier.durationLabel} with a cross-border specialist who understands both
                     systems. We&rsquo;ll address your specific questions, flag the risks that matter, and give you
                     a clear view of your US&ndash;UK position &mdash; in plain English.
                   </p>

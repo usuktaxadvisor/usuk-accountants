@@ -5,6 +5,7 @@ import {
   Header, Footer, MobileBar,
   Hero, TrustBar, Pillars, Calculator, ServicesSection,
   WhoWeHelp, ProcessStats, TestimonialsSection, FAQSection, CTASection,
+  Section, Container, ConsultationTiers,
 } from '@/components/library';
 
 export default function Home() {
@@ -19,6 +20,11 @@ export default function Home() {
         <Calculator />
         <ServicesSection />
         <WhoWeHelp />
+        <Section tone="white">
+          <Container>
+            <ConsultationTiers />
+          </Container>
+        </Section>
         <ProcessStats />
         <TestimonialsSection />
         <FAQSection />

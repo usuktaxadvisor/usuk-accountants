@@ -47,6 +47,7 @@ export {
 } from './FormFields';
 export { ContactForm, LeadCaptureForm, BookingForm } from './Forms';
 export { default as BookingEmbed } from './BookingEmbed';
+export { ConsultationTiers } from './ConsultationTiers';
 
 /* Authority / EEAT */
 export { PolicyPage } from './PolicyPage';

@@ -1,10 +1,27 @@
 import type { Metadata } from 'next';
 import {
   PageShell, Section, Container, SectionHeading, InvestmentBand,
-  ProseBlock, RelatedLinks,
+  ProseBlock, RelatedLinks, ConsultationTiers, JsonLd,
 } from '@/components/library';
 import { authors } from '@/lib/authority-data';
-import { CONSULTATION } from '@/lib/site-data';
+import { CONSULTATION, CONSULTATION_TIERS } from '@/lib/site-data';
+
+const offerCatalogSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'OfferCatalog',
+  name: 'US–UK Tax Consultations',
+  url: 'https://www.usukaccountants.com/pricing',
+  itemListElement: CONSULTATION_TIERS.filter((t) => t.priceValue > 0).map((t) => ({
+    '@type': 'Offer',
+    name: t.name,
+    description: t.tagline,
+    price: String(t.priceValue),
+    priceCurrency: 'GBP',
+    category: 'Consultation',
+    availability: 'https://schema.org/InStock',
+    url: `https://www.usukaccountants.com${t.bookHref}`,
+  })),
+};
 
 const URL = 'https://www.usukaccountants.com/pricing';
 
@@ -98,6 +115,13 @@ export default function PricingPage() {
       ctaTitle="Want an exact quote for your situation?"
       ctaIntro="Email us a short description for a free steer, or book a £100 consultation — credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
     >
+      <JsonLd schema={offerCatalogSchema} />
+      <Section tone="porcelain">
+        <Container>
+          <ConsultationTiers />
+        </Container>
+      </Section>
+
       <Section tone="white">
         <Container>
           <SectionHeading
