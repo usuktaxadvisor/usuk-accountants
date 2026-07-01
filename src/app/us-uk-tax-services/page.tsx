@@ -114,6 +114,7 @@ export default function UsUkTaxServices() {
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'The full US side for Americans abroad.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Self Assessment, company accounts and more.' },
           { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty, pensions and structuring.' },
+          { label: 'Pricing', href: '/pricing', description: 'What cross-border tax work typically costs.' },
           { label: 'Who We Help', href: '/who-we-help', description: 'Find your situation.' },
           { label: 'Our offices', href: '/locations', description: 'London and New York.' },
         ]}

@@ -31,7 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/us-expat-tax/us-tax-returns',
     '/services/us-expat-tax/form-5471',
     '/services/us-expat-tax/us-uk-tax-treaty',
-    '/us-uk-tax-services',
+    '/us-uk-tax-services', '/pricing',
     '/locations', '/locations/london', '/locations/new-york',
     '/who-we-help', '/who-we-help/us-citizens-in-uk',
     '/who-we-help/uk-citizens-in-us', '/who-we-help/dual-citizens',
@@ -59,7 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: 'monthly' as const,
     priority:
       path === '' ? 1
-      : path === '/book' || path === '/contact' ? 0.9
+      : path === '/book' || path === '/contact' || path === '/pricing' ? 0.9
       : path.startsWith('/services/') ? 0.9
       : 0.7,
   }));
