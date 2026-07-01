@@ -104,6 +104,7 @@ export default function ContactPage() {
                     <IconPhone className="h-4 w-4 text-gold" /> {SITE.phones.uk.number}
                   </a>
                   <a href={`mailto:${SITE.email}`} className="mt-1 block text-sm text-muted hover:text-gold-antique">{SITE.email}</a>
+                  <Link href="/locations/london" className="mt-3 block text-sm font-semibold text-navy hover:text-gold">View London office →</Link>
                 </div>
 
                 <div className="rounded-2xl border border-mist bg-porcelain p-6">
@@ -116,6 +117,7 @@ export default function ContactPage() {
                     <IconPhone className="h-4 w-4 text-gold" /> {SITE.phones.us.number}
                   </a>
                   <a href={`mailto:${SITE.email}`} className="mt-1 block text-sm text-muted hover:text-gold-antique">{SITE.email}</a>
+                  <Link href="/locations/new-york" className="mt-3 block text-sm font-semibold text-navy hover:text-gold">View New York office →</Link>
                 </div>
 
                 <Link href="/book" className="group flex items-center justify-between rounded-2xl bg-navy-ink p-6 text-white transition-colors hover:bg-navy-royal">

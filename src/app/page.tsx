@@ -26,7 +26,7 @@ export default function Home() {
           title="Ready to simplify your US–UK taxes?"
           intro="Book a free 15-minute consultation. No obligation, no jargon — just a clear view of where you stand and what comes next."
           tone="navy"
-          secondary={{ label: 'Call us', href: 'tel:+442045250000' }}
+          secondary={{ label: 'Call us', href: 'tel:+443330904129' }}
           showPhone
         />
       </main>

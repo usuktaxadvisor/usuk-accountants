@@ -201,6 +201,7 @@ export const footerColumns: NavColumn[] = [
       { label: 'Team', href: '/about/team' },
       { label: 'Credentials', href: '/credentials' },
       { label: 'Reviews', href: '/reviews' },
+      { label: 'Locations', href: '/locations' },
       { label: 'Trust Center', href: '/trust-center' },
       { label: 'Contact', href: '/contact' },
     ],
