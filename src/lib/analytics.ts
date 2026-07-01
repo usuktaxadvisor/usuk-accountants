@@ -39,7 +39,7 @@ export const analytics = {
     track('booking_step', { step, label }),
 
   bookingCompleted: (situation?: string) =>
-    track('generate_lead', { lead_type: 'booking', situation, value: 1, currency: 'GBP' }),
+    track('generate_lead', { lead_type: 'booking', situation, value: 100, currency: 'GBP' }),
 
   contactSubmitted: (situation?: string) =>
     track('generate_lead', { lead_type: 'contact', situation, value: 1, currency: 'GBP' }),

@@ -219,6 +219,7 @@ export function BookingForm() {
     });
     setSubmitting(false);
     if (res.ok) {
+      analytics.bookingCompleted(data.situation);
       if (typeof window !== 'undefined') window.location.href = '/thank-you/booking';
       else setDone(true);
     } else setSubmitError(res.error ?? 'Something went wrong. Please try again or call us.');
@@ -230,9 +231,11 @@ export function BookingForm() {
         <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold-antique">
           <IconCheck className="h-6 w-6" />
         </span>
-        <h3 className="mt-4 font-display text-xl font-semibold text-ink">You&apos;re booked in</h3>
+        <h3 className="mt-4 font-display text-xl font-semibold text-ink">Request received</h3>
         <p className="mt-2 text-sm text-muted">
-          We&apos;ve sent a confirmation to {data.email}. A specialist will be in touch to lock the time.
+          Thanks — we&apos;ve received your details at {data.email} and a specialist will email you shortly
+          with available times and a secure link to confirm and pay for your £100 consultation. Prefer a
+          quick answer at no charge? Just reply with your question.
         </p>
       </div>
     );

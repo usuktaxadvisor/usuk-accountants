@@ -1,9 +1,12 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
   Header, Footer, Container, BookingEmbed,
 } from '@/components/library';
 import { IconCheck, IconShield } from '@/components/ui/icons';
-import { SITE } from '@/lib/site-data';
+import { SITE, CONSULTATION } from '@/lib/site-data';
+
+const CONSULTATION_MINS = CONSULTATION.durationMins;
 
 export const metadata: Metadata = {
   title: 'Book a Consultation',
@@ -94,6 +97,78 @@ export default function BookPage() {
               <div id="schedule">
                 <BookingEmbed source="book_page" />
               </div>
+            </div>
+          </Container>
+        </div>
+
+        <div className="border-t border-mist bg-porcelain py-16 md:py-20">
+          <Container>
+            <div className="mx-auto max-w-4xl">
+              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">What to expect</p>
+              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">
+                Your consultation, end to end
+              </h2>
+
+              <div className="mt-10 grid gap-6 md:grid-cols-3">
+                <div className="rounded-2xl border border-mist bg-white p-6">
+                  <p className="font-display text-lg font-semibold text-ink">Before</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    You&rsquo;ll pick a time, pay securely, and receive a calendar invite with a private video
+                    link. We&rsquo;ll ask a few short questions in advance so the specialist arrives already
+                    briefed on your situation &mdash; no time wasted on background.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-mist bg-white p-6">
+                  <p className="font-display text-lg font-semibold text-ink">During</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    A focused {CONSULTATION_MINS} minutes with a cross-border specialist who understands both
+                    systems. We&rsquo;ll address your specific questions, flag the risks that matter, and give you
+                    a clear view of your US&ndash;UK position &mdash; in plain English.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-mist bg-white p-6">
+                  <p className="font-display text-lg font-semibold text-ink">After</p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">
+                    You&rsquo;ll leave knowing your next steps. If you&rsquo;d like us to handle the work,
+                    we&rsquo;ll follow up with a clear, fixed-scope quote &mdash; and the consultation fee is
+                    credited against your first engagement.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 grid gap-6 sm:grid-cols-2">
+                <div className="rounded-2xl border border-mist bg-white p-6">
+                  <div className="flex items-center gap-2">
+                    <IconShield className="h-4 w-4 text-gold" aria-hidden />
+                    <p className="font-display text-base font-semibold text-ink">Cancellation &amp; refunds</p>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Reschedule or cancel free up to 24 hours before your slot for a full refund. Within 24 hours,
+                    the fee covers the reserved specialist time and isn&rsquo;t refundable, though we&rsquo;ll
+                    always try to move you to another time where we can.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-mist bg-white p-6">
+                  <div className="flex items-center gap-2">
+                    <IconShield className="h-4 w-4 text-gold" aria-hidden />
+                    <p className="font-display text-base font-semibold text-ink">Confidential &amp; secure</p>
+                  </div>
+                  <p className="mt-3 text-sm leading-relaxed text-muted">
+                    Everything you share is treated in strict confidence and handled in line with UK GDPR.
+                    Payment is processed securely by our payment provider &mdash; we never see or store your card
+                    details. Read our{' '}
+                    <Link href="/privacy" className="font-medium text-navy hover:text-gold">privacy policy</Link>.
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-8 text-center text-sm text-muted">
+                Not sure you need a full consultation yet?{' '}
+                <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">
+                  Email us your question free
+                </a>{' '}
+                &mdash; we answer general queries at no charge.
+              </p>
             </div>
           </Container>
         </div>

@@ -17,6 +17,21 @@ import { NextResponse } from 'next/server';
 
 export const runtime = 'nodejs';
 
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60_000;
+const hits = new Map<string, { count: number; resetAt: number }>();
+
+function rateLimited(ip: string): boolean {
+  const now = Date.now();
+  const rec = hits.get(ip);
+  if (!rec || now > rec.resetAt) {
+    hits.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  rec.count += 1;
+  return rec.count > RATE_LIMIT;
+}
+
 type LeadType = 'contact' | 'booking' | 'lead' | 'newsletter';
 
 interface LeadPayload {
@@ -102,6 +117,17 @@ async function sendNotification(body: LeadPayload) {
 }
 
 export async function POST(request: Request) {
+  const ip =
+    request.headers.get('x-forwarded-for')?.split(',')[0].trim() ||
+    request.headers.get('x-real-ip') ||
+    'unknown';
+  if (rateLimited(ip)) {
+    return NextResponse.json(
+      { ok: false, error: 'Too many requests. Please wait a moment and try again.' },
+      { status: 429 },
+    );
+  }
+
   let body: LeadPayload;
   try {
     body = await request.json();

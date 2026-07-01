@@ -4,8 +4,8 @@ import { Header, Footer, Container, Button } from '@/components/library';
 import { IconCheck } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
-  title: 'Thank You — Consultation Booked',
-  description: 'Your consultation request has been received. A US–UK tax specialist will be in touch shortly.',
+  title: 'Thank You — Request Received',
+  description: 'Your consultation request has been received. A US–UK tax specialist will email you available times and a secure payment link shortly.',
   robots: { index: false, follow: false },
   alternates: { canonical: 'https://www.usukaccountants.com/thank-you/booking' },
 };
@@ -21,10 +21,10 @@ export default function BookingThankYou() {
               <IconCheck className="h-8 w-8" />
             </span>
             <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink">
-              You&rsquo;re booked in
+              Request received
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted">
-              Thank you — we&rsquo;ve received your request and sent a confirmation to your email. A cross-border specialist will be in touch shortly to confirm your time.
+              Thank you — we&rsquo;ve received your request. A cross-border specialist will email you shortly with available times and a secure link to confirm and pay for your £100 consultation. Prefer a quick answer at no charge? Just reply to that email with your question.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Button href="/reviews">Read client reviews</Button>
