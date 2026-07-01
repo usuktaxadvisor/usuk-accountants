@@ -46,6 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/calculators/self-assessment-deadline',
     '/resources/calculators/corporation-tax',
     '/resources/calculators/take-home-pay',
+    '/resources/calculators/feie-vs-ftc',
     '/resources/calculators/fig-regime',
     '/resources/blog', '/resources/glossary',
     '/resources/guides/tax-deadlines-calendar',

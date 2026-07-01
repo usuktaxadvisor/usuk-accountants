@@ -32,6 +32,7 @@ export { default as StreamlinedChecker } from './StreamlinedChecker';
 export { default as SelfAssessmentPenaltyCalculator } from './SelfAssessmentPenaltyCalculator';
 export { default as CorporationTaxCalculator } from './CorporationTaxCalculator';
 export { default as TakeHomePayCalculator } from './TakeHomePayCalculator';
+export { default as FeieVsFtcCalculator } from './FeieVsFtcCalculator';
 export { default as FigRegimeChecker } from './FigRegimeChecker';
 export { default as CalculatorRelatedLinks } from './CalculatorRelatedLinks';
 export type { RelatedLink, CalculatorRelatedLinksProps } from './CalculatorRelatedLinks';

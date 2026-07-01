@@ -357,7 +357,7 @@ export const calculators: CalculatorMeta[] = [
   { slug: 'double-tax-estimator', title: 'US/UK Double-Tax Estimator', description: 'See whether your income is at risk of being taxed twice — and roughly how much relief the Foreign Tax Credit and treaty could provide.', iconKey: 'globe', status: 'live', sampleLabel: 'Typical relief identified', sampleValue: 'Most pay tax once' },
   { slug: 'fbar-checker', title: 'FBAR Requirement Checker', description: 'Answer three questions to find out whether you need to file an FBAR (FinCEN 114) this year.', iconKey: 'shield', status: 'live', sampleLabel: 'Takes under a minute', sampleValue: '3 quick questions' },
   { slug: 'streamlined-eligibility', title: 'Streamlined Filing Eligibility', description: 'Check whether you may qualify for the IRS Streamlined programme to catch up penalty-free.', iconKey: 'shield', status: 'live', sampleLabel: 'Indicative path', sampleValue: 'Foreign or domestic' },
-  { slug: 'feie-vs-ftc', title: 'FEIE vs Foreign Tax Credit', description: 'See which relief is likely to leave you better off as an American in the UK.', iconKey: 'planning', status: 'coming-soon' },
+  { slug: 'feie-vs-ftc', title: 'FEIE vs Foreign Tax Credit', description: 'See which relief is likely to leave you better off as an American in the UK.', iconKey: 'planning', status: 'live', sampleLabel: 'Indicative direction', sampleValue: 'FTC usually wins' },
   { slug: 'srt-residence', title: 'UK Statutory Residence Test', description: 'Work through the SRT to estimate your UK tax-residence status for the year.', iconKey: 'planning', status: 'live', sampleLabel: 'Indicative result', sampleValue: 'In about a minute' },
   { slug: 'self-assessment-deadline', title: 'Self Assessment Deadline & Penalty', description: 'Find your filing deadlines and estimate HMRC late penalties.', iconKey: 'calculator', status: 'live', sampleLabel: 'HMRC penalties', sampleValue: 'Estimated instantly' },
   { slug: 'us-expat-deadlines', title: 'US Expat Tax Deadlines', description: 'Your US filing dates as an American abroad, including the automatic extension.', iconKey: 'calculator', status: 'live', sampleLabel: 'Key dates', sampleValue: 'For your tax year' },
@@ -474,6 +474,22 @@ export const calculatorLinks: Record<string, CalculatorLinks> = {
     ],
     articles: [
       { label: 'How UK corporation tax and US tax interact', href: '/resources/blog/uk-corporation-tax-and-us-tax-interact' },
+    ],
+  },
+  'feie-vs-ftc': {
+    services: [
+      { label: 'Foreign Earned Income Exclusion', href: '/services/us-expat-tax/foreign-earned-income-exclusion' },
+      { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit' },
+    ],
+    glossary: [
+      { label: 'FEIE', href: '/resources/glossary/feie' },
+      { label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' },
+    ],
+    calculators: [
+      { label: 'US/UK Double-Tax Estimator', href: '/resources/calculators/double-tax-estimator' },
+    ],
+    articles: [
+      { label: 'FEIE or Foreign Tax Credit?', href: '/resources/blog/feie-or-foreign-tax-credit-uk' },
     ],
   },
   'take-home-pay': {
