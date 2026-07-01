@@ -16,6 +16,7 @@ const sections = [
   { icon: IconCalculator, title: 'Calculators & Tools', description: 'Interactive estimators for double taxation, FBAR, residency and more.', href: '/resources/calculators', live: true },
   { icon: IconGlobeDoc, title: 'Insights & Guides', description: 'Plain-English articles on US expat tax, UK accounting and cross-border planning — written and reviewed by our team.', href: '/resources/blog', live: true },
   { icon: IconPlanning, title: 'Glossary', description: 'Clear definitions of the US and UK tax terms that matter — FBAR, FEIE, SRT, PFIC and more.', href: '/resources/glossary', live: true },
+  { icon: IconGlobeDoc, title: 'Tax Data Centre', description: 'Every US and UK figure that matters — FEIE, FBAR, FATCA, rates, treaty articles and deadlines — each with its official IRS or HMRC source.', href: '/resources/tax-data', live: true },
 ];
 
 export default function ResourcesHub() {

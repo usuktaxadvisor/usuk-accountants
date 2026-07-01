@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/calculators/take-home-pay',
     '/resources/calculators/feie-vs-ftc',
     '/resources/calculators/fig-regime',
-    '/resources/blog', '/resources/glossary',
+    '/resources/blog', '/resources/glossary', '/resources/tax-data',
     '/resources/guides/tax-deadlines-calendar',
     '/about/team', '/about/case-studies', '/reviews',
     '/trust-center', '/security', '/credentials', '/compliance',
