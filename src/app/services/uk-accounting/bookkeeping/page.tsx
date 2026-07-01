@@ -67,7 +67,7 @@ export default function Bookkeeping() {
         serviceType: 'Bookkeeping',
       }}
       ctaTitle="Want your books accurate and always up to date?"
-      ctaIntro="Whether you are starting fresh, switching software, or catching up on a backlog, book a free consultation and we'll get your bookkeeping clean and keep it that way."
+      ctaIntro="Whether you are starting fresh, switching software, or catching up on a backlog, book a consultation and we'll get your bookkeeping clean and keep it that way."
     >
       <Section tone="white">
         <Container>

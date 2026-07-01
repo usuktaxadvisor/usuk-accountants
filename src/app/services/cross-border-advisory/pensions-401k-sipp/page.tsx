@@ -59,7 +59,7 @@ export default function Pensions401kSipp() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Get your cross-border pension position right"
-      ctaIntro="Book a free consultation before you draw, transfer or rely on a pension across the Atlantic."
+      ctaIntro="Book a consultation before you draw, transfer or rely on a pension across the Atlantic."
     >
       <Section tone="white">
         <Container>
@@ -109,7 +109,7 @@ export default function Pensions401kSipp() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'We review your pensions and what you plan to do with them.' },
+          { title: 'Book a consultation', description: 'We review your pensions and what you plan to do with them.' },
           { title: 'Position the treatment', description: 'We set out how the treaty and US rules apply to each arrangement.' },
           { title: 'Explain the choices', description: 'Where the law is contested, we give you both positions and the risks.' },
           { title: 'Report it correctly', description: 'We handle the reporting, including Form 8833 where a position requires it.' },
@@ -119,7 +119,7 @@ export default function Pensions401kSipp() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Paid strategy session for pension positions, credited to later work',
           'Conservative and alternative positions explained plainly',
           'Reporting handled, including Form 8833 where required',

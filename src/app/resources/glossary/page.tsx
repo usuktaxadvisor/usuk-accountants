@@ -46,7 +46,7 @@ export default function GlossaryIndex() {
       reviewedBy={authors.find((a) => a.slug === 'katie-m')!}
       faqs={faqs}
       ctaTitle="Came across a term that applies to you?"
-      ctaIntro="If one of these touches your situation, a short conversation will tell you exactly where you stand. The first consultation is free."
+      ctaIntro="If one of these touches your situation, a short conversation will tell you exactly where you stand. The first consultation is £100 for a focused 30 minutes."
     >
       <JsonLd schema={setSchema} />
       <Section tone="white">

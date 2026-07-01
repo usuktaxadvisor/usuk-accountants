@@ -64,7 +64,7 @@ export default function CrossBorderAdvisoryPillar() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Plan it before you file it"
-      ctaIntro="Book a free consultation to get the cross-border strategy right before the decisions are locked in."
+      ctaIntro="Book a consultation to get the cross-border strategy right before the decisions are locked in."
     >
       <ProseBlock>
         <p>
@@ -104,7 +104,7 @@ export default function CrossBorderAdvisoryPillar() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'We map your situation and the cross-border decisions ahead.' },
+          { title: 'Book a consultation', description: 'We map your situation and the cross-border decisions ahead.' },
           { title: 'Position review', description: 'We model the treaty, pension, structuring or planning options.' },
           { title: 'Clear recommendation', description: 'A written position you can act on, with the reasoning and risks set out.' },
           { title: 'Coordinated execution', description: 'We carry it through into your actual US and UK filings.' },
@@ -114,7 +114,7 @@ export default function CrossBorderAdvisoryPillar() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Paid strategy session for detailed planning, credited to later work',
           'Written positions with reasoning, risks and reporting set out',
           'Advice coordinated into your real US and UK filings',

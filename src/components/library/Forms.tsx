@@ -277,7 +277,7 @@ export function BookingForm() {
       {step === 2 && (
         <div className="space-y-4">
           <div className="rounded-lg bg-porcelain p-4 text-sm">
-            <p className="text-muted">Booking a free 15-minute consultation for:</p>
+            <p className="text-muted">Booking a £100 30-minute consultation for:</p>
             <p className="mt-1 font-medium text-ink">{data.name} · {data.email}</p>
           </div>
           <Checkbox id="b-consent" checked={data.consent} onChange={(v) => set('consent', v)}>

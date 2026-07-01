@@ -68,7 +68,7 @@ export default function TaxPlanning() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Plan ahead, instead of paying for hindsight"
-      ctaIntro="The best tax decisions are made before year-end, not after. Book a free consultation and we'll review your position across both the UK and US and map the efficient, compliant path forward."
+      ctaIntro="The best tax decisions are made before year-end, not after. Book a consultation and we'll review your position across both the UK and US and map the efficient, compliant path forward."
     >
       <Section tone="white">
         <Container>

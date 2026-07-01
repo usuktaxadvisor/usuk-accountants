@@ -81,7 +81,7 @@ export default function ForeignTaxCredit() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Make sure you are claiming the right relief"
-      ctaIntro="Choosing the Foreign Tax Credit over the FEIE — or combining them correctly — can change what you owe. Book a free consultation and we'll model your position."
+      ctaIntro="Choosing the Foreign Tax Credit over the FEIE — or combining them correctly — can change what you owe. Book a consultation and we'll model your position."
     >
       <Section tone="white">
         <Container>

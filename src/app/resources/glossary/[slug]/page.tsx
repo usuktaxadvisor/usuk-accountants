@@ -66,7 +66,7 @@ export default async function GlossaryTermPage({
         { label: t.term, href: `/resources/glossary/${t.slug}` },
       ]}
       ctaTitle={`Does ${t.term} apply to your situation?`}
-      ctaIntro="Cross-border tax turns on the detail of your circumstances. Book a free consultation and we'll tell you exactly where you stand."
+      ctaIntro="Cross-border tax turns on the detail of your circumstances. Book a consultation and we'll tell you exactly where you stand."
     >
       <JsonLd schema={definedTermSchema({ slug: t.slug, term: t.term, definition: t.short })} />
       <Section tone="white">

@@ -64,7 +64,7 @@ export default function UsExpatTaxPillar() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Bring your US taxes into order"
-      ctaIntro="Book a free consultation with a US tax specialist who also understands your UK position."
+      ctaIntro="Book a consultation with a US tax specialist who also understands your UK position."
     >
       <ProseBlock>
         <p>
@@ -101,7 +101,7 @@ export default function UsExpatTaxPillar() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'We review your situation, filing history and any catch-up needs.' },
+          { title: 'Book a consultation', description: 'We review your situation, filing history and any catch-up needs.' },
           { title: 'Fixed-scope quote', description: 'A clear proposal priced to your complexity before any work starts.' },
           { title: 'We prepare & review', description: 'Returns, FBAR and FATCA prepared by a US specialist and reviewed for accuracy.' },
           { title: 'Coordinated filing', description: 'Filed and aligned with your UK position so reliefs and credits line up.' },
@@ -111,12 +111,12 @@ export default function UsExpatTaxPillar() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Fixed-scope quote before any work begins',
           'US filing coordinated with your UK return',
           'Specialist preparation and independent review',
         ]}
-        note="Streamlined catch-up filing is quoted as a fixed package after your free consultation."
+        note="Streamlined catch-up filing is quoted as a fixed package after your consultation."
       />
 
       <RelatedLinks

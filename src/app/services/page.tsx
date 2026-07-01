@@ -69,7 +69,7 @@ export default function ServicesHub() {
 
         <CTASection
           title="Not sure which service you need?"
-          intro="Book a free consultation and we'll point you to the right place — even if that's not us."
+          intro="Book a consultation and we'll point you to the right place — even if that's not us."
           tone="navy"
         />
       </main>

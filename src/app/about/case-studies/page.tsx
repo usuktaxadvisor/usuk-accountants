@@ -40,7 +40,7 @@ export default function CaseStudiesPage() {
 
         <CTASection
           title="Your situation could be our next case study"
-          intro="Book a free consultation and let's map the path through your cross-border tax."
+          intro="Book a consultation and let's map the path through your cross-border tax."
           tone="navy"
         />
       </main>

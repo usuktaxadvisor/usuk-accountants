@@ -68,7 +68,7 @@ export default function UsUkTaxTreaty() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Wondering how the treaty applies to you?"
-      ctaIntro="Pensions, dual residency and treaty claims are where cross-border tax gets genuinely intricate. Book a free consultation and we'll explain exactly how the treaty affects your position."
+      ctaIntro="Pensions, dual residency and treaty claims are where cross-border tax gets genuinely intricate. Book a consultation and we'll explain exactly how the treaty affects your position."
     >
       <Section tone="white">
         <Container>

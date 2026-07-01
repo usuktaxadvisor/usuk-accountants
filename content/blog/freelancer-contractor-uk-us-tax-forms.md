@@ -38,7 +38,7 @@ For a US freelancer in the UK, the filing picture has three parts. First, **inco
 
 ## Why there are no 1099s in the UK
 
-In the US, when a business pays an independent contractor, it issues a **1099-NEC** so the IRS can match the income. Americans freelancing for the first time abroad often wait for those forms — and they never come. That's because UK clients operate under **UK rules**; they have no obligation (or mechanism) to issue US tax forms.
+In the US, when a business pays an independent contractor, it issues a **1099-NEC** so the IRS can match the income. Americans freelancing for the first time abroad often wait for those forms — and they never come. That's because UK clients operate under **UK rules**; they have (or mechanism) to issue US tax forms.
 
 This changes your process but not your duty. You must **self-report all your UK freelance income** to the IRS on Schedule C, built from **your own records** — invoices, bank statements, accounting software. If anything, this makes good [bookkeeping](/services/uk-accounting/bookkeeping) more important, not less, because nothing else is tracking your income for US purposes.
 
@@ -92,4 +92,4 @@ The classification turns on the **substance** of the relationship — control, m
 
 ---
 
-*This article is general information, not personalised advice. Your exact US forms depend on your income, accounts, and how you use the available reliefs, and the contractor-versus-employee question can be genuinely fact-specific. [Book a free consultation](/book) and we'll confirm precisely what you need to file as a freelancer or contractor in the UK.*
+*This article is general information, not personalised advice. Your exact US forms depend on your income, accounts, and how you use the available reliefs, and the contractor-versus-employee question can be genuinely fact-specific. [Book a consultation](/book) and we'll confirm precisely what you need to file as a freelancer or contractor in the UK.*

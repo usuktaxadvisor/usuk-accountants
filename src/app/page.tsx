@@ -24,7 +24,7 @@ export default function Home() {
         <FAQSection />
         <CTASection
           title="Ready to simplify your US–UK taxes?"
-          intro="Book a free 15-minute consultation. No obligation, no jargon — just a clear view of where you stand and what comes next."
+          intro="Book a £100 30-minute consultation — a clear view of where you stand and what comes next. Quick questions? Email us free."
           tone="navy"
           secondary={{ label: 'Call us', href: 'tel:+443330904129' }}
           showPhone

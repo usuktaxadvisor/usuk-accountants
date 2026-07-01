@@ -45,7 +45,7 @@ export default function Landlords() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Own property across the Atlantic?"
-      ctaIntro="Book a free consultation and we'll map your UK and US property tax position in one conversation."
+      ctaIntro="Book a consultation and we'll map your UK and US property tax position in one conversation."
     >
       <ProseBlock>
         <p>

@@ -93,4 +93,4 @@ Holding UK rental property through a **limited company** changes the US analysis
 
 ---
 
-*This article is general information, not personalised advice. UK rental income is reportable in both countries, and the US depreciation and foreign tax credit mechanics are easy to get wrong in ways that surface years later on sale. [Book a free consultation](/book) and we'll set up your UK rental reporting correctly on both sides.*
+*This article is general information, not personalised advice. UK rental income is reportable in both countries, and the US depreciation and foreign tax credit mechanics are easy to get wrong in ways that surface years later on sale. [Book a consultation](/book) and we'll set up your UK rental reporting correctly on both sides.*

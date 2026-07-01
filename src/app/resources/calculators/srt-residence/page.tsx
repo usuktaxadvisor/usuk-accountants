@@ -51,7 +51,7 @@ export default function SrtPage() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Residence position borderline?"
-      ctaIntro="If your day count or ties put you near a threshold, the detail matters. Book a free consultation and we'll confirm your exact residence position and plan around it."
+      ctaIntro="If your day count or ties put you near a threshold, the detail matters. Book a consultation and we'll confirm your exact residence position and plan around it."
     >
       <Section tone="white">
         <Container>

@@ -94,14 +94,14 @@ export default function CorporationTaxCalculator() {
         <p className="font-display text-lg font-semibold text-ink">Own a UK company as a US citizen?</p>
         <p className="mt-2 text-sm text-muted">
           UK Corporation Tax is only half the picture — the same profits can trigger US tax under
-          GILTI/NCTI. We coordinate both so you don&rsquo;t overpay. The first consultation is free.
+          GILTI/NCTI. We coordinate both so you don&rsquo;t overpay. The first consultation is £100 for a focused 30 minutes.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link
             href="/book"
             className="inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-ink"
           >
-            Book a free consultation <IconArrowRight className="h-4 w-4" />
+            Book a consultation <IconArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/services/uk-accounting/corporation-tax"

@@ -16,7 +16,7 @@ export function Hero({
   title = 'Tax and accounting expertise for life between the US and the UK.',
   intro = 'One advisory firm for your US tax, your UK accounts, and the cross-border decisions in between — for expats, dual citizens, families and businesses on both sides of the Atlantic.',
   chips = defaultChips,
-  primaryCta = { label: 'Book a Free Consultation', href: '/book' },
+  primaryCta = { label: 'Book a Consultation', href: '/book' },
   secondaryCta = { label: 'Try the Double-Tax Estimator', href: '#calculator' },
 }: HeroProps) {
   return (
@@ -104,8 +104,8 @@ export function Hero({
             </div>
             <div className="mt-6 flex items-center justify-between rounded-lg bg-navy-ink/80 px-5 py-4">
               <div>
-                <p className="text-xs text-softwhite/60">Your first consultation</p>
-                <p className="font-display text-2xl font-semibold text-gold-champagne">Free · no obligation</p>
+                <p className="text-xs text-softwhite/60">Private consultation</p>
+                <p className="font-display text-2xl font-semibold text-gold-champagne">£100 · 30 minutes</p>
               </div>
               <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">No double tax</span>
             </div>

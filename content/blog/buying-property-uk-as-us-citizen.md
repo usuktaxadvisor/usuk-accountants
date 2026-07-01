@@ -100,4 +100,4 @@ Buying well means anticipating what comes next:
 
 ---
 
-*This article is general information, not personalised advice. The buying stage is US-tax-light, but the mortgage and structure choices you make now shape the tax you'll face later. [Book a free consultation](/book) and we'll make sure your UK purchase is set up cleanly for the US stages ahead.*
+*This article is general information, not personalised advice. The buying stage is US-tax-light, but the mortgage and structure choices you make now shape the tax you'll face later. [Book a consultation](/book) and we'll make sure your UK purchase is set up cleanly for the US stages ahead.*

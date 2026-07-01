@@ -87,4 +87,4 @@ This is genuinely technical, and the calculations depend on accurate historical 
 
 ---
 
-*This article is general information, not personalised advice. The Section 988 currency gain depends on exchange-rate movements, your mortgage history, and whether the property is personal or investment, and it's genuinely easy to miscalculate. [Book a free consultation](/book) and we'll work out your sterling-mortgage position before you sell or remortgage.*
+*This article is general information, not personalised advice. The Section 988 currency gain depends on exchange-rate movements, your mortgage history, and whether the property is personal or investment, and it's genuinely easy to miscalculate. [Book a consultation](/book) and we'll work out your sterling-mortgage position before you sell or remortgage.*

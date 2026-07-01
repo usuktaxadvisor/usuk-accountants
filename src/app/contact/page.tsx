@@ -86,7 +86,7 @@ export default function ContactPage() {
               {/* Form */}
               <div className="rounded-2xl border border-mist bg-white p-7 sm:p-8">
                 <h2 className="font-display text-2xl font-semibold text-ink">Send us a message</h2>
-                <p className="mt-2 text-sm text-muted">Prefer to book a call? <Link href="/book" className="font-medium text-gold-antique hover:underline">Book a free consultation →</Link></p>
+                <p className="mt-2 text-sm text-muted">Prefer to book a call? <Link href="/book" className="font-medium text-gold-antique hover:underline">Book a consultation →</Link></p>
                 <div className="mt-6">
                   <ContactForm />
                 </div>
@@ -122,8 +122,8 @@ export default function ContactPage() {
 
                 <Link href="/book" className="group flex items-center justify-between rounded-2xl bg-navy-ink p-6 text-white transition-colors hover:bg-navy-royal">
                   <span>
-                    <span className="block font-display text-lg font-semibold">Book a free consultation</span>
-                    <span className="mt-1 block text-sm text-softwhite/70">15 minutes, no obligation</span>
+                    <span className="block font-display text-lg font-semibold">Book a consultation</span>
+                    <span className="mt-1 block text-sm text-softwhite/70">15 minutes</span>
                   </span>
                   <IconArrowRight className="h-5 w-5 text-gold transition-transform group-hover:translate-x-0.5" />
                 </Link>

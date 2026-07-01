@@ -94,4 +94,4 @@ If you've owned the company for a while and only now learned about Form 5471 and
 
 ---
 
-*This article is general information, not personalised advice. A check-the-box election has multi-year, sometimes irreversible consequences — including self-employment tax and a deemed liquidation — that depend entirely on your facts. [Book a free consultation](/book) and we'll model whether the election helps or hurts in your specific situation before anything is filed.*
+*This article is general information, not personalised advice. A check-the-box election has multi-year, sometimes irreversible consequences — including self-employment tax and a deemed liquidation — that depend entirely on your facts. [Book a consultation](/book) and we'll model whether the election helps or hurts in your specific situation before anything is filed.*

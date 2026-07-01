@@ -179,7 +179,7 @@ export function Calculator() {
                     href="/book"
                     className="mt-3 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink"
                   >
-                    Book a free consultation <IconArrowRight className="h-4 w-4" />
+                    Book a consultation <IconArrowRight className="h-4 w-4" />
                   </Link>
                 </div>
               )}

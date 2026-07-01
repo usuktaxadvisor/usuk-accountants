@@ -27,7 +27,7 @@ interface CTASectionProps {
 export function CTASection({
   title,
   intro,
-  primary = { label: 'Book your free consultation', href: '/book' },
+  primary = { label: 'Book a consultation', href: '/book' },
   secondary,
   showRating = true,
   showPhone = false,

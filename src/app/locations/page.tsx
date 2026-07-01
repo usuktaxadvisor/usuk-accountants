@@ -37,7 +37,7 @@ export default function LocationsHub() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Wherever you are, we cover both sides"
-      ctaIntro="Book a free consultation with our London or New York team, or work with us remotely."
+      ctaIntro="Book a consultation with our London or New York team, or work with us remotely."
     >
       <ProseBlock>
         <p>

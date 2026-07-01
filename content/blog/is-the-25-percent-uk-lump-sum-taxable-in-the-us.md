@@ -82,4 +82,4 @@ In practice, the better question is usually not "is it exempt?" but "**what's th
 
 ---
 
-*This article explains a genuinely contested area of treaty law and is general information, not personalised advice. Whether the conservative or treaty-based position is right for you depends on your facts, your appetite for audit risk, and your wider tax picture. [Book a free consultation](/book) before taking your lump sum — this is one decision where getting it wrong is expensive and hard to reverse.*
+*This article explains a genuinely contested area of treaty law and is general information, not personalised advice. Whether the conservative or treaty-based position is right for you depends on your facts, your appetite for audit risk, and your wider tax picture. [Book a consultation](/book) before taking your lump sum — this is one decision where getting it wrong is expensive and hard to reverse.*

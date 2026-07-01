@@ -81,7 +81,7 @@ export default function FatcaCompliance() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Not sure if you cross the FATCA threshold?"
-      ctaIntro="The thresholds depend on your status and where you live — and UK funds can carry hidden traps. Book a free consultation and we'll tell you exactly what you need to file."
+      ctaIntro="The thresholds depend on your status and where you live — and UK funds can carry hidden traps. Book a consultation and we'll tell you exactly what you need to file."
     >
       <Section tone="white">
         <Container>

@@ -88,4 +88,4 @@ We specialise in helping [US–UK dual citizens](/who-we-help/dual-citizens) nav
 
 ---
 
-*This article is general information, not personalised advice. The estate and gift tax treaty is highly fact-sensitive — it turns on treaty domicile, nationality, and asset type — and claims often live or die on documentation. [Book a free consultation](/book) and we'll assess whether the treaty can protect your estate and how to evidence it.*
+*This article is general information, not personalised advice. The estate and gift tax treaty is highly fact-sensitive — it turns on treaty domicile, nationality, and asset type — and claims often live or die on documentation. [Book a consultation](/book) and we'll assess whether the treaty can protect your estate and how to evidence it.*

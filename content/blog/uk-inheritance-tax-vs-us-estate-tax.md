@@ -96,4 +96,4 @@ We specialise in helping [US–UK dual citizens](/who-we-help/dual-citizens) nav
 
 ---
 
-*This article is general information, not personalised advice. Cross-border estate planning is highly fact-specific — it depends on your residence history, nationality, assets, and the treaty — and the rules changed materially in 2025. [Book a free consultation](/book) and we'll assess your UK and US estate-tax exposure and the planning available under the current regime.*
+*This article is general information, not personalised advice. Cross-border estate planning is highly fact-specific — it depends on your residence history, nationality, assets, and the treaty — and the rules changed materially in 2025. [Book a consultation](/book) and we'll assess your UK and US estate-tax exposure and the planning available under the current regime.*

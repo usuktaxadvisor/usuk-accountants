@@ -81,7 +81,7 @@ export default function Feie() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Is the FEIE actually your best option?"
-      ctaIntro="For many Americans in the UK it isn't — and the election is hard to undo. Book a free consultation and we'll model the FEIE against the Foreign Tax Credit for your situation."
+      ctaIntro="For many Americans in the UK it isn't — and the election is hard to undo. Book a consultation and we'll model the FEIE against the Foreign Tax Credit for your situation."
     >
       <Section tone="white">
         <Container>

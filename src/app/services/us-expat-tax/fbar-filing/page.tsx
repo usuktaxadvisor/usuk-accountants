@@ -81,7 +81,7 @@ export default function FbarFiling() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Need to file an FBAR — or catch up on missed years?"
-      ctaIntro="Book a free, confidential consultation. We'll confirm whether you need to file, for which years, and handle the whole submission."
+      ctaIntro="Book a confidential consultation. We'll confirm whether you need to file, for which years, and handle the whole submission."
     >
       <Section tone="white">
         <Container>

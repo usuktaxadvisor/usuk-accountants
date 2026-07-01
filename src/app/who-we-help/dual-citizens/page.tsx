@@ -45,7 +45,7 @@ export default function DualCitizens() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="One strategy across both citizenships"
-      ctaIntro="Book a free consultation and bring order to both sides at once."
+      ctaIntro="Book a consultation and bring order to both sides at once."
     >
       <ProseBlock>
         <p>

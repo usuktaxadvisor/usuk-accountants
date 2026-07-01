@@ -35,7 +35,7 @@ export default function ResourcesHub() {
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
                 Cross-border tax is complex. These resources help you understand your position in plain English —
-                no jargon, no obligation.
+                no jargon.
               </p>
             </div>
           </Container>
@@ -79,7 +79,7 @@ export default function ResourcesHub() {
 
         <CTASection
           title="Prefer to just ask a specialist?"
-          intro="Book a free consultation and get answers specific to your situation."
+          intro="Book a consultation and get answers specific to your situation."
           tone="navy"
         />
       </main>

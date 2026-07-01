@@ -48,7 +48,7 @@ export default function LondonLocation() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Speak to our London team"
-      ctaIntro="Book a free consultation with US–UK specialists at our London office or remotely."
+      ctaIntro="Book a consultation with US–UK specialists at our London office or remotely."
     >
       <JsonLd schema={localBusinessSchema('london')!} />
 

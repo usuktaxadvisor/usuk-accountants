@@ -59,7 +59,7 @@ export default function CrossBorderTaxPlanning() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Plan your position before the year closes"
-      ctaIntro="Book a free consultation to coordinate your US and UK tax before the decisions are locked in."
+      ctaIntro="Book a consultation to coordinate your US and UK tax before the decisions are locked in."
     >
       <Section tone="white">
         <Container>
@@ -108,7 +108,7 @@ export default function CrossBorderTaxPlanning() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'We review your income mix and the decisions ahead.' },
+          { title: 'Book a consultation', description: 'We review your income mix and the decisions ahead.' },
           { title: 'Model the options', description: 'We test relief combinations and timing against your numbers.' },
           { title: 'Written plan', description: 'A clear position with the reasoning, risks and reporting set out.' },
           { title: 'Carry it through', description: 'We align the plan with your actual US and UK filings.' },
@@ -118,7 +118,7 @@ export default function CrossBorderTaxPlanning() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Paid strategy session for detailed modelling, credited to later work',
           'Relief sequencing and timing modelled to your figures',
           'A written, defensible position you can act on',

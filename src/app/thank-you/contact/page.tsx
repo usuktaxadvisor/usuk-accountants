@@ -26,7 +26,7 @@ export default function ContactThankYou() {
               Thank you for getting in touch. A cross-border specialist will reply within one business day. In the meantime, feel free to explore our free resources.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button href="/book">Book a free consultation</Button>
+              <Button href="/book">Book a consultation</Button>
               <Button href="/trust-center" variant="secondary">Why clients trust us</Button>
             </div>
           </div>

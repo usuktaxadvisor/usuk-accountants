@@ -220,7 +220,7 @@ export default function FbarChecker() {
               href="/book"
               className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-navy px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-navy-ink"
             >
-              Book a free consultation
+              Book a consultation
               <IconArrowRight className="h-4 w-4" />
             </Link>
             <button

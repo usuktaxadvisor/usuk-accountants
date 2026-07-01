@@ -60,10 +60,10 @@ export default async function ComingSoon(
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted">
               We&rsquo;re putting the finishing touches on this page. In the meantime, the fastest way to get
-              answers about your US&ndash;UK tax situation is a free consultation.
+              answers about your US&ndash;UK tax situation is a £100 30-minute consultation.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button href="/book">Book a free consultation</Button>
+              <Button href="/book">Book a consultation</Button>
               <Button href="/contact" variant="secondary">Contact us</Button>
             </div>
 

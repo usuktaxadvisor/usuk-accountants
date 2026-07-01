@@ -79,4 +79,4 @@ We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-i
 
 ---
 
-*This article is general information, not personalised advice, and eligibility for Streamlined Filing depends on your specific facts — including whether your failure to file was non-willful. [Book a free consultation](/book) and we'll assess your situation confidentially and map the safest route back to compliance.*
+*This article is general information, not personalised advice, and eligibility for Streamlined Filing depends on your specific facts — including whether your failure to file was non-willful. [Book a consultation](/book) and we'll assess your situation confidentially and map the safest route back to compliance.*

@@ -90,4 +90,4 @@ There's also a **lock-in** point to know: if you claim the FEIE and then **revok
 
 ---
 
-*This article is general information, not personalised advice. The FEIE-versus-FTC decision depends on your income type, family situation and longer-term plans, and it interacts with credits and carryforwards in ways worth modelling properly. [Book a free consultation](/book) and we'll work out which approach leaves you better off — this year and in future years.*
+*This article is general information, not personalised advice. The FEIE-versus-FTC decision depends on your income type, family situation and longer-term plans, and it interacts with credits and carryforwards in ways worth modelling properly. [Book a consultation](/book) and we'll work out which approach leaves you better off — this year and in future years.*

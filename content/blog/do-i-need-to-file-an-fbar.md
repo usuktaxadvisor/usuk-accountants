@@ -61,4 +61,4 @@ Because the right route — and the penalties at stake — turn entirely on your
 
 The FBAR sounds intimidating but is usually straightforward once you know where you stand. If you're a US person abroad with foreign accounts, the questions to ask are simply: did my combined balances cross $10,000 at any point last year, and have I filed for the years I needed to?
 
-If you're unsure about either, [our team can help you find out](/book) — the first conversation is free, and there's no obligation. You can also see how we handle this work on our [FBAR filing service](/services/us-expat-tax/fbar-filing) page.
+If you're unsure about either, [our team can help you find out](/book) — the first conversation is a £100 30-minute consultation, and general questions are free by email. You can also see how we handle this work on our [FBAR filing service](/services/us-expat-tax/fbar-filing) page.

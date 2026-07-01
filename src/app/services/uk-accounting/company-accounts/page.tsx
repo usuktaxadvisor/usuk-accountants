@@ -68,7 +68,7 @@ export default function CompanyAccounts() {
         serviceType: 'Accounting',
       }}
       ctaTitle="Need your company accounts prepared and filed?"
-      ctaIntro="Whether you run a UK company or own one as a US person, book a free consultation and we'll make sure your accounts are accurate, on time, and coordinated across both tax systems."
+      ctaIntro="Whether you run a UK company or own one as a US person, book a consultation and we'll make sure your accounts are accurate, on time, and coordinated across both tax systems."
     >
       <Section tone="white">
         <Container>

@@ -68,7 +68,7 @@ export default function CorporationTax() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Get your Corporation Tax right — and on time"
-      ctaIntro="From the CT600 to planning the bill in advance, book a free consultation and we'll make sure you pay what you owe, claim what you can, and never miss the payment deadline."
+      ctaIntro="From the CT600 to planning the bill in advance, book a consultation and we'll make sure you pay what you owe, claim what you can, and never miss the payment deadline."
     >
       <Section tone="white">
         <Container>

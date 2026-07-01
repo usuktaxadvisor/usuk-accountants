@@ -45,7 +45,7 @@ export default function UkCitizensInUs() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="Get both sides handled by one team"
-      ctaIntro="Book a free consultation with cross-border specialists."
+      ctaIntro="Book a consultation with cross-border specialists."
     >
       <ProseBlock>
         <p>

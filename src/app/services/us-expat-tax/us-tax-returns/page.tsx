@@ -68,7 +68,7 @@ export default function UsTaxReturns() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Need to file your US return from the UK?"
-      ctaIntro="Whether you are up to date or just realising you should have been filing, book a free consultation and we'll map exactly what you need to file — and make sure you are not taxed twice."
+      ctaIntro="Whether you are up to date or just realising you should have been filing, book a consultation and we'll map exactly what you need to file — and make sure you are not taxed twice."
     >
       <Section tone="white">
         <Container>

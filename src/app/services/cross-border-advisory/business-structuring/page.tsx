@@ -59,7 +59,7 @@ export default function BusinessStructuring() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Structure it right before you incorporate"
-      ctaIntro="Book a free consultation to model your company across the UK and US before the structure is set."
+      ctaIntro="Book a consultation to model your company across the UK and US before the structure is set."
     >
       <Section tone="white">
         <Container>
@@ -108,7 +108,7 @@ export default function BusinessStructuring() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'We review your business, ownership and plans.' },
+          { title: 'Book a consultation', description: 'We review your business, ownership and plans.' },
           { title: 'Model the structure', description: 'We test entity options and elections against your numbers.' },
           { title: 'Elect on time', description: 'We make and document the elections before the deadlines bite.' },
           { title: 'Handle both sides', description: 'UK accounts and Corporation Tax plus US Form 5471 and personal return.' },
@@ -118,7 +118,7 @@ export default function BusinessStructuring() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Paid strategy session for structuring, credited to later work',
           'Entity and election options modelled to your figures',
           'Elections made on time and carried into both filings',

@@ -45,7 +45,7 @@ export default function DigitalNomads() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Working from everywhere, taxed by someone?"
-      ctaIntro="Book a free consultation to get your residency, reliefs and reporting straight — wherever you are."
+      ctaIntro="Book a consultation to get your residency, reliefs and reporting straight — wherever you are."
     >
       <ProseBlock>
         <p>

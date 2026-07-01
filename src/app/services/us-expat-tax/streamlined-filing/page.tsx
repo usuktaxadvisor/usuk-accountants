@@ -63,7 +63,7 @@ export default function StreamlinedFiling() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Come into compliance with confidence"
-      ctaIntro="Book a free, confidential consultation. We'll tell you honestly whether Streamlined is right for you and what it involves."
+      ctaIntro="Book a confidential consultation. We'll tell you honestly whether Streamlined is right for you and what it involves."
     >
       <Section tone="white">
         <Container>
@@ -126,12 +126,12 @@ export default function StreamlinedFiling() {
       <InvestmentBand
         fromLabel="Fixed-package pricing, quoted upfront"
         points={[
-          'Free, confidential eligibility consultation',
+          'Confidential £100 eligibility consultation',
           'One fixed price for the full Streamlined package',
           'Returns, FBARs and certification included',
           'Specialist preparation with independent review',
         ]}
-        note="Because Streamlined is a defined scope, we quote it as a single fixed fee after your free consultation — no open-ended billing."
+        note="Because Streamlined is a defined scope, we quote it as a single fixed fee after your consultation — no open-ended billing."
       />
 
       <RelatedLinks

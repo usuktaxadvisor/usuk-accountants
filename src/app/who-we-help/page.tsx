@@ -62,7 +62,7 @@ export default function WhoWeHelpHub() {
 
         <CTASection
           title="Not sure which describes you?"
-          intro="Book a free consultation and we'll point you to the right approach for your situation."
+          intro="Book a consultation and we'll point you to the right approach for your situation."
           tone="navy"
         />
       </main>

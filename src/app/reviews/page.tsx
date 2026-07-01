@@ -69,7 +69,7 @@ export default function ReviewsPage() {
 
         <CTASection
           title="Experience the cross-border difference"
-          intro="Book a free consultation with specialists who handle both your US and UK tax under one roof."
+          intro="Book a consultation with specialists who handle both your US and UK tax under one roof."
           tone="navy"
         />
       </main>

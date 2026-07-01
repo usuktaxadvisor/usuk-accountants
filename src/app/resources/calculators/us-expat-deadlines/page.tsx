@@ -51,7 +51,7 @@ export default function UsDeadlinesPage() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Stay ahead of every deadline"
-      ctaIntro="We track the US and UK calendars for our clients so nothing is missed. Book a free consultation to get your filings on a clear schedule."
+      ctaIntro="We track the US and UK calendars for our clients so nothing is missed. Book a consultation to get your filings on a clear schedule."
     >
       <Section tone="white">
         <Container>

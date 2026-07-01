@@ -26,7 +26,7 @@ const faqs = [
   { q: 'What are US & UK tax services?', a: 'They are the combined tax and accounting services needed by people and businesses who fall under both the US and UK tax systems at once — US federal and state returns, FBAR and FATCA reporting, UK Self Assessment and company accounts, and the cross-border planning that coordinates the two. The defining feature is that both jurisdictions are handled together, by one firm, rather than by separate US and UK accountants working in isolation.' },
   { q: 'Who needs specialist US–UK tax services?', a: 'Americans living in the UK, British citizens in the US, dual citizens, green card holders, and businesses operating across both countries. Anyone who files — or should be filing — with both the IRS and HMRC benefits from having the two sides coordinated, because that is where double taxation is avoided and reliefs are claimed in the right order.' },
   { q: 'What makes you specialist rather than a general accountant?', a: 'A general UK accountant handles HMRC but typically outsources or avoids the US side; a US preparer rarely understands UK rules. Our entire focus is the intersection — genuine US expertise and real UK accounting capability in one firm — so the two returns are prepared together and actually agree.' },
-  { q: 'How does pricing work?', a: 'We offer a free initial consultation, then a paid strategy session for detailed planning that is credited to any work that follows. Service pricing is bespoke and based on complexity, with a fixed-scope quote provided before any work begins — so you always know the cost in advance.' },
+  { q: 'How does pricing work?', a: 'We offer a £100 consultation, then a paid strategy session for detailed planning that is credited to any work that follows. Service pricing is bespoke and based on complexity, with a fixed-scope quote provided before any work begins — so you always know the cost in advance.' },
   { q: 'Do you only work with people near your offices?', a: 'No. We have offices in London and the New York area, but most clients work with us remotely through a secure process, wherever they are in the UK, the US or internationally.' },
 ];
 
@@ -51,7 +51,7 @@ export default function UsUkTaxServices() {
         serviceType: 'Tax Services',
       }}
       ctaTitle="Get both sides handled by one firm"
-      ctaIntro="Book a free consultation with specialist US–UK tax advisors."
+      ctaIntro="Book a consultation with specialist US–UK tax advisors."
     >
       <ProseBlock>
         <p>
@@ -91,7 +91,7 @@ export default function UsUkTaxServices() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'We review your full US and UK position and what you need.' },
+          { title: 'Book a consultation', description: 'We review your full US and UK position and what you need.' },
           { title: 'Fixed-scope quote', description: 'A clear, complexity-based proposal before any work begins.' },
           { title: 'Coordinated work', description: 'Both returns prepared together by US and UK specialists.' },
           { title: 'Aligned filing', description: 'Filed so reliefs and credits line up and nothing is taxed twice.' },
@@ -101,7 +101,7 @@ export default function UsUkTaxServices() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Fixed-scope quote before any work begins',
           'US and UK sides coordinated by specialists',
           'Offices in London and New York, plus remote service worldwide',

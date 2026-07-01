@@ -85,4 +85,4 @@ We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-i
 
 ---
 
-*This article is general information, not personalised advice. UK property creates US tax at every stage, and several US rules have no UK equivalent, so the two systems must be coordinated deliberately. [Book a free consultation](/book) and we'll map your UK property's full US and UK position — at purchase, while letting, on sale, or for your estate.*
+*This article is general information, not personalised advice. UK property creates US tax at every stage, and several US rules have no UK equivalent, so the two systems must be coordinated deliberately. [Book a consultation](/book) and we'll map your UK property's full US and UK position — at purchase, while letting, on sale, or for your estate.*

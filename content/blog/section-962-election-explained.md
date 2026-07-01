@@ -96,4 +96,4 @@ In short: **Section 962** is the tool when you want to **keep the company as a c
 
 ---
 
-*This article is general information, not personalised advice. A Section 962 election is a powerful but intricate tool whose value depends on your UK tax paid, retention and distribution plans, and it must be re-evaluated each year. [Book a free consultation](/book) and we'll model whether a Section 962 election — or an alternative — leaves you better off on your UK company's profits.*
+*This article is general information, not personalised advice. A Section 962 election is a powerful but intricate tool whose value depends on your UK tax paid, retention and distribution plans, and it must be re-evaluated each year. [Book a consultation](/book) and we'll model whether a Section 962 election — or an alternative — leaves you better off on your UK company's profits.*

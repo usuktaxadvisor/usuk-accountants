@@ -110,4 +110,4 @@ As always, the earlier and more proactively you address it, the better the outco
 
 ---
 
-*This article is general information, not personalised advice. Your Form 5471 filer category, schedules, and any penalty exposure depend on your specific ownership and history. [Book a free consultation](/book) and we'll confirm your category, prepare the form correctly, and — if you're behind — map the safest route to catch up.*
+*This article is general information, not personalised advice. Your Form 5471 filer category, schedules, and any penalty exposure depend on your specific ownership and history. [Book a consultation](/book) and we'll confirm your category, prepare the form correctly, and — if you're behind — map the safest route to catch up.*

@@ -67,7 +67,7 @@ export default function SelfAssessment() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Need your Self Assessment done properly?"
-      ctaIntro="Beat the 31 January rush. Book a free consultation and we'll prepare your return accurately, claim everything you're entitled to, and coordinate it with any US filing."
+      ctaIntro="Beat the 31 January rush. Book a consultation and we'll prepare your return accurately, claim everything you're entitled to, and coordinate it with any US filing."
     >
       <Section tone="white">
         <Container>

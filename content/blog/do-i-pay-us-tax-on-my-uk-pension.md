@@ -80,4 +80,4 @@ One important point that surprises people: there is **no direct rollover** betwe
 
 ---
 
-*This article is general information, not personalised tax advice. US–UK pension taxation — and the treatment of the 25% lump sum in particular — depends on your specific facts and the positions you're willing to support. [Book a free consultation](/book) and we'll walk through your pension situation across both tax systems before you make any irreversible decisions.*
+*This article is general information, not personalised tax advice. US–UK pension taxation — and the treatment of the 25% lump sum in particular — depends on your specific facts and the positions you're willing to support. [Book a consultation](/book) and we'll walk through your pension situation across both tax systems before you make any irreversible decisions.*

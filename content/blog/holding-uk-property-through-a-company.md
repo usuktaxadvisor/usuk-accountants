@@ -96,4 +96,4 @@ The point isn't that companies are always wrong — it's that the decision can't
 
 ---
 
-*This article is general information, not personalised advice. Whether a property company helps or hurts depends on your portfolio, leverage, plans, and both tax systems together, and the structure is costly to reverse. [Book a free consultation](/book) and we'll model personal versus corporate ownership across the UK and US before you buy.*
+*This article is general information, not personalised advice. Whether a property company helps or hurts depends on your portfolio, leverage, plans, and both tax systems together, and the structure is costly to reverse. [Book a consultation](/book) and we'll model personal versus corporate ownership across the UK and US before you buy.*

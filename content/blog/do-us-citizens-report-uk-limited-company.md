@@ -94,4 +94,4 @@ The consistent theme: coming forward **proactively**, before the IRS contacts yo
 
 ---
 
-*This article is general information, not personalised advice. Which US forms your UK company triggers depends on your ownership, elections, and the company's activity, and the penalties for getting reporting wrong are significant. [Book a free consultation](/book) and we'll confirm exactly what you need to file — and, if you're behind, the safest way to catch up.*
+*This article is general information, not personalised advice. Which US forms your UK company triggers depends on your ownership, elections, and the company's activity, and the penalties for getting reporting wrong are significant. [Book a consultation](/book) and we'll confirm exactly what you need to file — and, if you're behind, the safest way to catch up.*

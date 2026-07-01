@@ -38,7 +38,7 @@ export default function DoubleTaxEstimator() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="Turn your estimate into a plan"
-      ctaIntro="Book a free consultation and we'll confirm your exact position across both tax systems."
+      ctaIntro="Book a consultation and we'll confirm your exact position across both tax systems."
     >
       <Section tone="white">
         <Container>

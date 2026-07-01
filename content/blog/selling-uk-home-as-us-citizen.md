@@ -84,4 +84,4 @@ If your sale **does** attract UK capital gains tax — common for a property tha
 
 ---
 
-*This article is general information, not personalised advice. Whether your UK home sale produces US tax depends on your gain, your history of letting, your mortgage, and currency movements — and the best moves are made before you complete. [Book a free consultation](/book) and we'll model the US and UK tax on your sale while there's still time to plan.*
+*This article is general information, not personalised advice. Whether your UK home sale produces US tax depends on your gain, your history of letting, your mortgage, and currency movements — and the best moves are made before you complete. [Book a consultation](/book) and we'll model the US and UK tax on your sale while there's still time to plan.*

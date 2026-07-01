@@ -67,7 +67,7 @@ export default function VatReturns() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="VAT registered, or about to cross the threshold?"
-      ctaIntro="From choosing the right scheme to filing under Making Tax Digital, book a free consultation and we'll keep your VAT accurate, efficient and on time."
+      ctaIntro="From choosing the right scheme to filing under Making Tax Digital, book a consultation and we'll keep your VAT accurate, efficient and on time."
     >
       <Section tone="white">
         <Container>

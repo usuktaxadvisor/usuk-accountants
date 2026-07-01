@@ -6,17 +6,18 @@ import { IconCheck, IconShield } from '@/components/ui/icons';
 import { SITE } from '@/lib/site-data';
 
 export const metadata: Metadata = {
-  title: 'Book a Free Consultation',
+  title: 'Book a Consultation',
   description:
-    'Book a free 15-minute consultation with a US–UK cross-border tax specialist. No obligation. Get clarity on your US filing, UK accounting, and treaty position.',
+    'Book a private 30-minute consultation with a US–UK cross-border tax specialist for £100. Choose an available time slot online. General questions are answered free by email.',
   alternates: { canonical: 'https://www.usukaccountants.com/book' },
 };
 
 const reassurances = [
-  'Free 15-minute call — no obligation',
+  '30-minute private consultation — £100',
   'Speak directly to a cross-border specialist',
   'Clear next steps for your exact situation',
   'Timezone-friendly slots for US & UK',
+  'Quick questions? Email us free instead',
 ];
 
 export default function BookPage() {
@@ -35,7 +36,7 @@ export default function BookPage() {
                 Let&rsquo;s simplify your US–UK taxes
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
-                Pick a time that suits you. The first 15 minutes are free and there&rsquo;s no obligation — just a clear view of where you stand.
+                Choose a time that suits you for a focused 30-minute private consultation with a specialist &mdash; £100, and a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we&rsquo;ll answer general queries free.
               </p>
             </div>
           </Container>
@@ -58,8 +59,8 @@ export default function BookPage() {
                   <p className="text-sm font-medium text-ink">Specialists in both tax systems, not generalists</p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     One team handles your US and UK position together &mdash; so your reliefs line up and nothing
-                    falls between the two systems. Your consultation is with a cross-border specialist, free and
-                    with no obligation.
+                    falls between the two systems. Your £100 consultation is a dedicated 30 minutes with a
+                    cross-border specialist, focused entirely on your situation.
                   </p>
                 </div>
 
@@ -74,6 +75,17 @@ export default function BookPage() {
                   </a>
                   <a href={`tel:${SITE.phones.us.tel}`} className="mt-1 block text-muted hover:text-gold-antique">
                     {SITE.phones.us.flag} {SITE.phones.us.number}
+                  </a>
+                </div>
+
+                <div className="mt-4 rounded-xl border border-gold/30 bg-gold/5 p-5 text-sm">
+                  <p className="font-medium text-ink">Just a quick question?</p>
+                  <p className="mt-2 leading-relaxed text-muted">
+                    General queries are answered free by email &mdash; no booking needed. The £100
+                    consultation is for a dedicated, in-depth 30 minutes on your specific situation.
+                  </p>
+                  <a href={`mailto:${SITE.email}`} className="mt-3 inline-block font-semibold text-navy hover:text-gold">
+                    {SITE.email}
                   </a>
                 </div>
               </aside>

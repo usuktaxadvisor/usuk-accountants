@@ -91,4 +91,4 @@ How you extract profit is the lever you most directly control, and it's genuinel
 
 ---
 
-*This article is general information, not personalised advice. Coordinating UK Corporation Tax and US tax on the same profits depends on your extraction strategy, elections and timing, and the relief is never fully automatic. [Book a free consultation](/book) and we'll model the combined UK and US position on your company's profits and find the most efficient compliant path.*
+*This article is general information, not personalised advice. Coordinating UK Corporation Tax and US tax on the same profits depends on your extraction strategy, elections and timing, and the relief is never fully automatic. [Book a consultation](/book) and we'll model the combined UK and US position on your company's profits and find the most efficient compliant path.*

@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'How much do UK accounting services cost?',
-    a: 'Fees are based on the complexity of your situation rather than a fixed template. After a free initial consultation we provide a clear, fixed-scope quote so you know exactly what you are paying before any work begins.',
+    a: 'Fees are based on the complexity of your situation rather than a fixed template. After a £100 consultation we provide a clear, fixed-scope quote so you know exactly what you are paying before any work begins.',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function UkAccountingPillar() {
         serviceType: 'Accounting',
       }}
       ctaTitle="Get your UK accounting handled properly"
-      ctaIntro="Book a free consultation with a specialist who understands both UK accounting and your US obligations."
+      ctaIntro="Book a consultation with a specialist who understands both UK accounting and your US obligations."
     >
       <ProseBlock>
         <p>
@@ -101,7 +101,7 @@ export default function UkAccountingPillar() {
 
       <ProcessSteps
         steps={[
-          { title: 'Free consultation', description: 'A short call to understand your UK and US position and what you need.' },
+          { title: 'Book a consultation', description: 'A short call to understand your UK and US position and what you need.' },
           { title: 'Fixed-scope quote', description: 'A clear proposal priced to your complexity — no surprises.' },
           { title: 'We do the work', description: 'Accounts, returns and filings prepared, reviewed and coordinated across both jurisdictions.' },
           { title: 'Ongoing partnership', description: 'Proactive planning and support through every deadline, both sides of the Atlantic.' },
@@ -111,12 +111,12 @@ export default function UkAccountingPillar() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Free 15–20 minute initial consultation',
+          '£100 30-minute consultation',
           'Fixed-scope quote before any work begins',
           'Coordinated UK + US handling',
           'Premium advisory, not budget compliance',
         ]}
-        note="Most clients start with a free consultation, then a fixed quote based on their situation."
+        note="Most clients start with a £100 30-minute consultation, then a fixed quote based on their situation. Quick questions are answered free by email."
       />
 
       <RelatedLinks

@@ -85,7 +85,7 @@ export function InvestmentBand({
           </ul>
           {note && <p className="mt-6 text-sm text-softwhite/60">{note}</p>}
           <div className="mt-8">
-            <Button href="/book" variant="primary">Book a free consultation <IconArrowRight className="h-4 w-4" /></Button>
+            <Button href="/book" variant="primary">Book a consultation <IconArrowRight className="h-4 w-4" /></Button>
           </div>
         </div>
       </Container>

@@ -83,7 +83,7 @@ export default function OpengraphImage() {
         {/* Footer row */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: `1px solid rgba(234,237,245,0.15)`, paddingTop: 24 }}>
           <div style={{ fontSize: 24, color: SOFTWHITE, opacity: 0.8 }}>usukaccountants.com</div>
-          <div style={{ fontSize: 22, color: GOLD }}>Free consultation · No obligation</div>
+          <div style={{ fontSize: 22, color: GOLD }}>£100 · 30-minute consultation</div>
         </div>
       </div>
     ),

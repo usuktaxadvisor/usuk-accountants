@@ -55,7 +55,7 @@ export default function StreamlinedPage() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Behind on US filings?"
-      ctaIntro="Catching up correctly — especially the non-willful certification — is where expert help matters most. Book a free, confidential consultation and we'll map your safest route back into compliance."
+      ctaIntro="Catching up correctly — especially the non-willful certification — is where expert help matters most. Book a confidential consultation and we'll map your safest route back into compliance."
     >
       <Section tone="white">
         <Container>

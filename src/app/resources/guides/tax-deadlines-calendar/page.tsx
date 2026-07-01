@@ -83,7 +83,7 @@ export default function TaxDeadlinesCalendar() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Never miss a cross-border deadline"
-      ctaIntro="We track both calendars for our clients and file on time on both sides. Book a free consultation."
+      ctaIntro="We track both calendars for our clients and file on time on both sides. Book a consultation."
     >
       <ProseBlock>
         <p>

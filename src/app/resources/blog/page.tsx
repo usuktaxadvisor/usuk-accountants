@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: 'Is the information here a substitute for advice?',
-    a: 'No. Our articles explain how the rules generally work, but cross-border tax turns on the detail of your individual situation. Use them to understand your position, then book a free consultation for advice specific to you.',
+    a: 'No. Our articles explain how the rules generally work, but cross-border tax turns on the detail of your individual situation. Use them to understand your position, then book a consultation for advice specific to you.',
   },
 ];
 
@@ -81,7 +81,7 @@ export default function BlogIndex() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Have a question an article didn't answer?"
-      ctaIntro="Every situation is different. Book a free, no-obligation consultation and we'll give you a clear answer for yours."
+      ctaIntro="Every situation is different. Book a £100 30-minute consultation and we'll give you a clear answer for yours — or email us free for a quick question."
     >
       <Section tone="white">
         <Container>

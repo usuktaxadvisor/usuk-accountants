@@ -108,4 +108,4 @@ We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-i
 
 ---
 
-*This article is general information, not personalised advice. The right structure for a US citizen in the UK depends on your profit level, liability, plans, and appetite for US complexity — and it interacts with elections that carry multi-year consequences. [Book a free consultation](/book) and we'll model both routes across the UK and US tax systems before you commit to a structure that's hard to unwind.*
+*This article is general information, not personalised advice. The right structure for a US citizen in the UK depends on your profit level, liability, plans, and appetite for US complexity — and it interacts with elections that carry multi-year consequences. [Book a consultation](/book) and we'll model both routes across the UK and US tax systems before you commit to a structure that's hard to unwind.*

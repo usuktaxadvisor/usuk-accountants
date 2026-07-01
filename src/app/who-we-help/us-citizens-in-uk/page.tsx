@@ -45,7 +45,7 @@ export default function UsCitizensInUk() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="Get your US–UK position handled by specialists"
-      ctaIntro="Book a free consultation with a team that does this every day."
+      ctaIntro="Book a consultation with a team that does this every day."
     >
       <ProseBlock>
         <p>

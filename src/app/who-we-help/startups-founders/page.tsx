@@ -45,7 +45,7 @@ export default function StartupsFounders() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Building across both countries?"
-      ctaIntro="Book a free consultation and we'll model your structure across the UK and US before you commit to it."
+      ctaIntro="Book a consultation and we'll model your structure across the UK and US before you commit to it."
     >
       <ProseBlock>
         <p>

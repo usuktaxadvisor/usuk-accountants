@@ -86,4 +86,4 @@ We specialise in helping [Americans living in the UK](/who-we-help/us-citizens-i
 
 ---
 
-*This article is general information, not personalised advice. Running an American-owned UK company well means coordinating two tax systems and choosing elections that carry multi-year consequences. [Book a free consultation](/book) and we'll map your specific company's US and UK obligations and the most efficient compliant path through both.*
+*This article is general information, not personalised advice. Running an American-owned UK company well means coordinating two tax systems and choosing elections that carry multi-year consequences. [Book a consultation](/book) and we'll map your specific company's US and UK obligations and the most efficient compliant path through both.*

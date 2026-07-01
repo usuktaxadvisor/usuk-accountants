@@ -87,4 +87,4 @@ These gaps are where planning earns its keep — and where a generalist on eithe
 
 ---
 
-*This article is general information, not personalised advice. Because the UK and US compute property gains differently — in different currencies, with different reliefs — the only way to know your real combined tax is to model both. [Book a free consultation](/book) and we'll calculate the UK and US position on your disposal and line up the foreign tax credit correctly.*
+*This article is general information, not personalised advice. Because the UK and US compute property gains differently — in different currencies, with different reliefs — the only way to know your real combined tax is to model both. [Book a consultation](/book) and we'll calculate the UK and US position on your disposal and line up the foreign tax credit correctly.*

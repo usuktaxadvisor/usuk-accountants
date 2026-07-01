@@ -186,7 +186,7 @@ export default function TakeHomePayCalculator() {
             href="/book"
             className="inline-flex items-center gap-2 rounded-lg bg-navy px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-navy-ink"
           >
-            Book a free consultation <IconArrowRight className="h-4 w-4" />
+            Book a consultation <IconArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/who-we-help/us-citizens-in-uk"

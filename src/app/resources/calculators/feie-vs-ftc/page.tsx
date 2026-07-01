@@ -51,7 +51,7 @@ export default function FeieVsFtcPage() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Choosing between the FEIE and the FTC?"
-      ctaIntro="It's one of the most consequential and long-lasting choices in US expat tax. We'll model both on your real numbers — the first consultation is free."
+      ctaIntro="It's one of the most consequential and long-lasting choices in US expat tax. We'll model both on your real numbers — the consultation is £100 for a focused 30 minutes."
     >
       <Section tone="white">
         <Container>

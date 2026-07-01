@@ -92,4 +92,4 @@ One useful benefit point: your UK National Insurance contributions count toward 
 
 ---
 
-*This article is general information, not personalised advice. Your exact UK and US obligations as a self-employed American depend on your residence, profit and circumstances, and the certificate-of-coverage process must be done correctly each year. [Book a free consultation](/book) and we'll make sure your UK and US filings align and you claim every exemption you're entitled to.*
+*This article is general information, not personalised advice. Your exact UK and US obligations as a self-employed American depend on your residence, profit and circumstances, and the certificate-of-coverage process must be done correctly each year. [Book a consultation](/book) and we'll make sure your UK and US filings align and you claim every exemption you're entitled to.*

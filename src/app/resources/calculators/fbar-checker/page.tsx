@@ -55,7 +55,7 @@ export default function FbarCheckerPage() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Not sure where you stand?"
-      ctaIntro="If your FBAR position is borderline — or you have missed prior years — book a free consultation and we'll confirm exactly what you need to file."
+      ctaIntro="If your FBAR position is borderline — or you have missed prior years — book a consultation and we'll confirm exactly what you need to file."
     >
       <Section tone="white">
         <Container>

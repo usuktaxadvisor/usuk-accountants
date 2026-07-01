@@ -94,4 +94,4 @@ Which combination wins is **genuinely fact-specific** — it depends on your pro
 
 ---
 
-*This article is general information, not personalised advice, and GILTI/NCTI is one of the most complex areas of US international tax — now in transition following the rename. The right elections for your company depend on your specific numbers and should be modelled on current figures. [Book a free consultation](/book) and we'll calculate your GILTI/NCTI position and the most efficient compliant way to manage it.*
+*This article is general information, not personalised advice, and GILTI/NCTI is one of the most complex areas of US international tax — now in transition following the rename. The right elections for your company depend on your specific numbers and should be modelled on current figures. [Book a consultation](/book) and we'll calculate your GILTI/NCTI position and the most efficient compliant way to manage it.*

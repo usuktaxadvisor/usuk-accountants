@@ -67,7 +67,7 @@ export default function Payroll() {
         serviceType: 'Payroll',
       }}
       ctaTitle="Want payroll handled, accurately and on time?"
-      ctaIntro="From a single director's salary to a growing team, book a free consultation and we'll run your payroll, RTI and auto-enrolment so nothing is late and nobody is overpaid or underpaid."
+      ctaIntro="From a single director's salary to a growing team, book a consultation and we'll run your payroll, RTI and auto-enrolment so nothing is late and nobody is overpaid or underpaid."
     >
       <Section tone="white">
         <Container>

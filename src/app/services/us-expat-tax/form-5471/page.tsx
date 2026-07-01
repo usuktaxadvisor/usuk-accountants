@@ -68,7 +68,7 @@ export default function Form5471() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Own a UK company and hold US citizenship?"
-      ctaIntro="Form 5471 is one of the most heavily penalised filings in the US tax code — and easy to miss. Book a free consultation and we'll confirm whether you need to file and protect you from the penalties."
+      ctaIntro="Form 5471 is one of the most heavily penalised filings in the US tax code — and easy to miss. Book a consultation and we'll confirm whether you need to file and protect you from the penalties."
     >
       <Section tone="white">
         <Container>

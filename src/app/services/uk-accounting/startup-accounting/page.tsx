@@ -68,7 +68,7 @@ export default function StartupAccounting() {
         serviceType: 'Accounting',
       }}
       ctaTitle="Starting a business? Start it set up right."
-      ctaIntro="The decisions you make at the start are the ones hardest to undo. Book a free consultation and we'll help you choose the right structure and set up your business cleanly — on both sides of the Atlantic if needed."
+      ctaIntro="The decisions you make at the start are the ones hardest to undo. Book a consultation and we'll help you choose the right structure and set up your business cleanly — on both sides of the Atlantic if needed."
     >
       <Section tone="white">
         <Container>
