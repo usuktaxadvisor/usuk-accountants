@@ -341,7 +341,7 @@ export const processSteps: ProcessStep[] = [
 export const stats: StatItem[] = [
   { value: '2', label: 'Staffed offices: London & New York' },
   { value: 'US + UK', label: 'Both tax systems, one firm' },
-  { value: '7', label: 'Named specialists on your side' },
+  { value: '7', label: 'Qualified specialists (ACCA, ACA, CPA, CTA)' },
   { value: 'Worldwide', label: 'Cross-border clients supported' },
 ];
 

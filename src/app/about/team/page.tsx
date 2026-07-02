@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Header, Footer, Section, Container, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
 import { authors } from '@/lib/authority-data';
-import { credentialSchemaFor } from '@/lib/credentials-data';
+import { credentialCodesFor } from '@/lib/credentials-data';
 import { IconArrowRight } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
@@ -28,7 +28,9 @@ export default function TeamPage() {
                 Led by cross-border tax specialists
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
-                Real, named people on both sides of the Atlantic. Every filing is prepared and independently reviewed across our US and UK teams before it goes out.
+                Real, named people on both sides of the Atlantic — a team qualified across the UK and US
+                professional bodies, including ACCA, ACA, CPA, CTA, CIMA and AAT. Every filing is prepared and
+                independently reviewed across our US and UK teams before it goes out.
               </p>
             </div>
           </Container>
@@ -48,9 +50,9 @@ export default function TeamPage() {
                   </span>
                   <h2 className="mt-5 font-display text-lg font-semibold text-ink">{a.name}</h2>
                   <p className="text-sm text-muted">{a.role}</p>
-                  {credentialSchemaFor(a.slug).length > 0 && (
+                  {credentialCodesFor(a.slug).length > 0 && (
                     <div className="mt-4 flex flex-wrap gap-2">
-                      {credentialSchemaFor(a.slug).map((c) => (
+                      {credentialCodesFor(a.slug).map((c) => (
                         <span key={c} className="rounded-full bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold-antique">{c}</span>
                       ))}
                     </div>

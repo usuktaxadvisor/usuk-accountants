@@ -1,6 +1,6 @@
 import type { Author } from '@/lib/types';
 import { IconCheck, IconArrowRight } from '@/components/ui/icons';
-import { credentialSchemaFor } from '@/lib/credentials-data';
+import { credentialCodesFor } from '@/lib/credentials-data';
 import { personSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/library/JsonLd';
 
@@ -29,8 +29,8 @@ export function AuthorByline({
           <span className="text-muted">, {author.role}</span>
         </p>
         <p className="mt-0.5 text-xs text-muted">
-          {credentialSchemaFor(author.slug).length > 0 && (
-            <>{credentialSchemaFor(author.slug).join(' · ')}
+          {credentialCodesFor(author.slug).length > 0 && (
+            <>{credentialCodesFor(author.slug).join(' · ')}
               {reviewedBy ? ' · ' : ''}</>
           )}
           {reviewedBy ? (
@@ -71,9 +71,9 @@ export function AuthorProfile({ author }: { author: Author }) {
         <div>
           <h1 className="font-display text-3xl font-semibold tracking-tight text-ink">{author.name}</h1>
           <p className="mt-1 text-muted">{author.role}</p>
-          {credentialSchemaFor(author.slug).length > 0 && (
+          {credentialCodesFor(author.slug).length > 0 && (
             <div className="mt-3 flex flex-wrap gap-2">
-              {credentialSchemaFor(author.slug).map((c) => (
+              {credentialCodesFor(author.slug).map((c) => (
                 <span key={c} className="rounded-full bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold-antique">{c}</span>
               ))}
             </div>
