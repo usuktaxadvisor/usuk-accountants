@@ -12,33 +12,34 @@ function tierFor(id?: TierId) {
 }
 
 /**
- * Booking scheduler embed — PER-TIER aware.
+ * Booking scheduler embed — LIVE, per-tier.
  *
- * Each paid tier maps to its OWN scheduler event (different duration + price):
- *   NEXT_PUBLIC_CALCOM_INDIVIDUAL   e.g. "usukaccountants/consultation-30"
- *   NEXT_PUBLIC_CALCOM_BUSINESS     e.g. "usukaccountants/strategy-60"
- *   (legacy single link fallback: NEXT_PUBLIC_CALCOM_LINK)
- *   Calendly: NEXT_PUBLIC_CALENDLY_INDIVIDUAL / _BUSINESS (fallback _URL)
+ * Each paid tier renders its own Cal.com event inline (different duration and
+ * price; payment collected by Stripe inside the scheduler). The live public
+ * event URLs are the defaults in CONSULTATION_TIERS[..].bookingUrl, so no env
+ * configuration is required. Env vars still act as overrides (full URL or bare
+ * "user/slug", which is prefixed with https://cal.com/):
  *
- * Payment (£100 / £300) is collected inside the scheduler via Stripe — see
- * BOOKING_SETUP.md. If nothing is configured for a tier, the in-house enquiry
- * form is shown, so the funnel never dead-ends.
+ *   NEXT_PUBLIC_CALCOM_INDIVIDUAL / NEXT_PUBLIC_CALCOM_BUSINESS
+ *   (legacy fallbacks: NEXT_PUBLIC_CALCOM_LINK, NEXT_PUBLIC_CALENDLY_INDIVIDUAL
+ *    / _BUSINESS / NEXT_PUBLIC_CALENDLY_URL)
+ *
+ * If no URL resolves for a tier, the in-house enquiry form renders, so the
+ * funnel never dead-ends.
  */
 
-function calcomLinkFor(tierId: TierId): string | undefined {
-  const individual = process.env.NEXT_PUBLIC_CALCOM_INDIVIDUAL;
-  const business = process.env.NEXT_PUBLIC_CALCOM_BUSINESS;
-  const legacy = process.env.NEXT_PUBLIC_CALCOM_LINK;
-  if (tierId === 'business') return business ?? legacy;
-  return individual ?? legacy;
+function normalize(value?: string): string | undefined {
+  if (!value) return undefined;
+  return value.startsWith('http') ? value : `https://cal.com/${value}`;
 }
 
-function calendlyLinkFor(tierId: TierId): string | undefined {
-  const individual = process.env.NEXT_PUBLIC_CALENDLY_INDIVIDUAL;
-  const business = process.env.NEXT_PUBLIC_CALENDLY_BUSINESS;
-  const legacy = process.env.NEXT_PUBLIC_CALENDLY_URL;
-  if (tierId === 'business') return business ?? legacy;
-  return individual ?? legacy;
+function bookingUrlFor(tierId: TierId): string | undefined {
+  const envOverride =
+    tierId === 'business'
+      ? process.env.NEXT_PUBLIC_CALCOM_BUSINESS ?? process.env.NEXT_PUBLIC_CALENDLY_BUSINESS
+      : process.env.NEXT_PUBLIC_CALCOM_INDIVIDUAL ?? process.env.NEXT_PUBLIC_CALENDLY_INDIVIDUAL;
+  const legacy = process.env.NEXT_PUBLIC_CALCOM_LINK ?? process.env.NEXT_PUBLIC_CALENDLY_URL;
+  return normalize(envOverride) ?? tierFor(tierId).bookingUrl ?? normalize(legacy);
 }
 
 function ConsultationSummary({ tierId }: { tierId?: TierId }) {
@@ -72,15 +73,6 @@ function SchedulerSkeleton() {
   );
 }
 
-function FreeEmailNote() {
-  return (
-    <p className="mt-3 text-center text-xs text-muted">
-      Payment is taken securely at booking. Just a quick question?{' '}
-      <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">Email us free</a>.
-    </p>
-  );
-}
-
 export default function BookingEmbed({
   source = 'book_page',
   tierId = 'individual',
@@ -88,8 +80,7 @@ export default function BookingEmbed({
   source?: string;
   tierId?: TierId;
 }) {
-  const calcom = calcomLinkFor(tierId);
-  const calendly = calendlyLinkFor(tierId);
+  const bookingUrl = bookingUrlFor(tierId);
   const [loaded, setLoaded] = useState(false);
   const tier = tierFor(tierId);
 
@@ -97,58 +88,26 @@ export default function BookingEmbed({
     analytics.bookingStarted(`${source}:${tierId}`);
   }, [source, tierId]);
 
-  useEffect(() => {
-    if (!calcom) return;
-    const script = document.createElement('script');
-    script.src = 'https://app.cal.com/embed/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => { script.remove(); };
-  }, [calcom]);
-
-  useEffect(() => {
-    if (!calendly) return;
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => { script.remove(); };
-  }, [calendly]);
-
-  if (calcom) {
+  if (bookingUrl) {
+    const embedSrc = `${bookingUrl}${bookingUrl.includes('?') ? '&' : '?'}embed=true&layout=month_view`;
     return (
       <div>
         <ConsultationSummary tierId={tierId} />
         <div className="relative">
           {!loaded && <SchedulerSkeleton />}
           <iframe
-            title={`Book a ${tier.durationLabel} consultation`}
-            src={`https://cal.com/${calcom}?embed=true&layout=month_view`}
-            className={`h-[640px] w-full overflow-hidden rounded-2xl border border-mist bg-white ${loaded ? 'block' : 'hidden'}`}
+            title={`Book: ${tier.name} (${tier.durationLabel})`}
+            src={embedSrc}
+            className={`h-[680px] w-full overflow-hidden rounded-2xl border border-mist bg-white ${loaded ? 'block' : 'hidden'}`}
             loading="lazy"
             onLoad={() => setLoaded(true)}
           />
         </div>
-        <FreeEmailNote />
-      </div>
-    );
-  }
-
-  if (calendly) {
-    return (
-      <div>
-        <ConsultationSummary tierId={tierId} />
-        <div className="relative">
-          {!loaded && <SchedulerSkeleton />}
-          <iframe
-            title={`Book a ${tier.durationLabel} consultation`}
-            src={calendly}
-            className={`h-[640px] w-full overflow-hidden rounded-2xl border border-mist bg-white ${loaded ? 'block' : 'hidden'}`}
-            loading="lazy"
-            onLoad={() => setLoaded(true)}
-          />
-        </div>
-        <FreeEmailNote />
+        <p className="mt-3 text-center text-xs text-muted">
+          Payment is taken securely at booking and your fee is credited to your first engagement.
+          Just a quick question?{' '}
+          <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">Email us free</a>.
+        </p>
       </div>
     );
   }

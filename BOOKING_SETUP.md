@@ -3,7 +3,29 @@
 Operational runbook for the paid consultation system. The code is production-ready;
 these steps connect your external accounts. **Time once you have accounts: ~45 min.**
 
+
 ---
+
+## STATUS: LIVE
+
+Cal.com + Stripe are connected; both paid events exist. Their public URLs are now
+HARDCODED as defaults in src/lib/site-data.ts (CONSULTATION_TIERS -> bookingUrl),
+so NO Vercel env vars are required. Env vars remain optional overrides.
+
+- Individual (£100 / 30 min): https://cal.eu/usukaccountants/us-uk-tax-consultation
+- Business (£300 / 60 min): https://cal.eu/usukaccountants/business-cross-border-strategy-session
+
+## REMAINING SETTING — success redirect (2 min, in Cal.com)
+
+On EACH event: Cal.com -> Event -> Advanced -> "Redirect on booking" ->
+
+- Individual: https://www.usukaccountants.com/thank-you/booking?source=calcom&tier=individual
+- Business:  https://www.usukaccountants.com/thank-you/booking?source=calcom&tier=business
+
+This makes the website show the "booked and paid" confirmation and records the paid
+conversion (£100/£300) in GA4. Without it, bookings still work — Cal.com shows its
+own confirmation — but GA4 won't capture the revenue event.
+
 
 ## The model (built into the site)
 

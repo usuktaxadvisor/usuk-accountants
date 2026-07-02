@@ -59,7 +59,14 @@ const localBusinessSchema = [
   },
 ];
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ enquiry?: string }>;
+}) {
+  const { enquiry } = await searchParams;
+  const isPrivateClient = enquiry === 'private-client';
+
   return (
     <>
       <Header />
@@ -69,10 +76,20 @@ export default function ContactPage() {
         <header className="bg-navy-ink py-16 md:py-20">
           <Container>
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Contact us</p>
+              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">
+                {isPrivateClient ? 'Private Client Advisory' : 'Contact us'}
+              </p>
               <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                Talk to a cross-border specialist
+                {isPrivateClient ? 'Request a confidential conversation' : 'Talk to a cross-border specialist'}
               </h1>
+              {isPrivateClient && (
+                <p className="mt-4 rounded-xl border border-gold/40 bg-gold/10 px-5 py-4 text-sm leading-relaxed text-softwhite/90">
+                  Private Client Advisory enquiries are handled personally by our senior team, in strict
+                  confidence. Tell us broadly what you&rsquo;d like to discuss — estate, exit, restructuring
+                  or complex cross-border matters — and we&rsquo;ll arrange a private conversation and quote
+                  to scope.
+                </p>
+              )}
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
                 Tell us a little about your situation and we&rsquo;ll reply within one business day. Or call us directly — we have specialists on both sides of the Atlantic.
               </p>

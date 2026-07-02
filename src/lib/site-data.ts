@@ -132,6 +132,7 @@ export interface ConsultationTier {
   idealFor: string[];
   credited: boolean;
   bookHref: string;
+  bookingUrl?: string;
   ctaLabel: string;
   featured?: boolean;
 }
@@ -152,6 +153,7 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
     ],
     credited: true,
     bookHref: '/book?tier=individual',
+    bookingUrl: 'https://cal.eu/usukaccountants/us-uk-tax-consultation',
     ctaLabel: 'Book individual consultation',
   },
   {
@@ -169,6 +171,7 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
     ],
     credited: true,
     bookHref: '/book?tier=business',
+    bookingUrl: 'https://cal.eu/usukaccountants/business-cross-border-strategy-session',
     ctaLabel: 'Book strategy session',
     featured: true,
   },
