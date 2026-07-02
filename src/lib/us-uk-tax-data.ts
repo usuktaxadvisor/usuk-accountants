@@ -17,7 +17,8 @@ export interface TaxFigure {
   taxYear: string;
   note?: string;
   source: { name: string; url: string };
-  verify?: boolean;
+  status: 'verified' | 'stable' | 'pending';
+  checkedDate?: string;
 }
 
 /* ============================ US FEDERAL — EXPAT ============================ */
@@ -28,7 +29,7 @@ export const US_FEIE: TaxFigure = {
   taxYear: '2025',
   note: 'The maximum foreign earned income a qualifying US taxpayer can exclude under IRC §911. Indexed annually for inflation. For 2024 the figure was $126,500.',
   source: { name: 'IRS — Foreign Earned Income Exclusion', url: 'https://www.irs.gov/individuals/international-taxpayers/foreign-earned-income-exclusion' },
-  verify: true,
+  status: 'pending',
 };
 
 export const US_FBAR: TaxFigure = {
@@ -37,6 +38,7 @@ export const US_FBAR: TaxFigure = {
   taxYear: 'All years',
   note: 'An FBAR is required if the aggregate value of all your foreign financial accounts exceeds $10,000 at any point in the calendar year. This threshold is fixed, not indexed.',
   source: { name: 'FinCEN / IRS — Report of Foreign Bank and Financial Accounts (FBAR)', url: 'https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar' },
+  status: 'stable',
 };
 
 export const US_FATCA_8938: TaxFigure[] = [
@@ -46,6 +48,7 @@ export const US_FATCA_8938: TaxFigure[] = [
     taxYear: '2025',
     note: 'Taxpayers living abroad file Form 8938 if specified foreign financial assets exceed $200,000 on the last day of the year, or $300,000 at any point during the year (single or married-filing-separately).',
     source: { name: 'IRS — Do I need to file Form 8938?', url: 'https://www.irs.gov/businesses/corporations/do-i-need-to-file-form-8938-statement-of-specified-foreign-financial-assets' },
+    status: 'stable',
   },
   {
     label: 'FATCA Form 8938 — living abroad, married filing jointly',
@@ -53,6 +56,7 @@ export const US_FATCA_8938: TaxFigure[] = [
     taxYear: '2025',
     note: 'Married-filing-jointly taxpayers living abroad file if assets exceed $400,000 on the last day of the year, or $600,000 at any point during the year.',
     source: { name: 'IRS — Do I need to file Form 8938?', url: 'https://www.irs.gov/businesses/corporations/do-i-need-to-file-form-8938-statement-of-specified-foreign-financial-assets' },
+    status: 'stable',
   },
 ];
 
@@ -63,14 +67,14 @@ export const US_STANDARD_DEDUCTION: TaxFigure[] = [
     taxYear: '2025',
     note: 'Indexed annually. Married filing jointly is double the single amount.',
     source: { name: 'IRS — Standard deduction', url: 'https://www.irs.gov/credits-deductions/individuals/standard-deduction' },
-    verify: true,
+    status: 'pending',
   },
   {
     label: 'US standard deduction — married filing jointly',
     value: '$30,000',
     taxYear: '2025',
     source: { name: 'IRS — Standard deduction', url: 'https://www.irs.gov/credits-deductions/individuals/standard-deduction' },
-    verify: true,
+    status: 'pending',
   },
 ];
 
@@ -81,6 +85,7 @@ export const US_FILING_DEADLINES: TaxFigure[] = [
     taxYear: 'Annual',
     note: 'The standard filing and payment deadline for the prior tax year.',
     source: { name: 'IRS — When to file', url: 'https://www.irs.gov/filing/individuals/when-to-file' },
+    status: 'stable',
   },
   {
     label: 'US return — automatic expat extension',
@@ -88,6 +93,7 @@ export const US_FILING_DEADLINES: TaxFigure[] = [
     taxYear: 'Annual',
     note: 'US citizens and residents living abroad receive an automatic two-month extension to file (though tax owed still accrues interest from 15 April). A further extension to 15 October is available on request.',
     source: { name: 'IRS — U.S. citizens and resident aliens abroad', url: 'https://www.irs.gov/individuals/international-taxpayers/us-citizens-and-resident-aliens-abroad' },
+    status: 'stable',
   },
   {
     label: 'FBAR deadline',
@@ -95,6 +101,7 @@ export const US_FILING_DEADLINES: TaxFigure[] = [
     taxYear: 'Annual',
     note: 'The FBAR is due with the tax return but receives an automatic extension to 15 October, with no separate request required.',
     source: { name: 'FinCEN — BSA E-Filing', url: 'https://bsaefiling.fincen.treas.gov/main.html' },
+    status: 'stable',
   },
 ];
 

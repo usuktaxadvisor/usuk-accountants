@@ -27,7 +27,14 @@ function FigureRow({ f }: { f: TaxFigure }) {
   return (
     <tr className="border-t border-mist align-top">
       <td className="px-4 py-4 font-medium text-ink">{f.label}</td>
-      <td className="px-4 py-4 whitespace-nowrap font-semibold text-navy">{f.value}</td>
+      <td className="px-4 py-4 whitespace-nowrap font-semibold text-navy">
+        {f.value}
+        {f.status === 'pending' && (
+          <span className="ml-2 inline-block rounded bg-amber-100 px-1.5 py-0.5 align-middle text-[10px] font-semibold uppercase tracking-wide text-amber-800" title="Year-indexed figure — confirm against the official source before relying on it.">
+            confirm
+          </span>
+        )}
+      </td>
       <td className="px-4 py-4 text-xs text-muted">{f.taxYear}</td>
       <td className="hidden px-4 py-4 text-sm text-muted md:table-cell">
         {f.note}{' '}
@@ -89,6 +96,7 @@ export default function TaxDataCentre() {
       taxYear: TAX_YEAR_LABEL,
       note: 'The tax-free personal allowance, tapered away for income over £100,000.',
       source: { name: 'HMRC — Income Tax rates and allowances', url: 'https://www.gov.uk/income-tax-rates' },
+      status: 'stable',
     },
     {
       label: 'UK basic rate',
@@ -96,6 +104,7 @@ export default function TaxDataCentre() {
       taxYear: TAX_YEAR_LABEL,
       note: `Applies to taxable income up to £${UK_INCOME_TAX.bands[0].upTo.toLocaleString()} (England, Wales & NI; Scotland differs).`,
       source: { name: 'HMRC — Income Tax rates and allowances', url: 'https://www.gov.uk/income-tax-rates' },
+      status: 'stable',
     },
     {
       label: 'UK higher rate',
@@ -103,6 +112,7 @@ export default function TaxDataCentre() {
       taxYear: TAX_YEAR_LABEL,
       note: `Applies to income between £${UK_INCOME_TAX.bands[0].upTo.toLocaleString()} and £${UK_INCOME_TAX.bands[1].upTo.toLocaleString()}.`,
       source: { name: 'HMRC — Income Tax rates and allowances', url: 'https://www.gov.uk/income-tax-rates' },
+      status: 'stable',
     },
     {
       label: 'UK additional rate',
@@ -110,6 +120,7 @@ export default function TaxDataCentre() {
       taxYear: TAX_YEAR_LABEL,
       note: `Applies to income above £${UK_INCOME_TAX.bands[1].upTo.toLocaleString()}.`,
       source: { name: 'HMRC — Income Tax rates and allowances', url: 'https://www.gov.uk/income-tax-rates' },
+      status: 'stable',
     },
     {
       label: 'UK Corporation Tax — main rate',
@@ -117,6 +128,7 @@ export default function TaxDataCentre() {
       taxYear: TAX_YEAR_LABEL,
       note: `Applies to profits above £${UK_CORP_TAX.upperLimit.toLocaleString()}; a 19% small profits rate applies below £${UK_CORP_TAX.lowerLimit.toLocaleString()}, with marginal relief between.`,
       source: { name: 'HMRC — Corporation Tax rates', url: 'https://www.gov.uk/corporation-tax-rates' },
+      status: 'stable',
     },
     {
       label: 'UK Self Assessment deadline',
@@ -124,6 +136,7 @@ export default function TaxDataCentre() {
       taxYear: 'Annual',
       note: 'Online filing and payment deadline, following the end of the UK tax year on 5 April.',
       source: { name: 'HMRC — Self Assessment deadlines', url: 'https://www.gov.uk/self-assessment-tax-returns/deadlines' },
+      status: 'stable',
     },
   ];
 
@@ -150,8 +163,10 @@ export default function TaxDataCentre() {
             <p className="rounded-xl border border-gold/30 bg-gold/5 p-5 text-sm leading-relaxed text-muted">
               <strong className="text-ink">How to use this page.</strong> Every figure is drawn from the
               official source and linked directly. Amounts indexed annually are marked with their tax year.
-              This is a reference, not advice — for reliance on a specific filing, confirm the current figure
-              against the linked source or with a specialist.
+              A figure tagged <span className="rounded bg-amber-100 px-1 text-[10px] font-semibold uppercase text-amber-800">confirm</span> is
+              inflation-indexed and should be checked against the linked official source for the current year
+              before you rely on it. This is a reference, not advice — for a specific filing, confirm the
+              figure against the source or with a specialist.
             </p>
 
             <DataTable id="us-expat" title="US federal figures (expat)" figures={[US_FEIE, US_FBAR, ...US_FATCA_8938, ...US_STANDARD_DEDUCTION]} />
