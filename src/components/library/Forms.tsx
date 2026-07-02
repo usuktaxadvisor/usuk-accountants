@@ -177,7 +177,7 @@ export function LeadCaptureForm({
    ============================================================ */
 const STEPS = ['Your situation', 'Your details', 'Confirm'];
 
-export function BookingForm() {
+export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' | 'business' }) {
   const [step, setStep] = useState(0);
   const [data, setData] = useState({ situation: '', name: '', email: '', phone: '', consent: false });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -215,11 +215,11 @@ export function BookingForm() {
       email: data.email,
       phone: data.phone,
       situation: data.situation,
-      source: 'booking_form',
+      source: `booking_form:${tierId}`,
     });
     setSubmitting(false);
     if (res.ok) {
-      analytics.bookingCompleted(data.situation);
+      analytics.bookingCompleted(data.situation, tierId);
       if (typeof window !== 'undefined') window.location.href = '/thank-you/booking';
       else setDone(true);
     } else setSubmitError(res.error ?? 'Something went wrong. Please try again or call us.');

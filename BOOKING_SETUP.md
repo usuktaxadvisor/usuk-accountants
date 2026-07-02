@@ -1,83 +1,69 @@
 # Booking & Payment Setup — USUKAccountants.com
 
-This is the operational runbook for the £100 paid consultation system. Everything
-in the codebase is ready; the steps below connect the three external accounts.
-**Estimated time once you have the accounts: ~30–45 minutes.**
+Operational runbook for the paid consultation system. The code is production-ready;
+these steps connect your external accounts. **Time once you have accounts: ~45 min.**
 
 ---
 
-## The model (already built into the site)
+## The model (built into the site)
 
-- **Free route:** general questions answered by email (hello@usukaccountants.com).
-- **Paid route:** a private **30-minute** consultation for **£100**, self-booked into
-  an available slot, **paid at booking**.
-- Single source of truth for all consultation copy/price: `src/lib/site-data.ts` ->
-  `export const CONSULTATION`. Change the price or duration there and it updates
-  everywhere (Hero, CTAs, booking page, scheduler summary bar).
+- **Free:** general questions answered by email (hello@usukaccountants.com).
+- **Individual Consultation:** £100, 30 min, credited to first engagement.
+- **Business & Cross-Border Strategy Session:** £300, 60 min, credited.
+- **Private Client Advisory:** enquiry-only (routes to contact form, no payment).
 
----
-
-## What the site does RIGHT NOW (before you connect anything)
-
-`src/components/library/BookingEmbed.tsx` chooses one of three states:
-
-1. `NEXT_PUBLIC_CALCOM_LINK` set -> renders the **Cal.com** paid scheduler.
-2. `NEXT_PUBLIC_CALENDLY_URL` set -> renders the **Calendly** paid scheduler.
-3. Neither set -> **fallback enquiry form** (collects details, emails you, tells the
-   visitor a payment link will follow). No payment is taken in this state.
-
-Until the steps below are done, the site is in **state 3**. Copy has been written
-so state 3 is honest (it never claims a booking is confirmed or paid).
+Each paid tier routes to its OWN scheduler event via `?tier=individual` / `?tier=business`.
 
 ---
 
-## STEP 1 — Cal.com (scheduling + payment) — RECOMMENDED
+## STEP 1 — Cal.com (create TWO events)
 
-1. Create an account at https://cal.com
-2. Create an **Event Type**:
-   - Title: US–UK Tax Consultation
-   - Duration: **30 min**
-   - Location: your video tool (Cal Video / Google Meet / Zoom)
-   - Slug: consultation  (gives you yourname/consultation)
-3. Set your **Availability** (real hours; Cal.com handles client timezones automatically).
-4. Turn on **reminders** (Workflows -> email 24h before + 1h before).
-5. Add buffers (e.g. 10 min after) and a minimum notice (e.g. 12 hours).
+Create an account at https://cal.com, then two event types:
+
+**Event A — Individual Consultation:** Title "US-UK Tax Consultation", Duration 30 min,
+Slug consultation-30, Location = your video tool.
+
+**Event B — Business & Cross-Border Strategy Session:** Title "Business & Cross-Border
+Strategy Session", Duration 60 min, Slug strategy-60, Location = your video tool.
+
+For BOTH: set Availability (Cal.com handles client timezones automatically), turn on
+reminders (Workflows -> email 24h + 1h before), add buffers + a minimum notice.
+
+(Private Client Advisory is enquiry-only and needs no event.)
 
 ## STEP 2 — Stripe (payment) inside Cal.com
 
-1. Create a **Stripe** account at https://stripe.com (business details + bank account).
-2. In Cal.com: **Apps -> Stripe -> Install/Connect** -> authorise your Stripe account.
-3. On the consultation Event Type -> **Payments** -> require payment -> **£100 GBP**.
-   Now the slot cannot be booked without paying £100. Payment is captured at booking.
-4. Test in Stripe **test mode** first (card 4242 4242 4242 4242), then go live.
+1. Create a Stripe account at https://stripe.com
+2. Cal.com -> Apps -> Stripe -> Connect -> authorise.
+3. Event A -> Payments -> require payment -> £100 GBP.
+4. Event B -> Payments -> require payment -> £300 GBP.
+5. Test in Stripe test mode (card 4242 4242 4242 4242), then switch to live.
 
-## STEP 3 — Activate the scheduler on the website
+## STEP 3 — Activate on the website
 
-Add ONE env var in **Vercel -> Project -> Settings -> Environment Variables**
-(Production + Preview), then redeploy:
+Add these in Vercel -> Settings -> Environment Variables (Production + Preview), redeploy:
 
-    NEXT_PUBLIC_CALCOM_LINK = yourname/consultation
+    NEXT_PUBLIC_CALCOM_INDIVIDUAL = yourname/consultation-30
+    NEXT_PUBLIC_CALCOM_BUSINESS   = yourname/strategy-60
 
-(Or for Calendly: NEXT_PUBLIC_CALENDLY_URL = https://calendly.com/yourname/consultation)
-
-Redeploy. The booking page now shows the paid calendar with the £100 summary bar.
-**Done — payment is live.**
+The /book page routes each tier to its matching event automatically. (Calendly
+alternative: NEXT_PUBLIC_CALENDLY_INDIVIDUAL / NEXT_PUBLIC_CALENDLY_BUSINESS. A single
+legacy NEXT_PUBLIC_CALCOM_LINK still works as a fallback for both tiers.)
 
 ## STEP 4 — Resend (lead-notification emails)
 
-The enquiry and contact forms email you via Resend. Not required for paid bookings
-(Cal.com emails those), but recommended so free email enquiries reach you.
+Not required for paid bookings (Cal.com emails those), but recommended so free email
+enquiries and fallback submissions reach you.
 
 1. Create an account at https://resend.com
-2. **Verify the domain** usukaccountants.com (add the DNS records Resend gives you).
-3. Add these env vars in Vercel:
+2. Verify the domain usukaccountants.com (add the DNS records Resend gives you).
+3. Add in Vercel:
 
     RESEND_API_KEY   = re_xxxxxxxx
     LEAD_NOTIFY_TO   = hello@usukaccountants.com
     LEAD_NOTIFY_FROM = US UK Accountants <hello@usukaccountants.com>
 
-Redeploy. (Without these, the API still returns success and logs the lead — it
-never breaks the funnel.)
+(Without these, the API still returns success and logs the lead — never breaks the funnel.)
 
 ---
 
@@ -85,56 +71,54 @@ never breaks the funnel.)
 
 | Variable | Required for | Notes |
 |---|---|---|
-| NEXT_PUBLIC_CALCOM_LINK | Paid scheduler (Cal.com) | e.g. usukaccountants/consultation |
-| NEXT_PUBLIC_CALENDLY_URL | Paid scheduler (Calendly) | Use instead of Cal.com, not both |
-| RESEND_API_KEY | Lead emails | From resend.com |
-| LEAD_NOTIFY_TO | Lead emails | Inbox that receives leads |
-| LEAD_NOTIFY_FROM | Lead emails | Verified sender |
-| NEXT_PUBLIC_GA_ID | Analytics | Already set (G-SPFXN0D975) |
+| NEXT_PUBLIC_CALCOM_INDIVIDUAL | £100 individual scheduler | e.g. yourname/consultation-30 |
+| NEXT_PUBLIC_CALCOM_BUSINESS | £300 business scheduler | e.g. yourname/strategy-60 |
+| NEXT_PUBLIC_CALCOM_LINK | Legacy single-event fallback (optional) | used for both tiers if the two above are unset |
+| NEXT_PUBLIC_CALENDLY_INDIVIDUAL / _BUSINESS | Calendly alternative (per tier) | full https Calendly URLs |
+| RESEND_API_KEY | Lead emails | from resend.com |
+| LEAD_NOTIFY_TO | Lead emails | inbox that receives leads |
+| LEAD_NOTIFY_FROM | Lead emails | verified sender |
+| NEXT_PUBLIC_GA_ID | Analytics | already set (G-SPFXN0D975) |
 
 ---
 
 ## Go-live checklist
 
-- [ ] Cal.com event type created (30 min, consultation slug)
-- [ ] Availability + timezone + reminders configured
-- [ ] Stripe connected in Cal.com, £100 GBP required on the event
-- [ ] Test booking completed in Stripe test mode (card 4242...)
+- [ ] Two Cal.com events created (30-min £100, 60-min £300)
+- [ ] Stripe connected in Cal.com; £100 on Event A, £300 on Event B
+- [ ] Tested both tiers in Stripe test mode (card 4242...)
 - [ ] Switched Stripe to live mode
-- [ ] NEXT_PUBLIC_CALCOM_LINK set in Vercel (Production)
-- [ ] Redeployed; /book shows the paid calendar with £100 summary bar
+- [ ] NEXT_PUBLIC_CALCOM_INDIVIDUAL + NEXT_PUBLIC_CALCOM_BUSINESS set in Vercel
+- [ ] Redeployed; /book?tier=individual and /book?tier=business open the right paid event
 - [ ] Resend domain verified; RESEND_* vars set
-- [ ] Placed one real £100 test booking end-to-end (calendar invite + Stripe receipt)
+- [ ] One real end-to-end test booking on EACH tier (calendar invite + Stripe receipt)
 - [ ] Confirmed reminder emails fire (24h / 1h)
-- [ ] Confirmed reschedule + cancel flows work and refund behaves per policy
+- [ ] Confirmed reschedule + cancel behave per policy
 
 ---
 
-## Conversion tracking (already wired)
+## Analytics (already wired)
 
-- analytics.bookingStarted fires when the booking page loads.
-- analytics.bookingStep fires as the fallback form advances.
-- analytics.bookingCompleted fires on submit (value: 100, currency: GBP).
-- For Cal.com completions, add a GA4 event via Cal.com Workflows if you want the
-  paid booking itself counted.
-
----
-
-## Cancellation & refund policy (as published on /book)
-
-- Reschedule/cancel **free up to 24 hours** before -> full refund.
-- Within 24 hours -> fee covers reserved specialist time, non-refundable; we try to
-  move you where possible.
-- Configure this same rule in Cal.com (Event Type -> cancellation/reschedule limits)
-  so the platform enforces it automatically.
+- booking_started fires on booking page load (with tier).
+- booking_step fires as the fallback form advances.
+- generate_lead (bookingCompleted) fires on submit, tier-aware:
+  value 100 (individual) or 300 (business), currency GBP, consultation_type set.
+- For Cal.com paid completions, optionally add a GA4 event via Cal.com Workflows.
 
 ---
 
-## Future enhancements (ranked by ROI)
+## Cancellation & refund policy (published on /book)
 
-1. Consultation-credited-to-engagement automation (already promised in copy).
+- Reschedule/cancel free up to 24h before -> full refund.
+- Within 24h -> covers reserved specialist time, non-refundable; we try to move you.
+- Set the same rule in each Cal.com event so the platform enforces it.
+
+---
+
+## Future enhancements (ranked)
+
+1. Consultation-credited-to-engagement automation.
 2. Cal.com -> GA4 completed-booking conversion event.
-3. Business £250 strategy-session tier (individuals vs businesses).
+3. CRM sync (Cal.com webhook) for lead tracking + follow-up sequences.
 4. Durable rate-limit store (Upstash / Vercel KV) if abuse appears.
-5. CRM sync (Cal.com webhook -> your CRM) for lead tracking + follow-up sequences.
-6. Secure document upload / client portal (post-consultation).
+5. Secure document upload / client portal (post-consultation).

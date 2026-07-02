@@ -38,8 +38,14 @@ export const analytics = {
   bookingStep: (step: number, label: string) =>
     track('booking_step', { step, label }),
 
-  bookingCompleted: (situation?: string) =>
-    track('generate_lead', { lead_type: 'booking', situation, value: 100, currency: 'GBP' }),
+  bookingCompleted: (situation?: string, tier: 'individual' | 'business' = 'individual') =>
+    track('generate_lead', {
+      lead_type: 'booking',
+      consultation_type: tier,
+      situation,
+      value: tier === 'business' ? 300 : 100,
+      currency: 'GBP',
+    }),
 
   contactSubmitted: (situation?: string) =>
     track('generate_lead', { lead_type: 'contact', situation, value: 1, currency: 'GBP' }),
@@ -82,7 +88,10 @@ export async function submitLead(payload: {
     const data = await res.json().catch(() => ({ ok: false }));
 
     if (data.ok) {
-      if (payload.type === 'booking') analytics.bookingCompleted(payload.situation);
+      if (payload.type === 'booking') {
+        const tier = payload.source?.includes('business') ? 'business' : 'individual';
+        analytics.bookingCompleted(payload.situation, tier);
+      }
       else if (payload.type === 'contact') analytics.contactSubmitted(payload.situation);
       else if (payload.type === 'lead') analytics.leadCaptured(payload.source ?? 'unknown');
       else if (payload.type === 'newsletter') analytics.newsletterSubscribed(payload.source ?? 'footer');
