@@ -48,6 +48,7 @@ function toPersonInput(a: Author): PersonInput {
     role: a.role,
     credentials: a.credentials,
     expertise: a.expertise,
+    description: a.bio,
     sameAs: a.sameAs,
   };
 }

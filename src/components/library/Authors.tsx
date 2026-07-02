@@ -57,6 +57,7 @@ export function AuthorProfile({ author }: { author: Author }) {
     role: author.role,
     credentials: author.credentials,
     expertise: author.expertise,
+    description: author.bio,
     sameAs: author.sameAs,
   });
 
@@ -97,10 +98,12 @@ export function AuthorProfile({ author }: { author: Author }) {
         <div>
           <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">At a glance</p>
           <dl className="mt-3 space-y-2 text-sm">
-            <div className="flex justify-between border-b border-mist pb-2">
-              <dt className="text-muted">Experience</dt>
-              <dd className="font-medium text-ink">{author.yearsExperience}+ years</dd>
-            </div>
+            {credentialCodesFor(author.slug).length > 0 && (
+              <div className="flex justify-between border-b border-mist pb-2">
+                <dt className="text-muted">Qualifications</dt>
+                <dd className="font-medium text-ink">{credentialCodesFor(author.slug).join(', ')}</dd>
+              </div>
+            )}
             <div className="flex justify-between border-b border-mist pb-2">
               <dt className="text-muted">Jurisdictions</dt>
               <dd className="font-medium text-ink">{author.jurisdictions.join(', ')}</dd>

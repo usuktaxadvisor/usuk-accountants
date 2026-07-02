@@ -146,6 +146,7 @@ export interface PersonInput {
   role: string;
   credentials: string[];
   expertise?: string[];
+  description?: string;
   sameAs?: { label: string; href: string }[];
 }
 export function personSchema(p: PersonInput) {
@@ -158,6 +159,7 @@ export function personSchema(p: PersonInput) {
     name: p.name,
     jobTitle: p.role,
     worksFor: { '@id': ORG_ID },
+    ...(p.description ? { description: p.description } : {}),
     ...(verifiedCreds.length ? { hasCredential: verifiedCreds } : {}),
     ...(p.expertise?.length ? { knowsAbout: p.expertise } : {}),
     ...(sameAs.length ? { sameAs } : {}),
