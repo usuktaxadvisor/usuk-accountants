@@ -28,6 +28,7 @@ export function organizationSchema() {
     '@type': 'AccountingService',
     '@id': ORG_ID,
     name: SITE.name,
+    alternateName: 'USUKAccountants',
     legalName: SITE.legalName,
     url: SITE.url,
     email: SITE.email,
@@ -98,6 +99,7 @@ export function websiteSchema() {
     '@id': WEBSITE_ID,
     url: SITE.url,
     name: SITE.name,
+    alternateName: ['USUKAccountants', 'US UK Accountants', 'US-UK Accountants'],
     publisher: { '@id': ORG_ID },
   };
 }
