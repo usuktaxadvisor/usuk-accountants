@@ -3,10 +3,12 @@ import type {
 } from '@/lib/types';
 
 /* ------------------------------------------------------------
-   IMPORTANT: All names, credentials, quotes, ratings and metrics
-   below are PLACEHOLDERS. Replace with verified information only.
-   Never publish unverified credentials or fabricated reviews —
-   doing so breaks EEAT and, for reviews, may breach FTC/CMA rules.
+   Team credentials and bios below are VERIFIED and approved for
+   publication (confirmed with each team member, July 2026).
+   Credentials flow into Person schema hasCredential via
+   credentials-data.ts. Never publish unverified credentials or
+   fabricated reviews — doing so breaks EEAT and, for reviews,
+   may breach FTC/CMA rules.
    ------------------------------------------------------------ */
 
 /** Press logos — EMPTY until the firm has genuine, verifiable coverage. Do NOT invent outlets. */
