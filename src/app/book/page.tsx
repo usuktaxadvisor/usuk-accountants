@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Header, Footer, Container, BookingEmbed,
+  Header, Footer, Container, BookingEmbed, JsonLd,
 } from '@/components/library';
 import { IconCheck, IconShield } from '@/components/ui/icons';
 import { SITE, CONSULTATION_TIERS } from '@/lib/site-data';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Book a Consultation',
@@ -37,8 +38,32 @@ export default async function BookPage({
     'Quick questions? Email us free instead',
   ];
 
+  const bookingSchema = breadcrumbSchema([
+    { label: 'Home', href: '/' },
+    { label: 'Book a Consultation', href: '/book' },
+  ]);
+
+  const consultationOfferSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'US–UK Cross-Border Tax Consultation',
+    provider: { '@id': `${SITE.url}/#organization` },
+    areaServed: ['GB', 'US'],
+    description:
+      'Private consultations with a US–UK cross-border tax specialist, credited to your first engagement.',
+    offers: CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => ({
+      '@type': 'Offer',
+      name: t.name,
+      price: t.id === 'business' ? '300' : '100',
+      priceCurrency: 'GBP',
+      url: `${SITE.url}${t.bookHref}`,
+    })),
+  };
+
   return (
     <>
+      <JsonLd schema={bookingSchema} />
+      <JsonLd schema={consultationOfferSchema} />
       <Header />
       <main>
         <header className="relative overflow-hidden bg-navy-ink py-16 md:py-20">
