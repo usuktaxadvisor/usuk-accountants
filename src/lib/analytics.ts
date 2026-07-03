@@ -38,6 +38,12 @@ export const analytics = {
   bookingStep: (step: number, label: string) =>
     track('booking_step', { step, label }),
 
+  bookingOutboundClick: (tier: 'individual' | 'business', source: string) =>
+    track('booking_outbound_click', { consultation_type: tier, source }),
+
+  bookingEmbedLoaded: (tier: 'individual' | 'business') =>
+    track('booking_embed_loaded', { consultation_type: tier }),
+
   bookingCompleted: (situation?: string, tier: 'individual' | 'business' = 'individual') =>
     track('generate_lead', {
       lead_type: 'booking',
