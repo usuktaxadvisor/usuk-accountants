@@ -219,6 +219,7 @@ export const megaMenuPanels: MegaMenuPanel[] = [
   {
     heading: 'US & Cross-Border',
     links: [
+      { label: 'US & UK Tax Services', href: '/us-uk-tax-services' },
       { label: 'US Tax Returns', href: '/services/us-expat-tax/us-tax-returns' },
       { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing' },
       { label: 'FATCA Compliance', href: '/services/us-expat-tax/fatca-compliance' },
@@ -289,6 +290,7 @@ export const footerColumns: NavColumn[] = [
   {
     title: 'Firm',
     links: [
+      { label: 'US & UK Tax Services', href: '/us-uk-tax-services' },
       { label: 'About', href: '/about/team' },
       { label: 'Team', href: '/about/team' },
       { label: 'Credentials', href: '/credentials' },

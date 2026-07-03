@@ -64,6 +64,13 @@ export default function ServicesHub() {
                 );
               })}
             </div>
+            <p className="mt-8 text-center text-sm text-muted">
+              Not sure where you fit, or need both sides handled together? See our{' '}
+              <a href="/us-uk-tax-services" className="font-medium text-navy underline hover:text-gold">
+                complete US &amp; UK tax services overview
+              </a>{' '}
+              — the full cross-border picture in one place.
+            </p>
           </Container>
         </Section>
 
