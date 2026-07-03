@@ -94,8 +94,8 @@ export default async function BookPage({
                   <p className="text-sm font-medium text-ink">Specialists in both tax systems, not generalists</p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     One team handles your US and UK position together &mdash; so your reliefs line up and nothing
-                    falls between the two systems. Your £100 consultation is a dedicated 30 minutes with a
-                    cross-border specialist, focused entirely on your situation.
+                    falls between the two systems. Your {tier.price} {isBusiness ? 'strategy session' : 'consultation'} is a
+                    dedicated {tier.durationLabel} with a cross-border specialist, focused entirely on your situation.
                   </p>
                 </div>
 
@@ -116,8 +116,8 @@ export default async function BookPage({
                 <div className="mt-4 rounded-xl border border-gold/30 bg-gold/5 p-5 text-sm">
                   <p className="font-medium text-ink">Just a quick question?</p>
                   <p className="mt-2 leading-relaxed text-muted">
-                    General queries are answered free by email &mdash; no booking needed. The £100
-                    consultation is for a dedicated, in-depth 30 minutes on your specific situation.
+                    General queries are answered free by email &mdash; no booking needed. The {tier.price}{' '}
+                    {isBusiness ? 'strategy session' : 'consultation'} is for a dedicated, in-depth {tier.durationLabel} on your specific situation.
                   </p>
                   <a href={`mailto:${SITE.email}`} className="mt-3 inline-block font-semibold text-navy hover:text-gold">
                     {SITE.email}
