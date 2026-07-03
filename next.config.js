@@ -20,6 +20,14 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      { source: '/about', destination: '/about/team', permanent: true },
+      { source: '/team', destination: '/about/team', permanent: true },
+      { source: '/booking', destination: '/book', permanent: true },
+      { source: '/consultation', destination: '/book', permanent: true },
+    ];
+  },
 };
 
 module.exports = nextConfig;
