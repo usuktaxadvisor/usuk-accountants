@@ -30,6 +30,9 @@ const inter = Inter({
 const SITE = 'https://www.usukaccountants.com';
 
 export const metadata: Metadata = {
+  other: {
+    'p:domain_verify': '300d476bbc12cf0707f068bee07ff022',
+  },
   metadataBase: new URL(SITE),
   title: {
     default: 'US UK Accountants | Cross-Border Tax & Accounting Specialists',

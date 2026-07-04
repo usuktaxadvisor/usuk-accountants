@@ -91,6 +91,8 @@ export const SITE = {
   rating: null,
   /** sameAs profiles — REPLACE '#' with real URLs as accounts go live (critical for GEO entity). */
   sameAs: [
+    { label: 'Instagram', href: 'https://www.instagram.com/usukaccountants/' },
+    { label: 'Pinterest', href: 'https://uk.pinterest.com/usukaccountants/' },
     { label: 'LinkedIn', href: '#' },
     { label: 'Google Business Profile', href: '#' },
     { label: 'Trustpilot', href: '#' },
