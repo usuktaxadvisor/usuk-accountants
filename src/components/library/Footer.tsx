@@ -1,6 +1,14 @@
 import Logo from '@/components/ui/Logo';
 import { LeadCaptureForm } from '@/components/library/Forms';
 import { footerColumns, legalLinks, PHONE_UK, PHONE_US } from '@/lib/site-data';
+import { IconInstagram, IconLinkedin, IconPinterest } from '@/components/ui/icons';
+
+const SOCIALS = [
+  { label: 'US UK Accountants on Instagram', href: 'https://www.instagram.com/usukaccountants/', Icon: IconInstagram },
+  { label: 'US UK Accountants on LinkedIn', href: 'https://www.linkedin.com/company/usukaccountants/', Icon: IconLinkedin },
+  { label: 'US UK Accountants on Pinterest', href: 'https://uk.pinterest.com/usukaccountants/', Icon: IconPinterest },
+];
+
 
 export default function Footer() {
   return (
@@ -58,7 +66,23 @@ export default function Footer() {
             current law. Please obtain advice from a qualified professional before acting on anything you read here.
           </p>
           <div className="mt-6 flex flex-col items-center justify-between gap-4 text-sm text-softwhite/60 md:flex-row">
-            <p>© {new Date().getFullYear()} US UK Accountants. All rights reserved.</p>
+            <div className="flex items-center gap-4">
+              <p>© {new Date().getFullYear()} US UK Accountants. All rights reserved.</p>
+              <div className="flex items-center gap-3">
+                {SOCIALS.map(({ label, href, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="text-softwhite/50 transition-all duration-200 hover:-translate-y-0.5 hover:text-gold"
+                  >
+                    <Icon className="h-[18px] w-[18px]" />
+                  </a>
+                ))}
+              </div>
+            </div>
             <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
               {legalLinks.map((l) => (
                 <a key={l.label} href={l.href} className="transition-colors hover:text-gold">{l.label}</a>
