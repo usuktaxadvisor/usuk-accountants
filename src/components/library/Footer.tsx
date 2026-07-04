@@ -1,12 +1,13 @@
 import Logo from '@/components/ui/Logo';
 import { LeadCaptureForm } from '@/components/library/Forms';
 import { footerColumns, legalLinks, PHONE_UK, PHONE_US } from '@/lib/site-data';
-import { IconInstagram, IconLinkedin, IconPinterest } from '@/components/ui/icons';
+import { IconInstagram, IconLinkedin, IconPinterest, IconYoutube } from '@/components/ui/icons';
 
 const SOCIALS = [
   { label: 'US UK Accountants on Instagram', href: 'https://www.instagram.com/usukaccountants/', Icon: IconInstagram },
   { label: 'US UK Accountants on LinkedIn', href: 'https://www.linkedin.com/company/usukaccountants/', Icon: IconLinkedin },
   { label: 'US UK Accountants on Pinterest', href: 'https://uk.pinterest.com/usukaccountants/', Icon: IconPinterest },
+  { label: 'US UK Accountants on YouTube', href: 'https://www.youtube.com/@USUKAccountants', Icon: IconYoutube },
 ];
 
 

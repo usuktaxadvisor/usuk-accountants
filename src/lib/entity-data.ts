@@ -24,7 +24,7 @@ export const CANONICAL = {
 /* ---------- Organization-level external profiles ---------- */
 
 export interface EntityProfile {
-  platform: 'LinkedIn' | 'Instagram' | 'Pinterest' | 'Google Business Profile' | 'Bing Places' | 'Crunchbase' | 'Trustpilot';
+  platform: 'LinkedIn' | 'Instagram' | 'Pinterest' | 'YouTube' | 'Google Business Profile' | 'Bing Places' | 'Crunchbase' | 'Trustpilot';
   /** Which office a GBP belongs to (GBP only). */
   office?: 'london' | 'new-york';
   /** Live URL. EMPTY until the profile exists. */
@@ -54,6 +54,7 @@ export const orgProfiles: EntityProfile[] = [
   { platform: 'LinkedIn', url: 'https://www.linkedin.com/company/usukaccountants', status: 'live', sameAs: true },
   { platform: 'Instagram', url: 'https://www.instagram.com/usukaccountants/', status: 'live', sameAs: true },
   { platform: 'Pinterest', url: 'https://uk.pinterest.com/usukaccountants/', status: 'live', sameAs: true },
+  { platform: 'YouTube', url: 'https://www.youtube.com/@USUKAccountants', status: 'live', sameAs: true },
   { platform: 'Bing Places', url: '', status: 'not-started', sameAs: true },
   { platform: 'Crunchbase', url: '', status: 'not-started', sameAs: true },
   { platform: 'Trustpilot', url: '', status: 'not-started', sameAs: true },
