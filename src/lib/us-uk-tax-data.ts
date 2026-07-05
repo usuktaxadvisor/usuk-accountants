@@ -19,6 +19,20 @@ export interface TaxFigure {
   source: { name: string; url: string };
   status: 'verified' | 'stable' | 'pending';
   checkedDate?: string;
+  /** Anchor slug — makes each figure individually linkable/citable, e.g. #feie-2025. */
+  id?: string;
+  /** When this figure took legal effect. */
+  effectiveDate?: string;
+  /** Date last confirmed against the primary source (audit trail). */
+  lastVerified?: string;
+  /** Year-over-year history — the AI-citable moat. */
+  history?: { year: string; value: string }[];
+  /** Deep link to the primary government reference. */
+  govReference?: { name: string; url: string };
+  /** Knowledge-graph links to the services this figure relates to. */
+  relatedServices?: { label: string; href: string }[];
+  /** Plain-English practical explanation (added in a reviewer-gated pass). */
+  explanation?: string;
 }
 
 /* ============================ US FEDERAL — EXPAT ============================ */
