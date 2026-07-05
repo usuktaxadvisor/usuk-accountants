@@ -151,3 +151,44 @@ export const US_FIGURES: TaxFigure[] = [
   ...US_FATCA_8938,
   ...US_STANDARD_DEDUCTION,
 ];
+
+export const UK_ALLOWANCES: TaxFigure[] = [
+  {
+    id: 'uk-isa-allowance',
+    label: 'UK ISA annual allowance',
+    value: '£20,000',
+    taxYear: '2025/26',
+    effectiveDate: '2024-04-06',
+    lastVerified: '2026-07-05',
+    note: 'The maximum you can pay into ISAs in a tax year across all ISA types combined.',
+    history: [
+      { year: '2017/18–2025/26', value: '£20,000' },
+      { year: '2015/16–2016/17', value: '£15,240' },
+    ],
+    source: { name: 'GOV.UK — Individual Savings Accounts', url: 'https://www.gov.uk/individual-savings-accounts' },
+    govReference: { name: 'GOV.UK — ISA guidance', url: 'https://www.gov.uk/individual-savings-accounts' },
+    relatedServices: [
+      { label: 'US tax on UK ISAs (PFIC)', href: '/services/us-expat-tax' },
+    ],
+    status: 'stable',
+  },
+  {
+    id: 'uk-vat-threshold',
+    label: 'UK VAT registration threshold',
+    value: '£90,000',
+    taxYear: '2025/26',
+    effectiveDate: '2024-04-01',
+    lastVerified: '2026-07-05',
+    note: 'Businesses must register for VAT once taxable turnover exceeds this in any rolling 12-month period.',
+    history: [
+      { year: 'From 1 Apr 2024', value: '£90,000' },
+      { year: '2017–2024', value: '£85,000' },
+    ],
+    source: { name: 'GOV.UK — VAT registration', url: 'https://www.gov.uk/vat-registration/when-to-register' },
+    govReference: { name: 'GOV.UK — VAT thresholds', url: 'https://www.gov.uk/vat-registration-thresholds' },
+    relatedServices: [
+      { label: 'VAT Returns', href: '/services/uk-accounting' },
+    ],
+    status: 'stable',
+  },
+];
