@@ -25,7 +25,7 @@ const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
 
 function FigureRow({ f }: { f: TaxFigure }) {
   return (
-    <tr className="border-t border-mist align-top">
+    <tr id={f.id} className="border-t border-mist align-top">
       <td className="px-4 py-4 font-medium text-ink">{f.label}</td>
       <td className="px-4 py-4 whitespace-nowrap font-semibold text-navy">
         {f.value}

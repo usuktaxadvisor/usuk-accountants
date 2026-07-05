@@ -38,6 +38,7 @@ export interface TaxFigure {
 /* ============================ US FEDERAL — EXPAT ============================ */
 
 export const US_FEIE: TaxFigure = {
+  id: 'feie',
   label: 'Foreign Earned Income Exclusion (FEIE) maximum',
   value: '$130,000',
   taxYear: '2025',
@@ -47,6 +48,7 @@ export const US_FEIE: TaxFigure = {
 };
 
 export const US_FBAR: TaxFigure = {
+  id: 'fbar-threshold',
   label: 'FBAR (FinCEN 114) reporting threshold',
   value: '$10,000',
   taxYear: 'All years',
