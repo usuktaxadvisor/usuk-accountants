@@ -5,8 +5,7 @@ import {
 import { authors } from '@/lib/authority-data';
 import {
   US_FEIE, US_FBAR, US_FATCA_8938, US_STANDARD_DEDUCTION,
-  US_FILING_DEADLINES, TREATY_ARTICLES, TREATY_SOURCE, type TaxFigure,
-} from '@/lib/us-uk-tax-data';
+  US_FILING_DEADLINES, TREATY_ARTICLES, TREATY_SOURCE, type TaxFigure, UK_ALLOWANCES } from '@/lib/us-uk-tax-data';
 import {
   TAX_YEAR_LABEL, UK_INCOME_TAX, UK_CORP_TAX,
 } from '@/lib/tax-rates';
@@ -172,6 +171,7 @@ export default function TaxDataCentre() {
             <DataTable id="us-expat" title="US federal figures (expat)" figures={[US_FEIE, US_FBAR, ...US_FATCA_8938, ...US_STANDARD_DEDUCTION]} />
             <DataTable id="us-deadlines" title="US filing deadlines" figures={US_FILING_DEADLINES} />
             <DataTable id="uk-rates" title={`UK rates & deadlines (${TAX_YEAR_LABEL})`} figures={ukRates} />
+            <DataTable id="uk-allowances" title="UK allowances & thresholds" figures={UK_ALLOWANCES} />
 
             <div id="treaty" className="mt-12 scroll-mt-24">
               <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">
