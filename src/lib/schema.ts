@@ -27,6 +27,11 @@ export function organizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'AccountingService',
     '@id': ORG_ID,
+    identifier: {
+      '@type': 'PropertyValue',
+      propertyID: 'UK Companies House',
+      value: '17336015',
+    },
     name: SITE.name,
     alternateName: 'USUKAccountants',
     legalName: SITE.legalName,

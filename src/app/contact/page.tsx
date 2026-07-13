@@ -146,6 +146,7 @@ export default async function ContactPage({
                 </Link>
               </aside>
             </div>
+          <p className="mt-10 text-center text-xs text-muted">US UK Accountants Ltd · Registered in England &amp; Wales, Company No. 17336015</p>
           </Container>
         </div>
       </main>
