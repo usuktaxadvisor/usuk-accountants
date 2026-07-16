@@ -162,9 +162,9 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
   {
     id: 'business',
     name: 'Business & Cross-Border Strategy Session',
-    price: '£300',
-    priceValue: 300,
-    durationLabel: '60 minutes',
+    price: '£200',
+    priceValue: 200,
+    durationLabel: '45 minutes',
     tagline: 'A working session on structure, exposure and strategy for owners and businesses operating across both systems.',
     idealFor: [
       'Business owners & entrepreneurs',

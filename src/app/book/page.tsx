@@ -10,7 +10,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Book a Consultation',
   description:
-    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£100) or business & cross-border strategy session (£300), credited to your first engagement. General questions answered free by email.',
+    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£100) or business & cross-border strategy session (£200), credited to your first engagement. General questions answered free by email.',
   alternates: { canonical: 'https://www.usukaccountants.com/book' },
 };
 

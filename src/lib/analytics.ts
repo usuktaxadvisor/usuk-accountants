@@ -49,7 +49,7 @@ export const analytics = {
       lead_type: 'booking',
       consultation_type: tier,
       situation,
-      value: tier === 'business' ? 300 : 100,
+      value: tier === 'business' ? 200 : 100,
       currency: 'GBP',
     }),
 
