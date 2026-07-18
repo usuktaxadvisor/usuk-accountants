@@ -193,7 +193,7 @@ export default function SelfAssessmentPenaltyCalculator() {
         <p className="font-display text-lg font-semibold text-ink">Behind on a return, or facing penalties?</p>
         <p className="mt-2 text-sm text-muted">
           We file Self Assessment returns for cross-border clients and can often reduce penalties with a
-          reasonable-excuse claim. The first consultation is £100 for a focused 30 minutes.
+          reasonable-excuse claim. The first consultation is £200 for a focused 30 minutes.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link

@@ -146,6 +146,7 @@ export default async function ContactPage({
                 </Link>
               </aside>
             </div>
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm text-muted">For most enquiries, we recommend contacting us by email. Our team aims to respond to all email enquiries within 3 business hours during business days. If your matter requires personalised tax advice or a detailed discussion, please book a consultation with one of our specialists.</p>
           <p className="mt-10 text-center text-xs text-muted">US UK Accountants Ltd · Registered in England &amp; Wales, Company No. 17336015</p>
           </Container>
         </div>

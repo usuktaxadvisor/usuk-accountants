@@ -105,7 +105,7 @@ export function Hero({
             <div className="mt-6 flex items-center justify-between rounded-lg bg-navy-ink/80 px-5 py-4">
               <div>
                 <p className="text-xs text-softwhite/60">Private consultation</p>
-                <p className="font-display text-2xl font-semibold text-gold-champagne">£100 · 30 minutes</p>
+                <p className="font-display text-2xl font-semibold text-gold-champagne">£200 · 30 minutes</p>
               </div>
               <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">No double tax</span>
             </div>

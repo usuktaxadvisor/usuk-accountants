@@ -94,7 +94,7 @@ export default function CorporationTaxCalculator() {
         <p className="font-display text-lg font-semibold text-ink">Own a UK company as a US citizen?</p>
         <p className="mt-2 text-sm text-muted">
           UK Corporation Tax is only half the picture — the same profits can trigger US tax under
-          GILTI/NCTI. We coordinate both so you don&rsquo;t overpay. The first consultation is £100 for a focused 30 minutes.
+          GILTI/NCTI. We coordinate both so you don&rsquo;t overpay. The first consultation is £200 for a focused 30 minutes.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link

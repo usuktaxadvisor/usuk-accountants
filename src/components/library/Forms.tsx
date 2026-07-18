@@ -234,7 +234,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
         <h3 className="mt-4 font-display text-xl font-semibold text-ink">Request received</h3>
         <p className="mt-2 text-sm text-muted">
           Thanks — we&apos;ve received your details at {data.email} and a specialist will email you shortly
-          with available times and a secure link to confirm and pay for your £100 consultation. Prefer a
+          with available times and a secure link to confirm and pay for your £200 consultation. Prefer a
           quick answer at no charge? Just reply with your question.
         </p>
       </div>
@@ -280,7 +280,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
       {step === 2 && (
         <div className="space-y-4">
           <div className="rounded-lg bg-porcelain p-4 text-sm">
-            <p className="text-muted">Booking a £100 30-minute consultation for:</p>
+            <p className="text-muted">Booking a £200 30-minute consultation for:</p>
             <p className="mt-1 font-medium text-ink">{data.name} · {data.email}</p>
           </div>
           <Checkbox id="b-consent" checked={data.consent} onChange={(v) => set('consent', v)}>

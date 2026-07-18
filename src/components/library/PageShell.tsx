@@ -132,7 +132,7 @@ export function PageShell({
 
         <CTASection
           title={ctaTitle ?? 'Book a private consultation'}
-          intro={ctaIntro ?? 'A focused 30-minute consultation with a US–UK specialist for £100 — a clear view of where you stand on both sides of the Atlantic. Prefer to ask a quick question first? Email us; general queries are answered free.'}
+          intro={ctaIntro ?? 'A focused 30-minute consultation with a US–UK specialist for £200 — a clear view of where you stand on both sides of the Atlantic. Prefer to ask a quick question first? Email us; general queries are answered free.'}
           tone="navy"
         />
       </main>
