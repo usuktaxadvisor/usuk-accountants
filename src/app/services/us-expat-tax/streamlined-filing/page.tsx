@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import {
   PageShell, Section, Container,
-  WhoItsFor, ProcessSteps, InvestmentBand, KeyFacts, RelatedLinks,
+  WhoItsFor, ProcessSteps, InvestmentBand, KeyFacts, RelatedLinks, ComparisonTable,
 } from '@/components/library';
 import { authors } from '@/lib/authority-data';
 
@@ -97,6 +98,64 @@ export default function StreamlinedFiling() {
                 { label: 'Best time to act', value: 'Before the IRS contacts you' },
               ]}
             />
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="white">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-display text-2xl font-semibold text-ink">Streamlined Foreign vs Streamlined Domestic</h2>
+            <p className="mt-3 text-muted">There are two Streamlined tracks. Which one applies depends chiefly on whether you meet the non-residency test — broadly, whether you have been living outside the US. Most Americans in the UK fall under the Foreign procedure, which is generally penalty-free.</p>
+          </div>
+          <div className="mx-auto mt-8 max-w-3xl">
+            <ComparisonTable
+              data={{
+                columns: ['', 'Streamlined Foreign (SFOP)', 'Streamlined Domestic (SDOP)'],
+                highlightColumn: 1,
+                rows: [
+                  { label: 'Typically for', values: ['US persons living abroad', 'US-resident taxpayers'] },
+                  { label: 'Residency test', values: ['Meets non-residency requirement', 'Does not meet it'] },
+                  { label: 'Miscellaneous offshore penalty', values: ['Generally waived', '5%'] },
+                  { label: 'Tax returns required', values: ['Last 3 years', 'Last 3 years'] },
+                  { label: 'FBARs required', values: ['Last 6 years', 'Last 6 years'] },
+                  { label: 'Non-willful certification', values: [true, true] },
+                  { label: 'Common audience', values: ['Americans in the UK', 'Those who have returned to the US'] },
+                ],
+              }}
+            />
+            <p className="mt-4 text-sm text-muted">Both tracks require the same core package; the key differences are eligibility and whether a penalty applies. If you are unsure which fits you, that is exactly what the eligibility review confirms. See also our guides to <Link href="/resources/blog/irs-form-8833-explained" className="text-navy underline hover:text-gold">Form 8833</Link> and the <Link href="/resources/blog/us-uk-tax-treaty-explained" className="text-navy underline hover:text-gold">US-UK tax treaty</Link>.</p>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="white">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-display text-2xl font-semibold text-ink">What to prepare</h2>
+            <p className="mt-3 text-muted">Having these to hand makes the process faster. Do not worry if some are missing — part of the eligibility review is identifying what is needed and how to obtain it.</p>
+            <ul className="mt-4 space-y-2 text-muted">
+              <li>Income records for the last three years (employment, self-employment, pensions, investments).</li>
+              <li>Foreign account statements or balances for each of the last six years, for the FBARs.</li>
+              <li>Details of UK pensions, ISAs and any rental property.</li>
+              <li>Your Social Security Number and any prior US filings.</li>
+              <li>A note of the circumstances behind the missed filings, to support the non-willful certification.</li>
+            </ul>
+          </div>
+        </Container>
+      </Section>
+
+      <Section tone="white">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="font-display text-2xl font-semibold text-ink">Who does not qualify</h2>
+            <p className="mt-3 text-muted">Streamlined is designed for genuine, non-willful oversights. It is generally not available where:</p>
+            <ul className="mt-4 space-y-2 text-muted">
+              <li>The failure to file was willful — a deliberate choice to avoid filing rather than a good-faith misunderstanding.</li>
+              <li>The IRS has already opened an examination or investigation into your returns.</li>
+              <li>The IRS has already contacted you about the delinquency.</li>
+            </ul>
+            <p className="mt-3 text-sm text-muted">If any of these apply, other routes may exist — but Streamlined itself is unlikely to be the right one, and specialist advice is essential.</p>
           </div>
         </Container>
       </Section>
