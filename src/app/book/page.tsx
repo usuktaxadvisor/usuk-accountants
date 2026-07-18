@@ -219,6 +219,7 @@ export default async function BookPage({
                 </div>
               </div>
 
+              <p className="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-muted">For most enquiries, we recommend contacting us by email. Our team aims to respond to all email enquiries within 3 business hours during business days. If your matter requires personalised tax advice or a detailed discussion, please book a consultation with one of our specialists.</p>
               <p className="mt-8 text-center text-sm text-muted">
                 Not sure you need a full consultation yet?{' '}
                 <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">
