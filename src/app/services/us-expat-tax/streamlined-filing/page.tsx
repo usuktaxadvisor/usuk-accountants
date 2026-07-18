@@ -111,8 +111,8 @@ export default function StreamlinedFiling() {
           <div className="mx-auto mt-8 max-w-3xl">
             <ComparisonTable
               data={{
-                columns: ['', 'Streamlined Foreign (SFOP)', 'Streamlined Domestic (SDOP)'],
-                highlightColumn: 1,
+                columns: ['Streamlined Foreign (SFOP)', 'Streamlined Domestic (SDOP)'],
+                highlightColumn: 0,
                 rows: [
                   { label: 'Typically for', values: ['US persons living abroad', 'US-resident taxpayers'] },
                   { label: 'Residency test', values: ['Meets non-residency requirement', 'Does not meet it'] },
