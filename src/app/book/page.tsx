@@ -224,7 +224,7 @@ export default async function BookPage({
                 Not sure you need a full consultation yet?{' '}
                 <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">
                   Email us your question free
-                </a>{' '}
+                </a>{' '}at{' '}<span className="font-medium text-navy">{SITE.email}</span>{' '}
                 &mdash; we answer general queries at no charge.
               </p>
             </div>

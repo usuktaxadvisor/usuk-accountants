@@ -117,7 +117,7 @@ export default function BookingEmbed({
           </a>
           <br />
           Just a quick question?{' '}
-          <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">Email us free</a>.
+          <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">Email us free</a> at <span className="font-medium text-navy">{SITE.email}</span>.
         </p>
       </div>
     );
