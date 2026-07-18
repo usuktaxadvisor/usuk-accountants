@@ -118,7 +118,7 @@ export default function BusinessStructuring() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          '£100 30-minute consultation',
+          '£300 30-minute consultation',
           'Paid strategy session for structuring, credited to later work',
           'Entity and election options modelled to your figures',
           'Elections made on time and carried into both filings',

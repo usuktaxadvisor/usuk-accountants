@@ -118,7 +118,7 @@ export default function CrossBorderTaxPlanning() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          '£100 30-minute consultation',
+          '£300 30-minute consultation',
           'Paid strategy session for detailed modelling, credited to later work',
           'Relief sequencing and timing modelled to your figures',
           'A written, defensible position you can act on',

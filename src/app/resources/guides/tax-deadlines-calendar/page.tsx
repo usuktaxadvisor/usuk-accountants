@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: 'What happens if I miss a deadline?',
-    a: 'It depends which one. HMRC charges an automatic £100 for a late Self Assessment return plus escalating penalties and interest; the IRS charges failure-to-file and failure-to-pay penalties plus interest, and information returns like the FBAR and Form 5471 carry their own steep penalties. Where a deadline has been missed, acting quickly — and, for missed US filings, considering the Streamlined programme — usually limits the damage.',
+    a: 'It depends which one. HMRC charges an automatic £200 for a late Self Assessment return plus escalating penalties and interest; the IRS charges failure-to-file and failure-to-pay penalties plus interest, and information returns like the FBAR and Form 5471 carry their own steep penalties. Where a deadline has been missed, acting quickly — and, for missed US filings, considering the Streamlined programme — usually limits the damage.',
   },
 ];
 

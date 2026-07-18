@@ -126,7 +126,7 @@ export default function StreamlinedFiling() {
       <InvestmentBand
         fromLabel="Fixed-package pricing, quoted upfront"
         points={[
-          'Confidential £100 eligibility consultation',
+          'Confidential £200 eligibility consultation',
           'One fixed price for the full Streamlined package',
           'Returns, FBARs and certification included',
           'Specialist preparation with independent review',

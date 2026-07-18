@@ -19,7 +19,7 @@ const author = authors.find((a) => a.slug === 'sam-h')!;
 const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
 
 const faqs = [
-  { q: 'Are these tax calculators free to use?', a: 'Yes. Every tool here is free and gives an indicative estimate to help you understand your cross-border position. They are educational, not formal advice — for a precise answer we offer a £100 30-minute consultation, and general questions are answered free by email.' },
+  { q: 'Are these tax calculators free to use?', a: 'Yes. Every tool here is free and gives an indicative estimate to help you understand your cross-border position. They are educational, not formal advice — for a precise answer we offer a £300 30-minute consultation, and general questions are answered free by email.' },
   { q: 'How accurate are the estimates?', a: 'They use current headline rules and rates to give a directional figure. Real outcomes depend on the full detail of your situation, which is why each tool ends with the option to speak to a specialist.' },
 ];
 
@@ -39,7 +39,7 @@ export default function CalculatorHub() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="Want a precise answer for your situation?"
-      ctaIntro="The tools give you a direction. A £100 30-minute consultation gives you certainty — and quick questions are answered free by email."
+      ctaIntro="The tools give you a direction. A £300 30-minute consultation gives you certainty — and quick questions are answered free by email."
     >
       <Section tone="white">
         <Container>

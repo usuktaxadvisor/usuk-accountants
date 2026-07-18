@@ -8,7 +8,7 @@ const URL = 'https://www.usukaccountants.com/resources/calculators/self-assessme
 export const metadata: Metadata = {
   title: 'Self Assessment Deadline & Penalty Calculator — HMRC Late Filing',
   description:
-    'Free UK Self Assessment tool: see your filing and payment deadlines and estimate HMRC late-filing penalties — the £100 fixed penalty, daily penalties, and the 6 and 12-month charges.',
+    'Free UK Self Assessment tool: see your filing and payment deadlines and estimate HMRC late-filing penalties — the £200 fixed penalty, daily penalties, and the 6 and 12-month charges.',
   alternates: { canonical: URL },
 };
 
@@ -22,7 +22,7 @@ const faqs = [
   },
   {
     q: 'What is the penalty for filing Self Assessment late?',
-    a: 'You get an automatic £100 penalty the moment you miss the deadline, even if you owe no tax or have nothing to pay. After 3 months, daily penalties of £10 apply for up to 90 days (a maximum of £900). After 6 months and again after 12 months, a further penalty of the greater of 5% of the tax due or £300 is charged.',
+    a: 'You get an automatic £200 penalty the moment you miss the deadline, even if you owe no tax or have nothing to pay. After 3 months, daily penalties of £10 apply for up to 90 days (a maximum of £900). After 6 months and again after 12 months, a further penalty of the greater of 5% of the tax due or £300 is charged.',
   },
   {
     q: 'Are late-payment penalties different from late-filing penalties?',
@@ -40,7 +40,7 @@ export default function SelfAssessmentDeadlinePage() {
       url={URL}
       eyebrow="Calculator"
       title="Self Assessment Deadline & Penalty"
-      answer="Find your UK Self Assessment deadlines and estimate HMRC's late-filing penalties. The online deadline is 31 January, and missing it triggers an immediate £100 penalty — then daily charges after 3 months and percentage penalties at 6 and 12 months. Pick your tax year and how late you'll be to see the figures."
+      answer="Find your UK Self Assessment deadlines and estimate HMRC's late-filing penalties. The online deadline is 31 January, and missing it triggers an immediate £200 penalty — then daily charges after 3 months and percentage penalties at 6 and 12 months. Pick your tax year and how late you'll be to see the figures."
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Calculators', href: '/resources/calculators' },

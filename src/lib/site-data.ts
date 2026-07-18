@@ -108,19 +108,19 @@ export const SITE = {
  * Consultation model (single source of truth).
  * Free route: general questions answered by email at no charge.
  * Paid route: a private, pre-booked 30-minute consultation with a specialist,
- * £100, self-scheduled. Premium positioning. Never reintroduce "£100 consultation" copy.
+ * £200, self-scheduled. Premium positioning. Never reintroduce "£200 consultation" copy.
  */
 export const CONSULTATION = {
-  price: '£100',
-  priceValue: 100,
+  price: '£300',
+  priceValue: 300,
   currency: 'GBP',
   durationMins: 30,
   durationLabel: '30-minute',
   ctaLabel: 'Book a consultation',
   ctaTitle: 'Book a private consultation',
   ctaIntro:
-    'A focused 30-minute consultation with a US–UK specialist for £100. Prefer to ask a quick question first? Email us — general queries are answered free.',
-  blurb: 'A dedicated 30-minute private consultation with a cross-border specialist — £100, booked at a time that suits you.',
+    'A focused 30-minute consultation with a US–UK specialist for £200. Prefer to ask a quick question first? Email us — general queries are answered free.',
+  blurb: 'A dedicated 30-minute private consultation with a cross-border specialist — £200, booked at a time that suits you.',
   freeEmailLine: 'General questions are answered free by email at hello@usukaccountants.com.',
 } as const;
 
@@ -143,8 +143,8 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
   {
     id: 'individual',
     name: 'Individual Tax Consultation',
-    price: '£100',
-    priceValue: 100,
+    price: '£200',
+    priceValue: 200,
     durationLabel: '30 minutes',
     tagline: 'A focused session on your personal US–UK tax position, with clear next steps. For personal tax matters only — company, LLC and business structuring enquiries need the Business Strategy Session.',
     idealFor: [
@@ -162,9 +162,9 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
   {
     id: 'business',
     name: 'Business & Cross-Border Strategy Session',
-    price: '£200',
-    priceValue: 200,
-    durationLabel: '45 minutes',
+    price: '£300',
+    priceValue: 300,
+    durationLabel: '30 minutes',
     tagline: 'A working session on structure, exposure and strategy for owners and businesses operating across both systems.',
     idealFor: [
       'Business owners & entrepreneurs',
@@ -340,7 +340,7 @@ export const audiences: AudienceItem[] = [
 ];
 
 export const processSteps: ProcessStep[] = [
-  { title: 'Book a consultation', description: 'A focused 30-minute paid consultation (£100) to understand your situation on both sides. Quick questions are answered free by email.' },
+  { title: 'Book a consultation', description: 'A focused 30-minute paid consultation (£200) to understand your situation on both sides. Quick questions are answered free by email.' },
   { title: 'Tailored plan', description: 'A clear, fixed-fee plan covering exactly what you need filed.' },
   { title: 'We file & optimise', description: 'We prepare, review and submit — minimising tax legally.' },
   { title: 'Year-round support', description: 'Deadlines tracked and questions answered all year.' },
@@ -377,7 +377,7 @@ export const team: TeamMember[] = [
 /**
  * Pricing tiers — INTENTIONALLY EMPTY.
  *
- * The firm's pricing model is: free email queries → paid £100 30-minute
+ * The firm's pricing model is: free email queries → paid £200 30-minute
  * consultation (self-booked) → bespoke, complexity-based engagement
  * ("from £X", always premium). It deliberately
  * does NOT use fixed annual packages. Do not populate this with fixed-price

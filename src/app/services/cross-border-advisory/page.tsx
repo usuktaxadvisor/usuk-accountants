@@ -114,7 +114,7 @@ export default function CrossBorderAdvisoryPillar() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          '£100 30-minute consultation',
+          '£300 30-minute consultation',
           'Paid strategy session for detailed planning, credited to later work',
           'Written positions with reasoning, risks and reporting set out',
           'Advice coordinated into your real US and UK filings',

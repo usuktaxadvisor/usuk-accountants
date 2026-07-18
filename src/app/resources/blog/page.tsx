@@ -81,7 +81,7 @@ export default function BlogIndex() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Have a question an article didn't answer?"
-      ctaIntro="Every situation is different. Book a £100 30-minute consultation and we'll give you a clear answer for yours — or email us free for a quick question."
+      ctaIntro="Every situation is different. Book a £300 30-minute consultation and we'll give you a clear answer for yours — or email us free for a quick question."
     >
       <Section tone="white">
         <Container>

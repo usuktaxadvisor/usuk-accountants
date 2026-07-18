@@ -111,7 +111,7 @@ export default function UsExpatTaxPillar() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          '£100 30-minute consultation',
+          '£300 30-minute consultation',
           'Fixed-scope quote before any work begins',
           'US filing coordinated with your UK return',
           'Specialist preparation and independent review',

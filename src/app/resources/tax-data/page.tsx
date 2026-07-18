@@ -93,7 +93,7 @@ export default function TaxDataCentre() {
       label: 'UK personal allowance',
       value: `£${UK_INCOME_TAX.personalAllowance.toLocaleString()}`,
       taxYear: TAX_YEAR_LABEL,
-      note: 'The tax-free personal allowance, tapered away for income over £100,000.',
+      note: 'The tax-free personal allowance, tapered away for income over £200,000.',
       source: { name: 'HMRC — Income Tax rates and allowances', url: 'https://www.gov.uk/income-tax-rates' },
       status: 'stable',
     },

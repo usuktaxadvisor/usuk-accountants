@@ -119,7 +119,7 @@ export default function Pensions401kSipp() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          '£100 30-minute consultation',
+          '£300 30-minute consultation',
           'Paid strategy session for pension positions, credited to later work',
           'Conservative and alternative positions explained plainly',
           'Reporting handled, including Form 8833 where required',

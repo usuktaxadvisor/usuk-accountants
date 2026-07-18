@@ -43,7 +43,7 @@ const bands: { service: string; from: string; drivers: string }[] = [
   },
   {
     service: 'FBAR (FinCEN 114)',
-    from: 'from £100',
+    from: 'from £200',
     drivers: 'Number of foreign accounts to report. Often bundled with the federal return.',
   },
   {
@@ -106,14 +106,14 @@ export default function PricingPage() {
       url={URL}
       eyebrow="Pricing"
       title="How much does a US–UK tax accountant cost?"
-      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance, and the £100 consultation is credited to your first engagement."
+      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance, and the £200 consultation is credited to your first engagement."
       crumbs={[{ label: 'Pricing', href: URL }]}
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-07-01"
       faqs={faqs}
       ctaTitle="Want an exact quote for your situation?"
-      ctaIntro="Email us a short description for a free steer, or book a £100 consultation — credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
+      ctaIntro="Email us a short description for a free steer, or book a £300 consultation — credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
     >
       <JsonLd schema={offerCatalogSchema} />
       <Section tone="porcelain">
@@ -188,7 +188,7 @@ export default function PricingPage() {
         points={[
           'Fixed-scope quote in writing before any work begins',
           'US and UK sides coordinated by one firm',
-          '£100 consultation credited to your first engagement',
+          '£200 consultation credited to your first engagement',
           'No open-ended hourly billing, ever',
         ]}
         note="Streamlined catch-up filing and company work are quoted as fixed packages after your consultation."
@@ -200,7 +200,7 @@ export default function PricingPage() {
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Federal and state returns, FBAR, FATCA and Streamlined Filing.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Self Assessment, company accounts, Corporation Tax and payroll.' },
           { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty planning, pensions, structuring and estate coordination.' },
-          { label: 'Book a consultation', href: '/book', description: 'A £100 30-minute session, credited to your first engagement.' },
+          { label: 'Book a consultation', href: '/book', description: 'A £300 30-minute session, credited to your first engagement.' },
         ]}
       />
     </PageShell>
