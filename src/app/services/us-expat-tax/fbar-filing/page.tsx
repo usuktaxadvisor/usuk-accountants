@@ -201,6 +201,11 @@ export default function FbarFiling() {
       <RelatedLinks
         title="Related areas we handle"
         links={[
+          {
+            label: 'US Tax Returns hub',
+            href: '/services/us-expat-tax/us-tax-returns/hub',
+            description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
+          },
           { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker', description: 'Free tool: do you need to file?' },
           { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years penalty-free' },
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Our full US tax service for the UK' },
