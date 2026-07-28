@@ -197,6 +197,11 @@ export default function StreamlinedFiling() {
         title="Further reading"
         links={[
           {
+            label: 'Streamlined vs Delinquent FBAR',
+            href: '/resources/compare/streamlined-filing-vs-delinquent-fbar',
+            description: 'Which catch-up route fits your situation',
+          },
+          {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',

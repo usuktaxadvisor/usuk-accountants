@@ -199,6 +199,11 @@ export default function ForeignTaxCredit() {
         title="Further reading"
         links={[
           {
+            label: 'Foreign Tax Credit vs Treaty',
+            href: '/resources/compare/foreign-tax-credit-vs-tax-treaty',
+            description: 'Two tools for avoiding double taxation',
+          },
+          {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
