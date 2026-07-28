@@ -40,8 +40,16 @@ const faqs = [
 ];
 
 export default function UsTaxReturnsHubPage() {
+  const howToSteps = [
+              { title: '1. File your annual Form 1040', description: 'Report worldwide income and apply the FEIE or foreign tax credit to avoid double taxation.' },
+              { title: '2. Report foreign accounts (FBAR / Form 8938)', description: 'Separate information reports triggered by foreign account balances over the thresholds.' },
+              { title: '3. Catch up on any missed years', description: 'Use the Delinquent FBAR procedures or Streamlined Filing depending on whether income was reported.' },
+              { title: '4. Plan forward', description: 'Set up a repeatable annual process so future filings are simple and penalty-free.' },
+            ];
+
   return (
     <PageShell
+      howTo={{ name: 'How to file US tax returns from the UK', steps: howToSteps }}
       url={url}
       eyebrow="US Tax Returns"
       title="US Tax Returns from the UK - the complete hub"
@@ -95,12 +103,7 @@ export default function UsTaxReturnsHubPage() {
           <ProcessSteps
             eyebrow="The building blocks"
             title="Work through US tax returns in order"
-            steps={[
-              { title: '1. File your annual Form 1040', description: 'Report worldwide income and apply the FEIE or foreign tax credit to avoid double taxation.' },
-              { title: '2. Report foreign accounts (FBAR / Form 8938)', description: 'Separate information reports triggered by foreign account balances over the thresholds.' },
-              { title: '3. Catch up on any missed years', description: 'Use the Delinquent FBAR procedures or Streamlined Filing depending on whether income was reported.' },
-              { title: '4. Plan forward', description: 'Set up a repeatable annual process so future filings are simple and penalty-free.' },
-            ]}
+            steps={howToSteps}
           />
         </Container>
       </Section>

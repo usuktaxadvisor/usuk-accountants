@@ -11,6 +11,7 @@ import {
   organizationSchema, websiteSchema, breadcrumbSchema, faqSchema,
   personSchema, articleSchema, speakableSchema, serviceSchema,
   type Crumb, type FaqEntry, type PersonInput, type ServiceSchemaInput,
+  howToSchema, type HowToInput,
 } from '@/lib/schema';
 import type { Author } from '@/lib/types';
 
@@ -32,6 +33,7 @@ export interface PageShellProps {
   /** Optional schema add-ons */
   faqs?: FaqEntry[];
   service?: ServiceSchemaInput;
+  howTo?: HowToInput;
 
   /** Page body */
   children: ReactNode;
@@ -65,6 +67,7 @@ export function PageShell({
   author, reviewedBy, datePublished, dateModified,
   faqs, service,
   children, ctaTitle, ctaIntro,
+  howTo,
 }: PageShellProps) {
   const schemas: object[] = [
     organizationSchema(),
@@ -85,6 +88,7 @@ export function PageShell({
   if (reviewedBy) schemas.push(personSchema(toPersonInput(reviewedBy)));
   if (faqs?.length) schemas.push(faqSchema(faqs));
   if (service) schemas.push(serviceSchema(service));
+  if (howTo?.steps?.length) schemas.push(howToSchema(howTo));
 
   return (
     <>

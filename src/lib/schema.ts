@@ -278,3 +278,29 @@ export function definedTermSetSchema(terms: DefinedTermInput[]) {
     })),
   };
 }
+
+export interface HowToStep {
+  title: string;
+  description: string;
+}
+
+export interface HowToInput {
+  name: string;
+  description?: string;
+  steps: HowToStep[];
+}
+
+export function howToSchema(input: HowToInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: input.name,
+    ...(input.description ? { description: input.description } : {}),
+    step: input.steps.map((s, i) => ({
+      '@type': 'HowToStep',
+      position: i + 1,
+      name: s.title,
+      text: s.description,
+    })),
+  };
+}
