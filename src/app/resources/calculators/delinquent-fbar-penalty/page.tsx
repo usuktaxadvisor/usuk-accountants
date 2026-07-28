@@ -12,7 +12,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/resources/calculators/delinquent-fbar-penalty';
 
 export const metadata: Metadata = {
-  title: 'Delinquent FBAR Penalty Estimator | US UK Accountants',
+  title: 'Delinquent FBAR Penalty Estimator',
   description:
     'Estimate potential FBAR penalty exposure and see which IRS catch-up procedure likely applies to your situation.',
   alternates: { canonical: url },

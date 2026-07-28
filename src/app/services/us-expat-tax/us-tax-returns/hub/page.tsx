@@ -15,7 +15,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/services/us-expat-tax/us-tax-returns/hub';
 
 export const metadata: Metadata = {
-  title: 'US Tax Returns for Americans in the UK - Complete Hub | US UK Accountants',
+  title: 'US Tax Returns for Americans in the UK - Complete Hub',
   description:
     'The complete resource hub for US tax returns from the UK: Form 1040, FBAR, delinquent-FBAR catch-up, Streamlined Filing, calculators and glossary.',
   alternates: { canonical: url },

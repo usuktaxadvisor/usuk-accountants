@@ -54,6 +54,7 @@ export default function DelinquentFbarPenaltyCalculator() {
 
   return (
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h2 className="mb-2 font-display text-2xl font-semibold leading-snug text-ink">Estimate your FBAR penalty exposure</h2>
       <p className="mb-4 text-sm text-slate-500">
         Answer up to two questions to see which IRS catch-up procedure typically applies. General guidance only, not advice.
       </p>

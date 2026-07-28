@@ -15,7 +15,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/resources/guides/delinquent-fbar';
 
 export const metadata: Metadata = {
-  title: 'Delinquent FBAR Guide: How to File Late FBARs the Right Way | US UK Accountants',
+  title: 'Delinquent FBAR Guide: How to File Late FBARs the Right Way',
   description:
     'A step-by-step guide to catching up on missed FBARs from the UK: the Delinquent FBAR Submission Procedures, reasonable cause, and when Streamlined Filing is a better fit.',
   alternates: { canonical: url },
