@@ -115,10 +115,6 @@ export default function UsTaxReturnsHubPage() {
               { label: 'Catch-up (income unreported)', value: 'Streamlined Filing' },
             ]}
           />
-          <p style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '1rem' }}>
-            Figures and procedures shown are general guidance and should be confirmed against
-            current-year IRS rules by a professional before you rely on them.
-          </p>
         </Container>
       </Section>
       <Section>

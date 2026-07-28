@@ -31,7 +31,7 @@ function assess(income: IncomeReported, willful: Willful): Outcome | null {
     return {
       route: 'Streamlined Filing Compliance Procedures',
       routeHref: '/services/us-expat-tax/streamlined-filing',
-      exposure: 'Illustrative: reduced or nil offshore penalty for those who qualify as non-willful and reside abroad.',
+      exposure: 'Reduced or nil offshore penalty for those who qualify as non-willful and reside abroad.',
       summary:
         'Unreported income plus non-willful conduct usually points to the Streamlined route, which requires a non-willfulness certification (Form 14653 for those abroad).',
       tone: 'caution',
@@ -40,7 +40,7 @@ function assess(income: IncomeReported, willful: Willful): Outcome | null {
   return {
     route: 'Speak to a specialist before acting',
     routeHref: '/book',
-    exposure: 'Illustrative only: willful cases can carry substantially higher exposure and may require the Voluntary Disclosure Practice.',
+    exposure: 'Willful cases can carry substantially higher exposure and may require the Voluntary Disclosure Practice.',
     summary:
       'Where conduct may have been willful, or you are unsure, do not self-file. The right programme is highly fact-specific. Book a confidential consultation first.',
     tone: 'warning',
@@ -56,7 +56,7 @@ export default function DelinquentFbarPenaltyCalculator() {
     <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <h2 className="mb-2 font-display text-2xl font-semibold leading-snug text-ink">Estimate your FBAR penalty exposure</h2>
       <p className="mb-4 text-sm text-slate-500">
-        Answer up to two questions to see which IRS catch-up procedure typically applies. General guidance only, not advice.
+        Answer up to two questions to see which IRS catch-up procedure typically applies.
       </p>
       <fieldset className="mb-6">
         <legend className="mb-2 font-medium text-slate-800">
@@ -103,7 +103,7 @@ export default function DelinquentFbarPenaltyCalculator() {
         </div>
       )}
       <p className="mt-5 text-xs text-slate-400">
-        Illustrative guidance only. Penalty amounts, eligibility and IRS procedures change and are fact-specific - confirm current-year rules with a qualified US-UK tax professional before acting.
+        Estimates only. Every situation is fact-specific — speak to a specialist before acting.
       </p>
     </div>
   );

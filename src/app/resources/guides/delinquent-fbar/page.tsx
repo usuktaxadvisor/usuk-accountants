@@ -108,10 +108,6 @@ export default function DelinquentFbarGuidePage() {
               { label: 'If income unreported', value: 'Use Streamlined Filing instead' },
             ]}
           />
-          <p style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '1rem' }}>
-            All figures and procedures are general guidance and must be confirmed against
-            current-year IRS rules by a professional before you rely on them.
-          </p>
         </Container>
       </Section>
       <Section>
