@@ -125,6 +125,7 @@ export default function UsTaxReturnsHubPage() {
           <RelatedLinks
             title="Explore the US Tax Returns cluster"
             links={[
+          { label: 'US vs UK tax return', href: '/resources/compare/us-tax-return-vs-uk-tax-return', description: 'How the two systems differ' },
               { label: 'US Tax Returns service', href: '/services/us-expat-tax/us-tax-returns', description: 'Our core return-preparation service page.' },
               { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing', description: 'Reporting foreign financial accounts to FinCEN.' },
               { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Penalty-reduced catch-up for non-willful cases.' },

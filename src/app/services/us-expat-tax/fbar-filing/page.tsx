@@ -202,6 +202,11 @@ export default function FbarFiling() {
         title="Related areas we handle"
         links={[
           {
+            label: 'FBAR vs Form 8938',
+            href: '/resources/compare/fbar-vs-form-8938',
+            description: 'How the two foreign-asset reports differ',
+          },
+          {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
