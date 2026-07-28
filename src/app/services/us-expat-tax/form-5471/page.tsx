@@ -194,6 +194,11 @@ export default function Form5471() {
       <RelatedLinks
         title="Further reading"
         links={[
+          {
+            label: 'US Tax Returns hub',
+            href: '/services/us-expat-tax/us-tax-returns/hub',
+            description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
+          },
           { label: 'Form 5471 explained for Americans', href: '/resources/blog/form-5471-explained-americans-uk', description: 'Filer categories, schedules and penalties' },
           { label: 'GILTI/NCTI rules for UK companies', href: '/resources/blog/gilti-ncti-rules-americans-uk-companies', description: 'Tax on your company\u2019s retained profits' },
         ]}

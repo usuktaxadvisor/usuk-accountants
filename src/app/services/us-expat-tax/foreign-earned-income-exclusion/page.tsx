@@ -205,6 +205,11 @@ export default function Feie() {
       <RelatedLinks
         title="Further reading"
         links={[
+          {
+            label: 'US Tax Returns hub',
+            href: '/services/us-expat-tax/us-tax-returns/hub',
+            description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
+          },
           { label: 'FEIE or Foreign Tax Credit in the UK?', href: '/resources/blog/feie-or-foreign-tax-credit-uk', description: 'When the exclusion is the wrong choice' },
         ]}
       />
