@@ -63,3 +63,4 @@ export { PageShell } from './PageShell';
 export {
   ProseBlock, WhoItsFor, ProcessSteps, InvestmentBand, KeyFacts, RelatedLinks,
 } from './PillarSections';
+export { default as DelinquentFbarPenaltyCalculator } from './DelinquentFbarPenaltyCalculator';

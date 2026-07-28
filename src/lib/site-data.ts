@@ -462,6 +462,7 @@ export const calculators: CalculatorMeta[] = [
   { slug: 'fig-regime', title: '4-Year FIG Regime Checker', description: 'Check if you qualify for the Foreign Income & Gains regime that replaced the remittance basis in April 2025.', iconKey: 'treaty', status: 'live', sampleLabel: 'Eligibility check', sampleValue: '3 quick questions' },
   { slug: 'corporation-tax', title: 'UK Corporation Tax Estimator', description: 'Estimate your UK company\u2019s Corporation Tax, including marginal relief.', iconKey: 'bank', status: 'live', sampleLabel: 'With marginal relief', sampleValue: 'Current-year rates' },
   { slug: 'take-home-pay', title: 'US vs UK Take-Home Pay', description: 'Compare net pay across the two systems when considering a move.', iconKey: 'planning', status: 'live', sampleLabel: 'Side-by-side', sampleValue: 'Take-home %' },
+  { slug: 'delinquent-fbar-penalty', title: 'Delinquent FBAR Penalty Estimator', description: 'See which IRS catch-up procedure applies to missed FBARs.', iconKey: 'shield', status: 'live', sampleLabel: 'Scenario', sampleValue: 'Non-willful' },
 ];
 
 
@@ -613,6 +614,21 @@ export const calculatorLinks: Record<string, CalculatorLinks> = {
     ],
     calculators: [
       { label: 'UK Statutory Residence Test', href: '/resources/calculators/srt-residence' },
+    ],
+  },
+  'delinquent-fbar-penalty': {
+    services: [
+      { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing' },
+      { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' },
+    ],
+    glossary: [
+      { label: 'Delinquent FBAR', href: '/resources/glossary/delinquent-fbar' },
+      { label: 'Willful vs Non-Willful', href: '/resources/glossary/willful-vs-non-willful' },
+      { label: 'Reasonable Cause', href: '/resources/glossary/reasonable-cause' },
+    ],
+    calculators: [
+      { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker' },
+      { label: 'Streamlined Eligibility', href: '/resources/calculators/streamlined-eligibility' },
     ],
   },
 };
