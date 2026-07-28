@@ -148,6 +148,14 @@ export default function UsTaxReturns() {
               <Link href="/services/us-expat-tax/streamlined-filing" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Streamlined Filing</Link>{' '}
               is usually the route back.
             </p>
+            <p>
+              For a step-by-step walkthrough that ties every one of these filings together in order,
+              see our{' '}
+              <Link href="/services/us-expat-tax/us-tax-returns/hub" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">
+                complete US Tax Returns hub
+              </Link>
+              .
+            </p>
             <h2 className="font-display text-2xl font-semibold text-ink">Common mistakes we see</h2>
             <p>
               The big ones: not filing at all because &ldquo;I don&rsquo;t owe anything&rdquo; (the obligation is to
