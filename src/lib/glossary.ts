@@ -457,6 +457,63 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'Who we help: dual citizens', href: '/who-we-help/dual-citizens' },
     ],
   },
+  {
+    slug: 'delinquent-fbar',
+    term: 'Delinquent FBAR',
+    expansion: 'Delinquent Report of Foreign Bank and Financial Accounts',
+    short: 'An FBAR (FinCEN Form 114) that was required in a prior year but never filed by the deadline.',
+    long: 'A delinquent FBAR is a FinCEN Form 114 that should have been filed for a past year but was not. Where income was correctly reported and tax paid, the IRS Delinquent FBAR Submission Procedures generally allow late FBARs to be e-filed with a reason for lateness, typically without penalty. Confirm current thresholds and eligibility with a professional.',
+    category: 'Reporting',
+    related: [
+      { label: 'FBAR', href: '/resources/glossary/fbar' },
+      { label: 'Delinquent FBAR Guide', href: '/resources/guides/delinquent-fbar' },
+    ],
+  },
+  {
+    slug: 'willful-vs-non-willful',
+    term: 'Willful vs Non-Willful',
+    short: 'The distinction that determines which FBAR penalty regime and disclosure programme applies.',
+    long: 'US foreign-account compliance draws a line between non-willful conduct (an inadvertent failure to file) and willful conduct (an intentional disregard of a known legal duty). Non-willful cases generally qualify for the Streamlined or Delinquent procedures with reduced or no penalties; willful cases carry higher exposure. Classification is fact-specific.',
+    category: 'Reporting',
+    related: [
+      { label: 'Delinquent FBAR', href: '/resources/glossary/delinquent-fbar' },
+      { label: 'Streamlined Filing', href: '/resources/glossary/streamlined-filing' },
+    ],
+  },
+  {
+    slug: 'reasonable-cause',
+    term: 'Reasonable Cause',
+    short: 'A good-faith, non-willful explanation that can support penalty relief for late filings.',
+    long: 'Reasonable cause is the standard the IRS applies when deciding whether to abate penalties for a late or missed filing. It requires showing the failure was due to circumstances beyond the taxpayer control and that ordinary business care and prudence were exercised. A clear reasonable-cause statement is central to the Delinquent FBAR Submission Procedures.',
+    category: 'Reporting',
+    related: [
+      { label: 'Delinquent FBAR', href: '/resources/glossary/delinquent-fbar' },
+    ],
+  },
+  {
+    slug: 'us-tax-return-1040',
+    term: 'US Tax Return (Form 1040)',
+    expansion: 'US Individual Income Tax Return',
+    short: 'The annual federal income tax return US citizens and residents must file on worldwide income.',
+    long: 'US citizens and green-card holders must file a Form 1040 reporting worldwide income every year, regardless of where they live. Those abroad typically use the foreign-earned-income exclusion or foreign tax credits to avoid double taxation, and attach information returns such as the FBAR, Form 8938, or Form 5471 as applicable.',
+    category: 'US Tax',
+    related: [
+      { label: 'Foreign Earned Income Exclusion', href: '/resources/glossary/feie' },
+      { label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' },
+    ],
+  },
+  {
+    slug: 'form-14653',
+    term: 'Form 14653',
+    expansion: 'Certification by U.S. Person Residing Outside of the United States',
+    short: 'The non-willfulness certification filed under the Streamlined Foreign Offshore Procedures.',
+    long: 'Form 14653 is the certification a taxpayer abroad submits with a Streamlined Foreign Offshore Procedures package, confirming under penalty of perjury that prior failures to report foreign income and file information returns were non-willful. The narrative statement of facts is the heart of the submission.',
+    category: 'Reporting',
+    related: [
+      { label: 'Streamlined Filing', href: '/resources/glossary/streamlined-filing' },
+      { label: 'Willful vs Non-Willful', href: '/resources/glossary/willful-vs-non-willful' },
+    ],
+  },
 ];
 
 export function getGlossaryTerm(slug: string): GlossaryTerm | undefined {
