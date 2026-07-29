@@ -10,7 +10,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Book a Consultation',
   description:
-    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£200) or business & cross-border strategy session (£300), credited to your first engagement. General questions answered free by email.',
+    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£200) or business & cross-border strategy session (£550), credited to your first engagement. General questions answered free by email.',
   alternates: { canonical: 'https://www.usukaccountants.com/book' },
 };
 
@@ -54,7 +54,7 @@ export default async function BookPage({
     offers: CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => ({
       '@type': 'Offer',
       name: t.name,
-      price: t.id === 'business' ? '300' : '100',
+      price: t.id === 'business' ? '550' : '200',
       priceCurrency: 'GBP',
       url: `${SITE.url}${t.bookHref}`,
     })),

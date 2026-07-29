@@ -111,8 +111,8 @@ export const SITE = {
  * £200, self-scheduled. Premium positioning. Never reintroduce "£200 consultation" copy.
  */
 export const CONSULTATION = {
-  price: '£300',
-  priceValue: 300,
+  price: '£550',
+  priceValue: 550,
   currency: 'GBP',
   durationMins: 30,
   durationLabel: '30-minute',
@@ -162,8 +162,8 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
   {
     id: 'business',
     name: 'Business & Cross-Border Strategy Session',
-    price: '£300',
-    priceValue: 300,
+    price: '£550',
+    priceValue: 550,
     durationLabel: '30 minutes',
     tagline: 'A working session on structure, exposure and strategy for owners and businesses operating across both systems.',
     idealFor: [
