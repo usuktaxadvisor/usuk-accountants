@@ -113,7 +113,7 @@ export default function PricingPage() {
       datePublished="2026-07-01"
       faqs={faqs}
       ctaTitle="Want an exact quote for your situation?"
-      ctaIntro="Email us a short description for a free steer, or book a £300 consultation — credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
+      ctaIntro="Email us a short description for a free steer, or book a £550 consultation — credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
     >
       <JsonLd schema={offerCatalogSchema} />
       <Section tone="porcelain">
@@ -200,7 +200,7 @@ export default function PricingPage() {
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Federal and state returns, FBAR, FATCA and Streamlined Filing.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Self Assessment, company accounts, Corporation Tax and payroll.' },
           { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty planning, pensions, structuring and estate coordination.' },
-          { label: 'Book a consultation', href: '/book', description: 'A £300 30-minute session, credited to your first engagement.' },
+          { label: 'Book a consultation', href: '/book', description: 'A £550 30-minute session, credited to your first engagement.' },
         ]}
       />
     </PageShell>
