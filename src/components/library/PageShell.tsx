@@ -10,7 +10,7 @@ import { Container, Eyebrow } from '@/components/library/primitives';
 import {
   organizationSchema, websiteSchema, breadcrumbSchema, faqSchema,
   personSchema, articleSchema, speakableSchema, serviceSchema,
-  type Crumb, type FaqEntry, type PersonInput, type ServiceSchemaInput,
+  type Crumb, type FaqEntry, type PersonInput, type ServiceSchemaInput, type SchemaEntity,
   howToSchema, type HowToInput,
 } from '@/lib/schema';
 import type { Author } from '@/lib/types';
@@ -34,6 +34,8 @@ export interface PageShellProps {
   faqs?: FaqEntry[];
   service?: ServiceSchemaInput;
   howTo?: HowToInput;
+  about?: SchemaEntity[];
+  mentions?: SchemaEntity[];
 
   /** Page body */
   children: ReactNode;
@@ -68,6 +70,8 @@ export function PageShell({
   faqs, service,
   children, ctaTitle, ctaIntro,
   howTo,
+  about,
+  mentions,
 }: PageShellProps) {
   const schemas: object[] = [
     organizationSchema(),
@@ -82,6 +86,8 @@ export function PageShell({
       reviewedBy: reviewedBy ? toPersonInput(reviewedBy) : undefined,
       datePublished,
       dateModified,
+      about,
+      mentions,
     }),
     speakableSchema(url, ['.speakable']),
   ];

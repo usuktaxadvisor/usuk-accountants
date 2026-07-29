@@ -44,6 +44,8 @@ const faqs = [
 export default function Page() {
   return (
     <PageShell
+      about={[{"name":"Form 1116","url":"/resources/glossary/form-1116"}]}
+      mentions={[{"name":"Foreign Tax Credit","url":"/services/us-expat-tax/foreign-tax-credit"},{"name":"FEIE vs Foreign Tax Credit","url":"/resources/compare/feie-vs-foreign-tax-credit"}]}
       url={url}
       eyebrow="IRS Form"
       title="IRS Form 1116: Foreign Tax Credit"

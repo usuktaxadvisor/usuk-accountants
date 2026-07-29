@@ -201,6 +201,7 @@ export default function FatcaCompliance() {
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
           },
           { label: 'Why is my ISA a problem for US taxes?', href: '/resources/blog/why-is-my-isa-a-problem-for-us-taxes', description: 'PFIC rules on UK investments' },
+          { label: 'Form 8938 explained', href: '/resources/forms/form-8938', description: 'The IRS form FATCA reporting uses' },
         ]}
       />
 

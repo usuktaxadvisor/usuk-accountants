@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/compare/streamlined-filing-vs-delinquent-fbar',
     '/resources/compare/us-tax-return-vs-uk-tax-return',
     '/resources/compare/foreign-tax-credit-vs-tax-treaty',
+    '/resources/compare/feie-vs-foreign-tax-credit',
     '/resources/forms',
     '/resources/forms/form-8938',
     '/resources/forms/form-1116',

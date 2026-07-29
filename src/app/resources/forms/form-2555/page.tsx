@@ -44,6 +44,8 @@ const faqs = [
 export default function Page() {
   return (
     <PageShell
+      about={[{"name":"Form 2555","url":"/resources/glossary/form-2555"}]}
+      mentions={[{"name":"Foreign Earned Income Exclusion","url":"/services/us-expat-tax/foreign-earned-income-exclusion"},{"name":"FEIE vs Foreign Tax Credit","url":"/resources/compare/feie-vs-foreign-tax-credit"}]}
       url={url}
       eyebrow="IRS Form"
       title="IRS Form 2555: Foreign Earned Income Exclusion"
