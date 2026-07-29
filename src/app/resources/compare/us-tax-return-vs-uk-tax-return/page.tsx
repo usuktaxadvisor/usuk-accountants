@@ -50,6 +50,8 @@ export default function UsVsUkReturnPage() {
   const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
   return (
     <PageShell
+      about={[{"name":"US Tax Return (Form 1040)","url":"/resources/glossary/us-tax-return-1040"},{"name":"UK Self Assessment","url":"/resources/glossary/self-assessment"}]}
+      mentions={[{"name":"FBAR","url":"/resources/glossary/fbar"},{"name":"National Insurance","url":"/resources/glossary/national-insurance"}]}
       url={url}
       eyebrow="Comparison"
       title="US Tax Return vs UK Tax Return"

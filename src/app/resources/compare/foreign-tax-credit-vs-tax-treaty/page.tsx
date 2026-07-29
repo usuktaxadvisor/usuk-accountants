@@ -50,6 +50,8 @@ export default function FtcVsTreatyPage() {
   const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
   return (
     <PageShell
+      about={[{"name":"Foreign Tax Credit","url":"/resources/glossary/foreign-tax-credit"},{"name":"US–UK Tax Treaty","url":"/resources/glossary/us-uk-tax-treaty"}]}
+      mentions={[{"name":"Form 1116","url":"/resources/forms/form-1116"},{"name":"Form 8833","url":"/resources/glossary/form-8833"}]}
       url={url}
       eyebrow="Comparison"
       title="Foreign Tax Credit vs US–UK Tax Treaty"

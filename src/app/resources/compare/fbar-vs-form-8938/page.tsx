@@ -50,6 +50,8 @@ export default function FbarVsForm8938Page() {
   const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
   return (
     <PageShell
+      about={[{"name":"FBAR (FinCEN Form 114)","url":"/resources/glossary/fbar"},{"name":"Form 8938 (Statement of Specified Foreign Financial Assets)","url":"/resources/glossary/form-8938"}]}
+      mentions={[{"name":"Form 8938","url":"/resources/forms/form-8938"},{"name":"FATCA","url":"/resources/glossary/fatca"}]}
       url={url}
       eyebrow="Comparison"
       title="FBAR vs Form 8938"
