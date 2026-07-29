@@ -152,6 +152,17 @@ export default function ResourcesHub() {
           </Container>
         </Section>
 
+        <Section>
+          <Container>
+            <SectionHeading eyebrow="IRS Forms" title="IRS Forms knowledge centre" intro="Plain-English explanations of the key US information returns for expats and dual filers." />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+              <Link href="/resources/forms" className="group rounded-2xl border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">All IRS forms</span><span className="mt-1 block text-sm text-slate-600">Browse the full forms library <IconArrowRight className="inline h-4 w-4" /></span></Link>
+              <Link href="/resources/forms/form-8938" className="group rounded-2xl border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">Form 8938</span><span className="mt-1 block text-sm text-slate-600">FATCA statement of foreign financial assets <IconArrowRight className="inline h-4 w-4" /></span></Link>
+              <Link href="/resources/forms/form-2555" className="group rounded-2xl border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">Form 2555</span><span className="mt-1 block text-sm text-slate-600">Foreign earned income exclusion <IconArrowRight className="inline h-4 w-4" /></span></Link>
+            </div>
+          </Container>
+        </Section>
+
         <CTASection
           title="Prefer to just ask a specialist?"
           intro="Book a consultation and get answers specific to your situation."
