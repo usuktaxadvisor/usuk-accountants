@@ -526,6 +526,70 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'Willful vs Non-Willful', href: '/resources/glossary/willful-vs-non-willful' },
     ],
   },
+  {
+    slug: 'form-1116',
+    term: 'Form 1116',
+    expansion: 'Foreign Tax Credit',
+    short:
+      'IRS Form 1116 is how individuals claim the Foreign Tax Credit, reducing US tax by the foreign income tax already paid on the same income to avoid double taxation.',
+    long:
+      'Form 1116 is the form individuals use to claim the Foreign Tax Credit. Rather than excluding income, it reduces US tax dollar-for-dollar by the foreign income tax you have already paid on that income. It works within categories of income and can generate carryovers where foreign tax exceeds the US tax on that income. For Americans in a high-tax country such as the UK, the credit claimed on Form 1116 is frequently central to avoiding double taxation, and it often competes with the Foreign Earned Income Exclusion.',
+    category: 'Reporting',
+    related: [
+      { label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' },
+      { label: 'FEIE vs Foreign Tax Credit', href: '/resources/compare/feie-vs-foreign-tax-credit' },
+      { label: 'Form 1116 explained', href: '/resources/forms/form-1116' },
+      { label: 'Foreign Tax Credit service', href: '/services/us-expat-tax/foreign-tax-credit' },
+    ],
+  },
+  {
+    slug: 'form-2555',
+    term: 'Form 2555',
+    expansion: 'Foreign Earned Income Exclusion',
+    short:
+      'IRS Form 2555 is how individuals claim the Foreign Earned Income Exclusion, removing qualifying foreign earned income from US taxation when the residence or presence tests are met.',
+    long:
+      'Form 2555 is the form individuals use to claim the Foreign Earned Income Exclusion. It excludes qualifying foreign earned income, such as wages and self-employment income, from US tax when you meet either the bona fide residence test or the physical presence test. Because it removes income rather than crediting tax, it tends to help most where foreign tax is low. The exclusion involves an election with lasting consequences, and it frequently needs to be weighed against the Foreign Tax Credit for people living in higher-tax countries.',
+    category: 'Reporting',
+    related: [
+      { label: 'FEIE', href: '/resources/glossary/feie' },
+      { label: 'FEIE vs Foreign Tax Credit', href: '/resources/compare/feie-vs-foreign-tax-credit' },
+      { label: 'Form 2555 explained', href: '/resources/forms/form-2555' },
+      { label: 'FEIE service', href: '/services/us-expat-tax/foreign-earned-income-exclusion' },
+    ],
+  },
+  {
+    slug: 'form-8621',
+    term: 'Form 8621',
+    expansion: 'PFIC Reporting',
+    short:
+      'IRS Form 8621 reports interests in a passive foreign investment company (PFIC) and records elections about how that investment is taxed under the PFIC regime.',
+    long:
+      'Form 8621 is the information return used to report an interest in a passive foreign investment company and to make or reflect elections about how that investment is taxed. The PFIC regime targets deferral through foreign pooled investments, and because the definition turns on the nature of the underlying income and assets, many ordinary non-US funds fall within it. This is why Americans in the UK who hold common UK investment funds so often encounter Form 8621 as part of managing a portfolio across two tax systems.',
+    category: 'Reporting',
+    related: [
+      { label: 'PFIC', href: '/resources/glossary/pfic' },
+      { label: 'Form 8621 explained', href: '/resources/forms/form-8621' },
+      { label: 'FATCA', href: '/resources/glossary/fatca' },
+      { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub' },
+    ],
+  },
+  {
+    slug: 'form-3520-a',
+    term: 'Form 3520-A',
+    expansion: 'Annual Return for a Foreign Trust',
+    short:
+      'IRS Form 3520-A is the annual information return for a foreign trust that has a US owner, reporting the trust\u2019s activity and pairing with Form 3520.',
+    long:
+      'Form 3520-A is the annual information return for a foreign trust treated as owned by a US person. It reports the trust\u2019s income, distributions, and financial position, and produces statements for the US owner and beneficiaries. Where Form 3520 looks at the arrangement from the individual\u2019s perspective, Form 3520-A looks at it from the trust\u2019s perspective. The two form a pair, and together they give the US tax system a complete annual picture of a cross-border trust with a US owner.',
+    category: 'Reporting',
+    related: [
+      { label: 'Form 3520', href: '/resources/glossary/form-3520' },
+      { label: 'Form 3520-A explained', href: '/resources/forms/form-3520-a' },
+      { label: 'Form 3520 explained', href: '/resources/forms/form-3520' },
+      { label: 'FATCA', href: '/resources/glossary/fatca' },
+    ],
+  },
 ];
 
 export function getGlossaryTerm(slug: string): GlossaryTerm | undefined {
