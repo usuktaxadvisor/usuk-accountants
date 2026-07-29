@@ -60,6 +60,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     related: [
       { label: 'Compare: FBAR vs Form 8938', href: '/resources/compare/fbar-vs-form-8938' },
       { label: 'FATCA compliance service', href: '/services/us-expat-tax/fatca-compliance' },
+      { label: 'Form 8938 explained', href: '/resources/forms/form-8938' },
     ],
   },
   {
@@ -74,6 +75,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     related: [
       { label: 'FEIE or Foreign Tax Credit?', href: '/resources/blog/feie-or-foreign-tax-credit-uk' },
       { label: 'FEIE service', href: '/services/us-expat-tax/foreign-earned-income-exclusion' },
+      { label: 'Form 2555 explained', href: '/resources/forms/form-2555' },
     ],
   },
   {
@@ -89,6 +91,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'Compare: Foreign Tax Credit vs US–UK Tax Treaty', href: '/resources/compare/foreign-tax-credit-vs-tax-treaty' },
       { label: 'FEIE or Foreign Tax Credit?', href: '/resources/blog/feie-or-foreign-tax-credit-uk' },
       { label: 'Foreign Tax Credit service', href: '/services/us-expat-tax/foreign-tax-credit' },
+      { label: 'Form 1116 explained', href: '/resources/forms/form-1116' },
     ],
   },
   {
@@ -196,6 +199,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'US Tax',
     related: [
       { label: 'Why is my ISA a problem for US taxes?', href: '/resources/blog/why-is-my-isa-a-problem-for-us-taxes' },
+      { label: 'Form 8621 explained', href: '/resources/forms/form-8621' },
     ],
   },
   {
@@ -447,6 +451,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'Reporting',
     related: [
       { label: 'Do I pay US tax on my UK pension?', href: '/resources/blog/do-i-pay-us-tax-on-my-uk-pension' },
+      { label: 'Form 3520-A explained', href: '/resources/forms/form-3520-a' },
     ],
   },
   {
