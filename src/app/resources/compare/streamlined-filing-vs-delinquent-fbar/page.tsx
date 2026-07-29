@@ -50,6 +50,8 @@ export default function StreamlinedVsDelinquentPage() {
   const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
   return (
     <PageShell
+      about={[{"name":"Streamlined Filing Compliance Procedures","url":"/resources/glossary/streamlined-filing"},{"name":"Delinquent FBAR Submission Procedures","url":"/resources/glossary/delinquent-fbar"}]}
+      mentions={[{"name":"FBAR","url":"/resources/glossary/fbar"},{"name":"Form 14653","url":"/resources/glossary/form-14653"}]}
       url={url}
       eyebrow="Comparison"
       title="Streamlined Filing vs Delinquent FBAR Procedures"
