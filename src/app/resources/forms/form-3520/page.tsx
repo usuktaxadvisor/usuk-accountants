@@ -37,6 +37,8 @@ const faqs = [
 export default function Page() {
   return (
     <PageShell
+      about={[{"name":"Form 3520","url":"/resources/glossary/form-3520"}]}
+      mentions={[{"name":"Form 3520-A","url":"/resources/forms/form-3520-a"}]}
       url={url}
       eyebrow="IRS Form"
       title="IRS Form 3520: Foreign Trusts and Large Foreign Gifts"

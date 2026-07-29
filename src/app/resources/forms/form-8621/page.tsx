@@ -37,6 +37,8 @@ const faqs = [
 export default function Page() {
   return (
     <PageShell
+      about={[{"name":"Form 8621","url":"/resources/glossary/form-8621"}]}
+      mentions={[{"name":"PFIC","url":"/resources/glossary/pfic"}]}
       url={url}
       eyebrow="IRS Form"
       title="IRS Form 8621: Passive Foreign Investment Company Reporting"

@@ -44,6 +44,8 @@ const faqs = [
 export default function Page() {
   return (
     <PageShell
+      about={[{"name":"Form 8938","url":"/resources/glossary/form-8938"}]}
+      mentions={[{"name":"FATCA compliance","url":"/services/us-expat-tax/fatca-compliance"}]}
       url={url}
       eyebrow="IRS Form"
       title="IRS Form 8938: Statement of Specified Foreign Financial Assets"

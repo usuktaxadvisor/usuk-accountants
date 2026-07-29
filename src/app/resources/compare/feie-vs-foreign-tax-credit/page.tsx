@@ -53,6 +53,8 @@ export default function FeieVsForeignTaxCreditPage() {
 
   return (
     <PageShell
+      about={[{"name":"Foreign Earned Income Exclusion","url":"/resources/glossary/foreign-earned-income-exclusion"},{"name":"Foreign Tax Credit","url":"/resources/glossary/foreign-tax-credit"}]}
+      mentions={[{"name":"Form 2555","url":"/resources/forms/form-2555"},{"name":"Form 1116","url":"/resources/forms/form-1116"}]}
       url={url}
       eyebrow="Comparison"
       title="FEIE vs Foreign Tax Credit"

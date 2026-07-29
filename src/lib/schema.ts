@@ -172,6 +172,8 @@ export function personSchema(p: PersonInput) {
 }
 
 /* ---------- Article / page authorship + review (the EEAT signal) ---------- */
+export interface SchemaEntity { name: string; url: string }
+
 export interface ArticleSchemaInput {
   url: string;
   headline: string;
@@ -180,6 +182,8 @@ export interface ArticleSchemaInput {
   reviewedBy?: PersonInput;
   datePublished?: string;
   dateModified?: string;
+  about?: SchemaEntity[];
+  mentions?: SchemaEntity[];
 }
 export function articleSchema(a: ArticleSchemaInput) {
   return {
@@ -206,6 +210,8 @@ export function articleSchema(a: ArticleSchemaInput) {
     publisher: { '@id': ORG_ID },
     ...(a.datePublished ? { datePublished: a.datePublished } : {}),
     dateModified: a.dateModified ?? a.datePublished ?? undefined,
+    ...(a.about && a.about.length ? { about: a.about.map((e) => ({ "@type": "Thing", name: e.name, "@id": `${SITE.url}${e.url}` })) } : {}),
+    ...(a.mentions && a.mentions.length ? { mentions: a.mentions.map((e) => ({ "@type": "Thing", name: e.name, "@id": `${SITE.url}${e.url}` })) } : {}),
   };
 }
 
