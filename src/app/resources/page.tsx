@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
 import { IconCalculator, IconGlobeDoc, IconPlanning, IconArrowRight } from '@/components/ui/icons';
@@ -74,6 +75,79 @@ export default function ResourcesHub() {
                   </div>
                 );
               })}
+            </div>
+          </Container>
+        </Section>
+
+
+        <Section>
+          <Container>
+            <SectionHeading
+              eyebrow="Comparisons"
+              title="Comparison guides"
+              intro="Side-by-side breakdowns of the US and UK tax concepts our clients ask about most."
+            />
+            <div className="mt-10 grid gap-5 md:grid-cols-3">
+            <Link
+              href="/resources/compare/fbar-vs-form-8938"
+              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
+                  <IconGlobeDoc className="h-5 w-5" />
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-ink">FBAR vs Form 8938</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">How the two US foreign-asset reports differ and why many filers need both.</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique">
+                Compare <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+            <Link
+              href="/resources/compare/streamlined-filing-vs-delinquent-fbar"
+              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
+                  <IconGlobeDoc className="h-5 w-5" />
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-ink">Streamlined Filing vs Delinquent FBAR</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">Which IRS catch-up route fits your situation, and how the procedures compare.</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique">
+                Compare <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+            <Link
+              href="/resources/compare/us-tax-return-vs-uk-tax-return"
+              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
+                  <IconGlobeDoc className="h-5 w-5" />
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-ink">US Tax Return vs UK Tax Return</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">How US and UK personal tax returns differ in scope, timing and obligations.</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique">
+                Compare <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+            <Link
+              href="/resources/compare/foreign-tax-credit-vs-tax-treaty"
+              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
+                  <IconGlobeDoc className="h-5 w-5" />
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-ink">Foreign Tax Credit vs US–UK Tax Treaty</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">When to rely on the Foreign Tax Credit versus treaty provisions to avoid double tax.</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique">
+                Compare <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
             </div>
           </Container>
         </Section>

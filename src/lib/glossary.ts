@@ -29,6 +29,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       'A US person — citizen, green card holder, or resident — must file an FBAR (FinCEN Form 114) when their foreign accounts together exceed $10,000 at any moment during the calendar year. It is an aggregate test, not per-account, and includes accounts you have signature authority over even if you do not own them. The FBAR is filed electronically with the Financial Crimes Enforcement Network through the BSA E-Filing System, not with the IRS, and is due 15 April with an automatic extension to 15 October.',
     category: 'Reporting',
     related: [
+      { label: 'Compare: FBAR vs Form 8938', href: '/resources/compare/fbar-vs-form-8938' },
       { label: 'Do I need to file an FBAR?', href: '/resources/blog/do-i-need-to-file-an-fbar' },
       { label: 'FBAR filing service', href: '/services/us-expat-tax/fbar-filing' },
     ],
@@ -57,6 +58,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       'Form 8938 captures a broader range of assets than the FBAR — not just accounts, but also directly held foreign stock, partnership interests, and similar. For Americans abroad the thresholds are broadly $200,000 (single, year-end) or $300,000 (single, any time), and $400,000 / $600,000 for married couples filing jointly. It is filed with your annual Form 1040, unlike the FBAR which goes to FinCEN. Some assets must be reported on both.',
     category: 'Reporting',
     related: [
+      { label: 'Compare: FBAR vs Form 8938', href: '/resources/compare/fbar-vs-form-8938' },
       { label: 'FATCA compliance service', href: '/services/us-expat-tax/fatca-compliance' },
     ],
   },
@@ -84,6 +86,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       'The FTC credits foreign income tax you have paid against the US tax on the same income, so the same income is not fully taxed twice. For Americans in the UK — where tax rates are often comparable to or higher than US rates — the FTC frequently reduces US tax to little or nothing, and can generate excess credits that carry to other years. It is usually contrasted with the FEIE; the right choice depends on income type, level, and future plans.',
     category: 'US Tax',
     related: [
+      { label: 'Compare: Foreign Tax Credit vs US–UK Tax Treaty', href: '/resources/compare/foreign-tax-credit-vs-tax-treaty' },
       { label: 'FEIE or Foreign Tax Credit?', href: '/resources/blog/feie-or-foreign-tax-credit-uk' },
       { label: 'Foreign Tax Credit service', href: '/services/us-expat-tax/foreign-tax-credit' },
     ],
@@ -97,6 +100,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       'Designed for taxpayers whose failure to file was non-wilful (they simply did not know), the Streamlined Procedures require filing three years of amended/late returns and six years of FBARs, plus a certification explaining the non-wilful conduct. The offshore version (for those living abroad) generally carries no penalties; the domestic version carries a reduced penalty. Coming forward before the IRS makes contact preserves eligibility.',
     category: 'US Tax',
     related: [
+      { label: 'Compare: Streamlined Filing vs Delinquent FBAR', href: '/resources/compare/streamlined-filing-vs-delinquent-fbar' },
       { label: 'Havent filed US taxes living in the UK?', href: '/resources/blog/havent-filed-us-taxes-living-in-uk' },
       { label: 'Streamlined Filing service', href: '/services/us-expat-tax/streamlined-filing' },
     ],
@@ -215,6 +219,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       'The income tax treaty sets rules for which country taxes particular income first and how relief is given, covering pensions, dividends, interest, royalties, employment, and business profits. For US citizens, the treaty saving clause preserves the US right to tax its citizens on worldwide income, which limits some treaty benefits and is why claims often require Form 8833. A separate 1980 treaty governs estate and gift tax.',
     category: 'Cross-Border',
     related: [
+      { label: 'Compare: Foreign Tax Credit vs US–UK Tax Treaty', href: '/resources/compare/foreign-tax-credit-vs-tax-treaty' },
       { label: 'US–UK tax treaty service', href: '/services/us-expat-tax/us-uk-tax-treaty' },
       { label: 'Do I pay US tax on my UK pension?', href: '/resources/blog/do-i-pay-us-tax-on-my-uk-pension' },
     ],
@@ -465,6 +470,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     long: 'A delinquent FBAR is a FinCEN Form 114 that should have been filed for a past year but was not. Where income was correctly reported and tax paid, the IRS Delinquent FBAR Submission Procedures generally allow late FBARs to be e-filed with a reason for lateness, typically without penalty. Confirm current thresholds and eligibility with a professional.',
     category: 'Reporting',
     related: [
+      { label: 'Compare: Streamlined Filing vs Delinquent FBAR', href: '/resources/compare/streamlined-filing-vs-delinquent-fbar' },
       { label: 'FBAR', href: '/resources/glossary/fbar' },
       { label: 'Delinquent FBAR Guide', href: '/resources/guides/delinquent-fbar' },
     ],
@@ -498,6 +504,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     long: 'US citizens and green-card holders must file a Form 1040 reporting worldwide income every year, regardless of where they live. Those abroad typically use the foreign-earned-income exclusion or foreign tax credits to avoid double taxation, and attach information returns such as the FBAR, Form 8938, or Form 5471 as applicable.',
     category: 'US Tax',
     related: [
+      { label: 'Compare: US Tax Return vs UK Tax Return', href: '/resources/compare/us-tax-return-vs-uk-tax-return' },
       { label: 'Foreign Earned Income Exclusion', href: '/resources/glossary/feie' },
       { label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' },
     ],
