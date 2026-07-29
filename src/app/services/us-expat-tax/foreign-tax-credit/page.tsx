@@ -203,6 +203,7 @@ export default function ForeignTaxCredit() {
             href: '/resources/compare/foreign-tax-credit-vs-tax-treaty',
             description: 'Two tools for avoiding double taxation',
           },
+          { label: "FEIE vs Foreign Tax Credit — side-by-side comparison", href: "/resources/compare/feie-vs-foreign-tax-credit", description: "Compare the two mechanisms directly" },
           {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',
