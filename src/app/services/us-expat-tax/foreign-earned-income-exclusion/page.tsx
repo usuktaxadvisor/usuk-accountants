@@ -211,6 +211,7 @@ export default function Feie() {
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
           },
           { label: 'FEIE or Foreign Tax Credit in the UK?', href: '/resources/blog/feie-or-foreign-tax-credit-uk', description: 'When the exclusion is the wrong choice' },
+          { label: "FEIE vs Foreign Tax Credit — side-by-side comparison", href: "/resources/compare/feie-vs-foreign-tax-credit", description: "Compare the two mechanisms directly" },
           { label: 'Form 2555 explained', href: '/resources/forms/form-2555', description: 'The IRS form behind the FEIE' },
         ]}
       />

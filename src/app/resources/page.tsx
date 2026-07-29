@@ -148,6 +148,21 @@ export default function ResourcesHub() {
                 Compare <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
               </span>
             </Link>
+            <Link
+              href="/resources/compare/feie-vs-foreign-tax-credit"
+              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+            >
+              <div className="flex items-center justify-between">
+                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
+                  <IconGlobeDoc className="h-5 w-5" />
+                </span>
+              </div>
+              <h3 className="mt-4 font-display text-lg font-semibold text-ink">FEIE vs Foreign Tax Credit</h3>
+              <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">When to exclude foreign earned income and when to credit foreign tax instead.</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique">
+                Compare <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
             </div>
           </Container>
         </Section>
