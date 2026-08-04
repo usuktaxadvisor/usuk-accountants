@@ -462,6 +462,10 @@ export const calculators: CalculatorMeta[] = [
   { slug: 'fig-regime', title: '4-Year FIG Regime Checker', description: 'Check if you qualify for the Foreign Income & Gains regime that replaced the remittance basis in April 2025.', iconKey: 'treaty', status: 'live', sampleLabel: 'Eligibility check', sampleValue: '3 quick questions' },
   { slug: 'corporation-tax', title: 'UK Corporation Tax Estimator', description: 'Estimate your UK company\u2019s Corporation Tax, including marginal relief.', iconKey: 'bank', status: 'live', sampleLabel: 'With marginal relief', sampleValue: 'Current-year rates' },
   { slug: 'take-home-pay', title: 'US vs UK Take-Home Pay', description: 'Compare net pay across the two systems when considering a move.', iconKey: 'planning', status: 'live', sampleLabel: 'Side-by-side', sampleValue: 'Take-home %' },
+  { slug: 'us-expat-refund', title: 'US Expat Tax Refund Estimator', description: 'Estimate whether you are owed a US federal tax refund after the Foreign Tax Credit.', iconKey: 'calculator', status: 'live', sampleLabel: 'Indicative refund', sampleValue: 'FTC-adjusted' },
+  { slug: 'paye-refund', title: 'UK PAYE Tax Refund Estimator', description: 'Estimate whether you overpaid UK income tax through PAYE.', iconKey: 'calculator', status: 'live', sampleLabel: 'Possible overpayment', sampleValue: '2025/26 rates' },
+  { slug: 'uk-us-cgt', title: 'UK vs US Capital Gains Tax Estimator', description: 'Compare UK CGT and US federal capital gains tax on the same disposal.', iconKey: 'planning', status: 'live', sampleLabel: 'Side-by-side', sampleValue: 'UK + US CGT' },
+  { slug: 'exit-tax', title: 'Exit Tax / Covered Expatriate Estimator', description: 'Screen covered-expatriate status under IRC §877A before renouncing.', iconKey: 'shield', status: 'live', sampleLabel: 'Covered status', sampleValue: 'IRC §877A' },
   { slug: 'delinquent-fbar-penalty', title: 'Delinquent FBAR Penalty Estimator', description: 'See which IRS catch-up procedure applies to missed FBARs.', iconKey: 'shield', status: 'live', sampleLabel: 'Scenario', sampleValue: 'Non-willful' },
 ];
 
@@ -616,7 +620,28 @@ export const calculatorLinks: Record<string, CalculatorLinks> = {
       { label: 'UK Statutory Residence Test', href: '/resources/calculators/srt-residence' },
     ],
   },
-  'delinquent-fbar-penalty': {
+  'us-expat-refund': {
+    services: [{ label: 'US tax returns', href: '/services/us-expat-tax/us-tax-returns' }, { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit' }],
+    glossary: [{ label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' }, { label: 'FEIE', href: '/resources/glossary/feie' }],
+    calculators: [{ label: 'FEIE vs Foreign Tax Credit', href: '/resources/calculators/feie-vs-ftc' }, { label: 'US Expat Tax Deadlines', href: '/resources/calculators/us-expat-deadlines' }],
+  },
+  'paye-refund': {
+    services: [{ label: 'UK Self Assessment', href: '/services/uk-accounting/self-assessment' }],
+    glossary: [{ label: 'Self Assessment', href: '/resources/glossary/self-assessment' }, { label: 'National Insurance', href: '/resources/glossary/national-insurance' }],
+    calculators: [{ label: 'Self Assessment Deadline', href: '/resources/calculators/self-assessment-deadline' }],
+  },
+  'uk-us-cgt': {
+    services: [{ label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit' }, { label: 'Cross-border planning', href: '/services/cross-border-advisory/cross-border-tax-planning' }],
+    glossary: [{ label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' }, { label: 'PFIC', href: '/resources/glossary/pfic' }],
+    calculators: [{ label: 'US/UK Double-Tax Estimator', href: '/resources/calculators/double-tax-estimator' }],
+    articles: [{ label: 'Selling a UK home as a US citizen', href: '/resources/blog/selling-uk-home-as-us-citizen' }],
+  },
+  'exit-tax': {
+    services: [{ label: 'Cross-border advisory', href: '/services/cross-border-advisory' }],
+    glossary: [{ label: 'Exit Tax', href: '/resources/glossary/exit-tax' }, { label: 'Green Card Holder', href: '/resources/glossary/green-card-holder' }, { label: 'Form 8854', href: '/resources/glossary/form-8854' }],
+    calculators: [{ label: 'Streamlined Filing Eligibility', href: '/resources/calculators/streamlined-eligibility' }],
+  },
+    'delinquent-fbar-penalty': {
     services: [
       { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing' },
       { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' },

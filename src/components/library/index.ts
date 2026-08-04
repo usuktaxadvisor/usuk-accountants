@@ -63,4 +63,8 @@ export { PageShell } from './PageShell';
 export {
   ProseBlock, WhoItsFor, ProcessSteps, InvestmentBand, KeyFacts, RelatedLinks,
 } from './PillarSections';
+export { default as UsExpatRefundEstimator } from "./UsExpatRefundEstimator";
+export { default as PayeRefundEstimator } from "./PayeRefundEstimator";
+export { default as CrossBorderCgtEstimator } from "./CrossBorderCgtEstimator";
+export { default as ExitTaxEstimator } from "./ExitTaxEstimator";
 export { default as DelinquentFbarPenaltyCalculator } from './DelinquentFbarPenaltyCalculator';
