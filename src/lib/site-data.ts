@@ -466,6 +466,7 @@ export const calculators: CalculatorMeta[] = [
   { slug: 'paye-refund', title: 'UK PAYE Tax Refund Estimator', description: 'Estimate whether you overpaid UK income tax through PAYE.', iconKey: 'calculator', status: 'live', sampleLabel: 'Possible overpayment', sampleValue: '2025/26 rates' },
   { slug: 'uk-us-cgt', title: 'UK vs US Capital Gains Tax Estimator', description: 'Compare UK CGT and US federal capital gains tax on the same disposal.', iconKey: 'planning', status: 'live', sampleLabel: 'Side-by-side', sampleValue: 'UK + US CGT' },
   { slug: 'exit-tax', title: 'Exit Tax / Covered Expatriate Estimator', description: 'Screen covered-expatriate status under IRC §877A before renouncing.', iconKey: 'shield', status: 'live', sampleLabel: 'Covered status', sampleValue: 'IRC §877A' },
+  { slug: 'late-filing-penalty', title: 'US Late-Filing Penalty Estimator', description: 'Estimate failure-to-file and failure-to-pay penalties on a late US return, and see how catch-up routes can remove them.', iconKey: 'shield', status: 'live', sampleLabel: 'Indicative max', sampleValue: 'FTF + FTP' },
   { slug: 'delinquent-fbar-penalty', title: 'Delinquent FBAR Penalty Estimator', description: 'See which IRS catch-up procedure applies to missed FBARs.', iconKey: 'shield', status: 'live', sampleLabel: 'Scenario', sampleValue: 'Non-willful' },
 ];
 
@@ -641,7 +642,13 @@ export const calculatorLinks: Record<string, CalculatorLinks> = {
     glossary: [{ label: 'Exit Tax', href: '/resources/glossary/exit-tax' }, { label: 'Green Card Holder', href: '/resources/glossary/green-card-holder' }, { label: 'Form 8854', href: '/resources/glossary/form-8854' }],
     calculators: [{ label: 'Streamlined Filing Eligibility', href: '/resources/calculators/streamlined-eligibility' }],
   },
-    'delinquent-fbar-penalty': {
+    'late-filing-penalty': {
+    services: [{ label: 'US tax returns', href: '/services/us-expat-tax/us-tax-returns' }, { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' }],
+    glossary: [{ label: 'Streamlined Filing', href: '/resources/glossary/streamlined-filing' }, { label: 'FBAR', href: '/resources/glossary/fbar' }],
+    calculators: [{ label: 'Streamlined Eligibility', href: '/resources/calculators/streamlined-eligibility' }, { label: 'US Expat Deadlines', href: '/resources/calculators/us-expat-deadlines' }],
+    articles: [{ label: 'Delinquent FBAR vs Streamlined', href: '/resources/blog/delinquent-fbar-vs-streamlined-filing' }],
+  },
+  'delinquent-fbar-penalty': {
     services: [
       { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing' },
       { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' },

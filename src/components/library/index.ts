@@ -68,3 +68,4 @@ export { default as PayeRefundEstimator } from "./PayeRefundEstimator";
 export { default as CrossBorderCgtEstimator } from "./CrossBorderCgtEstimator";
 export { default as ExitTaxEstimator } from "./ExitTaxEstimator";
 export { default as DelinquentFbarPenaltyCalculator } from './DelinquentFbarPenaltyCalculator';
+export { default as LateFilingPenaltyEstimator } from './LateFilingPenaltyEstimator';
