@@ -35,7 +35,7 @@ const faqs = [
 ];
 
 const comparison: ComparisonTableData = {
-  columns: ['', 'Foreign Tax Credit', 'US–UK Treaty'],
+  columns: ['Foreign Tax Credit', 'US–UK Treaty'],
   rows: [
     { label: 'Source', values: ['US domestic law', 'Bilateral agreement'] },
     { label: 'Function', values: ['Offsets US tax with UK tax paid', 'Allocates taxing rights'] },

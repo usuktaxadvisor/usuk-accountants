@@ -35,7 +35,7 @@ const faqs = [
 ];
 
 const comparison: ComparisonTableData = {
-  columns: ['', 'US Tax Return', 'UK Tax Return'],
+  columns: ['US Tax Return', 'UK Tax Return'],
   rows: [
     { label: 'Basis of taxation', values: ['Citizenship', 'Residence'] },
     { label: 'Filed by non-residents (citizens abroad)', values: [true, false] },

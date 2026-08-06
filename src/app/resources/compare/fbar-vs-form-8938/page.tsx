@@ -35,7 +35,7 @@ const faqs = [
 ];
 
 const comparison: ComparisonTableData = {
-  columns: ['', 'FBAR (FinCEN 114)', 'Form 8938'],
+  columns: ['FBAR (FinCEN 114)', 'Form 8938'],
   rows: [
     { label: 'Filed with', values: ['FinCEN (Treasury)', 'IRS (with Form 1040)'] },
     { label: 'What it reports', values: ['Foreign financial accounts', 'Specified foreign financial assets'] },

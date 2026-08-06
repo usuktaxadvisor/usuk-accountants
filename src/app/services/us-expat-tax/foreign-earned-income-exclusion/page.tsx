@@ -46,8 +46,8 @@ const faqs = [
 ];
 
 const feieVsFtc = {
-  columns: ['', 'FEIE', 'Foreign Tax Credit'],
-  highlightColumn: 2,
+  columns: ['FEIE', 'Foreign Tax Credit'],
+  highlightColumn: 1,
   rows: [
     { label: 'Form', values: ['Form 2555', 'Form 1116'] },
     { label: 'How it works', values: ['Excludes earned income up to a set limit', 'Credits foreign tax paid against US tax'] },

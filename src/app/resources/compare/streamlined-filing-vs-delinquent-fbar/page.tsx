@@ -35,7 +35,7 @@ const faqs = [
 ];
 
 const comparison: ComparisonTableData = {
-  columns: ['', 'Streamlined Filing', 'Delinquent FBAR'],
+  columns: ['Streamlined Filing', 'Delinquent FBAR'],
   rows: [
     { label: 'For unreported income', values: [true, false] },
     { label: 'For missed FBARs only', values: [false, true] },

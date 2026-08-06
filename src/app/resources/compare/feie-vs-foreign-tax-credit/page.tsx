@@ -35,7 +35,7 @@ const faqs = [
 ];
 
 const comparison: ComparisonTableData = {
-  columns: ['', 'FEIE (Form 2555)', 'Foreign Tax Credit (Form 1116)'],
+  columns: ['FEIE (Form 2555)', 'Foreign Tax Credit (Form 1116)'],
   rows: [
     { label: 'How it works', values: ['Excludes qualifying foreign earned income', 'Credits foreign tax against US tax'] },
     { label: 'Applies to', values: ['Foreign earned income (wages, self-employment)', 'Most categories of foreign-taxed income'] },

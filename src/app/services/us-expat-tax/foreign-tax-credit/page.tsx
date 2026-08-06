@@ -46,7 +46,7 @@ const faqs = [
 ];
 
 const feieVsFtc = {
-  columns: ['', 'Foreign Tax Credit', 'FEIE'],
+  columns: ['Foreign Tax Credit', 'FEIE'],
   highlightColumn: 1,
   rows: [
     { label: 'Form', values: ['Form 1116', 'Form 2555'] },
