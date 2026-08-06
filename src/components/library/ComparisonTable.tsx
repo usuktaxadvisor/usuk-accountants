@@ -8,8 +8,8 @@ function Cell({ value, highlight }: { value: string | boolean; highlight: boolea
         <IconCheck className="h-4 w-4" />
       </span>
     ) : (
-      <span className="text-mist" aria-label="Not included">
-        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <span className="text-muted" aria-label="Not included">
+        <svg width="20" height="20" viewBox="0 0 18 18" fill="none" stroke="currentColor" strokeWidth="2">
           <path d="M5 5l8 8M13 5l-8 8" strokeLinecap="round" />
         </svg>
       </span>
