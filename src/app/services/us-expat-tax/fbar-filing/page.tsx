@@ -46,7 +46,7 @@ const faqs = [
 ];
 
 const fbarVs8938 = {
-  columns: ['', 'FBAR (FinCEN 114)', 'Form 8938 (FATCA)'],
+  columns: ['FBAR (FinCEN 114)', 'Form 8938 (FATCA)'],
   highlightColumn: 1,
   rows: [
     { label: 'Filed with', values: ['US Treasury (FinCEN)', 'IRS, with your tax return'] },
