@@ -15,7 +15,7 @@ function Cell({ value, highlight }: { value: string | boolean; highlight: boolea
       </span>
     );
   }
-  return <span className={`text-sm ${highlight ? 'font-medium text-ink' : 'text-muted'}`}>{value}</span>;
+  return <span className={`text-sm ${highlight ? 'font-medium text-ink' : 'text-ink'}`}>{value}</span>;
 }
 
 /**
@@ -77,7 +77,7 @@ export function ComparisonTable({ data }: { data: ComparisonTableData }) {
               <dl className="px-5 pb-5 pt-3">
                 {rows.map((row) => (
                   <div key={row.label} className="flex items-center justify-between gap-4 py-2">
-                    <dt className={`text-sm ${hl ? 'text-softwhite/80' : 'text-muted'}`}>{row.label}</dt>
+                    <dt className={`text-sm ${hl ? 'text-softwhite/80' : 'text-ink'}`}>{row.label}</dt>
                     <dd><Cell value={row.values[ci]} highlight={hl} /></dd>
                   </div>
                 ))}
