@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { ReviewSubmissionForm } from './ReviewSubmissionForm';
 
 export const metadata: Metadata = {
@@ -26,7 +27,7 @@ export default function LeaveAReviewPage() {
         By submitting, you confirm you are a genuine client describing your own
         experience, and you consent to your review (name and review text) being published
         on this website. We never edit the substance of a review. See our{' '}
-        <a href="/review-policy" className="underline hover:text-gold-antique">review policy</a>.
+        <Link href="/review-policy" className="underline hover:text-gold-antique">review policy</Link>.
       </p>
     </main>
   );
