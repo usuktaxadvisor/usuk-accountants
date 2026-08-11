@@ -26,7 +26,7 @@ export const CANONICAL = {
 export interface EntityProfile {
   platform: 'LinkedIn' | 'Instagram' | 'Pinterest' | 'YouTube' | 'Google Business Profile' | 'Bing Places' | 'Crunchbase' | 'Trustpilot';
   /** Which office a GBP belongs to (GBP only). */
-  office?: 'london' | 'new-york';
+  office?: 'london' | 'manchester' | 'new-york';
   /** Live URL. EMPTY until the profile exists. */
   url: string;
   /** Status for internal tracking / dashboards. */
@@ -42,6 +42,9 @@ export interface EntityProfile {
 export const orgProfiles: EntityProfile[] = [
   { platform: 'Google Business Profile', office: 'london', url: '', status: 'not-started', sameAs: true },
   { platform: 'Google Business Profile', office: 'new-york', url: '', status: 'not-started', sameAs: true },
+  // Manchester GBP EXISTS (listing name: 'US UK Expats Tax Specialist').
+  // ── PASTE THE VERIFIED GBP URL BELOW and it flows into Organization sameAs automatically ──
+  { platform: 'Google Business Profile', office: 'manchester', url: '', status: 'live', sameAs: true },
   // ┌─────────────────────────────────────────────────────────────────────┐
   // │ LINKEDIN COMPANY PAGE — PASTE URL BELOW TO ACTIVATE                    │
   // │ The page exists. Replace url:'' with the real URL and set             │
