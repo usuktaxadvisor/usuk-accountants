@@ -22,7 +22,7 @@ export default function Footer() {
               The specialist firm for life and business between the US and the UK.
             </p>
             <div className="mt-6 space-y-2 text-sm">
-              <p className="flex items-center gap-2"><span aria-hidden>🇬🇧</span> London · {PHONE_UK}</p>
+              <p className="flex items-center gap-2"><span aria-hidden>🇬🇧</span> London &middot; Manchester · {PHONE_UK}</p>
               <p className="flex items-center gap-2"><span aria-hidden>🇺🇸</span> New York · {PHONE_US}</p>
             </div>
           </div>

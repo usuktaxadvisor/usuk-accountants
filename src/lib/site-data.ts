@@ -11,7 +11,7 @@ export const PHONE_UK = '+44 333 090 4129';
 export const PHONE_US = '+1 914 953 7475';
 
 export interface Office {
-  id: 'london' | 'new-york' | 'virginia';
+  id: 'london' | 'manchester' | 'new-york' | 'virginia';
   label: string;
   flag: string;
   street: string;
@@ -26,9 +26,13 @@ export interface Office {
   staffed: boolean;
   /** Eligible for a Google Business Profile (requires genuine staffed presence). */
   gbpEligible: boolean;
+  /** Verified GBP listing name where it differs from the site brand (NAP consistency). */
+  gbpName?: string;
+  /** Verified GBP/Maps URL — feeds schema sameAs/hasMap. Leave '' until verified. */
+  gbpUrl?: string;
 }
 
-/** Three genuine offices — basis for NAP + LocalBusiness schema. */
+/** Four genuine offices — basis for NAP + LocalBusiness schema. */
 export const OFFICES: Office[] = [
   {
     id: 'london',
@@ -44,6 +48,25 @@ export const OFFICES: Office[] = [
     email: 'hello@usukaccountants.com',
     staffed: true,
     gbpEligible: true,
+  },
+  {
+    id: 'manchester',
+    label: 'Manchester',
+    flag: '🇬🇧',
+    street: 'Brown St',
+    locality: 'Manchester',
+    region: 'England',
+    postalCode: 'M2 1DH',
+    country: 'GB',
+    phone: '+44 333 090 4129',
+    tel: '+443330904129',
+    email: 'hello@usukaccountants.com',
+    staffed: true,
+    gbpEligible: true,
+    // Verified GBP listing name (branch of US UK Accountants Ltd) — do not remove.
+    gbpName: 'US UK Expats Tax Specialist',
+    // ── PASTE THE VERIFIED MANCHESTER GBP/MAPS URL BELOW (leave '' until then) ──
+    gbpUrl: '',
   },
   {
     id: 'new-york',

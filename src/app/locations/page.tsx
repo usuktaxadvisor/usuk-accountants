@@ -10,9 +10,9 @@ const URL = 'https://www.usukaccountants.com/locations';
 const staffed = OFFICES.filter((o) => o.staffed);
 
 export const metadata: Metadata = {
-  title: 'Our Offices — US & UK Tax Accountants in London & New York',
+  title: 'Our Offices — US & UK Tax Accountants in London, Manchester & New York',
   description:
-    'US UK Accountants has offices in London and the New York area, providing specialist US–UK cross-border tax and accounting on both sides of the Atlantic — in person and remotely.',
+    'US UK Accountants has offices in London, Manchester and the New York area, providing specialist US–UK cross-border tax and accounting on both sides of the Atlantic — in person and remotely.',
   alternates: { canonical: URL },
 };
 
@@ -20,7 +20,7 @@ const author = authors.find((a) => a.slug === 'sam-h')!;
 const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
 
 const faqs = [
-  { q: 'Where are your offices?', a: 'We have staffed offices in London (United Kingdom) and the New York area (United States), which lets us serve clients on both sides of the Atlantic during local hours. We also work with clients remotely across the UK, the US and internationally.' },
+  { q: 'Where are your offices?', a: 'We have staffed offices in London and Manchester (United Kingdom) and the New York area (United States), which lets us serve clients on both sides of the Atlantic during local hours. We also work with clients remotely across the UK, the US and internationally.' },
   { q: 'Do I have to use the office nearest me?', a: 'No. Because we are a single cross-border firm rather than separate national practices, any client gets the full US and UK capability regardless of which office is closest. Many clients work with us entirely remotely.' },
 ];
 
@@ -30,7 +30,7 @@ export default function LocationsHub() {
       url={URL}
       eyebrow="Locations"
       title="Our offices"
-      answer="US UK Accountants has staffed offices in London and the New York area, giving us a genuine presence on both sides of the Atlantic for US–UK cross-border tax and accounting. Wherever you are, you get the full US and UK capability of a single firm — in person at either office, or remotely."
+      answer="US UK Accountants has staffed offices in London, Manchester and the New York area, giving us a genuine presence on both sides of the Atlantic for US–UK cross-border tax and accounting. Wherever you are, you get the full US and UK capability of a single firm — in person at any of our offices, or remotely."
       crumbs={[{ label: 'Locations', href: '/locations' }]}
       author={author}
       reviewedBy={reviewedBy}

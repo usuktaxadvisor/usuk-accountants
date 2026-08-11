@@ -40,6 +40,27 @@ const localBusinessSchema = [
   {
     '@context': 'https://schema.org',
     '@type': 'AccountingService',
+    '@id': `${SITE_URL}/contact/#manchester`,
+    name: 'US UK Expats Tax Specialist',
+    alternateName: 'US UK Accountants — Manchester',
+    parentOrganization: { '@id': ORG_ID },
+    url: SITE_URL,
+    email: SITE.email,
+    telephone: SITE.phones.uk.number,
+    priceRange: '££££',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Brown St',
+      addressLocality: 'Manchester',
+      addressRegion: 'England',
+      postalCode: 'M2 1DH',
+      addressCountry: 'GB',
+    },
+    areaServed: 'GB',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'AccountingService',
     '@id': `${SITE_URL}/contact/#new-york`,
     name: 'US UK Accountants — New York',
     parentOrganization: { '@id': ORG_ID },
@@ -116,12 +137,13 @@ export default async function ContactPage({
                     <span className="text-xl" aria-hidden>{SITE.phones.uk.flag}</span>
                     <h3 className="font-display text-lg font-semibold text-ink">United Kingdom</h3>
                   </div>
-                  <p className="mt-3 text-sm text-muted">London office</p>
+                  <p className="mt-3 text-sm text-muted">London &amp; Manchester offices</p>
                   <a href={`tel:${SITE.phones.uk.tel}`} className="mt-2 inline-flex items-center gap-2 text-sm font-medium text-ink hover:text-gold-antique">
                     <IconPhone className="h-4 w-4 text-gold" /> {SITE.phones.uk.number}
                   </a>
                   <a href={`mailto:${SITE.email}`} className="mt-1 block text-sm text-muted hover:text-gold-antique">{SITE.email}</a>
                   <Link href="/locations/london" className="mt-3 block text-sm font-semibold text-navy hover:text-gold">View London office →</Link>
+                  <Link href="/locations/manchester" className="mt-1 block text-sm font-semibold text-navy hover:text-gold">View Manchester office →</Link>
                 </div>
 
                 <div className="rounded-2xl border border-mist bg-porcelain p-6">

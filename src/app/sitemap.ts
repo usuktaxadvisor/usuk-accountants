@@ -35,7 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/us-expat-tax/form-5471',
     '/services/us-expat-tax/us-uk-tax-treaty',
     '/us-uk-tax-services', '/pricing',
-    '/locations', '/locations/london', '/locations/new-york',
+    '/locations', '/locations/london', '/locations/manchester', '/locations/new-york',
     '/who-we-help', '/who-we-help/us-citizens-in-uk',
     '/who-we-help/uk-citizens-in-us', '/who-we-help/dual-citizens',
     '/who-we-help/startups-founders', '/who-we-help/digital-nomads',
