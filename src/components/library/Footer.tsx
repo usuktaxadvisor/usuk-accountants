@@ -15,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-ink text-softwhite">
       <div className="mx-auto max-w-container px-6 py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(5,1fr)]">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(6,1fr)]">
           <div>
             <Logo variant="dark" showSubline />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-softwhite/70">

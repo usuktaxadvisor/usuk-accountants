@@ -122,6 +122,7 @@ export default function UsExpatTaxPillar() {
       <RelatedLinks
         title="Explore related areas"
         links={[
+          { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'Every US filing form and deadline for Americans in the UK, in one place.' },
           { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up penalty-free.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Your UK Self Assessment and company accounts, coordinated.' },
           { label: 'US–UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty positions, pensions and double-tax relief.' },

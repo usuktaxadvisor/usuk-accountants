@@ -66,7 +66,7 @@ export const OFFICES: Office[] = [
     // Verified GBP listing name (branch of US UK Accountants Ltd) — do not remove.
     gbpName: 'US UK Expats Tax Specialist',
     // ── PASTE THE VERIFIED MANCHESTER GBP/MAPS URL BELOW (leave '' until then) ──
-    gbpUrl: '',
+    gbpUrl: 'https://maps.app.goo.gl/UoUMZFF34L9PKmFk7',
   },
   {
     id: 'new-york',
@@ -326,6 +326,15 @@ export const footerColumns: NavColumn[] = [
       { label: 'Trust Center', href: '/trust-center' },
       { label: 'Contact', href: '/contact' },
     ],
+  },
+  {
+    title: 'Locations',
+    links: [
+      { label: 'London', href: '/locations/london' },
+      { label: 'Manchester', href: '/locations/manchester' },
+      { label: 'New York', href: '/locations/new-york' },
+      { label: 'All locations', href: '/locations' },
+      ],
   },
 ];
 
