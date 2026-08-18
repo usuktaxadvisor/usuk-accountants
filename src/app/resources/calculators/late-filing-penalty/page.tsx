@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const faqs = [
   { q: 'What is the penalty for filing a US tax return late?', a: 'The main civil penalty is the failure-to-file penalty: 5% of unpaid tax per month or part-month late, capped at 25%. A separate failure-to-pay penalty of 0.5% per month, also capped at 25%, applies to tax paid late. In months where both apply, the combined charge is 5% per month for the first five months, then 0.5% per month. Interest accrues separately.' },

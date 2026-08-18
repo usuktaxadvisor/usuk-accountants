@@ -4,7 +4,7 @@ import {
   Header, Footer, Container, ContactForm,
 } from '@/components/library';
 import { IconPhone, IconArrowRight } from '@/components/ui/icons';
-import { SITE } from '@/lib/site-data';
+import { SITE, staffedOffices } from '@/lib/site-data';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -172,6 +172,90 @@ export default async function ContactPage({
           <p className="mt-10 text-center text-xs text-muted">US UK Accountants Ltd · Registered in England &amp; Wales, Company No. 17336015</p>
           </Container>
         </div>
+        {/* FIND US — office locations. Manchester has a verified Google Business Profile. */}
+        <section className="bg-navy-ink py-16 md:py-20">
+          <Container>
+            <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">
+              Find us
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+              Our offices
+            </h2>
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-softwhite/80">
+              We work with clients across the UK and US, in person and securely online. Our
+              staffed offices are below — visit us, or reach the team wherever you are.
+            </p>
+
+            <div className="mt-10 grid gap-6 lg:grid-cols-2">
+              {staffedOffices.map((office) => {
+                const addressLine = [office.street, office.locality, office.region, office.postalCode]
+                  .filter(Boolean)
+                  .join(', ');
+                const mapQuery = encodeURIComponent(
+                  `${office.gbpName ?? 'US UK Accountants'}, ${addressLine}`
+                );
+
+                return (
+                  <div
+                    key={office.id}
+                    className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
+                  >
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-lg" aria-hidden>
+                        {office.flag}
+                      </span>
+                      <h3 className="font-display text-xl font-semibold text-white">
+                        {office.label} office
+                      </h3>
+                    </div>
+
+                    <address className="mt-3 not-italic text-sm leading-relaxed text-softwhite/70">
+                      {office.street}
+                      <br />
+                      {office.locality}
+                      {office.region ? `, ${office.region}` : ''} {office.postalCode}
+                      <br />
+                      {office.country === 'GB' ? 'United Kingdom' : 'United States'}
+                    </address>
+
+                    {office.gbpUrl ? (
+                      <>
+                        <div className="mt-5 overflow-hidden rounded-xl border border-white/10">
+                          <iframe
+                            title={`Map of our ${office.label} office`}
+                            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="h-56 w-full border-0"
+                          />
+                        </div>
+                        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:gap-6">
+                          <a
+                            href={office.gbpUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition-colors hover:text-gold/80"
+                          >
+                            Open in Google Maps <IconArrowRight className="h-3.5 w-3.5" />
+                          </a>
+                          <a
+                            href={office.gbpUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-softwhite transition-colors hover:text-white"
+                          >
+                            Read our Google reviews <IconArrowRight className="h-3.5 w-3.5" />
+                          </a>
+                        </div>
+                      </>
+                    ) : null}
+                  </div>
+                );
+              })}
+            </div>
+          </Container>
+        </section>
+
       </main>
       <Footer />
     </>

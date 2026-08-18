@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 function FigureRow({ f }: { f: TaxFigure }) {
   return (

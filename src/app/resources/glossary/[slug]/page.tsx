@@ -59,7 +59,7 @@ export default async function GlossaryTermPage({
       title={t.term}
       answer={t.short}
       author={authors.find((a) => a.slug === 'sam-h')!}
-      reviewedBy={authors.find((a) => a.slug === 'katie-m')!}
+      reviewedBy={authors.find((a) => a.slug === 'sal-t')!}
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Glossary', href: '/resources/glossary' },

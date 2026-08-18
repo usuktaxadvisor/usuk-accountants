@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const londonServices = services.filter((s) =>
   ['us-tax-returns', 'fbar-filing', 'self-assessment', 'streamlined-filing', 'us-uk-tax-treaty', 'cross-border-tax-planning']

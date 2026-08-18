@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const relevant = services.filter((s) =>
   ['foreign-earned-income-exclusion', 'us-tax-returns', 'tax-planning', 'self-assessment', 'us-uk-tax-treaty', 'foreign-tax-credit']

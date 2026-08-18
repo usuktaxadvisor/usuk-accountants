@@ -24,6 +24,7 @@ const nextConfig = {
     return [
       { source: '/about', destination: '/about/team', permanent: true },
       { source: '/team', destination: '/about/team', permanent: true },
+      { source: '/about/team/katie-m', destination: '/about/team/sal-t', permanent: true },
       { source: '/booking', destination: '/book', permanent: true },
       { source: '/consultation', destination: '/book', permanent: true },
     ];

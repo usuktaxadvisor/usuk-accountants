@@ -10,7 +10,6 @@ const SOCIALS = [
   { label: 'US UK Accountants on YouTube', href: 'https://www.youtube.com/@USUKAccountants', Icon: IconYoutube },
 ];
 
-
 export default function Footer() {
   return (
     <footer className="bg-navy-ink text-softwhite">

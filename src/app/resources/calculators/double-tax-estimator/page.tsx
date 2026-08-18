@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const faqs = [
   { q: 'Will I really be taxed twice on the same income?', a: 'Usually not. The US–UK tax treaty, the Foreign Tax Credit and the Foreign Earned Income Exclusion are designed to prevent double taxation. Most people legally owe tax on a given income source in only one country once their filings are structured correctly. This tool gives you an indicative picture.' },
