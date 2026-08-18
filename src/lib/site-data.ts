@@ -398,7 +398,7 @@ export const testimonials: Testimonial[] = [];
 
 export const team: TeamMember[] = [
   { name: 'Sam', role: 'Founder & Lead Advisor', credentials: [], jurisdictions: ['US', 'UK', 'Cross-Border'], initials: 'S', href: '/about/team/sam-h' },
-  { name: 'Katie', role: 'US Accountant', credentials: [], jurisdictions: ['US Federal', 'US State'], initials: 'K', href: '/about/team/katie-m' },
+  { name: 'Sal', role: 'Senior US \u0026 UK Tax Manager', credentials: [], jurisdictions: ['US Federal', 'US State', 'UK'], initials: 'S', href: '/about/team/sal-t' },
   { name: 'Briana', role: 'Senior US Accountant', credentials: [], jurisdictions: ['US Federal', 'US State'], initials: 'B', href: '/about/team/briana' },
   { name: 'Sarah', role: 'UK Accountant', credentials: [], jurisdictions: ['UK', 'HMRC'], initials: 'S', href: '/about/team/sarah-j' },
   { name: 'Kristina', role: 'UK Tax Accountant', credentials: [], jurisdictions: ['UK', 'HMRC'], initials: 'K', href: '/about/team/kristina' },

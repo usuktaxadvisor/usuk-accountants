@@ -62,6 +62,10 @@ export default function ReviewsPage() {
                   Already a client? You can leave feedback in line with our{' '}
                   <Link href="/review-policy" className="text-gold-antique underline-offset-4 hover:underline">review policy</Link>.
                 </p>
+                <p className="mt-4 text-[15px] leading-relaxed text-muted">
+                  You can also share your experience publicly on{' '}
+                  <a href="https://maps.app.goo.gl/UoUMZFF34L9PKmFk7" target="_blank" rel="noopener noreferrer" className="text-gold-antique underline-offset-4 hover:underline">Google</a>.
+                </p>
               </div>
             )}
           </Container>

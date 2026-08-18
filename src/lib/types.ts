@@ -138,7 +138,7 @@ export interface Author {
   jurisdictions: string[];
   bio: string;
   expertise: string[];
-  yearsExperience: number;
+  yearsExperience?: number;
   sameAs?: { label: string; href: string }[];
   reviewedBy?: string;
 }

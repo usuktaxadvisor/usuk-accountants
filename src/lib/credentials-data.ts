@@ -39,7 +39,7 @@ export const teamCredentials: Record<string, TeamCredential[]> = {
     { body: 'ACCA', label: 'ACCA — Chartered Certified Accountant', status: 'verified', verifiedDate: '2026-07-02' },
     { body: 'ACA', label: 'ACA — Associate Chartered Accountant (ICAEW)', status: 'verified', verifiedDate: '2026-07-02' },
   ],
-  'katie-m': [
+  'sal-t': [
     { body: 'CPA', label: 'CPA — Certified Public Accountant (US)', status: 'verified', verifiedDate: '2026-07-02' },
   ],
   'briana': [

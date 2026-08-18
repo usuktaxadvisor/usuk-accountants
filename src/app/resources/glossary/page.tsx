@@ -43,7 +43,7 @@ export default function GlossaryIndex() {
         { label: 'Glossary', href: '/resources/glossary' },
       ]}
       author={authors.find((a) => a.slug === 'sam-h')!}
-      reviewedBy={authors.find((a) => a.slug === 'katie-m')!}
+      reviewedBy={authors.find((a) => a.slug === 'sal-t')!}
       faqs={faqs}
       ctaTitle="Came across a term that applies to you?"
       ctaIntro="If one of these touches your situation, a short conversation will tell you exactly where you stand. The first consultation is £200 for a focused 30 minutes."

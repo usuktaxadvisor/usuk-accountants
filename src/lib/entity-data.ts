@@ -75,7 +75,7 @@ export function orgSameAs(): string[] {
 /** Map of author slug → their live external profile URLs (LinkedIn, register pages). */
 export const personProfiles: Record<string, string[]> = {
   'sam-h': [],      // e.g. 'https://www.linkedin.com/in/...'
-  'katie-m': [],
+  'sal-t': [],
   'briana': [],
   'sarah-j': [],
   'kristina': [],

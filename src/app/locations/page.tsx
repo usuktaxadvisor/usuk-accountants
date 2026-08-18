@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const faqs = [
   { q: 'Where are your offices?', a: 'We have staffed offices in London and Manchester (United Kingdom) and the New York area (United States), which lets us serve clients on both sides of the Atlantic during local hours. We also work with clients remotely across the UK, the US and internationally.' },

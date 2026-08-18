@@ -1,6 +1,6 @@
 import Logo from '@/components/ui/Logo';
 import { LeadCaptureForm } from '@/components/library/Forms';
-import { footerColumns, legalLinks, PHONE_UK, PHONE_US } from '@/lib/site-data';
+import { footerColumns, legalLinks, OFFICES, PHONE_UK, PHONE_US } from '@/lib/site-data';
 import { IconInstagram, IconLinkedin, IconPinterest, IconYoutube } from '@/components/ui/icons';
 
 const SOCIALS = [
@@ -12,6 +12,7 @@ const SOCIALS = [
 
 
 export default function Footer() {
+  const googleReviewUrl = OFFICES.find((o) => o.id === 'manchester')?.gbpUrl;
   return (
     <footer className="bg-navy-ink text-softwhite">
       <div className="mx-auto max-w-container px-6 py-16">
@@ -59,6 +60,16 @@ export default function Footer() {
             />
           </div>
         </div>
+
+        {googleReviewUrl && (
+          <div className="mt-10 flex flex-col items-start justify-between gap-3 rounded-2xl border border-navy-slate px-7 py-5 md:flex-row md:items-center">
+            <div>
+              <p className="font-display text-base font-semibold text-white">Had a good experience with us?</p>
+              <p className="mt-0.5 text-sm text-softwhite/70">Your feedback helps others looking for trusted US–UK tax advice.</p>
+            </div>
+            <a href={googleReviewUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-gold transition-colors hover:text-softwhite">Leave a Google review →</a>
+          </div>
+        )}
 
         <div className="mt-12 border-t border-navy-slate pt-8">
           <p className="max-w-3xl text-xs leading-relaxed text-softwhite/70">

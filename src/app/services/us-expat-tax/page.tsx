@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const usServices = services.filter((s) =>
   ['us-tax-returns', 'fbar-filing', 'fatca', 'streamlined-filing', 'feie', 'foreign-tax-credit', 'us-uk-tax-treaty']

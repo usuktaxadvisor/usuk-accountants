@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 };
 
 const author = authors.find((a) => a.slug === 'sam-h')!;
-const reviewedBy = authors.find((a) => a.slug === 'katie-m')!;
+const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const faqs = [
   { q: 'Are these tax calculators free to use?', a: 'Yes. Every tool here is free and gives an indicative estimate to help you understand your cross-border position. They are educational, not formal advice — for a precise answer we offer a £550 30-minute consultation, and general questions are answered free by email.' },
