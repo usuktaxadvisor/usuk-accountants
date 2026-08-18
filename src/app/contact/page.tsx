@@ -218,37 +218,36 @@ export default async function ContactPage({
                       {office.country === 'GB' ? 'United Kingdom' : 'United States'}
                     </address>
 
-                    {office.gbpUrl ? (
-                      <>
-                        <div className="mt-5 overflow-hidden rounded-xl border border-white/10">
-                          <iframe
-                            title={`Map of our ${office.label} office`}
-                            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            className="h-56 w-full border-0"
-                          />
-                        </div>
-                        <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:gap-6">
-                          <a
-                            href={office.gbpUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition-colors hover:text-gold/80"
-                          >
-                            Open in Google Maps <IconArrowRight className="h-3.5 w-3.5" />
-                          </a>
-                          <a
-                            href={office.gbpUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 text-sm font-semibold text-softwhite transition-colors hover:text-white"
-                          >
-                            Read our Google reviews <IconArrowRight className="h-3.5 w-3.5" />
-                          </a>
-                        </div>
-                      </>
-                    ) : null}
+                    {/* Keyless address map for every staffed office. Google reviews link only where a verified GBP exists. */}
+                    <div className="mt-5 overflow-hidden rounded-xl border border-white/10">
+                      <iframe
+                        title={`Map of our ${office.label} office`}
+                        src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="h-56 w-full border-0"
+                      />
+                    </div>
+                    <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:gap-6">
+                      <a
+                        href={office.gbpUrl || `https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold transition-colors hover:text-gold/80"
+                      >
+                        Open in Google Maps <IconArrowRight className="h-3.5 w-3.5" />
+                      </a>
+                      {office.gbpUrl ? (
+                        <a
+                          href={office.gbpUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-softwhite transition-colors hover:text-white"
+                        >
+                          Read our Google reviews <IconArrowRight className="h-3.5 w-3.5" />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 );
               })}
