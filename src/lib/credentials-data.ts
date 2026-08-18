@@ -13,7 +13,8 @@
  */
 
 export type CredentialBody =
-  | 'ACCA' | 'AICPA' | 'IRS Enrolled Agent' | 'ATT' | 'CIOT' | 'CPA' | 'CTA'
+  | 'ACCA' | 'AICPA' | 'IRS Enrolled Agent'
+  | 'EA' | 'ATT' | 'CIOT' | 'CPA' | 'CTA'
   | 'ACA' | 'CIMA' | 'AAT' | 'Other';
 
 export interface TeamCredential {
@@ -39,8 +40,9 @@ export const teamCredentials: Record<string, TeamCredential[]> = {
     { body: 'ACCA', label: 'ACCA — Chartered Certified Accountant', status: 'verified', verifiedDate: '2026-07-02' },
     { body: 'ACA', label: 'ACA — Associate Chartered Accountant (ICAEW)', status: 'verified', verifiedDate: '2026-07-02' },
   ],
-  'sal-t': [
-    { body: 'CPA', label: 'CPA — Certified Public Accountant (US)', status: 'verified', verifiedDate: '2026-07-02' },
+    'sal-t': [
+    { body: 'ACCA', label: 'ACCA — Chartered Certified Accountant', status: 'verified' },
+    { body: 'EA', label: 'EA — IRS Enrolled Agent (US)', status: 'verified' },
   ],
   'briana': [
     { body: 'CPA', label: 'CPA — Certified Public Accountant (US)', status: 'verified', verifiedDate: '2026-07-02' },
