@@ -3,7 +3,7 @@ title: "Is Your UK Pension Tax-Free Lump Sum Taxable in the US?"
 description: "The UK 25% Pension Commencement Lump Sum is tax-free in the UK — but its US treatment is genuinely contested. We explain both recognised positions, the saving clause, Form 8833, and the risks of each approach."
 date: "2026-07-09"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
 faqs:
   - q: "Is the UK 25% tax-free lump sum taxable in the US?"

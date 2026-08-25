@@ -3,7 +3,7 @@ title: "What Happens If I Haven't Filed US Taxes While Living in the UK?"
 description: "Many Americans in the UK don't realise they still have to file US taxes — sometimes for years. Here's what actually happens, why it's usually fixable without penalties through Streamlined Filing, and how to catch up safely."
 date: "2026-06-26"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "US Tax"
 faqs:
   - q: "Do I really have to file US taxes if I live in the UK?"

@@ -3,7 +3,7 @@ title: "US Taxes on UK Investments: Practical Guide for Americans in the UK"
 description: "Most UK investments create US tax complications for Americans — but there are practical steps to take. This guide covers how to invest tax-efficiently as a US person in the UK, from choosing the right funds to managing the reporting requirements."
 date: "2026-07-30"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
 faqs:
   - q: "Are UK investments taxable in the US for Americans?"

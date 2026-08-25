@@ -3,7 +3,7 @@ title: "The US-UK Estate and Gift Tax Treaty Explained"
 description: "Separate from the income tax treaty, the 1980 US-UK Estate and Gift Tax Treaty allocates death-tax rights between the two countries. Here's how 'treaty domicile' tie-breakers work, what protection it offers Americans, and why the 2025 UK reforms made it more important."
 date: "2026-06-27"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "Property, Gains & Estate"
 faqs:
   - q: "What is the US-UK Estate and Gift Tax Treaty?"
