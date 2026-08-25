@@ -3,7 +3,7 @@ title: "IRS Form 8833 Explained: Who Must File It and When Is It Required?"
 description: "A clear guide to IRS Form 8833 for Americans in the UK: what a treaty-based return position is, who must disclose, the penalties, and how it interacts with the FTC, FEIE, FBAR and FATCA."
 date: "2026-07-08"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
 faqs:
   - q: "Do I always need Form 8833 if I use the US-UK treaty?"

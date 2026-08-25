@@ -3,7 +3,7 @@ title: "UK Inheritance Tax vs US Estate Tax: What Americans with UK Property Nee
 description: "UK inheritance tax and US estate tax can both reach a US citizen's UK property — but they're built on different foundations, and the UK's 2025 shift to a residence-based regime changed the rules. Here's how the two systems compare and where the treaty helps."
 date: "2026-06-27"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "Property, Gains & Estate"
 faqs:
   - q: "Do US citizens pay both UK inheritance tax and US estate tax?"

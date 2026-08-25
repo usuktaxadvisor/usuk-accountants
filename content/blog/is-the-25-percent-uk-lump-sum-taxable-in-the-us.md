@@ -3,7 +3,7 @@ title: "Is the 25% UK Tax-Free Lump Sum Taxable in the US?"
 description: "The UK lets you take 25% of your pension tax-free — but is that lump sum taxable in the US? This is the most contested question in US-UK tax. Here are both recognised positions, the treaty reasoning, and what the conservative approach looks like."
 date: "2026-06-26"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "Cross-Border"
 faqs:
   - q: "Is the 25% UK pension lump sum taxable in the US?"

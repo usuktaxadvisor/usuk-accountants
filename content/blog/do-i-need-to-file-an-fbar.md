@@ -3,7 +3,7 @@ title: "Do I Need to File an FBAR? A Plain-English Guide for Americans Abroad"
 description: "If you're a US citizen or green card holder with foreign bank accounts, you may need to file an FBAR. Here's who has to file, the $10,000 rule, the deadline, and what to do if you're behind."
 date: "2026-06-24"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "US Tax"
 faqs:
   - q: "Do I need to file an FBAR?"

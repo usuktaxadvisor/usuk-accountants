@@ -3,7 +3,7 @@ title: "Do US Citizens Need to Report a UK Limited Company to the IRS?"
 description: "Yes — a US citizen who owns a UK limited company almost always has US reporting obligations, separate from any tax owed. Here's exactly which forms apply (5471, 8858, FBAR, 8938, 926), when they're due, and the penalties for getting it wrong."
 date: "2026-06-27"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "Business & Self-Employment"
 faqs:
   - q: "Do US citizens need to report a UK limited company to the IRS?"

@@ -3,7 +3,7 @@ title: "Delinquent FBAR vs Streamlined Filing: Which Route Fixes a Missed FBAR?"
 description: "If you have filed your US tax returns but missed the FBAR, you may not need the full Streamlined programme. We explain the Delinquent FBAR Submission Procedures, how they differ from Streamlined Filing, and how to tell which route fits."
 date: "2026-07-28"
 author: "sam-h"
-reviewedBy: "katie-m"
+reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
 faqs:
   - q: "Can I file a late FBAR without using the Streamlined programme?"
