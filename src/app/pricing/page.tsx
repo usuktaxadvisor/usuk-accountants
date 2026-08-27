@@ -113,7 +113,7 @@ export default function PricingPage() {
       datePublished="2026-07-01"
       faqs={faqs}
       ctaTitle="Want an exact quote for your situation?"
-      ctaIntro="Email us a short description for a free steer, or book a £550 consultation — credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
+      ctaIntro="Email us a short description for a free steer, or book a consultation — from £350, credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
     >
       <JsonLd schema={offerCatalogSchema} />
       <Section tone="porcelain">
