@@ -39,7 +39,7 @@ export default function CalculatorHub() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="Want a precise answer for your situation?"
-      ctaIntro="The tools give you a direction. A £550 30-minute consultation gives you certainty — and quick questions are answered free by email."
+      ctaIntro="The tools give you a direction. A £350 30-minute consultation gives you certainty — and quick questions are answered free by email."
     >
       <Section tone="white">
         <Container>
