@@ -68,7 +68,7 @@ There's also a further wrinkle: depending on how a particular ISA platform holds
 
 Don't panic, and don't make a hasty sale. The right move depends on what's inside the ISA, how big it is, and how long you've held it. If you've held PFIC funds and **haven't been reporting them**, the [Streamlined Filing](/services/us-expat-tax/streamlined-filing) procedures often allow non-willful taxpayers to catch up — typically three years of returns and six years of FBARs — frequently without penalties. The sooner it's addressed, the more options you have.
 
-> A good first step is simply understanding your exposure. Our [team can review your ISA holdings](/book) and tell you whether you're looking at a simple fix or a more involved cleanup — the first conversation is a £100 30-minute consultation.
+> A good first step is simply understanding your exposure. Our [team can review your ISA holdings](/book) and tell you whether you're looking at a simple fix or a more involved cleanup — the first conversation is a £350 30-minute consultation.
 
 ## Common mistakes we see
 
