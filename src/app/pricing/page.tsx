@@ -106,7 +106,7 @@ export default function PricingPage() {
       url={URL}
       eyebrow="Pricing"
       title="How much does a US–UK tax accountant cost?"
-      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance, and the £200 consultation is credited to your first engagement."
+      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance, and the £350 consultation is credited to your first engagement."
       crumbs={[{ label: 'Pricing', href: URL }]}
       author={author}
       reviewedBy={reviewedBy}
@@ -188,7 +188,7 @@ export default function PricingPage() {
         points={[
           'Fixed-scope quote in writing before any work begins',
           'US and UK sides coordinated by one firm',
-          '£200 consultation credited to your first engagement',
+          '£350 consultation credited to your first engagement',
           'No open-ended hourly billing, ever',
         ]}
         note="Streamlined catch-up filing and company work are quoted as fixed packages after your consultation."
