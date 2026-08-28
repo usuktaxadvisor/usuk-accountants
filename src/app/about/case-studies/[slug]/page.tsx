@@ -66,7 +66,7 @@ export default async function CaseStudyPage(
 
         <CTASection
           title="Facing something similar?"
-          intro="A £550 30-minute consultation is the focused way to find out where you stand."
+          intro="A consultation from £350 is the focused way to find out where you stand."
           tone="navy"
         />
       </main>

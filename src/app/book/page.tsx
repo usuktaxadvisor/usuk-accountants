@@ -54,7 +54,7 @@ export default async function BookPage({
     offers: CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => ({
       '@type': 'Offer',
       name: t.name,
-      price: t.id === 'business' ? '550' : '200',
+      price: String(t.priceValue),
       priceCurrency: 'GBP',
       url: `${SITE.url}${t.bookHref}`,
     })),
