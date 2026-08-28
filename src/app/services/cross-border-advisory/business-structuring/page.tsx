@@ -119,7 +119,7 @@ export default function BusinessStructuring() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Paid strategy session for structuring, credited to later work',
+          'Paid strategy session for structuring',
           'Entity and election options modelled to your figures',
           'Elections made on time and carried into both filings',
         ]}

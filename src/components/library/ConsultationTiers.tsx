@@ -17,7 +17,7 @@ export function ConsultationTiers({ heading = true }: { heading?: boolean }) {
             Choose the right conversation
           </h2>
           <p className="mt-4 text-muted">
-            Every paid consultation is credited against your first engagement. Prefer to ask a quick question
+            Every consultation is a private, prepared session with a specialist. Prefer to ask a quick question
             first? General queries are answered free by email.
           </p>
         </div>
@@ -55,7 +55,7 @@ export function ConsultationTiers({ heading = true }: { heading?: boolean }) {
 
             {tier.credited ? (
               <p className={`mt-1 text-xs ${tier.featured ? 'text-softwhite/60' : 'text-muted'}`}>
-                Credited to your first engagement
+                Booked and paid securely online
               </p>
             ) : (
               <p className={`mt-1 text-xs ${tier.featured ? 'text-softwhite/60' : 'text-muted'}`}>

@@ -115,7 +115,7 @@ export default function CrossBorderAdvisoryPillar() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Paid strategy session for detailed planning, credited to later work',
+          'Paid strategy session for detailed planning',
           'Written positions with reasoning, risks and reporting set out',
           'Advice coordinated into your real US and UK filings',
         ]}

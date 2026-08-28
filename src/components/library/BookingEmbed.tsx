@@ -111,7 +111,7 @@ export default function BookingEmbed({
           />
         </div>
         <p className="mt-3 text-center text-xs text-muted">
-          Payment is taken securely at booking and your fee is credited to your first engagement.{' '}
+          Payment is taken securely at booking.{' '}
           <a href={bookingUrl} target="_blank" rel="noopener noreferrer" onClick={() => analytics.bookingOutboundClick(tierId, 'inline_link')} className="font-medium text-navy hover:text-gold">
             Prefer a full page? Book in a new tab
           </a>

@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     q: 'Is the consultation fee separate from the work?',
-    a: `The ${CONSULTATION.durationLabel} consultation is ${CONSULTATION.price}, and it is credited against your first engagement if you go on to instruct us — so for clients who proceed, it is effectively part of the work, not an extra cost. General questions are answered free by email.`,
+    a: `The ${CONSULTATION.durationLabel} consultation is ${CONSULTATION.price}. General questions are answered free by email.`,
   },
   {
     q: 'Are you cheaper than US-only expat tax firms?',
@@ -106,14 +106,14 @@ export default function PricingPage() {
       url={URL}
       eyebrow="Pricing"
       title="How much does a US–UK tax accountant cost?"
-      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance, and the £350 consultation is credited to your first engagement."
+      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance."
       crumbs={[{ label: 'Pricing', href: URL }]}
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-07-01"
       faqs={faqs}
       ctaTitle="Want an exact quote for your situation?"
-      ctaIntro="Email us a short description for a free steer, or book a consultation — from £350, credited to your first engagement. You'll always get a fixed-scope quote before any work begins."
+      ctaIntro="Email us a short description for a free steer, or book a consultation — from £350. You'll always get a fixed-scope quote before any work begins."
     >
       <JsonLd schema={offerCatalogSchema} />
       <Section tone="porcelain">
@@ -177,9 +177,7 @@ export default function PricingPage() {
           starts; your quote reflects your actual facts.
         </p>
         <p>
-          {CONSULTATION.freeEmailLine} For anything requiring detailed, personalised advice, the {CONSULTATION.price}{' '}
-          consultation is credited to your first engagement — so for clients who proceed, it forms part of the
-          work rather than an additional cost.
+          {CONSULTATION.freeEmailLine}
         </p>
       </ProseBlock>
 
@@ -188,7 +186,7 @@ export default function PricingPage() {
         points={[
           'Fixed-scope quote in writing before any work begins',
           'US and UK sides coordinated by one firm',
-          '£350 consultation credited to your first engagement',
+          '£350 individual consultation — a focused 30 minutes',
           'No open-ended hourly billing, ever',
         ]}
         note="Streamlined catch-up filing and company work are quoted as fixed packages after your consultation."
@@ -200,7 +198,7 @@ export default function PricingPage() {
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Federal and state returns, FBAR, FATCA and Streamlined Filing.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Self Assessment, company accounts, Corporation Tax and payroll.' },
           { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory', description: 'Treaty planning, pensions, structuring and estate coordination.' },
-          { label: 'Book a consultation', href: '/book', description: 'A £550 30-minute session, credited to your first engagement.' },
+          { label: 'Book a consultation', href: '/book', description: 'Individual £350 or business £550 — a focused 30 minutes with a specialist.' },
         ]}
       />
     </PageShell>

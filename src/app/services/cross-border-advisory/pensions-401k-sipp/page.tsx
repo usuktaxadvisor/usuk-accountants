@@ -120,7 +120,7 @@ export default function Pensions401kSipp() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Paid strategy session for pension positions, credited to later work',
+          'Paid strategy session for pension positions',
           'Conservative and alternative positions explained plainly',
           'Reporting handled, including Form 8833 where required',
         ]}

@@ -42,8 +42,7 @@ export default async function BookingThankYou({
               <p className="mt-4 text-lg leading-relaxed text-muted">
                 Thank you — your {tier.name.toLowerCase()} is booked and paid. A calendar invite with
                 your private video link is on its way to your inbox, along with a payment receipt. We&rsquo;ll
-                send a short note before the session so your specialist arrives fully briefed. Your fee is
-                credited against your first engagement if you go on to instruct us.
+                send a short note before the session so your specialist arrives fully briefed.
               </p>
             ) : (
               <p className="mt-4 text-lg leading-relaxed text-muted">
