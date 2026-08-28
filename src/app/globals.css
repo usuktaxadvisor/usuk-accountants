@@ -148,3 +148,40 @@ body {
   text-align: left;
 }
 .article-prose th { background: #F7F8FB; color: #0A1330; font-weight: 600; }
+
+/* ============================================================
+   Premium type system — Fraunces optical sizing for display
+   (family/feel only; utility size classes remain authoritative)
+   ============================================================ */
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-fraunces), Georgia, serif;
+    font-optical-sizing: auto;
+    font-variation-settings: 'SOFT' 40, 'WONK' 0;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  h1 { letter-spacing: -0.022em; line-height: 1.06; }
+  h2 { letter-spacing: -0.016em; line-height: 1.14; }
+}
+
+/* ============================================================
+   Atlantic meridian — signature background motif
+   Two abstract shores, one dotted great-circle route.
+   Pure CSS data-URI SVG: zero requests, behind content, inert.
+   ============================================================ */
+.bg-atlantic {
+  background-image:
+    radial-gradient(ellipse 120% 90% at 50% -10%, rgba(22, 38, 79, 0.55), rgba(10, 19, 48, 0) 60%),
+    url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 620' fill='none'%3E%3Cg stroke='%23E2CE92' stroke-opacity='0.13'%3E%3Cpath d='M150 402 C 420 160, 780 160, 1052 318' stroke-width='1.4' stroke-dasharray='2 9' stroke-linecap='round'/%3E%3Cpath d='M-40 470 C 300 400, 900 400, 1240 470' stroke-width='0.8' stroke-opacity='0.5'/%3E%3Cpath d='M-40 320 C 300 250, 900 250, 1240 320' stroke-width='0.8' stroke-opacity='0.4'/%3E%3Cpath d='M-40 170 C 300 105, 900 105, 1240 170' stroke-width='0.8' stroke-opacity='0.3'/%3E%3Cpath d='M118 348 l14 -10 m-2 22 l16 -12 m-4 26 l13 -9' stroke-width='1.1'/%3E%3Cpath d='M1074 268 l-15 -8 m4 22 l-17 -10 m6 24 l-14 -8' stroke-width='1.1'/%3E%3C/g%3E%3Cg%3E%3Ccircle cx='150' cy='402' r='3' fill='%23E2CE92' fill-opacity='0.5'/%3E%3Ccircle cx='150' cy='402' r='8' stroke='%23E2CE92' stroke-opacity='0.25'/%3E%3Ccircle cx='1052' cy='318' r='3' fill='%23E2CE92' fill-opacity='0.5'/%3E%3Ccircle cx='1052' cy='318' r='8' stroke='%23E2CE92' stroke-opacity='0.25'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center top, center 38%;
+  background-size: 100% 100%, min(1400px, 120%) auto;
+}
+
+.bg-atlantic-light {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 620' fill='none'%3E%3Cg stroke='%230D1B3E' stroke-opacity='0.05'%3E%3Cpath d='M150 402 C 420 160, 780 160, 1052 318' stroke-width='1.4' stroke-dasharray='2 9' stroke-linecap='round'/%3E%3Cpath d='M-40 470 C 300 400, 900 400, 1240 470' stroke-width='0.8'/%3E%3Cpath d='M-40 320 C 300 250, 900 250, 1240 320' stroke-width='0.8'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center 30%;
+  background-size: min(1400px, 120%) auto;
+}
