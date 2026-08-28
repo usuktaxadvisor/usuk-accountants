@@ -119,7 +119,7 @@ export default function CrossBorderTaxPlanning() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Paid strategy session for detailed modelling, credited to later work',
+          'Paid strategy session for detailed modelling',
           'Relief sequencing and timing modelled to your figures',
           'A written, defensible position you can act on',
         ]}

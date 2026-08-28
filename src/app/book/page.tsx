@@ -10,7 +10,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Book a Consultation',
   description:
-    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£350) or business & cross-border strategy session (£550), credited to your first engagement. General questions answered free by email.',
+    'Book a private consultation with a US–UK cross-border tax specialist. Individual tax consultation (£350) or business & cross-border strategy session (£550). General questions answered free by email.',
   alternates: { canonical: 'https://www.usukaccountants.com/book' },
 };
 
@@ -34,7 +34,7 @@ export default async function BookPage({
     `${tier.durationLabel} private consultation — ${tier.price}`,
     'Speak directly to a cross-border specialist',
     'Clear next steps for your exact situation',
-    'Credited to your first engagement',
+    'Fixed-scope quote before any work begins',
     'Quick questions? Email us free instead',
   ];
 
@@ -50,7 +50,7 @@ export default async function BookPage({
     provider: { '@id': `${SITE.url}/#organization` },
     areaServed: ['GB', 'US'],
     description:
-      'Private consultations with a US–UK cross-border tax specialist, credited to your first engagement.',
+      'Private consultations with a US–UK cross-border tax specialist.',
     offers: CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => ({
       '@type': 'Offer',
       name: t.name,
@@ -78,8 +78,8 @@ export default async function BookPage({
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
                 {isBusiness
-                  ? `A ${tier.durationLabel} working session (${tier.price}, credited to your first engagement) on structure, exposure and strategy for your business across both tax systems. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`
-                  : `Choose a time that suits you for a focused ${tier.durationLabel} private consultation with a specialist \u2014 ${tier.price}, credited to your first engagement, and a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`}
+                  ? `A ${tier.durationLabel} working session (${tier.price}) on structure, exposure and strategy for your business across both tax systems. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`
+                  : `Choose a time that suits you for a focused ${tier.durationLabel} private consultation with a specialist \u2014 ${tier.price}, with a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`}
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-sm">
                 {CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => (
@@ -187,8 +187,7 @@ export default async function BookPage({
                   <p className="font-display text-lg font-semibold text-ink">After</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     You&rsquo;ll leave knowing your next steps. If you&rsquo;d like us to handle the work,
-                    we&rsquo;ll follow up with a clear, fixed-scope quote &mdash; and the consultation fee is
-                    credited against your first engagement.
+                    we&rsquo;ll follow up with a clear, fixed-scope quote.
                   </p>
                 </div>
               </div>
