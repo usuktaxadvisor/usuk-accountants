@@ -20,7 +20,7 @@ export function Hero({
   secondaryCta = { label: 'Try the Double-Tax Estimator', href: '#calculator' },
 }: HeroProps) {
   return (
-    <section id="top" className="relative overflow-hidden bg-navy-ink">
+    <section id="top" className="relative overflow-hidden bg-navy-ink bg-atlantic">
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.35]"
         viewBox="0 0 1440 700"
