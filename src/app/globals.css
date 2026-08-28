@@ -185,3 +185,12 @@ body {
   background-position: center 30%;
   background-size: min(1400px, 120%) auto;
 }
+
+/* Atlantic Collection — band backgrounds */
+.bg-hero-atlantic { background-image: linear-gradient(rgba(10,19,48,.78), rgba(10,19,48,.88)), url('/images/atlantic/hero-atlantic.jpg'); background-size: cover; background-position: center 40%; }
+.bg-cta-chairs { background-image: linear-gradient(rgba(10,19,48,.82), rgba(10,19,48,.9)), url('/images/atlantic/cta-consultation.jpg'); background-size: cover; background-position: center; }
+.bg-loc-london { background-image: linear-gradient(rgba(10,19,48,.72), rgba(10,19,48,.88)), url('/images/atlantic/loc-london.jpg') !important; background-size: cover !important; background-position: center !important; }
+.bg-loc-manchester { background-image: linear-gradient(rgba(10,19,48,.72), rgba(10,19,48,.88)), url('/images/atlantic/loc-manchester.jpg') !important; background-size: cover !important; background-position: center !important; }
+.bg-loc-newyork { background-image: linear-gradient(rgba(10,19,48,.72), rgba(10,19,48,.88)), url('/images/atlantic/loc-newyork.jpg') !important; background-size: cover !important; background-position: center !important; }
+.img-card-banner { display:block; width:calc(100% + 3.5rem); max-width:none; margin:-1.75rem -1.75rem 1.25rem; height:10rem; object-fit:cover; border-radius:1rem 1rem 0 0; }
+.img-card-banner-6 { display:block; width:calc(100% + 3rem); max-width:none; margin:-1.5rem -1.5rem 1rem; height:10rem; object-fit:cover; border-radius:1rem 1rem 0 0; }

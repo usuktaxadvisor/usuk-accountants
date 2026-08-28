@@ -37,7 +37,7 @@ export function CTASection({
   const isNavy = tone === 'navy';
   const isGold = tone === 'gold';
 
-  const bg = isNavy ? 'bg-navy-ink' : isGold ? 'bg-gradient-to-r from-gold to-gold-champagne' : 'bg-porcelain';
+  const bg = isNavy ? 'bg-navy-ink bg-cta-chairs' : isGold ? 'bg-gradient-to-r from-gold to-gold-champagne' : 'bg-porcelain';
   const titleColor = isGold ? 'text-navy-ink' : isNavy ? 'text-white' : 'text-ink';
   const introColor = isGold ? 'text-navy-ink/80' : isNavy ? 'text-softwhite/85' : 'text-muted';
 
