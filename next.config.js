@@ -22,6 +22,7 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      { source: '/why-us', destination: '/about/team', permanent: true },
       { source: '/about', destination: '/about/team', permanent: true },
       { source: '/team', destination: '/about/team', permanent: true },
       { source: '/about/team/katie-m', destination: '/about/team/sal-t', permanent: true },
