@@ -23,6 +23,7 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/why-us', destination: '/about/team', permanent: true },
+      { source: '/services/us-tax-returns/:path*', destination: '/services/us-expat-tax/us-tax-returns', permanent: true },
       { source: '/about', destination: '/about/team', permanent: true },
       { source: '/team', destination: '/about/team', permanent: true },
       { source: '/about/team/katie-m', destination: '/about/team/sal-t', permanent: true },
