@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { Header, Footer, Container, Button } from '@/components/library';
 
 /**
@@ -40,6 +40,21 @@ export default async function ComingSoon(
   { params }: { params: Promise<{ slug: string[] }> }
 ) {
   const { slug } = await params;
+  const path = '/' + slug.join('/');
+
+  // Legacy/phantom URLs redirected here because next.config redirects are
+  // not applied on this deployment; this layer provably serves these paths.
+  const LEGACY: Record<string, string> = {
+    '/why-us': '/about/team',
+    '/booking': '/book',
+    '/consultation': '/book',
+    '/team': '/about/team',
+  };
+  if (LEGACY[path]) permanentRedirect(LEGACY[path]);
+  if (path.startsWith('/services/us-tax-returns')) {
+    permanentRedirect('/services/us-expat-tax/us-tax-returns');
+  }
+
   const title = titleFromSlug(slug);
   const isKnown = KNOWN_PREFIXES.includes(slug[0] ?? '');
 
