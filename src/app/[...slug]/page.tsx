@@ -49,6 +49,7 @@ export default async function ComingSoon(
     '/booking': '/book',
     '/consultation': '/book',
     '/team': '/about/team',
+    '/services/us-expat-tax/international-business-structuring': '/services/cross-border-advisory/business-structuring',
   };
   if (LEGACY[path]) permanentRedirect(LEGACY[path]);
   if (path.startsWith('/services/us-tax-returns')) {
