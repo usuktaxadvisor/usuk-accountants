@@ -8,6 +8,8 @@ const SERVICE_IMG: Record<string, [string, string]> = {
   '/services/us-expat-tax/streamlined-filing': ['service-streamlined', 'Vintage airmail envelopes tied with twine beside a brass letter opener'],
   '/services/us-expat-tax/foreign-earned-income-exclusion': ['service-planning', 'A brass telescope at a window overlooking a harbour at dusk'],
   '/services/uk-accounting': ['service-accounting', 'Cloth-bound ledgers with a brass ruler and ink pen'],
+  '/services/uk-accounting/self-assessment': ['blog-documents', 'Wax-sealed correspondence and a ledger on a mahogany desk'],
+  '/services/us-expat-tax/us-uk-tax-treaty': ['blog-instruments', 'Brass drafting instruments on nautical charts in warm lamplight'],
   '/services/uk-accounting/corporation-tax': ['service-advisory', 'A dark boardroom table under one warm pendant light'],
   '/services/uk-accounting/company-accounts': ['service-returns', 'A leather folio and fountain pen on a marble desk in warm light'],
   '/services/cross-border-advisory': ['service-planning', 'A brass telescope at a window overlooking a harbour at dusk'],
