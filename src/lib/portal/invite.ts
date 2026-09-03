@@ -24,8 +24,15 @@ export async function findLiveInvitation(rawToken: string) {
   return inv ?? null;
 }
 
-/** HMAC key for the one-time Google consent flow — derived from AUTH_SECRET, so no extra env var. */
+/**
+ * Setup key guarding the one-time bootstrap and Google-consent routes.
+ * Prefers the plain PORTAL_SETUP_KEY env var (set directly by the admin —
+ * what you type is what matches, nothing derived). Falls back to an
+ * AUTH_SECRET-derived HMAC when unset.
+ */
 export function consentStateKey(): string {
+  const plain = process.env.PORTAL_SETUP_KEY;
+  if (plain && plain.length >= 10) return plain;
   const secret = process.env.AUTH_SECRET;
   if (!secret) throw new Error('AUTH_SECRET missing');
   return createHmac('sha256', secret).update('google-consent-v1').digest('base64url').slice(0, 24);
