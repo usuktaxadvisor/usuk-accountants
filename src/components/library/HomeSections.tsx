@@ -7,6 +7,7 @@ const AUDIENCE_IMG: Record<string, [string, string]> = {
   '/who-we-help/startups-founders': ['help-founder', 'A founder\'s desk at night under one warm task lamp'],
   '/who-we-help/landlords': ['help-family', 'An elegant home study with evening light from a garden window'],
   '/who-we-help/high-net-worth-individuals': ['help-hnw', 'A private library with a leather armchair and warm reading lamp'],
+  '/who-we-help/digital-nomads': ['blog-atlantic', 'An ocean liner mid-Atlantic at dusk beneath a golden sky'],
 };
 import { Section, Container, SectionHeading } from '@/components/library/primitives';
 import { IconBank, IconGlobeDoc, IconTreaty, IconArrowRight } from '@/components/ui/icons';
