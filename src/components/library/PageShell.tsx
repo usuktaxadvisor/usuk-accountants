@@ -104,7 +104,7 @@ export function PageShell({
         <Breadcrumbs crumbs={crumbs} />
 
         {/* Answer-first hero */}
-        <header className="bg-navy-ink bg-atlantic py-16 md:py-20">
+        <header className={`bg-navy-ink bg-atlantic py-16 md:py-20 ${/manchester/i.test(title) ? "bg-loc-manchester" : /new york/i.test(title) ? "bg-loc-newyork" : /london/i.test(title) ? "bg-loc-london" : ""}`}>
           <Container>
             <div className="max-w-prose">
               {eyebrow && <div className="mb-3"><Eyebrow tone="gold-light">{eyebrow}</Eyebrow></div>}

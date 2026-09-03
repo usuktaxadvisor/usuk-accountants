@@ -1,4 +1,14 @@
 import Link from 'next/link';
+
+const AUDIENCE_IMG: Record<string, [string, string]> = {
+  '/who-we-help/us-citizens-in-uk': ['help-uk', 'A quiet cobbled London mews at dawn with one warmly lit window'],
+  '/who-we-help/uk-citizens-in-us': ['help-us', 'A Manhattan apartment interior at dusk with city lights beyond'],
+  '/who-we-help/dual-citizens': ['help-mobile', 'An airport window at dusk with distant runway lights'],
+  '/who-we-help/startups-founders': ['help-founder', 'A founder\'s desk at night under one warm task lamp'],
+  '/who-we-help/landlords': ['help-family', 'An elegant home study with evening light from a garden window'],
+  '/who-we-help/high-net-worth-individuals': ['help-hnw', 'A private library with a leather armchair and warm reading lamp'],
+  '/who-we-help/digital-nomads': ['blog-atlantic', 'An ocean liner mid-Atlantic at dusk beneath a golden sky'],
+};
 import { Section, Container, SectionHeading } from '@/components/library/primitives';
 import { IconBank, IconGlobeDoc, IconTreaty, IconArrowRight } from '@/components/ui/icons';
 import Reveal from '@/components/ui/Reveal';
@@ -99,9 +109,13 @@ export function WhoWeHelp({
             <Link
               key={a.title}
               href={a.href}
-              className="group flex items-start gap-4 rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2"
+              className="group rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2"
             >
-              <span className="text-2xl" aria-hidden>{a.flag}</span>
+              {AUDIENCE_IMG[a.href] ? (
+                <img src={`/images/atlantic/${AUDIENCE_IMG[a.href][0]}.jpg`} alt={AUDIENCE_IMG[a.href][1]} width={1200} height={1600} loading="lazy" className="img-card-banner-6" />
+              ) : (
+                <span className="text-2xl" aria-hidden>{a.flag}</span>
+              )}
               <div>
                 <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">{a.title}</h3>
                 <p className="mt-1 text-sm leading-relaxed text-muted transition-colors duration-300 group-hover:text-softwhite/80">{a.description}</p>
