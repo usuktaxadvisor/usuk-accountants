@@ -2,6 +2,7 @@ import { redirect } from 'next/navigation';
 import { eq, desc } from 'drizzle-orm';
 import { portalSession, signOut } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
+import UploadButton from '@/components/portal/UploadButton';
 
 export const dynamic = 'force-dynamic';
 
@@ -16,7 +17,8 @@ const STATUS_LABEL: Record<string, string> = {
 export default async function Dashboard() {
   const session = await portalSession();
   if (!session) redirect('/portal/login');
-  if (session.role !== 'CLIENT' || !session.clientId) redirect('/portal/login'); // staff area comes in /admin phase
+  if (session.role !== 'CLIENT') redirect('/portal/admin');
+  if (!session.clientId) redirect('/portal/login');
 
   const [client] = await db.select({ displayName: tables.clients.displayName })
     .from(tables.clients).where(eq(tables.clients.id, session.clientId)).limit(1);
@@ -27,6 +29,11 @@ export default async function Dashboard() {
     .orderBy(desc(tables.documentRequests.requestedAt));
 
   const open = requests.filter(r => r.status === 'REQUESTED');
+
+  const docs = await db.select()
+    .from(tables.documents)
+    .where(eq(tables.documents.clientId, session.clientId))
+    .orderBy(desc(tables.documents.createdAt));
 
   async function doLogout() {
     'use server';
@@ -66,9 +73,26 @@ export default async function Dashboard() {
               {r.description ? <p className="mt-0.5 text-sm text-muted">{r.description}</p> : null}
               {r.deadline ? <p className="mt-1 text-xs text-muted">Needed by {r.deadline.toLocaleDateString('en-GB')}</p> : null}
             </div>
-            <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-semibold ${r.status === 'REQUESTED' ? 'bg-gold/10 text-gold-antique' : 'bg-mist text-muted'}`}>
-              {STATUS_LABEL[r.status] ?? r.status}
-            </span>
+            <div className="flex shrink-0 flex-col items-end gap-2">
+              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${r.status === 'REQUESTED' ? 'bg-gold/10 text-gold-antique' : 'bg-mist text-muted'}`}>
+                {STATUS_LABEL[r.status] ?? r.status}
+              </span>
+              {(r.status === 'REQUESTED' || r.status === 'UPLOADED') ? <UploadButton requestId={r.id} /> : null}
+            </div>
+          </div>
+        ))}
+      </div>
+      <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents submitted</h2>
+      <div className="mt-3 space-y-2">
+        {docs.length === 0 ? (
+          <p className="rounded-2xl border border-mist bg-white p-6 text-sm text-muted">Nothing submitted yet.</p>
+        ) : docs.map(d => (
+          <div key={d.id} className="flex items-center justify-between gap-4 rounded-2xl border border-mist bg-white px-6 py-4">
+            <div>
+              <p className="text-sm font-semibold text-ink">{d.originalName}</p>
+              <p className="text-xs text-muted">{d.createdAt.toLocaleDateString('en-GB')} · {(d.sizeBytes/1024/1024).toFixed(1)} MB</p>
+            </div>
+            <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-muted">{STATUS_LABEL[d.status] ?? d.status}</span>
           </div>
         ))}
       </div>
