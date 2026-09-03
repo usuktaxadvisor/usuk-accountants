@@ -12,6 +12,7 @@ import { audit } from './audit';
  * source of truth for authorization on the server.
  */
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  trustHost: true, // redirects follow the request's own host (preview stays on preview, prod on prod)
   session: { strategy: 'jwt', maxAge: 60 * 60 * 8 }, // 8h sessions
   pages: { signIn: '/portal/login' },
   providers: [
