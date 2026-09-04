@@ -1,4 +1,5 @@
 import { redirect } from 'next/navigation';
+import { headers } from 'next/headers';
 import { sql } from 'drizzle-orm';
 import { requireRole } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
@@ -31,7 +32,10 @@ export default async function NewClientPage() {
     }).returning({ id: tables.clients.id });
 
     const raw = await createInvitation(user.id);
-    const base = process.env.AUTH_URL ?? 'https://www.usukaccountants.com';
+    const h = await headers();
+    const host = h.get('x-forwarded-host') ?? h.get('host');
+    const proto = h.get('x-forwarded-proto') ?? 'https';
+    const base = host ? `${proto}://${host}` : (process.env.AUTH_URL ?? 'https://www.usukaccountants.com');
     const sent = await sendPortalEmail(email, 'Your secure client portal — US UK Accountants', inviteEmailHtml(firstName, `${base}/portal/invite/${raw}`));
 
     await audit(s.uid, 'CLIENT_CREATED', { targetType: 'client', targetId: client.id, meta: { clientRef, inviteEmailSent: sent } });
