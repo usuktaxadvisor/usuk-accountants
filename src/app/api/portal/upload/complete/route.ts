@@ -6,6 +6,7 @@ import { db, tables } from '@/lib/portal/db';
 import { validateUpload } from '@/lib/portal/validate';
 import { verifyUploadedFile, deleteDriveFile } from '@/lib/portal/drive';
 import { audit } from '@/lib/portal/audit';
+import { notifyStaffOfUpload } from '@/lib/portal/notify';
 
 export const runtime = 'nodejs';
 const GENERIC = { error: 'Something went wrong. Please try again or contact support.' };
@@ -43,6 +44,7 @@ export async function POST(req: Request) {
     }).returning({ id: tables.documents.id });
     await db.update(tables.documentRequests).set({ status: 'UPLOADED', updatedAt: new Date() }).where(eq(tables.documentRequests.id, request.id));
     await audit(session.uid, 'UPLOAD', { targetType: 'document', targetId: doc.id, meta: { requestId: request.id, sizeBytes: size, ext, path: 'resumable' } });
+    await notifyStaffOfUpload(session.clientId, request.id, String(b.originalName ?? storedName));
     return NextResponse.json({ ok: true, message: 'Your document has been securely received.' });
   } catch (e) {
     console.error('[portal:upload-complete]', e instanceof Error ? e.message : e);
