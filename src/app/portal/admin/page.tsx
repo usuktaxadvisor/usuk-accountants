@@ -7,14 +7,17 @@ export const dynamic = 'force-dynamic';
 
 export default async function AdminHome() {
   await requireRole('STAFF');
-  const rows = await db.select({
-    id: tables.clients.id,
-    ref: tables.clients.clientRef,
-    name: tables.clients.displayName,
-    status: tables.clients.status,
-    openRequests: sql<number>`(select count(*) from document_requests dr where dr.client_id = ${tables.clients.id} and dr.status = 'REQUESTED')`,
-    uploads: sql<number>`(select count(*) from documents d where d.client_id = ${tables.clients.id})`,
-  }).from(tables.clients).orderBy(desc(tables.clients.createdAt));
+  const clientRows = await db.select().from(tables.clients).orderBy(desc(tables.clients.createdAt));
+  const openByClient = await db.select({ clientId: tables.documentRequests.clientId, n: sql<number>`count(*)` })
+    .from(tables.documentRequests).where(eq(tables.documentRequests.status, 'REQUESTED')).groupBy(tables.documentRequests.clientId);
+  const docsByClient = await db.select({ clientId: tables.documents.clientId, n: sql<number>`count(*)` })
+    .from(tables.documents).groupBy(tables.documents.clientId);
+  const openMap = new Map(openByClient.map(r => [r.clientId, Number(r.n)]));
+  const docMap = new Map(docsByClient.map(r => [r.clientId, Number(r.n)]));
+  const rows = clientRows.map(c => ({
+    id: c.id, ref: c.clientRef, name: c.displayName, status: c.status,
+    openRequests: openMap.get(c.id) ?? 0, uploads: docMap.get(c.id) ?? 0,
+  }));
 
   const pendingReview = await db.select({ id: tables.documentRequests.id })
     .from(tables.documentRequests).where(eq(tables.documentRequests.status, 'UPLOADED'));

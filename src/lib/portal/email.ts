@@ -5,18 +5,24 @@
  */
 export async function sendPortalEmail(to: string, subject: string, html: string): Promise<boolean> {
   const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.PORTAL_FROM_EMAIL ?? process.env.LEAD_NOTIFY_FROM;
-  if (!apiKey || !from) return false;
-  try {
-    const res = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ from: `US UK Accountants <${from}>`, to: [to], subject, html }),
-    });
-    return res.ok;
-  } catch {
-    return false;
+  if (!apiKey) { console.error('[portal:email] RESEND_API_KEY missing'); return false; }
+  // Portal sender first, then the sender the marketing site already uses (known-verified).
+  const senders = [process.env.PORTAL_FROM_EMAIL, process.env.LEAD_NOTIFY_FROM].filter((v): v is string => !!v);
+  for (const from of senders) {
+    try {
+      const res = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${apiKey}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ from: `US UK Accountants <${from}>`, to: [to], subject, html }),
+      });
+      if (res.ok) return true;
+      const detail = await res.text().catch(() => '');
+      console.error(`[portal:email] Resend ${res.status} using sender ${from}: ${detail.slice(0, 300)}`); // server logs only
+    } catch (e) {
+      console.error('[portal:email] network error', e instanceof Error ? e.message : e);
+    }
   }
+  return false;
 }
 
 export function inviteEmailHtml(firstName: string, link: string): string {
