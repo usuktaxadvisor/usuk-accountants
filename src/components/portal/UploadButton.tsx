@@ -15,11 +15,29 @@ export default function UploadButton({ requestId }: { requestId: string }) {
     if (!file) return;
     setState('uploading');
     setMessage('');
-    const form = new FormData();
-    form.set('file', file);
-    form.set('requestId', requestId);
+    const LARGE = 4 * 1024 * 1024; // above this, Vercel's request-body limit applies → streamed path
     try {
-      const res = await fetch('/api/portal/upload', { method: 'POST', body: form });
+      let res: Response;
+      if (file.size > LARGE) {
+        const s = await fetch('/api/portal/upload/session', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ requestId, filename: file.name, size: file.size, mime: file.type || 'application/octet-stream' }),
+        });
+        const sess = (await s.json().catch(() => ({}))) as { sessionUrl?: string; storedName?: string; sig?: string; error?: string };
+        if (!s.ok || !sess.sessionUrl) { setState('error'); setMessage(sess.error ?? 'Something went wrong. Please try again.'); return; }
+        const put = await fetch(sess.sessionUrl, { method: 'PUT', headers: { 'Content-Type': file.type || 'application/octet-stream' }, body: file });
+        const uploaded = (await put.json().catch(() => ({}))) as { id?: string };
+        if (!put.ok || !uploaded.id) { setState('error'); setMessage('Upload was interrupted — please try again.'); return; }
+        res = await fetch('/api/portal/upload/complete', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ requestId, fileId: uploaded.id, storedName: sess.storedName, size: file.size, originalName: file.name, mime: file.type || 'application/octet-stream', sig: sess.sig }),
+        });
+      } else {
+        const form = new FormData();
+        form.set('file', file);
+        form.set('requestId', requestId);
+        res = await fetch('/api/portal/upload', { method: 'POST', body: form });
+      }
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; message?: string; error?: string };
       if (res.ok && data.ok) {
         setState('done');

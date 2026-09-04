@@ -39,7 +39,7 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-gold">US &amp; UK cross-border specialists · London &amp; New York offices</span>
-            <Link href="/contact" className="transition-colors hover:text-gold">Client Login</Link>
+            <Link href="/portal/login" className="transition-colors hover:text-gold">Client Login</Link>
           </div>
         </div>
       </div>
