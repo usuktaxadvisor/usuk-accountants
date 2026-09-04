@@ -16,6 +16,7 @@ export function middleware(req: NextRequest) {
   // Public/pre-auth paths inside the guarded zone:
   if (
     pathname === '/portal/login' ||
+    pathname === '/portal/forgot' ||
     pathname.startsWith('/portal/invite/') ||
     pathname.startsWith('/api/portal/bootstrap')
   ) {

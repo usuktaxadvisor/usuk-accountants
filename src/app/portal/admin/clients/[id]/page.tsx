@@ -3,14 +3,17 @@ import { and, desc, eq } from 'drizzle-orm';
 import { requireRole } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
 import { audit } from '@/lib/portal/audit';
+import { notifyClientOfRequest, requestBase } from '@/lib/portal/notify';
+import { createInvitation } from '@/lib/portal/invite';
+import { sendPortalEmail, resetEmailHtml } from '@/lib/portal/email';
 
 export const dynamic = 'force-dynamic';
 const STATUSES = ['REQUESTED', 'UPLOADED', 'RECEIVED', 'UNDER_REVIEW', 'COMPLETED'] as const;
 
-export default async function ClientDetail({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ email?: string }> }) {
+export default async function ClientDetail({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ email?: string; reset?: string }> }) {
   await requireRole('STAFF');
   const { id } = await params;
-  const { email } = await searchParams;
+  const { email, reset } = await searchParams;
 
   const [client] = await db.select().from(tables.clients).where(eq(tables.clients.id, id)).limit(1);
   if (!client) notFound();
@@ -27,8 +30,22 @@ export default async function ClientDetail({ params, searchParams }: { params: P
     if (!title) return;
     const description = String(formData.get('description') ?? '').trim() || null;
     const [r] = await db.insert(tables.documentRequests).values({ clientId: id, title, description }).returning({ id: tables.documentRequests.id });
-    await audit(s.uid, 'REQUEST_CREATED', { targetType: 'request', targetId: r.id, meta: { clientId: id } });
-    redirect(`/portal/admin/clients/${id}`);
+    const emailed = await notifyClientOfRequest(id, title);
+    await audit(s.uid, 'REQUEST_CREATED', { targetType: 'request', targetId: r.id, meta: { clientId: id, clientEmailed: emailed } });
+    redirect(`/portal/admin/clients/${id}${emailed ? '' : '?email=failed'}`);
+  }
+
+  async function sendResetLink() {
+    'use server';
+    const s = await requireRole('STAFF');
+    const [row] = await db.select({ userId: tables.users.id, email: tables.users.email, firstName: tables.users.firstName, displayName: tables.clients.displayName })
+      .from(tables.clients).innerJoin(tables.users, eq(tables.users.id, tables.clients.userId)).where(eq(tables.clients.id, id)).limit(1);
+    if (!row) return;
+    const raw = await createInvitation(row.userId, 1); // 24h
+    const base = await requestBase();
+    const sent = await sendPortalEmail(row.email, 'Reset your portal password — US UK Accountants', resetEmailHtml(row.firstName ?? row.displayName.split(' ')[0], `${base}/portal/invite/${raw}`));
+    await audit(s.uid, 'RESET_LINK_SENT', { targetType: 'user', targetId: row.userId, meta: { sent } });
+    redirect(`/portal/admin/clients/${id}?reset=${sent ? 'sent' : 'failed'}`);
   }
 
   async function setStatus(formData: FormData) {
@@ -50,7 +67,12 @@ export default async function ClientDetail({ params, searchParams }: { params: P
   return (
     <div>
       <h1 className="font-display text-3xl font-semibold text-ink">{client.displayName} <span className="ml-2 text-sm font-normal text-muted">{client.clientRef}</span></h1>
-      {email === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">Client created, but the invitation email could not be sent — check PORTAL_FROM_EMAIL/RESEND settings and re-invite.</p> : null}
+      {email === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">The email to the client could not be sent — the record was saved; use “Send password-reset link” or contact them directly.</p> : null}
+      {reset === 'sent' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-ink">Password-reset link emailed to the client (valid 24 hours).</p> : null}
+      {reset === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">Reset link created but the email could not be sent — check server logs.</p> : null}
+      <form action={sendResetLink} className="mt-3">
+        <button className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Send password-reset link</button>
+      </form>
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <section>

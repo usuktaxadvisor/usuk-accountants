@@ -6,6 +6,7 @@ import { validateUpload } from '@/lib/portal/validate';
 import { uploadToClientFolder } from '@/lib/portal/drive';
 import { rateLimit } from '@/lib/portal/ratelimit';
 import { audit } from '@/lib/portal/audit';
+import { notifyStaffOfUpload } from '@/lib/portal/notify';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -67,6 +68,7 @@ export async function POST(req: Request) {
       targetType: 'document', targetId: doc.id,
       meta: { requestId: request.id, sizeBytes: buf.length, ext: verdict.ext },
     });
+    await notifyStaffOfUpload(session.clientId, request.id, file.name);
     return NextResponse.json({ ok: true, message: 'Your document has been securely received.' });
   } catch (e) {
     console.error('[portal:upload]', e instanceof Error ? e.message : e); // server-side only

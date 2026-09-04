@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { redirect } from 'next/navigation';
 import { signIn, portalSession } from '@/lib/portal/auth';
 import { AuthError } from 'next-auth';
@@ -51,7 +52,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           Sign in
         </button>
         <p className="text-center text-xs text-muted">
-          Forgotten your password? Email hello@usukaccountants.com and we&rsquo;ll reset it securely.
+          <Link href="/portal/forgot" className="underline decoration-mist underline-offset-2 hover:text-ink">Forgotten your password?</Link>
         </p>
       </form>
     </div>
