@@ -94,3 +94,62 @@ export async function uploadToClientFolder(
   if (!res.data.id) throw new Error('Drive upload failed');
   return res.data.id;
 }
+
+/* ───────── Large-file path (Vercel body limit ≈4.5MB) ─────────
+ * The server creates a Google resumable-upload session bound to the
+ * client's Incoming folder; the browser streams bytes to that session
+ * URL only (it grants nothing but writing that one new file). The
+ * server then verifies the finished file before recording it.
+ */
+async function accessToken(): Promise<string> {
+  const refresh = process.env.GOOGLE_REFRESH_TOKEN;
+  if (!refresh) throw new Error('GOOGLE_REFRESH_TOKEN missing');
+  const auth = oauthClient();
+  auth.setCredentials({ refresh_token: refresh });
+  const t = await auth.getAccessToken();
+  if (!t.token) throw new Error('No access token');
+  return t.token;
+}
+
+export async function createResumableSession(
+  clientId: string, storedName: string, mimeType: string, sizeBytes: number, origin: string,
+): Promise<string> {
+  const { incomingFolderId } = await ensureClientFolders(clientId);
+  const token = await accessToken();
+  const res = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${token}`,
+      'Content-Type': 'application/json; charset=UTF-8',
+      'X-Upload-Content-Type': mimeType,
+      'X-Upload-Content-Length': String(sizeBytes),
+      Origin: origin, // Google echoes this as the CORS origin for the browser's PUT
+    },
+    body: JSON.stringify({ name: storedName, parents: [incomingFolderId] }),
+  });
+  const location = res.headers.get('location');
+  if (!res.ok || !location) throw new Error(`Resumable session failed: ${res.status}`);
+  return location;
+}
+
+/** Verify a finished upload: it must sit in this client's Incoming folder, match the size, and pass a magic-byte check. */
+export async function verifyUploadedFile(
+  clientId: string, fileId: string, expectedSize: number,
+): Promise<{ ok: true; name: string; head: Buffer } | { ok: false; reason: string }> {
+  const { incomingFolderId } = await ensureClientFolders(clientId);
+  const drive = driveClient();
+  const meta = await drive.files.get({ fileId, fields: 'id,name,size,parents,trashed' }).catch(() => null);
+  if (!meta?.data?.id) return { ok: false, reason: 'File not found' };
+  if (!(meta.data.parents ?? []).includes(incomingFolderId)) return { ok: false, reason: 'File is not in your folder' };
+  if (Number(meta.data.size ?? -1) !== expectedSize) return { ok: false, reason: 'Size mismatch' };
+  const token = await accessToken();
+  const headRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`, {
+    headers: { Authorization: `Bearer ${token}`, Range: 'bytes=0-511' },
+  });
+  const head = Buffer.from(await headRes.arrayBuffer());
+  return { ok: true, name: meta.data.name ?? '', head };
+}
+
+export async function deleteDriveFile(fileId: string): Promise<void> {
+  try { await driveClient().files.delete({ fileId }); } catch { /* best effort */ }
+}
