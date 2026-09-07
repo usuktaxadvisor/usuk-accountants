@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  Header, Footer, Container, CTASection, CaseStudyDetail,
+  Header, Footer, Container, CTASection, CaseStudyDetail, JsonLd,
 } from '@/components/library';
 import { caseStudies } from '@/lib/authority-data';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -32,6 +33,10 @@ export default async function CaseStudyPage(
 
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([
+        { label: 'Case studies', href: '/about/case-studies' },
+        { label: study.title, href: `/about/case-studies/${study.slug}` },
+      ])} />
       <Header />
       <main>
         <nav aria-label="Breadcrumb" className="border-b border-mist bg-porcelain">

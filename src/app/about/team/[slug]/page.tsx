@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  Header, Footer, Container, CTASection, AuthorProfile,
+  Header, Footer, Container, CTASection, AuthorProfile, JsonLd,
 } from '@/components/library';
 import { authors } from '@/lib/authority-data';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export function generateStaticParams() {
   return authors.map((a) => ({ slug: a.slug }));
@@ -32,6 +33,10 @@ export default async function AuthorPage(
 
   return (
     <>
+      <JsonLd schema={breadcrumbSchema([
+        { label: 'Team', href: '/about/team' },
+        { label: author.name, href: `/about/team/${author.slug}` },
+      ])} />
       <Header />
       <main>
         <nav aria-label="Breadcrumb" className="border-b border-mist bg-porcelain">

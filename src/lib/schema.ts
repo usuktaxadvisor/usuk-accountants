@@ -18,6 +18,11 @@ import { credentialSchemaFor } from '@/lib/credentials-data';
 const ORG_ID = `${SITE.url}/#organization`;
 const WEBSITE_ID = `${SITE.url}/#website`;
 
+/** Absolute URL, safely: leaves already-absolute URLs untouched, prefixes site-relative paths. Idempotent. */
+function abs(u: string): string {
+  return /^https?:\/\//i.test(u) ? u : `${SITE.url}${u.startsWith('/') ? '' : '/'}${u}`;
+}
+
 /** Only genuinely staffed offices appear as operational locations in schema. */
 const STAFFED_OFFICES = OFFICES.filter((o) => o.staffed);
 
@@ -124,7 +129,7 @@ export function breadcrumbSchema(crumbs: Crumb[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,
-      item: c.href.startsWith('http') ? c.href : `${SITE.url}${c.href}`,
+      item: abs(c.href),
     })),
   };
 }
@@ -191,7 +196,7 @@ export function articleSchema(a: ArticleSchemaInput) {
   return {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE.url}${a.url}` },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': abs(a.url) },
     image: `${SITE.url}/brand/logo-horizontal-dark.svg`,
     headline: a.headline,
     description: a.description,
@@ -212,8 +217,8 @@ export function articleSchema(a: ArticleSchemaInput) {
     publisher: { '@id': ORG_ID },
     ...(a.datePublished ? { datePublished: a.datePublished } : {}),
     dateModified: a.dateModified ?? a.datePublished ?? undefined,
-    ...(a.about && a.about.length ? { about: a.about.map((e) => ({ "@type": "Thing", name: e.name, "@id": `${SITE.url}${e.url}` })) } : {}),
-    ...(a.mentions && a.mentions.length ? { mentions: a.mentions.map((e) => ({ "@type": "Thing", name: e.name, "@id": `${SITE.url}${e.url}` })) } : {}),
+    ...(a.about && a.about.length ? { about: a.about.map((e) => ({ "@type": "Thing", name: e.name, "@id": abs(e.url) })) } : {}),
+    ...(a.mentions && a.mentions.length ? { mentions: a.mentions.map((e) => ({ "@type": "Thing", name: e.name, "@id": abs(e.url) })) } : {}),
   };
 }
 
@@ -233,7 +238,7 @@ export function serviceSchema(s: ServiceSchemaInput) {
     ...(s.serviceType ? { serviceType: s.serviceType } : {}),
     provider: { '@id': ORG_ID },
     areaServed: ['GB', 'US'],
-    url: `${SITE.url}${s.url}`,
+    url: abs(s.url),
   };
 }
 
@@ -242,7 +247,7 @@ export function speakableSchema(url: string, cssSelectors: string[] = ['.speakab
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    url: `${SITE.url}${url}`,
+    url: abs(url),
     speakable: {
       '@type': 'SpeakableSpecification',
       cssSelector: cssSelectors,
