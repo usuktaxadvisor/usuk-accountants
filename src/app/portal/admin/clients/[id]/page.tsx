@@ -6,6 +6,9 @@ import { audit } from '@/lib/portal/audit';
 import { notifyClientOfRequest, requestBase } from '@/lib/portal/notify';
 import { createInvitation } from '@/lib/portal/invite';
 import { sendPortalEmail, resetEmailHtml } from '@/lib/portal/email';
+import { DELIVERY_CATEGORIES, DELIVERY_STATUS_LABEL, listDeliveriesForClient, listResponsesForClient, canReplace, canWithdraw } from '@/lib/portal/deliveries';
+import DeliveryUploadForm from '@/components/portal/DeliveryUploadForm';
+import WithdrawButton from '@/components/portal/WithdrawButton';
 
 export const dynamic = 'force-dynamic';
 const STATUSES = ['REQUESTED', 'UPLOADED', 'RECEIVED', 'UNDER_REVIEW', 'COMPLETED'] as const;
@@ -22,6 +25,9 @@ export default async function ClientDetail({ params, searchParams }: { params: P
     .where(eq(tables.documentRequests.clientId, id)).orderBy(desc(tables.documentRequests.requestedAt));
   const docs = await db.select().from(tables.documents)
     .where(eq(tables.documents.clientId, id)).orderBy(desc(tables.documents.createdAt));
+  const deliveries = await listDeliveriesForClient(id);
+  const responses = await listResponsesForClient(id);
+  const latestResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
 
   async function createRequest(formData: FormData) {
     'use server';
@@ -109,6 +115,40 @@ export default async function ClientDetail({ params, searchParams }: { params: P
           </div>
         </section>
       </div>
+
+      <section className="mt-10">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Work for client review</h2>
+        <p className="mt-1 text-xs text-muted">Send a prepared document to the client. It goes into their Processed Documents folder in Drive and they are emailed to review it in the portal.</p>
+        <DeliveryUploadForm clientId={id} categories={DELIVERY_CATEGORIES} />
+        <div className="mt-3 space-y-2">
+          {deliveries.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing sent for review yet.</p> : deliveries.map(d => {
+            const resp = latestResponse(d.id);
+            return (
+              <div key={d.id} className={`rounded-2xl border border-mist bg-white px-5 py-4 ${d.status === 'WITHDRAWN' ? 'opacity-60' : ''}`}>
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-ink">{d.title} <span className="ml-1 text-xs font-normal text-muted">v{d.version}{d.category ? ` · ${d.category}` : ''}</span></p>
+                    <p className="text-xs text-muted">Sent {d.sentAt.toLocaleString('en-GB')} · {(d.sizeBytes / 1024 / 1024).toFixed(1)} MB · in Drive as “{d.storedName}”{d.viewedAt ? ` · viewed ${d.viewedAt.toLocaleString('en-GB')}` : ''}</p>
+                  </div>
+                  <span className={`rounded-full px-3 py-1 text-xs font-semibold ${d.status === 'APPROVED' ? 'bg-gold/10 text-gold-antique' : d.status === 'CHANGES_REQUESTED' ? 'bg-red-50 text-red-700' : 'bg-mist text-muted'}`}>{DELIVERY_STATUS_LABEL[d.status]}</span>
+                </div>
+                {resp ? (
+                  <div className="mt-3 rounded-xl bg-porcelain px-4 py-3 text-sm">
+                    <p className="text-xs font-semibold uppercase tracking-widest text-muted">Client response · {resp.createdAt.toLocaleString('en-GB')}</p>
+                    <p className="mt-1 font-semibold text-ink">{resp.decision === 'APPROVED' ? 'Approved' : 'Requested changes'}</p>
+                    {resp.comment ? <p className="mt-1 whitespace-pre-wrap text-ink">{resp.comment}</p> : null}
+                  </div>
+                ) : null}
+                <div className="mt-3 flex flex-wrap items-center gap-2">
+                  <a href={`/api/portal/deliveries/${d.id}/file?client=${id}`} target="_blank" rel="noopener" className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">View</a>
+                  {canWithdraw(d.status) ? <WithdrawButton deliveryId={d.id} clientId={id} /> : null}
+                </div>
+                {canReplace(d.status) ? <DeliveryUploadForm clientId={id} categories={DELIVERY_CATEGORIES} supersedesId={d.id} compact /> : null}
+              </div>
+            );
+          })}
+        </div>
+      </section>
     </div>
   );
 }
