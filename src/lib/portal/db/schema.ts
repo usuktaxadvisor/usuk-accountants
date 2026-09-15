@@ -3,6 +3,9 @@ import { pgTable, pgEnum, text, uuid, timestamp, integer, jsonb, uniqueIndex } f
 export const roleEnum = pgEnum('role', ['CLIENT', 'STAFF', 'ADMIN']);
 export const userStatusEnum = pgEnum('user_status', ['INVITED', 'ACTIVE', 'SUSPENDED', 'DEACTIVATED']);
 export const requestStatusEnum = pgEnum('request_status', ['REQUESTED', 'UPLOADED', 'RECEIVED', 'UNDER_REVIEW', 'COMPLETED']);
+// Staff → client direction. Kept separate from request_status so the two directions can never be confused.
+export const deliveryStatusEnum = pgEnum('delivery_status', ['READY_FOR_REVIEW', 'VIEWED', 'APPROVED', 'CHANGES_REQUESTED', 'WITHDRAWN']);
+export const deliveryDecisionEnum = pgEnum('delivery_decision', ['APPROVED', 'CHANGES_REQUESTED']);
 
 export const users = pgTable('users', {
   id: uuid('id').primaryKey().defaultRandom(),
@@ -23,6 +26,7 @@ export const clients = pgTable('clients', {
   userId: uuid('user_id').notNull().references(() => users.id),
   driveFolderId: text('drive_folder_id'),    // server-side only — never serialised to the browser
   incomingFolderId: text('incoming_folder_id'), // server-side only
+  processedFolderId: text('processed_folder_id'), // server-side only — staff → client deliveries land here
   status: userStatusEnum('status').notNull().default('ACTIVE'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
@@ -62,6 +66,39 @@ export const documents = pgTable('documents', {
   sizeBytes: integer('size_bytes').notNull(),
   uploadedById: uuid('uploaded_by_id').notNull().references(() => users.id),
   status: requestStatusEnum('status').notNull().default('UPLOADED'),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const deliveries = pgTable('deliveries', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  clientId: uuid('client_id').notNull().references(() => clients.id),
+  title: text('title').notNull(),
+  category: text('category'),
+  note: text('note'), // optional staff note shown to the client
+  driveFileId: text('drive_file_id').notNull(), // server-side only — never serialised to the browser
+  originalName: text('original_name').notNull(),
+  storedName: text('stored_name').notNull(),
+  mimeType: text('mime_type').notNull(),
+  sizeBytes: integer('size_bytes').notNull(),
+  version: integer('version').notNull().default(1),
+  supersedesId: uuid('supersedes_id'), // previous version, if this is a replacement (self-reference; enforced in code)
+  status: deliveryStatusEnum('status').notNull().default('READY_FOR_REVIEW'),
+  uploadedById: uuid('uploaded_by_id').notNull().references(() => users.id),
+  sentAt: timestamp('sent_at', { withTimezone: true }).notNull().defaultNow(),
+  viewedAt: timestamp('viewed_at', { withTimezone: true }),
+  respondedAt: timestamp('responded_at', { withTimezone: true }),
+  withdrawnAt: timestamp('withdrawn_at', { withTimezone: true }),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+});
+
+export const deliveryResponses = pgTable('delivery_responses', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  deliveryId: uuid('delivery_id').notNull().references(() => deliveries.id),
+  clientId: uuid('client_id').notNull().references(() => clients.id), // denormalised for isolation checks
+  respondedById: uuid('responded_by_id').notNull().references(() => users.id),
+  decision: deliveryDecisionEnum('decision').notNull(),
+  comment: text('comment'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
