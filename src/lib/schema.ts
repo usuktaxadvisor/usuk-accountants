@@ -1,4 +1,6 @@
 import { SITE, OFFICES } from '@/lib/site-data';
+import { normaliseCrumbs } from './breadcrumbs';
+export { normaliseCrumbs } from './breadcrumbs';
 import { aggregateRatingSchema } from '@/lib/trust-data';
 import { orgSameAs, personSameAs } from '@/lib/entity-data';
 import { credentialSchemaFor } from '@/lib/credentials-data';
@@ -125,7 +127,7 @@ export function breadcrumbSchema(crumbs: Crumb[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: crumbs.map((c, i) => ({
+    itemListElement: normaliseCrumbs(crumbs).map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: c.label,

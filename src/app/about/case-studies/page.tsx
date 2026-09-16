@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
 import {
-  Header, Footer, Section, Container, CTASection, CaseStudyGrid,
+  Header, Footer, Section, Container, CTASection, CaseStudyGrid, Breadcrumbs, JsonLd,
 } from '@/components/library';
 import { caseStudies } from '@/lib/authority-data';
+import { breadcrumbSchema } from '@/lib/schema';
+
+const crumbs = [{ label: 'Case studies', href: '/about/case-studies' }];
 
 export const metadata: Metadata = {
   title: 'Case Studies',
@@ -14,8 +17,10 @@ export const metadata: Metadata = {
 export default function CaseStudiesPage() {
   return (
     <>
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <main>
+        <Breadcrumbs crumbs={crumbs} />
         <header className="bg-navy-ink py-16 md:py-20">
           <Container>
             <div className="max-w-2xl">

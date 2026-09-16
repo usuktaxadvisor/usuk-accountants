@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function TeamPage() {
-  const crumbs = [{ label: 'Home', href: '/' }, { label: 'About', href: '/about/team' }, { label: 'Team', href: '/about/team' }];
+  const crumbs = [{ label: 'Our team', href: '/about/team' }];
   return (
     <>
       <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />

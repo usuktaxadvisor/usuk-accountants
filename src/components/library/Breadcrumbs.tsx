@@ -1,9 +1,10 @@
 import { Container } from '@/components/library/primitives';
-import type { Crumb } from '@/lib/schema';
+import { normaliseCrumbs, type Crumb } from '@/lib/schema';
 
-/** Visual breadcrumb trail. Pairs with breadcrumbSchema() for the structured data. */
-export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
-  if (crumbs.length === 0) return null;
+/** Visual breadcrumb trail. Pairs with breadcrumbSchema() for the structured data — both run the same normaliser. */
+export function Breadcrumbs({ crumbs: raw }: { crumbs: Crumb[] }) {
+  if (raw.length === 0) return null;
+  const crumbs = normaliseCrumbs(raw);
   return (
     <nav aria-label="Breadcrumb" className="border-b border-mist bg-porcelain">
       <Container>
