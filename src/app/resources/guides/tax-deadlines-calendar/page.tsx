@@ -75,7 +75,7 @@ export default function TaxDeadlinesCalendar() {
       answer="If you file on both sides of the Atlantic, the key dates are: the US return on 15 April (automatically extended to 15 June for Americans abroad, then 15 October on request), the FBAR on 15 April (extended to 15 October), and on the UK side the online Self Assessment return and payment by 31 January, with a payment on account on 31 July. US tax owed accrues interest from 15 April even when filing is extended."
       crumbs={[
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources/blog' },
+        { label: 'Guides', href: '/resources/guides' },
         { label: 'Tax Deadlines Calendar', href: URL },
       ]}
       author={author}
@@ -120,6 +120,8 @@ export default function TaxDeadlinesCalendar() {
           { label: 'Self Assessment penalty calculator', href: '/resources/calculators/self-assessment-deadline', description: 'Estimate HMRC late-filing penalties.' },
           { label: 'US Tax Returns', href: '/services/us-expat-tax/us-tax-returns', description: 'Filed on time, every year.' },
           { label: 'Self Assessment', href: '/services/uk-accounting/self-assessment', description: 'Your UK return, handled.' },
+          { label: 'Missed an FBAR deadline?', href: '/resources/guides/delinquent-fbar', description: 'How to file late FBARs the right way.' },
+          { label: 'All US–UK tax guides', href: '/resources/guides', description: 'Every step-by-step guide and comparison in one place.' },
         ]}
       />
     </PageShell>

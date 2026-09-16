@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { PageShell, Section, Container, SectionHeading } from '@/components/library';
+import { PageShell, Section, Container, SectionHeading, JsonLd } from '@/components/library';
 import { IconArrowRight } from '@/components/ui/icons';
 import { authors } from '@/lib/authority-data';
 
@@ -81,6 +81,31 @@ const MORE: Card[] = [
   { title: 'Glossary', description: 'Clear definitions of the US and UK tax terms that matter — FBAR, FEIE, SRT, PFIC and more.', href: '/resources/glossary' },
 ];
 
+const SITE = 'https://www.usukaccountants.com';
+
+/** CollectionPage + ItemList: tells search and AI systems this URL is the index of the guides it lists, and in what order. */
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': URL,
+  url: URL,
+  name: 'US–UK tax guides',
+  description: metadata.description,
+  isPartOf: { '@type': 'WebSite', '@id': `${SITE}/#website` },
+  about: { '@type': 'Thing', name: 'US–UK cross-border taxation' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListOrderAscending',
+    numberOfItems: GUIDES.length + COMPARISONS.length,
+    itemListElement: [...GUIDES, ...COMPARISONS].map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: c.title,
+      url: `${SITE}${c.href}`,
+    })),
+  },
+};
+
 function GuideCard({ card, cta }: { card: Card; cta: string }) {
   return (
     <Link
@@ -123,6 +148,7 @@ export default function GuidesIndex() {
       ctaTitle="Need an answer for your own situation?"
       ctaIntro="Guides explain the rules; they can't apply them to your facts. Book a £350 30-minute consultation and we'll give you a clear answer for yours — or email us for a quick question."
     >
+      <JsonLd schema={collectionSchema} />
       <Section tone="white">
         <Container>
           <SectionHeading

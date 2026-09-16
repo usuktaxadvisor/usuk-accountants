@@ -47,9 +47,8 @@ export default function DelinquentFbarGuidePage() {
       title="Delinquent FBAR: how to file late FBARs the right way"
       answer="If you missed one or more FBARs but reported your income, the Delinquent FBAR Submission Procedures usually let you catch up without penalty."
       crumbs={[
-        { label: 'Home', href: '/' },
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources' },
+        { label: 'Guides', href: '/resources/guides' },
         { label: 'Delinquent FBAR', href: url },
       ]}
       author={author}
@@ -119,6 +118,8 @@ export default function DelinquentFbarGuidePage() {
               { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker', description: 'Check whether you need to file an FBAR at all.' },
               { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'For non-willful cases with unreported income.' },
               { label: 'US Tax Returns Hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'The full US-returns resource hub.' },
+              { label: 'Streamlined Filing vs Delinquent FBAR', href: '/resources/compare/streamlined-filing-vs-delinquent-fbar', description: 'The two IRS catch-up routes, side by side.' },
+              { label: 'All US–UK tax guides', href: '/resources/guides', description: 'Every step-by-step guide and comparison in one place.' },
             ]}
           />
         </Container>
