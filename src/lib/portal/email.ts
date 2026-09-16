@@ -66,3 +66,31 @@ export function uploadNotifyHtml(clientName: string, clientRef: string, title: s
   <p><b>${clientName}</b> (${clientRef}) uploaded <b>${filename}</b> for the request “${title}”.</p>
   <p>It's in their Incoming Documents folder in Drive and marked UPLOADED in the staff area.</p></div>`;
 }
+
+export function deliveryReadyHtml(firstName: string, title: string, note: string | null, link: string): string {
+  const noteHtml = note ? `<p style="margin:14px 0;padding:12px 14px;background:#f6f7fa;border-radius:10px;font-size:14px">${escapeHtml(note)}</p>` : '';
+  return `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#111">
+  <h2 style="font-weight:600">A document is ready for your review</h2>
+  <p>Dear ${escapeHtml(firstName)},</p>
+  <p>We've placed a document in your client portal for you to review:</p>
+  <p style="font-size:17px;font-weight:600;margin:18px 0">${escapeHtml(title)}</p>
+  ${noteHtml}
+  <p>Please sign in to view or download it, then let us know whether it's correct or if anything needs changing. It takes a couple of minutes and works from your phone too.</p>
+  <p style="margin:28px 0"><a href="${link}" style="background:#0A1330;color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none">Review in your portal</a></p>
+  <p style="font-size:13px;color:#555">For your security the document is only available inside the portal — it is not attached to this email.</p>
+  <p>Kind regards,<br/>US UK Accountants</p></div>`;
+}
+
+export function deliveryResponseHtml(clientName: string, clientRef: string, title: string, decision: 'APPROVED' | 'CHANGES_REQUESTED', comment: string | null): string {
+  const verdict = decision === 'APPROVED' ? 'APPROVED' : 'REQUESTED CHANGES';
+  const commentHtml = comment ? `<p style="margin:12px 0;padding:12px 14px;background:#f6f7fa;border-radius:10px;white-space:pre-wrap">${escapeHtml(comment)}</p>` : '<p style="color:#555">No comment left.</p>';
+  return `<div style="font-family:system-ui,sans-serif;max-width:560px;margin:0 auto;color:#111">
+  <h3 style="font-weight:600">Client response: ${verdict}</h3>
+  <p><b>${escapeHtml(clientName)}</b> (${escapeHtml(clientRef)}) responded to “${escapeHtml(title)}”.</p>
+  ${commentHtml}
+  <p>Open the client's page in the staff area to continue.</p></div>`;
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string));
+}

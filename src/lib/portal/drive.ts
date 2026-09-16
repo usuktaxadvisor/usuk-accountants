@@ -69,12 +69,65 @@ export async function ensureClientFolders(clientId: string): Promise<{ incomingF
   const clientsId = await ensureFolder('Clients', rootId);
   const clientFolderId = await ensureFolder(`${client.clientRef} — ${client.displayName}`, clientsId);
   const incomingFolderId = await ensureFolder('Incoming Documents', clientFolderId);
-  await ensureFolder('Processed Documents', clientFolderId);
+  const processedFolderId = await ensureFolder('Processed Documents', clientFolderId);
 
   await db.update(tables.clients)
-    .set({ driveFolderId: clientFolderId, incomingFolderId, updatedAt: new Date() })
+    .set({ driveFolderId: clientFolderId, incomingFolderId, processedFolderId, updatedAt: new Date() })
     .where(eq(tables.clients.id, clientId));
   return { incomingFolderId };
+}
+
+/**
+ * Resolves (and persists) the client's Processed Documents folder — the
+ * landing place for staff → client deliveries. Clients created before the
+ * deliveries feature have the folder in Drive but no stored id; this looks
+ * it up once by name under the client's own folder and stores it. Idempotent.
+ */
+export async function ensureProcessedFolder(clientId: string): Promise<string> {
+  const [client] = await db.select().from(tables.clients).where(eq(tables.clients.id, clientId)).limit(1);
+  if (!client) throw new Error('Client not found');
+  if (client.processedFolderId) return client.processedFolderId;
+  await ensureClientFolders(clientId); // guarantees the tree exists (and sets processedFolderId for new clients)
+  const [again] = await db.select().from(tables.clients).where(eq(tables.clients.id, clientId)).limit(1);
+  if (again?.processedFolderId) return again.processedFolderId;
+  if (!again?.driveFolderId) throw new Error('Client folder missing');
+  const processedFolderId = await ensureFolder('Processed Documents', again.driveFolderId);
+  await db.update(tables.clients).set({ processedFolderId, updatedAt: new Date() }).where(eq(tables.clients.id, clientId));
+  return processedFolderId;
+}
+
+/** Staff → client: streams a validated file into the client's Processed Documents folder. Returns the Drive file id (server-side only). */
+export async function uploadToProcessedFolder(
+  clientId: string,
+  storedName: string,
+  mimeType: string,
+  data: Buffer,
+): Promise<string> {
+  const processedFolderId = await ensureProcessedFolder(clientId);
+  const drive = driveClient();
+  const res = await drive.files.create({
+    requestBody: { name: storedName, parents: [processedFolderId] },
+    media: { mimeType, body: Readable.from(data) },
+    fields: 'id',
+  });
+  if (!res.data.id) throw new Error('Drive upload failed');
+  return res.data.id;
+}
+
+/**
+ * Server-side read of a portal-created file, for streaming to an already-
+ * authorised session. Returns the raw body stream; the caller sets
+ * Content-Type / Content-Disposition. No Drive URL, link or id ever leaves
+ * the server — the browser only sees /api/portal/... routes.
+ */
+export async function openDriveFileStream(fileId: string): Promise<{ body: ReadableStream<Uint8Array>; size: number | null }> {
+  const token = await accessToken();
+  const res = await fetch(`https://www.googleapis.com/drive/v3/files/${encodeURIComponent(fileId)}?alt=media`, {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok || !res.body) throw new Error(`Drive read failed: ${res.status}`);
+  const len = res.headers.get('content-length');
+  return { body: res.body, size: len ? Number(len) : null };
 }
 
 /** Streams a validated upload into the client's Incoming folder. Returns the Drive file id (kept server-side). */
