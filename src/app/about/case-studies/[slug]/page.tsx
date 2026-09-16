@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  Header, Footer, Container, CTASection, CaseStudyDetail, JsonLd,
+  Header, Footer, Container, CTASection, CaseStudyDetail, JsonLd, Breadcrumbs,
 } from '@/components/library';
 import { caseStudies } from '@/lib/authority-data';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -39,15 +38,10 @@ export default async function CaseStudyPage(
       ])} />
       <Header />
       <main>
-        <nav aria-label="Breadcrumb" className="border-b border-mist bg-porcelain">
-          <Container>
-            <ol className="flex gap-2 py-4 text-sm text-muted">
-              <li><Link href="/about/case-studies" className="hover:text-gold-antique">Case studies</Link></li>
-              <li aria-hidden>/</li>
-              <li className="truncate text-ink">{study.title}</li>
-            </ol>
-          </Container>
-        </nav>
+        <Breadcrumbs crumbs={[
+          { label: 'Case studies', href: '/about/case-studies' },
+          { label: study.title, href: `/about/case-studies/${study.slug}` },
+        ]} />
 
         <header className="bg-navy-ink py-14 md:py-16">
           <Container>

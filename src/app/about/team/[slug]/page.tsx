@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import {
-  Header, Footer, Container, CTASection, AuthorProfile, JsonLd,
+  Header, Footer, Container, CTASection, AuthorProfile, JsonLd, Breadcrumbs,
 } from '@/components/library';
 import { authors } from '@/lib/authority-data';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -34,20 +33,15 @@ export default async function AuthorPage(
   return (
     <>
       <JsonLd schema={breadcrumbSchema([
-        { label: 'Team', href: '/about/team' },
+        { label: 'Our team', href: '/about/team' },
         { label: author.name, href: `/about/team/${author.slug}` },
       ])} />
       <Header />
       <main>
-        <nav aria-label="Breadcrumb" className="border-b border-mist bg-porcelain">
-          <Container>
-            <ol className="flex gap-2 py-4 text-sm text-muted">
-              <li><Link href="/about/team" className="hover:text-gold-antique">Team</Link></li>
-              <li aria-hidden>/</li>
-              <li className="text-ink">{author.name}</li>
-            </ol>
-          </Container>
-        </nav>
+        <Breadcrumbs crumbs={[
+          { label: 'Our team', href: '/about/team' },
+          { label: author.name, href: `/about/team/${author.slug}` },
+        ]} />
 
         <div className="bg-white py-16 md:py-20">
           <Container>
