@@ -59,6 +59,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/blog', '/resources/glossary', '/resources/tax-data',
     '/resources/guides',
     '/resources/guides/tax-deadlines-calendar',
+    '/resources/compare',
     '/resources/compare/fbar-vs-form-8938',
     '/resources/compare/streamlined-filing-vs-delinquent-fbar',
     '/resources/compare/us-tax-return-vs-uk-tax-return',

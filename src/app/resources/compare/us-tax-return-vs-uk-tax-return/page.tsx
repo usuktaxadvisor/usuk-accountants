@@ -56,7 +56,7 @@ export default function UsVsUkReturnPage() {
       answer="A US tax return and a UK tax return follow different principles. The US taxes citizens on worldwide income wherever they live (citizenship-based), while the UK taxes on the basis of residence. Americans in the UK often file both, using the foreign tax credit and the US–UK treaty to avoid being taxed twice on the same income."
       crumbs={[
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources/guides' },
+        { label: 'Compare', href: '/resources/compare' },
         { label: 'US vs UK tax return', href: url },
       ]}
       author={author}
@@ -122,6 +122,7 @@ export default function UsVsUkReturnPage() {
           { label: 'US–UK Tax Treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'How the treaty allocates taxing rights' },
           { label: 'Self Assessment', href: '/resources/glossary/self-assessment', description: 'The UK return, explained' },
           { label: 'US Expat Tax service', href: '/services/us-expat-tax', description: 'Our full US tax service for the UK' },
+          { label: 'All comparisons', href: '/resources/compare', description: 'Every side-by-side comparison in one place' },
         ]}
       />
     </PageShell>

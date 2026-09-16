@@ -56,7 +56,7 @@ export default function StreamlinedVsDelinquentPage() {
       answer="Streamlined Filing and the Delinquent FBAR submission procedures are two separate IRS catch-up routes. Streamlined Filing corrects unreported income and missed returns with a non-willful certification; the Delinquent FBAR procedures are for people who reported all their income but simply missed the FBAR. The right route depends on whether income was left unreported."
       crumbs={[
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources/guides' },
+        { label: 'Compare', href: '/resources/compare' },
         { label: 'Streamlined vs Delinquent FBAR', href: url },
       ]}
       author={author}
@@ -120,6 +120,7 @@ export default function StreamlinedVsDelinquentPage() {
           { label: 'Streamlined eligibility checker', href: '/resources/calculators/streamlined-eligibility', description: 'Free tool: are you eligible?' },
           { label: 'Streamlined Filing (glossary)', href: '/resources/glossary/streamlined-filing', description: 'What the programme is' },
           { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'The complete filing guide, in order' },
+          { label: 'All comparisons', href: '/resources/compare', description: 'Every side-by-side comparison in one place' },
         ]}
       />
     </PageShell>

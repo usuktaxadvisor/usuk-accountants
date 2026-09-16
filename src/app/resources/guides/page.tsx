@@ -96,8 +96,8 @@ const collectionSchema = {
   mainEntity: {
     '@type': 'ItemList',
     itemListOrder: 'https://schema.org/ItemListOrderAscending',
-    numberOfItems: GUIDES.length + COMPARISONS.length,
-    itemListElement: [...GUIDES, ...COMPARISONS].map((c, i) => ({
+    numberOfItems: GUIDES.length,
+    itemListElement: GUIDES.map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: c.title,
@@ -165,13 +165,19 @@ export default function GuidesIndex() {
       <Section>
         <Container>
           <SectionHeading
-            eyebrow="Side by side"
-            title="Comparison guides"
-            intro="Two things that sound alike, set out next to each other so you can see which one applies to you."
+            eyebrow="From our Compare section"
+            title="Related comparisons"
+            intro="Two things that sound alike, set out next to each other so you can see which one applies to you. These live in their own section — browse all of them at Compare."
           />
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {COMPARISONS.map((c) => <GuideCard key={c.href} card={c} cta="Compare" />)}
           </div>
+          <p className="mt-6">
+            <Link href="/resources/compare" className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy underline-offset-4 hover:text-gold hover:underline">
+              Browse the full Compare section
+              <IconArrowRight className="h-4 w-4" />
+            </Link>
+          </p>
         </Container>
       </Section>
 
