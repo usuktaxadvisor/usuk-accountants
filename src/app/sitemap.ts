@@ -57,6 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/resources/calculators/uk-us-cgt',
     '/resources/calculators/us-expat-refund',
     '/resources/blog', '/resources/glossary', '/resources/tax-data',
+    '/resources/guides',
     '/resources/guides/tax-deadlines-calendar',
     '/resources/compare/fbar-vs-form-8938',
     '/resources/compare/streamlined-filing-vs-delinquent-fbar',

@@ -306,7 +306,7 @@ export const footerColumns: NavColumn[] = [
     title: 'Resources',
     links: [
       { label: 'Calculators', href: '/resources/calculators' },
-      { label: 'Guides', href: '/resources/blog' },
+      { label: 'Guides', href: '/resources/guides' },
       { label: 'Blog', href: '/resources/blog' },
       { label: 'Glossary', href: '/resources/glossary' },
       { label: 'Tax Deadlines', href: '/resources/guides/tax-deadlines-calendar' },
