@@ -56,7 +56,7 @@ export default function FtcVsTreatyPage() {
       answer="The foreign tax credit and the US–UK tax treaty are two different tools for avoiding double taxation. The foreign tax credit is US domestic law that offsets US tax with UK tax already paid. The treaty is a bilateral agreement that allocates taxing rights over particular income types. They work together rather than competing."
       crumbs={[
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources/guides' },
+        { label: 'Compare', href: '/resources/compare' },
         { label: 'Foreign Tax Credit vs Treaty', href: url },
       ]}
       author={author}
@@ -120,6 +120,7 @@ export default function FtcVsTreatyPage() {
           { label: 'Saving clause (glossary)', href: '/resources/glossary/saving-clause', description: 'Why US citizens get limited treaty benefits' },
           { label: 'Form 8833 (glossary)', href: '/resources/glossary/form-8833', description: 'Disclosing a treaty-based position' },
           { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'The complete filing guide, in order' },
+          { label: 'All comparisons', href: '/resources/compare', description: 'Every side-by-side comparison in one place' },
         ]}
       />
     </PageShell>

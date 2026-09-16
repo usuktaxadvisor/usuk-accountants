@@ -61,7 +61,7 @@ export default function FeieVsForeignTaxCreditPage() {
       answer="The Foreign Earned Income Exclusion and the Foreign Tax Credit are two different ways to prevent double taxation. The FEIE excludes qualifying foreign earned income from US tax; the Foreign Tax Credit reduces US tax by the foreign tax you have already paid. They can be combined, but not on the same income."
       crumbs={[
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources/guides' },
+        { label: 'Compare', href: '/resources/compare' },
         { label: 'FEIE vs Foreign Tax Credit', href: url },
       ]}
       author={author}
@@ -139,6 +139,7 @@ export default function FeieVsForeignTaxCreditPage() {
           { label: 'Form 1116 explained', href: '/resources/forms/form-1116', description: 'The IRS form behind the Foreign Tax Credit' },
           { label: 'FEIE service', href: '/services/us-expat-tax/foreign-earned-income-exclusion', description: 'How we handle the exclusion for UK-based Americans' },
           { label: 'Foreign Tax Credit service', href: '/services/us-expat-tax/foreign-tax-credit', description: 'How we apply the credit in practice' },
+          { label: 'All comparisons', href: '/resources/compare', description: 'Every side-by-side comparison in one place' },
         ]}
       />
     </PageShell>

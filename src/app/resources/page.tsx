@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
-import { IconCalculator, IconGlobeDoc, IconPlanning, IconArrowRight } from '@/components/ui/icons';
+import { IconCalculator, IconGlobeDoc, IconTreaty, IconPlanning, IconArrowRight } from '@/components/ui/icons';
 
 const URL = 'https://www.usukaccountants.com/resources';
 
@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 const sections = [
   { icon: IconGlobeDoc, title: 'Guides', description: 'Step-by-step guides and side-by-side comparisons for filing in both the US and the UK — deadlines, late FBARs, FBAR vs Form 8938, FEIE vs the Foreign Tax Credit.', href: '/resources/guides', live: true },
+  { icon: IconTreaty, title: 'Compare', description: 'Side-by-side comparisons of the rules, reliefs, reports and catch-up routes that get confused — FBAR vs Form 8938, FEIE vs the Foreign Tax Credit, Streamlined vs Delinquent FBAR.', href: '/resources/compare', live: true },
   { icon: IconCalculator, title: 'Calculators & Tools', description: 'Interactive estimators for double taxation, FBAR, residency and more.', href: '/resources/calculators', live: true },
   { icon: IconGlobeDoc, title: 'Insights & Guides', description: 'Plain-English articles on US expat tax, UK accounting and cross-border planning — written and reviewed by our team.', href: '/resources/blog', live: true },
   { icon: IconPlanning, title: 'Glossary', description: 'Clear definitions of the US and UK tax terms that matter — FBAR, FEIE, SRT, PFIC and more.', href: '/resources/glossary', live: true },

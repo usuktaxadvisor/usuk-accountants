@@ -56,7 +56,7 @@ export default function FbarVsForm8938Page() {
       answer="FBAR and Form 8938 are two separate US foreign-asset reports. The FBAR reports foreign financial accounts to FinCEN; Form 8938 reports specified foreign financial assets to the IRS with your tax return. They overlap, but filing one does not satisfy the other, and many Americans in the UK must file both."
       crumbs={[
         { label: 'Resources', href: '/resources' },
-        { label: 'Guides', href: '/resources/guides' },
+        { label: 'Compare', href: '/resources/compare' },
         { label: 'FBAR vs Form 8938', href: url },
       ]}
       author={author}
@@ -119,6 +119,7 @@ export default function FbarVsForm8938Page() {
           { label: 'FBAR Filing service', href: '/services/us-expat-tax/fbar-filing', description: 'How we handle FBARs for UK-based Americans' },
           { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker', description: 'Free tool: do you need to file?' },
           { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'The complete filing guide, in order' },
+          { label: 'All comparisons', href: '/resources/compare', description: 'Every side-by-side comparison in one place' },
         ]}
       />
     </PageShell>
