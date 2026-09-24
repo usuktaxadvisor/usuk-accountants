@@ -249,3 +249,50 @@ html[data-display-font='condor'] .article-prose :is(h2, h3) {
 .bg-loc-newyork { background-image: linear-gradient(rgba(10,19,48,.72), rgba(10,19,48,.88)), url('/images/atlantic/loc-newyork.jpg') !important; background-size: cover !important; background-position: center !important; }
 .img-card-banner { display:block; width:calc(100% + 3.5rem); max-width:none; margin:-1.75rem -1.75rem 1.25rem; height:10rem; object-fit:cover; border-radius:1rem 1rem 0 0; }
 .img-card-banner-6 { display:block; width:calc(100% + 3rem); max-width:none; margin:-1.5rem -1.5rem 1rem; height:10rem; object-fit:cover; border-radius:1rem 1rem 0 0; }
+
+/* ============================================================
+   Homepage hero — "Transatlantic Skyline" (scoped: used only by <Hero />)
+   One lit evening composition: English Perpendicular Gothic tower rising
+   behind the frosted service card, American neoclassical dome in front of a
+   hazy Manhattan setback tower, far skyline in atmosphere, warm dusk glow.
+   The copy column keeps its own calm navy zone (the art is masked out
+   behind it), so the architecture can be bright without touching
+   readability. Decorative CSS backgrounds only (no text, no JS).
+   One SVG per breakpoint; each device downloads only its own file.
+   ============================================================ */
+.hero-transatlantic {
+  --hero-band: 44vw;
+  background-image:
+    radial-gradient(ellipse 70% 55% at 18% 30%, rgba(10, 19, 48, 0.85), rgba(10, 19, 48, 0) 70%),
+    linear-gradient(180deg, #0A1330 0%, #0F1F47 60%, #0A1330 100%);
+}
+.hero-art {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 640px;
+  background: url('/images/hero/transatlantic-skyline-mobile.svg') center bottom / auto 100% no-repeat;
+}
+/* Stacked layouts: a band beneath the service card where the skyline lands. */
+.hero-content { padding-bottom: calc(var(--hero-band) + 2rem); }
+@media (min-width: 640px) {
+  .hero-transatlantic { --hero-band: clamp(170px, 24vw, 220px); }
+  .hero-art { height: 540px; background-image: url('/images/hero/transatlantic-skyline-tablet.svg'); }
+}
+@media (min-width: 1024px) {
+  .hero-art {
+    left: auto;
+    top: 0;
+    height: 100%;
+    aspect-ratio: 1.2;
+    /* x = 1000 in the artwork is the content container's right edge; the last 200 units bleed to the viewport edge */
+    right: max(0px, calc((100% - 1280px) / 2));
+    transform: translateX(16.667%);
+    background-image: url('/images/hero/transatlantic-skyline.svg');
+    background-size: 100% 100%;
+    /* calm zone for the copy column: the art dissolves before it reaches the text */
+    -webkit-mask-image: linear-gradient(90deg, transparent 16%, rgba(0, 0, 0, 0.55) 30%, #000 44%);
+            mask-image: linear-gradient(90deg, transparent 16%, rgba(0, 0, 0, 0.55) 30%, #000 44%);
+  }
+  .hero-content { padding-bottom: 7rem; }
+}
