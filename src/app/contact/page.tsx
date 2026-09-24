@@ -25,7 +25,7 @@ const localBusinessSchema = [
     parentOrganization: { '@id': ORG_ID },
     url: SITE_URL,
     email: SITE.email,
-    telephone: SITE.phones.uk.number,
+    telephone: SITE.phones.uk.intl,
     priceRange: '££££',
     address: {
       '@type': 'PostalAddress',
@@ -46,7 +46,7 @@ const localBusinessSchema = [
     parentOrganization: { '@id': ORG_ID },
     url: SITE_URL,
     email: SITE.email,
-    telephone: SITE.phones.uk.number,
+    telephone: SITE.phones.uk.intl,
     priceRange: '££££',
     address: {
       '@type': 'PostalAddress',

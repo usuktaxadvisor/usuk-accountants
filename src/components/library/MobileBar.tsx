@@ -1,11 +1,12 @@
 import { IconPhone, IconArrowRight } from '@/components/ui/icons';
 import Link from 'next/link';
+import { PHONE_UK_TEL } from '@/lib/site-data';
 
 export function MobileBar() {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 gap-2 border-t border-mist bg-white/95 p-3 backdrop-blur-md lg:hidden">
       <a
-        href="tel:+443330904129"
+        href={`tel:${PHONE_UK_TEL}`}
         className="inline-flex items-center justify-center gap-2 rounded-lg border border-navy/30 py-3 text-sm font-semibold text-navy"
       >
         <IconPhone className="h-4 w-4 text-gold-antique" /> Call

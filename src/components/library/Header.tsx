@@ -6,7 +6,7 @@ import Logo from '@/components/ui/Logo';
 import MegaMenu from '@/components/library/MegaMenu';
 import { IconPhone } from '@/components/ui/icons';
 import {
-  primaryNav, megaMenuPanels, megaMenuFeature, PHONE_UK, PHONE_US,
+  primaryNav, megaMenuPanels, megaMenuFeature, PHONE_UK, PHONE_UK_TEL, PHONE_US,
 } from '@/lib/site-data';
 
 export default function Header() {
@@ -30,7 +30,7 @@ export default function Header() {
       <div className="hidden bg-navy-ink text-softwhite md:block">
         <div className="mx-auto flex max-w-container items-center justify-between px-6 py-2 text-xs">
           <div className="flex items-center gap-4">
-            <a href={`tel:${PHONE_UK.replace(/\s/g, '')}`} className="inline-flex items-center gap-1.5 hover:text-gold">
+            <a href={`tel:${PHONE_UK_TEL}`} className="inline-flex items-center gap-1.5 hover:text-gold">
               <span aria-hidden>🇬🇧</span> {PHONE_UK}
             </a>
             <a href={`tel:${PHONE_US.replace(/\s/g, '')}`} className="inline-flex items-center gap-1.5 hover:text-gold">

@@ -78,7 +78,7 @@ export default function NewYorkLocation() {
               United States
             </p>
             <p className="mt-4 text-sm">
-              <a href={`tel:${office.tel}`} className="font-semibold text-navy hover:text-gold">{office.phone}</a>
+              <a href={`tel:${office.tel}`} className="font-semibold text-navy hover:text-gold">{office.display ?? office.phone}</a>
               <span className="mx-2 text-mist">·</span>
               <a href={`mailto:${office.email}`} className="font-semibold text-navy hover:text-gold">{office.email}</a>
             </p>
