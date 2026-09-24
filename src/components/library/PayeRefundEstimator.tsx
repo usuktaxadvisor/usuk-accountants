@@ -123,7 +123,7 @@ export default function PayeRefundEstimator() {
           <button
             onClick={() => setShow(true)}
             disabled={!canCalculate}
-            className="w-full rounded-xl bg-navy px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-navy-ink disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full rounded-xl bg-navy px-3 py-4 text-sm font-semibold text-white sm:px-6 transition-colors hover:bg-navy-ink disabled:cursor-not-allowed disabled:opacity-50"
           >
             Check my refund position
           </button>

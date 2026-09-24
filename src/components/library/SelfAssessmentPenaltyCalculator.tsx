@@ -129,7 +129,7 @@ export default function SelfAssessmentPenaltyCalculator() {
               key={o.v}
               type="button"
               onClick={() => setMonthsLate(o.v)}
-              className={`rounded-lg border px-3 py-2 text-sm font-medium transition-colors ${
+              className={`rounded-lg border px-2 py-2 text-sm font-medium transition-colors sm:px-3 ${
                 monthsLate === o.v
                   ? 'border-navy bg-navy text-white'
                   : 'border-mist bg-porcelain text-ink hover:border-navy'

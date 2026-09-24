@@ -159,7 +159,7 @@ export default function CompareIndex() {
               <div key={c.href} className="grid gap-2 px-7 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6">
                 <dt className="text-sm leading-relaxed text-ink">{c.useWhen}</dt>
                 <dd>
-                  <Link href={c.href} className="inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-semibold text-navy underline-offset-4 hover:text-gold hover:underline">
+                  <Link href={c.href} className="inline-flex items-center gap-1.5 text-sm font-semibold text-navy sm:whitespace-nowrap underline-offset-4 hover:text-gold hover:underline">
                     {c.title}
                     <IconArrowRight className="h-4 w-4" />
                   </Link>

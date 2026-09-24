@@ -151,6 +151,18 @@ body {
   text-align: left;
 }
 .article-prose th { background: #F7F8FB; color: #0A1330; font-weight: 600; }
+/* Small screens: wide comparison tables scroll inside their own box
+   instead of pushing the page sideways. */
+@media (max-width: 639px) {
+  .article-prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.875rem;
+  }
+  .article-prose th,
+  .article-prose td { padding: 0.5em 0.6em; }
+}
 
 /* ============================================================
    Premium type system — reference hierarchy (us-uktax.com)
@@ -169,13 +181,14 @@ body {
  * display face at regular weight. Components still carry legacy
  * `font-semibold` / `tracking-tight` utilities from the previous serif
  * system; this unlayered rule (specificity 0,2,0 via :not) overrides
- * them in one place, and font-synthesis stops faux-bolding.
+ * them in one place, and font-synthesis-weight stops faux-bolding
+ * (author <em> emphasis inside headings still renders).
  * Scoped to display-face elements only — body/UI weights are untouched.
  */
 :is(h1, h2, h3, h4, .font-display):not(.font-sans) {
   font-weight: 400;
   letter-spacing: 0;
-  font-synthesis: none;
+  font-synthesis-weight: none;
   /*
    * The display face has a small x-height (~0.45em) and narrow set width.
    * Normalising its x-height to 0.52em renders headings ~15% larger than
