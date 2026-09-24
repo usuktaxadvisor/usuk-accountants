@@ -54,7 +54,7 @@ Each card type also exports a single-item version (`ServiceCard`, `TeamCard`, `T
 <ComparisonTable data={dueDiligenceComparison} />  {/* us vs competitors */}
 <CTASection
   title="Ready to simplify your US–UK taxes?"
-  intro="Free 15-minute consultation. No obligation."
+  intro="Book a £350 30-minute consultation — a clear view of where you stand and what comes next. Quick questions? Email us free."
   tone="navy"                                  {/* navy | gold | porcelain */}
   secondary={{ label: 'Call us', href: 'tel:…' }}
   showPhone
