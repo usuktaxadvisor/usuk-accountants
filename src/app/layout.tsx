@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Belleza, Montserrat, Fraunces } from 'next/font/google';
+import { Belleza, Montserrat } from 'next/font/google';
 import Analytics from '@/components/Analytics';
 import { ConsentProvider } from '@/components/CookieConsent';
 import { JsonLd } from '@/components/library';
@@ -8,11 +8,10 @@ import './globals.css';
 
 /*
  * Typography — modelled on the reference hierarchy (us-uktax.com):
- *   Display/headings: Belleza 400 — open-licence (OFL) stand-in for the
- *     reference's commercial Adobe Fonts face "Condor" (David Jonathan Ross),
- *     which we are not licensed to use. Single weight, like the reference.
+ *   Headings and logo wordmark: Condor (Adobe Fonts project below).
+ *   Belleza 400 (OFL): fallback for Condor while it loads, or if the Adobe
+ *     project is switched off.
  *   Body/UI: Montserrat (variable, OFL) — the reference's exact body face.
- *   Brand wordmark only: Fraunces 600 — unchanged logo identity.
  */
 const display = Belleza({
   subsets: ['latin'],
@@ -24,13 +23,6 @@ const display = Belleza({
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
-  display: 'swap',
-});
-
-const brand = Fraunces({
-  subsets: ['latin'],
-  weight: '600',
-  variable: '--font-brand',
   display: 'swap',
 });
 
@@ -98,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${display.variable} ${montserrat.variable} ${brand.variable}`}
+      className={`${display.variable} ${montserrat.variable}`}
       data-display-font={ADOBE_KIT_ID ? 'condor' : undefined}
     >
       <head>

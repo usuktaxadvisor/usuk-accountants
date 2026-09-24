@@ -29,7 +29,7 @@ const config: Config = {
         display: ['var(--font-display)', 'Optima', 'Candara', 'system-ui', 'sans-serif'],
         sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
         data: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
-        brand: ['var(--font-brand)', 'Georgia', 'serif'],
+        brand: ['condor', 'var(--font-display)', 'Optima', 'Candara', 'sans-serif'],
       },
       maxWidth: {
         container: '1280px',
