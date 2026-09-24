@@ -34,6 +34,16 @@ const brand = Fraunces({
   display: 'swap',
 });
 
+/*
+ * Optional exact-match heading face. The reference uses Condor (David
+ * Jonathan Ross), licensed through Adobe Fonts. It can only be used under
+ * our own Adobe Fonts web project (served by Adobe, never self-hosted).
+ * Set NEXT_PUBLIC_ADOBE_FONTS_KIT_ID to that project's ID to switch headings
+ * to Condor; while unset, headings stay on Belleza and nothing loads.
+ */
+const ADOBE_KIT = (process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID ?? '').trim();
+const ADOBE_KIT_ID = /^[a-z0-9]{5,12}$/.test(ADOBE_KIT) ? ADOBE_KIT : '';
+
 const SITE = 'https://www.usukaccountants.com';
 
 export const metadata: Metadata = {
@@ -77,8 +87,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${display.variable} ${montserrat.variable} ${brand.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${montserrat.variable} ${brand.variable}`}
+      data-display-font={ADOBE_KIT_ID ? 'condor' : undefined}
+    >
       <head>
+        {ADOBE_KIT_ID && (
+          <>
+            <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+            <link rel="stylesheet" href={`https://use.typekit.net/${ADOBE_KIT_ID}.css`} />
+          </>
+        )}
         <JsonLd
           schema={[
             organizationSchema(),
