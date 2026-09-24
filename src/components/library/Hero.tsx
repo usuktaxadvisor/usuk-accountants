@@ -20,7 +20,7 @@ export function Hero({
   secondaryCta = { label: 'Try the Double-Tax Estimator', href: '#calculator' },
 }: HeroProps) {
   return (
-    <section id="top" className="relative overflow-hidden bg-navy-ink bg-hero-atlantic bg-atlantic">
+    <section id="top" className="hero-transatlantic relative overflow-hidden bg-navy-ink">
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.35]"
         viewBox="0 0 1440 700"
@@ -40,7 +40,10 @@ export function Hero({
         <circle cx="1190" cy="430" r="3" fill="#C9A84C" />
       </svg>
 
-      <div className="relative mx-auto grid max-w-container items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr]">
+      {/* Decorative engraving (original artwork): US neoclassical × English Gothic elevation. Presentational only. */}
+      <div aria-hidden="true" className="hero-elevation pointer-events-none absolute inset-x-0 bottom-0" />
+
+      <div className="hero-content relative mx-auto grid max-w-container items-center gap-12 px-6 pt-20 md:pt-28 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="animate-fade-rise">
           <p className="mb-4 text-xs font-semibold uppercase tracking-eyebrow text-gold">{eyebrow}</p>
           <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-6xl">
