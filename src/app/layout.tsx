@@ -1,31 +1,57 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Manrope, Inter } from 'next/font/google';
+import { Belleza, Montserrat, Fraunces } from 'next/font/google';
 import Analytics from '@/components/Analytics';
 import { ConsentProvider } from '@/components/CookieConsent';
 import { JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
-const fraunces = Fraunces({
+/*
+ * Typography — modelled on the reference hierarchy (us-uktax.com):
+ *   Display/headings: Belleza 400 — open-licence (OFL) stand-in for the
+ *     reference's commercial Adobe Fonts face "Condor" (David Jonathan Ross),
+ *     which we are not licensed to use. Single weight, like the reference.
+ *   Body/UI: Montserrat (variable, OFL) — the reference's exact body face.
+ *   Brand wordmark only: Fraunces 600 — unchanged logo identity.
+ */
+const display = Belleza({
   subsets: ['latin'],
-  axes: ['SOFT', 'WONK', 'opsz'],
-  variable: '--font-fraunces',
+  weight: '400',
+  variable: '--font-display',
   display: 'swap',
 });
 
-const manrope = Manrope({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-manrope',
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
-const inter = Inter({
+const brand = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-inter',
+  weight: '600',
+  variable: '--font-brand',
   display: 'swap',
 });
+
+/*
+ * Heading face: Condor (David Jonathan Ross), the reference site's display
+ * face, licensed through our own Adobe Fonts web project "US UK Accountants"
+ * (project ID hnd0kal: Condor Regular 400 + Bold 700, font-display: swap).
+ * Served by Adobe's official embed stylesheet — never self-hosted.
+ * The project ID is public (it appears in page source), so it lives in code.
+ * NEXT_PUBLIC_ADOBE_FONTS_KIT_ID can override it, or be set to "off" to fall
+ * back to Belleza everywhere without a code change (e.g. if the Adobe
+ * subscription ever lapses, when Adobe stops serving the fonts).
+ */
+const ADOBE_KIT_DEFAULT = 'hnd0kal';
+const ADOBE_KIT_ENV = (process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID ?? '').trim().toLowerCase();
+const ADOBE_KIT_ID =
+  ADOBE_KIT_ENV === 'off'
+    ? ''
+    : /^[a-z0-9]{5,12}$/.test(ADOBE_KIT_ENV)
+      ? ADOBE_KIT_ENV
+      : ADOBE_KIT_DEFAULT;
 
 const SITE = 'https://www.usukaccountants.com';
 
@@ -70,8 +96,19 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${display.variable} ${montserrat.variable} ${brand.variable}`}
+      data-display-font={ADOBE_KIT_ID ? 'condor' : undefined}
+    >
       <head>
+        {ADOBE_KIT_ID && (
+          <>
+            <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+            <link rel="preconnect" href="https://p.typekit.net" />
+            <link rel="stylesheet" href={`https://use.typekit.net/${ADOBE_KIT_ID}.css`} />
+          </>
+        )}
         <JsonLd
           schema={[
             organizationSchema(),

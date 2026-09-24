@@ -62,7 +62,7 @@ export default function Header() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="rounded-md px-3 py-2 text-sm font-medium text-ink transition-colors hover:text-gold-antique"
+                  className="whitespace-nowrap rounded-md px-2 py-2 text-[13px] font-medium uppercase tracking-[0.04em] text-ink transition-colors hover:text-gold-antique xl:px-3 xl:text-sm"
                   onMouseEnter={() => setMenuOpen(hasMega)}
                   onFocus={() => setMenuOpen(hasMega)}
                   aria-expanded={hasMega ? menuOpen : undefined}
@@ -82,7 +82,7 @@ export default function Header() {
             </Link>
             <Link
               href="/book"
-              className="hidden rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink shadow-e1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold sm:inline-block"
+              className="hidden whitespace-nowrap rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink shadow-e1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold sm:inline-block"
             >
               Book a Consultation
             </Link>

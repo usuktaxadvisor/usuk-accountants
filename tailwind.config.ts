@@ -26,9 +26,10 @@ const config: Config = {
         crimson: '#8E2C38',
       },
       fontFamily: {
-        display: ['var(--font-fraunces)', 'Georgia', 'serif'],
-        sans: ['var(--font-manrope)', 'system-ui', 'sans-serif'],
-        data: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-display)', 'Optima', 'Candara', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        data: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+        brand: ['var(--font-brand)', 'Georgia', 'serif'],
       },
       maxWidth: {
         container: '1280px',
@@ -36,7 +37,7 @@ const config: Config = {
         prose: '68ch',
       },
       letterSpacing: {
-        eyebrow: '0.16em',
+        eyebrow: '0.06em',
       },
       boxShadow: {
         e1: '0 1px 2px rgba(10,19,48,0.06)',

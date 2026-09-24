@@ -43,7 +43,7 @@ export function Hero({
       <div className="relative mx-auto grid max-w-container items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="animate-fade-rise">
           <p className="mb-4 text-xs font-semibold uppercase tracking-eyebrow text-gold">{eyebrow}</p>
-          <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-6xl">
             {title}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-softwhite/85">{intro}</p>
@@ -97,7 +97,7 @@ export function Hero({
             <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">What we handle, both sides</p>
             <div className="mt-5 grid grid-cols-2 gap-3">
               {['US Tax Returns', 'UK Self Assessment', 'FBAR & FATCA', 'Company Accounts', 'Streamlined Filing', 'Treaty Planning'].map((item) => (
-                <div key={item} className="rounded-lg border border-navy-slate bg-navy-ink/60 px-4 py-3 text-sm font-medium text-softwhite">
+                <div key={item} className="rounded-lg border border-navy-slate bg-navy-ink/60 px-4 py-3 text-sm font-medium text-softwhite lg:px-3 xl:px-4">
                   {item}
                 </div>
               ))}

@@ -14,7 +14,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy-ink text-softwhite">
       <div className="mx-auto max-w-container px-6 py-16">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(6,1fr)]">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_repeat(6,1fr)] lg:gap-x-6">
           <div>
             <Logo variant="dark" showSubline />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-softwhite/70">
@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-navy-slate pt-8">
-          <p className="max-w-3xl text-xs leading-relaxed text-softwhite/70">
+          <p className="text-xs leading-relaxed text-softwhite/70">
             Information on this website is provided for general informational purposes only and does not constitute
             tax, legal, accounting or financial advice. It may not reflect your specific circumstances or the most
             current law. Please obtain advice from a qualified professional before acting on anything you read here.

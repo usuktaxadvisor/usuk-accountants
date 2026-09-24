@@ -86,24 +86,27 @@ body {
 /* ---------- Blog article body (Markdown-rendered HTML) ---------- */
 .article-prose {
   color: #28324a;
-  font-size: 1.0625rem;
+  font-size: 1rem;
   line-height: 1.75;
-  max-width: 68ch;
+  /* 68ch in the previous body face; fixed so Montserrat's wider "0"
+     doesn't lengthen the reading measure. */
+  max-width: 40.5rem;
 }
 .article-prose > * + * { margin-top: 1.15em; }
 .article-prose h2 {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-weight: 600;
-  font-size: 1.6rem;
+  font-family: var(--font-display), Optima, Candara, sans-serif;
+  font-weight: 400;
+  font-size: 1.65rem;
   line-height: 1.25;
   color: #0A1330;
   margin-top: 2em;
   margin-bottom: 0.2em;
 }
 .article-prose h3 {
-  font-family: var(--font-fraunces), Georgia, serif;
-  font-weight: 600;
+  font-family: var(--font-display), Optima, Candara, sans-serif;
+  font-weight: 400;
   font-size: 1.25rem;
+  line-height: 1.3;
   color: #0A1330;
   margin-top: 1.6em;
   margin-bottom: 0.2em;
@@ -148,22 +151,68 @@ body {
   text-align: left;
 }
 .article-prose th { background: #F7F8FB; color: #0A1330; font-weight: 600; }
+/* Small screens: wide comparison tables scroll inside their own box
+   instead of pushing the page sideways. */
+@media (max-width: 639px) {
+  .article-prose table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 0.875rem;
+  }
+  .article-prose th,
+  .article-prose td { padding: 0.5em 0.6em; }
+}
 
 /* ============================================================
-   Premium type system — Fraunces optical sizing for display
-   (family/feel only; utility size classes remain authoritative)
+   Premium type system — reference hierarchy (us-uktax.com)
+   Headings: single-weight stressed display sans, regular weight,
+   natural tracking. Body/UI: Montserrat.
    ============================================================ */
 @layer base {
   h1, h2, h3, h4 {
-    font-family: var(--font-fraunces), Georgia, serif;
-    font-optical-sizing: auto;
-    font-variation-settings: 'SOFT' 40, 'WONK' 0;
-    letter-spacing: -0.012em;
+    font-family: var(--font-display), Optima, Candara, system-ui, sans-serif;
     text-wrap: balance;
   }
-  h1 { letter-spacing: -0.022em; line-height: 1.06; }
-  h2 { letter-spacing: -0.016em; line-height: 1.14; }
 }
+
+/*
+ * The display face ships one weight (400), as the reference uses its
+ * display face at regular weight. Components still carry legacy
+ * `font-semibold` / `tracking-tight` utilities from the previous serif
+ * system; this unlayered rule (specificity 0,2,0 via :not) overrides
+ * them in one place, and font-synthesis-weight stops faux-bolding
+ * (author <em> emphasis inside headings still renders).
+ * Scoped to display-face elements only — body/UI weights are untouched.
+ */
+:is(h1, h2, h3, h4, .font-display):not(.font-sans) {
+  font-weight: 400;
+  letter-spacing: 0;
+  font-synthesis-weight: none;
+  /*
+   * The display face has a small x-height (~0.45em) and narrow set width.
+   * Normalising its x-height to 0.52em renders headings ~15% larger than
+   * their utility size — the reference's large, light heading presence —
+   * while line lengths stay shorter than the previous serif, so no new
+   * wrapping. Also applied to the metric fallback, which reduces CLS.
+   */
+  font-size-adjust: 0.52;
+}
+/*
+ * Exact reference face: Condor via our own Adobe Fonts project (see
+ * layout.tsx). font-size-adjust is set to Condor's own x-height (0.479em),
+ * so Condor renders at its natural size while the Belleza fallback shown
+ * during loading is normalised to the same x-height — near-zero layout
+ * shift when Condor swaps in.
+ */
+html[data-display-font='condor'] :is(h1, h2, h3, h4, .font-display):not(.font-sans),
+html[data-display-font='condor'] .article-prose :is(h2, h3) {
+  font-family: condor, var(--font-display), Optima, Candara, system-ui, sans-serif;
+  font-size-adjust: 0.479;
+}
+/* Larger glyphs need slightly more open leading on multi-line titles. */
+:is(h1):not(.font-sans) { line-height: 1.2; }
+:is(h2):not(.font-sans) { line-height: 1.25; }
 
 /* ============================================================
    Atlantic meridian — signature background motif

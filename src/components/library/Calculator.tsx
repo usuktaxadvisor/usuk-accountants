@@ -40,7 +40,7 @@ export function Calculator() {
   return (
     <section id="calculator" className="bg-navy-ink py-20 md:py-28">
       <div className="mx-auto max-w-container px-6">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Copy */}
           <div>
             <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-eyebrow text-gold">
@@ -161,7 +161,7 @@ export function Calculator() {
                         });
                         setSent(true);
                       }}
-                      className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 font-semibold text-navy-ink transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold"
+                      className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 font-semibold text-navy-ink transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold"
                     >
                       Send it <IconArrowRight className="h-4 w-4" />
                     </button>
