@@ -42,7 +42,7 @@ export default function Logo({
       </svg>
       <span className="leading-none">
         <span
-          className="block font-display text-lg font-semibold tracking-tight"
+          className="block whitespace-nowrap font-brand text-lg font-semibold tracking-tight"
           style={{ color: wordColor }}
         >
           US<span style={{ color: '#C9A84C' }}>·</span>UK{' '}

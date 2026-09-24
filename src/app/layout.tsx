@@ -1,29 +1,36 @@
 import type { Metadata, Viewport } from 'next';
-import { Fraunces, Manrope, Inter } from 'next/font/google';
+import { Belleza, Montserrat, Fraunces } from 'next/font/google';
 import Analytics from '@/components/Analytics';
 import { ConsentProvider } from '@/components/CookieConsent';
 import { JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
 
-const fraunces = Fraunces({
+/*
+ * Typography — modelled on the reference hierarchy (us-uktax.com):
+ *   Display/headings: Belleza 400 — open-licence (OFL) stand-in for the
+ *     reference's commercial Adobe Fonts face "Condor" (David Jonathan Ross),
+ *     which we are not licensed to use. Single weight, like the reference.
+ *   Body/UI: Montserrat (variable, OFL) — the reference's exact body face.
+ *   Brand wordmark only: Fraunces 600 — unchanged logo identity.
+ */
+const display = Belleza({
   subsets: ['latin'],
-  axes: ['SOFT', 'WONK', 'opsz'],
-  variable: '--font-fraunces',
+  weight: '400',
+  variable: '--font-display',
   display: 'swap',
 });
 
-const manrope = Manrope({
+const montserrat = Montserrat({
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-manrope',
+  variable: '--font-montserrat',
   display: 'swap',
 });
 
-const inter = Inter({
+const brand = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-inter',
+  weight: '600',
+  variable: '--font-brand',
   display: 'swap',
 });
 
@@ -70,7 +77,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${manrope.variable} ${inter.variable}`}>
+    <html lang="en" className={`${display.variable} ${montserrat.variable} ${brand.variable}`}>
       <head>
         <JsonLd
           schema={[

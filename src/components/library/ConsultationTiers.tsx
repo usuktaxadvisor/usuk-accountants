@@ -80,7 +80,7 @@ export function ConsultationTiers({ heading = true }: { heading?: boolean }) {
               <Link
                 href={tier.bookHref}
                 className={[
-                  'inline-flex w-full items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition',
+                  'inline-flex w-full items-center justify-center rounded-full px-3 py-3 text-center text-sm font-semibold transition xl:px-5',
                   tier.featured
                     ? 'bg-gold text-navy-ink hover:bg-gold-champagne'
                     : 'border border-navy text-navy hover:bg-navy hover:text-white',
