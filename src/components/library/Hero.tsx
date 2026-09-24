@@ -43,7 +43,7 @@ export function Hero({
       {/* Decorative skyline (original artwork): English Gothic × American neoclassical, evening light. Presentational only. */}
       <div aria-hidden="true" className="hero-art pointer-events-none absolute" />
 
-      <div className="hero-content relative mx-auto grid max-w-container items-center gap-12 px-6 pt-20 md:pt-28 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="hero-content relative mx-auto grid max-w-container items-center gap-12 px-6 pt-12 md:pt-16 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="animate-fade-rise">
           <p className="mb-4 text-xs font-semibold uppercase tracking-eyebrow text-gold">{eyebrow}</p>
           <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-6xl">
