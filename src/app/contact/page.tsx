@@ -162,7 +162,7 @@ export default async function ContactPage({
                 <Link href="/book" className="group flex items-center justify-between rounded-2xl bg-navy-ink p-6 text-white transition-colors hover:bg-navy-royal">
                   <span>
                     <span className="block font-display text-lg font-semibold">Book a consultation</span>
-                    <span className="mt-1 block text-sm text-softwhite/70">15 minutes</span>
+                    <span className="mt-1 block text-sm text-softwhite/70">30 minutes</span>
                   </span>
                   <IconArrowRight className="h-5 w-5 text-gold transition-transform group-hover:translate-x-0.5" />
                 </Link>
