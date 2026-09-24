@@ -199,14 +199,16 @@ body {
   font-size-adjust: 0.52;
 }
 /*
- * Exact reference face (Condor via our own Adobe Fonts project) — only
- * active when NEXT_PUBLIC_ADOBE_FONTS_KIT_ID is set (see layout.tsx).
- * Condor needs no x-height normalisation; Belleza remains the fallback.
+ * Exact reference face: Condor via our own Adobe Fonts project (see
+ * layout.tsx). font-size-adjust is set to Condor's own x-height (0.479em),
+ * so Condor renders at its natural size while the Belleza fallback shown
+ * during loading is normalised to the same x-height — near-zero layout
+ * shift when Condor swaps in.
  */
 html[data-display-font='condor'] :is(h1, h2, h3, h4, .font-display):not(.font-sans),
 html[data-display-font='condor'] .article-prose :is(h2, h3) {
   font-family: condor, var(--font-display), Optima, Candara, system-ui, sans-serif;
-  font-size-adjust: none;
+  font-size-adjust: 0.479;
 }
 /* Larger glyphs need slightly more open leading on multi-line titles. */
 :is(h1):not(.font-sans) { line-height: 1.2; }

@@ -35,14 +35,23 @@ const brand = Fraunces({
 });
 
 /*
- * Optional exact-match heading face. The reference uses Condor (David
- * Jonathan Ross), licensed through Adobe Fonts. It can only be used under
- * our own Adobe Fonts web project (served by Adobe, never self-hosted).
- * Set NEXT_PUBLIC_ADOBE_FONTS_KIT_ID to that project's ID to switch headings
- * to Condor; while unset, headings stay on Belleza and nothing loads.
+ * Heading face: Condor (David Jonathan Ross), the reference site's display
+ * face, licensed through our own Adobe Fonts web project "US UK Accountants"
+ * (project ID hnd0kal: Condor Regular 400 + Bold 700, font-display: swap).
+ * Served by Adobe's official embed stylesheet — never self-hosted.
+ * The project ID is public (it appears in page source), so it lives in code.
+ * NEXT_PUBLIC_ADOBE_FONTS_KIT_ID can override it, or be set to "off" to fall
+ * back to Belleza everywhere without a code change (e.g. if the Adobe
+ * subscription ever lapses, when Adobe stops serving the fonts).
  */
-const ADOBE_KIT = (process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID ?? '').trim();
-const ADOBE_KIT_ID = /^[a-z0-9]{5,12}$/.test(ADOBE_KIT) ? ADOBE_KIT : '';
+const ADOBE_KIT_DEFAULT = 'hnd0kal';
+const ADOBE_KIT_ENV = (process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID ?? '').trim().toLowerCase();
+const ADOBE_KIT_ID =
+  ADOBE_KIT_ENV === 'off'
+    ? ''
+    : /^[a-z0-9]{5,12}$/.test(ADOBE_KIT_ENV)
+      ? ADOBE_KIT_ENV
+      : ADOBE_KIT_DEFAULT;
 
 const SITE = 'https://www.usukaccountants.com';
 
@@ -96,6 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {ADOBE_KIT_ID && (
           <>
             <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
+            <link rel="preconnect" href="https://p.typekit.net" />
             <link rel="stylesheet" href={`https://use.typekit.net/${ADOBE_KIT_ID}.css`} />
           </>
         )}
