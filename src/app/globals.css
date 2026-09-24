@@ -210,6 +210,12 @@ html[data-display-font='condor'] .article-prose :is(h2, h3) {
   font-family: condor, var(--font-display), Optima, Candara, system-ui, sans-serif;
   font-size-adjust: 0.479;
 }
+/* Logo wordmark: Condor Bold (same Adobe project); Belleza stands in while
+   it loads, normalised to Condor's x-height and never faux-bolded. */
+.font-brand {
+  font-size-adjust: 0.479;
+  font-synthesis-weight: none;
+}
 /* Larger glyphs need slightly more open leading on multi-line titles. */
 :is(h1):not(.font-sans) { line-height: 1.2; }
 :is(h2):not(.font-sans) { line-height: 1.25; }
