@@ -1,6 +1,6 @@
 import { JsonLd } from '@/components/library';
 import { faqSchema } from '@/lib/schema';
-import { faqs as siteFaqs } from '@/lib/site-data';
+import { faqs as siteFaqs, PHONE_UK_TEL } from '@/lib/site-data';
 import {
   Header, Footer, MobileBar,
   Hero, TrustBar, Pillars, Calculator, ServicesSection,
@@ -44,7 +44,7 @@ export default function Home() {
           title="Ready to simplify your US–UK taxes?"
           intro="Book a £350 30-minute consultation — a clear view of where you stand and what comes next. Quick questions? Email us free."
           tone="navy"
-          secondary={{ label: 'Call us', href: 'tel:+443330904129' }}
+          secondary={{ label: 'Call us', href: `tel:${PHONE_UK_TEL}` }}
           showPhone
         />
       </main>

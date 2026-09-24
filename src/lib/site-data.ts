@@ -7,7 +7,12 @@ import {
   IconGlobeDoc, IconShield, IconPlanning, IconBank, IconCalculator, IconTreaty,
 } from '@/components/ui/icons';
 
-export const PHONE_UK = '+44 333 090 4129';
+/** UK contact number — display (national) format. */
+export const PHONE_UK = '0333 090 4030';
+/** UK contact number — international format (schema.org / machine-readable). */
+export const PHONE_UK_INTL = '+44 333 090 4030';
+/** UK contact number — tel: link target. */
+export const PHONE_UK_TEL = '+443330904030';
 export const PHONE_US = '+1 914 953 7475';
 
 export interface Office {
@@ -19,8 +24,11 @@ export interface Office {
   region: string;
   postalCode: string;
   country: 'GB' | 'US';
+  /** International format — used in schema.org telephone. */
   phone: string;
   tel: string;
+  /** Optional on-page display format (e.g. UK national 0333 …); falls back to `phone`. */
+  display?: string;
   email: string;
   /** Genuinely staffed & operational. Drives LocalBusiness schema + GBP eligibility. */
   staffed: boolean;
@@ -43,8 +51,9 @@ export const OFFICES: Office[] = [
     region: 'England',
     postalCode: 'E17 8QP',
     country: 'GB',
-    phone: '+44 333 090 4129',
-    tel: '+443330904129',
+    phone: PHONE_UK_INTL,
+    tel: PHONE_UK_TEL,
+    display: PHONE_UK,
     email: 'hello@usukaccountants.com',
     staffed: true,
     gbpEligible: true,
@@ -58,8 +67,9 @@ export const OFFICES: Office[] = [
     region: 'England',
     postalCode: 'M2 1DH',
     country: 'GB',
-    phone: '+44 333 090 4129',
-    tel: '+443330904129',
+    phone: PHONE_UK_INTL,
+    tel: PHONE_UK_TEL,
+    display: PHONE_UK,
     email: 'hello@usukaccountants.com',
     staffed: true,
     gbpEligible: true,
@@ -122,8 +132,8 @@ export const SITE = {
   ],
   offices: OFFICES,
   phones: {
-    uk: { label: 'London', number: PHONE_UK, tel: PHONE_UK.replace(/[^+\d]/g, ''), flag: '🇬🇧' },
-    us: { label: 'New York', number: PHONE_US, tel: PHONE_US.replace(/[^+\d]/g, ''), flag: '🇺🇸' },
+    uk: { label: 'London', number: PHONE_UK, intl: PHONE_UK_INTL, tel: PHONE_UK_TEL, flag: '🇬🇧' },
+    us: { label: 'New York', number: PHONE_US, intl: PHONE_US, tel: PHONE_US.replace(/[^+\d]/g, ''), flag: '🇺🇸' },
   },
 } as const;
 
