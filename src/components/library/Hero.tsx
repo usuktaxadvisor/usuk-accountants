@@ -40,8 +40,8 @@ export function Hero({
         <circle cx="1190" cy="430" r="3" fill="#C9A84C" />
       </svg>
 
-      {/* Decorative engraving (original artwork): US neoclassical × English Gothic elevation. Presentational only. */}
-      <div aria-hidden="true" className="hero-elevation pointer-events-none absolute inset-x-0 bottom-0" />
+      {/* Decorative skyline (original artwork): English Gothic × American neoclassical, evening light. Presentational only. */}
+      <div aria-hidden="true" className="hero-art pointer-events-none absolute" />
 
       <div className="hero-content relative mx-auto grid max-w-container items-center gap-12 px-6 pt-20 md:pt-28 lg:grid-cols-[1.1fr_0.9fr]">
         <div className="animate-fade-rise">
