@@ -9,6 +9,10 @@ import { sendPortalEmail, resetEmailHtml } from '@/lib/portal/email';
 import { DELIVERY_CATEGORIES, DELIVERY_STATUS_LABEL, listDeliveriesForClient, listResponsesForClient, canReplace, canWithdraw } from '@/lib/portal/deliveries';
 import DeliveryUploadForm from '@/components/portal/DeliveryUploadForm';
 import WithdrawButton from '@/components/portal/WithdrawButton';
+import SignatureRequestForm from '@/components/portal/SignatureRequestForm';
+import IdvForm from '@/components/portal/IdvForm';
+import { listRequestsForClient, latestIdentityVerification } from '@/lib/portal/esign-store';
+import { SIG_ACTION_LABEL, SIG_STATUS_LABEL } from '@/lib/portal/esign';
 
 export const dynamic = 'force-dynamic';
 const STATUSES = ['REQUESTED', 'UPLOADED', 'RECEIVED', 'UNDER_REVIEW', 'COMPLETED'] as const;
@@ -28,6 +32,9 @@ export default async function ClientDetail({ params, searchParams }: { params: P
   const deliveries = await listDeliveriesForClient(id);
   const responses = await listResponsesForClient(id);
   const latestResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
+  const sigRequests = await listRequestsForClient(id);
+  const idv = await latestIdentityVerification(id, client.userId);
+  const hasIdv = !!idv && (!idv.validUntil || idv.validUntil > new Date());
 
   async function createRequest(formData: FormData) {
     'use server';
@@ -120,6 +127,24 @@ export default async function ClientDetail({ params, searchParams }: { params: P
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Work for client review</h2>
         <p className="mt-1 text-xs text-muted">Send a prepared document to the client. It goes into their Processed Documents folder in Drive and they are emailed to review it in the portal.</p>
         <DeliveryUploadForm clientId={id} categories={DELIVERY_CATEGORIES} />
+        <SignatureRequestForm clientId={id} hasIdv={hasIdv} deliveries={deliveries.filter(d => d.status !== 'WITHDRAWN').map(d => ({ id: d.id, title: d.title, version: d.version, mimeType: d.mimeType }))} />
+        <IdvForm clientId={id} />
+        {idv ? <p className="mt-1 text-xs text-muted">Identity verification on file: {idv.method.replace(/_/g, ' ').toLowerCase()} · {idv.verifiedAt.toLocaleDateString('en-GB')}{idv.validUntil ? ` · valid to ${idv.validUntil.toLocaleDateString('en-GB')}` : ''}</p> : null}
+        {sigRequests.length ? (
+          <div className="mt-4">
+            <h3 className="text-xs font-semibold uppercase tracking-widest text-muted">Signature &amp; approval requests</h3>
+            <div className="mt-2 space-y-2">
+              {sigRequests.map(r => (
+                <a key={r.id} href={`/portal/admin/esign/${r.id}`} className="block rounded-2xl border border-mist bg-white px-5 py-3 hover:border-navy-ink">
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <p className="text-sm font-semibold text-ink">{r.title} <span className="text-xs font-normal text-muted">· {SIG_ACTION_LABEL[r.action]} · sent {r.sentAt?.toLocaleString('en-GB') ?? '—'}</span></p>
+                    <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-muted">{SIG_STATUS_LABEL[r.status]}</span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : null}
         <div className="mt-3 space-y-2">
           {deliveries.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing sent for review yet.</p> : deliveries.map(d => {
             const resp = latestResponse(d.id);

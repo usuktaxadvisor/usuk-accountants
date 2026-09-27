@@ -5,6 +5,8 @@ import { db, tables } from '@/lib/portal/db';
 import UploadButton from '@/components/portal/UploadButton';
 import DeliveryResponseForm from '@/components/portal/DeliveryResponseForm';
 import { DELIVERY_STATUS_LABEL, canClientAccess, canClientRespond, listDeliveriesForClient, listResponsesForClient } from '@/lib/portal/deliveries';
+import { listRequestsForClient } from '@/lib/portal/esign-store';
+import { SIG_ACTION_LABEL, SIG_STATUS_LABEL, isOpen } from '@/lib/portal/esign';
 
 export const dynamic = 'force-dynamic';
 
@@ -36,6 +38,9 @@ export default async function Dashboard() {
   const awaiting = deliveries.filter(d => canClientRespond(d.status));
   const responses = await listResponsesForClient(session.clientId);
   const myResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
+  const sigRequests = await listRequestsForClient(session.clientId);
+  const sigOpen = sigRequests.filter(r => isOpen(r.status));
+  const sigDone = sigRequests.filter(r => r.status === 'COMPLETED');
 
   const docs = await db.select()
     .from(tables.documents)
@@ -55,9 +60,9 @@ export default async function Dashboard() {
             Welcome{client ? `, ${client.displayName.split(' ')[0]}` : ''}
           </h1>
           <p className="mt-1 text-sm text-muted">
-            {open.length === 0 && awaiting.length === 0
+            {open.length === 0 && awaiting.length === 0 && sigOpen.length === 0
               ? 'Nothing is waiting on you right now.'
-              : [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null].filter(Boolean).join(' · ') + '.'}
+              : [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean).join(' · ') + '.'}
           </p>
         </div>
         <form action={doLogout}>
@@ -66,6 +71,36 @@ export default async function Dashboard() {
           </button>
         </form>
       </div>
+
+      {sigOpen.length || sigDone.length ? (
+        <section className="mt-10">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents requiring your action</h2>
+          <div className="mt-3 space-y-2">
+            {sigOpen.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing to approve or sign right now.</p> : sigOpen.map(r => (
+              <div key={r.id} className="rounded-2xl border border-gold/40 bg-white px-5 py-4">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-ink">{r.title}</p>
+                    <p className="text-xs text-muted">Sent {r.sentAt?.toLocaleDateString('en-GB') ?? ''} · {SIG_STATUS_LABEL[r.status]}{r.dueAt ? ` · please complete by ${r.dueAt.toLocaleDateString('en-GB')}` : ''}</p>
+                  </div>
+                  <a href={`/portal/sign/${r.id}`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white hover:bg-ink">{SIG_ACTION_LABEL[r.action]}</a>
+                </div>
+              </div>
+            ))}
+            {sigDone.map(r => (
+              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p><span className="font-semibold text-ink">{r.title}</span> <span className="text-xs text-muted">· completed {r.completedAt?.toLocaleDateString('en-GB') ?? ''}</span></p>
+                  <div className="flex gap-2">
+                    {r.sealedDriveFileId ? <a href={`/api/portal/esign/requests/${r.id}/signed?download=1`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">Signed copy</a> : null}
+                    <a href={`/api/portal/esign/requests/${r.id}/evidence?format=pdf`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">Signature record</a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents requested</h2>
       <div className="mt-3 space-y-3">

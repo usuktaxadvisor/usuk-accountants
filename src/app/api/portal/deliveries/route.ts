@@ -8,6 +8,7 @@ import { rateLimit } from '@/lib/portal/ratelimit';
 import { audit } from '@/lib/portal/audit';
 import { notifyClientOfDelivery } from '@/lib/portal/notify';
 import { DELIVERY_CATEGORIES, canReplace, getDeliveryForStaff } from '@/lib/portal/deliveries';
+import { supersedeRequestsForDelivery } from '@/lib/portal/esign-store';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -87,6 +88,9 @@ export async function POST(req: Request) {
         .set({ status: 'WITHDRAWN', withdrawnAt: new Date(), updatedAt: new Date() })
         .where(eq(tables.deliveries.id, previous.id));
       await audit(session.uid, 'DELIVERY_REPLACED', { targetType: 'delivery', targetId: previous.id, meta: { clientId, replacedBy: row.id, version } });
+      // Any open signature request on the old version is superseded — a client can never sign v1 while v2 exists.
+      const superseded = await supersedeRequestsForDelivery(previous.id, session.uid, 'Document replaced by a new version', row.id);
+      if (superseded.length) await audit(session.uid, 'ESIGN_REQUESTS_SUPERSEDED', { targetType: 'delivery', targetId: previous.id, meta: { requests: superseded } });
     }
 
     const emailed = await notifyClientOfDelivery(clientId, row.title, note);

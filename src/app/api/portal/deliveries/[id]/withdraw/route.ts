@@ -4,6 +4,7 @@ import { requireRole, PortalAuthError } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
 import { audit } from '@/lib/portal/audit';
 import { canWithdraw, getDeliveryForStaff } from '@/lib/portal/deliveries';
+import { supersedeRequestsForDelivery } from '@/lib/portal/esign-store';
 
 export const runtime = 'nodejs';
 
@@ -28,6 +29,7 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
   await db.update(tables.deliveries)
     .set({ status: 'WITHDRAWN', withdrawnAt: new Date(), updatedAt: new Date() })
     .where(eq(tables.deliveries.id, row.id));
+  await supersedeRequestsForDelivery(row.id, session.uid, 'Document withdrawn by staff', null); // open signature requests on it close too
   await audit(session.uid, 'DELIVERY_WITHDRAWN', { targetType: 'delivery', targetId: row.id, meta: { clientId } });
   return NextResponse.json({ ok: true, status: 'WITHDRAWN' });
 }
