@@ -60,8 +60,9 @@ By ticking the box and continuing, you agree that:
 2. Your electronic signature or approval, applied through this portal, is intended to be your signature and to have the same legal effect as a handwritten signature on paper, under the UK Electronic Communications Act 2000 and the UK eIDAS Regulation, and under the US Electronic Signatures in Global and National Commerce Act (ESIGN) and applicable state law (UETA).
 3. You are signing or approving for yourself, using your own portal login, and no one else is acting for you.
 4. We will keep an electronic record of the document, your signature or approval, and the related evidence (including the date and time, your login identity, and your connection details), and provide you with a copy of the completed document in your portal.
-5. You may withdraw this consent for future documents by contacting us in writing; doing so will not affect documents you have already signed. You may also decline to sign any document and tell us why.
-6. To use this service you need a device with a current web browser, an internet connection, and a valid email address.`;
+5. You may withdraw this consent for future documents by contacting us in writing; doing so will not affect documents you have already signed. You may also decline to sign any document and tell us why, and you may ask us for a paper copy of any document at any time.
+6. This consent covers documents we send you through this portal for review, approval or signature (for example engagement letters, advisory reports and tax returns for approval). It does not cover deeds or other documents that the law requires to be witnessed or signed in a particular way; we will tell you separately if a document needs that.
+7. To use this service you need a device with a current web browser, an internet connection, and a valid email address.`;
 
 export function consentTextSha256(text: string = ESIGN_CONSENT_TEXT): string {
   return sha256Hex(Buffer.from(text.replace(/\r\n/g, '\n'), 'utf8'));
@@ -159,20 +160,34 @@ export function hasExpired(expiresAt: Date | null, now: Date = new Date()): bool
 export const IRS_EFILE_AUTH_KINDS: SigDocKind[] = ['IRS_8879', 'IRS_8878'];
 
 /**
- * Remote e-signature on Form 8878/8879 requires identity verification to NIST SP 800-63 IAL2
- * (IRS Publication 1345 §"Electronic Signature Guidance"; IRS e-file Signature Authorization FAQs).
- * A record of in-person photo-ID, third-party KBA, or a verified multi-year relationship satisfies it;
- * portal login alone does not. Without one, the portal offers the handwritten route instead
- * (print → sign → upload), which the IRS does not treat as a remote e-signature.
+ * IRS Publication 1345 (Rev. Dec 2025) and the IRS e-file Signature Authorization FAQs (reviewed 27 Jun 2026),
+ * re-verified 28 Sep 2026 from irs.gov:
+ *  - A portal signing is a REMOTE transaction ("the ERO isn't physically present with the taxpayer").
+ *  - Remote e-signature of Form 8878/8879 requires identity verification "in accordance with NIST SP 800-63 ...
+ *    Level 2 assurance level and knowledge-based authentication or higher assurance level", and it "must be
+ *    completed every time a taxpayer electronically signs Form 8878 or 8879". The IRS does not use the term "IAL2".
+ *  - The two exceptions (in-person signing; in-person + multi-year business relationship) apply ONLY when the
+ *    taxpayer signs in the ERO's physical presence. A stored photo-ID check or a long relationship therefore
+ *    does NOT unlock remote e-signing.
+ *  - A handwritten signature on the form returned by email/website is NOT a remote e-signature and needs no KBA
+ *    (print → sign → upload stays available for every client).
+ * The portal has no KBA provider integrated, so IRS e-file authorisations are refused for remote e-signature
+ * unless (a) ESIGN_IRS_REMOTE_ENABLED=true AND (b) a third-party KBA pass with a provider reference was recorded
+ * for this signer within the last 24 hours — i.e. for THIS signing event.
  */
-export function remoteEsignPermitted(kind: SigDocKind, idv: { method: IdvMethod; validUntil: Date | null } | null, now: Date = new Date()): { ok: true } | { ok: false; reason: string } {
+export const IRS_KBA_FRESHNESS_MS = 24 * 60 * 60_000;
+export type IdvForGate = { method: IdvMethod; verifiedAt: Date; providerRef: string | null; validUntil: Date | null };
+export function remoteEsignPermitted(kind: SigDocKind, idv: IdvForGate | null, now: Date = new Date(), irsRemoteEnabled: boolean = process.env.ESIGN_IRS_REMOTE_ENABLED === 'true'): { ok: true } | { ok: false; reason: string } {
   if (!IRS_EFILE_AUTH_KINDS.includes(kind)) return { ok: true };
-  if (!idv) return { ok: false, reason: 'IRS rules require identity verification before an e-file authorisation can be e-signed remotely. Record an identity verification for this client, or use the print-sign-upload route.' };
-  if (idv.validUntil && now.getTime() > idv.validUntil.getTime()) return { ok: false, reason: 'The identity verification on file has lapsed. Record a new one or use the print-sign-upload route.' };
+  const fallback = 'Use the print-sign-upload route for Forms 8878/8879 (the IRS treats a handwritten signature returned through the portal as a handwritten signature, with no identity-verification step).';
+  if (!irsRemoteEnabled) return { ok: false, reason: `Remote e-signature of IRS e-file authorisations is switched off for this portal because IRS Publication 1345 requires knowledge-based authentication through a third-party provider for every remote signing, which is not integrated. ${fallback}` };
+  if (!idv || idv.method !== 'THIRD_PARTY_KBA' || !idv.providerRef) return { ok: false, reason: `IRS Publication 1345 requires a passed third-party knowledge-based authentication (with the provider's reference) for each remote e-signature of Form 8878/8879; in-person checks and a multi-year relationship only count when the client signs in your physical presence. ${fallback}` };
+  if (now.getTime() - idv.verifiedAt.getTime() > IRS_KBA_FRESHNESS_MS) return { ok: false, reason: `The KBA pass on file is older than 24 hours; the IRS requires identity verification for each signing event. Record today's KBA result or ${fallback.charAt(0).toLowerCase()}${fallback.slice(1)}` };
+  if (idv.validUntil && now.getTime() > idv.validUntil.getTime()) return { ok: false, reason: `The identity verification on file has lapsed. ${fallback}` };
   return { ok: true };
 }
 
-/** Evidence the IRS expects the ERO to keep for a remote e-signature (Pub. 1345). */
+/** Evidence the IRS expects the ERO to keep for a remote e-signature (Pub. 1345: digital image of the signed form, date/time, IP address, login identification, identity-verification result, signature method / audit trail). */
 export const IRS_REMOTE_ESIGN_EVIDENCE = ['signedImage', 'signedAt', 'ip', 'loginIdentifier', 'signatureMethod', 'identityVerification'] as const;
 
 /* ───────────── One-time code ───────────── */
@@ -220,6 +235,9 @@ export type EvidenceCertificate = {
   legalBasis: string[];
   generatedAt: string; generatedBy: string;
 };
+
+/** The certificate's integrity hash: SHA-256 of its canonical JSON. Stable across jsonb storage, key order and whitespace. */
+export function certificateSha256(cert: EvidenceCertificate): string { return sha256Hex(canonicalJson(cert)); }
 
 export function buildEvidenceCertificate(input: Omit<EvidenceCertificate, 'schema' | 'legalBasis' | 'generatedBy'>): EvidenceCertificate {
   return {

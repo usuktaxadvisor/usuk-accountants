@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { eq } from 'drizzle-orm';
+import { eq, sql } from 'drizzle-orm';
+import { timingSafeEqual } from 'node:crypto';
 import { db, tables } from '@/lib/portal/db';
 import { clientSigningContext } from '@/lib/portal/esign-http';
 import { recordEvent } from '@/lib/portal/esign-store';
@@ -35,8 +36,9 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
     const code = String(b.code ?? '').replace(/\D/g, '');
     if (!signer.otpHash || !signer.otpExpiresAt || signer.otpExpiresAt.getTime() < Date.now()) return NextResponse.json({ error: 'The code has expired. Please request a new one.' }, { status: 400 });
     if (signer.otpAttempts >= OTP_MAX_ATTEMPTS) return NextResponse.json({ error: 'Too many incorrect attempts. Please request a new code.' }, { status: 429 });
-    if (code.length !== 6 || otpHash(code, signer.id) !== signer.otpHash) {
-      await db.update(tables.signatureSigners).set({ otpAttempts: signer.otpAttempts + 1 }).where(eq(tables.signatureSigners.id, signer.id));
+    const expected = Buffer.from(signer.otpHash, 'utf8'); const given = Buffer.from(otpHash(code, signer.id), 'utf8');
+    if (code.length !== 6 || expected.length !== given.length || !timingSafeEqual(expected, given)) {
+      await db.update(tables.signatureSigners).set({ otpAttempts: sql`${tables.signatureSigners.otpAttempts} + 1` }).where(eq(tables.signatureSigners.id, signer.id));
       await recordEvent(request.id, 'identity_otp_failed', { signerId: signer.id, actorUserId: signer.userId, ip, userAgent, meta: { attempt: signer.otpAttempts + 1 } });
       return NextResponse.json({ error: 'That code is not correct. Please check and try again.' }, { status: 400 });
     }

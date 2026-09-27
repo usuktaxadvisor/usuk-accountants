@@ -29,6 +29,7 @@ CREATE TABLE "identity_verifications" (
 --> statement-breakpoint
 CREATE TABLE "signature_events" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"seq" bigserial NOT NULL,
 	"request_id" uuid NOT NULL,
 	"signer_id" uuid,
 	"actor_user_id" uuid,
@@ -101,6 +102,10 @@ CREATE TABLE "signature_requests" (
 	"evidence_drive_file_id" text,
 	"evidence_sha256" text,
 	"last_reminder_at" timestamp with time zone,
+	"retention_class" text DEFAULT 'STANDARD_7Y' NOT NULL,
+	"retain_until" timestamp with time zone,
+	"legal_hold_at" timestamp with time zone,
+	"legal_hold_reason" text,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL,
 	"updated_at" timestamp with time zone DEFAULT now() NOT NULL
 );
@@ -157,11 +162,15 @@ CREATE UNIQUE INDEX "sig_evidence_req_uq" ON "signature_evidence" USING btree ("
 CREATE UNIQUE INDEX "sig_req_doc_uq" ON "signature_request_documents" USING btree ("request_id","delivery_id");--> statement-breakpoint
 CREATE UNIQUE INDEX "sig_signer_req_user_uq" ON "signature_signers" USING btree ("request_id","user_id");--> statement-breakpoint
 -- Append-only guard: no UPDATE or DELETE on the evidence tables, whatever the application does.
+-- Administrative escape hatch (documented in docs/client-portal-esign.md): a database owner performing a
+-- legally required deletion, retention purge or disaster recovery runs, inside one transaction,
+--   ALTER TABLE signature_events DISABLE TRIGGER signature_events_append_only;  ... ;  ALTER TABLE ... ENABLE TRIGGER ...;
+-- The application role never does this; the action is deliberate, privileged and visible in the database history.
 CREATE OR REPLACE FUNCTION esign_append_only() RETURNS trigger AS $$
-BEGIN RAISE EXCEPTION 'signature evidence is append-only (%.%)', TG_TABLE_SCHEMA, TG_TABLE_NAME; END;
+BEGIN RAISE EXCEPTION 'signature evidence is append-only (%.%) — see docs/client-portal-esign.md for the administrative recovery procedure', TG_TABLE_SCHEMA, TG_TABLE_NAME; END;
 $$ LANGUAGE plpgsql;--> statement-breakpoint
 CREATE TRIGGER signature_events_append_only BEFORE UPDATE OR DELETE ON "signature_events" FOR EACH ROW EXECUTE FUNCTION esign_append_only();--> statement-breakpoint
 CREATE TRIGGER signature_evidence_append_only BEFORE UPDATE OR DELETE ON "signature_evidence" FOR EACH ROW EXECUTE FUNCTION esign_append_only();--> statement-breakpoint
 CREATE TRIGGER esign_consents_append_only BEFORE UPDATE OR DELETE ON "esign_consents" FOR EACH ROW EXECUTE FUNCTION esign_append_only();--> statement-breakpoint
 CREATE INDEX "sig_requests_client_status_idx" ON "signature_requests" ("client_id", "status");--> statement-breakpoint
-CREATE INDEX "sig_events_request_idx" ON "signature_events" ("request_id", "at");
+CREATE INDEX "sig_events_request_idx" ON "signature_events" ("request_id", "seq");

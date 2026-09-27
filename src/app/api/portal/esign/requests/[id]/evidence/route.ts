@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { portalSession } from '@/lib/portal/auth';
 import { rateLimit } from '@/lib/portal/ratelimit';
 import { getEvidence, getRequestForClient, getRequestById, getSignerForUser, listEvents, recordEvent, loadBundle } from '@/lib/portal/esign-store';
-import { verifyChain, sha256Hex, type EvidenceCertificate } from '@/lib/portal/esign';
+import { verifyChain, certificateSha256, type EvidenceCertificate } from '@/lib/portal/esign';
 import { renderEvidenceCertificatePdf } from '@/lib/portal/esign-pdf';
 import { requestMeta, pdfResponse } from '@/lib/portal/esign-http';
 
@@ -28,7 +28,7 @@ export async function GET(req: Request, ctx: { params: Promise<{ id: string }> }
   const stored = await getEvidence(request.id);
   if (stored) {
     const cert = stored.certificateJson as EvidenceCertificate;
-    const intact = sha256Hex(JSON.stringify(cert)) === stored.certificateSha256;
+    const intact = certificateSha256(cert) === stored.certificateSha256;
     await recordEvent(request.id, 'evidence_downloaded', { actorUserId: session.uid, ip, userAgent, meta: { format, intact } });
     if (format === 'pdf') return pdfResponse(await renderEvidenceCertificatePdf(cert), `Evidence certificate - ${request.title}.pdf`, true);
     return NextResponse.json({ ok: true, stored: true, intact, certificateSha256: stored.certificateSha256, certificate: cert }, { headers: { 'Cache-Control': 'private, no-store' } });

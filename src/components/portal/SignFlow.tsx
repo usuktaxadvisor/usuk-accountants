@@ -18,7 +18,7 @@ type Stage = 'loading' | 'review' | 'consent' | 'code' | 'approve' | 'sign' | 'd
 async function post(url: string, body: unknown) {
   const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
   const data = (await res.json().catch(() => ({}))) as Record<string, unknown>;
-  return { ok: res.ok, data };
+  return { ok: res.ok, status: res.status, data };
 }
 
 export default function SignFlow({ requestId }: { requestId: string }) {
@@ -57,9 +57,9 @@ export default function SignFlow({ requestId }: { requestId: string }) {
   async function acceptConsent() {
     if (!reviewed || !consentTick || !b) return;
     setBusy(true); setMsg('');
-    const { ok, data } = await post(`/api/portal/esign/requests/${requestId}/consent`, { accepted: true, version: b.consent.version });
+    const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/consent`, { accepted: true, version: b.consent.version });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); return; }
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
     setStage('code'); void sendCode();
   }
   async function sendCode() {
@@ -79,9 +79,9 @@ export default function SignFlow({ requestId }: { requestId: string }) {
   async function approve() {
     if (!b) return;
     setBusy(true); setMsg('');
-    const { ok, data } = await post(`/api/portal/esign/requests/${requestId}/approve`, { confirmed: true });
+    const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/approve`, { confirmed: true });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); return; }
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
     if (data.done) { setMsg(String(data.message ?? 'Approved.')); setStage('done'); router.refresh(); } else setStage('sign');
   }
   async function sign() {
@@ -89,17 +89,17 @@ export default function SignFlow({ requestId }: { requestId: string }) {
     const png = method === 'DRAWN' ? canvasRef.current?.toDataURL('image/png') : undefined;
     if (method === 'DRAWN' && !hasInk.current) { setMsg('Please draw your signature in the box.'); return; }
     setBusy(true); setMsg('');
-    const { ok, data } = await post(`/api/portal/esign/requests/${requestId}/sign`, { method, typedName: typed, png, intent: true, acknowledgements: acks });
+    const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/sign`, { method, typedName: typed, png, intent: true, acknowledgements: acks });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); return; }
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
     setMsg(String(data.message ?? 'Signed.')); setStage('done'); router.refresh();
   }
   async function decline() {
     if (!declineReason.trim()) { setMsg('Please tell us why.'); return; }
     setBusy(true); setMsg('');
-    const { ok, data } = await post(`/api/portal/esign/requests/${requestId}/decline`, { reason: declineReason });
+    const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/decline`, { reason: declineReason });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); return; }
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
     setMsg(String(data.message ?? 'Received.')); setStage('closed'); router.refresh();
   }
 

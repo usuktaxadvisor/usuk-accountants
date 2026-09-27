@@ -62,7 +62,7 @@ export async function POST(req: Request) {
       if (!own || own.id !== client.id) return NextResponse.json({ error: 'Signer does not belong to this client' }, { status: 400 });
     }
     const idv = await latestIdentityVerification(client.id, u.id);
-    const gate = remoteEsignPermitted(body.docKind, idv ? { method: idv.method, validUntil: idv.validUntil } : null);
+    const gate = remoteEsignPermitted(body.docKind, idv ? { method: idv.method, verifiedAt: idv.verifiedAt, providerRef: idv.providerRef, validUntil: idv.validUntil } : null);
     if (!gate.ok) return NextResponse.json({ error: gate.reason, code: 'IDV_REQUIRED' }, { status: 422 });
     signers.push({ userId: u.id, fullName: [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email, email: u.email, role: i === 0 ? 'SIGNER' : 'SIGNER', sequence: i + 1, identityVerificationId: idv?.id ?? null });
   }

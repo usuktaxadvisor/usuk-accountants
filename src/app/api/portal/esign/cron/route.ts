@@ -4,6 +4,7 @@ import { db, tables } from '@/lib/portal/db';
 import { expireIfDue, recordEvent } from '@/lib/portal/esign-store';
 import { notifyClientOfSignatureRequest } from '@/lib/portal/esign-notify';
 import { eq } from 'drizzle-orm';
+import { timingSafeEqual } from 'node:crypto';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -14,7 +15,8 @@ export const maxDuration = 60;
  */
 export async function GET(req: Request) {
   const secret = process.env.CRON_SECRET;
-  if (!secret || req.headers.get('authorization') !== `Bearer ${secret}`) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+  const given = Buffer.from(req.headers.get('authorization') ?? '', 'utf8'); const want = Buffer.from(secret ? `Bearer ${secret}` : '', 'utf8');
+  if (!secret || given.length !== want.length || !timingSafeEqual(given, want)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   const open = await db.select().from(tables.signatureRequests).where(inArray(tables.signatureRequests.status, ['AWAITING_CLIENT', 'VIEWED', 'PARTIALLY_SIGNED']));
   let expired = 0, reminded = 0;
   const threeDaysAgo = new Date(Date.now() - 3 * 86_400_000);

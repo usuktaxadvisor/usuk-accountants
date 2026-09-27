@@ -969,6 +969,12 @@
           "notNull": true,
           "default": "gen_random_uuid()"
         },
+        "seq": {
+          "name": "seq",
+          "type": "bigserial",
+          "primaryKey": false,
+          "notNull": true
+        },
         "request_id": {
           "name": "request_id",
           "type": "uuid",
@@ -1558,6 +1564,31 @@
         "last_reminder_at": {
           "name": "last_reminder_at",
           "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "retention_class": {
+          "name": "retention_class",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'STANDARD_7Y'"
+        },
+        "retain_until": {
+          "name": "retain_until",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "legal_hold_at": {
+          "name": "legal_hold_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "legal_hold_reason": {
+          "name": "legal_hold_reason",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },

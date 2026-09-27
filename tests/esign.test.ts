@@ -97,12 +97,23 @@ describe('IRS Pub. 1345 document-type control', () => {
     expect(remoteEsignPermitted('TAX_RETURN', null).ok).toBe(true);
     expect(remoteEsignPermitted('ENGAGEMENT_LETTER', null).ok).toBe(true);
   });
-  it('Forms 8878/8879 are blocked without a verification and unblocked with a valid one', () => {
-    expect(remoteEsignPermitted('IRS_8879', null).ok).toBe(false);
-    expect(remoteEsignPermitted('IRS_8878', null).ok).toBe(false);
-    expect(remoteEsignPermitted('IRS_8879', { method: 'THIRD_PARTY_KBA', validUntil: null }).ok).toBe(true);
-    expect(remoteEsignPermitted('IRS_8879', { method: 'IN_PERSON_PHOTO_ID', validUntil: new Date(Date.now() + 86_400_000) }).ok).toBe(true);
-    expect(remoteEsignPermitted('IRS_8879', { method: 'IN_PERSON_PHOTO_ID', validUntil: new Date(Date.now() - 1) }).ok).toBe(false);
+  it('Forms 8878/8879 are refused for remote e-signature unless the feature is enabled AND a fresh third-party KBA pass exists (Pub. 1345 Rev. Dec 2025)', () => {
+    const now = new Date();
+    const fresh = { method: 'THIRD_PARTY_KBA' as const, verifiedAt: new Date(now.getTime() - 60_000), providerRef: 'kba-tx-123', validUntil: null };
+    // Switched off (default): nothing unlocks it, not even a fresh KBA.
+    expect(remoteEsignPermitted('IRS_8879', fresh, now, false).ok).toBe(false);
+    expect(remoteEsignPermitted('IRS_8878', null, now, false).ok).toBe(false);
+    // Switched on: only a fresh KBA pass with a provider reference.
+    expect(remoteEsignPermitted('IRS_8879', null, now, true).ok).toBe(false);
+    expect(remoteEsignPermitted('IRS_8879', fresh, now, true).ok).toBe(true);
+    expect(remoteEsignPermitted('IRS_8879', { ...fresh, providerRef: null }, now, true).ok).toBe(false);
+    expect(remoteEsignPermitted('IRS_8879', { ...fresh, verifiedAt: new Date(now.getTime() - 2 * 86_400_000) }, now, true).ok).toBe(false);
+    // In-person photo ID and multi-year relationship only count for in-person signing — never for the portal.
+    expect(remoteEsignPermitted('IRS_8879', { ...fresh, method: 'IN_PERSON_PHOTO_ID' }, now, true).ok).toBe(false);
+    expect(remoteEsignPermitted('IRS_8879', { ...fresh, method: 'MULTI_YEAR_RELATIONSHIP' }, now, true).ok).toBe(false);
+    expect(remoteEsignPermitted('IRS_8879', { ...fresh, method: 'VIDEO_PHOTO_ID' }, now, true).ok).toBe(false);
+    // Ordinary documents are unaffected.
+    expect(remoteEsignPermitted('TAX_RETURN', null, now, false).ok).toBe(true);
   });
 });
 
@@ -181,5 +192,33 @@ describe('lifecycle scenarios (pure-rule simulation)', () => {
     const frozen = sha256Hex(Buffer.from('original bytes v1'));
     expect(sha256Hex(Buffer.from('original bytes v1'))).toBe(frozen);
     expect(sha256Hex(Buffer.from('original bytes v1 edited'))).not.toBe(frozen);
+  });
+});
+
+describe('evidence certificate integrity hash', () => {
+  it('is independent of key order and whitespace (survives jsonb storage)', async () => {
+    const { buildEvidenceCertificate: build, certificateSha256 } = await import('@/lib/portal/esign');
+    const cert = build({ requestId: 'r', clientRef: 'CL-1', clientName: 'TEST', title: 't', action: 'SIGNATURE', docKind: 'GENERAL', signingOrder: 'PARALLEL', createdAt: 'a', sentAt: null, completedAt: 'c', documents: [], signers: [], events: [], eventChainValid: true, sealedPdf: { sha256: 'x', sizeBytes: 1 }, generatedAt: 'g' });
+    const reordered = JSON.parse(JSON.stringify(Object.fromEntries(Object.entries(cert).reverse()))) as typeof cert;
+    expect(certificateSha256(reordered)).toBe(certificateSha256(cert));
+    expect(certificateSha256({ ...cert, title: 'tampered' })).not.toBe(certificateSha256(cert));
+  });
+});
+
+describe('retention model', () => {
+  it('assigns a class per document type, computes retain_until, and a legal hold always blocks purge', async () => {
+    const { retentionClassFor, retainUntilFor, mayPurge, RETENTION_POLICY } = await import('@/lib/portal/esign-retention');
+    expect(retentionClassFor('IRS_8879')).toBe('IRS_EFILE_AUTH_7Y');
+    expect(retentionClassFor('ENGAGEMENT_LETTER')).toBe('ENGAGEMENT_10Y');
+    expect(retentionClassFor('TAX_RETURN')).toBe('STANDARD_7Y');
+    const done = new Date('2026-09-28T12:00:00Z');
+    expect(retainUntilFor('TAX_RETURN', done).retainUntil.toISOString()).toBe('2033-09-28T12:00:00.000Z');
+    expect(retainUntilFor('ENGAGEMENT_LETTER', done).retainUntil.toISOString()).toBe('2036-09-28T12:00:00.000Z');
+    for (const c of Object.values(RETENTION_POLICY)) expect(c.years).toBeGreaterThanOrEqual(3); // never below the IRS floor
+    const later = new Date('2040-01-01T00:00:00Z');
+    expect(mayPurge({ retainUntil: retainUntilFor('TAX_RETURN', done).retainUntil, legalHoldAt: null, status: 'COMPLETED' }, later).ok).toBe(true);
+    expect(mayPurge({ retainUntil: retainUntilFor('TAX_RETURN', done).retainUntil, legalHoldAt: new Date(), status: 'COMPLETED' }, later).ok).toBe(false);
+    expect(mayPurge({ retainUntil: retainUntilFor('TAX_RETURN', done).retainUntil, legalHoldAt: null, status: 'COMPLETED' }, new Date('2030-01-01')).ok).toBe(false);
+    expect(mayPurge({ retainUntil: null, legalHoldAt: null, status: 'COMPLETED' }, later).ok).toBe(false);
   });
 });

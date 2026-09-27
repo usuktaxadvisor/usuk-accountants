@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { eq } from 'drizzle-orm';
 import { db, tables } from '@/lib/portal/db';
 import { clientSigningContext } from '@/lib/portal/esign-http';
-import { recordEvent, setSignerStatus } from '@/lib/portal/esign-store';
+import { recordEvent, setSignerStatus, StaleSignerStateError } from '@/lib/portal/esign-store';
 import { ESIGN_CONSENT_TEXT, ESIGN_CONSENT_VERSION, nextSignerStep } from '@/lib/portal/esign';
 
 export const runtime = 'nodejs';
@@ -14,8 +14,10 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
   if ('error' in c) return c.error;
   const { req, signer, bundle, myTurn, ip, userAgent } = c;
   if (signer.status === 'PENDING' && req.status !== 'COMPLETED') {
-    await setSignerStatus(signer, 'VIEWED', { viewedAt: new Date() });
-    await recordEvent(req.id, 'document_viewed', { signerId: signer.id, actorUserId: signer.userId, ip, userAgent });
+    try {
+      await setSignerStatus(signer, 'VIEWED', { viewedAt: new Date() });
+      await recordEvent(req.id, 'document_viewed', { signerId: signer.id, actorUserId: signer.userId, ip, userAgent });
+    } catch (e) { if (!(e instanceof StaleSignerStateError)) throw e; }
     signer.status = 'VIEWED';
   }
   const docs = await Promise.all(bundle.docs.map(async d => {

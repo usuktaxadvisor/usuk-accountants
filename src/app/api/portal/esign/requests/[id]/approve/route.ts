@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { clientSigningContext } from '@/lib/portal/esign-http';
+import { clientSigningContext, transitionErrorResponse } from '@/lib/portal/esign-http';
 import { completeRequest, recordEvent, setSignerStatus } from '@/lib/portal/esign-store';
 import { notifyStaffOfSignatureEvent, notifyClientOfCompletion } from '@/lib/portal/esign-notify';
 import { nextSignerStep } from '@/lib/portal/esign';
@@ -21,13 +21,15 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
   if (!signer.otpVerifiedAt) return NextResponse.json({ error: 'Please verify the one-time code first.', code: 'OTP_REQUIRED' }, { status: 403 });
 
   const now = new Date();
-  const status = await setSignerStatus(signer, 'APPROVED', { approvedAt: now, ip, userAgent: userAgent?.slice(0, 400), authMethod: signer.authMethod ?? 'PASSWORD_SESSION+EMAIL_OTP' });
+  let status;
+  try { status = await setSignerStatus(signer, 'APPROVED', { approvedAt: now, ip, userAgent: userAgent?.slice(0, 400), authMethod: signer.authMethod ?? 'PASSWORD_SESSION+EMAIL_OTP' }); }
+  catch (e) { const r = transitionErrorResponse(e); if (r) return r; throw e; }
   await recordEvent(request.id, 'approval_recorded', { signerId: signer.id, actorUserId: signer.userId, ip, userAgent });
   if (request.action === 'APPROVAL') {
     await recordEvent(request.id, 'signer_completed', { signerId: signer.id, actorUserId: signer.userId, ip, userAgent });
     if (status === 'COMPLETED') {
       try { await completeRequest(request.id); }
-      catch (e) { console.error('[portal:esign:complete]', e instanceof Error ? e.message : e); return NextResponse.json({ error: 'Your approval was recorded, but the final record could not be sealed. We have been notified and will complete it.' }, { status: 502 }); }
+      catch (e) { const r = transitionErrorResponse(e); if (r) return r; console.error('[portal:esign:complete]', e instanceof Error ? e.message : e); return NextResponse.json({ error: 'Your approval was recorded, but the final record could not be sealed. We have been notified and will complete it.' }, { status: 502 }); }
       await notifyStaffOfSignatureEvent(request.clientId, request.title, 'approved');
       await notifyClientOfCompletion(request.clientId, request.title);
     }

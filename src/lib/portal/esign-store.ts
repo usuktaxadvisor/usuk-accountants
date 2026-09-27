@@ -1,11 +1,12 @@
-import { and, asc, desc, eq, inArray } from 'drizzle-orm';
+import { and, asc, desc, eq, inArray, isNull, sql } from 'drizzle-orm';
 import { db, tables } from './db';
 import { openDriveFileStream, uploadToProcessedFolder } from './drive';
 import {
-  buildEvidenceCertificate, chainHash, consentTextSha256, deriveRequestStatus, hasExpired, sha256Hex, verifyChain,
+  buildEvidenceCertificate, certificateSha256, chainHash, consentTextSha256, deriveRequestStatus, hasExpired, sha256Hex, verifyChain,
   type EsignEventType, type EvidenceCertificate, type SigAction, type SigRequestStatus, type SigSignerStatus, type SigDocKind,
 } from './esign';
 import { renderEvidenceCertificatePdf, sealSignedPdf, type PlacedField } from './esign-pdf';
+import { retainUntilFor } from './esign-retention';
 
 export type RequestRow = typeof tables.signatureRequests.$inferSelect;
 export type SignerRow = typeof tables.signatureSigners.$inferSelect;
@@ -25,18 +26,26 @@ export async function readDriveBytes(fileId: string): Promise<Buffer> {
 
 /* ───────────── Append-only events with hash chain ───────────── */
 
+/**
+ * Appends one event to the request's hash chain. Runs in a transaction holding a per-request advisory
+ * lock, so two concurrent writers (two tabs, two signers) can never both chain onto the same previous
+ * event and fork the chain. Order of record is the `seq` column, never the wall clock.
+ */
 export async function recordEvent(requestId: string, type: EsignEventType, opts: { signerId?: string | null; actorUserId?: string | null; ip?: string | null; userAgent?: string | null; meta?: Record<string, unknown> | null } = {}): Promise<EventRow> {
-  const [last] = await db.select({ hash: tables.signatureEvents.hash }).from(tables.signatureEvents)
-    .where(eq(tables.signatureEvents.requestId, requestId)).orderBy(desc(tables.signatureEvents.at), desc(tables.signatureEvents.id)).limit(1);
-  const at = new Date();
-  const body = { requestId, signerId: opts.signerId ?? null, actorUserId: opts.actorUserId ?? null, type, at: at.toISOString(), ip: opts.ip ?? null, userAgent: opts.userAgent ? opts.userAgent.slice(0, 400) : null, meta: opts.meta ?? null };
-  const hash = chainHash(last?.hash ?? null, body);
-  const [row] = await db.insert(tables.signatureEvents).values({ ...body, at, prevHash: last?.hash ?? null, hash }).returning();
-  return row;
+  return db.transaction(async tx => {
+    await tx.execute(sql`select pg_advisory_xact_lock(hashtext(${requestId}))`);
+    const [last] = await tx.select({ hash: tables.signatureEvents.hash }).from(tables.signatureEvents)
+      .where(eq(tables.signatureEvents.requestId, requestId)).orderBy(desc(tables.signatureEvents.seq)).limit(1);
+    const at = new Date();
+    const body = { requestId, signerId: opts.signerId ?? null, actorUserId: opts.actorUserId ?? null, type, at: at.toISOString(), ip: opts.ip ?? null, userAgent: opts.userAgent ? opts.userAgent.slice(0, 400) : null, meta: opts.meta ?? null };
+    const hash = chainHash(last?.hash ?? null, body);
+    const [row] = await tx.insert(tables.signatureEvents).values({ ...body, at, prevHash: last?.hash ?? null, hash }).returning();
+    return row;
+  });
 }
 
 export async function listEvents(requestId: string): Promise<EventRow[]> {
-  return db.select().from(tables.signatureEvents).where(eq(tables.signatureEvents.requestId, requestId)).orderBy(asc(tables.signatureEvents.at), asc(tables.signatureEvents.id));
+  return db.select().from(tables.signatureEvents).where(eq(tables.signatureEvents.requestId, requestId)).orderBy(asc(tables.signatureEvents.seq));
 }
 
 /* ───────────── Ownership-scoped loaders (fail closed) ───────────── */
@@ -149,8 +158,17 @@ export async function expireIfDue(req: RequestRow): Promise<SigRequestStatus> {
   return 'EXPIRED';
 }
 
+export class StaleSignerStateError extends Error { constructor() { super('This step has already been completed in another window.'); } }
+
+/**
+ * Compare-and-set: the signer row is only moved from the status the caller saw. A second tab (or a replayed
+ * request) that races the first therefore finds zero rows updated and gets StaleSignerStateError instead
+ * of a duplicate signature.
+ */
 export async function setSignerStatus(signer: SignerRow, status: SigSignerStatus, patch: Partial<SignerRow> = {}): Promise<SigRequestStatus> {
-  await db.update(tables.signatureSigners).set({ status, ...patch }).where(eq(tables.signatureSigners.id, signer.id));
+  const updated = await db.update(tables.signatureSigners).set({ status, ...patch })
+    .where(and(eq(tables.signatureSigners.id, signer.id), eq(tables.signatureSigners.status, signer.status))).returning({ id: tables.signatureSigners.id });
+  if (updated.length === 0) throw new StaleSignerStateError();
   return refreshRequestStatus(signer.requestId);
 }
 
@@ -167,7 +185,7 @@ export async function supersedeRequestsForDelivery(deliveryId: string, actorUser
   for (const l of links) {
     const [req] = await db.select().from(tables.signatureRequests).where(eq(tables.signatureRequests.id, l.requestId)).limit(1);
     if (!req || !['DRAFT', 'AWAITING_CLIENT', 'VIEWED', 'PARTIALLY_SIGNED'].includes(req.status)) continue;
-    await voidRequest(req, actorUserId, `${reason}${replacedByDeliveryId ? ` (replaced by delivery ${replacedByDeliveryId})` : ''}`, 'request_superseded', null, null);
+    await voidRequest(req, actorUserId, `${reason}${replacedByDeliveryId ? ` (replaced by delivery ${replacedByDeliveryId})` : ''}`, 'request_superseded', null, null, replacedByDeliveryId ?? undefined);
     out.push(req.id);
   }
   return out;
@@ -178,11 +196,25 @@ export async function supersedeRequestsForDelivery(deliveryId: string, actorUser
 export async function completeRequest(requestId: string): Promise<{ sealedSha256: string; evidenceSha256: string }> {
   const bundle = await loadBundle(requestId); if (!bundle) throw new Error('Request missing');
   const { request, docs, signers, fields } = bundle;
-  if (request.status === 'COMPLETED' && request.sealedSha256 && request.evidenceSha256) return { sealedSha256: request.sealedSha256, evidenceSha256: request.evidenceSha256 }; // idempotent
+  if (request.status === 'COMPLETED' && request.evidenceSha256) return { sealedSha256: request.sealedSha256 ?? '', evidenceSha256: request.evidenceSha256 }; // idempotent
   const [client] = await db.select().from(tables.clients).where(eq(tables.clients.id, request.clientId)).limit(1);
   if (!client) throw new Error('Client missing');
   const completedAt = new Date();
 
+  // Claim the seal: exactly one caller may seal a request. `completed_at` is set atomically from NULL; a concurrent
+  // second signer / second tab finds it already set and returns without writing a second PDF or certificate.
+  const claimed = await db.update(tables.signatureRequests).set({ completedAt })
+    .where(and(eq(tables.signatureRequests.id, requestId), isNull(tables.signatureRequests.completedAt))).returning({ id: tables.signatureRequests.id });
+  if (claimed.length === 0) throw new SealInProgressError();
+  try {
+    return await sealAndCertify();
+  } catch (e) {
+    // Release the claim so staff/the next attempt can seal once the underlying problem (Drive, bytes) is fixed.
+    await db.update(tables.signatureRequests).set({ completedAt: null }).where(and(eq(tables.signatureRequests.id, requestId), isNull(tables.signatureRequests.evidenceSha256)));
+    throw e;
+  }
+
+  async function sealAndCertify(): Promise<{ sealedSha256: string; evidenceSha256: string }> {
   // 1. Re-read every frozen document and REFUSE to seal if the bytes no longer match what the client saw.
   const originals: Array<{ doc: RequestDocRow; delivery: typeof tables.deliveries.$inferSelect; bytes: Buffer }> = [];
   for (const doc of docs) {
@@ -228,13 +260,15 @@ export async function completeRequest(requestId: string): Promise<{ sealedSha256
   const chain = verifyChain(events.map(e => ({ requestId: e.requestId, signerId: e.signerId, actorUserId: e.actorUserId, type: e.type, at: e.at.toISOString(), ip: e.ip, userAgent: e.userAgent, meta: (e.meta as Record<string, unknown> | null) ?? null, prevHash: e.prevHash, hash: e.hash })));
   const idvIds = signers.map(s => s.identityVerificationId).filter((v): v is string => !!v);
   const idvs = idvIds.length ? await db.select().from(tables.identityVerifications).where(inArray(tables.identityVerifications.id, idvIds)) : [];
+  // The consent text hash comes from the acceptance actually recorded for this signer on this request — never from the current wording.
+  const consents = await db.select().from(tables.esignConsents).where(eq(tables.esignConsents.requestId, requestId));
   const cert: EvidenceCertificate = buildEvidenceCertificate({
     requestId: request.id, clientRef: client.clientRef, clientName: client.displayName, title: request.title, action: request.action, docKind: request.docKind, signingOrder: request.signingOrder,
     createdAt: request.createdAt.toISOString(), sentAt: request.sentAt?.toISOString() ?? null, completedAt: completedAt.toISOString(),
     documents: originals.map(o => ({ deliveryId: o.doc.deliveryId, title: o.delivery.title, version: o.doc.deliveryVersion, originalName: o.delivery.originalName, frozenSha256: o.doc.frozenSha256, frozenSizeBytes: o.doc.frozenSizeBytes, frozenAt: o.doc.frozenAt.toISOString() })),
     signers: signers.map(s => { const idv = idvs.find(i => i.id === s.identityVerificationId) ?? null; return {
       signerId: s.id, userId: s.userId, fullName: s.fullName, email: s.email, role: s.role, sequence: s.sequence, authMethod: s.authMethod, ip: s.ip, userAgent: s.userAgent,
-      viewedAt: s.viewedAt?.toISOString() ?? null, consentedAt: s.consentedAt?.toISOString() ?? null, consentVersion: s.consentVersion, consentTextSha256: s.consentVersion ? consentTextSha256() : null,
+      viewedAt: s.viewedAt?.toISOString() ?? null, consentedAt: s.consentedAt?.toISOString() ?? null, consentVersion: s.consentVersion, consentTextSha256: consents.find(c => c.userId === s.userId && c.version === s.consentVersion)?.textSha256 ?? (s.consentVersion ? consentTextSha256() : null),
       otpVerifiedAt: s.otpVerifiedAt?.toISOString() ?? null, approvedAt: s.approvedAt?.toISOString() ?? null, signedAt: s.signedAt?.toISOString() ?? null, signatureMethod: s.signatureMethod, signatureText: s.signatureText,
       signatureImageSha256: s.signatureImagePng ? sha256Hex(s.signatureImagePng) : null,
       identityVerification: idv ? { method: idv.method, verifiedAt: idv.verifiedAt.toISOString(), providerRef: idv.providerRef } : null,
@@ -244,18 +278,24 @@ export async function completeRequest(requestId: string): Promise<{ sealedSha256
     sealedPdf: sealedSha256 ? { sha256: sealedSha256, sizeBytes: sealedSize } : null,
     generatedAt: completedAt.toISOString(),
   });
-  const certJson = JSON.stringify(cert);
-  const evidenceSha256 = sha256Hex(certJson);
+  // Hash the CANONICAL serialisation (sorted keys, no whitespace): Postgres jsonb does not preserve key order or
+  // whitespace, so a hash over JSON.stringify would never re-verify after storage. certificateSha256(cert) is the
+  // one function used at creation and at every later verification.
+  const evidenceSha256 = certificateSha256(cert);
   await db.insert(tables.signatureEvidence).values({ requestId, certificateJson: cert, certificateSha256: evidenceSha256 });
   const certPdf = await renderEvidenceCertificatePdf(cert);
   const evidenceDriveFileId = await uploadToProcessedFolder(request.clientId, `${completedAt.toISOString().slice(0, 10)}_EVIDENCE_${request.id}.pdf`, 'application/pdf', Buffer.from(certPdf));
   await recordEvent(requestId, 'evidence_certificate_created', { meta: { certificateSha256: evidenceSha256 } });
 
-  await db.update(tables.signatureRequests).set({ status: 'COMPLETED', completedAt, sealedDriveFileId, sealedSha256: sealedSha256 || null, evidenceDriveFileId, evidenceSha256, updatedAt: new Date() })
+  const retention = retainUntilFor(request.docKind, completedAt);
+  await db.update(tables.signatureRequests).set({ status: 'COMPLETED', completedAt, sealedDriveFileId, sealedSha256: sealedSha256 || null, evidenceDriveFileId, evidenceSha256, retentionClass: retention.retentionClass, retainUntil: retention.retainUntil, updatedAt: new Date() })
     .where(eq(tables.signatureRequests.id, requestId));
   await recordEvent(requestId, 'all_signers_completed', { meta: { sealedSha256: sealedSha256 || null, evidenceSha256 } });
   return { sealedSha256, evidenceSha256 };
+  }
 }
+
+export class SealInProgressError extends Error { constructor() { super('This request is already being finalised.'); } }
 
 export async function getEvidence(requestId: string) {
   const [row] = await db.select().from(tables.signatureEvidence).where(eq(tables.signatureEvidence.requestId, requestId)).limit(1);

@@ -1,4 +1,4 @@
-import { pgTable, pgEnum, text, uuid, timestamp, integer, jsonb, uniqueIndex } from 'drizzle-orm/pg-core';
+import { pgTable, pgEnum, text, uuid, timestamp, integer, jsonb, uniqueIndex, bigserial } from 'drizzle-orm/pg-core';
 
 export const roleEnum = pgEnum('role', ['CLIENT', 'STAFF', 'ADMIN']);
 export const userStatusEnum = pgEnum('user_status', ['INVITED', 'ACTIVE', 'SUSPENDED', 'DEACTIVATED']);
@@ -151,6 +151,13 @@ export const signatureRequests = pgTable('signature_requests', {
   evidenceDriveFileId: text('evidence_drive_file_id'), // server-side only
   evidenceSha256: text('evidence_sha256'),
   lastReminderAt: timestamp('last_reminder_at', { withTimezone: true }),
+  // Retention (see esign-retention.ts): class chosen from document type; retain_until computed at completion;
+  // a legal hold suspends any purge indefinitely. Nothing in the application deletes evidence — these fields
+  // govern the documented administrative purge procedure only.
+  retentionClass: text('retention_class').notNull().default('STANDARD_7Y'),
+  retainUntil: timestamp('retain_until', { withTimezone: true }),
+  legalHoldAt: timestamp('legal_hold_at', { withTimezone: true }),
+  legalHoldReason: text('legal_hold_reason'),
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 });
@@ -218,6 +225,7 @@ export const signatureFields = pgTable('signature_fields', {
 /** Append-only. No UPDATE/DELETE path exists in code; the DB migration also revokes UPDATE/DELETE from the app role where supported. */
 export const signatureEvents = pgTable('signature_events', {
   id: uuid('id').primaryKey().defaultRandom(),
+  seq: bigserial('seq', { mode: 'number' }).notNull(), // insertion order — the chain is verified in seq order, never by wall-clock ties
   requestId: uuid('request_id').notNull().references(() => signatureRequests.id),
   signerId: uuid('signer_id').references(() => signatureSigners.id),
   actorUserId: uuid('actor_user_id').references(() => users.id),

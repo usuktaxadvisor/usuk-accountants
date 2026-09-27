@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 import { portalSession, type PortalSession } from './auth';
 import { rateLimit } from './ratelimit';
-import { getRequestForClient, getSignerForUser, expireIfDue, loadBundle, type RequestRow, type SignerRow } from './esign-store';
+import { getRequestForClient, getSignerForUser, expireIfDue, loadBundle, StaleSignerStateError, SealInProgressError, type RequestRow, type SignerRow } from './esign-store';
 import { canClientOpen, signerMayAct } from './esign';
 
 export const GENERIC = { error: 'Something went wrong. Please try again or contact support.' };
@@ -35,6 +35,12 @@ export async function clientSigningContext(requestId: string, limitKey: string, 
   const myTurn = signerMayAct(req.signingOrder as 'PARALLEL' | 'SEQUENTIAL', req.action, signer, bundle.signers);
   const meta = await requestMeta();
   return { session, req: { ...req, status }, signer, bundle, myTurn, ...meta } as { session: PortalSession; req: RequestRow; signer: SignerRow; bundle: NonNullable<Awaited<ReturnType<typeof loadBundle>>>; myTurn: boolean; ip: string | null; userAgent: string | null };
+}
+
+/** Maps a lost race (second tab, replayed request, concurrent seal) to a 409 the UI can explain; anything else is rethrown. */
+export function transitionErrorResponse(e: unknown): NextResponse | null {
+  if (e instanceof StaleSignerStateError || e instanceof SealInProgressError) return NextResponse.json({ error: e.message, code: 'STALE' }, { status: 409 });
+  return null;
 }
 
 export function pdfResponse(bytes: Buffer | Uint8Array, name: string, download: boolean) {

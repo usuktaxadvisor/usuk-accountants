@@ -2,7 +2,7 @@ import { it } from 'vitest';
 import { writeFileSync } from 'node:fs';
 import { PDFDocument, StandardFonts } from 'pdf-lib';
 import { sealSignedPdf, renderEvidenceCertificatePdf } from '@/lib/portal/esign-pdf';
-import { sha256Hex, buildEvidenceCertificate, chainHash, verifyChain, consentTextSha256, type ChainableEvent } from '@/lib/portal/esign';
+import { sha256Hex, buildEvidenceCertificate, chainHash, verifyChain, consentTextSha256, type ChainableEvent, certificateSha256 } from '@/lib/portal/esign';
 
 /** Not a test of behaviour — renders the synthetic demonstration artefacts. Skipped unless ESIGN_DEMO_OUT is set. */
 it.skipIf(!process.env.ESIGN_DEMO_OUT)('renders the synthetic Jane Smith demo', async () => {
@@ -38,5 +38,5 @@ it.skipIf(!process.env.ESIGN_DEMO_OUT)('renders the synthetic Jane Smith demo', 
     eventChainValid: chain.ok, sealedPdf: { sha256: sealed.sha256, sizeBytes: sealed.bytes.length }, generatedAt: t(743).toISOString() });
   writeFileSync(`${out}/evidence.json`, JSON.stringify(cert, null, 2));
   writeFileSync(`${out}/evidence-certificate.pdf`, await renderEvidenceCertificatePdf(cert));
-  console.log(JSON.stringify({ originalSha256: frozen, sealedSha256: sealed.sha256, certificateSha256: sha256Hex(JSON.stringify(cert)), chain: chain.ok, events: events.length }));
+  console.log(JSON.stringify({ originalSha256: frozen, sealedSha256: sealed.sha256, certificateSha256: certificateSha256(cert), chain: chain.ok, events: events.length }));
 });

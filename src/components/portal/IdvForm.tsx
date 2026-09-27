@@ -19,14 +19,14 @@ export default function IdvForm({ clientId }: { clientId: string }) {
   }
   return (
     <div className="mt-2 rounded-2xl border border-mist bg-white p-4 text-sm">
-      <button type="button" onClick={() => setOpen(v => !v)} className="font-semibold text-navy-ink">{open ? '− ' : '+ '}Record identity verification (for IRS e-file authorisations)</button>
+      <button type="button" onClick={() => setOpen(v => !v)} className="font-semibold text-navy-ink">{open ? '− ' : '+ '}Record identity verification (KYC record; IRS e-file authorisations additionally need a fresh third-party KBA pass)</button>
       {open ? (
         <div className="mt-3 space-y-2">
           <select value={method} onChange={e => setMethod(e.target.value)} className="w-full rounded-xl border border-mist px-3 py-2">
             <option value="VIDEO_PHOTO_ID">Government photo ID checked on video call</option>
             <option value="IN_PERSON_PHOTO_ID">Government photo ID checked in person</option>
             <option value="THIRD_PARTY_KBA">Third-party knowledge-based authentication (KBA)</option>
-            <option value="MULTI_YEAR_RELATIONSHIP">Multi-year relationship — identity verified previously</option>
+            <option value="MULTI_YEAR_RELATIONSHIP">Multi-year relationship — identity verified previously (in-person signing only)</option>
           </select>
           <input value={ref} onChange={e => setRef(e.target.value)} placeholder="Provider reference (KBA only)" className="w-full rounded-xl border border-mist px-3 py-2" />
           <input value={note} onChange={e => setNote(e.target.value)} placeholder="Note — e.g. UK passport, checked by Sal on video 28 Sep 2026 (never document numbers)" className="w-full rounded-xl border border-mist px-3 py-2" />
