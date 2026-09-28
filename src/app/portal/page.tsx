@@ -80,9 +80,7 @@ export default async function Dashboard() {
             Welcome{client ? `, ${client.displayName.split(' ')[0]}` : ''}
           </h1>
           <p className="mt-1 text-sm text-muted">
-            {open.length === 0 && awaiting.length === 0 && sigOpen.length === 0
-              ? 'Nothing is waiting on you right now.'
-              : [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length && mayApprove ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean).join(' · ') + '.'}
+            {(() => { const parts = [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length && mayApprove ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean); return parts.length ? parts.join(' · ') + '.' : 'Nothing is waiting on you right now.'; })()}
           </p>
         </div>
         <form action={doLogout}>
@@ -181,7 +179,7 @@ export default async function Dashboard() {
                 <a href={`/api/portal/deliveries/${d.id}/file?download=1`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Download</a>
               </div>
               {canClientRespond(d.status) ? (mayApprove ? <DeliveryResponseForm deliveryId={d.id} /> : <p className="mt-3 text-xs text-muted">Awaiting the account holder&apos;s response. Your access is view-only.</p>) : resp ? (
-                <p className="mt-3 text-xs text-muted">You {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {resp.createdAt.toLocaleDateString('en-GB')}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
+                <p className="mt-3 text-xs text-muted">{resp.respondedById === session.uid ? 'You' : 'Another person on your account'} {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {resp.createdAt.toLocaleDateString('en-GB')}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
               ) : null}
             </div>
           );
