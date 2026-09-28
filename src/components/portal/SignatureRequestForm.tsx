@@ -4,13 +4,19 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 type Delivery = { id: string; title: string; version: number; mimeType: string };
+type Signer = { userId: string; fullName: string; email: string; role: string; userStatus: string };
 const KINDS = [['GENERAL', 'General document'], ['TAX_RETURN', 'Tax return (approval)'], ['ENGAGEMENT_LETTER', 'Engagement letter'], ['ADVISORY', 'Advisory report'], ['DECLARATION', 'Declaration / authorisation'], ['IRS_8879', 'IRS Form 8879'], ['IRS_8878', 'IRS Form 8878']] as const;
 const PRESETS = [['bottom-left', 'Bottom left of last page'], ['bottom-right', 'Bottom right of last page'], ['append', 'Signing record page only (no field on the document)']] as const;
 
 /** Staff: "Require action" on one or more delivered PDFs → creates a signature/approval request. No coordinates to type: pick a preset. */
-export default function SignatureRequestForm({ clientId, deliveries, hasIdv }: { clientId: string; deliveries: Delivery[]; hasIdv: boolean }) {
+export default function SignatureRequestForm({ clientId, deliveries, hasIdv, signers }: { clientId: string; deliveries: Delivery[]; hasIdv: boolean; signers: Signer[] }) {
   const pdfs = deliveries.filter(d => d.mimeType === 'application/pdf');
   const router = useRouter();
+  // Signers: ticked in the order they will sign (the order is only enforced for SEQUENTIAL).
+  const [signerOrder, setSignerOrder] = useState<string[]>(signers.length ? [signers[0].userId] : []);
+  const [order, setOrder] = useState<'PARALLEL' | 'SEQUENTIAL'>('PARALLEL');
+  const toggleSigner = (id: string) => setSignerOrder(o => o.includes(id) ? o.filter(x => x !== id) : [...o, id]);
+  const moveSigner = (id: string, dir: -1 | 1) => setSignerOrder(o => { const i = o.indexOf(id); const j = i + dir; if (i < 0 || j < 0 || j >= o.length) return o; const c = [...o]; [c[i], c[j]] = [c[j], c[i]]; return c; });
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState('');
   const [action, setAction] = useState<'APPROVAL' | 'SIGNATURE' | 'APPROVAL_AND_SIGNATURE'>('APPROVAL_AND_SIGNATURE');
@@ -28,17 +34,24 @@ export default function SignatureRequestForm({ clientId, deliveries, hasIdv }: {
   async function submit() {
     const docIds = Object.keys(selected).filter(k => selected[k]);
     if (!title.trim() || docIds.length === 0) { setState('error'); setMsg('Give the request a title and tick at least one document.'); return; }
+    if (signerOrder.length === 0) { setState('error'); setMsg('Choose at least one signer.'); return; }
     const fields: Array<Record<string, unknown>> = [];
     if (action !== 'APPROVAL' && preset !== 'append' && signOn) {
-      const x = preset === 'bottom-left' ? 800 : 5500; // % ×100 of page width
-      fields.push({ deliveryId: signOn, type: 'SIGNATURE', page: 9999, xPct: x, yPct: 8600, wPct: 3500, hPct: 700 });
-      fields.push({ deliveryId: signOn, type: 'DATE', page: 9999, xPct: x, yPct: 9350, wPct: 2000, hPct: 350 });
+      // One signature + date block per signer, stacked upwards from the preset corner (% ×100 of page size).
+      const x = preset === 'bottom-left' ? 800 : 5500;
+      signerOrder.forEach((uid, i) => {
+        const y = 8600 - i * 1200;
+        fields.push({ deliveryId: signOn, signerUserId: uid, type: 'SIGNATURE', page: 9999, xPct: x, yPct: Math.max(y, 500), wPct: 3500, hPct: 700 });
+        fields.push({ deliveryId: signOn, signerUserId: uid, type: 'DATE', page: 9999, xPct: x, yPct: Math.max(y + 750, 1250), wPct: 2000, hPct: 350 });
+      });
     }
-    if (ack.trim()) fields.push({ deliveryId: signOn || docIds[0], type: 'ACKNOWLEDGEMENT', page: 0, label: ack.trim(), required: true });
+    // The acknowledgement must be ticked by EVERY signer individually.
+    if (ack.trim()) for (const uid of signerOrder) fields.push({ deliveryId: signOn || docIds[0], signerUserId: uid, type: 'ACKNOWLEDGEMENT', page: 0, label: ack.trim(), required: true });
     setState('sending'); setMsg('');
     const res = await fetch('/api/portal/esign/requests', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
       clientId, title: title.trim(), action, docKind: kind, message: message.trim() || null, dueAt: dueAt ? new Date(dueAt).toISOString() : null,
       documents: docIds.map(id => ({ deliveryId: id, requiresSignature: action === 'APPROVAL' ? true : id === signOn })), fields,
+      signerUserIds: signerOrder, signingOrder: signerOrder.length > 1 ? order : 'PARALLEL',
     }) });
     const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string; clientEmailed?: boolean; code?: string };
     if (res.ok && data.ok) { setState('done'); setMsg(`Sent. ${data.clientEmailed ? 'The client has been emailed.' : 'Email could not be sent — tell the client to check the portal.'}`); router.refresh(); }
@@ -61,6 +74,20 @@ export default function SignatureRequestForm({ clientId, deliveries, hasIdv }: {
               <select value={kind} onChange={e => setKind(e.target.value)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink">{KINDS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
           </div>
           {isIrs && !hasIdv ? <p className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-800">IRS rules (Pub. 1345) require a recorded identity verification before Form 8878/8879 can be e-signed remotely. Record one below, or ask the client to print, sign by hand and upload the form.</p> : null}
+          <fieldset><legend className="text-xs font-semibold text-muted">Who must {action === 'APPROVAL' ? 'approve' : 'sign'}</legend>
+            {signers.map(s => { const pos = signerOrder.indexOf(s.userId); return (
+              <div key={s.userId} className="mt-1 flex flex-wrap items-center gap-2">
+                <label className="flex items-center gap-2"><input type="checkbox" checked={pos >= 0} onChange={() => toggleSigner(s.userId)} /> {s.fullName} <span className="text-xs text-muted">· {s.email} · {s.role.toLowerCase()}{s.userStatus !== 'ACTIVE' ? ' · login not activated yet' : ''}</span></label>
+                {pos >= 0 && signerOrder.length > 1 && order === 'SEQUENTIAL' ? <span className="text-xs text-muted">#{pos + 1} <button type="button" onClick={() => moveSigner(s.userId, -1)} className="px-1">↑</button><button type="button" onClick={() => moveSigner(s.userId, 1)} className="px-1">↓</button></span> : null}
+              </div>); })}
+            {signerOrder.length > 1 ? (
+              <label className="mt-2 block text-xs font-semibold text-muted">Signing order
+                <select value={order} onChange={e => setOrder(e.target.value as typeof order)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink sm:w-auto">
+                  <option value="PARALLEL">Parallel — everyone can sign at any time</option><option value="SEQUENTIAL">Sequential — one after another, in the numbered order</option>
+                </select></label>
+            ) : null}
+            {signers.length < 2 ? <p className="mt-1 text-xs text-muted">Need a second signer (spouse, co-director)? Add them under “People on this client” first.</p> : null}
+          </fieldset>
           <fieldset><legend className="text-xs font-semibold text-muted">Documents in this request</legend>
             {pdfs.map(d => <label key={d.id} className="mt-1 flex items-center gap-2"><input type="checkbox" checked={!!selected[d.id]} onChange={e => setSelected(s => ({ ...s, [d.id]: e.target.checked }))} /> {d.title} <span className="text-xs text-muted">v{d.version}</span></label>)}
           </fieldset>

@@ -39,8 +39,11 @@ export default async function Dashboard() {
   const responses = await listResponsesForClient(session.clientId);
   const myResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
   const sigRequests = await listRequestsForClient(session.clientId);
-  const sigOpen = sigRequests.filter(r => isOpen(r.status));
-  const sigDone = sigRequests.filter(r => r.status === 'COMPLETED');
+  const mySignerRows = await db.select({ requestId: tables.signatureSigners.requestId, status: tables.signatureSigners.status }).from(tables.signatureSigners).where(eq(tables.signatureSigners.userId, session.uid));
+  const mine = new Set(mySignerRows.map(s => s.requestId));
+  const sigOpen = sigRequests.filter(r => isOpen(r.status) && mine.has(r.id));
+  const sigOtherOpen = sigRequests.filter(r => isOpen(r.status) && !mine.has(r.id)); // another member's turn/request — visible, not actionable
+  const sigDone = sigRequests.filter(r => r.status === 'COMPLETED' && mine.has(r.id));
 
   const docs = await db.select()
     .from(tables.documents)
@@ -72,7 +75,7 @@ export default async function Dashboard() {
         </form>
       </div>
 
-      {sigOpen.length || sigDone.length ? (
+      {sigOpen.length || sigDone.length || sigOtherOpen.length ? (
         <section className="mt-10">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents requiring your action</h2>
           <div className="mt-3 space-y-2">
@@ -85,6 +88,12 @@ export default async function Dashboard() {
                   </div>
                   <a href={`/portal/sign/${r.id}`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white hover:bg-ink">{SIG_ACTION_LABEL[r.action]}</a>
                 </div>
+              </div>
+            ))}
+            {sigOtherOpen.map(r => (
+              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                <p className="font-semibold text-ink">{r.title}</p>
+                <p className="text-xs text-muted">Being handled by another person on your account · {SIG_STATUS_LABEL[r.status]}</p>
               </div>
             ))}
             {sigDone.map(r => (

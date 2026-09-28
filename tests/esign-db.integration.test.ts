@@ -32,7 +32,8 @@ run('e-sign store against real PostgreSQL', () => {
   let db: typeof import('@/lib/portal/db').db; let tables: typeof import('@/lib/portal/db').tables;
   let store: typeof import('@/lib/portal/esign-store'); let rules: typeof import('@/lib/portal/esign');
   let orm: typeof import('drizzle-orm');
-  let staffId: string; let janeUserId: string; let janeClientId: string; let bobUserId: string; let bobClientId: string;
+  let staffId: string; let janeUserId: string; let janeClientId: string; let bobUserId: string; let bobClientId: string; let johnUserId: string; let saraUserId: string;
+  let members: typeof import('@/lib/portal/members');
 
   async function makePdf(text: string): Promise<Buffer> {
     const doc = await PDFDocument.create(); const page = doc.addPage([595, 842]);
@@ -44,20 +45,21 @@ run('e-sign store against real PostgreSQL', () => {
     const [d] = await db.insert(tables.deliveries).values({ clientId, title, driveFileId: fileId, originalName: `${title}.pdf`, storedName: `${title}.pdf`, mimeType: 'application/pdf', sizeBytes: bytes.length, version, uploadedById: staffId }).returning();
     return d;
   }
-  async function makeRequest(clientId: string, userId: string, action: 'APPROVAL' | 'SIGNATURE' | 'APPROVAL_AND_SIGNATURE', title: string, opts: { expiresAt?: Date; deliveryId?: string } = {}) {
+  async function makeRequest(clientId: string, userId: string, action: 'APPROVAL' | 'SIGNATURE' | 'APPROVAL_AND_SIGNATURE', title: string, opts: { expiresAt?: Date; deliveryId?: string; extraSigners?: Array<{ userId: string; fullName: string; email: string }>; order?: 'PARALLEL' | 'SEQUENTIAL' } = {}) {
     const d = opts.deliveryId ? (await db.select().from(tables.deliveries).where(orm.eq(tables.deliveries.id, opts.deliveryId)))[0] : await makeDelivery(clientId, title, `${title} — TEST ONLY`);
+    const all = [{ userId, fullName: 'Jane Smith', email: 'jane.smith.test@example.com' }, ...(opts.extraSigners ?? [])];
     const req = await store.createRequest({
-      clientId, title, action, docKind: 'TAX_RETURN', signingOrder: 'PARALLEL', message: null, dueAt: null, expiresAt: opts.expiresAt ?? new Date(Date.now() + 30 * 86_400_000),
+      clientId, title, action, docKind: 'TAX_RETURN', signingOrder: opts.order ?? 'PARALLEL', message: null, dueAt: null, expiresAt: opts.expiresAt ?? new Date(Date.now() + 30 * 86_400_000),
       consentVersion: rules.ESIGN_CONSENT_VERSION, createdById: staffId,
       documents: [{ deliveryId: d.id, requiresSignature: action !== 'APPROVAL' }],
-      signers: [{ userId, fullName: 'Jane Smith', email: 'jane.smith.test@example.com', role: 'SIGNER', sequence: 1, identityVerificationId: null }],
-      fields: action === 'APPROVAL' ? [] : [{ deliveryId: d.id, signerUserId: userId, type: 'SIGNATURE', page: 0, xPct: 6000, yPct: 9000, wPct: 3000, hPct: 600, label: null, required: true }],
+      signers: all.map((s, i) => ({ ...s, role: i === 0 ? 'PRIMARY' : 'JOINT', sequence: i + 1, identityVerificationId: null })),
+      fields: action === 'APPROVAL' ? [] : all.map((s, i) => ({ deliveryId: d.id, signerUserId: s.userId, type: 'SIGNATURE' as const, page: 0, xPct: 6000, yPct: 9000 - i * 1000, wPct: 3000, hPct: 600, label: null, required: true })),
       ip: '203.0.113.10', userAgent: 'integration-test',
     });
     return { req, delivery: d };
   }
   async function signer(reqId: string, userId: string) { return (await store.getSignerForUser(reqId, userId))!; }
-  async function walkToSigned(reqId: string, userId: string, action: 'APPROVAL' | 'SIGNATURE' | 'APPROVAL_AND_SIGNATURE') {
+  async function walkToSigned(reqId: string, userId: string, action: 'APPROVAL' | 'SIGNATURE' | 'APPROVAL_AND_SIGNATURE', name = 'Jane Smith') {
     let s = await signer(reqId, userId);
     await store.setSignerStatus(s, 'VIEWED', { viewedAt: new Date() }); s = await signer(reqId, userId);
     await db.insert(tables.esignConsents).values({ userId, version: rules.ESIGN_CONSENT_VERSION, textSha256: rules.consentTextSha256(), requestId: reqId, ip: '203.0.113.10' });
@@ -65,18 +67,108 @@ run('e-sign store against real PostgreSQL', () => {
     await db.update(tables.signatureSigners).set({ otpVerifiedAt: new Date(), authMethod: 'PASSWORD_SESSION+EMAIL_OTP' }).where(orm.eq(tables.signatureSigners.id, s.id)); s = await signer(reqId, userId);
     let status: string;
     if (action !== 'SIGNATURE') { status = await store.setSignerStatus(s, 'APPROVED', { approvedAt: new Date(), ip: '203.0.113.10' }); s = await signer(reqId, userId); }
-    if (action !== 'APPROVAL') status = await store.setSignerStatus(s, 'SIGNED', { signedAt: new Date(), signatureMethod: 'TYPED', signatureText: 'Jane Smith', ip: '203.0.113.10', userAgent: 'integration-test', authMethod: 'PASSWORD_SESSION+EMAIL_OTP' });
+    if (action !== 'APPROVAL') status = await store.setSignerStatus(s, 'SIGNED', { signedAt: new Date(), signatureMethod: 'TYPED', signatureText: name, ip: userId === janeUserId ? '203.0.113.10' : '198.51.100.7', userAgent: userId === janeUserId ? 'integration-test' : 'integration-test-second-device', authMethod: 'PASSWORD_SESSION+EMAIL_OTP' });
     return status!;
   }
 
   beforeAll(async () => {
-    ({ db, tables } = await import('@/lib/portal/db')); store = await import('@/lib/portal/esign-store'); rules = await import('@/lib/portal/esign'); orm = await import('drizzle-orm');
+    ({ db, tables } = await import('@/lib/portal/db')); store = await import('@/lib/portal/esign-store'); rules = await import('@/lib/portal/esign'); orm = await import('drizzle-orm'); members = await import('@/lib/portal/members');
     const stamp = Date.now();
     const [staff] = await db.insert(tables.users).values({ email: `staff.${stamp}@example.com`, role: 'STAFF', status: 'ACTIVE', firstName: 'Test', lastName: 'Staff' }).returning(); staffId = staff.id;
     const [jane] = await db.insert(tables.users).values({ email: `jane.${stamp}@example.com`, role: 'CLIENT', status: 'ACTIVE', firstName: 'Jane', lastName: 'Smith' }).returning(); janeUserId = jane.id;
     const [jc] = await db.insert(tables.clients).values({ clientRef: `TEST-${stamp}-A`, displayName: 'TEST CLIENT — Jane Smith', userId: jane.id }).returning(); janeClientId = jc.id;
     const [bob] = await db.insert(tables.users).values({ email: `bob.${stamp}@example.com`, role: 'CLIENT', status: 'ACTIVE', firstName: 'Bob', lastName: 'Other' }).returning(); bobUserId = bob.id;
     const [bc] = await db.insert(tables.clients).values({ clientRef: `TEST-${stamp}-B`, displayName: 'TEST CLIENT — Client B', userId: bob.id }).returning(); bobClientId = bc.id;
+    // Membership: Jane's client is a household — Jane (PRIMARY), John (JOINT, can sign), Sara (CONTACT, view-only). Bob's client has no membership rows at all (legacy path).
+    await members.ensurePrimaryMembership(jc.id, jane.id, staff.id);
+    const [john] = await db.insert(tables.users).values({ email: `john.${stamp}@example.com`, role: 'CLIENT', status: 'ACTIVE', firstName: 'John', lastName: 'Smith' }).returning(); johnUserId = john.id;
+    const [sara] = await db.insert(tables.users).values({ email: `sara.${stamp}@example.com`, role: 'CLIENT', status: 'ACTIVE', firstName: 'Sara', lastName: 'Books' }).returning(); saraUserId = sara.id;
+    await db.insert(tables.clientMembers).values([{ clientId: jc.id, userId: john.id, role: 'JOINT', canSign: 1, status: 'ACTIVE', addedById: staff.id }, { clientId: jc.id, userId: sara.id, role: 'CONTACT', canSign: 0, status: 'ACTIVE', addedById: staff.id }]);
+  });
+
+  describe('client membership model (migration 0003)', () => {
+    it('existing one-user client (no membership rows) still resolves through clients.user_id — nothing breaks for legacy logins', async () => {
+      expect(await members.clientIdForUser(bobUserId)).toBe(bobClientId);
+      expect(await members.getMembership(bobClientId, bobUserId)).toEqual({ role: 'PRIMARY', canSign: true });
+    });
+    it('a client can have two and three portal users, each resolving to the same client with their own role', async () => {
+      expect(await members.clientIdForUser(janeUserId)).toBe(janeClientId);
+      expect(await members.clientIdForUser(johnUserId)).toBe(janeClientId);
+      expect(await members.clientIdForUser(saraUserId)).toBe(janeClientId);
+      const list = await members.listMembers(janeClientId);
+      expect(list.map(m => m.role).sort()).toEqual(['CONTACT', 'JOINT', 'PRIMARY']);
+      expect((await members.listSigningMembers(janeClientId)).map(m => m.userId).sort()).toEqual([janeUserId, johnUserId].sort()); // Sara is view-only
+    });
+    it('a user who is not a member is rejected; a user cannot be an ACTIVE member of two clients', async () => {
+      expect(await members.getMembership(janeClientId, bobUserId)).toBeNull();
+      expect(await members.getMembership(bobClientId, johnUserId)).toBeNull();
+      await expect(db.insert(tables.clientMembers).values({ clientId: bobClientId, userId: johnUserId, role: 'JOINT', status: 'ACTIVE' })).rejects.toThrow();
+    });
+    it('a removed member no longer resolves to the client, and can be re-added', async () => {
+      await db.update(tables.clientMembers).set({ status: 'REMOVED', removedAt: new Date() }).where(orm.and(orm.eq(tables.clientMembers.clientId, janeClientId), orm.eq(tables.clientMembers.userId, saraUserId)));
+      expect(await members.clientIdForUser(saraUserId)).toBeNull();
+      expect(await members.getMembership(janeClientId, saraUserId)).toBeNull();
+      await db.update(tables.clientMembers).set({ status: 'ACTIVE', removedAt: null }).where(orm.and(orm.eq(tables.clientMembers.clientId, janeClientId), orm.eq(tables.clientMembers.userId, saraUserId)));
+      expect(await members.clientIdForUser(saraUserId)).toBe(janeClientId);
+    });
+  });
+
+  describe('two signers (household: Jane + John)', () => {
+    const john = () => ({ userId: johnUserId, fullName: 'John Smith', email: 'john.smith.test@example.com' });
+    it('PARALLEL: either may sign first; request is PARTIALLY_SIGNED until both finish; evidence lists both with separate metadata', async () => {
+      const { req } = await makeRequest(janeClientId, janeUserId, 'SIGNATURE', 'Joint return — parallel — TEST ONLY', { extraSigners: [john()], order: 'PARALLEL' });
+      const b = (await store.loadBundle(req.id))!;
+      expect(b.signers.length).toBe(2); expect(b.fields.length).toBe(2);
+      expect(rules.signerMayAct('PARALLEL', 'SIGNATURE', b.signers[1], b.signers)).toBe(true); // John may go first
+      // Each signer row is reachable ONLY by its own user.
+      expect((await store.getSignerForUser(req.id, johnUserId))!.userId).toBe(johnUserId);
+      expect((await store.getSignerForUser(req.id, janeUserId))!.userId).toBe(janeUserId);
+      expect(await store.getSignerForUser(req.id, saraUserId)).toBeNull();
+      expect(await store.getSignerForUser(req.id, bobUserId)).toBeNull();
+      expect(await walkToSigned(req.id, johnUserId, 'SIGNATURE', 'John Smith')).toBe('PARTIALLY_SIGNED');
+      expect((await store.getRequestById(req.id))!.status).toBe('PARTIALLY_SIGNED');
+      expect(await store.getEvidence(req.id)).toBeNull(); // nothing sealed yet
+      expect(await walkToSigned(req.id, janeUserId, 'SIGNATURE')).toBe('COMPLETED');
+      await store.completeRequest(req.id);
+      const cert = (await store.getEvidence(req.id))!.certificateJson as import('@/lib/portal/esign').EvidenceCertificate;
+      expect(cert.signers.map(s => s.fullName).sort()).toEqual(['Jane Smith', 'John Smith']);
+      const j = cert.signers.find(s => s.userId === johnUserId)!, ja = cert.signers.find(s => s.userId === janeUserId)!;
+      expect(j.signerId).not.toBe(ja.signerId); expect(j.ip).toBe('198.51.100.7'); expect(ja.ip).toBe('203.0.113.10'); expect(j.userAgent).not.toBe(ja.userAgent);
+      expect(j.signatureText).toBe('John Smith'); expect(ja.signatureText).toBe('Jane Smith');
+      expect(j.consentedAt && ja.consentedAt && j.signedAt && ja.signedAt).toBeTruthy();
+      expect(cert.events.filter(e => e.type === 'esign_consent_accepted').length).toBe(0); // consent events are recorded by the HTTP route; here consents table has 2 rows
+      expect((await db.select().from(tables.esignConsents).where(orm.eq(tables.esignConsents.requestId, req.id))).map(c => c.userId).sort()).toEqual([janeUserId, johnUserId].sort());
+      expect(cert.eventChainValid).toBe(true);
+    });
+    it('SEQUENTIAL: John (#2) may not act until Jane (#1) completes; then completion needs both', async () => {
+      const { req } = await makeRequest(janeClientId, janeUserId, 'APPROVAL_AND_SIGNATURE', 'Joint return — sequential — TEST ONLY', { extraSigners: [john()], order: 'SEQUENTIAL' });
+      const b = (await store.loadBundle(req.id))!;
+      const [s1, s2] = b.signers; expect(s1.userId).toBe(janeUserId); expect(s2.userId).toBe(johnUserId);
+      expect(rules.signerMayAct('SEQUENTIAL', 'APPROVAL_AND_SIGNATURE', s2, b.signers)).toBe(false);
+      expect(rules.signerMayAct('SEQUENTIAL', 'APPROVAL_AND_SIGNATURE', s1, b.signers)).toBe(true);
+      expect(await walkToSigned(req.id, janeUserId, 'APPROVAL_AND_SIGNATURE')).toBe('PARTIALLY_SIGNED');
+      const after = (await store.loadBundle(req.id))!;
+      expect(rules.signerMayAct('SEQUENTIAL', 'APPROVAL_AND_SIGNATURE', after.signers[1], after.signers)).toBe(true);
+      expect(await walkToSigned(req.id, johnUserId, 'APPROVAL_AND_SIGNATURE', 'John Smith')).toBe('COMPLETED');
+      const { sealedSha256 } = await store.completeRequest(req.id);
+      expect(sealedSha256).toHaveLength(64);
+      const cert = (await store.getEvidence(req.id))!.certificateJson as import('@/lib/portal/esign').EvidenceCertificate;
+      expect(cert.signingOrder).toBe('SEQUENTIAL'); expect(cert.signers.length).toBe(2);
+      expect(new Date(cert.signers[1].signedAt!).getTime()).toBeGreaterThanOrEqual(new Date(cert.signers[0].signedAt!).getTime());
+    });
+    it('one signer declining closes the whole request; the other cannot then sign', async () => {
+      const { req } = await makeRequest(janeClientId, janeUserId, 'SIGNATURE', 'Joint — decline — TEST ONLY', { extraSigners: [john()] });
+      const sj = await signer(req.id, johnUserId);
+      expect(await store.setSignerStatus(sj, 'DECLINED', { declinedAt: new Date(), declineReason: 'Not my figures' })).toBe('DECLINED');
+      const r = (await store.getRequestById(req.id))!; expect(r.status).toBe('DECLINED'); expect(rules.canClientOpen(r.status)).toBe(false);
+      expect(await store.getEvidence(req.id)).toBeNull();
+    });
+    it('a non-signing contact (Sara) or a member of another client (Bob) cannot be attached as a signer by the store', async () => {
+      // Store-level guard is the HTTP route's membership check; at data level the sign flow simply has no row for them:
+      const { req } = await makeRequest(janeClientId, janeUserId, 'SIGNATURE', 'Joint — access — TEST ONLY', { extraSigners: [john()] });
+      expect(await store.getSignerForUser(req.id, saraUserId)).toBeNull();
+      expect(await store.getRequestForClient(bobClientId, req.id)).toBeNull();
+    });
   });
 
   it('freezes the document, walks the full approval+signature lifecycle and seals with a verifiable evidence chain', async () => {

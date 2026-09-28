@@ -7,7 +7,8 @@ import { rateLimit } from '@/lib/portal/ratelimit';
 import { audit } from '@/lib/portal/audit';
 import { ESIGN_CONSENT_VERSION, remoteEsignPermitted } from '@/lib/portal/esign';
 import { createRequest, latestIdentityVerification, recordEvent } from '@/lib/portal/esign-store';
-import { notifyClientOfSignatureRequest } from '@/lib/portal/esign-notify';
+import { getMembership } from '@/lib/portal/members';
+import { notifySignersOfSignatureRequest } from '@/lib/portal/esign-notify';
 import { requestMeta, GENERIC } from '@/lib/portal/esign-http';
 
 export const runtime = 'nodejs';
@@ -50,21 +51,22 @@ export async function POST(req: Request) {
   const [client] = await db.select().from(tables.clients).where(eq(tables.clients.id, body.clientId)).limit(1);
   if (!client) return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-  // Signers: default to the client's own user. Every signer must be a CLIENT user of this client (v1: one portal user per client;
-  // additional signers — e.g. a spouse — need their own portal user linked to the same client, which is the joint-signer setup).
+  // Signers: each must be an ACTIVE, can-sign member of THIS client (client_members). Default: the primary contact.
+  // Order in the array = signing sequence (only enforced when signingOrder is SEQUENTIAL). Duplicates are rejected.
   const signerIds = body.signerUserIds ?? [client.userId];
+  if (new Set(signerIds).size !== signerIds.length) return NextResponse.json({ error: 'The same person is listed as a signer twice' }, { status: 400 });
   const signers: Array<{ userId: string; fullName: string; email: string; role: string; sequence: number; identityVerificationId: string | null }> = [];
   for (let i = 0; i < signerIds.length; i++) {
     const [u] = await db.select().from(tables.users).where(eq(tables.users.id, signerIds[i])).limit(1);
     if (!u || u.role !== 'CLIENT') return NextResponse.json({ error: 'Signer is not a client user' }, { status: 400 });
-    if (u.id !== client.userId) {
-      const [own] = await db.select({ id: tables.clients.id }).from(tables.clients).where(eq(tables.clients.userId, u.id)).limit(1);
-      if (!own || own.id !== client.id) return NextResponse.json({ error: 'Signer does not belong to this client' }, { status: 400 });
-    }
+    const membership = await getMembership(client.id, u.id);
+    if (!membership) return NextResponse.json({ error: 'Signer does not belong to this client' }, { status: 400 });
+    if (!membership.canSign) return NextResponse.json({ error: `${u.email} is a view-only contact and cannot be a signer` }, { status: 400 });
+    if (u.status === 'SUSPENDED' || u.status === 'DEACTIVATED') return NextResponse.json({ error: `${u.email} cannot sign (account ${u.status.toLowerCase()})` }, { status: 400 });
     const idv = await latestIdentityVerification(client.id, u.id);
     const gate = remoteEsignPermitted(body.docKind, idv ? { method: idv.method, verifiedAt: idv.verifiedAt, providerRef: idv.providerRef, validUntil: idv.validUntil } : null);
     if (!gate.ok) return NextResponse.json({ error: gate.reason, code: 'IDV_REQUIRED' }, { status: 422 });
-    signers.push({ userId: u.id, fullName: [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email, email: u.email, role: i === 0 ? 'SIGNER' : 'SIGNER', sequence: i + 1, identityVerificationId: idv?.id ?? null });
+    signers.push({ userId: u.id, fullName: [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email, email: u.email, role: membership.role, sequence: i + 1, identityVerificationId: idv?.id ?? null });
   }
 
   const { ip, userAgent } = await requestMeta();
@@ -75,7 +77,7 @@ export async function POST(req: Request) {
       consentVersion: ESIGN_CONSENT_VERSION, createdById: session.uid, documents: body.documents, signers,
       fields: body.fields.map(f => ({ ...f, signerUserId: f.signerUserId ?? signers[0].userId })), ip, userAgent,
     });
-    const emailed = await notifyClientOfSignatureRequest(client.id, row.title, body.action, body.message, row.dueAt);
+    const emailed = await notifySignersOfSignatureRequest(row.id, false);
     await recordEvent(row.id, 'client_notified', { actorUserId: session.uid, meta: { emailed } });
     await audit(session.uid, 'ESIGN_REQUEST_CREATED', { targetType: 'signature_request', targetId: row.id, ip: ip ?? undefined, meta: { clientId: client.id, action: body.action, docKind: body.docKind, documents: body.documents.length, signers: signers.length, clientEmailed: emailed } });
     return NextResponse.json({ ok: true, id: row.id, clientEmailed: emailed });

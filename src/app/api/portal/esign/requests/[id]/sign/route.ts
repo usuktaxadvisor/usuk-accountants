@@ -3,7 +3,7 @@ import { and, eq } from 'drizzle-orm';
 import { db, tables } from '@/lib/portal/db';
 import { clientSigningContext, transitionErrorResponse } from '@/lib/portal/esign-http';
 import { completeRequest, recordEvent, setSignerStatus } from '@/lib/portal/esign-store';
-import { notifyStaffOfSignatureEvent, notifyClientOfCompletion } from '@/lib/portal/esign-notify';
+import { notifyStaffOfSignatureEvent, notifySignersOfCompletion } from '@/lib/portal/esign-notify';
 import { nextSignerStep, normaliseSignature, sha256Hex } from '@/lib/portal/esign';
 
 export const runtime = 'nodejs';
@@ -55,7 +55,7 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
     try { await completeRequest(request.id); }
     catch (e) { const r = transitionErrorResponse(e); if (r) return r; console.error('[portal:esign:complete]', e instanceof Error ? e.message : e); return NextResponse.json({ error: 'Your signature was recorded, but the final document could not be sealed. We have been notified and will complete it.' }, { status: 502 }); }
     await notifyStaffOfSignatureEvent(request.clientId, request.title, 'completed');
-    await notifyClientOfCompletion(request.clientId, request.title);
+    await notifySignersOfCompletion(request.id);
     return NextResponse.json({ ok: true, done: true, requestStatus: 'COMPLETED', message: 'Signed. Your signed copy is now available in your documents.' });
   }
   await notifyStaffOfSignatureEvent(request.clientId, request.title, 'partially signed');

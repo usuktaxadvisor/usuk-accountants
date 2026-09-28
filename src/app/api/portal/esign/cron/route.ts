@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { inArray, lt, and, or, isNull } from 'drizzle-orm';
 import { db, tables } from '@/lib/portal/db';
 import { completeRequest, expireIfDue, recordEvent } from '@/lib/portal/esign-store';
-import { notifyClientOfSignatureRequest } from '@/lib/portal/esign-notify';
+import { notifySignersOfSignatureRequest } from '@/lib/portal/esign-notify';
 import { eq } from 'drizzle-orm';
 import { timingSafeEqual } from 'node:crypto';
 
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
     const due = r.dueAt && r.dueAt.getTime() - Date.now() < 86_400_000 && r.dueAt.getTime() > Date.now();
     const stale = !r.lastReminderAt ? (r.sentAt && r.sentAt < threeDaysAgo) : r.lastReminderAt < threeDaysAgo;
     if (stale || (due && (!r.lastReminderAt || r.lastReminderAt < new Date(Date.now() - 86_400_000)))) {
-      const ok = await notifyClientOfSignatureRequest(r.clientId, r.title, r.action, r.message, r.dueAt, true);
+      const ok = await notifySignersOfSignatureRequest(r.id, true);
       await db.update(tables.signatureRequests).set({ lastReminderAt: new Date() }).where(eq(tables.signatureRequests.id, r.id));
       await recordEvent(r.id, 'reminder_sent', { meta: { emailed: ok, dueSoon: !!due } });
       reminded++;

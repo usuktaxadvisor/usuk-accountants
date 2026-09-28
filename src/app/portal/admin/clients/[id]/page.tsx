@@ -11,6 +11,8 @@ import DeliveryUploadForm from '@/components/portal/DeliveryUploadForm';
 import WithdrawButton from '@/components/portal/WithdrawButton';
 import SignatureRequestForm from '@/components/portal/SignatureRequestForm';
 import IdvForm from '@/components/portal/IdvForm';
+import MembersPanel from '@/components/portal/MembersPanel';
+import { listMembers, listSigningMembers } from '@/lib/portal/members';
 import { listRequestsForClient, latestIdentityVerification } from '@/lib/portal/esign-store';
 import { SIG_ACTION_LABEL, SIG_STATUS_LABEL } from '@/lib/portal/esign';
 
@@ -35,6 +37,8 @@ export default async function ClientDetail({ params, searchParams }: { params: P
   const sigRequests = await listRequestsForClient(id);
   const idv = await latestIdentityVerification(id, client.userId);
   const hasIdv = !!idv && (!idv.validUntil || idv.validUntil > new Date());
+  const members = await listMembers(id);
+  const signingMembers = await listSigningMembers(id);
 
   async function createRequest(formData: FormData) {
     'use server';
@@ -86,6 +90,7 @@ export default async function ClientDetail({ params, searchParams }: { params: P
       <form action={sendResetLink} className="mt-3">
         <button className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Send password-reset link</button>
       </form>
+      <MembersPanel clientId={id} members={members.map(m => ({ id: m.id, userId: m.userId, fullName: m.fullName, email: m.email, role: m.role, canSign: m.canSign === 1, status: m.status, userStatus: m.userStatus, isPrimary: m.userId === client.userId }))} />
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <section>
@@ -127,7 +132,8 @@ export default async function ClientDetail({ params, searchParams }: { params: P
         <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Work for client review</h2>
         <p className="mt-1 text-xs text-muted">Send a prepared document to the client. It goes into their Processed Documents folder in Drive and they are emailed to review it in the portal.</p>
         <DeliveryUploadForm clientId={id} categories={DELIVERY_CATEGORIES} />
-        <SignatureRequestForm clientId={id} hasIdv={hasIdv} deliveries={deliveries.filter(d => d.status !== 'WITHDRAWN').map(d => ({ id: d.id, title: d.title, version: d.version, mimeType: d.mimeType }))} />
+        <SignatureRequestForm clientId={id} hasIdv={hasIdv} deliveries={deliveries.filter(d => d.status !== 'WITHDRAWN').map(d => ({ id: d.id, title: d.title, version: d.version, mimeType: d.mimeType }))}
+          signers={signingMembers.map(m => ({ userId: m.userId, fullName: m.fullName, email: m.email, role: m.role, userStatus: m.userStatus }))} />
         <IdvForm clientId={id} />
         {idv ? <p className="mt-1 text-xs text-muted">Identity verification on file: {idv.method.replace(/_/g, ' ').toLowerCase()} · {idv.verifiedAt.toLocaleDateString('en-GB')}{idv.validUntil ? ` · valid to ${idv.validUntil.toLocaleDateString('en-GB')}` : ''}</p> : null}
         {sigRequests.length ? (

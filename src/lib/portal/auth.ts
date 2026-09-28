@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { compare } from 'bcryptjs';
+import { clientIdForUser } from './members';
 import { eq } from 'drizzle-orm';
 import { db, tables } from './db';
 import { audit } from './audit';
@@ -34,10 +35,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
         let clientId: string | null = null;
-        if (user.role === 'CLIENT') {
-          const [client] = await db.select({ id: tables.clients.id }).from(tables.clients).where(eq(tables.clients.userId, user.id)).limit(1);
-          clientId = client?.id ?? null;
-        }
+        if (user.role === 'CLIENT') clientId = await clientIdForUser(user.id); // ACTIVE membership, falling back to clients.user_id
         await audit(user.id, 'LOGIN', { targetType: 'user', targetId: user.id });
         return { id: user.id, email: user.email, name: [user.firstName, user.lastName].filter(Boolean).join(' ') || user.email, role: user.role, clientId } as never;
       },

@@ -1,4 +1,5 @@
 import { pgTable, pgEnum, text, uuid, timestamp, integer, jsonb, uniqueIndex, bigserial } from 'drizzle-orm/pg-core';
+import { sql } from 'drizzle-orm';
 
 export const roleEnum = pgEnum('role', ['CLIENT', 'STAFF', 'ADMIN']);
 export const userStatusEnum = pgEnum('user_status', ['INVITED', 'ACTIVE', 'SUSPENDED', 'DEACTIVATED']);
@@ -31,6 +32,29 @@ export const clients = pgTable('clients', {
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [uniqueIndex('clients_ref_uq').on(t.clientRef), uniqueIndex('clients_user_uq').on(t.userId)]);
+
+/**
+ * Client membership — the source of truth for "which portal users belong to this client".
+ * A household (Jane + John), a company (two directors + an authorised contact) or a single individual all
+ * map to one client with one or more ACTIVE members. `clients.user_id` is retained as the PRIMARY contact
+ * (billing/general notifications) and is always mirrored by a PRIMARY membership; access and signing
+ * authorisation are decided by this table only. A user is an ACTIVE member of at most one client (partial
+ * unique index) so a session resolves to exactly one client.
+ */
+export const clientMembers = pgTable('client_members', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  clientId: uuid('client_id').notNull().references(() => clients.id),
+  userId: uuid('user_id').notNull().references(() => users.id),
+  role: text('role').notNull().default('MEMBER'), // PRIMARY | JOINT | DIRECTOR | CONTACT | MEMBER — descriptive, shown to staff and in evidence
+  canSign: integer('can_sign').notNull().default(1), // 0 = view-only contact (e.g. bookkeeper) who may never be a signer
+  status: text('status').notNull().default('ACTIVE'), // ACTIVE | REMOVED
+  addedById: uuid('added_by_id').references(() => users.id),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  removedAt: timestamp('removed_at', { withTimezone: true }),
+}, (t) => [
+  uniqueIndex('client_members_client_user_uq').on(t.clientId, t.userId),
+  uniqueIndex('client_members_active_user_uq').on(t.userId).where(sql`${t.status} = 'ACTIVE'`),
+]);
 
 export const invitations = pgTable('invitations', {
   id: uuid('id').primaryKey().defaultRandom(),

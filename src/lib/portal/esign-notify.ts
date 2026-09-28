@@ -30,6 +30,44 @@ export async function notifyClientOfSignatureRequest(clientId: string, title: st
   } catch { return false; }
 }
 
+/** Emails every signer who has not yet completed (or, for completion, every signer). Returns true if at least one email went out. */
+export async function notifySignersOfSignatureRequest(requestId: string, reminder: boolean): Promise<boolean> {
+  try {
+    const [r] = await db.select().from(tables.signatureRequests).where(eq(tables.signatureRequests.id, requestId)).limit(1); if (!r) return false;
+    const signers = await db.select().from(tables.signatureSigners).where(eq(tables.signatureSigners.requestId, requestId));
+    const pending = signers.filter(s => !['SIGNED', 'DECLINED'].includes(s.status) && !(r.action === 'APPROVAL' && s.status === 'APPROVED'));
+    const base = await requestBase();
+    const what = SIG_ACTION_LABEL[r.action].toLowerCase();
+    let any = false;
+    for (const s of pending) {
+      const others = signers.filter(x => x.id !== s.id).map(x => x.fullName);
+      const html = wrap(`<h2 style="font-weight:600">${reminder ? 'Reminder: a document is waiting for you' : 'A document needs your attention'}</h2>
+        <p>Dear ${escapeHtml(s.fullName.split(' ')[0])},</p>
+        <p><strong>${escapeHtml(r.title)}</strong> is ready in your secure portal. Action needed: <strong>${what}</strong>.${r.dueAt ? ` Please complete it by <strong>${r.dueAt.toISOString().slice(0, 10)}</strong>.` : ''}</p>
+        ${others.length ? `<p style="font-size:13px;color:#555">This document also needs ${others.map(escapeHtml).join(' and ')} to ${r.action === 'APPROVAL' ? 'approve' : 'sign'} it${r.signingOrder === 'SEQUENTIAL' ? ' — signing happens in turn, and we will let you know when it is yours' : ' — each of you signs with your own login'}.</p>` : ''}
+        ${r.message ? `<p style="border-left:3px solid #C9A84C;padding-left:12px;color:#333">${escapeHtml(r.message)}</p>` : ''}
+        ${btn(`${base}/portal`, 'Open your portal')}
+        <p style="font-size:13px;color:#555">For your security the document is not attached to this email. Sign in with your own login to review it, download a copy, and ${r.action === 'APPROVAL' ? 'approve' : 'sign'} it.</p>`);
+      if (await sendPortalEmail(s.email, `${reminder ? 'Reminder — ' : ''}${SIG_ACTION_LABEL[r.action]}: ${r.title}`, html)) any = true;
+    }
+    return any;
+  } catch { return false; }
+}
+
+/** Completion email to EVERY signer of the request (each signed with their own login). */
+export async function notifySignersOfCompletion(requestId: string): Promise<boolean> {
+  try {
+    const [r] = await db.select().from(tables.signatureRequests).where(eq(tables.signatureRequests.id, requestId)).limit(1); if (!r) return false;
+    const signers = await db.select().from(tables.signatureSigners).where(eq(tables.signatureSigners.requestId, requestId));
+    const base = await requestBase(); let any = false;
+    for (const s of signers) {
+      if (await sendPortalEmail(s.email, `Completed: ${r.title}`, wrap(`<h2 style="font-weight:600">All done</h2><p>Dear ${escapeHtml(s.fullName.split(' ')[0])},</p>
+        <p><strong>${escapeHtml(r.title)}</strong> is complete. ${r.action === 'APPROVAL' ? 'Your approval record is' : 'Your signed copy and its signature record are'} now available in your portal, under your documents.</p>${btn(`${base}/portal`, 'View in your portal')}`))) any = true;
+    }
+    return any;
+  } catch { return false; }
+}
+
 /** One-time signing code. Short life; never mention it anywhere else. */
 export async function sendSigningCode(to: string, fullName: string, code: string, title: string): Promise<boolean> {
   const html = wrap(`<h2 style="font-weight:600">Your signing code</h2><p>Dear ${escapeHtml(fullName.split(' ')[0])},</p>
