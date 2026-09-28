@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   ESIGN_CONSENT_VERSION, consentTextSha256, sha256Hex, canonicalJson, chainHash, verifyChain,
-  isOpen, isTerminal, canVoid, canClientOpen, nextSignerStep, signerIsComplete, signerMayAct, deriveRequestStatus, hasExpired,
+  isOpen, isTerminal, canVoid, canClientOpen, nextSignerStep, signerIsComplete, signerMayAct, signersNowUp, deriveRequestStatus, hasExpired,
   remoteEsignPermitted, generateOtp, otpHash, normaliseSignature, buildEvidenceCertificate, summariseTimeline,
   type SigSignerStatus, type ChainableEvent,
 } from '@/lib/portal/esign';
@@ -79,6 +79,15 @@ describe('request status rules', () => {
     const three = [{ sequence: 1, status: 'SIGNED' as SigSignerStatus }, { sequence: 2, status: 'VIEWED' as SigSignerStatus }, { sequence: 3, status: 'PENDING' as SigSignerStatus }];
     expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 3 }, three)).toBe(false);
     expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 2 }, three)).toBe(true);
+  });
+  it('sequential: the next signer is "now up" only once every earlier signer has completed; parallel never', () => {
+    const st = (a: SigSignerStatus, b: SigSignerStatus, c: SigSignerStatus = 'PENDING') => [{ sequence: 1, status: a }, { sequence: 2, status: b }, { sequence: 3, status: c }];
+    expect(signersNowUp('SEQUENTIAL', 'SIGNATURE', st('CONSENTED', 'PENDING')).map(s => s.sequence)).toEqual([]); // #1 not done → nobody new
+    expect(signersNowUp('SEQUENTIAL', 'SIGNATURE', st('SIGNED', 'PENDING')).map(s => s.sequence)).toEqual([2]); // #1 done → #2 (not #3)
+    expect(signersNowUp('SEQUENTIAL', 'SIGNATURE', st('SIGNED', 'SIGNED')).map(s => s.sequence)).toEqual([3]);
+    expect(signersNowUp('SEQUENTIAL', 'SIGNATURE', st('SIGNED', 'DECLINED')).map(s => s.sequence)).toEqual([]);
+    expect(signersNowUp('SEQUENTIAL', 'APPROVAL', st('APPROVED', 'PENDING')).map(s => s.sequence)).toEqual([2]);
+    expect(signersNowUp('PARALLEL', 'SIGNATURE', st('SIGNED', 'PENDING'))).toEqual([]);
   });
   it('derives the request status from signers and never leaves a terminal state', () => {
     const d = (cur: Parameters<typeof deriveRequestStatus>[1], ...s: SigSignerStatus[]) => deriveRequestStatus('SIGNATURE', cur, s.map(status => ({ status })));

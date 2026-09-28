@@ -3,7 +3,7 @@ import { and, eq } from 'drizzle-orm';
 import { db, tables } from '@/lib/portal/db';
 import { clientSigningContext, transitionErrorResponse } from '@/lib/portal/esign-http';
 import { completeRequest, recordEvent, setSignerStatus } from '@/lib/portal/esign-store';
-import { notifyStaffOfSignatureEvent, notifySignersOfCompletion } from '@/lib/portal/esign-notify';
+import { notifyStaffOfSignatureEvent, notifySignersOfCompletion, notifyNextSigners } from '@/lib/portal/esign-notify';
 import { nextSignerStep, normaliseSignature, sha256Hex } from '@/lib/portal/esign';
 
 export const runtime = 'nodejs';
@@ -59,5 +59,6 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
     return NextResponse.json({ ok: true, done: true, requestStatus: 'COMPLETED', message: 'Signed. Your signed copy is now available in your documents.' });
   }
   await notifyStaffOfSignatureEvent(request.clientId, request.title, 'partially signed');
+  for (const nextId of await notifyNextSigners(request.id)) await recordEvent(request.id, 'client_notified', { signerId: nextId, meta: { kind: 'your_turn' } });
   return NextResponse.json({ ok: true, done: true, requestStatus: status, message: 'Signed. We will let you know when everyone has signed.' });
 }

@@ -140,6 +140,15 @@ export function signerMayAct(order: 'PARALLEL' | 'SEQUENTIAL', action: SigAction
   return all.filter(s => s.sequence < signer.sequence).every(s => signerIsComplete(action, s.status));
 }
 
+/**
+ * SEQUENTIAL only: the signers whose turn has just come — not complete, not declined, every earlier signer
+ * complete, and at least one earlier signer exists (signer #1 is invited by the original request email).
+ */
+export function signersNowUp<T extends { sequence: number; status: SigSignerStatus }>(order: 'PARALLEL' | 'SEQUENTIAL', action: SigAction, all: T[]): T[] {
+  if (order !== 'SEQUENTIAL') return [];
+  return all.filter(s => !signerIsComplete(action, s.status) && s.status !== 'DECLINED' && signerMayAct(order, action, s, all) && all.some(p => p.sequence < s.sequence));
+}
+
 /** Request status derived from its signers (called after every signer transition). */
 export function deriveRequestStatus(action: SigAction, current: SigRequestStatus, signers: Array<{ status: SigSignerStatus }>): SigRequestStatus {
   if (isTerminal(current)) return current;

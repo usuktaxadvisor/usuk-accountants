@@ -2,7 +2,7 @@ import { eq } from 'drizzle-orm';
 import { db, tables } from './db';
 import { sendPortalEmail } from './email';
 import { requestBase } from './notify';
-import { SIG_ACTION_LABEL, type SigAction } from './esign';
+import { SIG_ACTION_LABEL, signersNowUp, type SigAction, type SigSignerStatus } from './esign';
 
 const wrap = (inner: string) => `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#111">${inner}<p>Kind regards,<br/>US UK Accountants</p></div>`;
 const btn = (href: string, label: string) => `<p style="margin:28px 0"><a href="${href}" style="background:#0A1330;color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none">${label}</a></p>`;
@@ -52,6 +52,32 @@ export async function notifySignersOfSignatureRequest(requestId: string, reminde
     }
     return any;
   } catch { return false; }
+}
+
+/**
+ * SEQUENTIAL requests: after a signer completes, tell the signer(s) whose turn has now come.
+ * Records a `client_notified` event per recipient via the caller. Safe to call for PARALLEL (no-op).
+ */
+export async function notifyNextSigners(requestId: string): Promise<string[]> {
+  try {
+    const [r] = await db.select().from(tables.signatureRequests).where(eq(tables.signatureRequests.id, requestId)).limit(1);
+    if (!r || r.signingOrder !== 'SEQUENTIAL') return [];
+    const signers = await db.select().from(tables.signatureSigners).where(eq(tables.signatureSigners.requestId, requestId));
+    const nowUp = signersNowUp('SEQUENTIAL', r.action, signers.map(s => ({ ...s, status: s.status as SigSignerStatus })));
+    const base = await requestBase();
+    const what = SIG_ACTION_LABEL[r.action].toLowerCase();
+    const notified: string[] = [];
+    for (const s of nowUp) {
+      const before = signers.filter(p => p.sequence < s.sequence).map(p => p.fullName);
+      const html = wrap(`<h2 style="font-weight:600">It is your turn to ${r.action === 'APPROVAL' ? 'approve' : 'sign'}</h2>
+        <p>Dear ${escapeHtml(s.fullName.split(' ')[0])},</p>
+        <p>${before.map(escapeHtml).join(' and ')} ${before.length === 1 ? 'has' : 'have'} completed their part of <strong>${escapeHtml(r.title)}</strong>. It is now your turn: <strong>${what}</strong>.${r.dueAt ? ` Please complete it by <strong>${r.dueAt.toISOString().slice(0, 10)}</strong>.` : ''}</p>
+        ${btn(`${base}/portal`, 'Open your portal')}
+        <p style="font-size:13px;color:#555">For your security the document is not attached to this email. Sign in with your own login to review it and ${r.action === 'APPROVAL' ? 'approve' : 'sign'} it.</p>`);
+      if (await sendPortalEmail(s.email, `Your turn — ${SIG_ACTION_LABEL[r.action]}: ${r.title}`, html)) notified.push(s.id);
+    }
+    return notified;
+  } catch { return []; }
 }
 
 /** Completion email to EVERY signer of the request (each signed with their own login). */
