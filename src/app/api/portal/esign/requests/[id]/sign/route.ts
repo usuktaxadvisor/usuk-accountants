@@ -4,7 +4,7 @@ import { db, tables } from '@/lib/portal/db';
 import { clientSigningContext, transitionErrorResponse } from '@/lib/portal/esign-http';
 import { completeRequest, recordEvent, setSignerStatus } from '@/lib/portal/esign-store';
 import { notifyStaffOfSignatureEvent, notifySignersOfCompletion, notifyNextSigners } from '@/lib/portal/esign-notify';
-import { nextSignerStep, normaliseSignature, sha256Hex } from '@/lib/portal/esign';
+import { nextSignerStep, normaliseSignature, sha256Hex, typedNameMismatch } from '@/lib/portal/esign';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -27,6 +27,8 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
   if (!signer.otpVerifiedAt) return NextResponse.json({ error: 'Please verify the one-time code first.', code: 'OTP_REQUIRED' }, { status: 403 });
   const sig = normaliseSignature(b.method, b.typedName, b.png);
   if (!sig.ok) return NextResponse.json({ error: sig.reason }, { status: 400 });
+  // A typed signature must be the registered signer's own name — never an arbitrary identity (owner decision 28 Sep 2026).
+  if (sig.method === 'TYPED' && sig.text) { const bad = typedNameMismatch(sig.text, signer.fullName); if (bad) return NextResponse.json({ error: bad, code: 'NAME_MISMATCH' }, { status: 400 }); }
 
   const myFields = bundle.fields.filter(f => f.signerId === signer.id);
   const acks = (b.acknowledgements ?? {}) as Record<string, unknown>;

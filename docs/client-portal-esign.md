@@ -75,6 +75,18 @@ Households (husband and wife, joint taxpayers) and companies (several directors,
 
 Staged rollout, one source of truth: `client_members` decides *access and signing authorisation* everywhere (`src/lib/portal/members.ts`: `clientIdForUser`, `getMembership`, `listSigningMembers`). `clients.user_id` is retained as the *primary contact* (billing/general notifications, "Send password-reset link", cannot be removed as a member) and is always mirrored by a PRIMARY membership; a client without membership rows (should not exist after the backfill) still resolves through it. Staff manage people under **People on this client** (`/api/portal/clients/[id]/members`: add → own user + activation email; remove → status REMOVED, past signatures untouched; an email that already logs into another client is refused). Signature requests list every can-sign member as a possible signer, with **parallel** or **sequential** order; each signer has their own user, signer row, login, OTP, consent row, signature, timestamps, IP/user-agent and evidence entry, and a signer row is reachable only through its own user's session — nobody can act as anyone else. A view-only contact (`can_sign = 0`) sees joint requests as "being handled by another person" and has no signing route.
 
+### 3b. Who may sign — signer identity rules (owner decisions, 28 Sep 2026)
+
+Plain rules, enforced in code:
+
+- **Every signer is a real individual portal member** with their own full name, their own email, their own login and their own session. A husband and wife are two members with two logins; one shared login can never sign twice (a user can be a signer on a request only once — `sig_signer_req_user_uq`).
+- **Only members with "can sign" are offered as signers.** Staff tick *can sign* on the People panel; a company's bookkeeper or a family contact stays view-only unless staff explicitly grant it. View-only members (`can_sign = false`, or a removed membership) cannot sign, approve, acknowledge, or use the older *Approve — looks correct* document-review response — the server re-checks membership on every action (`canClientApprove` in `members.ts`), so a member switched to view-only later loses the right immediately. They can still view and download what they are allowed to see and watch the status.
+- **A typed signature must be the signer's own registered name.** The signing screen says *You are signing as [registered name]*, pre-fills it, and accepts harmless presentation differences (capitalisation, spacing, punctuation/accents, an omitted or initialled middle name, a display prefix) but never a different first or last name (`typedNameMismatch` in `esign.ts`). If the name we hold is wrong the client is told to contact us so staff correct the record first — the client never substitutes another identity during signing.
+- **A drawn signature is attributed, not OCR'd.** Attribution rests on: authenticated session of the registered member + OTP to their own email + accepted consent (version and text hash) + the explicit intent statement *"I am [registered name] and I intend this drawn signature to be my legally binding electronic signature"* + the drawn image and its SHA-256 + timestamps, IP and user agent — all in the hash-chained event log and the certificate.
+- **Approval-only** needs the same identified member, review, consent and OTP; the evidence says *APPROVED* (approval record / approved copy), never *signed*.
+- **Staff do not OTP themselves** and complete no identity forms for ordinary documents: upload → *Require client action* → choose approval/signature → tick signers → parallel or sequential → send. If a chosen signer has no name, no valid email, no active portal access, or is view-only, the request is refused with a plain-English message naming the fix.
+- **History never changes.** Each signature request snapshots the signer's name and email at the moment it is created (`signature_signers.full_name/email`), and the completed certificate is hashed. If a client later changes their name or email, staff update the member record and *new* requests use the new details; completed records keep the name and email actually used when the document was signed (integration test: "historical evidence is immutable").
+
 ## 4. Signing lifecycle
 
 Request: `AWAITING_CLIENT → VIEWED → PARTIALLY_SIGNED → COMPLETED`, or `→ DECLINED | VOIDED | EXPIRED | SUPERSEDED`.
@@ -124,7 +136,7 @@ Clients → client → *Work for client review* → upload the PDF (existing) �
 
 ## 10. Client workflow
 
-Email → portal → *Documents requiring your action* → **Review & sign** → read/download → tick reviewed → accept consent → enter emailed code → approve → type or draw signature → *Sign now* → done → *Download signed copy* / *Download signature record*. Works on mobile (pointer events, responsive layout). Decline with a reason is available at every step.
+Email → portal (own login) → *Documents requiring your action* → **Review & sign** → read/download → tick reviewed → accept consent → enter emailed code → approve → *You are signing as [name]* → type (own name) or draw signature → confirm intent → *Sign now* → done → *Download signed copy* / *Download signature record*. Nothing the portal already knows is asked again. Works on mobile (pointer events, responsive layout). Decline with a reason is available at every step.
 
 ## 11. Testing
 

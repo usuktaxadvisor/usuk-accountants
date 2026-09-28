@@ -6,6 +6,7 @@ import { rateLimit } from '@/lib/portal/ratelimit';
 import { audit } from '@/lib/portal/audit';
 import { notifyStaffOfDeliveryResponse } from '@/lib/portal/notify';
 import { canClientRespond, getDeliveryForClient, isDecision, normaliseComment, statusAfterDecision } from '@/lib/portal/deliveries';
+import { canClientApprove } from '@/lib/portal/members';
 
 export const runtime = 'nodejs';
 
@@ -32,6 +33,9 @@ export async function POST(req: Request, ctx: { params: Promise<{ id: string }> 
 
   const row = await getDeliveryForClient(session.clientId, id);
   if (!row) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  // View-only members can read but never record a client approval or change request.
+  if (!(await canClientApprove(session.clientId, session.uid)))
+    return NextResponse.json({ error: 'Your portal access is view-only, so you cannot approve or respond on behalf of the client. Please ask the account holder, or contact US UK Accountants.' , code: 'VIEW_ONLY' }, { status: 403 });
   if (!canClientRespond(row.status)) return NextResponse.json({ error: 'This document is no longer open for a response.' }, { status: 409 });
 
   try {

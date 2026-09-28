@@ -33,6 +33,7 @@ export default function SignFlow({ requestId }: { requestId: string }) {
   const [codeSent, setCodeSent] = useState('');
   const [method, setMethod] = useState<'TYPED' | 'DRAWN'>('TYPED');
   const [typed, setTyped] = useState('');
+  const [nameHelp, setNameHelp] = useState(false);
   const [intent, setIntent] = useState(false);
   const [acks, setAcks] = useState<Record<string, boolean>>({});
   const [declineOpen, setDeclineOpen] = useState(false);
@@ -202,13 +203,17 @@ export default function SignFlow({ requestId }: { requestId: string }) {
       {stage === 'sign' ? (
         <section className="rounded-2xl border border-mist bg-white p-4 sm:p-5">
           <p className="text-sm font-semibold text-ink">Your signature</p>
+          <p className="mt-1 text-sm text-ink">You are signing as <strong>{b.signer.fullName}</strong>.{' '}
+            <button type="button" onClick={() => setNameHelp(v => !v)} className="text-xs font-semibold text-navy-ink underline">My name is incorrect</button></p>
+          {nameHelp ? <p className="mt-2 rounded-xl border border-mist bg-porcelain px-4 py-3 text-xs text-ink" role="note">Your signature must be in the name we hold for you. If this name is wrong, please do not sign yet — contact US UK Accountants (hello@usukaccountants.com) and we will correct your record first.</p> : null}
           <div className="mt-2 flex gap-2 text-sm">
             <button type="button" onClick={() => setMethod('TYPED')} className={`rounded-xl px-4 py-2 font-semibold ${method === 'TYPED' ? 'bg-navy-ink text-white' : 'border border-mist text-ink'}`}>Type</button>
             <button type="button" onClick={() => setMethod('DRAWN')} className={`rounded-xl px-4 py-2 font-semibold ${method === 'DRAWN' ? 'bg-navy-ink text-white' : 'border border-mist text-ink'}`}>Draw</button>
           </div>
           {method === 'TYPED' ? (
             <div className="mt-3">
-              <input value={typed} onChange={e => setTyped(e.target.value)} className="w-full rounded-xl border border-mist px-3 py-2 text-sm" aria-label="Type your full name" />
+              <label className="text-xs text-muted" htmlFor="typed-signature">Signature name (your registered name — you may adjust capitalisation or spacing)</label>
+              <input id="typed-signature" value={typed} onChange={e => setTyped(e.target.value)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm" aria-label="Type your full name" />
               <p className="mt-2 rounded-xl border border-mist bg-porcelain px-4 py-3 font-serif text-2xl italic text-navy-ink">{typed || ' '}</p>
             </div>
           ) : (
@@ -220,7 +225,7 @@ export default function SignFlow({ requestId }: { requestId: string }) {
           {b.fields.filter(f => f.type === 'CHECKBOX' || f.type === 'ACKNOWLEDGEMENT').map(f => (
             <label key={f.id} className="mt-3 flex items-start gap-3 text-sm text-ink"><input type="checkbox" className="mt-1" checked={!!acks[f.id]} onChange={e => setAcks(a => ({ ...a, [f.id]: e.target.checked }))} /> {f.label ?? 'I confirm'}{f.required ? '' : ' (optional)'}</label>
           ))}
-          <label className="mt-4 flex items-start gap-3 text-sm text-ink"><input type="checkbox" className="mt-1" checked={intent} onChange={e => setIntent(e.target.checked)} /> I intend this to be my legally binding electronic signature on {b.documents.length > 1 ? 'these documents' : 'this document'}.</label>
+          <label className="mt-4 flex items-start gap-3 text-sm text-ink"><input type="checkbox" className="mt-1" checked={intent} onChange={e => setIntent(e.target.checked)} /> I am <strong>{b.signer.fullName}</strong> and I intend this {method === 'DRAWN' ? 'drawn signature' : 'signature'} to be my legally binding electronic signature on {b.documents.length > 1 ? 'these documents' : 'this document'}.</label>
           <div className="mt-4 flex flex-wrap gap-2">
             <button type="button" disabled={busy || !intent} onClick={sign} className="rounded-xl bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{busy ? 'Signing…' : 'Sign now'}</button>
             <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-xl border border-mist px-4 py-2.5 text-sm font-semibold text-ink">I can&apos;t sign this</button>

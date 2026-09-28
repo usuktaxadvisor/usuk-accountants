@@ -58,15 +58,20 @@ export async function POST(req: Request) {
   const signers: Array<{ userId: string; fullName: string; email: string; role: string; sequence: number; identityVerificationId: string | null }> = [];
   for (let i = 0; i < signerIds.length; i++) {
     const [u] = await db.select().from(tables.users).where(eq(tables.users.id, signerIds[i])).limit(1);
-    if (!u || u.role !== 'CLIENT') return NextResponse.json({ error: 'Signer is not a client user' }, { status: 400 });
+    // Plain-English, actionable messages for staff — no database terminology (owner decision 28 Sep 2026).
+    const who = u ? ([u.firstName, u.lastName].filter(Boolean).join(' ') || u.email) : 'This person';
+    if (!u || u.role !== 'CLIENT') return NextResponse.json({ error: `${who} is not set up as a client user. Add them under "People on this client" first.` }, { status: 400 });
+    const fullName = [u.firstName, u.lastName].filter(Boolean).join(' ');
+    if (!fullName) return NextResponse.json({ error: `${u.email} has no name on their record. Add their full name under "People on this client" — the signature is made in that name.` }, { status: 400 });
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(u.email)) return NextResponse.json({ error: `${who} needs a valid email address before they can sign — the one-time signing code is sent there. Correct it under "People on this client".` }, { status: 400 });
     const membership = await getMembership(client.id, u.id);
-    if (!membership) return NextResponse.json({ error: 'Signer does not belong to this client' }, { status: 400 });
-    if (!membership.canSign) return NextResponse.json({ error: `${u.email} is a view-only contact and cannot be a signer` }, { status: 400 });
-    if (u.status === 'SUSPENDED' || u.status === 'DEACTIVATED') return NextResponse.json({ error: `${u.email} cannot sign (account ${u.status.toLowerCase()})` }, { status: 400 });
+    if (!membership) return NextResponse.json({ error: `${who} is not on this client. Add them under "People on this client" and tick "can sign".` }, { status: 400 });
+    if (!membership.canSign) return NextResponse.json({ error: `${who} is view-only and cannot sign or approve. If they should, open "People on this client" and tick "can sign".` }, { status: 400 });
+    if (u.status !== 'ACTIVE') return NextResponse.json({ error: `${who} needs active portal access before they can sign${u.status === 'INVITED' ? ' — they have not yet accepted their invitation' : ''}. Send them a password-reset / invitation link from the client page.` }, { status: 400 });
     const idv = await latestIdentityVerification(client.id, u.id);
     const gate = remoteEsignPermitted(body.docKind, idv ? { method: idv.method, verifiedAt: idv.verifiedAt, providerRef: idv.providerRef, validUntil: idv.validUntil } : null);
     if (!gate.ok) return NextResponse.json({ error: gate.reason, code: 'IDV_REQUIRED' }, { status: 422 });
-    signers.push({ userId: u.id, fullName: [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email, email: u.email, role: membership.role, sequence: i + 1, identityVerificationId: idv?.id ?? null });
+    signers.push({ userId: u.id, fullName, email: u.email, role: membership.role, sequence: i + 1, identityVerificationId: idv?.id ?? null });
   }
 
   const { ip, userAgent } = await requestMeta();

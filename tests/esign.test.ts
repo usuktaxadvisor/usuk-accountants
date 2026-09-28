@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   ESIGN_CONSENT_VERSION, consentTextSha256, sha256Hex, canonicalJson, chainHash, verifyChain,
-  isOpen, isTerminal, canVoid, canClientOpen, nextSignerStep, signerIsComplete, signerMayAct, signersNowUp, deriveRequestStatus, hasExpired,
+  isOpen, isTerminal, canVoid, canClientOpen, nextSignerStep, signerIsComplete, signerMayAct, signersNowUp, deriveRequestStatus, typedNameMismatch, hasExpired,
   remoteEsignPermitted, generateOtp, otpHash, normaliseSignature, buildEvidenceCertificate, summariseTimeline,
   type SigSignerStatus, type ChainableEvent,
 } from '@/lib/portal/esign';
@@ -79,6 +79,31 @@ describe('request status rules', () => {
     const three = [{ sequence: 1, status: 'SIGNED' as SigSignerStatus }, { sequence: 2, status: 'VIEWED' as SigSignerStatus }, { sequence: 3, status: 'PENDING' as SigSignerStatus }];
     expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 3 }, three)).toBe(false);
     expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 2 }, three)).toBe(true);
+  });
+  it('typed signature must be the registered signer\'s own name (tolerant of presentation, never an unrelated name)', () => {
+    const ok = (typed: string, reg: string) => typedNameMismatch(typed, reg) === null;
+    // accepted presentations
+    expect(ok('Jane Smith', 'Jane Smith')).toBe(true);
+    expect(ok('  jane   SMITH ', 'Jane Smith')).toBe(true);
+    expect(ok('Sandra Wilson-Evans', 'Sandra Wilson-Evans')).toBe(true);
+    expect(ok('sandra wilson evans', 'Sandra Wilson-Evans')).toBe(true);
+    expect(ok('Sandra Wilson-Evans', 'Sandra Wilson Evans')).toBe(true);
+    expect(ok('Jane Smith', 'Jane Mary Smith')).toBe(true);      // middle name omitted
+    expect(ok('Jane M. Smith', 'Jane Mary Smith')).toBe(true);   // middle initial
+    expect(ok('Jane Mary Smith', 'Jane Smith')).toBe(true);      // middle name we never recorded — same person
+    expect(ok('Jane Smith Jones', 'Jane Smith')).toBe(false);    // different surname appended
+    expect(ok('Mary Jane Smith', 'Jane Smith')).toBe(false);     // different first name
+    expect(ok('José Núñez', 'Jose Nunez')).toBe(true);           // accents
+    expect(ok('Jane Smith', 'TEST CLIENT — Jane Smith')).toBe(true); // display prefix on the registered name
+    expect(ok("Siobhán O'Neill", 'Siobhan O\'Neill')).toBe(true);
+    // rejected: a different person
+    expect(ok('John Smith', 'Jane Smith')).toBe(false);
+    expect(ok('Jane Jones', 'Jane Smith')).toBe(false);
+    expect(ok('Smith', 'Jane Smith')).toBe(false);
+    expect(ok('J', 'Jane Smith')).toBe(false);
+    expect(ok('Random Person', 'Sandra Wilson-Evans')).toBe(false);
+    expect(ok('Sandra Wilson-Evans', 'John Smith')).toBe(false);
+    expect(typedNameMismatch('John Smith', 'Jane Smith')).toMatch(/your own name/i);
   });
   it('sequential: the next signer is "now up" only once every earlier signer has completed; parallel never', () => {
     const st = (a: SigSignerStatus, b: SigSignerStatus, c: SigSignerStatus = 'PENDING') => [{ sequence: 1, status: a }, { sequence: 2, status: b }, { sequence: 3, status: c }];

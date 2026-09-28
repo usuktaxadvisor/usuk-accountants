@@ -324,6 +324,50 @@ run('e-sign store against real PostgreSQL', () => {
     })).rejects.toThrow(/does not belong/);
   });
 
+  it('view-only member (can_sign = false) can never create approval evidence — e-sign or the older document-review response', async () => {
+    expect(await members.canClientApprove(janeClientId, saraUserId)).toBe(false);   // Sara: CONTACT, view-only
+    expect(await members.canClientApprove(janeClientId, janeUserId)).toBe(true);
+    expect(await members.canClientApprove(janeClientId, johnUserId)).toBe(true);
+    expect(await members.canClientApprove(bobClientId, bobUserId)).toBe(true);       // legacy primary link counts
+    expect(await members.canClientApprove(janeClientId, bobUserId)).toBe(false);     // not a member at all
+    // A member switched to view-only later loses the right immediately, even if they were already named as a signer.
+    await db.update(tables.clientMembers).set({ canSign: 0 }).where(orm.and(orm.eq(tables.clientMembers.clientId, janeClientId), orm.eq(tables.clientMembers.userId, johnUserId)));
+    expect(await members.canClientApprove(janeClientId, johnUserId)).toBe(false);
+    expect((await members.listSigningMembers(janeClientId)).map(m => m.userId)).toEqual([janeUserId]);
+    await db.update(tables.clientMembers).set({ canSign: 1 }).where(orm.and(orm.eq(tables.clientMembers.clientId, janeClientId), orm.eq(tables.clientMembers.userId, johnUserId)));
+  });
+
+  it('historical evidence is immutable: renaming the member / changing their email never rewrites a completed record, while new requests use the new details', async () => {
+    const { req } = await makeRequest(janeClientId, janeUserId, 'SIGNATURE', 'Immutability — TEST ONLY');
+    await walkToSigned(req.id, janeUserId, 'SIGNATURE');
+    await store.completeRequest(req.id);
+    const before = (await store.getEvidence(req.id))!;
+    const certBefore = before.certificateJson as import('@/lib/portal/esign').EvidenceCertificate;
+    expect(certBefore.signers[0].fullName).toBe('Jane Smith'); expect(certBefore.signers[0].email).toBe('jane.smith.test@example.com');
+    // Client later marries / changes email: staff update the user record.
+    const orig = (await db.select().from(tables.users).where(orm.eq(tables.users.id, janeUserId)))[0];
+    const newEmail = orig.email.replace('jane.', 'jane.jones.');
+    await db.update(tables.users).set({ firstName: 'Jane', lastName: 'Jones', email: newEmail }).where(orm.eq(tables.users.id, janeUserId));
+    try {
+      const after = (await store.getEvidence(req.id))!;
+      expect(after.certificateSha256).toBe(before.certificateSha256);
+      const certAfter = after.certificateJson as import('@/lib/portal/esign').EvidenceCertificate;
+      expect(certAfter.signers[0].fullName).toBe('Jane Smith'); expect(certAfter.signers[0].email).toBe('jane.smith.test@example.com');
+      const signerRow = (await db.select().from(tables.signatureSigners).where(orm.eq(tables.signatureSigners.requestId, req.id)))[0];
+      expect(signerRow.fullName).toBe('Jane Smith'); expect(signerRow.email).toBe('jane.smith.test@example.com'); // snapshot, not a join
+      // A NEW request snapshots the CURRENT registered details (as the request route does from the users table).
+      const u = (await db.select().from(tables.users).where(orm.eq(tables.users.id, janeUserId)))[0];
+      const fresh = await makeRequest(janeClientId, janeUserId, 'SIGNATURE', 'After rename — TEST ONLY', { extraSigners: [] });
+      await db.update(tables.signatureSigners).set({ fullName: `${u.firstName} ${u.lastName}`, email: u.email }).where(orm.eq(tables.signatureSigners.requestId, fresh.req.id)); // makeRequest hard-codes the name; the API reads users
+      const s2 = (await db.select().from(tables.signatureSigners).where(orm.eq(tables.signatureSigners.requestId, fresh.req.id)))[0];
+      expect(s2.fullName).toBe('Jane Jones'); expect(s2.email).toBe(newEmail);
+      // …and the old record is still exactly what it was.
+      expect((await store.getEvidence(req.id))!.certificateSha256).toBe(before.certificateSha256);
+    } finally {
+      await db.update(tables.users).set({ firstName: orig.firstName, lastName: orig.lastName, email: orig.email }).where(orm.eq(tables.users.id, janeUserId));
+    }
+  });
+
   it('years-later retrieval: the completed record is fully reconstructable from storage alone', async () => {
     const { req } = await makeRequest(janeClientId, janeUserId, 'APPROVAL_AND_SIGNATURE', 'Archive proof — TEST ONLY');
     await walkToSigned(req.id, janeUserId, 'APPROVAL_AND_SIGNATURE');

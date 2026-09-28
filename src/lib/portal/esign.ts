@@ -208,6 +208,29 @@ export const OTP_MAX_ATTEMPTS = 5;
 
 /* ───────────── Signature input validation ───────────── */
 
+/**
+ * Typed-signature rule (owner decision, 28 Sep 2026): the typed name must be the authenticated signer's
+ * registered name. Tolerant of presentation (case, spacing, punctuation, accents, an omitted or initialled
+ * middle name, a missing "TEST CLIENT —" style prefix) but never an unrelated name. Returns null when
+ * acceptable, otherwise a client-facing reason.
+ */
+export function typedNameMismatch(typed: string, registeredFullName: string): string | null {
+  const tokens = (s: string) => s.normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().replace(/[^a-z0-9\s]/g, ' ').split(/\s+/).filter(Boolean);
+  const t = tokens(typed);
+  // The registered name may carry a display prefix ("TEST CLIENT — Jane Smith"); compare against the part after the last dash.
+  const regParts = registeredFullName.split(/\s[—–-]\s/);
+  const r = tokens(regParts[regParts.length - 1]);
+  if (r.length === 0 || t.length === 0) return 'Please type your full name as your signature.';
+  const first = r[0], last = r[r.length - 1];
+  const hasFirst = t.includes(first) || (t[0]?.length === 1 && t[0] === first[0]);
+  const hasLast = t.includes(last);
+  // Tokens we do not hold are tolerated only in the middle (a middle name we never recorded); never as the first or last name.
+  const extras = t.filter((x, i) => !r.includes(x) && !r.some(y => x.length === 1 && y[0] === x) && (i === 0 || i === t.length - 1));
+  if (hasFirst && hasLast && extras.length === 0) return null;
+  return 'Your typed signature must be your own name as registered with us. If your name is shown incorrectly, please contact US UK Accountants so we can correct it before you sign.';
+}
+
 export function normaliseSignature(method: unknown, typed: unknown, png: unknown): { ok: true; method: SignatureMethod; text: string | null; png: string | null } | { ok: false; reason: string } {
   if (method === 'TYPED') {
     const t = String(typed ?? '').trim().slice(0, 120);

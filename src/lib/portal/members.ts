@@ -31,6 +31,17 @@ export async function getMembership(clientId: string, userId: string): Promise<{
   return c ? { role: 'PRIMARY', canSign: true } : null;
 }
 
+/**
+ * May this portal user create client approval/signature evidence for this client?
+ * Requires an ACTIVE membership with can_sign (the legacy primary link counts). View-only contacts
+ * (can_sign = false) may see status and documents but can never approve, acknowledge or sign —
+ * in the e-sign flow AND in the older document-review response (owner decision, 28 Sep 2026).
+ */
+export async function canClientApprove(clientId: string, userId: string): Promise<boolean> {
+  const m = await getMembership(clientId, userId);
+  return !!m && m.canSign;
+}
+
 export async function listMembers(clientId: string): Promise<MemberWithUser[]> {
   const rows = await db.select({ m: tables.clientMembers, email: tables.users.email, firstName: tables.users.firstName, lastName: tables.users.lastName, userStatus: tables.users.status })
     .from(tables.clientMembers).innerJoin(tables.users, eq(tables.users.id, tables.clientMembers.userId))

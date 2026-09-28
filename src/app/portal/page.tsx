@@ -6,6 +6,7 @@ import UploadButton from '@/components/portal/UploadButton';
 import DeliveryResponseForm from '@/components/portal/DeliveryResponseForm';
 import { DELIVERY_STATUS_LABEL, canClientAccess, canClientRespond, listDeliveriesForClient, listResponsesForClient } from '@/lib/portal/deliveries';
 import { listRequestsForClient } from '@/lib/portal/esign-store';
+import { canClientApprove } from '@/lib/portal/members';
 import { SIG_ACTION_LABEL, SIG_STATUS_LABEL, isOpen, signerIsComplete, signerMayAct, type SigAction } from '@/lib/portal/esign';
 
 export const dynamic = 'force-dynamic';
@@ -37,6 +38,7 @@ export default async function Dashboard() {
   const deliveries = (await listDeliveriesForClient(session.clientId)).filter(d => canClientAccess(d.status));
   const awaiting = deliveries.filter(d => canClientRespond(d.status));
   const responses = await listResponsesForClient(session.clientId);
+  const mayApprove = await canClientApprove(session.clientId, session.uid); // view-only contacts see status only
   const myResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
   const sigRequests = await listRequestsForClient(session.clientId);
   // All signer rows for this client's requests (same client → same isolation boundary), so a sequential
@@ -80,7 +82,7 @@ export default async function Dashboard() {
           <p className="mt-1 text-sm text-muted">
             {open.length === 0 && awaiting.length === 0 && sigOpen.length === 0
               ? 'Nothing is waiting on you right now.'
-              : [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean).join(' · ') + '.'}
+              : [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length && mayApprove ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean).join(' · ') + '.'}
           </p>
         </div>
         <form action={doLogout}>
@@ -178,7 +180,7 @@ export default async function Dashboard() {
                 <a href={`/api/portal/deliveries/${d.id}/file`} target="_blank" rel="noopener" className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink">View document</a>
                 <a href={`/api/portal/deliveries/${d.id}/file?download=1`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Download</a>
               </div>
-              {canClientRespond(d.status) ? <DeliveryResponseForm deliveryId={d.id} /> : resp ? (
+              {canClientRespond(d.status) ? (mayApprove ? <DeliveryResponseForm deliveryId={d.id} /> : <p className="mt-3 text-xs text-muted">Awaiting the account holder&apos;s response. Your access is view-only.</p>) : resp ? (
                 <p className="mt-3 text-xs text-muted">You {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {resp.createdAt.toLocaleDateString('en-GB')}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
               ) : null}
             </div>

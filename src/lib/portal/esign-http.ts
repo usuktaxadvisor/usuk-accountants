@@ -4,6 +4,7 @@ import { portalSession, type PortalSession } from './auth';
 import { rateLimit } from './ratelimit';
 import { getRequestForClient, getSignerForUser, expireIfDue, loadBundle, StaleSignerStateError, SealInProgressError, type RequestRow, type SignerRow } from './esign-store';
 import { canClientOpen, signerMayAct } from './esign';
+import { canClientApprove } from './members';
 
 export const GENERIC = { error: 'Something went wrong. Please try again or contact support.' };
 
@@ -28,6 +29,8 @@ export async function clientSigningContext(requestId: string, limitKey: string, 
   if (!req) return { error: NextResponse.json({ error: 'Not found' }, { status: 404 }) } as const;
   const signer = await getSignerForUser(req.id, session.uid);
   if (!signer) return { error: NextResponse.json({ error: 'Not found' }, { status: 404 }) } as const;
+  // Membership is re-checked at action time: a member made view-only (or deactivated) after being named as a signer can no longer act.
+  if (!(await canClientApprove(session.clientId, session.uid))) return { error: NextResponse.json({ error: 'Not found' }, { status: 404 }) } as const;
   const status = await expireIfDue(req);
   if (!canClientOpen(status)) return { error: NextResponse.json({ error: 'This request is no longer open.', status }, { status: 409 }) } as const;
   const bundle = await loadBundle(req.id);
