@@ -18,7 +18,8 @@ export function middleware(req: NextRequest) {
     pathname === '/portal/login' ||
     pathname === '/portal/forgot' ||
     pathname.startsWith('/portal/invite/') ||
-    pathname.startsWith('/api/portal/bootstrap')
+    pathname.startsWith('/api/portal/bootstrap') ||
+    pathname === '/api/portal/esign/cron' // Vercel Cron carries no session cookie; the route enforces CRON_SECRET itself
   ) {
     return NextResponse.next();
   }
