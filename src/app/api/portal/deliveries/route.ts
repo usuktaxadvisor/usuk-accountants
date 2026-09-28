@@ -42,7 +42,8 @@ export async function POST(req: Request) {
   const note = String(form.get('note') ?? '').trim().slice(0, 2000) || null;
   const supersedesId = String(form.get('supersedesId') ?? '').trim() || null;
 
-  if (!(file instanceof File) || !clientId || !title)
+  // A replacement inherits the previous version's title, so the title is only required for a brand-new delivery.
+  if (!(file instanceof File) || !clientId || (!title && !supersedesId))
     return NextResponse.json({ error: 'Missing file, client or title' }, { status: 400 });
 
   const [client] = await db.select({ id: tables.clients.id }).from(tables.clients).where(eq(tables.clients.id, clientId)).limit(1);
