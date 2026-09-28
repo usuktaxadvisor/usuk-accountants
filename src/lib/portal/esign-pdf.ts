@@ -66,8 +66,9 @@ export async function sealSignedPdf(input: SealInput): Promise<{ bytes: Uint8Arr
   // 2. Signing record page (always appended; also hosts fields with page = 0).
   const rec = pdf.addPage([595.28, 841.89]); // A4
   let y = 800;
-  rec.drawText('Signing record', { x: 50, y, size: 18, font: helvB, color: NAVY }); y -= 14;
-  rec.drawText('US UK Accountants Ltd client portal — electronic signature record', { x: 50, y, size: 9, font: helv, color: GREY }); y -= 24;
+  const approvalOnly = input.request.action === 'APPROVAL';
+  rec.drawText(approvalOnly ? 'Approval record' : 'Signing record', { x: 50, y, size: 18, font: helvB, color: NAVY }); y -= 14;
+  rec.drawText(approvalOnly ? 'US UK Accountants Ltd client portal — electronic approval record (no signature was applied)' : 'US UK Accountants Ltd client portal — electronic signature record', { x: 50, y, size: 9, font: helv, color: GREY }); y -= 24;
   const kv = (k: string, v: string) => { rec.drawText(k, { x: 50, y, size: 9, font: helvB, color: NAVY }); y = drawWrapped(rec, helv, v, 190, y, 9, 355, 12); y -= 2; };
   kv('Document', `${input.request.title}`);
   kv('Client', `${input.request.clientName} (${input.request.clientRef})`);
@@ -95,7 +96,7 @@ export async function sealSignedPdf(input: SealInput): Promise<{ bytes: Uint8Arr
   }
   rec.drawText('Integrity: the SHA-256 of this sealed file is recorded in the portal evidence record. Any change to this file changes that hash.', { x: 50, y: 34, size: 7, font: helv, color: GREY });
 
-  pdf.setTitle(`${input.request.title} — signed`);
+  pdf.setTitle(`${input.request.title} — ${approvalOnly ? 'approved' : 'signed'}`);
   pdf.setProducer('US UK Accountants client portal e-signature');
   pdf.setSubject(`Signature request ${input.request.id}`);
   pdf.setModificationDate(input.request.completedAt);

@@ -26,5 +26,5 @@ export async function GET(req: Request, ctx: { params: Promise<{ id: string }> }
   const { ip, userAgent } = await requestMeta();
   await recordEvent(request.id, 'signed_document_downloaded', { actorUserId: session.uid, ip, userAgent, meta: { role: session.role } });
   const download = new URL(req.url).searchParams.get('download') === '1';
-  return pdfResponse(bytes, `${request.title} - signed.pdf`, download);
+  return pdfResponse(bytes, `${request.title} - ${request.action === 'APPROVAL' ? 'approved' : 'signed'}.pdf`, download);
 }

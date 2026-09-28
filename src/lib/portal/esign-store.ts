@@ -251,7 +251,7 @@ export async function completeRequest(requestId: string): Promise<{ sealedSha256
     });
     sealedSha256 = sealed.sha256; sealedSize = sealed.bytes.length;
     const stamp = completedAt.toISOString().slice(0, 10);
-    sealedDriveFileId = await uploadToProcessedFolder(request.clientId, `${stamp}_SIGNED_${target.delivery.storedName}`, 'application/pdf', Buffer.from(sealed.bytes));
+    sealedDriveFileId = await uploadToProcessedFolder(request.clientId, `${stamp}_${request.action === 'APPROVAL' ? 'APPROVED' : 'SIGNED'}_${target.delivery.storedName}`, 'application/pdf', Buffer.from(sealed.bytes));
     await recordEvent(requestId, 'signed_pdf_created', { meta: { sha256: sealedSha256, sizeBytes: sealedSize, sourceDeliveryId: target.doc.deliveryId } });
   }
 

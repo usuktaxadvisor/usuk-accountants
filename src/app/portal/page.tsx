@@ -101,8 +101,8 @@ export default async function Dashboard() {
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p><span className="font-semibold text-ink">{r.title}</span> <span className="text-xs text-muted">· completed {r.completedAt?.toLocaleDateString('en-GB') ?? ''}</span></p>
                   <div className="flex gap-2">
-                    {r.sealedDriveFileId ? <a href={`/api/portal/esign/requests/${r.id}/signed?download=1`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">Signed copy</a> : null}
-                    <a href={`/api/portal/esign/requests/${r.id}/evidence?format=pdf`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">Signature record</a>
+                    {r.sealedDriveFileId ? <a href={`/api/portal/esign/requests/${r.id}/signed?download=1`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">{r.action === 'APPROVAL' ? 'Approved copy' : 'Signed copy'}</a> : null}
+                    <a href={`/api/portal/esign/requests/${r.id}/evidence?format=pdf`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">{r.action === 'APPROVAL' ? 'Approval record' : 'Signature record'}</a>
                   </div>
                 </div>
               </div>

@@ -59,7 +59,7 @@ export default function SignFlow({ requestId }: { requestId: string }) {
     setBusy(true); setMsg('');
     const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/consent`, { accepted: true, version: b.consent.version });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) { setMsg(''); void load(); } return; }
     setStage('code'); void sendCode();
   }
   async function sendCode() {
@@ -81,8 +81,8 @@ export default function SignFlow({ requestId }: { requestId: string }) {
     setBusy(true); setMsg('');
     const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/approve`, { confirmed: true });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
-    if (data.done) { setMsg(String(data.message ?? 'Approved.')); setStage('done'); router.refresh(); } else setStage('sign');
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) { setMsg(''); void load(); } return; }
+    if (data.done) { setMsg(String(data.message ?? 'Approved.')); markDone(String(data.requestStatus ?? '')); setStage('done'); router.refresh(); } else setStage('sign');
   }
   async function sign() {
     if (!b || !intent) { setMsg('Please confirm that you intend to sign.'); return; }
@@ -91,15 +91,19 @@ export default function SignFlow({ requestId }: { requestId: string }) {
     setBusy(true); setMsg('');
     const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/sign`, { method, typedName: typed, png, intent: true, acknowledgements: acks });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
-    setMsg(String(data.message ?? 'Signed.')); setStage('done'); router.refresh();
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) { setMsg(''); void load(); } return; }
+    setMsg(String(data.message ?? 'Signed.')); markDone(String(data.requestStatus ?? '')); setStage('done'); router.refresh();
+  }
+  /** After the server confirms completion, reflect it locally so the download buttons appear without a reload. */
+  function markDone(requestStatus: string) {
+    if (requestStatus === 'COMPLETED') setB(prev => prev ? { ...prev, request: { ...prev.request, status: 'COMPLETED', sealedAvailable: true } } : prev);
   }
   async function decline() {
     if (!declineReason.trim()) { setMsg('Please tell us why.'); return; }
     setBusy(true); setMsg('');
     const { ok, status, data } = await post(`/api/portal/esign/requests/${requestId}/decline`, { reason: declineReason });
     setBusy(false);
-    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) void load(); return; }
+    if (!ok) { setMsg(String(data.error ?? 'Please try again.')); if (status === 409) { setMsg(''); void load(); } return; }
     setMsg(String(data.message ?? 'Received.')); setStage('closed'); router.refresh();
   }
 
@@ -112,6 +116,14 @@ export default function SignFlow({ requestId }: { requestId: string }) {
 
   if (stage === 'loading') return <p className="text-sm text-muted">Loading your document…</p>;
   if (stage === 'error') return <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-ink" role="alert">{msg}</p>;
+  // Closed before it was ever loaded (expired / voided / superseded / declined): say so plainly instead of a blank page.
+  if (stage === 'closed' && !b) return (
+    <section className="rounded-2xl border border-mist bg-white p-5 text-sm text-ink" role="status">
+      <p className="font-semibold">{msg}</p>
+      <p className="mt-1 text-muted">It can no longer be approved or signed. If you were expecting to act on it, please contact us and we will send a fresh request.</p>
+      <Link href="/portal" className="mt-3 inline-block font-semibold text-navy-ink underline">Back to your portal</Link>
+    </section>
+  );
   if (!b) return null;
 
   const actionLabel = b.request.action === 'APPROVAL' ? 'approve' : b.request.action === 'SIGNATURE' ? 'sign' : 'approve and sign';
@@ -229,10 +241,10 @@ export default function SignFlow({ requestId }: { requestId: string }) {
           <p className="text-sm font-semibold text-ink">{msg || (b.request.status === 'COMPLETED' ? 'Completed.' : 'Your part is done.')}</p>
           {b.request.status === 'COMPLETED' || b.request.sealedAvailable ? (
             <div className="mt-3 flex flex-wrap gap-2">
-              <a href={`/api/portal/esign/requests/${requestId}/signed?download=1`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white">Download signed copy</a>
-              <a href={`/api/portal/esign/requests/${requestId}/evidence?format=pdf`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink">Download signature record</a>
+              <a href={`/api/portal/esign/requests/${requestId}/signed?download=1`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white">{b.request.action === 'APPROVAL' ? 'Download approved copy' : 'Download signed copy'}</a>
+              <a href={`/api/portal/esign/requests/${requestId}/evidence?format=pdf`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink">{b.request.action === 'APPROVAL' ? 'Download approval record' : 'Download signature record'}</a>
             </div>
-          ) : <p className="mt-1 text-sm text-muted">We will email you when everyone has signed and your signed copy is ready.</p>}
+          ) : <p className="mt-1 text-sm text-muted">{b.request.action === 'APPROVAL' ? 'We will email you when everyone has approved and your approval record is ready.' : 'We will email you when everyone has signed and your signed copy is ready.'}</p>}
           <Link href="/portal" className="mt-3 inline-block text-sm font-semibold text-navy-ink underline">Back to your portal</Link>
         </section>
       ) : null}
