@@ -6,7 +6,7 @@ import UploadButton from '@/components/portal/UploadButton';
 import DeliveryResponseForm from '@/components/portal/DeliveryResponseForm';
 import { DELIVERY_STATUS_LABEL, canClientAccess, canClientRespond, listDeliveriesForClient, listResponsesForClient } from '@/lib/portal/deliveries';
 import { listRequestsForClient } from '@/lib/portal/esign-store';
-import { SIG_ACTION_LABEL, SIG_STATUS_LABEL, isOpen } from '@/lib/portal/esign';
+import { SIG_ACTION_LABEL, SIG_STATUS_LABEL, isOpen, signerIsComplete, signerMayAct, type SigAction } from '@/lib/portal/esign';
 
 export const dynamic = 'force-dynamic';
 
@@ -39,10 +39,25 @@ export default async function Dashboard() {
   const responses = await listResponsesForClient(session.clientId);
   const myResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
   const sigRequests = await listRequestsForClient(session.clientId);
-  const mySignerRows = await db.select({ requestId: tables.signatureSigners.requestId, status: tables.signatureSigners.status }).from(tables.signatureSigners).where(eq(tables.signatureSigners.userId, session.uid));
-  const mine = new Set(mySignerRows.map(s => s.requestId));
-  const sigOpen = sigRequests.filter(r => isOpen(r.status) && mine.has(r.id));
-  const sigOtherOpen = sigRequests.filter(r => isOpen(r.status) && !mine.has(r.id)); // another member's turn/request — visible, not actionable
+  // All signer rows for this client's requests (same client → same isolation boundary), so a sequential
+  // request only shows an action button to the signer whose turn it is.
+  const signerRows = await db.select({ requestId: tables.signatureSigners.requestId, userId: tables.signatureSigners.userId, fullName: tables.signatureSigners.fullName, sequence: tables.signatureSigners.sequence, status: tables.signatureSigners.status })
+    .from(tables.signatureSigners).where(eq(tables.signatureSigners.clientId, session.clientId));
+  const signersOf = (requestId: string) => signerRows.filter(s => s.requestId === requestId);
+  const mine = new Set(signerRows.filter(s => s.userId === session.uid).map(s => s.requestId));
+  const myTurn = (r: { id: string; signingOrder: string; action: SigAction }) => {
+    const me = signersOf(r.id).find(s => s.userId === session.uid);
+    return !!me && !signerIsComplete(r.action, me.status) && signerMayAct(r.signingOrder as 'PARALLEL' | 'SEQUENTIAL', r.action, me, signersOf(r.id));
+  };
+  /** Who a sequential request is waiting on before this user may act (first incomplete earlier signer). */
+  const waitingOn = (r: { id: string; action: SigAction }) => {
+    const me = signersOf(r.id).find(s => s.userId === session.uid);
+    return signersOf(r.id).filter(s => me && s.sequence < me.sequence && !signerIsComplete(r.action, s.status)).sort((a, b) => a.sequence - b.sequence)[0]?.fullName ?? null;
+  };
+  const sigOpenAll = sigRequests.filter(r => isOpen(r.status) && mine.has(r.id));
+  const sigOpen = sigOpenAll.filter(r => myTurn(r));
+  const sigWaiting = sigOpenAll.filter(r => !myTurn(r)); // I am a signer, but it is not (yet / any longer) my turn
+  const sigOtherOpen = sigRequests.filter(r => isOpen(r.status) && !mine.has(r.id)); // another member's request — visible, not actionable
   const sigDone = sigRequests.filter(r => r.status === 'COMPLETED' && mine.has(r.id));
 
   const docs = await db.select()
@@ -75,7 +90,7 @@ export default async function Dashboard() {
         </form>
       </div>
 
-      {sigOpen.length || sigDone.length || sigOtherOpen.length ? (
+      {sigOpen.length || sigDone.length || sigOtherOpen.length || sigWaiting.length ? (
         <section className="mt-10">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents requiring your action</h2>
           <div className="mt-3 space-y-2">
@@ -90,6 +105,16 @@ export default async function Dashboard() {
                 </div>
               </div>
             ))}
+            {sigWaiting.map(r => {
+              const who = waitingOn(r);
+              const done = signersOf(r.id).find(s => s.userId === session.uid && signerIsComplete(r.action, s.status));
+              return (
+                <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                  <p className="font-semibold text-ink">{r.title}</p>
+                  <p className="text-xs text-muted">{done ? 'You have completed your part · waiting for the other signer(s)' : who ? `Waiting for ${who} to complete their part first — we will email you when it is your turn` : 'Not yet your turn'} · {SIG_STATUS_LABEL[r.status]}</p>
+                </div>
+              );
+            })}
             {sigOtherOpen.map(r => (
               <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
                 <p className="font-semibold text-ink">{r.title}</p>

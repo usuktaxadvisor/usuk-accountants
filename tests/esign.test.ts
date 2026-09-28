@@ -74,6 +74,11 @@ describe('request status rules', () => {
     expect(signerMayAct('PARALLEL', 'SIGNATURE', { sequence: 2 }, all)).toBe(true);
     all[0].status = 'SIGNED';
     expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 2 }, all)).toBe(true);
+    // signer 1 is always allowed to act first, and a three-signer chain waits on the first incomplete earlier signer
+    expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 1 }, all)).toBe(true);
+    const three = [{ sequence: 1, status: 'SIGNED' as SigSignerStatus }, { sequence: 2, status: 'VIEWED' as SigSignerStatus }, { sequence: 3, status: 'PENDING' as SigSignerStatus }];
+    expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 3 }, three)).toBe(false);
+    expect(signerMayAct('SEQUENTIAL', 'SIGNATURE', { sequence: 2 }, three)).toBe(true);
   });
   it('derives the request status from signers and never leaves a terminal state', () => {
     const d = (cur: Parameters<typeof deriveRequestStatus>[1], ...s: SigSignerStatus[]) => deriveRequestStatus('SIGNATURE', cur, s.map(status => ({ status })));
