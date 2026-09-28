@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { eq } from 'drizzle-orm';
+import { eq, inArray } from 'drizzle-orm';
 import { requireRole } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
 import { loadBundle, listEvents, getEvidence } from '@/lib/portal/esign-store';
@@ -20,6 +20,17 @@ export default async function SignatureRecord({ params }: { params: Promise<{ id
   const events = await listEvents(id);
   const chain = verifyChain(events.map(e => ({ requestId: e.requestId, signerId: e.signerId, actorUserId: e.actorUserId, type: e.type, at: e.at.toISOString(), ip: e.ip, userAgent: e.userAgent, meta: (e.meta as Record<string, unknown> | null) ?? null, prevHash: e.prevHash, hash: e.hash })));
   const evidence = await getEvidence(id);
+  // Resolve every actor once so the log says WHO acted (a client user downloading their signed copy is not "staff").
+  const actorIds = [...new Set(events.map(e => e.actorUserId).filter((x): x is string => !!x))];
+  const actors = actorIds.length ? await db.select({ id: tables.users.id, firstName: tables.users.firstName, lastName: tables.users.lastName, email: tables.users.email, role: tables.users.role }).from(tables.users).where(inArray(tables.users.id, actorIds)) : [];
+  const actorLabel = (e: { signerId: string | null; actorUserId: string | null }) => {
+    if (e.signerId) return signers.find(s => s.id === e.signerId)?.fullName ?? 'signer';
+    if (!e.actorUserId) return 'system';
+    const u = actors.find(a => a.id === e.actorUserId);
+    if (!u) return 'user';
+    const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || u.email;
+    return u.role === 'CLIENT' ? `${name} (client)` : `${name} (staff)`;
+  };
   const deliveries = await Promise.all(docs.map(async d => { const [dl] = await db.select({ title: tables.deliveries.title }).from(tables.deliveries).where(eq(tables.deliveries.id, d.deliveryId)).limit(1); return { ...d, title: dl?.title ?? '—' }; }));
   const fmt = (d: Date | null | undefined) => d ? d.toLocaleString('en-GB', { timeZone: 'UTC' }) + ' UTC' : '—';
 
@@ -63,7 +74,7 @@ export default async function SignatureRecord({ params }: { params: Promise<{ id
         </div>
         {evidence ? <p className="mt-2 break-all font-mono text-[11px] text-muted">Certificate SHA-256 {evidence.certificateSha256} · stored {fmt(evidence.createdAt)}</p> : null}
         <ol className="mt-3 space-y-1 text-xs">
-          {events.map((e, i) => <li key={e.id} className="rounded-lg bg-porcelain px-3 py-1.5"><span className="font-mono text-muted">{String(i + 1).padStart(3, '0')}</span> <span className="text-muted">{e.at.toISOString()}</span> <span className="font-semibold text-ink">{e.type.replace(/_/g, ' ')}</span>{e.signerId ? ` · ${signers.find(s => s.id === e.signerId)?.fullName ?? 'signer'}` : e.actorUserId ? ' · staff' : ' · system'}{e.ip ? ` · ${e.ip}` : ''}{e.meta ? <span className="ml-1 break-all font-mono text-[10px] text-muted">{JSON.stringify(e.meta)}</span> : null}</li>)}
+          {events.map((e, i) => <li key={e.id} className="rounded-lg bg-porcelain px-3 py-1.5"><span className="font-mono text-muted">{String(i + 1).padStart(3, '0')}</span> <span className="text-muted">{e.at.toISOString()}</span> <span className="font-semibold text-ink">{e.type.replace(/_/g, ' ')}</span>{` · ${actorLabel(e)}`}{e.ip ? ` · ${e.ip}` : ''}{e.meta ? <span className="ml-1 break-all font-mono text-[10px] text-muted">{JSON.stringify(e.meta)}</span> : null}</li>)}
         </ol>
       </section>
     </div>
