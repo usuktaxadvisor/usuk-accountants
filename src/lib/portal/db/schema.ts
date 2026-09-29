@@ -29,6 +29,13 @@ export const clients = pgTable('clients', {
   incomingFolderId: text('incoming_folder_id'), // server-side only
   processedFolderId: text('processed_folder_id'), // server-side only — staff → client deliveries land here
   status: userStatusEnum('status').notNull().default('ACTIVE'),
+  // Lifecycle (0004): an archived client is hidden from the working list, its members cannot log in and nothing
+  // new can be sent or signed; documents, evidence, audit trail and Drive files are untouched. Restorable.
+  archivedAt: timestamp('archived_at', { withTimezone: true }),
+  archivedById: uuid('archived_by_id').references(() => users.id),
+  archiveReason: text('archive_reason'), // CLIENT_REQUESTED | DUPLICATE | TEST_RECORD | CREATED_IN_ERROR | ENGAGEMENT_ENDED | OTHER
+  archiveNote: text('archive_note'),
+  dataMinimisedAt: timestamp('data_minimised_at', { withTimezone: true }), // removable personal data deleted; protected records retained
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [uniqueIndex('clients_ref_uq').on(t.clientRef), uniqueIndex('clients_user_uq').on(t.userId)]);

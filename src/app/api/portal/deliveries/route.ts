@@ -46,8 +46,9 @@ export async function POST(req: Request) {
   if (!(file instanceof File) || !clientId || (!title && !supersedesId))
     return NextResponse.json({ error: 'Missing file, client or title' }, { status: 400 });
 
-  const [client] = await db.select({ id: tables.clients.id }).from(tables.clients).where(eq(tables.clients.id, clientId)).limit(1);
+  const [client] = await db.select({ id: tables.clients.id, archivedAt: tables.clients.archivedAt }).from(tables.clients).where(eq(tables.clients.id, clientId)).limit(1);
   if (!client) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  if (client.archivedAt) return NextResponse.json({ error: 'This client is archived. Restore the client before sending anything new.' }, { status: 409 });
 
   // Replace: the previous version must belong to this same client and still be replaceable.
   let previous: Awaited<ReturnType<typeof getDeliveryForStaff>> = null;

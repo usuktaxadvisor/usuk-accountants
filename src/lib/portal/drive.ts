@@ -206,3 +206,12 @@ export async function verifyUploadedFile(
 export async function deleteDriveFile(fileId: string): Promise<void> {
   try { await driveClient().files.delete({ fileId }); } catch { /* best effort */ }
 }
+
+/**
+ * Moves a file or folder to the Drive bin (recoverable for 30 days) instead of destroying it outright.
+ * Used by the client-deletion workflow AFTER the database change has committed, so a failed database
+ * operation can never leave Drive ahead of the record. Returns false when Drive refused or the id is gone.
+ */
+export async function trashDriveFile(fileId: string): Promise<boolean> {
+  try { await driveClient().files.update({ fileId, requestBody: { trashed: true } }); return true; } catch { return false; }
+}

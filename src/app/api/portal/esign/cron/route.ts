@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { inArray, lt, and, or, isNull } from 'drizzle-orm';
+import { inArray, lt, and, or, isNull, sql } from 'drizzle-orm';
 import { db, tables } from '@/lib/portal/db';
 import { completeRequest, expireIfDue, recordEvent } from '@/lib/portal/esign-store';
 import { notifySignersOfSignatureRequest } from '@/lib/portal/esign-notify';
@@ -17,7 +17,10 @@ export async function GET(req: Request) {
   const secret = process.env.CRON_SECRET;
   const given = Buffer.from(req.headers.get('authorization') ?? '', 'utf8'); const want = Buffer.from(secret ? `Bearer ${secret}` : '', 'utf8');
   if (!secret || given.length !== want.length || !timingSafeEqual(given, want)) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  const open = await db.select().from(tables.signatureRequests).where(inArray(tables.signatureRequests.status, ['AWAITING_CLIENT', 'VIEWED', 'PARTIALLY_SIGNED']));
+  // Archived clients never receive reminders (their open requests are voided on archive; this guard is belt-and-braces).
+  const archivedIds = (await db.select({ id: tables.clients.id }).from(tables.clients).where(sql`${tables.clients.archivedAt} is not null`)).map(c => c.id);
+  const open = (await db.select().from(tables.signatureRequests).where(inArray(tables.signatureRequests.status, ['AWAITING_CLIENT', 'VIEWED', 'PARTIALLY_SIGNED'])))
+    .filter(r => !archivedIds.includes(r.clientId));
   let expired = 0, reminded = 0;
   const threeDaysAgo = new Date(Date.now() - 3 * 86_400_000);
   for (const r of open) {
