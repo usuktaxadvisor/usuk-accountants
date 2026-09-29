@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
 import MegaMenu from '@/components/library/MegaMenu';
-import { IconPhone } from '@/components/ui/icons';
 import {
   primaryNav, megaMenuPanels, megaMenuFeature, PHONE_UK, PHONE_UK_TEL, PHONE_US,
 } from '@/lib/site-data';
@@ -76,12 +75,6 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden items-center gap-1.5 text-sm font-medium text-ink transition-colors hover:text-gold-antique md:inline-flex"
-            >
-              <IconPhone className="h-4 w-4 text-gold" /> Call
-            </Link>
-            <Link
-              href="/contact"
               className="hidden whitespace-nowrap rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink shadow-e1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold sm:inline-block"
             >
               Contact us
@@ -143,6 +136,13 @@ export default function Header() {
             className="mt-6 block rounded-lg bg-gradient-to-r from-gold to-gold-champagne py-3.5 text-center font-semibold text-navy-ink"
           >
             Contact us
+          </Link>
+          <Link
+            href="/portal/login"
+            onClick={() => setOpen(false)}
+            className="mt-3 block rounded-lg border border-navy/30 py-3.5 text-center font-semibold text-navy"
+          >
+            Client Login
           </Link>
           <div className="mt-4 flex flex-col gap-2 text-sm text-muted">
             <span className="inline-flex items-center gap-2"><span aria-hidden>🇬🇧</span> {PHONE_UK}</span>

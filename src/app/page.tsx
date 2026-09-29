@@ -1,6 +1,6 @@
 import { JsonLd } from '@/components/library';
 import { faqSchema } from '@/lib/schema';
-import { faqs as siteFaqs, PHONE_UK_TEL } from '@/lib/site-data';
+import { faqs as siteFaqs } from '@/lib/site-data';
 import {
   Header, Footer, MobileBar,
   Hero, TrustBar, Pillars, Calculator, ServicesSection,
@@ -45,8 +45,6 @@ export default function Home() {
           intro="Tell us about your situation by email and we'll come back with a clear view of where you stand and what comes next."
           tone="navy"
           primary={{ label: 'Contact us', href: '/contact' }}
-          secondary={{ label: 'Call us', href: `tel:${PHONE_UK_TEL}` }}
-          showPhone
         />
       </main>
       <Footer />

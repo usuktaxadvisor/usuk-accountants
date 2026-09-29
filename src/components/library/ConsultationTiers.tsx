@@ -23,12 +23,12 @@ export function ConsultationTiers({ heading = true }: { heading?: boolean }) {
         </div>
       )}
 
-      <div className="mt-12 grid gap-6 lg:grid-cols-3">
+      <div className="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-3">
         {CONSULTATION_TIERS.map((tier) => (
           <div
             key={tier.id}
             className={[
-              'flex flex-col rounded-2xl border p-7',
+              'flex min-w-0 flex-col rounded-2xl border p-6 sm:p-7',
               tier.featured
                 ? 'border-gold bg-navy-ink text-white shadow-xl lg:-mt-3 lg:mb-3'
                 : 'border-mist bg-white',
