@@ -2,6 +2,7 @@ import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
 import { compare } from 'bcryptjs';
 import { clientIdForUser } from './members';
+import { isClientArchived } from './client-lifecycle';
 import { eq } from 'drizzle-orm';
 import { db, tables } from './db';
 import { audit } from './audit';
@@ -35,7 +36,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           return null;
         }
         let clientId: string | null = null;
-        if (user.role === 'CLIENT') clientId = await clientIdForUser(user.id); // ACTIVE membership, falling back to clients.user_id
+        if (user.role === 'CLIENT') {
+          clientId = await clientIdForUser(user.id); // ACTIVE membership, falling back to clients.user_id
+          // An archived client's members cannot log in. Same generic failure as a wrong password — never reveals
+          // whether the record still exists.
+          if (!clientId || await isClientArchived(clientId)) { await audit(user.id, 'LOGIN_DENIED_INACTIVE', { targetType: 'user', targetId: user.id }); return null; }
+        }
         await audit(user.id, 'LOGIN', { targetType: 'user', targetId: user.id });
         return { id: user.id, email: user.email, name: [user.firstName, user.lastName].filter(Boolean).join(' ') || user.email, role: user.role, clientId } as never;
       },
@@ -66,7 +72,10 @@ export type PortalSession = { uid: string; role: 'CLIENT' | 'STAFF' | 'ADMIN'; c
 export async function portalSession(): Promise<PortalSession | null> {
   const s = (await auth()) as (Awaited<ReturnType<typeof auth>> & Partial<PortalSession>) | null;
   if (!s?.uid || !s.role) return null;
-  return { uid: String(s.uid), role: s.role as PortalSession['role'], clientId: (s.clientId as string | null) ?? null };
+  const clientId = (s.clientId as string | null) ?? null;
+  // A session issued before the client was archived stops working immediately (the JWT itself cannot be revoked).
+  if (s.role === 'CLIENT' && (!clientId || await isClientArchived(clientId))) return null;
+  return { uid: String(s.uid), role: s.role as PortalSession['role'], clientId };
 }
 
 /** Guard helper: require a role (or above). Order: CLIENT < STAFF < ADMIN. */

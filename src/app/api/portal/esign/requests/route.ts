@@ -50,6 +50,7 @@ export async function POST(req: Request) {
 
   const [client] = await db.select().from(tables.clients).where(eq(tables.clients.id, body.clientId)).limit(1);
   if (!client) return NextResponse.json({ error: 'Not found' }, { status: 404 });
+  if (client.archivedAt) return NextResponse.json({ error: 'This client is archived. Restore the client before sending anything new.' }, { status: 409 });
 
   // Signers: each must be an ACTIVE, can-sign member of THIS client (client_members). Default: the primary contact.
   // Order in the array = signing sequence (only enforced when signingOrder is SEQUENTIAL). Duplicates are rejected.

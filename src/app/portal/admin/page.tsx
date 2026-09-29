@@ -5,9 +5,14 @@ import { db, tables } from '@/lib/portal/db';
 
 export const dynamic = 'force-dynamic';
 
-export default async function AdminHome() {
+export default async function AdminHome({ searchParams }: { searchParams: Promise<{ view?: string }> }) {
   await requireRole('STAFF');
-  const clientRows = await db.select().from(tables.clients).orderBy(desc(tables.clients.createdAt));
+  const { view: rawView } = await searchParams;
+  const view = rawView === 'archived' || rawView === 'all' ? rawView : 'active';
+  // Archived clients never clutter the working list; "Archived" and "All" are one click away.
+  const allClients = await db.select().from(tables.clients).orderBy(desc(tables.clients.createdAt));
+  const archivedCount = allClients.filter(c => !!c.archivedAt).length;
+  const clientRows = view === 'active' ? allClients.filter(c => !c.archivedAt) : view === 'archived' ? allClients.filter(c => !!c.archivedAt) : allClients;
   const openByClient = await db.select({ clientId: tables.documentRequests.clientId, n: sql<number>`count(*)` })
     .from(tables.documentRequests).where(eq(tables.documentRequests.status, 'REQUESTED')).groupBy(tables.documentRequests.clientId);
   const docsByClient = await db.select({ clientId: tables.documents.clientId, n: sql<number>`count(*)` })
@@ -15,7 +20,7 @@ export default async function AdminHome() {
   const openMap = new Map(openByClient.map(r => [r.clientId, Number(r.n)]));
   const docMap = new Map(docsByClient.map(r => [r.clientId, Number(r.n)]));
   const rows = clientRows.map(c => ({
-    id: c.id, ref: c.clientRef, name: c.displayName, status: c.status,
+    id: c.id, ref: c.clientRef, name: c.displayName, status: c.archivedAt ? 'ARCHIVED' : c.status, archived: !!c.archivedAt,
     openRequests: openMap.get(c.id) ?? 0, uploads: docMap.get(c.id) ?? 0,
   }));
 
@@ -40,9 +45,14 @@ export default async function AdminHome() {
           </Link>
         </div>
       </div>
-      <div className="mt-6 space-y-2">
+      <div className="mt-5 flex gap-1 text-xs font-semibold" role="tablist" aria-label="Client list filter">
+        {([['active', 'Active'], ['archived', `Archived${archivedCount ? ` (${archivedCount})` : ''}`], ['all', 'All']] as const).map(([v, label]) => (
+          <Link key={v} href={v === 'active' ? '/portal/admin' : `/portal/admin?view=${v}`} role="tab" aria-selected={view === v} className={`rounded-full px-3 py-1.5 ${view === v ? 'bg-navy-ink text-white' : 'border border-mist text-ink hover:border-navy-ink'}`}>{label}</Link>
+        ))}
+      </div>
+      <div className="mt-4 space-y-2">
         {rows.length === 0 ? (
-          <p className="rounded-2xl border border-mist bg-white p-7 text-sm text-muted">No clients yet — create the first with “New client”.</p>
+          <p className="rounded-2xl border border-mist bg-white p-7 text-sm text-muted">{view === 'archived' ? 'No archived clients.' : 'No clients yet — create the first with “New client”.'}</p>
         ) : rows.map(c => (
           <Link key={c.id} href={`/portal/admin/clients/${c.id}`}
             className="flex items-center justify-between gap-4 rounded-2xl border border-mist bg-white px-6 py-4 transition-colors hover:border-navy-ink">
@@ -50,7 +60,7 @@ export default async function AdminHome() {
               <p className="font-semibold text-ink">{c.name} <span className="ml-2 text-xs font-normal text-muted">{c.ref}</span></p>
               <p className="text-xs text-muted">{Number(c.openRequests)} open request(s) · {Number(c.uploads)} document(s)</p>
             </div>
-            <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-muted">{c.status}</span>
+            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${c.archived ? 'bg-gold/15 text-gold-antique' : 'bg-mist text-muted'}`}>{c.status}</span>
           </Link>
         ))}
       </div>

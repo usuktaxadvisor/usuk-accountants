@@ -12,6 +12,7 @@ import WithdrawButton from '@/components/portal/WithdrawButton';
 import SignatureRequestForm from '@/components/portal/SignatureRequestForm';
 import IdvForm from '@/components/portal/IdvForm';
 import MembersPanel from '@/components/portal/MembersPanel';
+import ClientActionsMenu from '@/components/portal/ClientActionsMenu';
 import { listMembers, listSigningMembers } from '@/lib/portal/members';
 import { listRequestsForClient, latestIdentityVerification } from '@/lib/portal/esign-store';
 import { SIG_ACTION_LABEL, SIG_STATUS_LABEL } from '@/lib/portal/esign';
@@ -87,9 +88,12 @@ export default async function ClientDetail({ params, searchParams }: { params: P
       {email === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">The email to the client could not be sent — the record was saved; use “Send password-reset link” or contact them directly.</p> : null}
       {reset === 'sent' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-ink">Password-reset link emailed to the client (valid 24 hours).</p> : null}
       {reset === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">Reset link created but the email could not be sent — check server logs.</p> : null}
-      <form action={sendResetLink} className="mt-3">
-        <button className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Send password-reset link</button>
-      </form>
+      <div className="flex flex-wrap items-start gap-2">
+        {!client.archivedAt ? <form action={sendResetLink} className="mt-3">
+          <button className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Send password-reset link</button>
+        </form> : null}
+        <ClientActionsMenu clientId={id} archived={!!client.archivedAt} suspendedMembers={members.filter(m => m.userStatus === 'SUSPENDED' && m.status === 'ACTIVE').map(m => ({ userId: m.userId, name: m.fullName }))} />
+      </div>
       <MembersPanel clientId={id} members={members.map(m => ({ id: m.id, userId: m.userId, fullName: m.fullName, email: m.email, role: m.role, canSign: m.canSign === 1, status: m.status, userStatus: m.userStatus, isPrimary: m.userId === client.userId }))} />
 
       <div className="mt-8 grid gap-8 md:grid-cols-2">
