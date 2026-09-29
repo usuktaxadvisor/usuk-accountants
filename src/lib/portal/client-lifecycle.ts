@@ -86,7 +86,9 @@ export async function assessClient(clientId: string): Promise<Assessment | null>
 
   const legalHold = sigs.some(s => !!s.legalHoldAt);
   const completed = sigs.filter(s => s.status === 'COMPLETED');
-  const protectedRecords = sigs.length + idv.length; // ANY signature request carries append-only events → protected
+  // Protected: ANY signature request (append-only events), identity-verification (KYC) records, and documents the
+  // client uploaded to us (tax/accounting records the firm must retain). Drafts we sent and never had signed are not.
+  const protectedRecords = sigs.length + idv.length + uploads.length;
   const retainDates = sigs.map(s => s.retainUntil).filter((d): d is Date => !!d);
   const retainUntil = retainDates.length ? new Date(Math.max(...retainDates.map(d => d.getTime()))) : null;
   const { decision, retentionActive } = decide({ legalHold, protectedRecords, retainUntil });
@@ -105,15 +107,16 @@ export async function assessClient(clientId: string): Promise<Assessment | null>
     retained = ['Signed documents and signature records', 'Evidence certificates and event log', 'Client uploads', 'Documents sent for review', 'Audit trail', 'Drive files'];
     deletable = [];
   } else if (decision === 'FULL_DELETE_ALLOWED') {
-    reason = 'Permanent deletion is available. This client has no signed documents, no signature or approval records, no identity-verification records and no legal hold, so nothing has to be retained.';
+    reason = 'Permanent deletion is available. This client has no signed documents, no signature or approval records, no identity-verification records, no documents uploaded by the client and no legal hold, so nothing has to be retained.';
     retained = ['Staff audit trail (who did what, when — no client content)'];
     deletable = ['Client record and portal memberships', 'Portal logins (deleted, or anonymised where an audit entry refers to them)', 'Invitations and links', 'Document requests', 'Client uploads and their Drive files', 'Documents sent for review and their Drive files', 'The client’s Drive folder (moved to the bin)'];
   } else {
     const n = counts.signatureRequests + counts.identityVerifications;
+    const parts = [n ? `${n} signed or signature record${n === 1 ? '' : 's'}` : '', counts.uploads ? `${counts.uploads} document${counts.uploads === 1 ? '' : 's'} the client uploaded (tax records)` : ''].filter(Boolean).join(' and ');
     const until = retainUntil ? ` until ${fmt(retainUntil)}` : '';
-    reason = retentionActive
-      ? `Permanent deletion is not available because ${n} signed or signature record${n === 1 ? '' : 's'} must be retained${until}. You can archive this client and remove portal access, and you can delete the removable personal data now; the signed documents, evidence and audit records cannot be deleted yet.`
-      : `The retention period for this client’s ${n} signed record${n === 1 ? '' : 's'} has ended and there is no legal hold. This portal never destroys signature evidence itself: archive the client and delete the removable data here; a final purge of the retained evidence is a separate administrator procedure (see the e-sign documentation).`;
+    reason = retentionActive || !n
+      ? `Permanent deletion is not available because ${parts} must be retained${n ? until : ''}. You can archive this client and remove portal access, and you can delete the removable personal data now; the retained records cannot be deleted yet.`
+      : `The retention period for this client’s ${n} signed record${n === 1 ? '' : 's'} has ended and there is no legal hold. This portal never destroys signature evidence or client tax records itself: archive the client and delete the removable data here; a final purge of the retained records is a separate administrator procedure (see the e-sign documentation).`;
     retained = ['Signed documents, signature records and evidence certificates', 'Signature event log and consents', 'Identity-verification records', 'Client uploads (accounting records)', 'Audit trail', 'Drive files for the above'];
     deletable = ['Open signature requests (voided, not deleted)', 'Open document requests', 'Documents sent for review that were never signed, and their Drive files', 'Invitations and links', 'Portal access (logins suspended)'];
   }

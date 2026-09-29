@@ -99,6 +99,18 @@ run('client lifecycle against real PostgreSQL', () => {
     void d;
   });
 
+  it('TEST 2b — a document the client uploaded (tax record) is protected: only partial deletion, upload retained', async () => {
+    const { client, userId } = await makeClient('upload');
+    const fileId = `fake-upload-${stamp}`; fakeDrive.set(fileId, Buffer.from('x'));
+    await db.insert(tables.documents).values({ clientId: client.id, driveFileId: fileId, originalName: 'P60.pdf', storedName: 'P60.pdf', mimeType: 'application/pdf', sizeBytes: 1, uploadedById: userId });
+    const a = (await lc.assessClient(client.id))!;
+    expect(a.decision).toBe('PARTIAL_DELETE_RETENTION_REQUIRED'); expect(a.reason).toMatch(/uploaded/);
+    await expect(lc.deleteClientPermanently(client.id, actor(), 'TEST_RECORD', null)).rejects.toMatchObject({ status: 409 });
+    await lc.minimiseClientData(client.id, actor(), 'ENGAGEMENT_ENDED', null);
+    expect((await db.select().from(tables.documents).where(orm.eq(tables.documents.clientId, client.id))).length).toBe(1);
+    expect(trashed).not.toContain(fileId);
+  });
+
   it('TEST 3 — open signature request: voided with a reason on archive, then only partial deletion is available (events are append-only)', async () => {
     const { client, userId } = await makeClient('open');
     const req = await makeRequest(client.id, userId, 'open-letter');
