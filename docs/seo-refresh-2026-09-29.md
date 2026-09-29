@@ -17,3 +17,11 @@ Key findings: brand query drives clicks; two clusters show at ~2,000+ impression
 Not changed (deliberately): URLs, canonicals, robots, sitemap, navigation, homepage title, Manchester/London titles (Manchester is the best-performing non-home page), glossary/compare pages (already link to the service page).
 
 Monitoring: 7 days — indexing errors only; 28 days — CTR/position on the streamlined service page and the FBAR guide against this baseline; 6–8 weeks — clicks on the two clusters.
+
+## Deployment record — 29 September 2026
+
+- PR #41 (`feat/seo-geo-refresh-2026`, rebased onto main as a single commit, 6 files), squash-merged to main as `e542add` on 29 Sep 2026. Security hardening (#39) and client deletion (#40) were already on main; `middleware.ts` and `next.config.js` were untouched by this change.
+- Preview checks passed: all four pages 200, new titles/H1s, canonicals unchanged, `index, follow`, BreadcrumbList valid (Contact now has one), no invalid JSON-LD, 64 internal links all 200, no console/CSP/hydration/font errors, no horizontal overflow at 390 px, contact form validation and the three office maps working. The Preview's `x-robots-tag: noindex` is Vercel's standard Preview header and is absent on production.
+- Production checks passed: the same four URLs live with the intended changes, no `x-robots-tag`, robots.txt unchanged, sitemap still 200 URLs including all four, 20 sampled sitemap URLs 200 and indexable, homepage canonical/robots unchanged.
+- Search Console (sc-domain:usukaccountants.com) URL Inspection: all four were already indexed; indexing requested on 29 Sep 2026 for /services/us-expat-tax/streamlined-filing, /resources/guides/delinquent-fbar, /about/team and /contact only (content changed on each). No other URLs requested.
+- 28-day review: 27 October 2026 — compare clicks, impressions, CTR, average position and query mix for the Streamlined Filing service page and the Delinquent FBAR guide against the baseline above; check branded/entity visibility after the Team title change.
