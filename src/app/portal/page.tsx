@@ -5,6 +5,9 @@ import { db, tables } from '@/lib/portal/db';
 import UploadButton from '@/components/portal/UploadButton';
 import DeliveryResponseForm from '@/components/portal/DeliveryResponseForm';
 import { DELIVERY_STATUS_LABEL, canClientAccess, canClientRespond, listDeliveriesForClient, listResponsesForClient } from '@/lib/portal/deliveries';
+import { listRequestsForClient } from '@/lib/portal/esign-store';
+import { canClientApprove } from '@/lib/portal/members';
+import { SIG_ACTION_LABEL, SIG_STATUS_LABEL, isOpen, signerIsComplete, signerMayAct, type SigAction } from '@/lib/portal/esign';
 
 export const dynamic = 'force-dynamic';
 
@@ -35,7 +38,29 @@ export default async function Dashboard() {
   const deliveries = (await listDeliveriesForClient(session.clientId)).filter(d => canClientAccess(d.status));
   const awaiting = deliveries.filter(d => canClientRespond(d.status));
   const responses = await listResponsesForClient(session.clientId);
+  const mayApprove = await canClientApprove(session.clientId, session.uid); // view-only contacts see status only
   const myResponse = (deliveryId: string) => responses.find(r => r.deliveryId === deliveryId) ?? null;
+  const sigRequests = await listRequestsForClient(session.clientId);
+  // All signer rows for this client's requests (same client → same isolation boundary), so a sequential
+  // request only shows an action button to the signer whose turn it is.
+  const signerRows = await db.select({ requestId: tables.signatureSigners.requestId, userId: tables.signatureSigners.userId, fullName: tables.signatureSigners.fullName, sequence: tables.signatureSigners.sequence, status: tables.signatureSigners.status })
+    .from(tables.signatureSigners).where(eq(tables.signatureSigners.clientId, session.clientId));
+  const signersOf = (requestId: string) => signerRows.filter(s => s.requestId === requestId);
+  const mine = new Set(signerRows.filter(s => s.userId === session.uid).map(s => s.requestId));
+  const myTurn = (r: { id: string; signingOrder: string; action: SigAction }) => {
+    const me = signersOf(r.id).find(s => s.userId === session.uid);
+    return !!me && !signerIsComplete(r.action, me.status) && signerMayAct(r.signingOrder as 'PARALLEL' | 'SEQUENTIAL', r.action, me, signersOf(r.id));
+  };
+  /** Who a sequential request is waiting on before this user may act (first incomplete earlier signer). */
+  const waitingOn = (r: { id: string; action: SigAction }) => {
+    const me = signersOf(r.id).find(s => s.userId === session.uid);
+    return signersOf(r.id).filter(s => me && s.sequence < me.sequence && !signerIsComplete(r.action, s.status)).sort((a, b) => a.sequence - b.sequence)[0]?.fullName ?? null;
+  };
+  const sigOpenAll = sigRequests.filter(r => isOpen(r.status) && mine.has(r.id));
+  const sigOpen = sigOpenAll.filter(r => myTurn(r));
+  const sigWaiting = sigOpenAll.filter(r => !myTurn(r)); // I am a signer, but it is not (yet / any longer) my turn
+  const sigOtherOpen = sigRequests.filter(r => isOpen(r.status) && !mine.has(r.id)); // another member's request — visible, not actionable
+  const sigDone = sigRequests.filter(r => r.status === 'COMPLETED' && mine.has(r.id));
 
   const docs = await db.select()
     .from(tables.documents)
@@ -55,9 +80,7 @@ export default async function Dashboard() {
             Welcome{client ? `, ${client.displayName.split(' ')[0]}` : ''}
           </h1>
           <p className="mt-1 text-sm text-muted">
-            {open.length === 0 && awaiting.length === 0
-              ? 'Nothing is waiting on you right now.'
-              : [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null].filter(Boolean).join(' · ') + '.'}
+            {(() => { const parts = [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length && mayApprove ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean); return parts.length ? parts.join(' · ') + '.' : 'Nothing is waiting on you right now.'; })()}
           </p>
         </div>
         <form action={doLogout}>
@@ -66,6 +89,52 @@ export default async function Dashboard() {
           </button>
         </form>
       </div>
+
+      {sigOpen.length || sigDone.length || sigOtherOpen.length || sigWaiting.length ? (
+        <section className="mt-10">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents requiring your action</h2>
+          <div className="mt-3 space-y-2">
+            {sigOpen.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing to approve or sign right now.</p> : sigOpen.map(r => (
+              <div key={r.id} className="rounded-2xl border border-gold/40 bg-white px-5 py-4">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="text-sm font-semibold text-ink">{r.title}</p>
+                    <p className="text-xs text-muted">Sent {r.sentAt?.toLocaleDateString('en-GB') ?? ''} · {SIG_STATUS_LABEL[r.status]}{r.dueAt ? ` · please complete by ${r.dueAt.toLocaleDateString('en-GB')}` : ''}</p>
+                  </div>
+                  <a href={`/portal/sign/${r.id}`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white hover:bg-ink">{SIG_ACTION_LABEL[r.action]}</a>
+                </div>
+              </div>
+            ))}
+            {sigWaiting.map(r => {
+              const who = waitingOn(r);
+              const done = signersOf(r.id).find(s => s.userId === session.uid && signerIsComplete(r.action, s.status));
+              return (
+                <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                  <p className="font-semibold text-ink">{r.title}</p>
+                  <p className="text-xs text-muted">{done ? 'You have completed your part · waiting for the other signer(s)' : who ? `Waiting for ${who} to complete their part first — we will email you when it is your turn` : 'Not yet your turn'} · {SIG_STATUS_LABEL[r.status]}</p>
+                </div>
+              );
+            })}
+            {sigOtherOpen.map(r => (
+              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                <p className="font-semibold text-ink">{r.title}</p>
+                <p className="text-xs text-muted">Being handled by another person on your account · {SIG_STATUS_LABEL[r.status]}</p>
+              </div>
+            ))}
+            {sigDone.map(r => (
+              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <p><span className="font-semibold text-ink">{r.title}</span> <span className="text-xs text-muted">· completed {r.completedAt?.toLocaleDateString('en-GB') ?? ''}</span></p>
+                  <div className="flex gap-2">
+                    {r.sealedDriveFileId ? <a href={`/api/portal/esign/requests/${r.id}/signed?download=1`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">{r.action === 'APPROVAL' ? 'Approved copy' : 'Signed copy'}</a> : null}
+                    <a href={`/api/portal/esign/requests/${r.id}/evidence?format=pdf`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">{r.action === 'APPROVAL' ? 'Approval record' : 'Signature record'}</a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents requested</h2>
       <div className="mt-3 space-y-3">
@@ -109,8 +178,8 @@ export default async function Dashboard() {
                 <a href={`/api/portal/deliveries/${d.id}/file`} target="_blank" rel="noopener" className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink">View document</a>
                 <a href={`/api/portal/deliveries/${d.id}/file?download=1`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Download</a>
               </div>
-              {canClientRespond(d.status) ? <DeliveryResponseForm deliveryId={d.id} /> : resp ? (
-                <p className="mt-3 text-xs text-muted">You {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {resp.createdAt.toLocaleDateString('en-GB')}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
+              {canClientRespond(d.status) ? (mayApprove ? <DeliveryResponseForm deliveryId={d.id} /> : <p className="mt-3 text-xs text-muted">Awaiting the account holder&apos;s response. Your access is view-only.</p>) : resp ? (
+                <p className="mt-3 text-xs text-muted">{resp.respondedById === session.uid ? 'You' : 'Another person on your account'} {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {resp.createdAt.toLocaleDateString('en-GB')}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
               ) : null}
             </div>
           );

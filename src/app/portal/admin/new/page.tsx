@@ -4,6 +4,7 @@ import { sql } from 'drizzle-orm';
 import { requireRole } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
 import { createInvitation } from '@/lib/portal/invite';
+import { ensurePrimaryMembership } from '@/lib/portal/members';
 import { sendPortalEmail, inviteEmailHtml } from '@/lib/portal/email';
 import { audit } from '@/lib/portal/audit';
 
@@ -31,6 +32,7 @@ export default async function NewClientPage() {
       clientRef, displayName: [firstName, lastName].filter(Boolean).join(' '), userId: user.id,
     }).returning({ id: tables.clients.id });
 
+    await ensurePrimaryMembership(client.id, user.id, s.uid);
     const raw = await createInvitation(user.id);
     const h = await headers();
     const host = h.get('x-forwarded-host') ?? h.get('host');

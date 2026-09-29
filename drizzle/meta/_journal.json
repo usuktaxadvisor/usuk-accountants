@@ -15,6 +15,20 @@
       "when": 1789501443992,
       "tag": "0001_portal_deliveries",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790549268158,
+      "tag": "0002_portal_esign",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1790561422602,
+      "tag": "0003_client_members",
+      "breakpoints": true
     }
   ]
 }

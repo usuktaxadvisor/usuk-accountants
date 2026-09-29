@@ -31,9 +31,14 @@ export default async function AdminHome() {
             {pendingReview.length === 0 ? 'No uploads awaiting review.' : `${pendingReview.length} upload${pendingReview.length === 1 ? '' : 's'} awaiting review.`}
           </p>
         </div>
-        <Link href="/portal/admin/new" className="rounded-xl bg-navy-ink px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink">
-          New client
-        </Link>
+        <div className="flex gap-2">
+          <Link href="/portal/admin/esign" className="rounded-xl border border-mist px-4 py-2.5 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">
+            Signatures &amp; approvals
+          </Link>
+          <Link href="/portal/admin/new" className="rounded-xl bg-navy-ink px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-ink">
+            New client
+          </Link>
+        </div>
       </div>
       <div className="mt-6 space-y-2">
         {rows.length === 0 ? (
