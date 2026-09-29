@@ -19,7 +19,7 @@ const FieldSchema = z.object({
   type: z.enum(['SIGNATURE', 'INITIALS', 'DATE', 'NAME', 'CHECKBOX', 'ACKNOWLEDGEMENT']),
   page: z.number().int().min(0).max(9999), xPct: z.number().int().min(0).max(10000).default(0), yPct: z.number().int().min(0).max(10000).default(0),
   wPct: z.number().int().min(100).max(10000).default(2500), hPct: z.number().int().min(100).max(10000).default(600),
-  label: z.string().max(120).nullable().default(null), required: z.boolean().default(true),
+  label: z.string().max(300).nullable().default(null), required: z.boolean().default(true),
 });
 const Body = z.object({
   clientId: z.string().uuid(),
@@ -46,7 +46,13 @@ export async function POST(req: Request) {
   if (!rateLimit(`esign:create:${session.uid}`, 60, 10 * 60_000)) return NextResponse.json({ error: 'Too many requests — please wait a few minutes.' }, { status: 429 });
 
   let body: z.infer<typeof Body>;
-  try { body = Body.parse(await req.json()); } catch { return NextResponse.json({ error: 'Invalid request' }, { status: 400 }); }
+  try { body = Body.parse(await req.json()); }
+  catch (e) {
+    const issue = e instanceof z.ZodError ? e.issues[0] : null;
+    const field = issue?.path?.join('.') ?? '';
+    const msg = /label/.test(field) ? 'The acknowledgement text must be 300 characters or fewer.' : /title/.test(field) ? 'Please give the request a title (up to 160 characters).' : /documents/.test(field) ? 'Tick at least one document.' : 'Invalid request';
+    return NextResponse.json({ error: msg }, { status: 400 });
+  }
 
   const [client] = await db.select().from(tables.clients).where(eq(tables.clients.id, body.clientId)).limit(1);
   if (!client) return NextResponse.json({ error: 'Not found' }, { status: 404 });
