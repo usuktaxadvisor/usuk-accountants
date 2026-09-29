@@ -6,7 +6,7 @@ import { credentialCodesFor } from '@/lib/credentials-data';
 import { IconArrowRight } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
-  title: 'Our Team',
+  title: 'Our Team — US & UK Tax Specialists, Enrolled Agents and ACCA Accountants',
   description:
     'Meet the cross-border tax specialists at US UK Accountants — a named team covering both US and UK tax, with every filing prepared and dual-reviewed across jurisdictions.',
   alternates: { canonical: 'https://www.usukaccountants.com/about/team' },

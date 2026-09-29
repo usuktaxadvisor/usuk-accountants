@@ -5,6 +5,7 @@ import {
 } from '@/components/library';
 import { IconPhone, IconArrowRight } from '@/components/ui/icons';
 import { SITE, staffedOffices } from '@/lib/site-data';
+import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -93,6 +94,7 @@ export default async function ContactPage({
       <Header />
       <main>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([{ label: 'Contact', href: '/contact' }])) }} />
 
         <header className="bg-navy-ink py-16 md:py-20">
           <Container>
