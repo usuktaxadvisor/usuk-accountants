@@ -1,6 +1,6 @@
 ---
 title: "IRS Streamlined Filing: How to Catch Up on US Taxes from Abroad"
-description: "Behind on US tax returns while living abroad? The IRS Streamlined Foreign Offshore Procedures let non-wilful filers catch up — often penalty-free. We explain who qualifies, what's required, and the mistakes to avoid."
+description: "Behind on US tax returns while living abroad? The IRS Streamlined Foreign Offshore Procedures let non-wilful filers catch up without the usual late-filing penalties, where they qualify. We explain who qualifies, what's required, and the mistakes to avoid."
 date: "2026-07-10"
 author: "sam-h"
 reviewedBy: "sal-t"

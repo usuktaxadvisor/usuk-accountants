@@ -82,6 +82,33 @@ export default function DelinquentFbarGuidePage() {
           />
         </Container>
       </Section>
+      <ProseBlock eyebrow="Reasonable cause" title="What the 'reason for late filing' should say">
+        <p>
+          There is no separate cover letter to post. When a late FBAR is e-filed through FinCEN&apos;s BSA
+          E-Filing system, the form itself asks for the reason it is late: you choose from a list (for example
+          that you did not know you had to file) or select &ldquo;Other&rdquo; and give a short written
+          explanation. Under the Delinquent FBAR Submission Procedures, that explanation is the whole of what the
+          IRS asks for, provided the income from the accounts was reported on your returns and any tax was paid.
+        </p>
+        <p>
+          Keep it factual and brief: what the accounts are, why the filing was missed (a genuine lack of
+          awareness is the usual reason), and that you have now filed every year that was due. Do not argue the
+          law, and do not leave out a year to make the picture look tidier. The IRS has said it will not impose
+          a penalty in these circumstances, but a statement that is inaccurate or incomplete removes that
+          protection.
+        </p>
+      </ProseBlock>
+      <ProseBlock eyebrow="A common question" title="Should you talk to an accountant before filing a late FBAR?" tone="porcelain">
+        <p>
+          If your only issue is missed FBARs and your returns reported all the income, many people file the late
+          FBARs themselves using the steps below. Speak to a cross-border specialist first if any of these apply:
+          income from the accounts was not on your returns (the delinquent procedure is then unavailable and
+          <Link href="/services/us-expat-tax/streamlined-filing"> Streamlined Filing</Link> is the route); you
+          are unsure which years or accounts count, including UK pensions and ISAs; the balances were large; or
+          the IRS or FinCEN has already written to you. Getting the route wrong is the mistake that costs money,
+          not the filing itself.
+        </p>
+      </ProseBlock>
       <Section>
         <Container>
           <ProcessSteps

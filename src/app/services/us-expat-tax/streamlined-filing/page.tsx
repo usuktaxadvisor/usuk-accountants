@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/streamlined-filing';
 
 export const metadata: Metadata = {
-  title: 'IRS Streamlined Filing for Americans in the UK — Catch Up Penalty-Free',
+  title: 'Streamlined Filing Service for Americans in the UK — IRS Catch-Up, Fixed Fee',
   description:
-    "Behind on US taxes? The IRS Streamlined Filing Compliance Procedures let non-willful Americans abroad catch up — typically 3 years of returns and 6 years of FBARs — without penalties. We handle the whole process.",
+    "Behind on US taxes? Our Streamlined Filing service prepares the full IRS Streamlined Foreign Offshore package for non-wilful Americans in the UK — three years of returns, six years of FBARs and the certification — for a fixed fee, handled entirely by email.",
   alternates: { canonical: URL },
 };
 
@@ -21,7 +21,7 @@ const reviewedBy = authors.find((a) => a.slug === 'briana')!;
 const faqs = [
   {
     q: 'Who qualifies for the Streamlined Filing Compliance Procedures?',
-    a: 'US taxpayers whose failure to file was non-willful — meaning a genuine misunderstanding rather than deliberate evasion. Americans living abroad use the Streamlined Foreign Offshore Procedures, which carry no penalty when filed correctly and the eligibility conditions are met.',
+    a: 'US taxpayers whose failure to file was non-willful — meaning a genuine misunderstanding rather than deliberate evasion. Americans living abroad use the Streamlined Foreign Offshore Procedures, under which the IRS does not impose failure-to-file or FBAR penalties, provided the eligibility conditions are met and the package is complete and accurate.',
   },
   {
     q: 'How many years do I need to file under Streamlined?',
@@ -46,8 +46,8 @@ export default function StreamlinedFiling() {
     <PageShell
       url={URL}
       eyebrow="US Expat Tax · Streamlined Filing"
-      title="Catch up on US taxes — without penalties"
-      answer="The IRS Streamlined Filing Compliance Procedures let Americans abroad whose non-compliance was non-willful catch up penalty-free — typically three years of tax returns and six years of FBARs, plus a non-willful certification. It is the standard route back into compliance, and we handle the entire process for you."
+      title="Streamlined Filing service for Americans in the UK"
+      answer="The IRS Streamlined Filing Compliance Procedures let Americans abroad whose non-compliance was non-wilful catch up under a procedure that waives the usual late-filing penalties where the conditions are met — typically three years of tax returns and six years of FBARs, plus a non-willful certification. It is the standard route back into compliance, and we handle the entire process for you."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -106,7 +106,7 @@ export default function StreamlinedFiling() {
         <Container>
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display text-2xl font-semibold text-ink">Streamlined Foreign vs Streamlined Domestic</h2>
-            <p className="mt-3 text-muted">There are two Streamlined tracks. Which one applies depends chiefly on whether you meet the non-residency test — broadly, whether you have been living outside the US. Most Americans in the UK fall under the Foreign procedure, which is generally penalty-free.</p>
+            <p className="mt-3 text-muted">There are two Streamlined tracks. Which one applies depends chiefly on whether you meet the non-residency test — broadly, whether you have been living outside the US. Most Americans in the UK fall under the Foreign procedure, under which the IRS does not charge the failure-to-file or FBAR penalties where the eligibility conditions are met.</p>
           </div>
           <div className="mx-auto mt-8 max-w-3xl">
             <ComparisonTable
