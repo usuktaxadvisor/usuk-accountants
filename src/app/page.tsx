@@ -14,7 +14,7 @@ export default function Home() {
       <JsonLd schema={[faqSchema(siteFaqs)]} />
       <Header />
       <main>
-        <Hero />
+        <Hero primaryCta={{ label: 'Contact us', href: '/contact' }} />
         <TrustBar />
         <Pillars />
         <Calculator />
@@ -42,8 +42,9 @@ export default function Home() {
         <FAQSection />
         <CTASection
           title="Ready to simplify your US–UK taxes?"
-          intro="Book a £350 30-minute consultation — a clear view of where you stand and what comes next. Quick questions? Email us free."
+          intro="Tell us about your situation by email and we'll come back with a clear view of where you stand and what comes next."
           tone="navy"
+          primary={{ label: 'Contact us', href: '/contact' }}
           secondary={{ label: 'Call us', href: `tel:${PHONE_UK_TEL}` }}
           showPhone
         />
