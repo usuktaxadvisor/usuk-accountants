@@ -81,10 +81,10 @@ export default function Header() {
               <IconPhone className="h-4 w-4 text-gold" /> Call
             </Link>
             <Link
-              href="/book"
+              href="/contact"
               className="hidden whitespace-nowrap rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink shadow-e1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold sm:inline-block"
             >
-              Book a Consultation
+              Contact us
             </Link>
             <button
               className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-mist lg:hidden"
@@ -138,11 +138,11 @@ export default function Header() {
             ))}
           </nav>
           <Link
-            href="/book"
+            href="/contact"
             onClick={() => setOpen(false)}
             className="mt-6 block rounded-lg bg-gradient-to-r from-gold to-gold-champagne py-3.5 text-center font-semibold text-navy-ink"
           >
-            Book a Consultation
+            Contact us
           </Link>
           <div className="mt-4 flex flex-col gap-2 text-sm text-muted">
             <span className="inline-flex items-center gap-2"><span aria-hidden>🇬🇧</span> {PHONE_UK}</span>
