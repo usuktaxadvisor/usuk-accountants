@@ -67,7 +67,7 @@ export default function Footer() {
           </p>
           <div className="mt-6 flex flex-col items-center justify-between gap-4 text-sm text-softwhite/60 md:flex-row">
             <div className="flex items-center gap-4">
-              <p>© {new Date().getFullYear()} US UK Accountants Ltd. Registered in England &amp; Wales, Company No. 17336015. All rights reserved.</p>
+              <p>© {new Date().getFullYear()} US UK Accountants</p>
               <div className="flex items-center gap-3">
                 {SOCIALS.map(({ label, href, Icon }) => (
                   <a
