@@ -12,9 +12,9 @@ interface HeroProps {
 }
 
 export function Hero({
-  eyebrow = 'International Tax & Accounting Advisors',
-  title = 'Tax and accounting expertise for life between the US and the UK.',
-  intro = 'One advisory firm for your US tax, your UK accounts, and the cross-border decisions in between — for expats, dual citizens, families and businesses on both sides of the Atlantic.',
+  eyebrow = 'US & UK Tax Return Specialists',
+  title = 'US and UK tax returns, prepared by one team.',
+  intro = 'US tax returns, UK Self Assessment, FBAR and Form 8938 reporting, Streamlined catch-up filings and W-8BEN forms — prepared and filed by one firm, with the cross-border advice in between. For Americans in the UK, Britons with US ties, dual citizens and businesses on both sides of the Atlantic.',
   chips = defaultChips,
   primaryCta = { label: 'Book a Consultation', href: '/book' },
   secondaryCta = { label: 'Try the Double-Tax Estimator', href: '#calculator' },
@@ -99,7 +99,7 @@ export function Hero({
           <div className="rounded-2xl border border-navy-slate bg-navy-royal/50 p-7 backdrop-blur-sm">
             <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">What we handle, both sides</p>
             <div className="mt-5 grid grid-cols-2 gap-3">
-              {['US Tax Returns', 'UK Self Assessment', 'FBAR & FATCA', 'Company Accounts', 'Streamlined Filing', 'Treaty Planning'].map((item) => (
+              {['US Tax Returns', 'UK Self Assessment', 'FBAR & Form 8938', 'Streamlined Filing', 'W-8BEN & US Forms', 'Cross-Border Returns'].map((item) => (
                 <div key={item} className="rounded-lg border border-navy-slate bg-navy-ink/60 px-4 py-3 text-sm font-medium text-softwhite lg:px-3 xl:px-4">
                   {item}
                 </div>
@@ -107,10 +107,10 @@ export function Hero({
             </div>
             <div className="mt-6 flex items-center justify-between rounded-lg bg-navy-ink/80 px-5 py-4">
               <div>
-                <p className="text-xs text-softwhite/60">Private consultation</p>
-                <p className="font-display text-2xl font-semibold text-gold-champagne">£350 · 30 minutes</p>
+                <p className="text-xs text-softwhite/60">Tax return preparation</p>
+                <p className="font-display text-2xl font-semibold text-gold-champagne">Fixed fees, quoted in writing</p>
               </div>
-              <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">No double tax</span>
+              <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">US · UK · both</span>
             </div>
           </div>
         </div>

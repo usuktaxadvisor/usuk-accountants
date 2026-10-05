@@ -8,7 +8,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/self-assessment';
 
 export const metadata: Metadata = {
-  title: 'Self Assessment Tax Returns — UK Personal Tax Return Help',
+  title: 'UK Self Assessment Tax Returns — including US Citizens and Green Card Holders',
   description:
     'Who needs to file a UK Self Assessment tax return, the 31 January deadline, payments on account, common mistakes, and how we handle it — including for those with US filing obligations alongside.',
   alternates: { canonical: URL },

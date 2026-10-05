@@ -19,7 +19,7 @@ const author = authors.find((a) => a.slug === 'sam-h')!;
 const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 
 const usServices = services.filter((s) =>
-  ['us-tax-returns', 'fbar-filing', 'fatca', 'streamlined-filing', 'feie', 'foreign-tax-credit', 'us-uk-tax-treaty']
+  ['us-tax-returns', 'fbar-filing', 'fatca', 'streamlined-filing', 'w-8ben', 'feie', 'foreign-tax-credit', 'us-uk-tax-treaty']
     .some((k) => s.href?.includes(k)),
 );
 
