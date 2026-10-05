@@ -201,6 +201,7 @@ export default function FbarFiling() {
       <RelatedLinks
         title="Related areas we handle"
         links={[
+          { label: 'FBAR vs Form 8938', href: '/resources/blog/fbar-vs-fatca-form-8938-uk-expats', description: 'Which reports you need, side by side' },
           {
             label: 'FBAR vs Form 8938',
             href: '/resources/compare/fbar-vs-form-8938',

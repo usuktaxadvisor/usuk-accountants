@@ -260,6 +260,7 @@ export const megaMenuPanels: MegaMenuPanel[] = [
       { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing' },
       { label: 'FATCA Compliance', href: '/services/us-expat-tax/fatca-compliance' },
       { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' },
+      { label: 'W-8BEN & US Forms', href: '/services/us-expat-tax/w-8ben-us-withholding-forms' },
       { label: 'FEIE', href: '/services/us-expat-tax/foreign-earned-income-exclusion' },
       { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit' },
       { label: 'US–UK Treaty', href: '/services/us-expat-tax/us-uk-tax-treaty' },
@@ -363,9 +364,10 @@ export const legalLinks: LinkItem[] = [
    ============================================================ */
 export const services: ServiceItem[] = [
   { icon: IconGlobeDoc, title: 'US Tax Returns', description: 'Federal and state filing for Americans abroad, done right and on time.', href: '/services/us-expat-tax/us-tax-returns' },
-  { icon: IconShield, title: 'FBAR & FATCA', description: 'Foreign account and asset reporting kept fully compliant.', href: '/services/us-expat-tax/fbar-filing' },
-  { icon: IconPlanning, title: 'Streamlined Filing', description: 'Catch up on missed US returns penalty-free.', href: '/services/us-expat-tax/streamlined-filing' },
-  { icon: IconBank, title: 'UK Self Assessment', description: 'Self-employed, landlord and high-earner returns to HMRC.', href: '/services/uk-accounting/self-assessment' },
+  { icon: IconGlobeDoc, title: 'W-8BEN & US Withholding Forms', description: 'W-8BEN, W-8BEN-E and W-9 completed correctly, with treaty rates applied where they apply.', href: '/services/us-expat-tax/w-8ben-us-withholding-forms' },
+  { icon: IconShield, title: 'FBAR & Form 8938', description: 'FinCEN 114 and FATCA reporting for UK accounts, ISAs and pensions, prepared and filed each year.', href: '/services/us-expat-tax/fbar-filing' },
+  { icon: IconPlanning, title: 'Streamlined Filing', description: 'Catch up on missed US returns and FBARs under the IRS Streamlined Foreign Offshore Procedures.', href: '/services/us-expat-tax/streamlined-filing' },
+  { icon: IconBank, title: 'UK Self Assessment', description: 'HMRC returns for the self-employed, landlords, high earners and US citizens living in the UK.', href: '/services/uk-accounting/self-assessment' },
   { icon: IconCalculator, title: 'Company Accounts', description: 'Year-end accounts, Corporation Tax and Companies House filing.', href: '/services/uk-accounting/company-accounts' },
   { icon: IconTreaty, title: 'Treaty & Tax Planning', description: 'Structure income and assets to avoid double taxation.', href: '/services/us-expat-tax/us-uk-tax-treaty' },
   { icon: IconTreaty, title: 'Cross-Border Tax Planning', description: 'Coordinate income and reliefs across both systems before you file.', href: '/services/cross-border-advisory/cross-border-tax-planning' },
@@ -399,9 +401,13 @@ export const stats: StatItem[] = [
 export const faqs: FaqItem[] = [
   { q: 'Do US citizens living in the UK have to file a US tax return?', a: 'Yes. US citizens and green card holders must file a US federal tax return every year regardless of where they live, reporting worldwide income. Living in the UK does not remove this obligation — but reliefs like the Foreign Earned Income Exclusion and Foreign Tax Credit usually prevent you from being taxed twice.' },
   { q: 'Can I be taxed twice on the same income in the US and the UK?', a: 'Generally no. The US–UK tax treaty, combined with the Foreign Tax Credit and Foreign Earned Income Exclusion, is designed to prevent double taxation. Most clients legally owe tax in only one jurisdiction on a given income source when their filings are structured correctly.' },
-  { q: 'What is the IRS Streamlined Filing Procedure?', a: 'The Streamlined Filing Compliance Procedure lets US taxpayers who were unaware of their obligations catch up penalty-free. It typically requires three years of tax returns and six years of FBARs, plus a statement certifying the failure to file was non-wilful.' },
+  { q: 'What is the IRS Streamlined Filing Procedure?', a: 'The Streamlined Foreign Offshore Procedures let US taxpayers living abroad who were unaware of their obligations catch up without the usual late-filing penalties, where they qualify. It typically requires three years of tax returns and six years of FBARs, plus a signed statement that the failure to file was non-wilful.' },
   { q: 'Do I need to file an FBAR if I live in the UK?', a: 'If you are a US person and the combined balance of your non-US financial accounts exceeds $10,000 at any point in the year, you must file an FBAR (FinCEN Form 114). This includes UK current accounts, ISAs, pensions and joint accounts.' },
   { q: 'Can one firm really handle both my US and UK taxes?', a: 'Yes — that is exactly what we specialise in. Rather than coordinating a UK accountant and a US preparer who never speak to each other, our team handles both sides together, so your treaty positions, credits and filings line up across jurisdictions.' },
+  { q: 'Do I need Form 8938 as well as an FBAR?', a: 'Often, yes. They are separate reports with different thresholds. The FBAR (FinCEN Form 114) is required once your non-US accounts exceed $10,000 combined. Form 8938 is filed with your US tax return under FATCA and applies above higher thresholds — for an unmarried person living in the UK, $200,000 at year-end or $300,000 at any time. Filing one does not satisfy the other.' },
+  { q: 'Do Americans living in the UK need a UK tax return?', a: 'Not always. Most UK employees are taxed through PAYE and need no return. A UK Self Assessment return is required where you are self-employed, a landlord, a higher earner with untaxed income, or need to claim reliefs such as split-year treatment or the Foreign Income and Gains regime. We check which applies and prepare the return alongside your US filing.' },
+  { q: 'What is Form W-8BEN?', a: 'Form W-8BEN is the IRS form a non-US individual gives to a US payer — a broker, a client, a publisher — to confirm they are not a US person and to claim the reduced US withholding rate under the US–UK tax treaty. Companies use Form W-8BEN-E. US citizens cannot use it: they give Form W-9 instead. Which form applies depends on who you are and what the income is.' },
+  { q: 'What happens if I have not filed US tax returns for several years?', a: 'You are not alone, and there is an orderly route back. If the failure was non-wilful and you live abroad, the IRS Streamlined Foreign Offshore Procedures typically require three years of returns and six years of FBARs. We confirm which years and forms apply before anything is prepared, so you know the full picture and the fixed fee first.' },
 ];
 
 /** GENUINE testimonials only. Empty until real, attributable testimonials exist. Do NOT invent. */

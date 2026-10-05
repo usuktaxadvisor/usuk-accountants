@@ -195,6 +195,7 @@ export default function FatcaCompliance() {
       <RelatedLinks
         title="Further reading"
         links={[
+          { label: 'FBAR vs Form 8938', href: '/resources/blog/fbar-vs-fatca-form-8938-uk-expats', description: 'Thresholds, filers and deadlines compared' },
           {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',

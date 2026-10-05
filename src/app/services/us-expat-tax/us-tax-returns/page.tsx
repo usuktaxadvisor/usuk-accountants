@@ -191,6 +191,7 @@ export default function UsTaxReturns() {
         title="Related areas we handle"
         links={[
           { label: 'Foreign Tax Credit', href: '/services/us-expat-tax/foreign-tax-credit', description: 'Offset US tax with UK tax paid' },
+          { label: 'W-8BEN, W-8BEN-E or W-9?', href: '/services/us-expat-tax/w-8ben-us-withholding-forms', description: 'US citizens give a W-9; the right form for US income' },
           { label: 'FEIE', href: '/services/us-expat-tax/foreign-earned-income-exclusion', description: 'Exclude foreign earned income' },
           { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing', description: 'Report foreign accounts over $10,000' },
           { label: 'FATCA Compliance', href: '/services/us-expat-tax/fatca-compliance', description: 'Report foreign assets on Form 8938' },

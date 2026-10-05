@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/uk-accounting/startup-accounting', '/services/us-expat-tax',
     '/services/us-expat-tax/streamlined-filing',
     '/services/us-expat-tax/fbar-filing',
+    '/services/us-expat-tax/w-8ben-us-withholding-forms',
     '/services/us-expat-tax/foreign-tax-credit',
     '/services/cross-border-advisory',
     '/services/cross-border-advisory/cross-border-tax-planning',
