@@ -126,7 +126,8 @@ export const SITE = {
   sameAs: [
     { label: 'Instagram', href: 'https://www.instagram.com/usukaccountants/' },
     { label: 'Pinterest', href: 'https://uk.pinterest.com/usukaccountants/' },
-    { label: 'LinkedIn', href: '#' },
+    { label: 'Reddit', href: 'https://www.reddit.com/user/USUkaccountants/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/company/usukaccountants/' },
     { label: 'Google Business Profile', href: '#' },
     { label: 'Trustpilot', href: '#' },
   ],
