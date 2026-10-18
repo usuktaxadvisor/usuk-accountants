@@ -221,7 +221,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     short:
       'The US–UK income tax treaty allocates taxing rights over cross-border income (wages, pensions, dividends, business profits) between the two countries and provides mechanisms to relieve double taxation. It is separate from the estate and gift tax treaty.',
     long:
-      'The income tax treaty sets rules for which country taxes particular income first and how relief is given, covering pensions, dividends, interest, royalties, employment, and business profits. For US citizens, the treaty saving clause preserves the US right to tax its citizens on worldwide income, which limits some treaty benefits and is why claims often require Form 8833. A separate 1980 treaty governs estate and gift tax.',
+      'The income tax treaty sets rules for which country taxes particular income first and how relief is given, covering pensions, dividends, interest, royalties, employment, and business profits. For US citizens, the treaty saving clause preserves the US right to tax its citizens on worldwide income, which limits some treaty benefits and is why claims often require Form 8833. A separate 1978 treaty governs estate and gift tax.',
     category: 'Cross-Border',
     related: [
       { label: 'Compare: Foreign Tax Credit vs US–UK Tax Treaty', href: '/resources/compare/foreign-tax-credit-vs-tax-treaty' },
@@ -321,7 +321,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'us-uk-estate-gift-tax-treaty',
     term: 'US–UK Estate and Gift Tax Treaty',
     short:
-      'A separate 1980 treaty (distinct from the income tax treaty) that allocates estate, gift, and inheritance tax rights between the US and UK using treaty-domicile tie-breakers. It survived the UK 2025 inheritance tax reforms.',
+      'A separate treaty signed in 1978 and in force since 1979 (distinct from the income tax treaty) that allocates estate, gift, and inheritance tax rights between the US and UK using treaty-domicile tie-breakers. It survived the UK 2025 inheritance tax reforms.',
     long:
       'This treaty governs death and gift taxes, not income. It uses a treaty-specific concept of domicile to assign primary taxing rights and provide credits, preventing the same estate being fully taxed by both countries. For a US citizen who is not also a UK national, it can limit UK exposure and even shorten the post-2025 departure tail, though UK real estate generally stays within UK inheritance tax.',
     category: 'Property & Estate',
@@ -473,7 +473,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'Delinquent FBAR',
     expansion: 'Delinquent Report of Foreign Bank and Financial Accounts',
     short: 'An FBAR (FinCEN Form 114) that was required in a prior year but never filed by the deadline.',
-    long: 'A delinquent FBAR is a FinCEN Form 114 that should have been filed for a past year but was not. Late FBARs are e-filed through the FinCEN BSA E-Filing System with a stated reason for filing late. Until 1 July 2026 the IRS published Delinquent FBAR Submission Procedures promising no penalty where the related income had been reported and tax paid; that page was withdrawn, and the IRS FBAR page (updated 30 July 2026) now says a late FBAR may attract a penalty depending on the facts and that late reports should be filed as soon as possible. Reasonable-cause relief and the Streamlined procedures remain available.',
+    long: 'A delinquent FBAR is a FinCEN Form 114 that should have been filed for a past year but was not. Late FBARs are e-filed through the FinCEN BSA E-Filing System with a stated reason for filing late. Until mid-2026 the IRS published Delinquent FBAR Submission Procedures promising no penalty where the related income had been reported and tax paid; that page was withdrawn, and the IRS FBAR page (updated 30 July 2026) now says a late FBAR may attract a penalty depending on the facts and that late reports should be filed as soon as possible. Reasonable-cause relief and the Streamlined procedures remain available.',
     category: 'Reporting',
     related: [
       { label: 'Compare: Streamlined Filing vs Delinquent FBAR', href: '/resources/compare/streamlined-filing-vs-delinquent-fbar' },
@@ -496,7 +496,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'reasonable-cause',
     term: 'Reasonable Cause',
     short: 'A good-faith, non-willful explanation that can support penalty relief for late filings.',
-    long: 'Reasonable cause is the standard the IRS applies when deciding whether to abate penalties for a late or missed filing. It requires showing the failure was due to circumstances beyond the taxpayer control and that ordinary business care and prudence were exercised. Since the IRS withdrew its Delinquent FBAR Submission Procedures in July 2026, a documented reasonable-cause position is what supports a late FBAR filed on its own.',
+    long: 'Reasonable cause is the standard the IRS applies when deciding whether to abate penalties for a late or missed filing. It requires showing the failure was due to circumstances beyond the taxpayer control and that ordinary business care and prudence were exercised. Since the IRS removed its Delinquent FBAR Submission Procedures page in July 2026, a documented reasonable-cause position is what supports a late FBAR filed on its own.',
     category: 'Reporting',
     related: [
       { label: 'Delinquent FBAR', href: '/resources/glossary/delinquent-fbar' },
@@ -755,8 +755,8 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     slug: 'delinquent-fbar-submission',
     term: 'Delinquent FBAR Submission Procedures',
-    short: 'A former IRS route (2014 to 1 July 2026) for taxpayers who had reported their income but missed the FBAR: late reports were e-filed with a reason for the delay and the IRS said it would not impose a penalty. The page has been withdrawn.',
-    long: 'The Delinquent FBAR Submission Procedures addressed a narrow situation: US returns filed, income correctly reported, but the FBAR (FinCEN Form 114) not filed. Overdue reports were submitted through the BSA E-Filing System with a stated reason for filing late, and the IRS said it would not impose a penalty where the income from the accounts had been properly reported and tax paid. The IRS removed the page on 1 July 2026 without announcement. Late FBARs can still be filed the same way, and the Internal Revenue Manual (IRM 4.26.16) still directs examiners not to assert a penalty where a late report was non-willful and due to reasonable cause, but there is no longer a published safe harbour. Taxpayers with unreported income should look to the Streamlined Filing Compliance Procedures instead.',
+    short: 'A former IRS route (2014 to mid-2026) for taxpayers who had reported their income but missed the FBAR: late reports were e-filed with a reason for the delay and the IRS said it would not impose a penalty. The page has been withdrawn.',
+    long: 'The Delinquent FBAR Submission Procedures addressed a narrow situation: US returns filed, income correctly reported, but the FBAR (FinCEN Form 114) not filed. Overdue reports were submitted through the BSA E-Filing System with a stated reason for filing late, and the IRS said it would not impose a penalty where the income from the accounts had been properly reported and tax paid. The page was removed from irs.gov in late June or early July 2026 without any IRS announcement (it now returns "Page Not Found"; the last archived live copy is dated 23 June 2026, and practitioners reported the removal from 2 July 2026). Late FBARs can still be filed the same way, and the Internal Revenue Manual (IRM 4.26.16) still directs examiners not to assert a penalty where a late report was non-willful and due to reasonable cause, but there is no longer a published safe harbour. Taxpayers with unreported income should look to the Streamlined Filing Compliance Procedures instead.',
     category: 'Reporting',
     related: [
       { label: 'Streamlined Filing', href: '/resources/glossary/streamlined-filing' },

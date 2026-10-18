@@ -28,7 +28,7 @@ export const reviewSummary = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: 'streamlined-filing-six-years',
-    title: 'Six years of missed US returns, resolved penalty-free',
+    title: 'Six years of missed US returns, brought up to date',
     client: 'US citizen, 12 years in the UK',
     flag: '\u{1F1FA}\u{1F1F8}',
     challenge: 'A US citizen living in London discovered they had never filed US returns or FBARs, and feared substantial penalties on years of unreported UK income and accounts.',
@@ -38,12 +38,8 @@ export const caseStudies: CaseStudy[] = [
       'Applied the Foreign Tax Credit to offset UK tax already paid',
       'Drafted the non-wilful certification statement',
     ],
-    outcome: 'Brought fully compliant with zero penalties, and no additional US tax owed thanks to treaty and FTC positions.',
-    metrics: [
-      { value: '\u00A30', label: 'Penalties paid' },
-      { value: '6 yrs', label: 'FBARs filed' },
-      { value: '100%', label: 'Compliant' },
-    ],
+    outcome: 'Returns and FBARs brought fully up to date through the Streamlined Foreign Offshore Procedures, with Foreign Tax Credit and treaty positions applied so that the US tax due reflected the UK tax already paid.',
+    metrics: [],
     services: [
       { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing' },
       { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing' },
@@ -61,12 +57,8 @@ export const caseStudies: CaseStudy[] = [
       'Coordinated UK Corporation Tax and US filings on one timeline',
       'Planned remuneration to balance both systems',
     ],
-    outcome: 'A single coordinated filing position across both jurisdictions, with GILTI minimised legally and full Form 5471 compliance.',
-    metrics: [
-      { value: '1', label: 'Coordinated team' },
-      { value: '2', label: 'Jurisdictions aligned' },
-      { value: 'Form 5471', label: 'Filed correctly' },
-    ],
+    outcome: 'A single coordinated filing position across both jurisdictions, with the GILTI exposure modelled and Form 5471 filed.',
+    metrics: [],
     services: [
       { label: 'Form 5471', href: '/services/us-expat-tax/form-5471' },
       { label: 'International Structuring', href: '/services/cross-border-advisory/business-structuring' },
@@ -84,12 +76,8 @@ export const caseStudies: CaseStudy[] = [
       'Handled FBAR for the transition year',
       'Set up UK Self Assessment going forward',
     ],
-    outcome: 'A seamless first year with no double taxation and every deadline met on both sides of the Atlantic.',
-    metrics: [
-      { value: '0', label: 'Double-taxed income' },
-      { value: '100%', label: 'Deadlines met' },
-      { value: '1 yr', label: 'Transition handled' },
-    ],
+    outcome: 'A coordinated first year: split-year treatment claimed, the final US return filed with treaty positions disclosed, and UK Self Assessment set up for the years ahead.',
+    metrics: [],
     services: [
       { label: 'Cross-Border Planning', href: '/services/cross-border-advisory/cross-border-tax-planning' },
       { label: 'UK Self Assessment', href: '/services/uk-accounting/self-assessment' },

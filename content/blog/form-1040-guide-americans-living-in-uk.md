@@ -1,7 +1,7 @@
 ---
 seoTitle: "Form 1040 for Americans Living in the UK"
 title: "Form 1040 for Americans Living in the UK: A Practical Guide"
-description: "US citizens in the UK must file Form 1040 every year on their worldwide income — UK salary, rental income, savings, and investments alike. This guide explains what the form covers, which schedules apply, and how the Foreign Tax Credit prevents double taxation."
+description: "US citizens in the UK must file Form 1040 every year on their worldwide income, including UK salary, rental income, savings, and investments. This guide explains what the form covers, which schedules apply, and how the Foreign Tax Credit prevents double taxation."
 date: "2026-07-30"
 author: "sam-h"
 reviewedBy: "sal-t"
@@ -25,25 +25,25 @@ Every American living in the UK is required to file a US federal tax return each
 
 ## The short answer
 
-**US citizens and green card holders in the UK file Form 1040 reporting worldwide income — UK salary, savings, rental income, and investments. Form 1116 (Foreign Tax Credit) then offsets UK tax paid against the US liability, reducing the US bill to zero for most employed Americans. The filing obligation exists even when no additional US tax is owed.**
+**US citizens and green card holders in the UK file Form 1040 reporting worldwide income, including UK salary, savings, rental income, and investments. Form 1116 (Foreign Tax Credit) then offsets UK tax paid against the US liability, which for most employed Americans brings the US bill down to zero. The filing obligation exists even when no additional US tax is owed.**
 
 ## Why the obligation exists
 
-The US taxes citizens and permanent residents on worldwide income regardless of where they live. Moving to the UK does not suspend this. An American who has lived in London for decades and has no US-source income whatsoever still files Form 1040 each year. This is not double taxation in practice — the Foreign Tax Credit is designed to prevent it — but it is a separate annual filing obligation.
+The US taxes citizens and permanent residents on worldwide income regardless of where they live. Moving to the UK does not suspend this. An American who has lived in London for decades and has no US-source income whatsoever still files Form 1040 each year. This is not double taxation in practice, because the Foreign Tax Credit is designed to prevent it, but it is a separate annual filing obligation.
 
 ## What Form 1040 covers
 
-Form 1040 reports all income worldwide, converted to US dollars at the IRS average annual rate. It calculates deductions and credits, applies the Foreign Tax Credit or FEIE, and determines whether additional US tax is owed or a refund is due. For an American in the UK, income typically includes UK employment income, self-employment income, bank interest, dividends, rental income, and capital gains — all in US dollars.
+Form 1040 reports all income worldwide, converted to US dollars at the IRS average annual rate. It calculates deductions and credits, applies the Foreign Tax Credit or FEIE, and determines whether additional US tax is owed or a refund is due. For an American in the UK, income typically includes UK employment income, self-employment income, bank interest, dividends, rental income, and capital gains, all reported in US dollars.
 
 ## The Foreign Tax Credit
 
-Form 1116 generates a dollar-for-dollar credit against US tax for UK income tax paid on the same income. Because UK rates are generally at or above US rates, the credit reduces the US liability to zero for most employed Americans. Excess credits carry forward up to ten years.
+Form 1116 generates a dollar-for-dollar credit against US tax for UK income tax paid on the same income. Because UK rates are generally at or above US rates, the credit usually reduces the US liability to zero for employed Americans. Excess credits carry forward up to ten years.
 
 The Foreign Tax Credit is one of two main routes to relief. The other is the Foreign Earned Income Exclusion (Form 2555), which excludes a capped amount of earned income from US tax. The two interact in complex ways and the better choice depends on income type and future plans. Our [FEIE vs Foreign Tax Credit comparison](/resources/blog/feie-or-foreign-tax-credit-uk) covers the decision in detail.
 
 ## Key schedules for Americans in the UK
 
-**Schedule B** reports interest and dividends and asks whether you hold foreign financial accounts — the question that triggers the FBAR obligation. Most Americans in the UK with UK bank or investment accounts need to complete it.
+**Schedule B** reports interest and dividends and asks whether you hold foreign financial accounts. That question is what triggers the FBAR obligation. Most Americans in the UK with UK bank or investment accounts need to complete it.
 
 **Schedule C** reports self-employment income and expenses. A self-employed American in the UK reports their UK business here in US dollars.
 
@@ -59,7 +59,7 @@ The Foreign Tax Credit is one of two main routes to relief. The other is the For
 
 **Form 8938:** Reports specified foreign financial assets above FATCA thresholds. Filed with the return; thresholds are higher for those living abroad.
 
-**Form 8621:** Required for each PFIC interest — broadly any UK-domiciled fund or investment trust. For more, see our [ISA and UK investment guide](/resources/blog/why-is-my-isa-a-problem-for-us-taxes).
+**Form 8621:** Required for each PFIC interest, which broadly means any UK-domiciled fund or investment trust. For more, see our [ISA and UK investment guide](/resources/blog/why-is-my-isa-a-problem-for-us-taxes).
 
 **Form 8833:** Used to claim a treaty-based position where the US-UK treaty modifies the default tax treatment.
 

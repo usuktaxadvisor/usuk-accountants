@@ -8,58 +8,58 @@ reviewedBy: "sal-t"
 category: "US Tax"
 faqs:
   - q: "Do I need to file an FBAR?"
-    a: "You need to file an FBAR (FinCEN Form 114) if you're a US person — citizen, green card holder, or US resident — and the total of your foreign financial accounts exceeded $10,000 at any point during the calendar year. It's an aggregate test across all your foreign accounts combined, not a per-account threshold, and it includes accounts you have signature authority over even if the money isn't yours."
+    a: "You need to file an FBAR (FinCEN Form 114) if you're a US person (a citizen, green card holder, or US resident) and the total of your foreign financial accounts exceeded $10,000 at any point during the calendar year. It's an aggregate test across all your foreign accounts combined, not a per-account threshold, and it includes accounts you have signature authority over even if the money isn't yours."
   - q: "What is the $10,000 FBAR rule?"
-    a: "The FBAR is triggered when the combined highest balances of all your foreign financial accounts exceed $10,000 at any time during the year, even for a single day. Because it's the aggregate that counts, several smaller accounts can cross the threshold together. If you hit it, you report all your foreign accounts — not just the ones that pushed you over."
+    a: "The FBAR is triggered when the combined highest balances of all your foreign financial accounts exceed $10,000 at any time during the year, even for a single day. Because it's the aggregate that counts, several smaller accounts can cross the threshold together. If you hit it, you report all your foreign accounts, not just the ones that pushed you over."
   - q: "When is the FBAR due?"
-    a: "The FBAR is due 15 April, with an automatic extension to 15 October — you don't need to request the extension. It's filed electronically with FinCEN, separately from your federal tax return, so filing your 1040 does not file your FBAR. The two are different filings to different parts of the government."
+    a: "The FBAR is due 15 April, with an automatic extension to 15 October. You don't need to request the extension. It's filed electronically with FinCEN, separately from your federal tax return, so filing your 1040 does not file your FBAR. The two are different filings to different parts of the government."
   - q: "What happens if I've never filed an FBAR but should have?"
-    a: "You're not alone, and there are established ways to catch up. For non-willful failures — which covers most people who simply didn't know — the IRS Streamlined Filing Compliance Procedures can often bring you current, frequently without penalties. Coming forward proactively, before the IRS contacts you, preserves the most options."
+    a: "You're not alone, and there are established ways to catch up. For non-willful failures, which covers most people who simply didn't know, the IRS Streamlined Filing Compliance Procedures can often bring you current, and where the conditions are met this can be without the usual late-filing penalties. Coming forward proactively, before the IRS contacts you, preserves the most options."
 ---
 
-If you're an American living in the UK — or a dual citizen, or a green card holder who has moved abroad — there's a good chance you've heard the letters "FBAR" and felt a small jolt of worry. It's one of the most common things our clients didn't know they had to do, and one of the easiest to put right once you understand it.
+If you're an American living in the UK, or a dual citizen, or a green card holder who has moved abroad, there's a good chance you've heard the letters "FBAR" and felt a small jolt of worry. It's one of the most common things our clients didn't know they had to do, and one of the easiest to put right once you understand it.
 
 This guide explains, in plain English, who needs to file, what the threshold actually means, and what to do if you've missed it in past years.
 
 ## What the FBAR actually is
 
-FBAR stands for the Report of Foreign Bank and Financial Accounts. It's filed on FinCEN Form 114, and the first thing to understand is that **it is not a tax form**. You don't pay anything when you file it, and it doesn't go to the IRS with your tax return — it's an information report filed separately with the US Treasury's Financial Crimes Enforcement Network (FinCEN).
+FBAR stands for the Report of Foreign Bank and Financial Accounts. It's filed on FinCEN Form 114, and the first thing to understand is that **it is not a tax form**. You don't pay anything when you file it, and it doesn't go to the IRS with your tax return. It's an information report filed separately with the US Treasury's Financial Crimes Enforcement Network (FinCEN).
 
-In other words: filing an FBAR doesn't create a tax bill. It's a disclosure, not a payment. That alone puts a lot of people's minds at ease.
+Filing an FBAR doesn't create a tax bill. It's a disclosure rather than a payment, and that alone puts a lot of people's minds at ease.
 
 ## Who has to file
 
 You generally need to file an FBAR if **both** of these are true:
 
-- You are a **US person** — a US citizen (including dual citizens), a green card holder, or a US tax resident; and
+- You are a **US person**, meaning a US citizen (including dual citizens), a green card holder, or a US tax resident; and
 - You had a **financial interest in, or signature authority over, one or more foreign financial accounts**, and the **combined value of those accounts went over $10,000 at any point** during the calendar year.
 
 Two details trip people up most often.
 
-First, the threshold is an **aggregate** figure, not per account. If you had three accounts holding £3,000 each, no single account crosses $10,000 — but together they do, so you'd need to file. The test is the total across all your foreign accounts.
+First, the threshold is an **aggregate** figure, not per account. If you had three accounts holding £3,000 each, no single account crosses $10,000, but together they do, so you'd need to file. The test is the total across all your foreign accounts.
 
 Second, it's the **highest balance at any moment** in the year that counts, not the balance on 31 December. If a one-off payment briefly pushed your combined accounts over $10,000 even for a single day, that can trigger the requirement for the whole year.
 
-"Foreign financial accounts" is broad — it includes ordinary current and savings accounts, brokerage accounts, and many pensions and investment accounts held outside the US.
+"Foreign financial accounts" is a broad term. It includes ordinary current and savings accounts, brokerage accounts, and many pensions and investment accounts held outside the US.
 
 > Not sure whether your accounts cross the line? Our [free FBAR checker](/resources/calculators/fbar-checker) walks you through the questions in under a minute.
 
 ## When it's due
 
-The FBAR is due on **15 April**, alongside the usual tax-season timing. If you miss that date, there's an **automatic extension to 15 October** — and, helpfully, you don't have to request it or file any form to get it. It applies to everyone automatically.
+The FBAR is due on **15 April**, alongside the usual tax-season timing. If you miss that date, there's an **automatic extension to 15 October**, and, helpfully, you don't have to request it or file any form to get it. It applies to everyone automatically.
 
 That means in practice most people abroad have until 15 October to get their FBAR filed for the previous calendar year.
 
-## What if I've never filed one — and I should have?
+## What if I've never filed one, and I should have?
 
 This is the situation we most often help with, and the most important message is: **don't panic, and don't ignore it.** Both reactions tend to make things worse.
 
-There are established routes back into compliance, and which one fits depends on the details of your situation — in particular whether any income from those accounts went unreported, and whether your failure to file was a genuine oversight rather than deliberate. The key principle across all of them is the same: it is far better to come forward voluntarily, **before** the IRS contacts you, than to wait.
+There are established routes back into compliance, and which one fits depends on the details of your situation, in particular whether any income from those accounts went unreported, and whether your failure to file was a genuine oversight rather than deliberate. The key principle across all of them is the same: it is far better to come forward voluntarily, **before** the IRS contacts you, than to wait.
 
-Because the right route — and the penalties at stake — turn entirely on your specific facts, this is exactly the kind of thing worth talking through with a specialist rather than guessing at. Getting the approach right the first time matters a great deal here.
+Because the right route (and the penalties at stake) turn entirely on your specific facts, this is exactly the kind of thing worth talking through with a specialist rather than guessing at. Getting the approach right the first time matters a great deal here.
 
-## The bottom line
+## Where that leaves you
 
 The FBAR sounds intimidating but is usually straightforward once you know where you stand. If you're a US person abroad with foreign accounts, the questions to ask are simply: did my combined balances cross $10,000 at any point last year, and have I filed for the years I needed to?
 
-If you're unsure about either, [our team can help you find out](/book) — the first conversation is a £350 30-minute consultation, and general questions are free by email. You can also see how we handle this work on our [FBAR filing service](/services/us-expat-tax/fbar-filing) page.
+If you're unsure about either, [our team can help you find out](/book). The first conversation is a £350 30-minute consultation, and general questions are free by email. You can also see how we handle this work on our [FBAR filing service](/services/us-expat-tax/fbar-filing) page.

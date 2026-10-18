@@ -11,14 +11,14 @@ const url = '/resources/compare/streamlined-filing-vs-delinquent-fbar';
 export const metadata: Metadata = {
   title: 'Streamlined Filing vs Late FBAR Filing — Which Route?',
   description:
-    'Streamlined Filing or simply filing late FBARs with reasonable cause? The IRS withdrew the Delinquent FBAR Submission Procedures in July 2026. Which route fits an American in the UK.',
+    'Streamlined Filing or simply filing late FBARs with reasonable cause? The IRS removed the Delinquent FBAR Submission Procedures page in July 2026. Which route fits an American in the UK.',
   alternates: { canonical: url },
 };
 
 const faqs = [
   {
     q: 'What is the difference between Streamlined Filing and filing late FBARs on their own?',
-    a: 'Streamlined Filing is for taxpayers who need to correct unreported income or missed returns and can certify non-willful conduct; a qualifying submission carries no FBAR or late-filing penalties. Filing late FBARs on their own, with the reason for late filing and a reasonable-cause record, is for taxpayers who reported and paid tax on all the income and only missed the report. The IRS withdrew its published Delinquent FBAR Submission Procedures on 1 July 2026, so that second route now rests on reasonable cause rather than a written safe harbour.',
+    a: 'Streamlined Filing is for taxpayers who need to correct unreported income or missed returns and can certify non-willful conduct; a qualifying submission carries no FBAR or late-filing penalties. Filing late FBARs on their own, with the reason for late filing and a reasonable-cause record, is for taxpayers who reported and paid tax on all the income and only missed the report. The IRS removed its published Delinquent FBAR Submission Procedures page in early July 2026, so that second route now rests on reasonable cause rather than a written safe harbour.',
   },
   {
     q: 'Which one do I use if I reported all my income but forgot the FBAR?',
@@ -54,7 +54,7 @@ export default function StreamlinedVsDelinquentPage() {
       url={url}
       eyebrow="Comparison"
       title="Streamlined Filing vs filing late FBARs on their own"
-      answer="Two routes bring a missed FBAR back into compliance. Streamlined Filing corrects unreported income and missed returns with a non-willful certification; filing late FBARs on their own, with reasonable cause, is for people who reported all their income but missed the report. The IRS withdrew its Delinquent FBAR Submission Procedures on 1 July 2026, so the second route no longer carries a written no-penalty assurance. The deciding question is whether any income was left unreported."
+      answer="Two routes bring a missed FBAR back into compliance. Streamlined Filing corrects unreported income and missed returns with a non-willful certification; filing late FBARs on their own, with reasonable cause, is for people who reported all their income but missed the report. The IRS removed its Delinquent FBAR Submission Procedures page from irs.gov in early July 2026, so the second route no longer carries a written no-penalty assurance. The deciding question is whether any income was left unreported."
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Compare', href: '/resources/compare' },
@@ -75,7 +75,7 @@ export default function StreamlinedVsDelinquentPage() {
           under-reported income and missed returns. Filing a{' '}
           <Link href="/resources/glossary/delinquent-fbar">delinquent FBAR</Link> on its own, with the reason for
           late filing and a reasonable-cause record, is for the narrower case where income was fully reported but
-          the foreign-account report was overlooked. Until 1 July 2026 the IRS published Delinquent FBAR Submission
+          the foreign-account report was overlooked. Until mid-2026 the IRS published Delinquent FBAR Submission
           Procedures promising no penalty in that case; that page has been withdrawn, and the IRS now says a late
           FBAR may attract a penalty depending on the facts.
         </p>

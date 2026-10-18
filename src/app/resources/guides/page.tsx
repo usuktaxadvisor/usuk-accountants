@@ -41,7 +41,7 @@ const GUIDES: Card[] = [
     title: 'Delinquent FBAR: how to file late FBARs the right way',
     kicker: 'Catching up',
     description:
-      'How to file late FBARs from the UK after the IRS withdrew the Delinquent FBAR Submission Procedures in July 2026: your routes, reasonable cause, penalties and what to say.',
+      'How to file late FBARs from the UK after the IRS removed the Delinquent FBAR Submission Procedures page in July 2026: your routes, reasonable cause, penalties and what to say.',
     href: '/resources/guides/delinquent-fbar',
   },
 ];
@@ -59,7 +59,7 @@ const COMPARISONS: Card[] = [
   },
   {
     title: 'Streamlined Filing vs Delinquent FBAR',
-    description: 'Streamlined Filing or filing late FBARs with reasonable cause: the two catch-up routes after the IRS withdrew the Delinquent FBAR Submission Procedures in July 2026.',
+    description: 'Streamlined Filing or filing late FBARs with reasonable cause: the two catch-up routes after the IRS removed the Delinquent FBAR Submission Procedures page in July 2026.',
     href: '/resources/compare/streamlined-filing-vs-delinquent-fbar',
   },
   {

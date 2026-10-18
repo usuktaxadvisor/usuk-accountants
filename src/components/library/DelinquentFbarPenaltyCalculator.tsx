@@ -20,7 +20,7 @@ function assess(income: IncomeReported, willful: Willful): Outcome | null {
     return {
       route: 'File the late FBARs with reasonable cause',
       routeHref: '/resources/guides/delinquent-fbar',
-      exposure: 'No automatic penalty; relief depends on reasonable cause. The IRS withdrew its no-penalty Delinquent FBAR Submission Procedures on 1 July 2026.',
+      exposure: 'No automatic penalty; relief depends on reasonable cause. The IRS removed its no-penalty Delinquent FBAR Submission Procedures page from irs.gov in early July 2026.',
       summary:
         'Because your foreign income was reported and tax was paid, the late FBARs can be e-filed through FinCEN with the reason for late filing, supported by a dated reasonable-cause note you keep on file. The IRS manual still directs examiners not to assert a non-willful penalty where there was reasonable cause and the accounts were properly reported.',
       tone: 'good',

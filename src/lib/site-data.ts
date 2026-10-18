@@ -393,7 +393,7 @@ export const processSteps: ProcessStep[] = [
 ];
 
 export const stats: StatItem[] = [
-  { value: '2', label: 'Staffed offices: London & New York' },
+  { value: '3', label: 'Locations: London, Manchester & New York' },
   { value: 'US + UK', label: 'Both tax systems, one firm' },
   { value: '7', label: 'Qualified specialists (ACCA, ACA, CPA, CTA)' },
   { value: 'Worldwide', label: 'Cross-border clients supported' },

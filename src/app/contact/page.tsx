@@ -184,8 +184,8 @@ export default async function ContactPage({
               Our offices
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-softwhite/80">
-              We work with clients across the UK and US, in person and securely online. Our
-              staffed offices are below — visit us, or reach the team wherever you are.
+              We work with clients across the UK and US, in person by arrangement and securely online.
+              Our locations are below, and you can reach the team wherever you are.
             </p>
 
             <div className="mt-10 grid gap-6 lg:grid-cols-2">

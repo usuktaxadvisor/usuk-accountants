@@ -13,6 +13,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
       </div>
       <h3 className="font-display text-xl font-semibold leading-snug text-ink">{study.title}</h3>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{study.challenge}</p>
+      {study.metrics.length > 0 && (
       <div className="mt-5 flex flex-wrap gap-4 border-t border-mist pt-5">
         {study.metrics.map((m) => (
           <div key={m.label}>
@@ -21,6 +22,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           </div>
         ))}
       </div>
+      )}
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-antique">
         Read the full story
         <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -48,14 +50,19 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
         {study.client}
       </div>
 
-      <div className="mb-10 grid grid-cols-3 gap-4 rounded-2xl border border-mist bg-porcelain p-6">
-        {study.metrics.map((m) => (
-          <div key={m.label} className="text-center">
-            <p className="font-display text-3xl font-semibold text-gold-antique tnum">{m.value}</p>
-            <p className="mt-1 text-xs text-muted">{m.label}</p>
-          </div>
-        ))}
-      </div>
+      <p className="mb-10 rounded-2xl border border-mist bg-porcelain p-5 text-sm text-muted">
+        Illustrative scenario. The facts are representative of matters we handle and do not describe a specific client.
+      </p>
+      {study.metrics.length > 0 && (
+        <div className="mb-10 grid grid-cols-3 gap-4 rounded-2xl border border-mist bg-porcelain p-6">
+          {study.metrics.map((m) => (
+            <div key={m.label} className="text-center">
+              <p className="font-display text-3xl font-semibold text-gold-antique tnum">{m.value}</p>
+              <p className="mt-1 text-xs text-muted">{m.label}</p>
+            </div>
+          ))}
+        </div>
+      )}
 
       <h2 className="font-display text-2xl font-semibold text-ink">The challenge</h2>
       <p className="mt-3 text-[15px] leading-relaxed text-muted">{study.challenge}</p>
@@ -86,7 +93,7 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
       </div>
 
       <p className="mt-8 text-xs text-muted">
-        Anonymised and shared with client permission. Outcomes depend on individual circumstances and are not a guarantee of future results.
+        An illustrative scenario showing how we approach this type of matter. It is not a description of a specific client, and outcomes depend on individual circumstances; nothing here is a guarantee of results.
       </p>
     </article>
   );

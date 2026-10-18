@@ -8,13 +8,13 @@ reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
 faqs:
   - q: "Do I need Form 8938 as well as an FBAR?"
-    a: "Often, yes. They are separate reports with different thresholds. The FBAR is required once your non-US accounts exceed $10,000 combined at any point in the year. Form 8938 is filed with your US tax return and applies above higher thresholds — for an unmarried person living abroad, $200,000 at year-end or $300,000 at any time. Filing one does not satisfy the other."
+    a: "Often, yes. They are separate reports with different thresholds. The FBAR is required once your non-US accounts exceed $10,000 combined at any point in the year. Form 8938 is filed with your US tax return and applies above higher thresholds: for an unmarried person living abroad, $200,000 at year-end or $300,000 at any time. Filing one does not satisfy the other."
   - q: "Who needs to file an FBAR?"
-    a: "Any US person — a US citizen, green card holder or US tax resident, wherever they live — with a financial interest in or signature authority over foreign accounts whose combined highest balances exceeded $10,000 during the calendar year. For Americans in the UK that usually means current accounts, savings, ISAs, investment accounts and many pensions."
+    a: "Any US person (a US citizen, green card holder or US tax resident, wherever they live) with a financial interest in or signature authority over foreign accounts whose combined highest balances exceeded $10,000 during the calendar year. For Americans in the UK that usually means current accounts, savings, ISAs, investment accounts and many pensions."
   - q: "Is a UK pension reportable on the FBAR or Form 8938?"
     a: "Usually both, depending on the type and value. Personal pensions and SIPPs are generally treated as financial accounts for the FBAR and as specified foreign financial assets for Form 8938. Defined benefit schemes and the State Pension are treated differently; the position should be checked for each scheme."
   - q: "What are the penalties for not filing?"
-    a: "Both reports carry penalties for failure to file, and Form 8938 failures also keep the IRS assessment period open for the related return. Where the failure was non-wilful you can catch up: late FBARs can be filed with reasonable cause (the IRS withdrew its separate Delinquent FBAR Submission Procedures in July 2026), and the Streamlined Foreign Offshore Procedures cover cases with unreported income; we confirm which applies before anything is filed."
+    a: "Both reports carry penalties for failure to file, and Form 8938 failures also keep the IRS assessment period open for the related return. Where the failure was non-wilful you can catch up: late FBARs can be filed with reasonable cause (the IRS removed its separate Delinquent FBAR Submission Procedures page in July 2026), and the Streamlined Foreign Offshore Procedures cover cases with unreported income; we confirm which applies before anything is filed."
 ---
 
 Most Americans living in the UK learn about one of these reports and assume it covers the other. It doesn't. The **FBAR** and **Form 8938** report overlapping information to two different parts of the US government, under two different laws, with different thresholds. Many people in the UK must file both every year.

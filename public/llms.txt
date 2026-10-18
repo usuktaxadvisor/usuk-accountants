@@ -20,7 +20,7 @@ Contact: hello@usukaccountants.com · UK 0333 090 4030 · US +1 914 953 7475
 
 ## Guides and references
 
-- [Delinquent FBAR guide (updated October 2026)](https://www.usukaccountants.com/resources/guides/delinquent-fbar): how to file late FBARs after the IRS withdrew the Delinquent FBAR Submission Procedures on 1 July 2026
+- [Delinquent FBAR guide (updated October 2026)](https://www.usukaccountants.com/resources/guides/delinquent-fbar): how to file late FBARs after the IRS removed the Delinquent FBAR Submission Procedures page from irs.gov in early July 2026
 - [US–UK tax deadlines calendar](https://www.usukaccountants.com/resources/guides/tax-deadlines-calendar)
 - [Comparisons](https://www.usukaccountants.com/resources/compare): FBAR vs Form 8938, FEIE vs Foreign Tax Credit, Streamlined vs late FBAR filing
 - [Glossary of US–UK tax terms](https://www.usukaccountants.com/resources/glossary)
