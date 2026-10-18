@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Belleza, Montserrat } from 'next/font/google';
 import Analytics from '@/components/Analytics';
 import { ConsentProvider } from '@/components/CookieConsent';
+import RevealObserver from '@/components/ui/RevealObserver';
 import { JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
@@ -94,6 +95,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       data-display-font={ADOBE_KIT_ID ? 'condor' : undefined}
     >
       <head>
+        {/* Marks JS as available before first paint so reveal animations can apply; without it content stays visible. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
         {ADOBE_KIT_ID && (
           <>
             <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
@@ -130,6 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ConsentProvider>
           {children}
           <Analytics />
+          <RevealObserver />
         </ConsentProvider>
       </body>
     </html>

@@ -1,7 +1,7 @@
 ---
 seoTitle: "Delinquent FBAR vs Streamlined Filing: Which Route?"
 title: "Delinquent FBAR vs Streamlined Filing: Which Route Fixes a Missed FBAR?"
-description: "Filed your US returns but missed the FBAR? Since the IRS withdrew the Delinquent FBAR Submission Procedures on 1 July 2026, choosing between filing late FBARs with reasonable cause and the Streamlined programme matters more than it did. Here is how to tell which route fits."
+description: "Filed your US returns but missed the FBAR? Since the IRS removed the Delinquent FBAR Submission Procedures page from irs.gov in early July 2026, choosing between filing late FBARs with reasonable cause and the Streamlined programme matters more than it did. Here is how to tell which route fits."
 date: "2026-07-28"
 updated: "2026-10-18"
 author: "sam-h"
@@ -9,9 +9,9 @@ reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
 faqs:
   - q: "Can I file a late FBAR without using the Streamlined programme?"
-    a: "Yes. If you have correctly filed your US tax returns and reported all your income but missed the FBAR, you can e-file the late reports through FinCEN with the reason for filing late. Since 1 July 2026 there is no longer a published IRS procedure promising no penalty for doing so, so you should keep a dated reasonable-cause note on file. Streamlined is for those who also failed to file returns or under-reported income."
+    a: "Yes. If you have correctly filed your US tax returns and reported all your income but missed the FBAR, you can e-file the late reports through FinCEN with the reason for filing late. Since mid-2026 there is no longer a published IRS procedure promising no penalty for doing so, so you should keep a dated reasonable-cause note on file. Streamlined is for those who also failed to file returns or under-reported income."
   - q: "Do the Delinquent FBAR Submission Procedures still exist?"
-    a: "No. The IRS removed the Delinquent FBAR Submission Procedures from its website on 1 July 2026 without announcement. Its FBAR page, updated 30 July 2026, now says a late FBAR is a violation that may attract a penalty depending on the facts, and that anyone not yet contacted by the IRS should file late FBARs as soon as possible. The Streamlined procedures remain open."
+    a: "Not as a published IRS procedure. The IRS page that set them out now returns Page Not Found. The last archived live copy is dated 23 June 2026, practitioners reported the removal from 2 July 2026, and the IRS has made no announcement. Its FBAR page, updated 30 July 2026, now says a late FBAR is a violation that may attract a penalty depending on the facts, and that anyone not yet contacted by the IRS should file late FBARs as soon as possible. The Streamlined procedures remain open."
   - q: "Are there penalties for filing a delinquent FBAR?"
     a: "A penalty is not automatic. FBAR penalties are assessed by the IRS after an examination, and the Internal Revenue Manual still directs examiners not to assert a non-willful penalty where the late report was due to reasonable cause and the account was properly reported. The inflation-adjusted maximum non-willful penalty is $16,536 per late report for penalties assessed from 17 January 2025; willful penalties are far higher."
   - q: "Do I qualify to simply file late FBARs if I under-reported income?"
@@ -21,13 +21,13 @@ faqs:
   - q: "What if I deliberately did not file my FBAR?"
     a: "Neither route is designed for wilful conduct. Where there is any question of wilfulness, specialist advice should be taken before anything is filed, because the choice of route has significant consequences and the IRS Voluntary Disclosure Practice may be the appropriate path."
 ---
-> **Updated 18 October 2026.** On 1 July 2026 the IRS withdrew the Delinquent FBAR Submission Procedures described in the original version of this article. The routes below reflect the current position. Our [delinquent FBAR guide](/resources/guides/delinquent-fbar) has the full detail and the primary sources.
+> **Updated 18 October 2026.** The IRS page setting out the Delinquent FBAR Submission Procedures described in the original version of this article has been removed from irs.gov (last seen live on 23 June 2026, reported gone from 2 July 2026, with no IRS announcement). The routes below reflect the current position. Our [delinquent FBAR guide](/resources/guides/delinquent-fbar) has the full detail and the primary sources.
 
 If you have been filing your US tax returns from the UK but only just learned about the FBAR, your situation may still be simpler to fix than you fear. The full Streamlined programme is not always necessary. But the narrower route has changed: the IRS no longer publishes a procedure promising no penalty for a late FBAR where the income was reported.
 
 ## The short answer
 
-**If your US returns were filed correctly and all your income was reported, but you missed the FBAR, you can still e-file the overdue FBARs through FinCEN with a brief reason for the delay. Since July 2026, though, any penalty relief rests on reasonable cause rather than a written IRS safe harbour. Streamlined is the broader route for people who also failed to file returns or report income, provided the failure was not wilful, and a qualifying Streamlined submission still carries no FBAR or late-filing penalties. Which route is right comes down to one question: were your tax returns complete?**
+**If your US returns were filed correctly and all your income was reported, but you missed the FBAR, you can still e-file the overdue FBARs through FinCEN with a brief reason for the delay. Since mid-2026, though, any penalty relief rests on reasonable cause rather than a written IRS safe harbour, and no one can promise it in advance. Streamlined is the broader route for people who also failed to file returns or report income, provided the failure was not wilful, and a qualifying Streamlined submission still carries no FBAR or late-filing penalties. Which route is right comes down to one question: were your tax returns complete?**
 
 ## Two different problems
 
@@ -39,7 +39,7 @@ The return-and-FBAR problem is where the returns themselves were not filed, or w
 
 This route is for the FBAR-only problem. You e-file the overdue FBARs through the BSA E-Filing System, selecting a reason for filing late on each report, and you keep a dated, factual reasonable-cause note on file.
 
-Until 1 July 2026 the IRS published Delinquent FBAR Submission Procedures stating that it would not impose a penalty where the related income had been reported and tax paid. That page has been removed. The IRS FBAR page now says only that a late FBAR "is a violation and may subject you to penalties", that "assertion of penalties depends on facts and circumstances", and that if you have not been contacted you should file as soon as possible. The Internal Revenue Manual (IRM 4.26.16) still tells examiners not to assert a penalty where a late report was non-willful, due to reasonable cause, and the account was properly reported. So the substance has not changed as much as the headline suggests. What has gone is the written assurance, and your own record now carries the weight.
+Until mid-2026 the IRS published Delinquent FBAR Submission Procedures stating that it would not impose a penalty where the related income had been reported and tax paid. That page has been removed. The IRS FBAR page now says only that a late FBAR "is a violation and may subject you to penalties", that "assertion of penalties depends on facts and circumstances", and that if you have not been contacted you should file as soon as possible. The Internal Revenue Manual (IRM 4.26.16) still tells examiners not to assert a penalty where a late report was non-willful, due to reasonable cause, and the account was properly reported. So the substance has not changed as much as the headline suggests. What has gone is the written assurance, and your own record now carries the weight.
 
 ## Route 2: the Streamlined Filing Compliance Procedures
 

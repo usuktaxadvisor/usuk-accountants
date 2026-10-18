@@ -21,6 +21,15 @@ export function Hero({
 }: HeroProps) {
   return (
     <section id="top" className="hero-transatlantic relative overflow-hidden bg-navy-ink">
+      {/*
+        The skyline is a CSS background and is the largest element on phones, so the
+        browser only discovers it after CSS has been parsed. Preloading the right
+        variant for the viewport brings the LCP request forward. React hoists these
+        into <head>.
+      */}
+      <link rel="preload" as="image" href="/images/hero/transatlantic-skyline-mobile.svg" media="(max-width: 639px)" fetchPriority="high" />
+      <link rel="preload" as="image" href="/images/hero/transatlantic-skyline-tablet.svg" media="(min-width: 640px) and (max-width: 1023px)" fetchPriority="high" />
+      <link rel="preload" as="image" href="/images/hero/transatlantic-skyline.svg" media="(min-width: 1024px)" fetchPriority="high" />
       <svg
         className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.35]"
         viewBox="0 0 1440 700"

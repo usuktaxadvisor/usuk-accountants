@@ -1,6 +1,4 @@
-'use client';
-
-import { useEffect, useRef, useState, type ElementType, type ReactNode } from 'react';
+import type { ElementType, ReactNode } from 'react';
 
 interface RevealProps {
   children: ReactNode;
@@ -10,50 +8,18 @@ interface RevealProps {
   id?: string;
 }
 
-export default function Reveal({
-  children,
-  className = '',
-  stagger = false,
-  as,
-  id,
-}: RevealProps) {
+/**
+ * Scroll-reveal wrapper. Server component: it only emits markup and a
+ * data attribute. A single client-side observer (RevealObserver, mounted in
+ * the root layout) adds `is-visible` when the element scrolls into view.
+ * Without JavaScript the content stays visible (see globals.css: the hidden
+ * state only applies under `html.js`).
+ */
+export default function Reveal({ children, className = '', stagger = false, as, id }: RevealProps) {
   const Tag = (as ?? 'div') as ElementType;
-  const ref = useRef<HTMLElement | null>(null);
-  const setRef = (node: HTMLElement | null) => {
-    ref.current = node;
-  };
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === 'undefined') {
-      setVisible(true);
-      return;
-    }
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setVisible(true);
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
-
   const base = stagger ? 'reveal-stagger' : 'reveal';
-
   return (
-    <Tag
-      ref={setRef}
-      id={id}
-      className={`${base} ${visible ? 'is-visible' : ''} ${className}`}
-    >
+    <Tag id={id} data-reveal="" className={`${base} ${className}`}>
       {children}
     </Tag>
   );

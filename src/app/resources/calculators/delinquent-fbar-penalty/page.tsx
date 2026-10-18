@@ -24,7 +24,7 @@ const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 const faqs = [
   {
     q: 'Does a late FBAR always mean a penalty?',
-    a: 'No. FBAR penalties are assessed only after an IRS examination, and where foreign income was reported and tax paid a late FBAR filed with reasonable cause is generally not penalised. Note that the IRS withdrew its published no-penalty Delinquent FBAR Submission Procedures on 1 July 2026, so relief now rests on reasonable cause rather than a written safe harbour.',
+    a: 'No. FBAR penalties are assessed only after an IRS examination, and where foreign income was reported and tax paid a late FBAR filed with reasonable cause is generally not penalised. Note that the IRS removed its published no-penalty Delinquent FBAR Submission Procedures page in early July 2026, so relief now rests on reasonable cause rather than a written safe harbour.',
   },
   {
     q: 'Is this estimator advice?',

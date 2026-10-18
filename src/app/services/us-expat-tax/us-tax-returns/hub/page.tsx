@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: 'I have missed several years - where do I start?',
-    a: 'It depends whether income was reported. If income was reported but FBARs were missed, the late reports are filed through FinCEN with reasonable cause (the IRS withdrew its Delinquent FBAR Submission Procedures in July 2026). If income was unreported, Streamlined Filing is often the right route.',
+    a: 'It depends whether income was reported. If income was reported but FBARs were missed, the late reports are filed through FinCEN with reasonable cause (the IRS removed its Delinquent FBAR Submission Procedures page in July 2026). If income was unreported, Streamlined Filing is often the right route.',
   },
 ];
 

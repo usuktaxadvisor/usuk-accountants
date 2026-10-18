@@ -18,7 +18,7 @@ const url = '/resources/guides/delinquent-fbar';
 export const metadata: Metadata = {
   title: 'Delinquent FBAR Guide: How to File Late FBARs (2026)',
   description:
-    'How to file late FBARs from the UK after the IRS withdrew the Delinquent FBAR Submission Procedures in July 2026: your three routes, reasonable cause, penalties and what the reason for late filing should say.',
+    'How to file late FBARs from the UK after the IRS removed the Delinquent FBAR Submission Procedures page in July 2026: your three routes, reasonable cause, penalties and what the reason for late filing should say.',
   alternates: { canonical: url },
 };
 
@@ -28,7 +28,7 @@ const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 const faqs = [
   {
     q: 'Do the Delinquent FBAR Submission Procedures still exist?',
-    a: 'No. The IRS removed the Delinquent FBAR Submission Procedures from its website on 1 July 2026 without announcement. Its FBAR page (last updated 30 July 2026) now says that filing an FBAR late or not at all is a violation that may attract penalties, and that anyone who has not been contacted by the IRS should file late FBARs as soon as possible. Reasonable-cause relief and the Streamlined procedures remain available.',
+    a: 'Not as a published IRS procedure. The IRS page that set them out now returns "Page Not Found". The last archived live copy is dated 23 June 2026, practitioners reported the removal from 2 July 2026, and the IRS has made no announcement. Its FBAR page (last updated 30 July 2026) now says that filing an FBAR late or not at all is a violation that may attract penalties, and that anyone who has not been contacted by the IRS should file late FBARs as soon as possible, explaining the reason on the FinCEN form. The reasonable-cause defence and the Streamlined procedures remain available.',
   },
   {
     q: 'What should I do if I have missed FBARs but reported all my income?',
@@ -72,7 +72,7 @@ export default function DelinquentFbarGuidePage() {
       url={url}
       eyebrow="Guide · Updated October 2026"
       title="Delinquent FBAR: how to file late FBARs the right way"
-      answer="The IRS withdrew its Delinquent FBAR Submission Procedures on 1 July 2026. Late FBARs can still be filed through FinCEN, and reasonable-cause relief and the Streamlined procedures remain. But the route you choose now matters more than it did."
+      answer="The IRS removed its Delinquent FBAR Submission Procedures page from irs.gov in early July 2026. Late FBARs can still be filed through FinCEN, and reasonable-cause relief and the Streamlined procedures remain. But the route you choose now matters more than it did."
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Guides', href: '/resources/guides' },
@@ -88,28 +88,33 @@ export default function DelinquentFbarGuidePage() {
     >
       <ProseBlock eyebrow="What changed" title="The July 2026 change, in plain English">
         <p>
-          For twelve years the IRS published a short page called the <em>Delinquent FBAR Submission Procedures</em>.
+          From 2014 the IRS published a short page called the <em>Delinquent FBAR Submission Procedures</em>.
           It told people who had reported all their income and paid the tax, but had simply never filed the FBAR, that
-          they could e-file the missed reports with a brief explanation and the IRS would not charge a penalty. On
-          1 July 2026 that page was removed from irs.gov without a press release. The IRS FBAR page, last updated on
-          30 July 2026, now says only that filing late or not at all &ldquo;is a violation and may subject you to
-          penalties,&rdquo; that assertion of penalties &ldquo;depends on facts and circumstances,&rdquo; and that if
-          the IRS has not contacted you, you should file late FBARs as soon as possible to keep potential penalties to
-          a minimum.
+          they could e-file the missed reports with a brief explanation and the IRS would not charge a penalty. That
+          page has been removed from irs.gov. There was no press release or notice: the address now returns
+          &ldquo;Page Not Found&rdquo;, the last archived live copy of the page is dated 23 June 2026, and tax
+          practitioners began reporting the removal on 2 July 2026. The IRS FBAR page, last updated on 30 July 2026,
+          now says only that filing late or not at all &ldquo;is a violation and may subject you to penalties,&rdquo;
+          that assertion of penalties &ldquo;depends on facts and circumstances,&rdquo; and that if the IRS has not
+          contacted you, you should file late FBARs as soon as possible, giving the reason for late filing as FinCEN&rsquo;s
+          instructions describe.
         </p>
         <p>
           <strong>What has not changed:</strong> the FBAR itself (FinCEN Form 114), the $10,000 aggregate threshold,
           the 15 April due date with an automatic extension to 15 October, the FinCEN e-filing form&rsquo;s box for
           the reason a report is late, the statutory reasonable-cause defence to a non-willful penalty, and the
-          Streamlined Filing Compliance Procedures. The Internal Revenue Manual (IRM 4.26.16) still instructs
-          examiners not to assert a penalty where a late report was non-willful, due to reasonable cause, and the
-          account was properly reported on the late FBAR.
+          Streamlined Filing Compliance Procedures. The Internal Revenue Manual (IRM 4.26.16.3.11, within the
+          manual revision effective 26 August 2025) still instructs examiners that a penalty will not be asserted for
+          an account where the failure to report it on time was not willful, was due to reasonable cause, and the
+          account was properly reported on the delinquent FBAR. The manual is internal guidance to IRS staff, not a
+          right you can enforce, and it can be revised.
         </p>
         <p>
-          <strong>What it means in practice:</strong> the written assurance of &ldquo;no penalty&rdquo; is gone. Filing
-          late FBARs is still the right thing to do, and a penalty is not automatic, but your reasonable-cause
-          position now has to stand on its own. That makes the explanation you give, and the record you keep, more
-          important than before.
+          <strong>What it means in practice:</strong> the public, written assurance of &ldquo;no penalty&rdquo; is gone.
+          Filing late FBARs is still the right thing to do, and a penalty is not automatic, but nobody can promise you
+          relief. Your reasonable-cause position has to stand on its own facts, which makes the explanation you give,
+          and the record you keep, more important than before. Where balances are large or the facts are mixed, this
+          is a question for professional review before you file.
         </p>
       </ProseBlock>
 
@@ -147,8 +152,8 @@ export default function DelinquentFbarGuidePage() {
         <p>
           There is no separate cover letter to post. When a late FBAR is e-filed through FinCEN&rsquo;s BSA E-Filing
           System, the form itself asks for the reason it is late: you choose from a list (for example, that you did not
-          know you had to file) or select &ldquo;Other&rdquo; and give a short written explanation. That box is the
-          only explanation FinCEN sees. Searches for a &ldquo;delinquent FBAR cover letter&rdquo; or &ldquo;sample
+          know you had to file) or select &ldquo;Other&rdquo; and give a short written explanation, which the IRS
+          manual notes is limited to 750 characters. That box is the only explanation FinCEN sees. Searches for a &ldquo;delinquent FBAR cover letter&rdquo; or &ldquo;sample
           letter&rdquo; usually end in templates written for the old procedure; we do not recommend copying one.
         </p>
         <p>
@@ -214,9 +219,10 @@ export default function DelinquentFbarGuidePage() {
           <strong> $165,353 or 50% of the account balance</strong> at the time of the violation (31 CFR 1010.821). In
           <em> Bittner v United States</em> (2023) the Supreme Court held that the non-willful penalty applies per late
           report, not per account. The statute gives the IRS six years from the violation date to assess a penalty.
-          Willful failures can also be prosecuted. For a late report filed voluntarily, with the income reported and a
-          genuine reason, the realistic exposure is low; the exposure rises with unreported income, large balances and
-          any sign that the omission was a choice.
+          Willful failures can also be prosecuted. No one can guarantee that a late report will escape a penalty. In
+          our experience the exposure is lowest for a late report filed voluntarily, with the income reported and a
+          genuine reason, and it rises with unreported income, large balances and any sign that the omission was a
+          choice.
         </p>
       </ProseBlock>
 
@@ -225,8 +231,9 @@ export default function DelinquentFbarGuidePage() {
           The FBAR covers financial accounts held outside the US: UK current and savings accounts, cash ISAs and stocks
           and shares ISAs, brokerage and investment accounts, premium bonds held in an NS&amp;I account, cash-value life
           policies, and accounts you do not own but can sign on, such as an employer&rsquo;s or a relative&rsquo;s.
-          Joint accounts with a non-US spouse are reported in full. UK workplace pensions and SIPPs are widely treated as
-          reportable accounts in practice, and we report them; the alternative view is not one we recommend relying on.
+          Joint accounts with a non-US spouse are reported in full. Whether UK workplace pensions and SIPPs must be
+          reported is not settled in published guidance; the cautious approach, which is the one we recommend, is to
+          report them.
           Each balance is converted at the US Treasury year-end exchange rate for the year reported. Our{' '}
           <Link href="/resources/calculators/fbar-checker">FBAR checker</Link> walks through the threshold test.
         </p>
@@ -241,7 +248,7 @@ export default function DelinquentFbarGuidePage() {
               { label: 'Filed with', value: 'FinCEN BSA E-Filing System' },
               { label: 'Threshold', value: 'Combined non-US accounts over $10,000 at any time in the year' },
               { label: 'Due date', value: '15 April; automatic extension to 15 October' },
-              { label: 'Old safe harbour', value: 'Delinquent FBAR Submission Procedures, withdrawn 1 July 2026' },
+              { label: 'Old safe harbour', value: 'Delinquent FBAR Submission Procedures page, no longer on irs.gov (mid-2026)' },
               { label: 'If income unreported', value: 'Streamlined Foreign Offshore Procedures' },
               { label: 'Non-willful penalty', value: 'Up to $16,536 per report (2025 adjustment)' },
             ]}
@@ -253,7 +260,8 @@ export default function DelinquentFbarGuidePage() {
         <ul className="list-disc space-y-2 pl-5 text-[15px]">
           <li>IRS, <a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar" rel="noopener" target="_blank">Report of Foreign Bank and Financial Accounts (FBAR)</a>, page last reviewed or updated 30 July 2026.</li>
           <li>IRS, <a href="https://www.irs.gov/individuals/international-taxpayers/us-taxpayers-residing-outside-the-united-states" rel="noopener" target="_blank">US taxpayers residing outside the United States (Streamlined Foreign Offshore Procedures)</a>, updated 11 July 2026.</li>
-          <li>IRS, <a href="https://www.irs.gov/irm/part4/irm_04-026-016" rel="noopener" target="_blank">Internal Revenue Manual 4.26.16</a>, Report of Foreign Bank and Financial Accounts, in particular 4.26.16.3.11 and 4.26.16.5.4.</li>
+          <li>IRS, <a href="https://www.irs.gov/irm/part4/irm_04-026-016" rel="noopener" target="_blank">Internal Revenue Manual 4.26.16</a>, Report of Foreign Bank and Financial Accounts (effective 26 August 2025), in particular 4.26.16.3.11 and 4.26.16.5.4.</li>
+          <li>IRS, former page &ldquo;Delinquent FBAR Submission Procedures&rdquo; (irs.gov/individuals/international-taxpayers/delinquent-fbar-submission-procedures): returned &ldquo;Page Not Found&rdquo; when checked on 18 October 2026; last archived live copy 23 June 2026.</li>
           <li>US Treasury, <a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-H/section-1010.821" rel="noopener" target="_blank">31 CFR 1010.821</a>, penalty adjustment table (penalties assessed on or after 17 January 2025).</li>
           <li>FinCEN, BSA E-Filing System and the FinCEN Form 114 instructions (reason for late filing).</li>
           <li><em>Bittner v United States</em>, 598 U.S. 85 (2023).</li>
