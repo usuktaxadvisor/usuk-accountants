@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const SERVICE_IMG: Record<string, [string, string]> = {
@@ -28,7 +29,7 @@ export function ServiceCard({ service }: { service: ServiceItem }) {
       className="group rounded-2xl border border-mist bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2"
     >
       {SERVICE_IMG[href] && (
-        <img src={`/images/atlantic/${SERVICE_IMG[href][0]}.jpg`} alt={SERVICE_IMG[href][1]} width={1200} height={900} loading="lazy" className="img-card-banner" />
+        <Image src={`/images/atlantic/${SERVICE_IMG[href][0]}.jpg`} alt={SERVICE_IMG[href][1]} width={1200} height={900} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="img-card-banner" />
       )}
       <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique transition-all duration-300 group-hover:scale-105 group-hover:bg-gold/20 group-hover:text-gold">
         <Icon className="h-6 w-6" />

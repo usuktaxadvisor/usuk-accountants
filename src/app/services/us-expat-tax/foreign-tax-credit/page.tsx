@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/foreign-tax-credit';
 
 export const metadata: Metadata = {
-  title: 'Foreign Tax Credit for Americans in the UK — Form 1116 Help',
+  title: 'Foreign Tax Credit (Form 1116) for Americans in the UK',
   description:
-    'The US Foreign Tax Credit (Form 1116) offsets your US tax with the UK tax you have already paid, usually eliminating double taxation. Learn how it works, FEIE vs FTC, common mistakes, and how we handle it.',
+    'How the US Foreign Tax Credit (Form 1116) offsets US tax with UK tax already paid, FEIE vs FTC, common mistakes, and how we prepare it as part of your US return.',
   alternates: { canonical: URL },
 };
 

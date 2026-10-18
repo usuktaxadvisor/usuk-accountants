@@ -1,4 +1,5 @@
 ---
+seoTitle: "Stocks and Shares ISA Before Moving to America"
 title: "Moving to America With a Stocks and Shares ISA? Read This Before You Fly"
 description: "US tax treats UK ISAs harshly — and the clean solutions mostly exist only before you become a US tax resident. What to do with your ISA before an American move, and why timing beats everything."
 date: "2026-08-25"

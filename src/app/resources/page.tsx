@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { IconCalculator, IconGlobeDoc, IconTreaty, IconPlanning, IconArrowRight } from '@/components/ui/icons';
 
 const URL = 'https://www.usukaccountants.com/resources';
@@ -26,7 +26,7 @@ export default function ResourcesHub() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Resources', href: '/resources' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <main>
         <Breadcrumbs crumbs={crumbs} />

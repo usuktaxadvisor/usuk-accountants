@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/us-uk-tax-services';
 
 export const metadata: Metadata = {
-  title: 'US & UK Tax Services — Specialist Cross-Border Tax Advisors',
+  title: 'US & UK Tax Services — Cross-Border Specialists',
   description:
-    'Specialist US & UK tax services under one roof: US expat tax, UK accounting, cross-border tax planning and international tax advisory for Americans in the UK, Britons in the US, dual citizens and international businesses.',
+    'US and UK tax services under one roof: US expat tax, UK accounting, cross-border planning and treaty advice for Americans in the UK, Britons in the US and dual citizens.',
   alternates: { canonical: URL },
 };
 
@@ -94,7 +94,7 @@ export default function UsUkTaxServices() {
           { title: 'Book a consultation', description: 'We review your full US and UK position and what you need.' },
           { title: 'Fixed-scope quote', description: 'A clear, complexity-based proposal before any work begins.' },
           { title: 'Coordinated work', description: 'Both returns prepared together by US and UK specialists.' },
-          { title: 'Aligned filing', description: 'Filed so reliefs and credits line up and nothing is taxed twice.' },
+          { title: 'Aligned filing', description: 'Filed so reliefs, credits and treaty positions line up across both returns.' },
         ]}
       />
 

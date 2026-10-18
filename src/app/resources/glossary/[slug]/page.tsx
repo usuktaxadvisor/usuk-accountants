@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/library/JsonLd';
 import { definedTermSchema } from '@/lib/schema';
 import { getGlossaryTerm, getAllGlossarySlugs, glossaryTerms } from '@/lib/glossary';
 import { authors } from '@/lib/authority-data';
+import { metaDescription } from '@/lib/seo-text';
 
 const BASE = 'https://www.usukaccountants.com/resources/glossary';
 
@@ -22,17 +23,21 @@ export async function generateMetadata({
   const t = getGlossaryTerm(slug);
   if (!t) return { title: 'Term not found' };
   const url = `${BASE}/${slug}`;
-  const title = `${t.term}${t.expansion ? ` (${t.expansion})` : ''} — Definition`;
+  // Keep the <title> under ~60 characters: only include short expansions.
+  const expansion = t.expansion && t.expansion.length <= 30 ? ` (${t.expansion})` : '';
+  const title = `${t.term}${expansion} — Definition`;
+  const description = metaDescription(t.short);
   return {
     title,
-    description: t.short,
+    description,
     alternates: { canonical: url },
     openGraph: {
       title,
-      description: t.short,
+      description,
       type: 'article',
       url,
       siteName: 'US UK Accountants',
+      images: [{ url: 'https://www.usukaccountants.com/opengraph-image', width: 1200, height: 630 }],
     },
   };
 }

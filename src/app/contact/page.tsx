@@ -8,9 +8,9 @@ import { SITE, staffedOffices } from '@/lib/site-data';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact Us — US & UK Tax Enquiries',
   description:
-    'Get in touch with US UK Accountants. Offices in London and New York. Email or call our cross-border tax specialists, or send an enquiry and we reply within one business day.',
+    'Send an enquiry to US UK Accountants or email hello@usukaccountants.com. Tell us which country you file in and what you need, and a cross-border specialist will reply.',
   alternates: { canonical: 'https://www.usukaccountants.com/contact' },
 };
 

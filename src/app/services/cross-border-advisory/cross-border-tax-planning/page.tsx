@@ -8,9 +8,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/cross-border-advisory/cross-border-tax-planning';
 
 export const metadata: Metadata = {
-  title: 'Cross-Border Tax Planning — US & UK Income, Reliefs & Timing',
+  title: 'US–UK Cross-Border Tax Planning',
   description:
-    'Coordinated US–UK tax planning: sequencing the Foreign Tax Credit, FEIE and treaty positions, timing income and gains across two systems, and avoiding double taxation before you file rather than after.',
+    'Coordinated US–UK tax planning: sequencing the Foreign Tax Credit, FEIE and treaty positions, timing income and gains across two systems, and planning before you file.',
   alternates: { canonical: URL },
 };
 

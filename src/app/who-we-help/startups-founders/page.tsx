@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/who-we-help/startups-founders';
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax & Accounting for Startups, Founders & Contractors',
+  title: 'US–UK Tax for Startups, Founders & Contractors',
   description:
-    'Cross-border accounting for founders, startups and contractors: UK limited company set-up, Corporation Tax, and the US side for American owners — Form 5471, GILTI, the check-the-box election and Section 962.',
+    'Cross-border accounting for founders, startups and contractors: UK company set-up and Corporation Tax, plus the US side for American owners — Form 5471, GILTI and elections.',
   alternates: { canonical: URL },
 };
 

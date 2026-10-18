@@ -1,4 +1,5 @@
 ---
+seoTitle: "FBAR vs FATCA Form 8938 for US Expats in the UK"
 title: "FBAR vs FATCA Form 8938: What US Expats in the UK Need to Know"
 description: "Two separate US reports cover the same UK accounts: the FBAR (FinCEN Form 114) and Form 8938 under FATCA. Different thresholds, different filers, different forms. Here is who files which, when, and what counts, for Americans living in the UK."
 date: "2026-10-05"

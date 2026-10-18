@@ -1,4 +1,5 @@
 ---
+seoTitle: "Form 1040 for Americans Living in the UK"
 title: "Form 1040 for Americans Living in the UK: A Practical Guide"
 description: "US citizens in the UK must file Form 1040 every year on their worldwide income — UK salary, rental income, savings, and investments alike. This guide explains what the form covers, which schedules apply, and how the Foreign Tax Credit prevents double taxation."
 date: "2026-07-30"

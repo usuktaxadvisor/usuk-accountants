@@ -64,7 +64,7 @@ export default function UsVsUkReturnPage() {
       datePublished="2025-01-15"
       faqs={faqs}
       ctaTitle="Filing on both sides of the Atlantic?"
-      ctaIntro="We coordinate your US and UK filings so they work together and you never pay twice."
+      ctaIntro="We coordinate your US and UK filings so reliefs, credits and treaty positions line up across both returns."
     >
       <ProseBlock eyebrow="The short answer" title="Two systems, two logics">
         <p className="speakable">

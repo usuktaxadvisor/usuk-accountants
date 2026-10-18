@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting';
 
 export const metadata: Metadata = {
-  title: 'UK Accounting Services for Internationally-Connected Individuals & Businesses',
+  title: 'UK Accounting Services for US-Connected Clients',
   description:
-    'Specialist UK accounting — company accounts, Corporation Tax, VAT, payroll and Self Assessment — for businesses and individuals with US and cross-border connections. Coordinated with your US tax position.',
+    'UK company accounts, Corporation Tax, VAT, payroll and Self Assessment for individuals and businesses with US connections — coordinated with your US tax position.',
   alternates: { canonical: URL },
 };
 

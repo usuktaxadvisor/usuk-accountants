@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/us-tax-returns';
 
 export const metadata: Metadata = {
-  title: 'US Tax Returns for Americans in the UK — Federal Filing from Abroad',
+  title: 'US Tax Returns for Americans in the UK',
   description:
-    'US citizens and green card holders must file a US federal tax return on worldwide income wherever they live. Learn who must file, the expat deadlines, how reliefs prevent double tax, and how we handle it.',
+    'US citizens and green card holders file a US federal return on worldwide income wherever they live: who must file, the expat deadlines, the reliefs available, and how we prepare it.',
   alternates: { canonical: URL },
 };
 

@@ -13,7 +13,7 @@ import {
 const URL = 'https://www.usukaccountants.com/resources/tax-data';
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax Data Centre — Limits, Rates, Thresholds & Deadlines',
+  title: 'US–UK Tax Data Centre — Rates & Thresholds',
   description:
     'The definitive reference for US–UK cross-border tax figures: FEIE, FBAR and FATCA thresholds, US and UK tax rates, treaty articles and filing deadlines — each with the official IRS, HMRC or Treasury source.',
   alternates: { canonical: URL },

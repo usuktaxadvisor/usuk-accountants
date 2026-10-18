@@ -1,4 +1,5 @@
 ---
+seoTitle: "Haven't Filed US Taxes While Living in the UK?"
 title: "What Happens If I Haven't Filed US Taxes While Living in the UK?"
 description: "Many Americans in the UK don't realise they still have to file US taxes — sometimes for years. Here's what actually happens, why it's usually fixable without penalties through Streamlined Filing, and how to catch up safely."
 date: "2026-06-26"
@@ -30,7 +31,7 @@ This guide explains what genuinely happens when you're behind, and the safe, est
 
 - US citizens must file every year regardless of where they live — but being behind is usually fixable.
 - Most who fall behind did so without knowing, which the IRS treats as non-willful.
-- The Streamlined Filing Compliance Procedures allow catch-up: 3 years of returns, 6 years of FBARs, often penalty-free.
+- The Streamlined Filing Compliance Procedures allow catch-up: 3 years of returns, 6 years of FBARs, without the usual late-filing penalties where you qualify.
 - Coming forward before the IRS contacts you is what keeps the easiest route open.
 
 ## Why so many Americans don't know they have to file
@@ -51,7 +52,7 @@ For non-willful taxpayers, the [Streamlined Filing Compliance Procedures](/servi
 - filing the **last six years** of [FBARs](/services/us-expat-tax/fbar-filing),
 - and submitting a statement certifying that your failure to file was **non-willful**.
 
-For those who qualify, this often resolves years of missed filings with **no penalties** — a genuinely forgiving programme designed for ordinary people who simply didn't know.
+For those who qualify, this often resolves years of missed filings **without the usual late-filing penalties** — a forgiving programme designed for ordinary people who simply didn't know.
 
 > Not sure whether you'd qualify? Our [Streamlined eligibility checker](/resources/calculators/streamlined-eligibility) runs through the key questions in a couple of minutes.
 

@@ -8,9 +8,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/vat-returns';
 
 export const metadata: Metadata = {
-  title: 'VAT Returns & VAT Registration — UK VAT for Businesses',
+  title: 'UK VAT Returns & VAT Registration',
   description:
-    'UK businesses over the VAT threshold must register, charge VAT, and file VAT returns under Making Tax Digital. Learn when to register, how returns work, common mistakes, and how we handle VAT — including cross-border issues.',
+    'When a UK business must register for VAT, how Making Tax Digital returns work, common mistakes, and how we handle VAT — including cross-border and US-owned businesses.',
   alternates: { canonical: URL },
 };
 

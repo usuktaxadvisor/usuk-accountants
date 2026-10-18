@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/streamlined-filing';
 
 export const metadata: Metadata = {
-  title: 'Streamlined Filing Service for Americans in the UK — IRS Catch-Up, Fixed Fee',
+  title: 'Streamlined Filing Service for Americans in the UK',
   description:
-    "Behind on US taxes? Our Streamlined Filing service prepares the full IRS Streamlined Foreign Offshore package for non-wilful Americans in the UK — three years of returns, six years of FBARs and the certification — for a fixed fee, handled entirely by email.",
+    "Behind on US taxes? We prepare the full IRS Streamlined Foreign Offshore package for non-wilful Americans in the UK: three years of returns, six years of FBARs and the certification.",
   alternates: { canonical: URL },
 };
 
@@ -60,7 +60,7 @@ export default function StreamlinedFiling() {
       service={{
         url: URL,
         name: 'IRS Streamlined Filing Compliance Procedures',
-        description: 'Penalty-free US tax catch-up for non-willful Americans abroad — returns, FBARs and non-willful certification.',
+        description: 'IRS Streamlined Foreign Offshore catch-up for non-willful Americans abroad — three years of returns, six years of FBARs and the non-willful certification.',
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Come into compliance with confidence"

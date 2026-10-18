@@ -6,7 +6,7 @@ import { PageShell, ProseBlock, RelatedLinks } from '@/components/library';
 const url = '/resources/forms';
 
 export const metadata: Metadata = {
-  title: 'IRS Forms Explained for US Expats | Knowledge Cluster',
+  title: 'IRS Forms Explained for US Expats',
   description:
     'A plain-English guide to the IRS forms US taxpayers abroad encounter most: what each form is, why it exists, who files it, and how it fits within the wider filing process.',
   alternates: { canonical: url },

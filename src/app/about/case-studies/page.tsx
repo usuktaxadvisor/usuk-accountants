@@ -8,7 +8,7 @@ import { breadcrumbSchema } from '@/lib/schema';
 const crumbs = [{ label: 'Case studies', href: '/about/case-studies' }];
 
 export const metadata: Metadata = {
-  title: 'Case Studies',
+  title: 'Case Studies — Illustrative Cross-Border Scenarios',
   description:
     'Illustrative cross-border scenarios: Streamlined Filing without penalties, dual-citizen company structuring, and clean US–UK relocations — representative examples of how we work.',
   alternates: { canonical: 'https://www.usukaccountants.com/about/case-studies' },

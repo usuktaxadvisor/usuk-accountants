@@ -15,7 +15,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/services/us-expat-tax/us-tax-returns/hub';
 
 export const metadata: Metadata = {
-  title: 'US Tax Returns for Americans in the UK - Complete Hub',
+  title: 'US Tax Returns from the UK — Resource Hub',
   description:
     'The complete resource hub for US tax returns from the UK: Form 1040, FBAR, delinquent-FBAR catch-up, Streamlined Filing, calculators and glossary.',
   alternates: { canonical: url },
@@ -44,7 +44,7 @@ export default function UsTaxReturnsHubPage() {
               { title: '1. File your annual Form 1040', description: 'Report worldwide income and apply the FEIE or foreign tax credit to avoid double taxation.' },
               { title: '2. Report foreign accounts (FBAR / Form 8938)', description: 'Separate information reports triggered by foreign account balances over the thresholds.' },
               { title: '3. Catch up on any missed years', description: 'Use the Delinquent FBAR procedures or Streamlined Filing depending on whether income was reported.' },
-              { title: '4. Plan forward', description: 'Set up a repeatable annual process so future filings are simple and penalty-free.' },
+              { title: '4. Plan forward', description: 'Set up a repeatable annual process so future filings are simple and on time.' },
             ];
 
   return (

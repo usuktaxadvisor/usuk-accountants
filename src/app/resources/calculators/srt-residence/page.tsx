@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/srt-residence';
 
 export const metadata: Metadata = {
-  title: 'UK Statutory Residence Test Calculator — Are You UK Tax Resident?',
+  title: 'UK Statutory Residence Test Calculator',
   description:
     'Free UK Statutory Residence Test (SRT) checker. Work through the automatic overseas, automatic UK and sufficient ties tests to estimate your UK tax-residence status for the year.',
   alternates: { canonical: URL },

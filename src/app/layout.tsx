@@ -53,11 +53,11 @@ export const metadata: Metadata = {
   },
   metadataBase: new URL(SITE),
   title: {
-    default: 'US UK Accountants | Cross-Border Tax & Accounting Specialists',
+    default: 'US UK Accountants | US & UK Tax Returns, One Team',
     template: '%s | US UK Accountants',
   },
   description:
-    'Specialist US–UK tax and accounting under one roof. US expat tax, UK accounting, FBAR, FATCA, Streamlined Filing and treaty planning for Americans in the UK, Brits in the US, and dual citizens.',
+    'US tax returns, UK Self Assessment, FBAR, Streamlined Filing and cross-border advice from one firm — for Americans in the UK, Britons in the US and dual citizens.',
   keywords: [
     'US UK tax', 'US expat tax', 'UK accountant', 'FBAR filing', 'FATCA',
     'Streamlined Filing', 'US UK tax treaty', 'cross-border tax', 'dual citizen tax',
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: SITE,
-    title: 'US UK Accountants | Cross-Border Tax & Accounting Specialists',
+    title: 'US UK Accountants | US & UK Tax Returns, One Team',
     description:
       'The specialist firm for life and business between the US and the UK. US expat tax, UK accounting, and everything cross-border.',
     siteName: 'US UK Accountants',
@@ -98,7 +98,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <>
             <link rel="preconnect" href="https://use.typekit.net" crossOrigin="anonymous" />
             <link rel="preconnect" href="https://p.typekit.net" />
-            <link rel="stylesheet" href={`https://use.typekit.net/${ADOBE_KIT_ID}.css`} />
+            {/*
+              Load the Adobe Fonts stylesheet without blocking first paint:
+              preload it, then promote it to a stylesheet once fetched. Belleza
+              (self-hosted via next/font) paints immediately and Condor swaps in.
+              <noscript> keeps the blocking link for browsers without JS.
+            */}
+            <link
+              rel="preload"
+              as="style"
+              href={`https://use.typekit.net/${ADOBE_KIT_ID}.css`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `(function(){var l=document.createElement('link');l.rel='stylesheet';l.href='https://use.typekit.net/${ADOBE_KIT_ID}.css';document.head.appendChild(l);})();`,
+              }}
+            />
+            <noscript>
+              <link rel="stylesheet" href={`https://use.typekit.net/${ADOBE_KIT_ID}.css`} />
+            </noscript>
           </>
         )}
         <JsonLd

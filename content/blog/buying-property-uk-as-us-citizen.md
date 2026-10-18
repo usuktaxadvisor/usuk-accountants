@@ -1,4 +1,5 @@
 ---
+seoTitle: "Buying UK Property as a US Citizen: Tax Guide"
 title: "Buying Property in the UK as a US Citizen: Tax and Reporting Guide"
 description: "Buying UK property as an American isn't a US taxable event — but it plants tax seeds. Here's what to know about Stamp Duty surcharges, why the purchase isn't FBAR-reportable, and the pound-mortgage trap that surfaces years later."
 date: "2026-06-27"

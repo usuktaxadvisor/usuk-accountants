@@ -10,9 +10,9 @@ const URL = 'https://www.usukaccountants.com/locations';
 const staffed = OFFICES.filter((o) => o.staffed);
 
 export const metadata: Metadata = {
-  title: 'Our Offices — US & UK Tax Accountants in London, Manchester & New York',
+  title: 'Our Offices — London, Manchester & New York',
   description:
-    'US UK Accountants has offices in London, Manchester and the New York area, providing specialist US–UK cross-border tax and accounting on both sides of the Atlantic — in person and remotely.',
+    'US UK Accountants works from London, Manchester and the New York area, providing US–UK cross-border tax and accounting on both sides of the Atlantic, in person and remotely.',
   alternates: { canonical: URL },
 };
 

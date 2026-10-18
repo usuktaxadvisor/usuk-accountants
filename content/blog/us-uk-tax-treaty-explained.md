@@ -1,4 +1,5 @@
 ---
+seoTitle: "US-UK Tax Treaty Explained: Avoiding Double Tax"
 title: "The US-UK Tax Treaty Explained: How It Prevents Double Taxation"
 description: "How the US-UK tax treaty prevents double taxation for Americans in the UK: residence tie-breakers, the saving clause, pensions, employment, dividends and capital gains — explained clearly."
 date: "2026-07-08"

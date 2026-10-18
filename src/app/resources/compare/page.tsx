@@ -17,7 +17,7 @@ const SITE = 'https://www.usukaccountants.com';
 const URL = `${SITE}/resources/compare`;
 
 export const metadata: Metadata = {
-  title: 'Compare US–UK Tax Rules Side by Side: FBAR vs 8938, FEIE vs FTC & More',
+  title: 'Compare US–UK Tax Rules Side by Side',
   description:
     'Side-by-side comparisons of the US and UK tax rules, reliefs, reports and catch-up routes that Americans in the UK most often confuse — FBAR vs Form 8938, FEIE vs the Foreign Tax Credit, Streamlined vs Delinquent FBAR, and more.',
   alternates: { canonical: URL },

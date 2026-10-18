@@ -26,9 +26,9 @@ const offerCatalogSchema = {
 const URL = 'https://www.usukaccountants.com/pricing';
 
 export const metadata: Metadata = {
-  title: 'How Much Does a US–UK Tax Accountant Cost? (2026 Pricing Guide)',
+  title: 'US–UK Tax Accountant Fees — 2026 Pricing Guide',
   description:
-    'Honest, transparent guidance on what US–UK cross-border tax and accounting costs: US expat tax returns, FBAR, Streamlined Filing, UK Self Assessment, company accounts and cross-border planning. Typical price ranges and exactly what drives the fee.',
+    'What US–UK cross-border tax and accounting costs: US expat returns, FBAR, Streamlined Filing, UK Self Assessment, company accounts and planning — typical ranges and what drives the fee.',
   alternates: { canonical: URL },
 };
 

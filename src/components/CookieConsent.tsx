@@ -76,8 +76,8 @@ function ConsentBanner({ onAccept, onReject }: { onAccept: () => void; onReject:
     >
       <div className="mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-mist bg-white/95 p-5 shadow-e2 backdrop-blur md:flex-row md:items-center md:justify-between md:p-6">
         <p className="text-sm leading-relaxed text-muted">
-          We use essential cookies to run this site. With your consent we also use analytics to understand how the
-          site is used and improve it. You can change your choice anytime. See our{' '}
+          We use essential cookies to run this site and, with your consent, analytics to improve it. Change your choice
+          any time. See our{' '}
           <Link href="/privacy" className="font-medium text-gold-antique underline-offset-4 hover:underline">privacy policy</Link>.
         </p>
         <div className="flex shrink-0 gap-3">

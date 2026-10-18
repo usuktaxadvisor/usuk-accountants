@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/us-uk-tax-treaty';
 
 export const metadata: Metadata = {
-  title: 'The US–UK Tax Treaty Explained — Pensions, Residency & the Saving Clause',
+  title: 'US–UK Tax Treaty Explained — Pensions & Residency',
   description:
-    'How the US–UK tax treaty coordinates tax between the two countries: pension provisions, the residency tie-breaker, and the saving clause that keeps US citizens taxable. What it does, and what it does not do.',
+    'How the US–UK tax treaty coordinates tax between the two countries: pension provisions, the residency tie-breaker and the saving clause that keeps US citizens taxable.',
   alternates: { canonical: URL },
 };
 

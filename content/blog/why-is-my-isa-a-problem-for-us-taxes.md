@@ -1,4 +1,5 @@
 ---
+seoTitle: "Why Is My ISA a Problem for US Taxes? PFIC Rules"
 title: "Why Is My ISA a Problem for US Taxes? PFIC Rules Explained"
 description: "ISAs are tax-free in the UK — but for US citizens they can be a costly trap. Most funds inside a Stocks and Shares ISA are PFICs, triggering punitive US tax and Form 8621. Here's what that means and how to think about it."
 date: "2026-06-26"

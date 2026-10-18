@@ -1,4 +1,5 @@
 ---
+seoTitle: "US Tax on UK Rental Income for American Landlords"
 title: "US Tax on UK Rental Income: A Guide for American Landlords"
 description: "UK rental income is taxable in both the UK and the US for American landlords. Here's how to report it on Schedule E, why US depreciation is mandatory (and bites on sale), and how the foreign tax credit prevents double taxation."
 date: "2026-06-27"

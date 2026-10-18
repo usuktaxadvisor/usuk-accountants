@@ -8,7 +8,7 @@ import { AuthorByline } from '@/components/library/Authors';
 import { CTASection } from '@/components/library/CTASection';
 import { Container, Eyebrow } from '@/components/library/primitives';
 import {
-  organizationSchema, websiteSchema, breadcrumbSchema, faqSchema,
+  breadcrumbSchema, faqSchema,
   personSchema, articleSchema, speakableSchema, serviceSchema,
   type Crumb, type FaqEntry, type PersonInput, type ServiceSchemaInput, type SchemaEntity,
   howToSchema, type HowToInput,
@@ -73,9 +73,8 @@ export function PageShell({
   about,
   mentions,
 }: PageShellProps) {
+  // Organization + WebSite are emitted once, sitewide, from the root layout.
   const schemas: object[] = [
-    organizationSchema(),
-    websiteSchema(),
     breadcrumbSchema(crumbs),
     personSchema(toPersonInput(author)),
     articleSchema({

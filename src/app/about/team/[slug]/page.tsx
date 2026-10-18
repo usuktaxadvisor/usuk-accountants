@@ -5,6 +5,7 @@ import {
 } from '@/components/library';
 import { authors } from '@/lib/authority-data';
 import { breadcrumbSchema } from '@/lib/schema';
+import { metaDescription } from '@/lib/seo-text';
 
 export function generateStaticParams() {
   return authors.map((a) => ({ slug: a.slug }));
@@ -18,7 +19,7 @@ export async function generateMetadata(
   if (!author) return { title: 'Team member not found' };
   return {
     title: `${author.name} — ${author.role}`,
-    description: author.bio,
+    description: metaDescription(author.bio),
     alternates: { canonical: `https://www.usukaccountants.com/about/team/${author.slug}` },
   };
 }

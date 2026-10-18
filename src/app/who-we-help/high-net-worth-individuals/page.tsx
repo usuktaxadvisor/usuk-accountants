@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/who-we-help/high-net-worth-individuals';
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax Advisors for High-Net-Worth Individuals',
+  title: 'US–UK Tax Advisers for High-Net-Worth Individuals',
   description:
-    'Discreet cross-border tax and estate planning for high-net-worth individuals with US and UK exposure: treaty planning, the UK long-term-resident IHT rules, the US estate tax, trusts, PFICs and worldwide income coordination.',
+    'Discreet cross-border tax and estate planning for high-net-worth individuals with US and UK exposure: treaty planning, UK long-term-resident IHT rules, US estate tax, trusts and PFICs.',
   alternates: { canonical: URL },
 };
 

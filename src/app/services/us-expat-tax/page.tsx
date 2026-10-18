@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax';
 
 export const metadata: Metadata = {
-  title: 'US Expat Tax Services for Americans in the UK & Abroad',
+  title: 'US Expat Tax Services for Americans in the UK',
   description:
-    'Specialist US tax for Americans abroad: federal returns, FBAR, FATCA, Streamlined Filing, FEIE and Foreign Tax Credit — coordinated with your UK position so you never pay twice.',
+    'US tax for Americans in the UK and abroad: federal returns, FBAR, FATCA, Streamlined Filing, FEIE and the Foreign Tax Credit — prepared with your UK position in view.',
   alternates: { canonical: URL },
 };
 
@@ -123,7 +123,7 @@ export default function UsExpatTaxPillar() {
         title="Explore related areas"
         links={[
           { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'Every US filing form and deadline for Americans in the UK, in one place.' },
-          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up penalty-free.' },
+          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up under the IRS Streamlined procedures.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Your UK Self Assessment and company accounts, coordinated.' },
           { label: 'US–UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty positions, pensions and double-tax relief.' },
           { label: 'Americans in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'Built for US citizens living in the UK.' },

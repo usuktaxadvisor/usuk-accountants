@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/startup-accounting';
 
 export const metadata: Metadata = {
-  title: 'Startup Accounting — Set Up Your UK Business the Right Way',
+  title: 'Startup Accounting — Setting Up a UK Business',
   description:
-    'Accounting for startups and new businesses: choosing between sole trader and limited company, registration, getting your books and tax set up correctly, and special considerations for American founders launching in the UK.',
+    'Accounting for new UK businesses: sole trader vs limited company, registrations, books and tax set up correctly, and the US considerations for American founders in the UK.',
   alternates: { canonical: URL },
 };
 

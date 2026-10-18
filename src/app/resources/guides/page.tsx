@@ -41,7 +41,7 @@ const GUIDES: Card[] = [
     title: 'Delinquent FBAR: how to file late FBARs the right way',
     kicker: 'Catching up',
     description:
-      'A step-by-step guide to catching up on missed FBARs from the UK: the Delinquent FBAR Submission Procedures, reasonable cause, and when Streamlined Filing is a better fit.',
+      'Step-by-step guide to catching up on missed FBARs from the UK: the Delinquent FBAR Submission Procedures, what the reason for late filing should say, and when Streamlined fits better.',
     href: '/resources/guides/delinquent-fbar',
   },
 ];

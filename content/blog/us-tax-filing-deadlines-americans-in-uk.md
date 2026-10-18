@@ -1,4 +1,5 @@
 ---
+seoTitle: "US Tax Filing Deadlines for Americans in the UK"
 title: "US Tax Filing Deadlines for Americans Living in the UK (2025)"
 description: "Americans in the UK get extra time to file their US tax return — but the deadlines differ from those in the US. This guide covers the automatic June extension, the October deadline, the FBAR due date, and estimated tax payment dates."
 date: "2026-07-30"

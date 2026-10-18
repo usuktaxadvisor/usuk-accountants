@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/company-accounts';
 
 export const metadata: Metadata = {
-  title: 'Company Accounts for UK Limited Companies — Year-End Accounts & Filing',
+  title: 'UK Company Accounts — Year-End Accounts & Filing',
   description:
-    'UK limited companies must file annual statutory accounts with Companies House and a Company Tax Return with HMRC. Learn what is involved, the deadlines, common mistakes, and how we handle it — including for US-owned UK companies.',
+    'Statutory accounts for Companies House and the Company Tax Return for HMRC: what is involved, the deadlines, common mistakes and how we handle it, including US-owned UK companies.',
   alternates: { canonical: URL },
 };
 

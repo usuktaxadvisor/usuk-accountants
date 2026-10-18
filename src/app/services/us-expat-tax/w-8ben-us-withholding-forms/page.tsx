@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/w-8ben-us-withholding-forms';
 
 export const metadata: Metadata = {
-  title: 'W-8BEN Help UK — US Withholding Forms for UK Residents and Companies',
+  title: 'W-8BEN & US Withholding Forms for UK Residents',
   description:
-    'Receiving US income in the UK? We complete Form W-8BEN, W-8BEN-E and W-9 correctly, apply the US–UK treaty rate where it applies, and tell you which form you actually need. For UK residents, UK companies and US citizens living in the UK.',
+    'Receiving US income in the UK? We complete Form W-8BEN, W-8BEN-E or W-9 correctly, apply the US–UK treaty rate where it applies, and tell you which form you need.',
   alternates: { canonical: URL },
 };
 

@@ -15,9 +15,9 @@ import { authors } from '@/lib/authority-data';
 const url = '/resources/guides/delinquent-fbar';
 
 export const metadata: Metadata = {
-  title: 'Delinquent FBAR Guide: How to File Late FBARs the Right Way',
+  title: 'Delinquent FBAR Guide — How to File Late FBARs',
   description:
-    'A step-by-step guide to catching up on missed FBARs from the UK: the Delinquent FBAR Submission Procedures, reasonable cause, and when Streamlined Filing is a better fit.',
+    'Step-by-step guide to catching up on missed FBARs from the UK: the Delinquent FBAR Submission Procedures, what the reason for late filing should say, and when Streamlined fits better.',
   alternates: { canonical: url },
 };
 
@@ -65,7 +65,7 @@ export default function DelinquentFbarGuidePage() {
               An FBAR (FinCEN Form 114) reports your foreign financial accounts. If you were
               required to file one in a past year and did not, that FBAR is{' '}
               <Link href="/resources/glossary/delinquent-fbar">delinquent</Link>. Where your income
-              was reported and tax paid, the IRS provides a usually penalty-free way to catch up.
+              was reported and tax paid, the IRS provides a route to catch up that does not carry a penalty where its conditions are met.
             </p>
           </ProseBlock>
         </Container>

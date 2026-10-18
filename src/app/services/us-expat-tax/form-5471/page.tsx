@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/form-5471';
 
 export const metadata: Metadata = {
-  title: 'Form 5471 for Americans Who Own a UK Company — Filing & Penalties',
+  title: 'Form 5471 for US Owners of UK Companies',
   description:
-    'US persons who own or control a foreign corporation such as a UK limited company may have to file Form 5471 with their US return. Learn who must file, the severe penalties for not filing, and how we handle it.',
+    'US persons who own or control a UK limited company may have to file Form 5471 with their US return: who must file, the penalties for not filing, and how we prepare it.',
   alternates: { canonical: URL },
 };
 

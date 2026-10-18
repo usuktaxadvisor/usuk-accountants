@@ -1,4 +1,5 @@
 ---
+seoTitle: "UK Freelancer or Contractor: US Tax Forms You Need"
 title: "Freelancer or Contractor in the UK: What US Tax Forms Do You Need?"
 description: "An American freelancing or contracting in the UK won't get a 1099 from UK clients — but still self-reports to the IRS. Here's the exact checklist of US forms you need, why the UK works differently, and the contractor-versus-employee question."
 date: "2026-06-27"

@@ -1,4 +1,5 @@
 ---
+seoTitle: "UK FIG Regime: Four-Year Window for Americans"
 title: "The UK's FIG Regime: A Four-Year Window for Americans Moving to Britain"
 description: "The UK's Foreign Income and Gains regime can make US investment income UK-tax-free for your first four years of residence. Who qualifies, what claiming costs, and why it's a decision — not a default."
 date: "2026-08-25"

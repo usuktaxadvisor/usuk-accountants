@@ -7,7 +7,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/guides/tax-deadlines-calendar';
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax Deadlines Calendar — Key Dates for Cross-Border Filers',
+  title: 'US–UK Tax Deadlines Calendar',
   description:
     'The key US and UK tax deadlines in one place: IRS filing and the automatic expat extension, FBAR, UK Self Assessment, payments on account and Corporation Tax — for anyone filing on both sides of the Atlantic.',
   alternates: { canonical: URL },

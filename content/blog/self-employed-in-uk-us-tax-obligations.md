@@ -1,4 +1,5 @@
 ---
+seoTitle: "Self-Employed in the UK: Your US Tax Obligations"
 title: "Self-Employed in the UK? Your US Tax Obligations Explained"
 description: "An American self-employed in the UK files in both countries — but the US-UK Totalization Agreement usually exempts you from US self-employment tax. Here's how your UK and US obligations fit together, and the certificate of coverage that saves you 15.3%."
 date: "2026-06-27"
