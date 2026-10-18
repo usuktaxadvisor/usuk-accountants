@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 const AUDIENCE_IMG: Record<string, [string, string]> = {
@@ -112,7 +113,7 @@ export function WhoWeHelp({
               className="group rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2"
             >
               {AUDIENCE_IMG[a.href] ? (
-                <img src={`/images/atlantic/${AUDIENCE_IMG[a.href][0]}.jpg`} alt={AUDIENCE_IMG[a.href][1]} width={1200} height={1600} loading="lazy" className="img-card-banner-6" />
+                <Image src={`/images/atlantic/${AUDIENCE_IMG[a.href][0]}.jpg`} alt={AUDIENCE_IMG[a.href][1]} width={1200} height={1600} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="img-card-banner-6" />
               ) : (
                 <span className="text-2xl" aria-hidden>{a.flag}</span>
               )}

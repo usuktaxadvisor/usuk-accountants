@@ -1,4 +1,5 @@
 ---
+seoTitle: "FEIE or Foreign Tax Credit in the UK?"
 title: "FEIE or Foreign Tax Credit: Which Should I Use in the UK?"
 description: "Two main tools stop Americans in the UK being taxed twice: the Foreign Earned Income Exclusion and the Foreign Tax Credit. For most people in the UK, the Foreign Tax Credit is the better fit — here's why, and when the FEIE still makes sense."
 date: "2026-06-26"

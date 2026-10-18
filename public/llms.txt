@@ -1,0 +1,39 @@
+# US UK Accountants
+
+> US UK Accountants Ltd (Companies House 17336015) is a UK-registered tax and accountancy firm specialising in US–UK cross-border tax: US federal tax returns for Americans in the UK, UK Self Assessment, FBAR and Form 8938 reporting, IRS Streamlined Filing, W-8BEN and US withholding forms, UK company accounts and Corporation Tax, and cross-border advisory (US–UK tax treaty, pensions, business structuring). Clients are US citizens and green card holders in the UK, Britons in the US, dual citizens and businesses operating in both countries. The firm works by email with offices in London and Manchester (UK) and the New York area (US). It does not give investment advice and does not represent clients before the IRS or HMRC.
+
+Contact: hello@usukaccountants.com · UK 0333 090 4030 · US +1 914 953 7475
+
+## Services
+
+- [US tax returns for Americans in the UK](https://www.usukaccountants.com/services/us-expat-tax/us-tax-returns): Form 1040 from abroad, FEIE, Foreign Tax Credit, state returns
+- [FBAR filing](https://www.usukaccountants.com/services/us-expat-tax/fbar-filing): FinCEN Form 114, current, late and amended
+- [Streamlined Filing](https://www.usukaccountants.com/services/us-expat-tax/streamlined-filing): IRS Streamlined Foreign Offshore catch-up for non-willful filers
+- [FATCA / Form 8938](https://www.usukaccountants.com/services/us-expat-tax/fatca-compliance)
+- [W-8BEN and US withholding forms](https://www.usukaccountants.com/services/us-expat-tax/w-8ben-us-withholding-forms)
+- [US–UK tax treaty](https://www.usukaccountants.com/services/us-expat-tax/us-uk-tax-treaty)
+- [Form 5471 for US owners of UK companies](https://www.usukaccountants.com/services/us-expat-tax/form-5471)
+- [UK Self Assessment](https://www.usukaccountants.com/services/uk-accounting/self-assessment)
+- [UK company accounts](https://www.usukaccountants.com/services/uk-accounting/company-accounts), [Corporation Tax](https://www.usukaccountants.com/services/uk-accounting/corporation-tax), [VAT](https://www.usukaccountants.com/services/uk-accounting/vat-returns), [payroll](https://www.usukaccountants.com/services/uk-accounting/payroll)
+- [Cross-border advisory](https://www.usukaccountants.com/services/cross-border-advisory): planning, pensions (401(k), SIPP), business structuring
+- [Pricing guide](https://www.usukaccountants.com/pricing): indicative "from" ranges; every engagement quoted in writing, case by case
+
+## Guides and references
+
+- [Delinquent FBAR guide (updated October 2026)](https://www.usukaccountants.com/resources/guides/delinquent-fbar): how to file late FBARs after the IRS withdrew the Delinquent FBAR Submission Procedures on 1 July 2026
+- [US–UK tax deadlines calendar](https://www.usukaccountants.com/resources/guides/tax-deadlines-calendar)
+- [Comparisons](https://www.usukaccountants.com/resources/compare): FBAR vs Form 8938, FEIE vs Foreign Tax Credit, Streamlined vs late FBAR filing
+- [Glossary of US–UK tax terms](https://www.usukaccountants.com/resources/glossary)
+- [Tax data centre](https://www.usukaccountants.com/resources/tax-data): FEIE limit, FBAR and FATCA thresholds, rates and deadlines with official sources
+- [Calculators](https://www.usukaccountants.com/resources/calculators)
+- [Articles](https://www.usukaccountants.com/resources/blog)
+
+## Trust
+
+- [Our team](https://www.usukaccountants.com/about/team): named advisers with ACCA, ACA, CTA, CPA and IRS Enrolled Agent credentials
+- [Editorial policy](https://www.usukaccountants.com/editorial-policy): primary sources (IRS, HMRC, treaty text), dated and reviewed content
+- [Trust centre](https://www.usukaccountants.com/trust-center), [Privacy](https://www.usukaccountants.com/privacy), [Compliance](https://www.usukaccountants.com/compliance)
+
+## Optional
+
+- [Sitemap](https://www.usukaccountants.com/sitemap.xml)

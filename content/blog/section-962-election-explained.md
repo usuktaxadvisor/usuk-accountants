@@ -1,4 +1,5 @@
 ---
+seoTitle: "Section 962 Election for US Owners of UK Companies"
 title: "Section 962 Election Explained for US Owners of UK Companies"
 description: "A Section 962 election lets a US individual be taxed on GILTI/NCTI at corporate rates and credit the company's UK tax — often the most effective way to cut double taxation on a UK company's retained profits. Here's how it works and when to use it."
 date: "2026-06-27"

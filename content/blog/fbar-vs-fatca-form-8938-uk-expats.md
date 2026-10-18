@@ -1,4 +1,5 @@
 ---
+seoTitle: "FBAR vs FATCA Form 8938 for US Expats in the UK"
 title: "FBAR vs FATCA Form 8938: What US Expats in the UK Need to Know"
 description: "Two separate US reports cover the same UK accounts: the FBAR (FinCEN Form 114) and Form 8938 under FATCA. Different thresholds, different filers, different forms. Here is who files which, when, and what counts, for Americans living in the UK."
 date: "2026-10-05"
@@ -13,7 +14,7 @@ faqs:
   - q: "Is a UK pension reportable on the FBAR or Form 8938?"
     a: "Usually both, depending on the type and value. Personal pensions and SIPPs are generally treated as financial accounts for the FBAR and as specified foreign financial assets for Form 8938. Defined benefit schemes and the State Pension are treated differently; the position should be checked for each scheme."
   - q: "What are the penalties for not filing?"
-    a: "Both reports carry penalties for failure to file, and Form 8938 failures also keep the IRS assessment period open for the related return. Where the failure was non-wilful there are IRS procedures — the Delinquent FBAR Submission Procedures and the Streamlined Foreign Offshore Procedures — that allow you to catch up; we confirm which applies before anything is filed."
+    a: "Both reports carry penalties for failure to file, and Form 8938 failures also keep the IRS assessment period open for the related return. Where the failure was non-wilful you can catch up: late FBARs can be filed with reasonable cause (the IRS withdrew its separate Delinquent FBAR Submission Procedures in July 2026), and the Streamlined Foreign Offshore Procedures cover cases with unreported income; we confirm which applies before anything is filed."
 ---
 
 Most Americans living in the UK learn about one of these reports and assume it covers the other. It doesn't. The **FBAR** and **Form 8938** report overlapping information to two different parts of the US government, under two different laws, with different thresholds. Many people in the UK must file both every year.

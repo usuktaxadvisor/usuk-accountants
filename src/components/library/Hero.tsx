@@ -44,7 +44,8 @@ export function Hero({
       <div aria-hidden="true" className="hero-art pointer-events-none absolute" />
 
       <div className="hero-content relative mx-auto grid max-w-container items-center gap-12 px-6 pt-8 md:pt-10 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="animate-fade-rise">
+        {/* No entrance animation on the headline column: it is the LCP element and must paint immediately. */}
+        <div>
           <p className="mb-4 text-xs font-semibold uppercase tracking-eyebrow text-gold">{eyebrow}</p>
           <h1 className="font-display text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl xl:text-6xl">
             {title}
@@ -108,7 +109,7 @@ export function Hero({
             <div className="mt-6 flex items-center justify-between rounded-lg bg-navy-ink/80 px-5 py-4">
               <div>
                 <p className="text-xs text-softwhite/60">Tax return preparation</p>
-                <p className="font-display text-2xl font-semibold text-gold-champagne">Fixed fees, quoted in writing</p>
+                <p className="font-display text-2xl font-semibold text-gold-champagne">Fees quoted in writing, case by case</p>
               </div>
               <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">US · UK · both</span>
             </div>

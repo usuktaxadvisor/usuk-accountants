@@ -12,9 +12,9 @@ const URL = 'https://www.usukaccountants.com/locations/manchester';
 const office = OFFICES.find((o) => o.id === 'manchester')!;
 
 export const metadata: Metadata = {
-  title: 'US & UK Tax Services in Manchester — American Tax Accountants',
+  title: 'US & UK Tax Accountants in Manchester',
   description:
-    'Specialist US–UK tax services in Manchester for Americans in the North West, dual citizens and cross-border businesses: US expat tax, FBAR, FATCA, UK accounting and international tax advisory, from our Manchester office.',
+    'US–UK tax services in Manchester for Americans in the North West, dual citizens and cross-border businesses: US expat returns, FBAR, FATCA, UK accounting and tax advice.',
   alternates: { canonical: URL },
 };
 
@@ -48,7 +48,7 @@ export default function ManchesterLocation() {
       datePublished="2026-08-11"
       faqs={faqs}
       ctaTitle="Speak to our Manchester team"
-      ctaIntro="Book a consultation with US–UK specialists at our Manchester office or remotely."
+      ctaIntro="Email us with US–UK specialists at our Manchester office or remotely."
     >
       <JsonLd schema={localBusinessSchema('manchester')!} />
 

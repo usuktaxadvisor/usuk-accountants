@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/corporation-tax';
 
 export const metadata: Metadata = {
-  title: 'UK Corporation Tax — CT600 Filing, Deadlines & Planning',
+  title: 'UK Corporation Tax — CT600 Filing & Deadlines',
   description:
-    'UK companies pay Corporation Tax on their profits and file a CT600 with HMRC. Learn how it works, why payment is due before filing, common mistakes, and how we handle it — including for US-owned UK companies facing GILTI.',
+    'How UK Corporation Tax and the CT600 work, why payment is due before filing, common mistakes, and how we handle it — including US-owned UK companies facing GILTI.',
   alternates: { canonical: URL },
 };
 
@@ -68,7 +68,7 @@ export default function CorporationTax() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Get your Corporation Tax right — and on time"
-      ctaIntro="From the CT600 to planning the bill in advance, book a consultation and we'll make sure you pay what you owe, claim what you can, and never miss the payment deadline."
+      ctaIntro="From the CT600 to planning the bill in advance, email us and we'll make sure you pay what you owe, claim what you can, and never miss the payment deadline."
     >
       <Section tone="white">
         <Container>

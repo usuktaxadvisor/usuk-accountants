@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Header, Footer, Section, Container, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { IconCheck } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export default function CredentialsPage() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Credentials', href: '/credentials' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>

@@ -17,7 +17,7 @@ const SITE = 'https://www.usukaccountants.com';
 const URL = `${SITE}/resources/compare`;
 
 export const metadata: Metadata = {
-  title: 'Compare US–UK Tax Rules Side by Side: FBAR vs 8938, FEIE vs FTC & More',
+  title: 'Compare US–UK Tax Rules Side by Side',
   description:
     'Side-by-side comparisons of the US and UK tax rules, reliefs, reports and catch-up routes that Americans in the UK most often confuse — FBAR vs Form 8938, FEIE vs the Foreign Tax Credit, Streamlined vs Delinquent FBAR, and more.',
   alternates: { canonical: URL },
@@ -50,7 +50,7 @@ const COMPARISONS: Comparison[] = [
   },
   {
     title: 'Streamlined Filing vs Delinquent FBAR',
-    description: 'Streamlined Filing and the Delinquent FBAR submission procedures are two different IRS catch-up routes. Learn which fits your situation as an American in the UK.',
+    description: 'Streamlined Filing or filing late FBARs with reasonable cause: the two catch-up routes after the IRS withdrew the Delinquent FBAR Submission Procedures in July 2026.',
     href: '/resources/compare/streamlined-filing-vs-delinquent-fbar',
     useWhen: 'You are behind on US filings and need to know whether you missed only the FBAR, or the returns too.',
   },
@@ -113,7 +113,7 @@ export default function CompareIndex() {
       reviewedBy={reviewedBy}
       datePublished="2026-09-16"
       ctaTitle="Know which applies to you — but not what to do next?"
-      ctaIntro="Comparisons explain the difference; they can't decide it for your facts. Book a £350 30-minute consultation and we'll tell you which route is right for your situation — or email us for a quick question."
+      ctaIntro="Comparisons explain the difference; they can't decide it for your facts. Email us a short description of your situation and a specialist will reply with which route fits, what we would need and a written quote. Detailed personal advice is available through a paid 30-minute consultation."
     >
       <JsonLd schema={collectionSchema} />
 

@@ -12,9 +12,9 @@ const URL = 'https://www.usukaccountants.com/locations/new-york';
 const office = OFFICES.find((o) => o.id === 'new-york')!;
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax Services New York — Cross-Border Tax Accountants',
+  title: 'US–UK Tax Accountants in New York',
   description:
-    'Specialist US–UK cross-border tax services from our New York office: US tax for Britons in the US, UK tax and accounting for UK-connected clients, and international tax advisory across both systems.',
+    'US–UK cross-border tax services from our New York area office: US returns for Britons in the US, UK tax and accounting for UK-connected clients, and advice across both systems.',
   alternates: { canonical: URL },
 };
 
@@ -48,7 +48,7 @@ export default function NewYorkLocation() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Speak to our New York team"
-      ctaIntro="Book a consultation with US–UK specialists at our New York office or remotely."
+      ctaIntro="Email us with US–UK specialists at our New York office or remotely."
     >
       <JsonLd schema={localBusinessSchema('new-york')!} />
 

@@ -1,4 +1,5 @@
 ---
+seoTitle: "Selling a UK Home as a US Citizen: CGT & §121"
 title: "Selling a UK Home as a US Citizen: Capital Gains and the §121 Exclusion"
 description: "Selling your UK home as an American can be tax-free in the UK under Private Residence Relief — but the US only excludes $250k/$500k under Section 121, and a separate Section 988 mortgage gain can still bite. Here's how it really works."
 date: "2026-06-27"

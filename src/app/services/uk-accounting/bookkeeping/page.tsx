@@ -8,9 +8,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/bookkeeping';
 
 export const metadata: Metadata = {
-  title: 'Bookkeeping Services — Cloud Bookkeeping with Xero & QuickBooks',
+  title: 'Bookkeeping Services — Xero & QuickBooks',
   description:
-    'Accurate, up-to-date bookkeeping is the foundation of every other filing. Learn what good bookkeeping involves, how cloud software and Making Tax Digital fit in, common mistakes, and how we handle it — including dual-currency records.',
+    'Cloud bookkeeping on Xero or QuickBooks for UK and cross-border businesses: what good bookkeeping involves, Making Tax Digital, common mistakes and dual-currency records.',
   alternates: { canonical: URL },
 };
 
@@ -67,7 +67,7 @@ export default function Bookkeeping() {
         serviceType: 'Bookkeeping',
       }}
       ctaTitle="Want your books accurate and always up to date?"
-      ctaIntro="Whether you are starting fresh, switching software, or catching up on a backlog, book a consultation and we'll get your bookkeeping clean and keep it that way."
+      ctaIntro="Whether you are starting fresh, switching software, or catching up on a backlog, email us and we'll get your bookkeeping clean and keep it that way."
     >
       <Section tone="white">
         <Container>

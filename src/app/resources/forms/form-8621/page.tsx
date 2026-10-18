@@ -6,7 +6,7 @@ import { PageShell, ProseBlock, WhoItsFor, ProcessSteps, KeyFacts, RelatedLinks 
 const url = '/resources/forms/form-8621';
 
 export const metadata: Metadata = {
-  title: 'IRS Form 8621 (PFIC Reporting) Explained | US Expat Tax',
+  title: 'IRS Form 8621 Explained — PFIC Reporting',
   description:
     'What IRS Form 8621 is, why it exists for passive foreign investment companies, who generally files it, and how it fits within the wider US expat filing process.',
   alternates: { canonical: url },

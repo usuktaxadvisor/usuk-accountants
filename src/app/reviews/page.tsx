@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header, Footer, Section, Container, CTASection, ReviewSummary, ReviewGrid, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { reviews, reviewSummary } from '@/lib/authority-data';
 
 export const metadata: Metadata = {
@@ -15,7 +15,7 @@ export default function ReviewsPage() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Reviews', href: '/reviews' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>

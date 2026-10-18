@@ -8,7 +8,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/cross-border-advisory/business-structuring';
 
 export const metadata: Metadata = {
-  title: 'US–UK Business Structuring — CFCs, GILTI & Entity Elections',
+  title: 'US–UK Business Structuring — CFC, GILTI, Elections',
   description:
     'Cross-border business structuring for US owners of UK companies: controlled foreign corporation rules, Form 5471, GILTI/NCTI, the check-the-box election and Section 962 — chosen with both tax systems in view.',
   alternates: { canonical: URL },
@@ -59,7 +59,7 @@ export default function BusinessStructuring() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Structure it right before you incorporate"
-      ctaIntro="Book a consultation to model your company across the UK and US before the structure is set."
+      ctaIntro="Email us to model your company across the UK and US before the structure is set."
     >
       <Section tone="white">
         <Container>

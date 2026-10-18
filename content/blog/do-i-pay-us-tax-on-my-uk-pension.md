@@ -1,4 +1,5 @@
 ---
+seoTitle: "Do I Pay US Tax on My UK Pension?"
 title: "Do I Pay US Tax on My UK Pension? What Americans in the UK Need to Know"
 description: "If you're a US citizen or green card holder with a UK pension, the IRS generally taxes it as income — even though it's a UK pension. Here's how UK state, workplace and SIPP pensions are treated, how the treaty and Foreign Tax Credit fit in, and where the rules get contested."
 date: "2026-06-26"

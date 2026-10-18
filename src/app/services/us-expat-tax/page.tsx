@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax';
 
 export const metadata: Metadata = {
-  title: 'US Expat Tax Services for Americans in the UK & Abroad',
+  title: 'US Expat Tax Services for Americans in the UK',
   description:
-    'Specialist US tax for Americans abroad: federal returns, FBAR, FATCA, Streamlined Filing, FEIE and Foreign Tax Credit — coordinated with your UK position so you never pay twice.',
+    'US tax for Americans in the UK and abroad: federal returns, FBAR, FATCA, Streamlined Filing, FEIE and the Foreign Tax Credit — prepared with your UK position in view.',
   alternates: { canonical: URL },
 };
 
@@ -64,7 +64,7 @@ export default function UsExpatTaxPillar() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Bring your US taxes into order"
-      ctaIntro="Book a consultation with a US tax specialist who also understands your UK position."
+      ctaIntro="Email us with a US tax specialist who also understands your UK position."
     >
       <ProseBlock>
         <p>
@@ -102,7 +102,7 @@ export default function UsExpatTaxPillar() {
       <ProcessSteps
         steps={[
           { title: 'Book a consultation', description: 'We review your situation, filing history and any catch-up needs.' },
-          { title: 'Fixed-scope quote', description: 'A clear proposal priced to your complexity before any work starts.' },
+          { title: 'Written quote', description: 'A clear proposal priced to your complexity before any work starts.' },
           { title: 'We prepare & review', description: 'Returns, FBAR and FATCA prepared by a US specialist and reviewed for accuracy.' },
           { title: 'Coordinated filing', description: 'Filed and aligned with your UK position so reliefs and credits line up.' },
         ]}
@@ -112,7 +112,7 @@ export default function UsExpatTaxPillar() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Fixed-scope quote before any work begins',
+          'Written quote before any work begins',
           'US filing coordinated with your UK return',
           'Specialist preparation and independent review',
         ]}
@@ -123,7 +123,7 @@ export default function UsExpatTaxPillar() {
         title="Explore related areas"
         links={[
           { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'Every US filing form and deadline for Americans in the UK, in one place.' },
-          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up penalty-free.' },
+          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up under the IRS Streamlined procedures.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Your UK Self Assessment and company accounts, coordinated.' },
           { label: 'US–UK tax treaty', href: '/services/us-expat-tax/us-uk-tax-treaty', description: 'Treaty positions, pensions and double-tax relief.' },
           { label: 'Americans in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'Built for US citizens living in the UK.' },

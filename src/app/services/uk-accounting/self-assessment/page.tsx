@@ -8,9 +8,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/self-assessment';
 
 export const metadata: Metadata = {
-  title: 'UK Self Assessment Tax Returns — including US Citizens and Green Card Holders',
+  title: 'UK Self Assessment Tax Returns for US-Connected Filers',
   description:
-    'Who needs to file a UK Self Assessment tax return, the 31 January deadline, payments on account, common mistakes, and how we handle it — including for those with US filing obligations alongside.',
+    'Who must file a UK Self Assessment return, the 31 January deadline, payments on account, common mistakes, and how we prepare it alongside a US return where needed.',
   alternates: { canonical: URL },
 };
 
@@ -67,7 +67,7 @@ export default function SelfAssessment() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Need your Self Assessment done properly?"
-      ctaIntro="Beat the 31 January rush. Book a consultation and we'll prepare your return accurately, claim everything you're entitled to, and coordinate it with any US filing."
+      ctaIntro="Beat the 31 January rush. email us and we'll prepare your return accurately, claim everything you're entitled to, and coordinate it with any US filing."
     >
       <Section tone="white">
         <Container>

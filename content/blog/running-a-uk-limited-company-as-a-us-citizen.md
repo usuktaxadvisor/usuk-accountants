@@ -1,4 +1,5 @@
 ---
+seoTitle: "Running a UK Limited Company as a US Citizen"
 title: "Running a UK Limited Company as a US Citizen: The Complete Overview"
 description: "Owning a UK limited company as a US citizen means navigating two tax systems at once. This overview maps every US obligation a UK Ltd creates — Form 5471, GILTI/NCTI, FBAR, profit extraction — and how they fit together."
 date: "2026-06-27"

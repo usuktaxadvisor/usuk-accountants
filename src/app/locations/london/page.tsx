@@ -12,9 +12,9 @@ const URL = 'https://www.usukaccountants.com/locations/london';
 const office = OFFICES.find((o) => o.id === 'london')!;
 
 export const metadata: Metadata = {
-  title: 'US & UK Tax Services in London — American Tax Accountants',
+  title: 'US & UK Tax Accountants in London',
   description:
-    'Specialist US–UK tax services in London for Americans in the UK, dual citizens and cross-border businesses: US expat tax, FBAR, FATCA, UK accounting and international tax advisory, from our London office.',
+    'US–UK tax services in London for Americans in the UK, dual citizens and cross-border businesses: US expat returns, FBAR, FATCA, UK accounting and treaty advice from our London office.',
   alternates: { canonical: URL },
 };
 
@@ -48,7 +48,7 @@ export default function LondonLocation() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Speak to our London team"
-      ctaIntro="Book a consultation with US–UK specialists at our London office or remotely."
+      ctaIntro="Email us with US–UK specialists at our London office or remotely."
     >
       <JsonLd schema={localBusinessSchema('london')!} />
 

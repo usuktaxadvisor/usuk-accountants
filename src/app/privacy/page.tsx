@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Header, Footer, PolicyPage, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { privacyPolicy } from '@/lib/authority-data';
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export default function PrivacyPage() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Privacy', href: '/privacy' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>

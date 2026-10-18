@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/us-uk-tax-treaty';
 
 export const metadata: Metadata = {
-  title: 'The US–UK Tax Treaty Explained — Pensions, Residency & the Saving Clause',
+  title: 'US–UK Tax Treaty Explained — Pensions & Residency',
   description:
-    'How the US–UK tax treaty coordinates tax between the two countries: pension provisions, the residency tie-breaker, and the saving clause that keeps US citizens taxable. What it does, and what it does not do.',
+    'How the US–UK tax treaty coordinates tax between the two countries: pension provisions, the residency tie-breaker and the saving clause that keeps US citizens taxable.',
   alternates: { canonical: URL },
 };
 
@@ -68,7 +68,7 @@ export default function UsUkTaxTreaty() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Wondering how the treaty applies to you?"
-      ctaIntro="Pensions, dual residency and treaty claims are where cross-border tax gets genuinely intricate. Book a consultation and we'll explain exactly how the treaty affects your position."
+      ctaIntro="Pensions, dual residency and treaty claims are where cross-border tax gets genuinely intricate. email us and we'll explain exactly how the treaty affects your position."
     >
       <Section tone="white">
         <Container>

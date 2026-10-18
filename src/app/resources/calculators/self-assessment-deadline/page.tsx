@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/self-assessment-deadline';
 
 export const metadata: Metadata = {
-  title: 'Self Assessment Deadline & Penalty Calculator — HMRC Late Filing',
+  title: 'Self Assessment Deadline & Penalty Calculator',
   description:
     'Free UK Self Assessment tool: see your filing and payment deadlines and estimate HMRC late-filing penalties — the £200 fixed penalty, daily penalties, and the 6 and 12-month charges.',
   alternates: { canonical: URL },

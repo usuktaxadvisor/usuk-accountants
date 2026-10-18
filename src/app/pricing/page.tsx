@@ -26,9 +26,9 @@ const offerCatalogSchema = {
 const URL = 'https://www.usukaccountants.com/pricing';
 
 export const metadata: Metadata = {
-  title: 'How Much Does a US–UK Tax Accountant Cost? (2026 Pricing Guide)',
+  title: 'US–UK Tax Accountant Fees — 2026 Pricing Guide',
   description:
-    'Honest, transparent guidance on what US–UK cross-border tax and accounting costs: US expat tax returns, FBAR, Streamlined Filing, UK Self Assessment, company accounts and cross-border planning. Typical price ranges and exactly what drives the fee.',
+    'What US–UK cross-border tax and accounting costs: US expat returns, FBAR, Streamlined Filing, UK Self Assessment, company accounts and planning — typical ranges and what drives the fee.',
   alternates: { canonical: URL },
 };
 
@@ -76,11 +76,11 @@ const bands: { service: string; from: string; drivers: string }[] = [
 const faqs = [
   {
     q: 'How much does a US–UK tax accountant cost?',
-    a: 'For most individuals, a US expat federal tax return starts from around £450 and a UK Self Assessment return from around £300, with the exact fee depending on complexity — the number of income sources, whether you have self-employment or rental property, and which forms are triggered. Catch-up Streamlined Filing typically starts from around £1,200 because it covers three years of returns and six years of FBARs. Business and cross-border planning work is quoted bespoke. Every engagement is given a fixed-scope quote before any work begins, so the price is agreed in advance.',
+    a: 'For most individuals, a US expat federal tax return starts from around £450 and a UK Self Assessment return from around £300, with the exact fee depending on complexity — the number of income sources, whether you have self-employment or rental property, and which forms are triggered. Catch-up Streamlined Filing typically starts from around £1,200 because it covers three years of returns and six years of FBARs. Business and cross-border planning work is quoted bespoke. Every engagement is quoted in writing, case by case, before any work begins, so the price is agreed in advance.',
   },
   {
     q: 'Why don\u2019t you publish a single fixed price?',
-    a: 'Because cross-border situations vary enormously, and an honest fee has to reflect real complexity. Two Americans in London can have wildly different returns — one a straightforward employee, the other with a UK company, rental property and a pension transfer. A single headline price would either overcharge simple cases or under-scope complex ones. Instead we give indicative "from" ranges here, then a fixed-scope quote for your actual situation, so you never face open-ended billing.',
+    a: 'Because cross-border situations vary enormously, and an honest fee has to reflect real complexity. Two Americans in London can have wildly different returns — one a straightforward employee, the other with a UK company, rental property and a pension transfer. A single headline price would either overcharge simple cases or under-scope complex ones. Instead we give indicative "from" ranges here, then a written quote for your actual situation, so you never face open-ended billing.',
   },
   {
     q: 'What makes a US–UK tax return more expensive?',
@@ -96,7 +96,7 @@ const faqs = [
   },
   {
     q: 'How do I get an exact price?',
-    a: 'Email us a short description of your situation for a free general steer, or book the consultation for detailed advice. Either way, before any work starts you receive a written, fixed-scope quote — no surprises and no open-ended hourly billing.',
+    a: 'Email us a short description of your situation for a free general steer, or book the consultation for detailed advice. Either way, before any work starts you receive a written quote — no surprises and no open-ended hourly billing.',
   },
 ];
 
@@ -106,14 +106,14 @@ export default function PricingPage() {
       url={URL}
       eyebrow="Pricing"
       title="How much does a US–UK tax accountant cost?"
-      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement receives a fixed-scope quote before work begins, so the price is agreed in advance."
+      answer="For most individuals, a US expat federal return starts from around £450 and a UK Self Assessment from around £300, with the fee depending on complexity — income sources, self-employment, rental property, company ownership and the forms triggered. Streamlined catch-up filing typically starts from around £1,200 (three years of returns plus six years of FBARs). Business and cross-border planning is quoted bespoke. Every engagement is quoted in writing, case by case, before work begins, so the price is agreed in advance."
       crumbs={[{ label: 'Pricing', href: URL }]}
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-07-01"
       faqs={faqs}
       ctaTitle="Want an exact quote for your situation?"
-      ctaIntro="Email us a short description for a free steer, or book a consultation — from £350. You'll always get a fixed-scope quote before any work begins."
+      ctaIntro="Email us a short description of your situation and we'll reply with what we would need and a written quote before any work begins. Detailed personal advice is available through a paid consultation (£350 individual, £550 business)."
     >
       <JsonLd schema={offerCatalogSchema} />
       <Section tone="porcelain">
@@ -130,7 +130,7 @@ export default function PricingPage() {
             align="center"
           />
           <p className="mx-auto mt-4 max-w-2xl text-center text-muted">
-            These are honest starting points, not binding quotes. Your fixed fee is confirmed in writing
+            These are honest starting points, not binding quotes. Your fee is confirmed in writing
             before any work begins and reflects the real complexity of your situation.
           </p>
           <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-mist">
@@ -162,7 +162,7 @@ export default function PricingPage() {
         </Container>
       </Section>
 
-      <ProseBlock eyebrow="How we price" title="Fixed-scope quotes, never open-ended billing" tone="porcelain">
+      <ProseBlock eyebrow="How we price" title="Written quotes, never open-ended billing" tone="porcelain">
         <p>
           Cross-border tax is complex, but your fee shouldn&rsquo;t be a mystery. We work to a simple
           principle: understand your situation first, then quote a fixed scope in writing before any work
@@ -184,7 +184,7 @@ export default function PricingPage() {
       <InvestmentBand
         fromLabel="Bespoke, complexity-based pricing"
         points={[
-          'Fixed-scope quote in writing before any work begins',
+          'Written quote before any work begins',
           'US and UK sides coordinated by one firm',
           '£350 individual consultation — a focused 30 minutes',
           'No open-ended hourly billing, ever',

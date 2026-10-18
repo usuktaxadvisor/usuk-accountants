@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { Header, Footer, Section, Container, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { authors } from '@/lib/authority-data';
 import { credentialCodesFor } from '@/lib/credentials-data';
 import { IconArrowRight } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
-  title: 'Our Team — US & UK Tax Specialists, Enrolled Agents and ACCA Accountants',
+  title: 'Our Team — US & UK Tax Specialists',
   description:
-    'Meet the cross-border tax specialists at US UK Accountants — a named team covering both US and UK tax, with every filing prepared and dual-reviewed across jurisdictions.',
+    'Meet the cross-border tax specialists at US UK Accountants: a named team covering both US and UK tax, with every filing prepared and reviewed across both jurisdictions.',
   alternates: { canonical: 'https://www.usukaccountants.com/about/team' },
 };
 
@@ -16,7 +16,7 @@ export default function TeamPage() {
   const crumbs = [{ label: 'Our team', href: '/about/team' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>

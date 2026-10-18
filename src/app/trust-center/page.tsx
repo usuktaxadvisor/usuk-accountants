@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Header, Footer, Section, Container, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { trustCenterPillars } from '@/lib/authority-data';
 import {
   IconShield, IconPlanning, IconCheck, IconGlobeDoc, IconBank, IconTreaty,
@@ -26,7 +26,7 @@ export default function TrustCenterPage() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Trust Center', href: '/trust-center' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>

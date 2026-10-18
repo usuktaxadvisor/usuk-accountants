@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/who-we-help/landlords';
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax Accountant for Landlords & Property Investors',
+  title: 'US–UK Tax for Landlords & Property Investors',
   description:
-    'Cross-border tax help for landlords with UK or US rental property: UK Self Assessment, US Schedule E, depreciation recapture, Section 988 currency gains and double-tax relief — coordinated across both systems.',
+    'Cross-border tax for landlords with UK or US rental property: UK Self Assessment, US Schedule E, depreciation recapture, Section 988 currency gains and double-tax relief.',
   alternates: { canonical: URL },
 };
 
@@ -45,7 +45,7 @@ export default function Landlords() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Own property across the Atlantic?"
-      ctaIntro="Book a consultation and we'll map your UK and US property tax position in one conversation."
+      ctaIntro="Email us and we'll map your UK and US property tax position in one reply."
     >
       <ProseBlock>
         <p>

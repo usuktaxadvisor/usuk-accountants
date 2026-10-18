@@ -97,7 +97,7 @@ export default function FbarVsForm8938Page() {
           'Are a US person living in the UK with UK bank, savings or investment accounts',
           'Hold UK financial assets alongside everyday accounts',
           'Have previously filed only one of the two reports',
-          'Are catching up through Streamlined Filing or the Delinquent FBAR procedures',
+          'Are catching up through Streamlined Filing or by filing late FBARs',
         ]}
       />
 

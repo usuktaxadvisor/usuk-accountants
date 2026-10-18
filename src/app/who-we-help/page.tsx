@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { audiences } from '@/lib/site-data';
 import { IconArrowRight } from '@/components/ui/icons';
 
@@ -17,7 +17,7 @@ export default function WhoWeHelpHub() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Who We Help', href: '/who-we-help' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <main>
         <Breadcrumbs crumbs={crumbs} />

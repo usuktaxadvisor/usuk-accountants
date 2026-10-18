@@ -1,4 +1,5 @@
 ---
+seoTitle: "UK Corporation Tax & US Tax for American Owners"
 title: "How UK Corporation Tax and US Tax Interact for American-Owned Companies"
 description: "A US-owned UK company can face tax in both countries on the same profits. Here's how UK Corporation Tax, US tax on the owner, the treaty and foreign tax credits fit together — and where double taxation can still slip through."
 date: "2026-06-27"

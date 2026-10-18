@@ -34,7 +34,7 @@ export default async function BookPage({
     `${tier.durationLabel} private consultation — ${tier.price}`,
     'Speak directly to a cross-border specialist',
     'Clear next steps for your exact situation',
-    'Fixed-scope quote before any work begins',
+    'Written quote before any work begins',
     'Quick questions? Email us free instead',
   ];
 
@@ -187,7 +187,7 @@ export default async function BookPage({
                   <p className="font-display text-lg font-semibold text-ink">After</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     You&rsquo;ll leave knowing your next steps. If you&rsquo;d like us to handle the work,
-                    we&rsquo;ll follow up with a clear, fixed-scope quote.
+                    we&rsquo;ll follow up with a clear written quote.
                   </p>
                 </div>
               </div>
@@ -218,7 +218,7 @@ export default async function BookPage({
                 </div>
               </div>
 
-              <p className="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-muted">For most enquiries, we recommend contacting us by email. Our team aims to respond to all email enquiries within 3 business hours during business days. If your matter requires personalised tax advice or a detailed discussion, please book a consultation with one of our specialists.</p>
+              <p className="mx-auto mb-4 max-w-2xl text-sm leading-relaxed text-muted">For most enquiries, we recommend contacting us by email. We reply within one business day. If your matter requires personalised tax advice or a detailed discussion, please book a consultation with one of our specialists.</p>
               <p className="mt-8 text-center text-sm text-muted">
                 Not sure you need a full consultation yet?{' '}
                 <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">

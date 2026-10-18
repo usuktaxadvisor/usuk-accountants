@@ -1,4 +1,5 @@
 ---
+seoTitle: "UK vs US Capital Gains Tax on Property"
 title: "UK Capital Gains Tax vs US Capital Gains Tax on Property"
 description: "The UK and US both tax property gains, but they measure and rate them differently — UK in pounds with its own reliefs, US in dollars with depreciation and currency effects. Here's how the two systems compare and how the foreign tax credit reconciles them."
 date: "2026-06-27"

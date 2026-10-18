@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/uk-us-cgt';
 
 export const metadata: Metadata = {
-  title: 'UK vs US Capital Gains Tax Estimator — Cross-Border CGT Calculator',
+  title: 'UK vs US Capital Gains Tax Estimator',
   description:
     'The US and UK calculate capital gains differently. Estimate your UK CGT and US federal capital gains tax on the same disposal — property, shares, or other assets — and see whether the Foreign Tax Credit covers the overlap.',
   alternates: { canonical: URL },
@@ -55,7 +55,7 @@ export default function UkUsCgtPage() {
       datePublished="2026-07-29"
       faqs={faqs}
       ctaTitle="Planning a property or share disposal?"
-      ctaIntro="The timing and structure of a disposal can meaningfully change the combined US and UK tax bill. Book a consultation before you sell and we will model the position across both systems."
+      ctaIntro="The timing and structure of a disposal can meaningfully change the combined US and UK tax bill. email us before you sell and we will model the position across both systems."
     >
       <Section tone="white">
         <Container>

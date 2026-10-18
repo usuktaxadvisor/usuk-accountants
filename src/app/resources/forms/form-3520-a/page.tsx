@@ -6,7 +6,7 @@ import { PageShell, ProseBlock, WhoItsFor, ProcessSteps, KeyFacts, RelatedLinks 
 const url = '/resources/forms/form-3520-a';
 
 export const metadata: Metadata = {
-  title: 'IRS Form 3520-A (Foreign Trust Annual Return) Explained | US Expat Tax',
+  title: 'IRS Form 3520-A Explained — Foreign Trust Return',
   description:
     'What IRS Form 3520-A is, why it exists for foreign trusts with a US owner, who generally files it, and how it pairs with Form 3520 in the US expat filing process.',
   alternates: { canonical: url },

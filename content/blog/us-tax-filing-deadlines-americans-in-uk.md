@@ -1,5 +1,7 @@
 ---
-title: "US Tax Filing Deadlines for Americans Living in the UK (2025)"
+seoTitle: "US Tax Filing Deadlines for Americans in the UK"
+title: "US Tax Filing Deadlines for Americans Living in the UK (2025 Tax Year, Filed in 2026)"
+updated: "2026-10-18"
 description: "Americans in the UK get extra time to file their US tax return — but the deadlines differ from those in the US. This guide covers the automatic June extension, the October deadline, the FBAR due date, and estimated tax payment dates."
 date: "2026-07-30"
 author: "sam-h"
@@ -17,7 +19,7 @@ faqs:
   - q: "Does the June extension apply if I moved back to the US before 15 April?"
     a: "No. The automatic extension applies to citizens residing outside the US on 15 April. If you had returned by that date, the standard April deadline applies."
   - q: "What are the penalties for missing US tax deadlines?"
-    a: "The failure-to-file penalty is 5% of unpaid tax per month, capped at 25%. The failure-to-pay penalty is 0.5% per month. Where the Foreign Tax Credit reduces US tax to zero, percentage penalties are generally zero too — but the return must still be filed. FBAR penalties start at $10,000 per non-wilful violation."
+    a: "The failure-to-file penalty is 5% of unpaid tax per month, capped at 25%. The failure-to-pay penalty is 0.5% per month. Where the Foreign Tax Credit reduces US tax to zero, percentage penalties are generally zero too — but the return must still be filed. The maximum non-wilful FBAR penalty is $16,536 per late report (inflation-adjusted for penalties assessed from 17 January 2025)."
 ---
 
 As an American living in the UK, your US tax deadlines are not the same as those for people filing from inside the United States. An automatic extension applies to expats — but it only covers the filing itself, not any tax owed.

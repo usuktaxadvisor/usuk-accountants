@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/services/cross-border-advisory';
 
 export const metadata: Metadata = {
-  title: 'US–UK Cross-Border Tax Advisory — Treaty, Pensions & Structuring',
+  title: 'US–UK Cross-Border Tax Advisory',
   description:
-    'Specialist cross-border tax advisory for life and business between the US and UK: treaty planning, pensions (401k & SIPP), business structuring and the decisions that only matter when you file in both countries at once.',
+    'Cross-border tax advice for life and business between the US and UK: treaty positions, pensions (401(k) and SIPP), business structuring and decisions that affect both returns.',
   alternates: { canonical: URL },
 };
 
@@ -64,7 +64,7 @@ export default function CrossBorderAdvisoryPillar() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Plan it before you file it"
-      ctaIntro="Book a consultation to get the cross-border strategy right before the decisions are locked in."
+      ctaIntro="Email us to get the cross-border strategy right before the decisions are locked in."
     >
       <ProseBlock>
         <p>

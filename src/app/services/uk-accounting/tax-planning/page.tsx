@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/tax-planning';
 
 export const metadata: Metadata = {
-  title: 'Tax Planning — Proactive UK & Cross-Border Tax Strategy',
+  title: 'UK & Cross-Border Tax Planning',
   description:
-    'Tax planning is about arranging your affairs efficiently and legitimately, ahead of time. Learn what good planning covers for individuals and businesses, and how cross-border US-UK planning avoids costly mistakes.',
+    'Legitimate, forward-looking UK and US–UK tax planning for individuals and businesses: what good planning covers and how cross-border coordination avoids costly mistakes.',
   alternates: { canonical: URL },
 };
 
@@ -68,7 +68,7 @@ export default function TaxPlanning() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Plan ahead, instead of paying for hindsight"
-      ctaIntro="The best tax decisions are made before year-end, not after. Book a consultation and we'll review your position across both the UK and US and map the efficient, compliant path forward."
+      ctaIntro="The best tax decisions are made before year-end, not after. email us and we'll review your position across both the UK and US and map the efficient, compliant path forward."
     >
       <Section tone="white">
         <Container>

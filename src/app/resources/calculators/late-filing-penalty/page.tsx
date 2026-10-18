@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/late-filing-penalty';
 
 export const metadata: Metadata = {
-  title: 'US Late-Filing Penalty Estimator — Failure-to-File and Failure-to-Pay',
+  title: 'US Late-Filing Penalty Estimator',
   description: 'Estimate the headline IRS penalties on a late US tax return: the 5% per month failure-to-file penalty and 0.5% per month failure-to-pay penalty, both capped at 25%. See how Streamlined and delinquent-FBAR routes can remove them.',
   alternates: { canonical: URL },
 };
@@ -39,7 +39,7 @@ export default function LateFilingPenaltyPage() {
       datePublished="2026-07-28"
       faqs={faqs}
       ctaTitle="Facing a penalty notice — or worried about one?"
-      ctaIntro="Late-filing penalties can often be reduced or removed entirely through the right catch-up route or a reasonable-cause claim. Book a consultation and we will map the safest, lowest-cost way back into compliance."
+      ctaIntro="Late-filing penalties can often be reduced or removed entirely through the right catch-up route or a reasonable-cause claim. email us and we will map the safest, lowest-cost way back into compliance."
     >
       <Section tone="white">
         <Container>

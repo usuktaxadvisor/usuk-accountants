@@ -9,9 +9,9 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting';
 
 export const metadata: Metadata = {
-  title: 'UK Accounting Services for Internationally-Connected Individuals & Businesses',
+  title: 'UK Accounting Services for US-Connected Clients',
   description:
-    'Specialist UK accounting — company accounts, Corporation Tax, VAT, payroll and Self Assessment — for businesses and individuals with US and cross-border connections. Coordinated with your US tax position.',
+    'UK company accounts, Corporation Tax, VAT, payroll and Self Assessment for individuals and businesses with US connections — coordinated with your US tax position.',
   alternates: { canonical: URL },
 };
 
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'How much do UK accounting services cost?',
-    a: 'Fees are based on the complexity of your situation rather than a fixed template. After a £550 consultation we provide a clear, fixed-scope quote so you know exactly what you are paying before any work begins.',
+    a: 'Fees are based on the complexity of your situation rather than a fixed template. After a consultation we provide a clear written quote so you know exactly what you are paying before any work begins.',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function UkAccountingPillar() {
         serviceType: 'Accounting',
       }}
       ctaTitle="Get your UK accounting handled properly"
-      ctaIntro="Book a consultation with a specialist who understands both UK accounting and your US obligations."
+      ctaIntro="Email us with a specialist who understands both UK accounting and your US obligations."
     >
       <ProseBlock>
         <p>
@@ -102,7 +102,7 @@ export default function UkAccountingPillar() {
       <ProcessSteps
         steps={[
           { title: 'Book a consultation', description: 'A short call to understand your UK and US position and what you need.' },
-          { title: 'Fixed-scope quote', description: 'A clear proposal priced to your complexity — no surprises.' },
+          { title: 'Written quote', description: 'A clear proposal priced to your complexity — no surprises.' },
           { title: 'We do the work', description: 'Accounts, returns and filings prepared, reviewed and coordinated across both jurisdictions.' },
           { title: 'Ongoing partnership', description: 'Proactive planning and support through every deadline, both sides of the Atlantic.' },
         ]}
@@ -112,11 +112,11 @@ export default function UkAccountingPillar() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Fixed-scope quote before any work begins',
+          'Written quote before any work begins',
           'Coordinated UK + US handling',
           'Premium advisory, not budget compliance',
         ]}
-        note="Most clients start with a £550 30-minute consultation, then a fixed quote based on their situation. Quick questions are answered free by email."
+        note="Most clients start with a £550 30-minute consultation, then a written quote based on their situation. Quick questions are answered free by email."
       />
 
       <RelatedLinks

@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/fbar-filing';
 
 export const metadata: Metadata = {
-  title: 'FBAR Filing for Americans in the UK — FinCEN Form 114 Help',
+  title: 'FBAR Filing Service for Americans in the UK',
   description:
-    'US persons in the UK with foreign accounts over $10,000 must file an FBAR (FinCEN Form 114). Learn who must file, the deadline, common mistakes, and how we handle it — including back-filing missed years.',
+    'FBAR (FinCEN Form 114) preparation and e-filing for US persons in the UK: who must file, the $10,000 threshold, the deadline, common mistakes, and catching up on missed years.',
   alternates: { canonical: URL },
 };
 
@@ -81,7 +81,7 @@ export default function FbarFiling() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Need to file an FBAR — or catch up on missed years?"
-      ctaIntro="Book a confidential consultation. We'll confirm whether you need to file, for which years, and handle the whole submission."
+      ctaIntro="Email us in confidence. We'll confirm whether you need to file, for which years, and handle the whole submission."
     >
       <Section tone="white">
         <Container>
@@ -186,8 +186,8 @@ export default function FbarFiling() {
               If you should have been filing FBARs and have not, <strong>do not simply back-file</strong> on your own.
               The IRS <strong>Streamlined Filing Compliance Procedures</strong> exist for non-willful taxpayers who
               have fallen behind and, handled correctly, can bring you current — typically three years of returns and
-              six years of FBARs — without penalties. The right route depends on your specific facts, which is exactly
-              why it is worth a conversation before you act.
+              six years of FBARs — without the usual late-filing penalties where the conditions are met. The right route
+              depends on your specific facts, which is exactly why it is worth taking advice before you act.
             </p>
             <p className="text-[15px]">
               Not sure if you even need to file?{' '}
@@ -213,7 +213,8 @@ export default function FbarFiling() {
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
           },
           { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker', description: 'Free tool: do you need to file?' },
-          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years penalty-free' },
+          { label: 'Delinquent FBAR guide', href: '/resources/guides/delinquent-fbar', description: 'How to file late FBARs after the July 2026 IRS change' },
+          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years under the IRS Streamlined procedures' },
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Our full US tax service for the UK' },
           { label: 'US Citizens in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'How we help Americans abroad' },
           { label: 'Dual Citizens', href: '/who-we-help/dual-citizens', description: 'US/UK dual-citizen tax guidance' },

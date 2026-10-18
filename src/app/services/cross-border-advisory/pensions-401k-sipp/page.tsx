@@ -59,7 +59,7 @@ export default function Pensions401kSipp() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Get your cross-border pension position right"
-      ctaIntro="Book a consultation before you draw, transfer or rely on a pension across the Atlantic."
+      ctaIntro="Email us before you draw, transfer or rely on a pension across the Atlantic."
     >
       <Section tone="white">
         <Container>

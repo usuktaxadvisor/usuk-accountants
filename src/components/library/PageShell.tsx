@@ -8,7 +8,7 @@ import { AuthorByline } from '@/components/library/Authors';
 import { CTASection } from '@/components/library/CTASection';
 import { Container, Eyebrow } from '@/components/library/primitives';
 import {
-  organizationSchema, websiteSchema, breadcrumbSchema, faqSchema,
+  breadcrumbSchema, faqSchema,
   personSchema, articleSchema, speakableSchema, serviceSchema,
   type Crumb, type FaqEntry, type PersonInput, type ServiceSchemaInput, type SchemaEntity,
   howToSchema, type HowToInput,
@@ -73,9 +73,8 @@ export function PageShell({
   about,
   mentions,
 }: PageShellProps) {
+  // Organization + WebSite are emitted once, sitewide, from the root layout.
   const schemas: object[] = [
-    organizationSchema(),
-    websiteSchema(),
     breadcrumbSchema(crumbs),
     personSchema(toPersonInput(author)),
     articleSchema({
@@ -141,8 +140,8 @@ export function PageShell({
         ) : null}
 
         <CTASection
-          title={ctaTitle ?? 'Book a private consultation'}
-          intro={ctaIntro ?? 'A focused 30-minute consultation with a US–UK specialist for £350 — a clear view of where you stand on both sides of the Atlantic. Prefer to ask a quick question first? Email us; general queries are answered free.'}
+          title={ctaTitle ?? 'Tell us about your situation'}
+          intro={ctaIntro ?? 'Email us a short description of your circumstances — which country you file in, what has prompted the question and the years involved — and a US–UK specialist will reply with what we would need and a written quote. Work of this kind is handled by email, so every answer is documented. If you want detailed personal advice first, a 30-minute consultation can be booked (£350 individual, £550 business).'}
           tone="navy"
         />
       </main>

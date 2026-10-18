@@ -473,7 +473,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     term: 'Delinquent FBAR',
     expansion: 'Delinquent Report of Foreign Bank and Financial Accounts',
     short: 'An FBAR (FinCEN Form 114) that was required in a prior year but never filed by the deadline.',
-    long: 'A delinquent FBAR is a FinCEN Form 114 that should have been filed for a past year but was not. Where income was correctly reported and tax paid, the IRS Delinquent FBAR Submission Procedures generally allow late FBARs to be e-filed with a reason for lateness, typically without penalty. Confirm current thresholds and eligibility with a professional.',
+    long: 'A delinquent FBAR is a FinCEN Form 114 that should have been filed for a past year but was not. Late FBARs are e-filed through the FinCEN BSA E-Filing System with a stated reason for filing late. Until 1 July 2026 the IRS published Delinquent FBAR Submission Procedures promising no penalty where the related income had been reported and tax paid; that page was withdrawn, and the IRS FBAR page (updated 30 July 2026) now says a late FBAR may attract a penalty depending on the facts and that late reports should be filed as soon as possible. Reasonable-cause relief and the Streamlined procedures remain available.',
     category: 'Reporting',
     related: [
       { label: 'Compare: Streamlined Filing vs Delinquent FBAR', href: '/resources/compare/streamlined-filing-vs-delinquent-fbar' },
@@ -485,7 +485,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'willful-vs-non-willful',
     term: 'Willful vs Non-Willful',
     short: 'The distinction that determines which FBAR penalty regime and disclosure programme applies.',
-    long: 'US foreign-account compliance draws a line between non-willful conduct (an inadvertent failure to file) and willful conduct (an intentional disregard of a known legal duty). Non-willful cases generally qualify for the Streamlined or Delinquent procedures with reduced or no penalties; willful cases carry higher exposure. Classification is fact-specific.',
+    long: 'US foreign-account compliance draws a line between non-willful conduct (an inadvertent failure to file) and willful conduct (an intentional disregard of a known legal duty). Non-willful cases generally qualify for the Streamlined procedures, or for reasonable-cause relief on late FBARs, with reduced or no penalties; willful cases carry higher exposure. Classification is fact-specific.',
     category: 'Reporting',
     related: [
       { label: 'Delinquent FBAR', href: '/resources/glossary/delinquent-fbar' },
@@ -496,7 +496,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'reasonable-cause',
     term: 'Reasonable Cause',
     short: 'A good-faith, non-willful explanation that can support penalty relief for late filings.',
-    long: 'Reasonable cause is the standard the IRS applies when deciding whether to abate penalties for a late or missed filing. It requires showing the failure was due to circumstances beyond the taxpayer control and that ordinary business care and prudence were exercised. A clear reasonable-cause statement is central to the Delinquent FBAR Submission Procedures.',
+    long: 'Reasonable cause is the standard the IRS applies when deciding whether to abate penalties for a late or missed filing. It requires showing the failure was due to circumstances beyond the taxpayer control and that ordinary business care and prudence were exercised. Since the IRS withdrew its Delinquent FBAR Submission Procedures in July 2026, a documented reasonable-cause position is what supports a late FBAR filed on its own.',
     category: 'Reporting',
     related: [
       { label: 'Delinquent FBAR', href: '/resources/glossary/delinquent-fbar' },
@@ -755,8 +755,8 @@ export const glossaryTerms: GlossaryTerm[] = [
   {
     slug: 'delinquent-fbar-submission',
     term: 'Delinquent FBAR Submission Procedures',
-    short: 'An IRS route for taxpayers who filed their US returns and reported their income correctly but missed the FBAR. The overdue FBARs are e-filed with a reason for the delay, and — where the related income was properly reported — generally without penalty.',
-    long: 'The Delinquent FBAR Submission Procedures address a narrow situation: US returns filed, income correctly reported, but the FBAR (FinCEN Form 114) not filed. The overdue reports are submitted through the BSA E-Filing System with a stated reason for filing late. The IRS has indicated it will not impose a penalty for a delinquent FBAR where the income from the accounts was properly reported and tax paid. It is narrower than the Streamlined Filing Compliance Procedures, which also correct the underlying returns; where income was under-reported, this route is generally not available.',
+    short: 'A former IRS route (2014 to 1 July 2026) for taxpayers who had reported their income but missed the FBAR: late reports were e-filed with a reason for the delay and the IRS said it would not impose a penalty. The page has been withdrawn.',
+    long: 'The Delinquent FBAR Submission Procedures addressed a narrow situation: US returns filed, income correctly reported, but the FBAR (FinCEN Form 114) not filed. Overdue reports were submitted through the BSA E-Filing System with a stated reason for filing late, and the IRS said it would not impose a penalty where the income from the accounts had been properly reported and tax paid. The IRS removed the page on 1 July 2026 without announcement. Late FBARs can still be filed the same way, and the Internal Revenue Manual (IRM 4.26.16) still directs examiners not to assert a penalty where a late report was non-willful and due to reasonable cause, but there is no longer a published safe harbour. Taxpayers with unreported income should look to the Streamlined Filing Compliance Procedures instead.',
     category: 'Reporting',
     related: [
       { label: 'Streamlined Filing', href: '/resources/glossary/streamlined-filing' },

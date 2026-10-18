@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { JsonLd } from '@/components/library';
 import { faqSchema } from '@/lib/schema';
@@ -22,7 +23,7 @@ export default function Home() {
             <div className="mx-auto max-w-6xl">
               <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">What we prepare and file</p>
               <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Tax returns and compliance, US and UK, under one roof</h2>
-              <p className="mt-4 max-w-prose text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each with a fixed fee quoted in writing before we start.</p>
+              <p className="mt-4 max-w-prose text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each quoted in writing, case by case, before we start.</p>
               <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { label: 'US tax returns (Form 1040)', detail: 'Federal and state returns for US citizens and green card holders living in the UK.', href: '/services/us-expat-tax/us-tax-returns' },
@@ -59,11 +60,11 @@ export default function Home() {
         <section className="bg-navy-ink py-16 md:py-20">
           <div className="mx-auto grid max-w-6xl gap-5 px-6 sm:grid-cols-2">
             <figure>
-              <img src="/images/atlantic/bridge-london.jpg" alt="Tower Bridge in London at dusk, its walkways traced in warm golden light" width={1800} height={1013} loading="lazy" className="h-64 w-full rounded-2xl object-cover sm:h-80" />
+              <Image src="/images/atlantic/bridge-london.jpg" alt="Tower Bridge in London at dusk, its walkways traced in warm golden light" width={1800} height={1013} sizes="(min-width: 640px) 50vw, 100vw" className="h-64 w-full rounded-2xl object-cover sm:h-80" />
               <figcaption className="mt-3 text-sm font-semibold tracking-wide text-softwhite/70">LONDON</figcaption>
             </figure>
             <figure>
-              <img src="/images/atlantic/loc-newyork.jpg" alt="Brooklyn Bridge at dusk with the warm lights of Lower Manhattan beyond" width={1800} height={1013} loading="lazy" className="h-64 w-full rounded-2xl object-cover sm:h-80" />
+              <Image src="/images/atlantic/loc-newyork.jpg" alt="Brooklyn Bridge at dusk with the warm lights of Lower Manhattan beyond" width={1800} height={1013} sizes="(min-width: 640px) 50vw, 100vw" className="h-64 w-full rounded-2xl object-cover sm:h-80" />
               <figcaption className="mt-3 text-sm font-semibold tracking-wide text-softwhite/70">NEW YORK</figcaption>
             </figure>
           </div>

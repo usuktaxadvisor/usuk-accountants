@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { metaDescription } from '@/lib/seo-text';
 import { notFound } from 'next/navigation';
 import { PageShell, Section, Container } from '@/components/library';
 import { getAllPostSlugs, getPostBySlug } from '@/lib/blog';
@@ -18,10 +19,11 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
   if (!post) return { title: 'Article not found' };
   const url = `${BASE}/${slug}`;
-  const ogImage = 'https://www.usukaccountants.com/brand/logo-horizontal-dark.svg';
+  // Social crawlers do not render SVG: use the generated 1200x630 PNG.
+  const ogImage = 'https://www.usukaccountants.com/opengraph-image';
   return {
-    title: post.title,
-    description: post.description,
+    title: post.seoTitle ?? post.title,
+    description: metaDescription(post.description),
     alternates: { canonical: url },
     openGraph: {
       title: post.title,
@@ -33,7 +35,7 @@ export async function generateMetadata({
       modifiedTime: post.updated || post.date || undefined,
       authors: post.author?.name ? [post.author.name] : undefined,
       section: post.category || undefined,
-      images: [{ url: ogImage }],
+      images: [{ url: ogImage, width: 1200, height: 630 }],
     },
     twitter: {
       card: 'summary_large_image',
@@ -72,7 +74,7 @@ export default async function BlogPostPage({
       dateModified={post.updated || post.date || undefined}
       faqs={post.faqs}
       ctaTitle="Need this applied to your own situation?"
-      ctaIntro="Articles explain the rules; a consultation gives you the answer for your circumstances. Your first call is free."
+      ctaIntro="Articles explain the rules; your facts decide the answer. Email us a short description of your situation and a US–UK specialist will reply with what we would need and a written quote. Detailed personal advice is available through a paid 30-minute consultation (£350 individual, £550 business)."
     >
       <Section tone="white">
         <Container>

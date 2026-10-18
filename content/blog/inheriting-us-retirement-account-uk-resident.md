@@ -1,4 +1,5 @@
 ---
+seoTitle: "Inheriting a US IRA or 401(k) as a UK Resident"
 title: "Inheriting a US IRA or 401(k) While Living in the UK: What Actually Happens"
 description: "Inherited a US retirement account as a UK resident? Here's how inherited IRAs and Roth IRAs are taxed across both countries, the 10-year rule, and the decisions worth making slowly."
 date: "2026-08-25"

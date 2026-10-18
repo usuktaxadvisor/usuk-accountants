@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Header, Footer, Container, Section, SectionHeading, CTASection } from '@/components/library';
 import { Breadcrumbs } from '@/components/library';
 import { JsonLd } from '@/components/library';
-import { organizationSchema, websiteSchema, breadcrumbSchema } from '@/lib/schema';
+import { breadcrumbSchema } from '@/lib/schema';
 import { pillars } from '@/lib/site-data';
 import { IconBank, IconGlobeDoc, IconTreaty, IconArrowRight } from '@/components/ui/icons';
 
@@ -21,7 +21,7 @@ export default function ServicesHub() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }];
   return (
     <>
-      <JsonLd schema={[organizationSchema(), websiteSchema(), breadcrumbSchema(crumbs)]} />
+      <JsonLd schema={breadcrumbSchema(crumbs)} />
       <Header />
       <main>
         <Breadcrumbs crumbs={crumbs} />

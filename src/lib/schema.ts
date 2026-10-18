@@ -63,7 +63,7 @@ export function organizationSchema() {
       ...(o.postalCode ? { postalCode: o.postalCode } : {}),
       addressCountry: o.country,
     })),
-    contactPoint: STAFFED_OFFICES.map((o) => ({
+    contactPoint: STAFFED_OFFICES.filter((o, i, arr) => arr.findIndex((x) => x.phone === o.phone) === i).map((o) => ({
       '@type': 'ContactPoint',
       telephone: o.phone,
       contactType: 'customer service',

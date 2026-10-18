@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/foreign-earned-income-exclusion';
 
 export const metadata: Metadata = {
-  title: 'Foreign Earned Income Exclusion (FEIE) for Americans in the UK — Form 2555',
+  title: 'FEIE (Form 2555) for Americans in the UK',
   description:
-    'The Foreign Earned Income Exclusion (Form 2555) lets qualifying Americans abroad exclude earned income from US tax. Learn the qualifying tests, the 330-day rule, FEIE vs Foreign Tax Credit, and common mistakes.',
+    'The Foreign Earned Income Exclusion (Form 2555) lets qualifying Americans abroad exclude earned income from US tax: the qualifying tests, 330-day rule, FEIE vs FTC and common mistakes.',
   alternates: { canonical: URL },
 };
 
@@ -81,7 +81,7 @@ export default function Feie() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Is the FEIE actually your best option?"
-      ctaIntro="For many Americans in the UK it isn't — and the election is hard to undo. Book a consultation and we'll model the FEIE against the Foreign Tax Credit for your situation."
+      ctaIntro="For many Americans in the UK it isn't — and the election is hard to undo. email us and we'll model the FEIE against the Foreign Tax Credit for your situation."
     >
       <Section tone="white">
         <Container>

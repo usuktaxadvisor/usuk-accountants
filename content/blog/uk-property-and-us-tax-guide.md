@@ -1,4 +1,5 @@
 ---
+seoTitle: "UK Property and US Tax: Guide for Americans"
 title: "UK Property and US Tax: The Complete Guide for Americans"
 description: "Owning UK property as a US citizen means two tax systems apply to the same home — at purchase, while renting, on sale, and on death. This guide maps the whole landscape: CGT, rental income, the §121/PRR mismatch, the foreign-mortgage trap, and reporting."
 date: "2026-06-27"

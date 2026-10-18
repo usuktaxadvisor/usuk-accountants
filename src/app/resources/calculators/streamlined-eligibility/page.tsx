@@ -6,9 +6,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/streamlined-eligibility';
 
 export const metadata: Metadata = {
-  title: 'Streamlined Filing Eligibility Checker — IRS Amnesty for Expats',
+  title: 'Streamlined Filing Eligibility Checker',
   description:
-    'Free checker for the IRS Streamlined Filing Compliance Procedures. See whether you may qualify to catch up on US taxes and FBARs penalty-free, and whether the foreign or domestic track applies.',
+    'Free checker for the IRS Streamlined Filing Compliance Procedures: see whether you may qualify to catch up on US taxes and FBARs, and whether the foreign or domestic track applies.',
   alternates: { canonical: URL },
 };
 
@@ -55,7 +55,7 @@ export default function StreamlinedPage() {
       datePublished="2026-06-24"
       faqs={faqs}
       ctaTitle="Behind on US filings?"
-      ctaIntro="Catching up correctly — especially the non-willful certification — is where expert help matters most. Book a confidential consultation and we'll map your safest route back into compliance."
+      ctaIntro="Catching up correctly — especially the non-willful certification — is where expert help matters most. email us in confidence and we'll map your safest route back into compliance."
     >
       <Section tone="white">
         <Container>

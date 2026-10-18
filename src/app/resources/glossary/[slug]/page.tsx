@@ -6,6 +6,7 @@ import { JsonLd } from '@/components/library/JsonLd';
 import { definedTermSchema } from '@/lib/schema';
 import { getGlossaryTerm, getAllGlossarySlugs, glossaryTerms } from '@/lib/glossary';
 import { authors } from '@/lib/authority-data';
+import { metaDescription } from '@/lib/seo-text';
 
 const BASE = 'https://www.usukaccountants.com/resources/glossary';
 
@@ -22,17 +23,21 @@ export async function generateMetadata({
   const t = getGlossaryTerm(slug);
   if (!t) return { title: 'Term not found' };
   const url = `${BASE}/${slug}`;
-  const title = `${t.term}${t.expansion ? ` (${t.expansion})` : ''} — Definition`;
+  // Keep the <title> under ~60 characters: only include short expansions.
+  const expansion = t.expansion && t.expansion.length <= 30 ? ` (${t.expansion})` : '';
+  const title = `${t.term}${expansion} — Definition`;
+  const description = metaDescription(t.short);
   return {
     title,
-    description: t.short,
+    description,
     alternates: { canonical: url },
     openGraph: {
       title,
-      description: t.short,
+      description,
       type: 'article',
       url,
       siteName: 'US UK Accountants',
+      images: [{ url: 'https://www.usukaccountants.com/opengraph-image', width: 1200, height: 630 }],
     },
   };
 }
@@ -66,7 +71,7 @@ export default async function GlossaryTermPage({
         { label: t.term, href: `/resources/glossary/${t.slug}` },
       ]}
       ctaTitle={`Does ${t.term} apply to your situation?`}
-      ctaIntro="Cross-border tax turns on the detail of your circumstances. Book a consultation and we'll tell you exactly where you stand."
+      ctaIntro="Cross-border tax turns on the detail of your circumstances. email us and we'll tell you exactly where you stand."
     >
       <JsonLd schema={definedTermSchema({ slug: t.slug, term: t.term, definition: t.short })} />
       <Section tone="white">

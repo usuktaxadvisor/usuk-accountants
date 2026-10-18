@@ -8,9 +8,9 @@ import { SITE, staffedOffices } from '@/lib/site-data';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Contact Us',
+  title: 'Contact Us — US & UK Tax Enquiries',
   description:
-    'Get in touch with US UK Accountants. Offices in London and New York. Email or call our cross-border tax specialists, or send an enquiry and we reply within one business day.',
+    'Send an enquiry to US UK Accountants or email hello@usukaccountants.com. Tell us which country you file in and what you need, and a cross-border specialist will reply.',
   alternates: { canonical: 'https://www.usukaccountants.com/contact' },
 };
 
@@ -114,7 +114,7 @@ export default async function ContactPage({
                 </p>
               )}
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
-                Tell us a little about your situation and we&rsquo;ll reply within one business day. Or call us directly — we have specialists on both sides of the Atlantic.
+                Tell us a little about your situation and a specialist will reply by email within one business day. We work by email so that every answer is documented and precise, with specialists on both sides of the Atlantic.
               </p>
             </div>
           </Container>
@@ -126,7 +126,7 @@ export default async function ContactPage({
               {/* Form */}
               <div className="rounded-2xl border border-mist bg-white p-7 sm:p-8">
                 <h2 className="font-display text-2xl font-semibold text-ink">Send us a message</h2>
-                <p className="mt-2 text-sm text-muted">Prefer to book a call? <Link href="/book" className="font-medium text-gold-antique hover:underline">Book a consultation →</Link></p>
+                <p className="mt-2 text-sm text-muted">Need detailed, personalised advice? <Link href="/book" className="font-medium text-gold-antique hover:underline">Book a paid consultation →</Link></p>
                 <div className="mt-6">
                   <ContactForm />
                 </div>
@@ -170,7 +170,7 @@ export default async function ContactPage({
                 </Link>
               </aside>
             </div>
-          <p className="mx-auto mt-12 max-w-2xl text-center text-sm text-muted">For most enquiries, we recommend contacting us by email. Our team aims to respond to all email enquiries within 3 business hours during business days. If your matter requires personalised tax advice or a detailed discussion, please book a consultation with one of our specialists.</p>
+          <p className="mx-auto mt-12 max-w-2xl text-center text-sm text-muted">We handle enquiries by email, which keeps everything documented, and reply within one business day. If your matter requires personalised tax advice or a detailed discussion, please book a consultation with one of our specialists.</p>
           <p className="mt-10 text-center text-xs text-muted">US UK Accountants Ltd · Registered in England &amp; Wales, Company No. 17336015</p>
           </Container>
         </div>

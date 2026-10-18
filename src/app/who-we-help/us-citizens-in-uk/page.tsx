@@ -45,7 +45,7 @@ export default function UsCitizensInUk() {
       datePublished="2026-01-22"
       faqs={faqs}
       ctaTitle="Get your US–UK position handled by specialists"
-      ctaIntro="Book a consultation with a team that does this every day."
+      ctaIntro="Email us with a team that does this every day."
     >
       <ProseBlock>
         <p>
@@ -87,7 +87,7 @@ export default function UsCitizensInUk() {
         links={[
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'The full US side of what you need.' },
           { label: 'UK Accounting', href: '/services/uk-accounting', description: 'Your UK Self Assessment and beyond.' },
-          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up penalty-free.' },
+          { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Behind on filing? Catch up under the IRS Streamlined procedures.' },
           { label: 'Dual citizens', href: '/who-we-help/dual-citizens', description: 'Hold both passports? Start here.' },
           { label: 'Double-Tax Estimator', href: '/resources/calculators/double-tax-estimator', description: 'See your position in under a minute.' },
         ]}

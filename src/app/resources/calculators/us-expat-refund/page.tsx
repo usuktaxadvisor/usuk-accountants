@@ -55,7 +55,7 @@ export default function UsExpatRefundPage() {
       datePublished="2026-07-29"
       faqs={faqs}
       ctaTitle="Think you are owed a US refund?"
-      ctaIntro="Claiming it requires a correctly filed Form 1040 with the right relief election. Book a consultation and we will confirm the position, calculate the exact refund, and file for you."
+      ctaIntro="Claiming it requires a correctly filed Form 1040 with the right relief election. email us and we will confirm the position, calculate the exact refund, and file for you."
     >
       <Section tone="white">
         <Container>

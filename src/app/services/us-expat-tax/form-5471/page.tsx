@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/form-5471';
 
 export const metadata: Metadata = {
-  title: 'Form 5471 for Americans Who Own a UK Company — Filing & Penalties',
+  title: 'Form 5471 for US Owners of UK Companies',
   description:
-    'US persons who own or control a foreign corporation such as a UK limited company may have to file Form 5471 with their US return. Learn who must file, the severe penalties for not filing, and how we handle it.',
+    'US persons who own or control a UK limited company may have to file Form 5471 with their US return: who must file, the penalties for not filing, and how we prepare it.',
   alternates: { canonical: URL },
 };
 
@@ -68,7 +68,7 @@ export default function Form5471() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Own a UK company and hold US citizenship?"
-      ctaIntro="Form 5471 is one of the most heavily penalised filings in the US tax code — and easy to miss. Book a consultation and we'll confirm whether you need to file and protect you from the penalties."
+      ctaIntro="Form 5471 is one of the most heavily penalised filings in the US tax code — and easy to miss. email us and we'll confirm whether you need to file and protect you from the penalties."
     >
       <Section tone="white">
         <Container>

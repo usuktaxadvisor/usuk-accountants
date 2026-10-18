@@ -12,6 +12,8 @@ const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 export interface BlogPostMeta {
   slug: string;
   title: string;
+  /** Optional shorter <title> for search results; falls back to title. */
+  seoTitle?: string;
   description: string;
   date: string;
   updated?: string;
@@ -57,6 +59,7 @@ export function getAllPostsMeta(): BlogPostMeta[] {
       return {
         slug,
         title: String(data.title ?? slug),
+        seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
         description: String(data.description ?? ''),
         date: String(data.date ?? ''),
         updated: data.updated ? String(data.updated) : undefined,
@@ -82,6 +85,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   return {
     slug,
     title: String(data.title ?? slug),
+    seoTitle: data.seoTitle ? String(data.seoTitle) : undefined,
     description: String(data.description ?? ''),
     date: String(data.date ?? ''),
     updated: data.updated ? String(data.updated) : undefined,
