@@ -39,7 +39,7 @@ export default function LateFilingPenaltyPage() {
       datePublished="2026-07-28"
       faqs={faqs}
       ctaTitle="Facing a penalty notice — or worried about one?"
-      ctaIntro="Late-filing penalties can often be reduced or removed entirely through the right catch-up route or a reasonable-cause claim. Book a consultation and we will map the safest, lowest-cost way back into compliance."
+      ctaIntro="Late-filing penalties can often be reduced or removed entirely through the right catch-up route or a reasonable-cause claim. email us and we will map the safest, lowest-cost way back into compliance."
     >
       <Section tone="white">
         <Container>

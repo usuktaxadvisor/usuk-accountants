@@ -48,7 +48,7 @@ export default function ManchesterLocation() {
       datePublished="2026-08-11"
       faqs={faqs}
       ctaTitle="Speak to our Manchester team"
-      ctaIntro="Book a consultation with US–UK specialists at our Manchester office or remotely."
+      ctaIntro="Email us with US–UK specialists at our Manchester office or remotely."
     >
       <JsonLd schema={localBusinessSchema('manchester')!} />
 

@@ -59,7 +59,7 @@ export default function BusinessStructuring() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Structure it right before you incorporate"
-      ctaIntro="Book a consultation to model your company across the UK and US before the structure is set."
+      ctaIntro="Email us to model your company across the UK and US before the structure is set."
     >
       <Section tone="white">
         <Container>

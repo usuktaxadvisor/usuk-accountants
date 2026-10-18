@@ -55,7 +55,7 @@ export default function ExitTaxPage() {
       datePublished="2026-07-29"
       faqs={faqs}
       ctaTitle="Planning to renounce or abandon your green card?"
-      ctaIntro="Expatriation is irreversible. The exit tax can be substantially reduced with advance planning — but the options narrow significantly once the process begins. Book a confidential consultation well before taking any steps."
+      ctaIntro="Expatriation is irreversible. The exit tax can be substantially reduced with advance planning — but the options narrow significantly once the process begins. email us in confidence well before taking any steps."
     >
       <Section tone="white">
         <Container>

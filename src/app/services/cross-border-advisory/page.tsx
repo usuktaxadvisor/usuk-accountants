@@ -64,7 +64,7 @@ export default function CrossBorderAdvisoryPillar() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Plan it before you file it"
-      ctaIntro="Book a consultation to get the cross-border strategy right before the decisions are locked in."
+      ctaIntro="Email us to get the cross-border strategy right before the decisions are locked in."
     >
       <ProseBlock>
         <p>

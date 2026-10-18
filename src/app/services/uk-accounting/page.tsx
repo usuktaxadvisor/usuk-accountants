@@ -64,7 +64,7 @@ export default function UkAccountingPillar() {
         serviceType: 'Accounting',
       }}
       ctaTitle="Get your UK accounting handled properly"
-      ctaIntro="Book a consultation with a specialist who understands both UK accounting and your US obligations."
+      ctaIntro="Email us with a specialist who understands both UK accounting and your US obligations."
     >
       <ProseBlock>
         <p>
@@ -116,7 +116,7 @@ export default function UkAccountingPillar() {
           'Coordinated UK + US handling',
           'Premium advisory, not budget compliance',
         ]}
-        note="Most clients start with a £550 30-minute consultation, then a fixed quote based on their situation. Quick questions are answered free by email."
+        note="Most clients start with a £550 30-minute consultation, then a written quote based on their situation. Quick questions are answered free by email."
       />
 
       <RelatedLinks

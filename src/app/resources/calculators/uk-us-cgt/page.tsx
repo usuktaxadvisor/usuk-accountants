@@ -55,7 +55,7 @@ export default function UkUsCgtPage() {
       datePublished="2026-07-29"
       faqs={faqs}
       ctaTitle="Planning a property or share disposal?"
-      ctaIntro="The timing and structure of a disposal can meaningfully change the combined US and UK tax bill. Book a consultation before you sell and we will model the position across both systems."
+      ctaIntro="The timing and structure of a disposal can meaningfully change the combined US and UK tax bill. email us before you sell and we will model the position across both systems."
     >
       <Section tone="white">
         <Container>

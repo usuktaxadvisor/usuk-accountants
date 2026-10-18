@@ -64,7 +64,7 @@ export default function StreamlinedFiling() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Come into compliance with confidence"
-      ctaIntro="Book a confidential consultation. We'll tell you honestly whether Streamlined is right for you and what it involves."
+      ctaIntro="Email us in confidence. We'll tell you honestly whether Streamlined is right for you and what it involves."
     >
       <Section tone="white">
         <Container>

@@ -146,7 +146,7 @@ export default function GuidesIndex() {
       reviewedBy={reviewedBy}
       datePublished="2026-09-16"
       ctaTitle="Need an answer for your own situation?"
-      ctaIntro="Guides explain the rules; they can't apply them to your facts. Book a £350 30-minute consultation and we'll give you a clear answer for yours — or email us for a quick question."
+      ctaIntro="Guides explain the rules; they can't apply them to your facts. Email us a short description of your situation and a specialist will reply with which route fits, what we would need and a written quote. Detailed personal advice is available through a paid 30-minute consultation."
     >
       <JsonLd schema={collectionSchema} />
       <Section tone="white">

@@ -59,7 +59,7 @@ export default function CrossBorderTaxPlanning() {
         serviceType: 'Tax Advisory',
       }}
       ctaTitle="Plan your position before the year closes"
-      ctaIntro="Book a consultation to coordinate your US and UK tax before the decisions are locked in."
+      ctaIntro="Email us to coordinate your US and UK tax before the decisions are locked in."
     >
       <Section tone="white">
         <Container>

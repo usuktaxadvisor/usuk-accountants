@@ -74,7 +74,7 @@ export default async function BlogPostPage({
       dateModified={post.updated || post.date || undefined}
       faqs={post.faqs}
       ctaTitle="Need this applied to your own situation?"
-      ctaIntro="Articles explain the rules; a consultation gives you the answer for your circumstances. Your first call is free."
+      ctaIntro="Articles explain the rules; your facts decide the answer. Email us a short description of your situation and a US–UK specialist will reply with what we would need and a written quote. Detailed personal advice is available through a paid 30-minute consultation (£350 individual, £550 business)."
     >
       <Section tone="white">
         <Container>

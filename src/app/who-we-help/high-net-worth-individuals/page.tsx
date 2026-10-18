@@ -45,7 +45,7 @@ export default function HighNetWorthIndividuals() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="A discreet, specialist cross-border review"
-      ctaIntro="Book a confidential consultation to understand your US–UK exposure and the structure that fits it."
+      ctaIntro="Email us in confidence to understand your US–UK exposure and the structure that fits it."
     >
       <ProseBlock>
         <p>

@@ -50,7 +50,7 @@ export default function DelinquentFbarPenaltyPage() {
       datePublished="2025-01-15"
       faqs={faqs}
       ctaTitle="Ready to catch up correctly?"
-      ctaIntro="Book a confidential consultation and we'll confirm the right route for you."
+      ctaIntro="Email us in confidence and we'll confirm the right route for you."
     >
       <Section>
         <Container>

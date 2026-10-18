@@ -113,7 +113,7 @@ export default function CompareIndex() {
       reviewedBy={reviewedBy}
       datePublished="2026-09-16"
       ctaTitle="Know which applies to you — but not what to do next?"
-      ctaIntro="Comparisons explain the difference; they can't decide it for your facts. Book a £350 30-minute consultation and we'll tell you which route is right for your situation — or email us for a quick question."
+      ctaIntro="Comparisons explain the difference; they can't decide it for your facts. Email us a short description of your situation and a specialist will reply with which route fits, what we would need and a written quote. Detailed personal advice is available through a paid 30-minute consultation."
     >
       <JsonLd schema={collectionSchema} />
 

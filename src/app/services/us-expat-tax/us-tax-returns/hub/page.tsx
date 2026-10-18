@@ -72,7 +72,7 @@ export default function UsTaxReturnsHubPage() {
         serviceType: 'Tax return preparation',
       }}
       ctaTitle="Not sure which route applies to you?"
-      ctaIntro="Book a consultation and we'll map your filing position in one call."
+      ctaIntro="Email us and we'll map your filing position in one reply."
     >
       <Section>
         <Container>

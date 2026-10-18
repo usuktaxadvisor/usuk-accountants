@@ -27,8 +27,8 @@ interface CTASectionProps {
 export function CTASection({
   title,
   intro,
-  primary = { label: 'Book a consultation', href: '/book' },
-  secondary,
+  primary = { label: 'Contact us', href: '/contact' },
+  secondary = primary.href === '/contact' ? { label: 'Book a paid consultation', href: '/book' } : undefined,
   showRating = true,
   showPhone = false,
   tone = 'navy',

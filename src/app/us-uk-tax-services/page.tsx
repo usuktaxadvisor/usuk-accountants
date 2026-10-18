@@ -51,7 +51,7 @@ export default function UsUkTaxServices() {
         serviceType: 'Tax Services',
       }}
       ctaTitle="Get both sides handled by one firm"
-      ctaIntro="Book a consultation with specialist US–UK tax advisors."
+      ctaIntro="Email us with specialist US–UK tax advisors."
     >
       <ProseBlock>
         <p>

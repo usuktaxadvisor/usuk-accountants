@@ -64,7 +64,7 @@ export default function UsExpatTaxPillar() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Bring your US taxes into order"
-      ctaIntro="Book a consultation with a US tax specialist who also understands your UK position."
+      ctaIntro="Email us with a US tax specialist who also understands your UK position."
     >
       <ProseBlock>
         <p>

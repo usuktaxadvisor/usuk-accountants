@@ -54,7 +54,7 @@ export default function PayeRefundPage() {
       datePublished="2026-07-29"
       faqs={faqs}
       ctaTitle="Think HMRC owes you money?"
-      ctaIntro="Claiming overpaid tax — especially for prior years or alongside a Self Assessment obligation — is easiest with a specialist. Book a consultation and we will confirm the position and file the claim for you."
+      ctaIntro="Claiming overpaid tax — especially for prior years or alongside a Self Assessment obligation — is easiest with a specialist. email us and we will confirm the position and file the claim for you."
     >
       <Section tone="white">
         <Container>
