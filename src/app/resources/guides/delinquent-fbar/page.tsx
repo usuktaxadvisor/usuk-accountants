@@ -16,7 +16,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/resources/guides/delinquent-fbar';
 
 export const metadata: Metadata = {
-  title: 'Delinquent FBAR Guide — How to File Late FBARs (2026)',
+  title: 'Delinquent FBAR Guide: How to File Late FBARs (2026)',
   description:
     'How to file late FBARs from the UK after the IRS withdrew the Delinquent FBAR Submission Procedures in July 2026: your three routes, reasonable cause, penalties and what the reason for late filing should say.',
   alternates: { canonical: url },
@@ -72,7 +72,7 @@ export default function DelinquentFbarGuidePage() {
       url={url}
       eyebrow="Guide · Updated October 2026"
       title="Delinquent FBAR: how to file late FBARs the right way"
-      answer="The IRS withdrew its Delinquent FBAR Submission Procedures on 1 July 2026. Late FBARs can still be filed through FinCEN, and reasonable-cause relief and the Streamlined procedures remain — but the route you choose now matters more than it did."
+      answer="The IRS withdrew its Delinquent FBAR Submission Procedures on 1 July 2026. Late FBARs can still be filed through FinCEN, and reasonable-cause relief and the Streamlined procedures remain. But the route you choose now matters more than it did."
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Guides', href: '/resources/guides' },
@@ -89,8 +89,8 @@ export default function DelinquentFbarGuidePage() {
       <ProseBlock eyebrow="What changed" title="The July 2026 change, in plain English">
         <p>
           For twelve years the IRS published a short page called the <em>Delinquent FBAR Submission Procedures</em>.
-          It told taxpayers who had reported all their income and paid the tax, but simply never filed the FBAR, that
-          they could e-file the missed reports with a brief explanation and the IRS would not impose a penalty. On
+          It told people who had reported all their income and paid the tax, but had simply never filed the FBAR, that
+          they could e-file the missed reports with a brief explanation and the IRS would not charge a penalty. On
           1 July 2026 that page was removed from irs.gov without a press release. The IRS FBAR page, last updated on
           30 July 2026, now says only that filing late or not at all &ldquo;is a violation and may subject you to
           penalties,&rdquo; that assertion of penalties &ldquo;depends on facts and circumstances,&rdquo; and that if
@@ -119,7 +119,7 @@ export default function DelinquentFbarGuidePage() {
             title="This guide is for you if"
             items={[
               'You are a US citizen or green card holder in the UK who has just learned that UK accounts must be reported on an FBAR',
-              'Your combined non-US accounts — current accounts, savings, ISAs, some pensions, joint and business accounts — exceeded $10,000 in a past year',
+              'Your combined non-US accounts (current accounts, savings, ISAs, some pensions, joint and business accounts) went over $10,000 in a past year',
               'You want to become compliant before the IRS or FinCEN contacts you, and you want to choose the right route first time',
             ]}
           />
@@ -168,8 +168,8 @@ export default function DelinquentFbarGuidePage() {
           reports themselves using the steps below. Speak to a cross-border specialist first if any of these apply:
           income from the accounts was not on your returns (late FBARs alone will not fix that and{' '}
           <Link href="/services/us-expat-tax/streamlined-filing">Streamlined Filing</Link> is the usual route);
-          you are unsure which UK accounts count &mdash; workplace pensions and SIPPs, ISAs, joint accounts with a
-          non-US spouse, or a company account you can sign on; the balances were large; or the IRS or FinCEN has
+          you are unsure which UK accounts count (workplace pensions and SIPPs, ISAs, joint accounts with a
+          non-US spouse, or a company account you can sign on); the balances were large; or the IRS or FinCEN has
           already written to you. Since July 2026 the cost of choosing the wrong route is higher, because there is no
           longer a published safe harbour to fall back on.
         </p>
@@ -241,7 +241,7 @@ export default function DelinquentFbarGuidePage() {
               { label: 'Filed with', value: 'FinCEN BSA E-Filing System' },
               { label: 'Threshold', value: 'Combined non-US accounts over $10,000 at any time in the year' },
               { label: 'Due date', value: '15 April; automatic extension to 15 October' },
-              { label: 'Old safe harbour', value: 'Delinquent FBAR Submission Procedures — withdrawn 1 July 2026' },
+              { label: 'Old safe harbour', value: 'Delinquent FBAR Submission Procedures, withdrawn 1 July 2026' },
               { label: 'If income unreported', value: 'Streamlined Foreign Offshore Procedures' },
               { label: 'Non-willful penalty', value: 'Up to $16,536 per report (2025 adjustment)' },
             ]}
@@ -251,8 +251,8 @@ export default function DelinquentFbarGuidePage() {
 
       <ProseBlock eyebrow="Sources" title="Primary sources used for this guide">
         <ul className="list-disc space-y-2 pl-5 text-[15px]">
-          <li>IRS, <a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar" rel="noopener" target="_blank">Report of Foreign Bank and Financial Accounts (FBAR)</a> — page last reviewed or updated 30 July 2026.</li>
-          <li>IRS, <a href="https://www.irs.gov/individuals/international-taxpayers/us-taxpayers-residing-outside-the-united-states" rel="noopener" target="_blank">US taxpayers residing outside the United States (Streamlined Foreign Offshore Procedures)</a> — updated 11 July 2026.</li>
+          <li>IRS, <a href="https://www.irs.gov/businesses/small-businesses-self-employed/report-of-foreign-bank-and-financial-accounts-fbar" rel="noopener" target="_blank">Report of Foreign Bank and Financial Accounts (FBAR)</a>, page last reviewed or updated 30 July 2026.</li>
+          <li>IRS, <a href="https://www.irs.gov/individuals/international-taxpayers/us-taxpayers-residing-outside-the-united-states" rel="noopener" target="_blank">US taxpayers residing outside the United States (Streamlined Foreign Offshore Procedures)</a>, updated 11 July 2026.</li>
           <li>IRS, <a href="https://www.irs.gov/irm/part4/irm_04-026-016" rel="noopener" target="_blank">Internal Revenue Manual 4.26.16</a>, Report of Foreign Bank and Financial Accounts, in particular 4.26.16.3.11 and 4.26.16.5.4.</li>
           <li>US Treasury, <a href="https://www.ecfr.gov/current/title-31/subtitle-B/chapter-X/part-1010/subpart-H/section-1010.821" rel="noopener" target="_blank">31 CFR 1010.821</a>, penalty adjustment table (penalties assessed on or after 17 January 2025).</li>
           <li>FinCEN, BSA E-Filing System and the FinCEN Form 114 instructions (reason for late filing).</li>

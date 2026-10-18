@@ -1,7 +1,7 @@
 ---
 seoTitle: "Delinquent FBAR vs Streamlined Filing: Which Route?"
 title: "Delinquent FBAR vs Streamlined Filing: Which Route Fixes a Missed FBAR?"
-description: "Filed your US returns but missed the FBAR? Since the IRS withdrew the Delinquent FBAR Submission Procedures on 1 July 2026, the choice between filing late FBARs with reasonable cause and the Streamlined programme matters more. How to tell which route fits."
+description: "Filed your US returns but missed the FBAR? Since the IRS withdrew the Delinquent FBAR Submission Procedures on 1 July 2026, choosing between filing late FBARs with reasonable cause and the Streamlined programme matters more than it did. Here is how to tell which route fits."
 date: "2026-07-28"
 updated: "2026-10-18"
 author: "sam-h"
@@ -21,13 +21,13 @@ faqs:
   - q: "What if I deliberately did not file my FBAR?"
     a: "Neither route is designed for wilful conduct. Where there is any question of wilfulness, specialist advice should be taken before anything is filed, because the choice of route has significant consequences and the IRS Voluntary Disclosure Practice may be the appropriate path."
 ---
-> **Updated 18 October 2026.** On 1 July 2026 the IRS withdrew the Delinquent FBAR Submission Procedures described in the original version of this article. The routes below reflect the current position; our [delinquent FBAR guide](/resources/guides/delinquent-fbar) has the full detail and primary sources.
+> **Updated 18 October 2026.** On 1 July 2026 the IRS withdrew the Delinquent FBAR Submission Procedures described in the original version of this article. The routes below reflect the current position. Our [delinquent FBAR guide](/resources/guides/delinquent-fbar) has the full detail and the primary sources.
 
 If you have been filing your US tax returns from the UK but only just learned about the FBAR, your situation may still be simpler to fix than you fear. The full Streamlined programme is not always necessary. But the narrower route has changed: the IRS no longer publishes a procedure promising no penalty for a late FBAR where the income was reported.
 
 ## The short answer
 
-**If your US returns were filed correctly and all your income was reported, but you missed the FBAR, you can still e-file the overdue FBARs directly through FinCEN with a brief reason for the delay — but since July 2026 any penalty relief rests on reasonable cause rather than a written IRS safe harbour. Streamlined is the broader route for those who also failed to file returns or report income non-wilfully, and a qualifying Streamlined submission still carries no FBAR or late-filing penalties. Choosing correctly depends on one question: were your tax returns complete?**
+**If your US returns were filed correctly and all your income was reported, but you missed the FBAR, you can still e-file the overdue FBARs through FinCEN with a brief reason for the delay. Since July 2026, though, any penalty relief rests on reasonable cause rather than a written IRS safe harbour. Streamlined is the broader route for people who also failed to file returns or report income, provided the failure was not wilful, and a qualifying Streamlined submission still carries no FBAR or late-filing penalties. Which route is right comes down to one question: were your tax returns complete?**
 
 ## Two different problems
 
@@ -35,23 +35,23 @@ The FBAR-only problem is where your Form 1040s were filed on time, your UK incom
 
 The return-and-FBAR problem is where the returns themselves were not filed, or were filed but omitted foreign income or accounts. Here the tax position needs correcting, not just an information report.
 
-## Route 1 — File the late FBARs with reasonable cause
+## Route 1: file the late FBARs with reasonable cause
 
 This route is for the FBAR-only problem. You e-file the overdue FBARs through the BSA E-Filing System, selecting a reason for filing late on each report, and you keep a dated, factual reasonable-cause note on file.
 
-Until 1 July 2026 the IRS published Delinquent FBAR Submission Procedures stating that it would not impose a penalty where the related income had been reported and tax paid. That page has been removed. The IRS FBAR page now says only that a late FBAR "is a violation and may subject you to penalties", that "assertion of penalties depends on facts and circumstances", and that if you have not been contacted you should file as soon as possible. The Internal Revenue Manual (IRM 4.26.16) still tells examiners not to assert a penalty where a late report was non-willful, due to reasonable cause, and the account was properly reported — so the substance has not changed as much as the headline suggests, but the written assurance has gone and your own record now carries the weight.
+Until 1 July 2026 the IRS published Delinquent FBAR Submission Procedures stating that it would not impose a penalty where the related income had been reported and tax paid. That page has been removed. The IRS FBAR page now says only that a late FBAR "is a violation and may subject you to penalties", that "assertion of penalties depends on facts and circumstances", and that if you have not been contacted you should file as soon as possible. The Internal Revenue Manual (IRM 4.26.16) still tells examiners not to assert a penalty where a late report was non-willful, due to reasonable cause, and the account was properly reported. So the substance has not changed as much as the headline suggests. What has gone is the written assurance, and your own record now carries the weight.
 
-## Route 2 — Streamlined Filing Compliance Procedures
+## Route 2: the Streamlined Filing Compliance Procedures
 
-This route is for the return-and-FBAR problem. The Streamlined Foreign Offshore Procedures — the version for those living abroad — require the most recent three years of amended or late returns, six years of FBARs, a signed Form 14653 certifying that the failure was non-wilful, and payment of the tax and interest due. The IRS states (page updated 11 July 2026) that a qualifying submission is not subject to failure-to-file, failure-to-pay, accuracy-related, information-return or FBAR penalties. The procedures remain open, but the IRS can change or end them at any time.
+This route is for the return-and-FBAR problem. The Streamlined Foreign Offshore Procedures, which are the version for people living abroad, require the most recent three years of amended or late returns, six years of FBARs, a signed Form 14653 certifying that the failure was non-wilful, and payment of the tax and interest due. The IRS states (page updated 11 July 2026) that a qualifying submission is not subject to failure-to-file, failure-to-pay, accuracy-related, information-return or FBAR penalties. The procedures remain open, but the IRS can change or end them at any time.
 
 We cover this route in our [Streamlined Filing guide](/resources/blog/streamlined-filing-explained) and in our [Streamlined Filing service](/services/us-expat-tax/streamlined-filing).
 
 ## How to tell which route fits
 
-- **Returns filed, income fully reported, only the FBAR missed** — filing the late FBARs with a documented reasonable cause is usually the proportionate answer.
-- **Returns not filed, or income or accounts omitted** — the Streamlined Filing Compliance Procedures are usually the appropriate framework, provided the conduct was non-wilful and you meet the non-residency requirement.
-- **Any question of deliberate non-compliance** — neither route is designed for wilful conduct; take specialist advice before filing anything.
+- **Returns filed, income fully reported, only the FBAR missed.** Filing the late FBARs with a documented reasonable cause is usually the proportionate answer.
+- **Returns not filed, or income or accounts left out.** The Streamlined Filing Compliance Procedures are usually the appropriate framework, provided the conduct was not wilful and you meet the non-residency requirement.
+- **Any question of deliberate non-compliance.** Neither route is designed for wilful conduct. Take specialist advice before filing anything.
 
 ## Where this fits with the rest of your US filing
 
