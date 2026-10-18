@@ -100,7 +100,7 @@ export function Hero({
               <IconCheck className="h-4 w-4 text-gold" aria-hidden="true" /> US &amp; UK tax under one roof
             </span>
             <span className="inline-flex items-center gap-2">
-              <IconCheck className="h-4 w-4 text-gold" aria-hidden="true" /> Offices in London &amp; New York
+              <IconCheck className="h-4 w-4 text-gold" aria-hidden="true" /> London, Manchester &amp; New York
             </span>
           </div>
         </div>

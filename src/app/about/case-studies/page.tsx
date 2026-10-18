@@ -10,7 +10,7 @@ const crumbs = [{ label: 'Case studies', href: '/about/case-studies' }];
 export const metadata: Metadata = {
   title: 'Case Studies — Illustrative Cross-Border Scenarios',
   description:
-    'Illustrative cross-border scenarios: Streamlined Filing without penalties, dual-citizen company structuring, and clean US–UK relocations — representative examples of how we work.',
+    'Illustrative cross-border scenarios: catching up on missed US returns, dual-citizen company structuring, and US–UK relocations. Representative examples of how we work, not specific client cases.',
   alternates: { canonical: 'https://www.usukaccountants.com/about/case-studies' },
 };
 

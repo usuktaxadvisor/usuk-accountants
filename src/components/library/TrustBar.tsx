@@ -20,7 +20,7 @@ export function TrustBar({ tone = 'porcelain', credentials = defaultCreds }: Tru
 
   const signals = [
     { icon: IconGlobeDoc, label: 'US & UK tax, one firm' },
-    { icon: IconBank, label: 'Offices in London & New York' },
+    { icon: IconBank, label: 'London, Manchester & New York' },
     { icon: IconCheck, label: 'Named specialists, not call centres' },
     { icon: IconShield, label: 'Secure & confidential process' },
   ];
