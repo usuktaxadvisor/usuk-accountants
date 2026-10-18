@@ -72,14 +72,14 @@ export default function StreamlinedFiling() {
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
                 If you&rsquo;ve realised you should have been filing US taxes from the UK and haven&rsquo;t, you are
-                not alone — and you are not in trouble yet. Thousands of Americans abroad simply didn&rsquo;t know
-                the rules. The IRS created the <strong>Streamlined Filing Compliance Procedures</strong> for
+                not alone. Thousands of Americans abroad simply didn&rsquo;t know the rules, and the position is
+                usually recoverable if you act before the IRS contacts you. The IRS created the <strong>Streamlined Filing Compliance Procedures</strong> for
                 exactly this situation.
               </p>
               <p>
-                For people living outside the US whose oversight was genuine, the programme lets you get current
-                <strong> without the penalties</strong> that would otherwise apply — and put the worry behind you
-                for good. The key is doing it properly: the right years, the right forms, and a well-drafted
+                For people living outside the US whose oversight was genuine, the IRS states that a qualifying
+                submission is <strong>not subject to the late-filing, accuracy or FBAR penalties</strong> that would
+                otherwise apply. The key is doing it properly: the right years, the right forms, and a well-drafted
                 non-willful certification.
               </p>
               <p>
