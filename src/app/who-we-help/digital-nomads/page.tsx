@@ -23,10 +23,10 @@ const relevant = services.filter((s) =>
     .some((k) => s.href?.includes(k)));
 
 const faqs = [
-  { q: 'If I am a digital nomad, where do I pay tax?', a: 'Residence, not location, usually decides it. The US taxes its citizens on worldwide income wherever they roam, so an American nomad keeps filing regardless. UK liability depends on the Statutory Residence Test — day counts and ties — rather than where you happen to be working from. Many nomads wrongly assume that having no fixed home means no tax home; in practice both systems still reach you.' },
-  { q: 'Can I use the Foreign Earned Income Exclusion as a nomad?', a: 'Possibly, via the physical presence test — 330 full days in foreign countries during a 12-month period. But the FEIE needs a foreign "tax home", which constant movement can complicate, and it excludes only earned income, not investment income. For nomads with US ties the Foreign Tax Credit is sometimes the better tool. The right choice depends on your travel pattern and income mix.' },
-  { q: 'How does the UK Statutory Residence Test affect me?', a: 'The SRT decides whether you are UK tax resident in a given year, based on days in the UK and connecting factors like work, home and family. If you spend significant time in the UK between trips, you can become UK resident without intending to — pulling your worldwide income into UK tax and, since April 2025, starting the long-term-resident inheritance tax clock. We help nomads track and plan this deliberately.' },
-  { q: 'Do I still need to file if I owe nothing?', a: 'Usually yes. US citizens must file a federal return even when reliefs reduce the tax to zero, and FBAR and FATCA reporting can apply to the foreign accounts nomads accumulate. Filing is how you claim the exclusions and credits in the first place — skipping it is what creates problems later.' },
+  { q: 'If I am a digital nomad, where do I pay tax?', a: 'Residence, not location, usually decides it. The US taxes its citizens on worldwide income wherever they roam, so an American nomad keeps filing regardless. UK liability depends on the Statutory Residence Test (day counts and ties) rather than where you happen to be working from. Many nomads wrongly assume that having no fixed home means no tax home; in practice both systems still reach you.' },
+  { q: 'Can I use the Foreign Earned Income Exclusion as a nomad?', a: 'Possibly, via the physical presence test: 330 full days in foreign countries during a 12-month period. But the FEIE needs a foreign "tax home", which constant movement can complicate, and it excludes only earned income, not investment income. For nomads with US ties the Foreign Tax Credit is sometimes the better tool. The right choice depends on your travel pattern and income mix.' },
+  { q: 'How does the UK Statutory Residence Test affect me?', a: 'The SRT decides whether you are UK tax resident in a given year, based on days in the UK and connecting factors like work, home and family. If you spend significant time in the UK between trips, you can become UK resident without intending to, pulling your worldwide income into UK tax and, since April 2025, starting the long-term-resident inheritance tax clock. We help nomads track and plan this deliberately.' },
+  { q: 'Do I still need to file if I owe nothing?', a: 'Usually yes. US citizens must file a federal return even when reliefs reduce the tax to zero, and FBAR and FATCA reporting can apply to the foreign accounts nomads accumulate. Filing is how you claim the exclusions and credits in the first place, and skipping it is what creates problems later.' },
 ];
 
 export default function DigitalNomads() {
@@ -35,7 +35,7 @@ export default function DigitalNomads() {
       url={URL}
       eyebrow="Who we help"
       title="US–UK tax for digital nomads & remote workers"
-      answer="Being location-independent doesn't make you tax-independent. The US taxes its citizens on worldwide income wherever they are, and UK residence turns on the Statutory Residence Test — day counts and ties — not on having a fixed home. For nomads with US or UK connections, the work is getting residency, the FEIE physical-presence test, treaty relief and reporting right across a moving life. We do exactly that."
+      answer="Being location-independent doesn't make you tax-independent. The US taxes its citizens on worldwide income wherever they are, and UK residence turns on the Statutory Residence Test (day counts and ties), not on having a fixed home. For nomads with US or UK connections, the work is getting residency, the FEIE physical-presence test, treaty relief and reporting right across a moving life. We do exactly that."
       crumbs={[
         { label: 'Who We Help', href: '/who-we-help' },
         { label: 'Digital Nomads', href: URL },
@@ -45,19 +45,19 @@ export default function DigitalNomads() {
       datePublished="2026-06-30"
       faqs={faqs}
       ctaTitle="Working from everywhere, taxed by someone?"
-      ctaIntro="Email us to get your residency, reliefs and reporting straight — wherever you are."
+      ctaIntro="Email us to get your residency, reliefs and reporting straight, wherever you are."
     >
       <ProseBlock>
         <p>
           A location-independent life is freeing, but tax systems are stubbornly territorial about people they
           consider theirs. For Americans, citizenship-based taxation follows you across every border. For anyone
           with UK ties, residence is decided by a day-counting test that doesn&rsquo;t care that you call nowhere
-          home &mdash; spend enough time in Britain and you are UK tax resident, intended or not.
+          home. Spend enough time in Britain and you are UK tax resident, intended or not.
         </p>
         <p>
           <strong>The nomad&rsquo;s real risk is assuming movement equals exemption.</strong> It rarely does.
-          What movement actually changes is which reliefs fit &mdash; the physical-presence FEIE, the Foreign
-          Tax Credit, treaty positions &mdash; and how carefully you need to track days and accounts. We help
+          What movement actually changes is which reliefs fit (the physical-presence FEIE, the Foreign
+          Tax Credit, treaty positions) and how carefully you need to track days and accounts. We help
           you plan it deliberately rather than discover it at filing time.
         </p>
       </ProseBlock>

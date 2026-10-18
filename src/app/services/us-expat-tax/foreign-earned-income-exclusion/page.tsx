@@ -21,7 +21,7 @@ const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 const faqs = [
   {
     q: 'What is the Foreign Earned Income Exclusion?',
-    a: 'The Foreign Earned Income Exclusion (FEIE) lets qualifying US persons living abroad exclude their foreign earned income from US tax, up to an annually-set limit, by filing IRS Form 2555. It applies only to earned income — wages and self-employment income — not to investment, rental or pension income.',
+    a: 'The Foreign Earned Income Exclusion (FEIE) lets qualifying US persons living abroad exclude their foreign earned income from US tax, up to an annually-set limit, by filing IRS Form 2555. It applies only to earned income, meaning wages and self-employment income, not to investment, rental or pension income.',
   },
   {
     q: 'How do I qualify for the FEIE?',
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'Does the FEIE cover investment, rental or pension income?',
-    a: 'No. The FEIE applies only to earned income — broadly, pay for services such as wages and self-employment income. Investment income, dividends, rental income and pensions are not earned income and cannot be excluded under the FEIE. The Foreign Tax Credit is usually the relevant relief for those.',
+    a: 'No. The FEIE applies only to earned income, broadly pay for services such as wages and self-employment income. Investment income, dividends, rental income and pensions are not earned income and cannot be excluded under the FEIE. The Foreign Tax Credit is usually the relevant relief for those.',
   },
   {
     q: 'Is the FEIE or the Foreign Tax Credit better for Americans in the UK?',
@@ -54,7 +54,7 @@ const feieVsFtc = {
     { label: 'Best when', values: ['Foreign tax is low or nil', 'Foreign tax rate is higher (e.g. UK)'] },
     { label: 'Covers investment & rental income', values: [false, true] },
     { label: 'Can create carryforwards', values: [false, true] },
-    { label: 'Election can be "sticky"', values: ['Yes — 5-year rule on re-electing', 'No'] },
+    { label: 'Election can be "sticky"', values: ['Yes, 5-year rule on re-electing', 'No'] },
   ],
 };
 
@@ -64,7 +64,7 @@ export default function Feie() {
       url={URL}
       eyebrow="US Expat Tax · FEIE"
       title="The Foreign Earned Income Exclusion explained"
-      answer="The Foreign Earned Income Exclusion (FEIE), claimed on Form 2555, lets qualifying Americans abroad exclude their foreign earned income from US tax up to an annually-set limit. You qualify by having a foreign tax home and meeting either the bona fide residence test or the physical presence test (at least 330 full days abroad in a 12-month period). It applies only to earned income — not investment, rental or pension income — and for many Americans in the UK the Foreign Tax Credit is the better choice."
+      answer="The Foreign Earned Income Exclusion (FEIE), claimed on Form 2555, lets qualifying Americans abroad exclude their foreign earned income from US tax up to an annually-set limit. You qualify by having a foreign tax home and meeting either the bona fide residence test or the physical presence test (at least 330 full days abroad in a 12-month period). It applies only to earned income, not investment, rental or pension income, and for many Americans in the UK the Foreign Tax Credit is the better choice."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -81,7 +81,7 @@ export default function Feie() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Is the FEIE actually your best option?"
-      ctaIntro="For many Americans in the UK it isn't — and the election is hard to undo. email us and we'll model the FEIE against the Foreign Tax Credit for your situation."
+      ctaIntro="For many Americans in the UK it isn't, and the election is hard to undo. Email us and we'll model the FEIE against the Foreign Tax Credit for your situation."
     >
       <Section tone="white">
         <Container>
@@ -94,17 +94,17 @@ export default function Feie() {
                 rises with inflation.
               </p>
               <p>
-                The crucial word is <strong>earned</strong>. The FEIE only covers pay for services — wages and
+                The word that matters is <strong>earned</strong>. The FEIE only covers pay for services: wages and
                 self-employment income. It does <strong>not</strong> cover investment income, dividends, rental
                 income or pensions; for those, the <strong>Foreign Tax Credit</strong> is usually the relevant
                 relief.
               </p>
               <p>
-                To qualify, you need a tax home in a foreign country and you must meet one of two tests — the{' '}
-                <strong>bona fide residence test</strong> or the <strong>physical presence test</strong>. And there
+                To qualify, you need a tax home in a foreign country and you must meet one of two tests, the{' '}
+                <strong>bona fide residence test</strong> or the <strong>physical presence test</strong>. There
                 is an important catch for people in the UK: because UK tax rates are generally higher than US rates,
                 the FEIE is often <strong>not</strong> the best choice here. The Foreign Tax Credit frequently does
-                more — which is why the decision deserves real thought before you elect.
+                more, which is why the decision deserves real thought before you elect.
               </p>
             </div>
             <div className="lg:pt-2">
@@ -148,12 +148,12 @@ export default function Feie() {
             <p>
               <strong>Physical presence test.</strong> You are physically present in a foreign country or countries
               for at least <strong>330 full days during any 12 consecutive months</strong>. The days need not be
-              consecutive, but they must be full days — and the 12-month window can be chosen to your best advantage.
+              consecutive, but they must be full days, and the 12-month window can be chosen to your best advantage.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">FEIE vs the Foreign Tax Credit</h2>
             <p>
               This is the decision that matters most. For Americans in the UK the comparison usually favours the
-              Foreign Tax Credit — but not always, and the two can sometimes be combined across different slices of
+              Foreign Tax Credit, but not always, and the two can sometimes be combined across different slices of
               income.
             </p>
           </div>
@@ -184,7 +184,7 @@ export default function Feie() {
             <h2 className="font-display text-2xl font-semibold text-ink">Related forms and reliefs</h2>
             <p>
               The FEIE (Form 2555) sits alongside the <strong>Foreign Tax Credit</strong> (Form 1116) and the{' '}
-              <strong>US–UK tax treaty</strong>. Used together correctly, they ensure you are not taxed twice — and
+              <strong>US–UK tax treaty</strong>. Used together correctly, they are what relieves double taxation in most cases, and
               that you keep as many future credits as possible.
             </p>
           </div>
@@ -196,7 +196,7 @@ export default function Feie() {
         title="The right election, made deliberately"
         steps={[
           { title: 'Check eligibility', description: 'We confirm whether you meet the bona fide residence or physical presence test, and that your income qualifies.' },
-          { title: 'Model the options', description: 'We compare the FEIE against the Foreign Tax Credit — and combinations — for your specific income mix.' },
+          { title: 'Model the options', description: 'We compare the FEIE against the Foreign Tax Credit, and combinations of the two, for your specific income mix.' },
           { title: 'Elect & file', description: 'We make the election correctly on Form 2555, or advise the Foreign Tax Credit instead where it serves you better.' },
           { title: 'Plan ahead', description: 'We keep the multi-year picture in view, so an election today does not cost you in future years.' },
         ]}
@@ -211,7 +211,7 @@ export default function Feie() {
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
           },
           { label: 'FEIE or Foreign Tax Credit in the UK?', href: '/resources/blog/feie-or-foreign-tax-credit-uk', description: 'When the exclusion is the wrong choice' },
-          { label: "FEIE vs Foreign Tax Credit — side-by-side comparison", href: "/resources/compare/feie-vs-foreign-tax-credit", description: "Compare the two mechanisms directly" },
+          { label: "FEIE vs Foreign Tax Credit, side by side", href: "/resources/compare/feie-vs-foreign-tax-credit", description: "Compare the two mechanisms directly" },
           { label: 'Form 2555 explained', href: '/resources/forms/form-2555', description: 'The IRS form behind the FEIE' },
         ]}
       />

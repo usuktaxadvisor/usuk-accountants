@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: 'I have missed FBARs in previous years — what should I do?',
-    a: 'Do not simply back-file without advice. The IRS Streamlined Filing Compliance Procedures exist for non-willful filers who have fallen behind and, handled correctly, can bring you current without penalties. This is exactly the kind of situation worth a consultation before you act.',
+    a: 'Do not simply back-file without advice. The IRS Streamlined Filing Compliance Procedures exist for non-willful filers who have fallen behind and, handled correctly, can bring you current without the usual late-filing penalties where the conditions are met. This is exactly the kind of situation worth a consultation before you act.',
   },
   {
     q: 'Does signature authority count even if I do not own the money?',

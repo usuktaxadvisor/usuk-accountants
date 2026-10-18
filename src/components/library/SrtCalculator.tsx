@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { IconArrowRight, IconCheck } from '@/components/ui/icons';
 
 /**
- * UK Statutory Residence Test (SRT) — indicative checker.
+ * UK Statutory Residence Test (SRT): indicative checker.
  *
  * Logic verified against HMRC RDR3 guidance and the Finance Act 2013 Sch 45
  * thresholds (current for 2025/26). The tool applies the three stages in the
@@ -83,7 +83,7 @@ export default function SrtCalculator() {
       return {
         status: 'resident',
         headline: 'Likely UK resident',
-        reason: 'Spending 183 or more days in the UK in the tax year is an automatic UK residence test — you are UK resident regardless of ties or work pattern.',
+        reason: 'Spending 183 or more days in the UK in the tax year is an automatic UK residence test. You are UK resident regardless of ties or work pattern.',
       };
     }
 
@@ -92,21 +92,21 @@ export default function SrtCalculator() {
       return {
         status: 'non-resident',
         headline: 'Likely UK non-resident',
-        reason: 'You work full-time overseas, spent fewer than 91 days in the UK, and (on the basis given) worked in the UK on fewer than 31 days — this meets the third automatic overseas test, so you are non-resident for the year.',
+        reason: 'You work full-time overseas, spent fewer than 91 days in the UK, and (on the basis given) worked in the UK on fewer than 31 days. This meets the third automatic overseas test, so you are non-resident for the year.',
       };
     }
     if (s.prevResident === true && days < 16) {
       return {
         status: 'non-resident',
         headline: 'Likely UK non-resident',
-        reason: 'You were UK resident in one or more of the previous three tax years but spent fewer than 16 days in the UK this year — this meets the automatic overseas test, so you are non-resident.',
+        reason: 'You were UK resident in one or more of the previous three tax years but spent fewer than 16 days in the UK this year. This meets the automatic overseas test, so you are non-resident.',
       };
     }
     if (s.prevResident === false && days < 46) {
       return {
         status: 'non-resident',
         headline: 'Likely UK non-resident',
-        reason: 'You were not UK resident in any of the previous three tax years and spent fewer than 46 days in the UK this year — this meets the automatic overseas test, so you are non-resident.',
+        reason: 'You were not UK resident in any of the previous three tax years and spent fewer than 46 days in the UK this year. This meets the automatic overseas test, so you are non-resident.',
       };
     }
 
@@ -211,11 +211,11 @@ export default function SrtCalculator() {
             <h2 className="font-display text-2xl font-semibold text-ink">How many UK ties do you have?</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">Count how many of these apply to you:</p>
             <ul className="mt-4 space-y-2 text-sm text-muted">
-              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Family</strong> — spouse, civil partner, cohabiting partner or minor child is UK resident.</li>
-              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Accommodation</strong> — a place to live available in the UK for 91+ continuous days, used at least once.</li>
-              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Work</strong> — 40 or more UK workdays (3+ hours of work) in the year.</li>
-              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">90-day</strong> — 90+ UK days in either of the two previous tax years.</li>
-              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Country</strong> — the UK is where you are present most (only counts if you were UK resident in one of the last three years).</li>
+              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Family</strong>: spouse, civil partner, cohabiting partner or minor child is UK resident.</li>
+              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Accommodation</strong>: a place to live available in the UK for 91+ continuous days, used at least once.</li>
+              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Work</strong>: 40 or more UK workdays (3+ hours of work) in the year.</li>
+              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">90-day</strong>: 90+ UK days in either of the two previous tax years.</li>
+              <li className="flex gap-2"><span className="text-gold">·</span> <strong className="text-ink">Country</strong>: the UK is where you are present most (only counts if you were UK resident in one of the last three years).</li>
             </ul>
             <div className="mt-6 grid grid-cols-3 gap-2 sm:grid-cols-6">
               {[0, 1, 2, 3, 4, 5].map((n) => (
@@ -251,7 +251,7 @@ export default function SrtCalculator() {
               </div>
 
               <p className="mt-6 border-t border-mist pt-5 text-xs leading-relaxed text-muted">
-                This is an indicative result based on the headline Statutory Residence Test rules and the answers you gave. It is not tax advice or a determination of your residence. Several real-world factors are not modelled here — split-year treatment, the deeming rule, exceptional circumstances, the &ldquo;only home&rdquo; and full-time-UK-work automatic tests, and treaty tie-breakers. Residence is self-assessed and HMRC can review it, so please confirm your position with a specialist before relying on it.
+                This is an indicative result based on the headline Statutory Residence Test rules and the answers you gave. It is not tax advice or a determination of your residence. Several real-world factors are not modelled here: split-year treatment, the deeming rule, exceptional circumstances, the &ldquo;only home&rdquo; and full-time-UK-work automatic tests, and treaty tie-breakers. Residence is self-assessed and HMRC can review it, so please confirm your position with a specialist before relying on it.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">

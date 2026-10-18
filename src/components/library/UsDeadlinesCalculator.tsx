@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { IconArrowRight, IconCheck } from '@/components/ui/icons';
 
 /**
- * US Expat Tax Deadlines — date generator.
+ * US Expat Tax Deadlines: date generator.
  *
  * Rules verified against the IRS (citizens & resident aliens abroad) and major
  * expat-tax sources for the standard calendar-year filer. These dates recur
@@ -49,7 +49,7 @@ function buildDeadlines(taxYear: number): Deadline[] {
     {
       date: `15 June ${y}`,
       title: 'Automatic expat filing deadline',
-      detail: 'If your tax home and abode are outside the US on 15 April, you get an automatic two-month extension to file — no form required. To extend further, file Form 4868 by this date.',
+      detail: 'If your tax home and abode are outside the US on 15 April, you get an automatic two-month extension to file, no form required. To extend further, file Form 4868 by this date.',
       emphasis: true,
     },
     {
@@ -114,7 +114,7 @@ export default function UsDeadlinesCalculator() {
           <>
             {abroad === false && (
               <p className="mt-6 rounded-xl bg-gold/10 p-4 text-sm leading-relaxed text-ink">
-                If you were not abroad on 15 April, the automatic expat extension to 15 June may not apply — your filing deadline would be 15 April, extendable to 15 October via Form 4868. The dates below show the expat timeline for reference; your situation is worth confirming.
+                If you were not abroad on 15 April, the automatic expat extension to 15 June may not apply. Your filing deadline would be 15 April, extendable to 15 October via Form 4868. The dates below show the expat timeline for reference; your situation is worth confirming.
               </p>
             )}
             <ol className="mt-8 space-y-4">

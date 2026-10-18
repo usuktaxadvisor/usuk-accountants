@@ -75,7 +75,7 @@ export function InvestmentBand({
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Investment</p>
           <p className="mt-4 font-display text-3xl font-semibold text-white sm:text-4xl">{fromLabel}</p>
-          <p className="mt-3 text-softwhite/75">Fees reflect the complexity of your situation — never a one-size template.</p>
+          <p className="mt-3 text-softwhite/75">Fees reflect the complexity of your situation, never a one-size template.</p>
           <ul className="mx-auto mt-8 grid max-w-xl gap-2 text-left sm:grid-cols-2">
             {points.map((p) => (
               <li key={p} className="flex items-start gap-2.5 text-sm text-softwhite/90">

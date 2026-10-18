@@ -14,7 +14,7 @@ interface HeroProps {
 export function Hero({
   eyebrow = 'US & UK Tax Return Specialists',
   title = 'US and UK tax returns, prepared by one team.',
-  intro = 'US tax returns, UK Self Assessment, FBAR and Form 8938 reporting, Streamlined catch-up filings and W-8BEN forms — prepared and filed by one firm, with the cross-border advice in between. For Americans in the UK, Britons with US ties, dual citizens and businesses on both sides of the Atlantic.',
+  intro = 'US tax returns, UK Self Assessment, FBAR and Form 8938 reporting, Streamlined catch-up filings and W-8BEN forms, all prepared and filed by one firm, with the cross-border advice in between. For Americans in the UK, Britons with US ties, dual citizens and businesses on both sides of the Atlantic.',
   chips = defaultChips,
   primaryCta = { label: 'Book a Consultation', href: '/book' },
   secondaryCta = { label: 'Try the Double-Tax Estimator', href: '#calculator' },

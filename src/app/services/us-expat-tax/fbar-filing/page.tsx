@@ -21,11 +21,11 @@ const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 const faqs = [
   {
     q: 'Who has to file an FBAR?',
-    a: 'Any US person — a US citizen (including dual citizens living abroad), green card holder, or someone meeting the substantial-presence test, as well as US entities — who has a financial interest in or signature authority over one or more foreign financial accounts, where the combined maximum value exceeded US$10,000 at any point during the calendar year.',
+    a: 'A US person who has a financial interest in or signature authority over one or more foreign financial accounts, where the combined maximum value exceeded US$10,000 at any point during the calendar year. That covers US citizens (including dual citizens living abroad), green card holders, anyone meeting the substantial-presence test, and US entities.',
   },
   {
     q: 'Is the $10,000 threshold per account or in total?',
-    a: 'In total. It is the aggregate of the highest balance each foreign account reached during the year, converted to US dollars. If the combined figure crossed $10,000 at any single moment — even briefly — every foreign account must be reported, including small ones.',
+    a: 'In total. It is the aggregate of the highest balance each foreign account reached during the year, converted to US dollars. If the combined figure crossed $10,000 at any single moment, even briefly, every foreign account must be reported, including small ones.',
   },
   {
     q: 'When is the FBAR due?',
@@ -33,15 +33,15 @@ const faqs = [
   },
   {
     q: 'Does signature authority count even if I do not own the money?',
-    a: 'Yes. If you can direct transactions on a foreign account — for example an employer, family or business account — that account can create an FBAR obligation for you once your reportable accounts cross the $10,000 aggregate, even though the funds are not yours.',
+    a: 'Yes. If you can direct transactions on a foreign account, for example an employer, family or business account, that account can create an FBAR obligation for you once your reportable accounts cross the $10,000 aggregate, even though the funds are not yours.',
   },
   {
     q: 'What is the difference between the FBAR and Form 8938?',
     a: 'They are separate filings. The FBAR (FinCEN Form 114) goes to the US Treasury\u2019s Financial Crimes Enforcement Network and has a $10,000 aggregate threshold. Form 8938 is filed with the IRS as part of your tax return under FATCA and has higher thresholds that vary by filing status and whether you live abroad. Many Americans in the UK have to file both.',
   },
   {
-    q: 'I have missed FBARs in previous years — what should I do?',
-    a: 'Do not simply back-file without advice. The IRS Streamlined Filing Compliance Procedures exist for non-willful filers who have fallen behind and, handled correctly, can bring you current without penalties. This is exactly the kind of situation worth a consultation before you act.',
+    q: 'I have missed FBARs in previous years. What should I do?',
+    a: 'Do not simply back-file without advice. The IRS Streamlined Filing Compliance Procedures exist for non-willful filers who have fallen behind and, handled correctly, can bring you current without the usual late-filing penalties where the conditions are met. This is the kind of situation worth a consultation before you act.',
   },
 ];
 
@@ -64,7 +64,7 @@ export default function FbarFiling() {
       url={URL}
       eyebrow="US Expat Tax · FBAR Filing"
       title="FBAR filing for Americans in the UK"
-      answer="If you are a US person living in the UK and the combined value of your non-US financial accounts exceeded US$10,000 at any point in the year, you must file an FBAR (FinCEN Form 114) with the US Treasury. It is an information report, not a tax — filed separately from your tax return, due 15 April with an automatic extension to 15 October. We handle current-year FBARs and help you catch up on missed years."
+      answer="If you are a US person living in the UK and the combined value of your non-US financial accounts exceeded US$10,000 at any point in the year, you must file an FBAR (FinCEN Form 114) with the US Treasury. It is an information report, not a tax. It is filed separately from your tax return, due 15 April with an automatic extension to 15 October. We handle current-year FBARs and help you catch up on missed years."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -80,7 +80,7 @@ export default function FbarFiling() {
         description: 'Preparation and e-filing of the FBAR for US persons in the UK, including back-filing of missed years.',
         serviceType: 'Tax Compliance',
       }}
-      ctaTitle="Need to file an FBAR — or catch up on missed years?"
+      ctaTitle="Need to file an FBAR, or catch up on missed years?"
       ctaIntro="Email us in confidence. We'll confirm whether you need to file, for which years, and handle the whole submission."
     >
       <Section tone="white">
@@ -88,15 +88,15 @@ export default function FbarFiling() {
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
-                The <strong>FBAR</strong> — the Report of Foreign Bank and Financial Accounts, filed on{' '}
-                <strong>FinCEN Form 114</strong> — catches a lot of Americans in the UK by surprise. The most
-                important thing to understand is that it is <strong>not a tax form</strong>. You do not pay anything
+                The <strong>FBAR</strong>, the Report of Foreign Bank and Financial Accounts, is filed on{' '}
+                <strong>FinCEN Form 114</strong> and catches a lot of Americans in the UK by surprise. The first
+                thing to know is that it is <strong>not a tax form</strong>. You do not pay anything
                 when you file it; it is an information report filed with the US Treasury&rsquo;s Financial Crimes
                 Enforcement Network (FinCEN), separately from your federal tax return.
               </p>
               <p>
-                You generally must file if you are a US person — a US citizen, including dual citizens, a green card
-                holder, or a US tax resident — and the <strong>combined value of your foreign financial accounts
+                You generally must file if you are a US person (a US citizen, including dual citizens, a green card
+                holder, or a US tax resident) and the <strong>combined value of your foreign financial accounts
                 exceeded US$10,000 at any point</strong> during the calendar year. The threshold is an aggregate
                 figure, not per account, and it is measured at the highest balance each account reached during the
                 year.
@@ -104,7 +104,7 @@ export default function FbarFiling() {
               <p>
                 For Americans in the UK, the accounts that trigger this are usually ordinary ones: current and
                 savings accounts, cash ISAs, UK investment accounts, and many UK pensions. Joint accounts held with
-                a non-US spouse, and accounts you can merely operate — such as an employer or family account — can
+                a non-US spouse, and accounts you can merely operate, such as an employer or family account, can
                 count too.
               </p>
             </div>
@@ -117,7 +117,7 @@ export default function FbarFiling() {
                   { label: 'Measured', value: 'Highest balance, any point' },
                   { label: 'Deadline', value: '15 Apr \u2192 15 Oct' },
                   { label: 'Filed with', value: 'US Treasury (FinCEN)' },
-                  { label: 'A tax?', value: 'No \u2014 information report' },
+                  { label: 'A tax?', value: 'No (information report)' },
                 ]}
               />
             </div>
@@ -130,7 +130,7 @@ export default function FbarFiling() {
         items={[
           'US citizens living in the UK, including "accidental Americans" and dual citizens',
           'Green card holders and others who are US tax residents',
-          'Anyone with UK accounts — current, savings, ISAs, investments — over $10,000 combined',
+          'Anyone with UK accounts (current, savings, ISAs, investments) over $10,000 combined',
           'People with signature authority over an employer, family or business account',
           'Those who hold joint UK accounts with a non-US spouse',
           'US persons who have missed FBARs in prior years and need to catch up',
@@ -143,7 +143,7 @@ export default function FbarFiling() {
             <h2 className="font-display text-2xl font-semibold text-ink">When it is required, and the deadline</h2>
             <p>
               The FBAR is an annual report covering the previous calendar year. It is due on <strong>15 April</strong>,
-              with an <strong>automatic extension to 15 October</strong> — you do not need to request the extension or
+              with an <strong>automatic extension to 15 October</strong>. You do not need to request the extension or
               file any form to receive it. It is submitted electronically through the BSA E-Filing System, never with
               your tax return.
             </p>
@@ -152,7 +152,7 @@ export default function FbarFiling() {
               The most frequent errors are assuming only large accounts count (the $10,000 test is the{' '}
               <strong>combined</strong> total, so several small accounts can cross it); forgetting accounts you only
               have <strong>signature authority</strong> over; overlooking accounts that were closed mid-year; and
-              assuming that filing a US tax return somehow covers the FBAR — it does not, as the two are entirely
+              assuming that filing a US tax return somehow covers the FBAR. It does not, as the two are entirely
               separate filings.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">FBAR vs Form 8938 (FATCA)</h2>
@@ -173,7 +173,7 @@ export default function FbarFiling() {
         steps={[
           { title: 'Assess', description: 'We confirm whether you need to file, for the current year and any missed years, and which accounts are reportable.' },
           { title: 'Gather', description: 'We help you identify every reportable account and its highest balance, converted to US dollars correctly.' },
-          { title: 'Prepare', description: 'We prepare the FBAR — and, where needed, Form 8938 — accurately and consistently with your tax return.' },
+          { title: 'Prepare', description: 'We prepare the FBAR, and Form 8938 where needed, accurately and consistently with your tax return.' },
           { title: 'File & record', description: 'We e-file through the BSA system and give you a clean record of what was filed and when.' },
         ]}
       />
@@ -185,9 +185,9 @@ export default function FbarFiling() {
             <p>
               If you should have been filing FBARs and have not, <strong>do not simply back-file</strong> on your own.
               The IRS <strong>Streamlined Filing Compliance Procedures</strong> exist for non-willful taxpayers who
-              have fallen behind and, handled correctly, can bring you current — typically three years of returns and
-              six years of FBARs — without the usual late-filing penalties where the conditions are met. The right route
-              depends on your specific facts, which is exactly why it is worth taking advice before you act.
+              have fallen behind and, handled correctly, can bring you current without the usual late-filing penalties
+              where the conditions are met, typically three years of returns and six years of FBARs. The right route
+              depends on your specific facts, which is why it is worth taking advice before you act.
             </p>
             <p className="text-[15px]">
               Not sure if you even need to file?{' '}

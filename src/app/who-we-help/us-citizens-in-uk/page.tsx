@@ -11,7 +11,7 @@ const URL = 'https://www.usukaccountants.com/who-we-help/us-citizens-in-uk';
 export const metadata: Metadata = {
   title: 'US Tax Accountant for Americans Living in the UK',
   description:
-    'Specialist US and UK tax help for Americans in the UK: federal returns, FBAR, FATCA, Streamlined Filing and Self Assessment — coordinated to help you avoid being taxed twice.',
+    'Specialist US and UK tax help for Americans in the UK: federal returns, FBAR, FATCA, Streamlined Filing and Self Assessment, coordinated to help you avoid being taxed twice.',
   alternates: { canonical: URL },
 };
 
@@ -23,10 +23,10 @@ const relevant = services.filter((s) =>
     .some((k) => s.href?.includes(k)));
 
 const faqs = [
-  { q: 'Do Americans living in the UK have to file US taxes?', a: 'Yes. US citizens must file a US federal return on worldwide income every year regardless of where they live. Living in the UK does not end this — but the Foreign Earned Income Exclusion, Foreign Tax Credit and US–UK treaty usually prevent double taxation when claimed correctly.' },
+  { q: 'Do Americans living in the UK have to file US taxes?', a: 'Yes. US citizens must file a US federal return on worldwide income every year regardless of where they live. Living in the UK does not end this, but the Foreign Earned Income Exclusion, Foreign Tax Credit and US–UK treaty usually prevent double taxation when claimed correctly.' },
   { q: 'Do I need to report my UK bank accounts to the US?', a: 'Often yes. If your foreign accounts together exceed $10,000 at any point in the year you must file an FBAR (FinCEN 114), and larger balances may also require FATCA Form 8938. We handle both alongside your return.' },
-  { q: 'I have a UK pension — how is it taxed by the US?', a: 'UK pensions including workplace schemes and SIPPs interact with US tax and the treaty in specific ways. This is one of the most common areas Americans in the UK get wrong, and one we plan for directly.' },
-  { q: "I haven't filed US taxes since moving — am I in trouble?", a: 'Usually not, if it was a genuine oversight. The IRS Streamlined Filing programme lets non-willful Americans abroad catch up — typically three years of returns and six years of FBARs — without penalties. We handle these regularly.' },
+  { q: 'I have a UK pension. How is it taxed by the US?', a: 'UK pensions including workplace schemes and SIPPs interact with US tax and the treaty in specific ways. This is one of the most common areas Americans in the UK get wrong, and one we plan for directly.' },
+  { q: "I haven't filed US taxes since moving. Am I in trouble?", a: 'Usually not, if it was a genuine oversight. The IRS Streamlined Filing programme lets non-willful Americans abroad catch up (typically three years of returns and six years of FBARs) without the usual late-filing penalties, where the conditions are met. We handle these regularly.' },
 ];
 
 export default function UsCitizensInUk() {
@@ -35,7 +35,7 @@ export default function UsCitizensInUk() {
       url={URL}
       eyebrow="Who we help"
       title="US tax help for Americans living in the UK"
-      answer="As a US citizen in the UK you file with both the IRS and HMRC, but you rarely owe tax twice. You'll typically have a US federal return, possibly an FBAR for UK accounts over $10,000, and a UK Self Assessment — all of which should be coordinated. We handle both sides so your reliefs line up and nothing is missed."
+      answer="As a US citizen in the UK you file with both the IRS and HMRC, but you rarely owe tax twice. You'll typically have a US federal return, possibly an FBAR for UK accounts over $10,000, and a UK Self Assessment, all of which should be coordinated. We handle both sides so your reliefs line up and nothing is missed."
       crumbs={[
         { label: 'Who We Help', href: '/who-we-help' },
         { label: 'US Citizens in the UK', href: URL },
@@ -50,13 +50,13 @@ export default function UsCitizensInUk() {
       <ProseBlock>
         <p>
           Moving to the UK doesn&rsquo;t end your relationship with the IRS. The US is one of the only countries that
-          taxes its citizens on worldwide income wherever they live — so as an American in Britain you have an
+          taxes its citizens on worldwide income wherever they live, so as an American in Britain you have an
           annual US filing obligation on top of anything HMRC expects.
         </p>
         <p>
           <strong>The good news: being taxed twice is usually avoidable.</strong> Between the Foreign Tax Credit,
           the Foreign Earned Income Exclusion and the US–UK treaty, most of our clients legally owe tax on a given
-          income source in only one country. The risk isn&rsquo;t double tax — it&rsquo;s missed filings, mishandled
+          income source in only one country. The usual risks are missed filings, mishandled
           pensions, and reliefs claimed in the wrong order. That&rsquo;s what we get right.
         </p>
       </ProseBlock>

@@ -50,6 +50,8 @@ export default async function ComingSoon(
     '/consultation': '/book',
     '/team': '/about/team',
     '/services/us-expat-tax/international-business-structuring': '/services/cross-border-advisory/business-structuring',
+    // Consolidated 19 Oct 2026: duplicated the 25% lump-sum article below.
+    '/resources/blog/uk-pension-lump-sum-us-tax': '/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us',
   };
   if (LEGACY[path]) permanentRedirect(LEGACY[path]);
   if (path.startsWith('/services/us-tax-returns')) {

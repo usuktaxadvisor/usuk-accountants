@@ -9,7 +9,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/company-accounts';
 
 export const metadata: Metadata = {
-  title: 'UK Company Accounts — Year-End Accounts & Filing',
+  title: 'UK Company Accounts and Year-End Filing',
   description:
     'Statutory accounts for Companies House and the Company Tax Return for HMRC: what is involved, the deadlines, common mistakes and how we handle it, including US-owned UK companies.',
   alternates: { canonical: URL },
@@ -33,11 +33,11 @@ const faqs = [
   },
   {
     q: 'When are company accounts due?',
-    a: 'The deadlines run from your company\u2019s accounting year-end. Accounts are normally due at Companies House within nine months of the year-end for a private company, and the Company Tax Return is normally due to HMRC within twelve months of the year-end — though any Corporation Tax owed is payable earlier. We confirm your exact dates and keep you ahead of them.',
+    a: 'The deadlines run from your company\u2019s accounting year-end. Accounts are normally due at Companies House within nine months of the year-end for a private company, and the Company Tax Return is normally due to HMRC within twelve months of the year-end, though any Corporation Tax owed is payable earlier. We confirm your exact dates and keep you ahead of them.',
   },
   {
-    q: 'I am a US citizen who owns a UK limited company — is there anything extra?',
-    a: 'Yes, potentially a great deal. Alongside UK statutory accounts, a US owner of a UK company may have to file IRS Form 5471 and consider rules such as GILTI. The UK and US obligations are separate but interact, and handling them together — as we do — avoids both UK penalties and severe US ones.',
+    q: 'I am a US citizen who owns a UK limited company: is there anything extra?',
+    a: 'Yes, potentially a great deal. Alongside UK statutory accounts, a US owner of a UK company may have to file IRS Form 5471 and consider rules such as GILTI. The UK and US obligations are separate but interact, and handling them together, as we do, avoids both UK penalties and severe US ones.',
   },
   {
     q: 'Can you prepare small or micro-entity accounts?',
@@ -51,7 +51,7 @@ export default function CompanyAccounts() {
       url={URL}
       eyebrow="UK Accounting · Company Accounts"
       title="Company accounts for UK limited companies"
-      answer="UK limited companies must prepare annual statutory accounts each year, file them with Companies House, and file a Company Tax Return (CT600) with HMRC. The accounts are due at Companies House normally within nine months of your year-end, and the tax return within twelve months. Every company must file — even dormant or loss-making ones — and missing the Companies House deadline brings automatic penalties. For US-owned UK companies, these filings sit alongside US obligations such as Form 5471."
+      answer="UK limited companies must prepare annual statutory accounts each year, file them with Companies House, and file a Company Tax Return (CT600) with HMRC. The accounts are due at Companies House normally within nine months of your year-end, and the tax return within twelve months. Every company must file, even dormant or loss-making ones, and missing the Companies House deadline brings automatic penalties. For US-owned UK companies, these filings sit alongside US obligations such as Form 5471."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'UK Accounting', href: '/services/uk-accounting' },
@@ -75,7 +75,7 @@ export default function CompanyAccounts() {
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
-                Every UK limited company has to prepare <strong>annual statutory accounts</strong> — the formal
+                Every UK limited company has to prepare <strong>annual statutory accounts</strong>, the formal
                 year-end financial statements that record how the company performed. These accounts do two jobs:
                 they are filed with <strong>Companies House</strong> for the public register, and they underpin the{' '}
                 <strong>Company Tax Return (CT600)</strong> filed with <strong>HMRC</strong> to work out Corporation
@@ -84,7 +84,7 @@ export default function CompanyAccounts() {
               <p>
                 The point that trips people up is that these are <strong>two separate filings</strong>, to two
                 different bodies, with two different deadlines. Filing one does not satisfy the other. Most companies
-                must do both, every year — and the Companies House deadline in particular carries an{' '}
+                must do both, every year, and the Companies House deadline in particular carries an{' '}
                 <strong>automatic penalty</strong> if missed, with no need for HMRC to chase you first.
               </p>
               <p>
@@ -128,13 +128,13 @@ export default function CompanyAccounts() {
             <h2 className="font-display text-2xl font-semibold text-ink">The two filings explained</h2>
             <p>
               <strong>Companies House accounts.</strong> These go on the public register. Depending on your
-              company&rsquo;s size, they range from full accounts to abridged or micro-entity formats — the smaller
+              company&rsquo;s size, they range from full accounts to abridged or micro-entity formats, and the smaller
               the company, the less detail that has to be made public.
             </p>
             <p>
               <strong>HMRC Company Tax Return (CT600).</strong> This calculates the Corporation Tax your company
               owes, supported by accounts in HMRC&rsquo;s required format. It is a different submission from the
-              Companies House filing, with its own deadline — and any tax due is payable on its own timetable, which
+              Companies House filing, with its own deadline, and any tax due is payable on its own timetable, which
               for most companies falls <em>before</em> the return itself is due.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">Deadlines and penalties</h2>
@@ -157,13 +157,13 @@ export default function CompanyAccounts() {
               The recurring ones: <strong>missing the Companies House deadline</strong> and triggering an automatic
               penalty; assuming the <strong>tax return and the accounts are the same filing</strong>; forgetting that{' '}
               <strong>dormant companies still file</strong>; leaving Corporation Tax payment to the return deadline
-              when it is actually due earlier; and — for US owners — handling the UK side well while{' '}
+              when it is actually due earlier; and, for US owners, handling the UK side well while{' '}
               <strong>overlooking the US filings</strong> that run alongside it.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">For US owners of UK companies</h2>
             <p>
               This is where being a US–UK firm matters. If you are a US person who owns a UK limited company, your UK
-              statutory accounts are only half the picture — you may also need{' '}
+              statutory accounts are only half the picture, because you may also need{' '}
               <Link href="/services/us-expat-tax/form-5471" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Form 5471</Link>{' '}
               and to consider GILTI on the US side. We prepare both together, so the two systems line up and nothing
               falls through the gap between them.
@@ -177,7 +177,7 @@ export default function CompanyAccounts() {
         title="Accounts prepared, filed, and coordinated"
         steps={[
           { title: 'Gather & reconcile', description: 'We pull together your records and reconcile the year, flagging anything that needs attention.' },
-          { title: 'Prepare accounts', description: 'We prepare statutory accounts in the right format for your company size — full, small or micro-entity.' },
+          { title: 'Prepare accounts', description: 'We prepare statutory accounts in the right format for your company size, whether full, small or micro-entity.' },
           { title: 'File both sides', description: 'We file with Companies House and prepare the CT600 for HMRC, keeping the two consistent.' },
           { title: 'Coordinate cross-border', description: 'For US owners, we align the UK accounts with US filings such as Form 5471 so both systems agree.' },
         ]}

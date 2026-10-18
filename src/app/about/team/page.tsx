@@ -6,7 +6,7 @@ import { credentialCodesFor } from '@/lib/credentials-data';
 import { IconArrowRight } from '@/components/ui/icons';
 
 export const metadata: Metadata = {
-  title: 'Our Team — US & UK Tax Specialists',
+  title: 'Our Team | US & UK Tax Specialists',
   description:
     'Meet the cross-border tax specialists at US UK Accountants: a named team covering both US and UK tax, with every filing prepared and reviewed across both jurisdictions.',
   alternates: { canonical: 'https://www.usukaccountants.com/about/team' },
@@ -28,7 +28,7 @@ export default function TeamPage() {
                 Led by cross-border tax specialists
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
-                Real, named people on both sides of the Atlantic — a team qualified across the UK and US
+                Real, named people on both sides of the Atlantic, qualified across the UK and US
                 professional bodies, including ACCA, ACA, CPA, CTA, CIMA and AAT. Every filing is prepared and
                 independently reviewed across our US and UK teams before it goes out.
               </p>

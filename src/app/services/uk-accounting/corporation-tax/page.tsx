@@ -9,9 +9,9 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/corporation-tax';
 
 export const metadata: Metadata = {
-  title: 'UK Corporation Tax — CT600 Filing & Deadlines',
+  title: 'UK Corporation Tax: CT600 Filing & Deadlines',
   description:
-    'How UK Corporation Tax and the CT600 work, why payment is due before filing, common mistakes, and how we handle it — including US-owned UK companies facing GILTI.',
+    'How UK Corporation Tax and the CT600 work, why payment is due before filing, common mistakes, and how we handle it, including US-owned UK companies facing GILTI.',
   alternates: { canonical: URL },
 };
 
@@ -21,7 +21,7 @@ const reviewedBy = authors.find((a) => a.slug === 'kristina')!;
 const faqs = [
   {
     q: 'What is UK Corporation Tax?',
-    a: 'Corporation Tax is the tax a UK limited company pays on its taxable profits — broadly its trading profits, investment income and chargeable gains. It is reported to HMRC on a Company Tax Return (CT600), supported by the company\u2019s accounts. The rate is set by the government and can change between Budgets.',
+    a: 'Corporation Tax is the tax a UK limited company pays on its taxable profits, broadly its trading profits, investment income and chargeable gains. It is reported to HMRC on a Company Tax Return (CT600), supported by the company\u2019s accounts. The rate is set by the government and can change between Budgets.',
   },
   {
     q: 'When is Corporation Tax due?',
@@ -29,18 +29,18 @@ const faqs = [
   },
   {
     q: 'How is the amount of Corporation Tax calculated?',
-    a: 'It is charged on taxable profits, which start from your accounting profit and are then adjusted for tax purposes — for example adding back disallowable costs and applying capital allowances on qualifying assets. The applicable rate is then applied. Because the rate and the reliefs can change, the calculation should be done on current rules each year.',
+    a: 'It is charged on taxable profits, which start from your accounting profit and are then adjusted for tax purposes, for example adding back disallowable costs and applying capital allowances on qualifying assets. The applicable rate is then applied. Because the rate and the reliefs can change, the calculation should be done on current rules each year.',
   },
   {
     q: 'What happens if I file or pay late?',
-    a: 'HMRC charges penalties for filing the CT600 late and interest on tax paid late, both of which escalate over time. Because the payment deadline comes first, it is possible to be late on payment even while still preparing the return — which is exactly why we plan the numbers early.',
+    a: 'HMRC charges penalties for filing the CT600 late and interest on tax paid late, both of which escalate over time. Because the payment deadline comes first, it is possible to be late on payment even while still preparing the return, which is exactly why we plan the numbers early.',
   },
   {
     q: 'Can I reduce my Corporation Tax bill?',
-    a: 'Legitimately, yes — through claiming all available reliefs and allowances, such as capital allowances on qualifying purchases, allowable expenses, and reliefs relevant to your sector. Effective planning is about claiming what you are entitled to and timing decisions well, not aggressive schemes. We focus on the former.',
+    a: 'Legitimately, yes, by claiming all available reliefs and allowances, such as capital allowances on qualifying purchases, allowable expenses, and reliefs relevant to your sector. Effective planning is about claiming what you are entitled to and timing decisions well, not aggressive schemes. We focus on the former.',
   },
   {
-    q: 'I am a US owner of a UK company — does Corporation Tax interact with US tax?',
+    q: 'I am a US owner of a UK company. Does Corporation Tax interact with US tax?',
     a: 'Yes. Paying UK Corporation Tax does not remove US obligations. Rules such as GILTI can tax your UK company\u2019s profits in your hands on the US side, even before they are distributed, and Form 5471 reporting applies. The UK and US sides must be coordinated, which is the core of what we do.',
   },
 ];
@@ -51,7 +51,7 @@ export default function CorporationTax() {
       url={URL}
       eyebrow="UK Accounting · Corporation Tax"
       title="UK Corporation Tax and the CT600"
-      answer="Corporation Tax is the tax a UK limited company pays on its taxable profits, reported to HMRC on a Company Tax Return (CT600). A key quirk catches directors out: the tax is normally payable within nine months and one day of your year-end, while the return itself is not due until twelve months after — so you usually pay before you file. The rate is set by the government and changes between Budgets. For US-owned UK companies, Corporation Tax interacts with US rules such as GILTI and Form 5471."
+      answer="Corporation Tax is the tax a UK limited company pays on its taxable profits, reported to HMRC on a Company Tax Return (CT600). A key quirk catches directors out: the tax is normally payable within nine months and one day of your year-end, while the return itself is not due until twelve months after, so you usually pay before you file. The rate is set by the government and changes between Budgets. For US-owned UK companies, Corporation Tax interacts with US rules such as GILTI and Form 5471."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'UK Accounting', href: '/services/uk-accounting' },
@@ -67,7 +67,7 @@ export default function CorporationTax() {
         description: 'Preparation of the Company Tax Return (CT600) and Corporation Tax planning for UK limited companies, coordinated with US obligations for US-owned companies.',
         serviceType: 'Tax Preparation',
       }}
-      ctaTitle="Get your Corporation Tax right — and on time"
+      ctaTitle="Get your Corporation Tax right and on time"
       ctaIntro="From the CT600 to planning the bill in advance, email us and we'll make sure you pay what you owe, claim what you can, and never miss the payment deadline."
     >
       <Section tone="white">
@@ -76,20 +76,20 @@ export default function CorporationTax() {
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
                 <strong>Corporation Tax</strong> is the tax your UK limited company pays on its{' '}
-                <strong>taxable profits</strong> — trading profits, investment income and gains. You report it to{' '}
+                <strong>taxable profits</strong>: trading profits, investment income and gains. You report it to{' '}
                 <strong>HMRC</strong> on a <strong>Company Tax Return (CT600)</strong>, supported by your company
                 accounts. The rate is set by the government and can move between Budgets, so the calculation is done
                 on current rules each year.
               </p>
               <p>
-                The single most important thing to understand is the timing, because it is counter-intuitive: the{' '}
+                The timing catches people out, because it runs the opposite way round to what you would expect: the{' '}
                 <strong>tax is due before the return is</strong>. For most companies, payment falls{' '}
                 <strong>nine months and one day after the year-end</strong>, while the CT600 itself is not due until{' '}
                 <strong>twelve months after</strong>. Plenty of directors discover too late that they owed the tax
                 months before they expected to file.
               </p>
               <p>
-                Getting it right is partly accuracy and partly planning — claiming every relief and allowance you are
+                Getting it right is partly accuracy and partly planning, claiming every relief and allowance you are
                 entitled to, and knowing the number early enough to set the cash aside. That is the difference
                 between Corporation Tax being a shock and being managed.
               </p>
@@ -153,14 +153,14 @@ export default function CorporationTax() {
               The recurring ones: assuming the <strong>payment deadline is the same as the filing deadline</strong>{' '}
               (it is earlier); <strong>not setting cash aside</strong> for the bill; missing legitimate{' '}
               <strong>capital allowances and reliefs</strong>; relying on last year&rsquo;s rate when it has changed;
-              and — for US owners — paying UK Corporation Tax while <strong>overlooking the US side</strong> entirely.
+              and, for US owners, paying UK Corporation Tax while <strong>overlooking the US side</strong> entirely.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">For US owners: GILTI and Form 5471</h2>
             <p>
               Paying UK Corporation Tax does not settle your US position. Under rules such as <strong>GILTI</strong>,
               the US can tax your UK company&rsquo;s profits in your hands even before they are paid out to you, and{' '}
               <Link href="/services/us-expat-tax/form-5471" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Form 5471</Link>{' '}
-              reporting applies. The two systems have to be planned together — exactly the cross-border work we
+              reporting applies. The two systems have to be planned together, which is exactly the cross-border work we
               specialise in.
             </p>
           </div>

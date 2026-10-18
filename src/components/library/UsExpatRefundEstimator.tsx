@@ -21,13 +21,13 @@ import { IconArrowRight, IconCheck, IconCalculator } from '@/components/ui/icons
  *
  * DELIBERATELY NOT MODELLED (to avoid false precision on YMYL data):
  *   - State-level refunds (which vary by "sticky state" residency rules)
- *   - NIIT (3.8% net investment income tax — FTC cannot offset this)
+ *   - NIIT (3.8% net investment income tax, FTC cannot offset this)
  *   - AMT
  *   - Child Tax Credit, ACTC, other credits
  *   - Self-employment tax (not reduced by FTC or FEIE)
  *   - Currency fluctuation on tax paid in GBP
  *
- * The tool frames its output as "likely", "indicative", and "worth checking" —
+ * The tool frames its output as "likely", "indicative", and "worth checking",
  * never as a definitive refund amount. Every result routes to a consultation.
  */
 
@@ -87,7 +87,7 @@ function assess(
       likelyBreakEven: Math.abs(netPosition) <= 200,
       likelyOwes: netPosition < -200,
       headline: 'Result depends on which relief you claim',
-      detail: 'With the Foreign Tax Credit applied, your estimated US liability drops significantly — often to near zero for UK-rate earners. Without relief, the picture is very different. With ' + fmt(usWithheld) + ' withheld and an estimated pre-relief liability of ' + fmt(roughUsTax(usTaxableIncome)) + ', the right relief choice could mean the difference between a refund and owing tax. This is exactly the calculation we do in a consultation.',
+      detail: 'With the Foreign Tax Credit applied, your estimated US liability drops significantly, and for many UK earners it is reduced substantially. Without relief, the picture is very different. With ' + fmt(usWithheld) + ' withheld and an estimated pre-relief liability of ' + fmt(roughUsTax(usTaxableIncome)) + ', the right relief choice could mean the difference between a refund and owing tax. This is exactly the calculation we do in a consultation.',
       warning: 'Because the relief choice has not been made, this estimate has wide uncertainty.',
     };
   }
@@ -98,7 +98,7 @@ function assess(
       likelyBreakEven: false,
       likelyOwes: false,
       headline: 'You may be owed a US refund of around ' + fmt(netPosition),
-      detail: 'You had ' + fmt(usWithheld) + ' withheld or paid in estimated tax. After ' + (relief === 'ftc' ? 'the Foreign Tax Credit' : 'the Foreign Earned Income Exclusion') + ', your estimated US liability is around ' + fmt(estimatedUsTax) + '. Filing correctly — and claiming the right relief — is how you recover that overpayment. A refund is not automatic: it is only paid after the return is filed.',
+      detail: 'You had ' + fmt(usWithheld) + ' withheld or paid in estimated tax. After ' + (relief === 'ftc' ? 'the Foreign Tax Credit' : 'the Foreign Earned Income Exclusion') + ', your estimated US liability is around ' + fmt(estimatedUsTax) + '. Filing correctly, and claiming the right relief, is how you recover that overpayment. A refund is not automatic: it is only paid after the return is filed.',
     };
   }
 
@@ -108,7 +108,7 @@ function assess(
       likelyBreakEven: true,
       likelyOwes: false,
       headline: 'You are likely close to break-even',
-      detail: 'With ' + fmt(usWithheld) + ' withheld and an estimated liability of ' + fmt(estimatedUsTax) + ', the position is roughly neutral. Small differences in the actual numbers — income mix, passive vs earned, self-employment income — could push you either way. Even at break-even you still need to file.',
+      detail: 'With ' + fmt(usWithheld) + ' withheld and an estimated liability of ' + fmt(estimatedUsTax) + ', the position is roughly neutral. Small differences in the actual numbers (income mix, passive vs earned, self-employment income) could push you either way. Even at break-even you still need to file.',
     };
   }
 
@@ -117,7 +117,7 @@ function assess(
     likelyBreakEven: false,
     likelyOwes: true,
     headline: 'You may owe around ' + fmt(Math.abs(netPosition)) + ' to the IRS',
-    detail: 'After ' + (relief === 'ftc' ? 'the Foreign Tax Credit' : 'the FEIE') + ', your estimated liability of ' + fmt(estimatedUsTax) + ' exceeds the ' + fmt(usWithheld) + ' you have already paid or had withheld. Interest accrues from the April filing deadline even if a return extension is in place. The right structuring — choosing between FEIE and the FTC, or electing to file jointly — can affect this figure.',
+    detail: 'After ' + (relief === 'ftc' ? 'the Foreign Tax Credit' : 'the FEIE') + ', your estimated liability of ' + fmt(estimatedUsTax) + ' exceeds the ' + fmt(usWithheld) + ' you have already paid or had withheld. Interest accrues from the April filing deadline even if a return extension is in place. The right structuring (choosing between FEIE and the FTC, or electing to file jointly) can affect this figure.',
     warning: 'If you have not filed and have a balance due, acting promptly limits interest and late-filing penalties.',
   };
 }
@@ -155,7 +155,7 @@ export default function UsExpatRefundEstimator() {
         <p className="mt-3 text-sm leading-relaxed text-muted">
           Americans in the UK often overpay US tax through withholding or estimated payments, then
           fail to claim it back on their return. Enter your figures and we&apos;ll estimate whether a
-          refund is likely — and how much.
+          refund is likely, and how much.
         </p>
 
         <div className="mt-7 space-y-5">
@@ -217,10 +217,10 @@ export default function UsExpatRefundEstimator() {
             <label className={labelClass}>Which relief are you planning to claim?</label>
             <div className="mt-2 space-y-2">
               {[
-                { value: 'ftc', label: 'Foreign Tax Credit (Form 1116)', hint: 'Most common for UK earners — offsets US tax with UK tax paid' },
+                { value: 'ftc', label: 'Foreign Tax Credit (Form 1116)', hint: 'Most common for UK earners: offsets US tax with UK tax paid' },
                 { value: 'feie', label: 'Foreign Earned Income Exclusion (Form 2555)', hint: 'Excludes earned income up to ~$130k; better for some lower earners' },
                 { value: 'unsure', label: "I'm not sure yet", hint: "We'll show you why the choice matters" },
-                { value: 'none', label: 'Neither (no relief claimed)', hint: 'Worst-case scenario — shows full US liability' },
+                { value: 'none', label: 'Neither (no relief claimed)', hint: 'Worst-case scenario: shows full US liability' },
               ].map((opt) => (
                 <label key={opt.value} className="flex cursor-pointer items-start gap-3 rounded-xl border border-mist bg-porcelain p-3 transition-colors hover:border-gold">
                   <input
@@ -265,11 +265,11 @@ export default function UsExpatRefundEstimator() {
             <div className="mt-5 space-y-2 rounded-xl bg-porcelain p-5 text-sm">
               <p className="flex items-start gap-2 text-ink">
                 <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
-                <span>A refund is only paid after you file your return — it doesn&apos;t happen automatically.</span>
+                <span>A refund is only paid after you file your return. It doesn&apos;t happen automatically.</span>
               </p>
               <p className="flex items-start gap-2 text-ink">
                 <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
-                <span>Choosing between the FTC and FEIE — and switching between them — has multi-year consequences.</span>
+                <span>Choosing between the FTC and FEIE, and switching between them, has multi-year consequences.</span>
               </p>
               <p className="flex items-start gap-2 text-ink">
                 <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
@@ -288,7 +288,7 @@ export default function UsExpatRefundEstimator() {
             <div className="mt-5 flex flex-wrap gap-3 text-sm">
               <Link href="/resources/glossary/foreign-tax-credit" className="font-semibold text-navy underline-offset-4 hover:text-gold hover:underline">Foreign Tax Credit explained</Link>
               <Link href="/resources/glossary/feie" className="font-semibold text-navy underline-offset-4 hover:text-gold hover:underline">FEIE explained</Link>
-              <Link href="/resources/blog/feie-or-foreign-tax-credit-uk" className="font-semibold text-navy underline-offset-4 hover:text-gold hover:underline">FEIE or FTC — which wins?</Link>
+              <Link href="/resources/blog/feie-or-foreign-tax-credit-uk" className="font-semibold text-navy underline-offset-4 hover:text-gold hover:underline">FEIE or FTC: which wins?</Link>
             </div>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -296,7 +296,7 @@ export default function UsExpatRefundEstimator() {
                 href="/book"
                 className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-navy px-6 py-4 text-sm font-semibold text-white transition-colors hover:bg-navy-ink"
               >
-                {result.likelyRefund ? 'Claim my refund — book a consultation' : 'Review my US tax position'}
+                {result.likelyRefund ? 'Claim my refund: book a consultation' : 'Review my US tax position'}
                 <IconArrowRight className="h-4 w-4" />
               </Link>
               <button

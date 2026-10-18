@@ -7,11 +7,11 @@ import {
   IconGlobeDoc, IconShield, IconPlanning, IconBank, IconCalculator, IconTreaty,
 } from '@/components/ui/icons';
 
-/** UK contact number — display (national) format. */
+/** UK contact number, display (national) format. */
 export const PHONE_UK = '0333 090 4030';
-/** UK contact number — international format (schema.org / machine-readable). */
+/** UK contact number, international format (schema.org / machine-readable). */
 export const PHONE_UK_INTL = '+44 333 090 4030';
-/** UK contact number — tel: link target. */
+/** UK contact number, tel: link target. */
 export const PHONE_UK_TEL = '+443330904030';
 export const PHONE_US = '+1 914 953 7475';
 
@@ -24,7 +24,7 @@ export interface Office {
   region: string;
   postalCode: string;
   country: 'GB' | 'US';
-  /** International format — used in schema.org telephone. */
+  /** International format, used in schema.org telephone. */
   phone: string;
   tel: string;
   /** Optional on-page display format (e.g. UK national 0333 …); falls back to `phone`. */
@@ -36,11 +36,11 @@ export interface Office {
   gbpEligible: boolean;
   /** Verified GBP listing name where it differs from the site brand (NAP consistency). */
   gbpName?: string;
-  /** Verified GBP/Maps URL — feeds schema sameAs/hasMap. Leave '' until verified. */
+  /** Verified GBP/Maps URL, feeds schema sameAs/hasMap. Leave '' until verified. */
   gbpUrl?: string;
 }
 
-/** Four genuine offices — basis for NAP + LocalBusiness schema. */
+/** Four genuine offices, basis for NAP + LocalBusiness schema. */
 export const OFFICES: Office[] = [
   {
     id: 'london',
@@ -73,7 +73,7 @@ export const OFFICES: Office[] = [
     email: 'hello@usukaccountants.com',
     staffed: true,
     gbpEligible: true,
-    // Verified GBP listing name (branch of US UK Accountants Ltd) — do not remove.
+    // Verified GBP listing name (branch of US UK Accountants Ltd): do not remove.
     gbpName: 'US UK Expats Tax Specialist',
     // ── PASTE THE VERIFIED MANCHESTER GBP/MAPS URL BELOW (leave '' until then) ──
     gbpUrl: 'https://maps.app.goo.gl/UoUMZFF34L9PKmFk7',
@@ -110,7 +110,7 @@ export const OFFICES: Office[] = [
   },
 ];
 
-/** Genuinely staffed, operational offices — use for NAP, schema, and "our offices" displays. */
+/** Genuinely staffed, operational offices: use for NAP, schema, and "our offices" displays. */
 export const staffedOffices = OFFICES.filter((o) => o.staffed);
 /** Offices eligible for a Google Business Profile (staffed presence required). */
 export const gbpEligibleOffices = OFFICES.filter((o) => o.gbpEligible);
@@ -122,7 +122,7 @@ export const SITE = {
   url: 'https://www.usukaccountants.com',
   email: 'hello@usukaccountants.com',
   rating: null,
-  /** sameAs profiles — REPLACE '#' with real URLs as accounts go live (critical for GEO entity). */
+  /** sameAs profiles: REPLACE '#' with real URLs as accounts go live (critical for GEO entity). */
   sameAs: [
     { label: 'Instagram', href: 'https://www.instagram.com/usukaccountants/' },
     { label: 'Pinterest', href: 'https://uk.pinterest.com/usukaccountants/' },
@@ -153,8 +153,8 @@ export const CONSULTATION = {
   ctaLabel: 'Book a consultation',
   ctaTitle: 'Book a private consultation',
   ctaIntro:
-    'A focused 30-minute consultation with a US–UK specialist for £350. Prefer to ask a quick question first? Email us — general queries are answered free.',
-  blurb: 'A dedicated 30-minute private consultation with a cross-border specialist — £350, booked at a time that suits you.',
+    'A focused 30-minute consultation with a US–UK specialist for £350. Prefer to ask a quick question first? Email us: general queries are answered free.',
+  blurb: 'A dedicated 30-minute private consultation with a cross-border specialist at £350, booked at a time that suits you.',
   freeEmailLine: 'General questions are answered free by email at hello@usukaccountants.com.',
 } as const;
 
@@ -180,13 +180,13 @@ export const CONSULTATION_TIERS: ConsultationTier[] = [
     price: '£350',
     priceValue: 350,
     durationLabel: '30 minutes',
-    tagline: 'A focused session on your personal US–UK tax position, with clear next steps. For personal tax matters only — company, LLC and business structuring enquiries need the Business Strategy Session.',
+    tagline: 'A focused session on your personal US–UK tax position, with clear next steps. For personal tax matters only. Company, LLC and business structuring enquiries need the Business Strategy Session.',
     idealFor: [
       'US citizens & Green Card holders in the UK',
       'UK residents with US obligations',
       'FBAR, FATCA & tax returns',
       'FEIE vs Foreign Tax Credit decisions',
-      'Not for company, LLC or business structuring — see Business Strategy Session',
+      'Not for company, LLC or business structuring (see Business Strategy Session)',
     ],
     credited: false,
     bookHref: '/book?tier=individual',
@@ -277,7 +277,7 @@ export const megaMenuFeature: MegaMenuFeature = {
   href: '/services/us-expat-tax/streamlined-filing',
 };
 
-/** Professional-body memberships — EMPTY until verified. Do NOT list unverified bodies. */
+/** Professional-body memberships: EMPTY until verified. Do NOT list unverified bodies. */
 export const credentials: string[] = [];
 
 export const footerColumns: NavColumn[] = [
@@ -388,7 +388,7 @@ export const audiences: AudienceItem[] = [
 export const processSteps: ProcessStep[] = [
   { title: 'Book a consultation', description: 'A focused 30-minute paid consultation (£350) to understand your situation on both sides. Quick questions are answered free by email.' },
   { title: 'Tailored plan', description: 'A clear written plan and quote covering exactly what you need filed.' },
-  { title: 'We file & optimise', description: 'We prepare, review and submit — minimising tax legally.' },
+  { title: 'We file & optimise', description: 'We prepare, review and submit, minimising tax legally.' },
   { title: 'Year-round support', description: 'Deadlines tracked and questions answered all year.' },
 ];
 
@@ -400,15 +400,15 @@ export const stats: StatItem[] = [
 ];
 
 export const faqs: FaqItem[] = [
-  { q: 'Do US citizens living in the UK have to file a US tax return?', a: 'Yes. US citizens and green card holders must file a US federal tax return every year regardless of where they live, reporting worldwide income. Living in the UK does not remove this obligation — but reliefs like the Foreign Earned Income Exclusion and Foreign Tax Credit usually prevent you from being taxed twice.' },
+  { q: 'Do US citizens living in the UK have to file a US tax return?', a: 'Yes. US citizens and green card holders must file a US federal tax return every year regardless of where they live, reporting worldwide income. Living in the UK does not remove this obligation, but reliefs like the Foreign Earned Income Exclusion and Foreign Tax Credit usually prevent you from being taxed twice.' },
   { q: 'Can I be taxed twice on the same income in the US and the UK?', a: 'Generally no. The US–UK tax treaty, combined with the Foreign Tax Credit and Foreign Earned Income Exclusion, is designed to prevent double taxation. Most clients legally owe tax in only one jurisdiction on a given income source when their filings are structured correctly.' },
   { q: 'What is the IRS Streamlined Filing Procedure?', a: 'The Streamlined Foreign Offshore Procedures let US taxpayers living abroad who were unaware of their obligations catch up without the usual late-filing penalties, where they qualify. It typically requires three years of tax returns and six years of FBARs, plus a signed statement that the failure to file was non-wilful.' },
   { q: 'Do I need to file an FBAR if I live in the UK?', a: 'If you are a US person and the combined balance of your non-US financial accounts exceeds $10,000 at any point in the year, you must file an FBAR (FinCEN Form 114). This includes UK current accounts, ISAs, pensions and joint accounts.' },
-  { q: 'Can one firm really handle both my US and UK taxes?', a: 'Yes — that is exactly what we specialise in. Rather than coordinating a UK accountant and a US preparer who never speak to each other, our team handles both sides together, so your treaty positions, credits and filings line up across jurisdictions.' },
-  { q: 'Do I need Form 8938 as well as an FBAR?', a: 'Often, yes. They are separate reports with different thresholds. The FBAR (FinCEN Form 114) is required once your non-US accounts exceed $10,000 combined. Form 8938 is filed with your US tax return under FATCA and applies above higher thresholds — for an unmarried person living in the UK, $200,000 at year-end or $300,000 at any time. Filing one does not satisfy the other.' },
+  { q: 'Can one firm really handle both my US and UK taxes?', a: 'Yes, that is exactly what we specialise in. Rather than coordinating a UK accountant and a US preparer who never speak to each other, our team handles both sides together, so your treaty positions, credits and filings line up across jurisdictions.' },
+  { q: 'Do I need Form 8938 as well as an FBAR?', a: 'Often, yes. They are separate reports with different thresholds. The FBAR (FinCEN Form 114) is required once your non-US accounts exceed $10,000 combined. Form 8938 is filed with your US tax return under FATCA and applies above higher thresholds: for an unmarried person living in the UK, $200,000 at year-end or $300,000 at any time. Filing one does not satisfy the other.' },
   { q: 'Do Americans living in the UK need a UK tax return?', a: 'Not always. Most UK employees are taxed through PAYE and need no return. A UK Self Assessment return is required where you are self-employed, a landlord, a higher earner with untaxed income, or need to claim reliefs such as split-year treatment or the Foreign Income and Gains regime. We check which applies and prepare the return alongside your US filing.' },
-  { q: 'What is Form W-8BEN?', a: 'Form W-8BEN is the IRS form a non-US individual gives to a US payer — a broker, a client, a publisher — to confirm they are not a US person and to claim the reduced US withholding rate under the US–UK tax treaty. Companies use Form W-8BEN-E. US citizens cannot use it: they give Form W-9 instead. Which form applies depends on who you are and what the income is.' },
-  { q: 'What happens if I have not filed US tax returns for several years?', a: 'You are not alone, and there is an orderly route back. If the failure was non-wilful and you live abroad, the IRS Streamlined Foreign Offshore Procedures typically require three years of returns and six years of FBARs. We confirm which years and forms apply before anything is prepared, so you know the full picture and the fixed fee first.' },
+  { q: 'What is Form W-8BEN?', a: 'Form W-8BEN is the IRS form a non-US individual gives to a US payer (a broker, a client, a publisher) to confirm they are not a US person and to claim the reduced US withholding rate under the US–UK tax treaty. Companies use Form W-8BEN-E. US citizens cannot use it: they give Form W-9 instead. Which form applies depends on who you are and what the income is.' },
+  { q: 'What happens if I have not filed US tax returns for several years?', a: 'You are not alone, and there is an orderly route back. If the failure was non-wilful and you live abroad, the IRS Streamlined Foreign Offshore Procedures typically require three years of returns and six years of FBARs. We confirm which years and forms apply before anything is prepared, so you know the full picture and the quoted fee before we start.' },
 ];
 
 /** GENUINE testimonials only. Empty until real, attributable testimonials exist. Do NOT invent. */
@@ -425,13 +425,13 @@ export const team: TeamMember[] = [
 ];
 
 /**
- * Pricing tiers — INTENTIONALLY EMPTY.
+ * Pricing tiers: INTENTIONALLY EMPTY.
  *
  * The firm's pricing model is: free email queries → paid £350 30-minute
  * consultation (self-booked) → bespoke, complexity-based engagement
  * ("from £X", always premium). It deliberately
  * does NOT use fixed annual packages. Do not populate this with fixed-price
- * tiers — that contradicts the positioning and creates binding price claims.
+ * tiers, as that contradicts the positioning and creates binding price claims.
  * Build a /pricing page from the InvestmentBand model when ready.
  */
 export const pricingTiers: PricingTier[] = [];
@@ -462,7 +462,7 @@ export const pillars: PillarItem[] = [
   {
     iconKey: 'bank',
     title: 'UK Accounting',
-    description: 'Full-service accounting for UK companies, contractors and the self-employed — compliant, optimised, and stress-free.',
+    description: 'Full-service accounting for UK companies, contractors and the self-employed. Compliant, optimised and stress-free.',
     href: '/services/uk-accounting',
     links: [
       { label: 'Company Accounts', href: '/services/uk-accounting/company-accounts' },
@@ -474,7 +474,7 @@ export const pillars: PillarItem[] = [
   {
     iconKey: 'globe',
     title: 'US Expat Tax',
-    description: 'Specialist US tax for Americans abroad and cross-border families — FBAR, FATCA, Streamlined Filing and treaty planning.',
+    description: 'Specialist US tax for Americans abroad and cross-border families: FBAR, FATCA, Streamlined Filing and treaty planning.',
     href: '/services/us-expat-tax',
     links: [
       { label: 'US Tax Returns', href: '/services/us-expat-tax/us-tax-returns' },
@@ -502,7 +502,7 @@ import type { CalculatorMeta } from '@/lib/types';
 
 /** Calculator suite. Flagship is live; others ship over Phase 2–4. */
 export const calculators: CalculatorMeta[] = [
-  { slug: 'double-tax-estimator', title: 'US/UK Double-Tax Estimator', description: 'See whether your income is at risk of being taxed twice — and roughly how much relief the Foreign Tax Credit and treaty could provide.', iconKey: 'globe', status: 'live', sampleLabel: 'Typical relief identified', sampleValue: 'Most pay tax once' },
+  { slug: 'double-tax-estimator', title: 'US/UK Double-Tax Estimator', description: 'See whether your income is at risk of being taxed twice, and roughly how much relief the Foreign Tax Credit and treaty could provide.', iconKey: 'globe', status: 'live', sampleLabel: 'Typical relief identified', sampleValue: 'Most pay tax once' },
   { slug: 'fbar-checker', title: 'FBAR Requirement Checker', description: 'Answer three questions to find out whether you need to file an FBAR (FinCEN 114) this year.', iconKey: 'shield', status: 'live', sampleLabel: 'Takes under a minute', sampleValue: '3 quick questions' },
   { slug: 'streamlined-eligibility', title: 'Streamlined Filing Eligibility', description: 'Check whether you may qualify for the IRS Streamlined programme to catch up without the usual late-filing penalties.', iconKey: 'shield', status: 'live', sampleLabel: 'Indicative path', sampleValue: 'Foreign or domestic' },
   { slug: 'feie-vs-ftc', title: 'FEIE vs Foreign Tax Credit', description: 'See which relief is likely to leave you better off as an American in the UK.', iconKey: 'planning', status: 'live', sampleLabel: 'Indicative direction', sampleValue: 'FTC usually wins' },

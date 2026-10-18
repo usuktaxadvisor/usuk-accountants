@@ -28,7 +28,7 @@ export function TrustBar({ tone = 'porcelain', credentials = defaultCreds }: Tru
   return (
     <section className={`border-b border-mist ${bg}`}>
       <div className="mx-auto flex max-w-container flex-col items-center gap-5 px-6 py-7 md:flex-row md:justify-center md:gap-x-10">
-        {/* Rating — only when genuine reviews exist */}
+        {/* Rating: only when genuine reviews exist */}
         {hasReviews && ratingValue != null && (
           <div className="flex items-center gap-2">
             <span className="flex text-gold" aria-hidden="true">
@@ -52,7 +52,7 @@ export function TrustBar({ tone = 'porcelain', credentials = defaultCreds }: Tru
           ))}
         </div>
 
-        {/* Verified professional bodies — only if supplied */}
+        {/* Verified professional bodies: only if supplied */}
         {credentials.length > 0 && (
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {credentials.map((c) => (

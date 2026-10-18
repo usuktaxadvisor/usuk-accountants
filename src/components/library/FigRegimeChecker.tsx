@@ -32,7 +32,7 @@ export default function FigRegimeChecker() {
     }
   } else if (ukResident && tenYearsNonResident) {
     result = 'likely';
-    reason = 'You may qualify — confirm exactly how many years you have been UK resident to see whether you are still inside the 4-year window.';
+    reason = 'You may qualify. Confirm exactly how many years you have been UK resident to see whether you are still inside the 4-year window.';
   }
 
   return (
@@ -131,7 +131,7 @@ export default function FigRegimeChecker() {
 
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Indicative only. The FIG claim interacts with the Temporary Repatriation Facility, trusts,
-          Overseas Workday Relief, and — for Americans — the US tax position, none of which are modelled
+          Overseas Workday Relief, and, for Americans, the US tax position, none of which are modelled
           here. The trade-off of losing allowances means claiming is not always worthwhile.
         </p>
       </div>
@@ -139,9 +139,9 @@ export default function FigRegimeChecker() {
       <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">New to the UK with foreign income?</p>
         <p className="mt-2 text-sm text-muted">
-          Whether to claim the FIG regime — and how it interacts with your US filing if you&rsquo;re
-          American — is a genuinely fact-specific decision. We model it across both systems. The first
-          consultation is free.
+          Whether to claim the FIG regime, and how it interacts with your US filing if you&rsquo;re
+          American, is a genuinely fact-specific decision. We model it across both systems. A focused 30-minute
+          consultation is &pound;350.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link

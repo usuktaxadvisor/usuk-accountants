@@ -26,15 +26,15 @@ const advisoryServices = services.filter((s) =>
 const faqs = [
   {
     q: 'What is cross-border tax advisory?',
-    a: 'It is the planning layer that sits above annual compliance — deciding how income, pensions, businesses and assets should be structured when two tax systems apply at once. Rather than simply filing US and UK returns, cross-border advisory works out the positions, elections and timing that keep the two systems working together: claiming treaty benefits, coordinating pensions, structuring companies, and sequencing reliefs so you are not taxed twice.',
+    a: 'It is the planning layer that sits above annual compliance, deciding how income, pensions, businesses and assets should be structured when two tax systems apply at once. Rather than simply filing US and UK returns, cross-border advisory works out the positions, elections and timing that keep the two systems working together: claiming treaty benefits, coordinating pensions, structuring companies, and sequencing reliefs so you are not taxed twice.',
   },
   {
     q: 'How is this different from your US expat tax or UK accounting services?',
-    a: 'Those services handle the returns themselves — your US filing, your UK Self Assessment, your company accounts. Cross-border advisory is the strategy that connects them: the treaty position behind a pension decision, the election that changes how a UK company is taxed in the US, the order in which reliefs are claimed. Most clients need both the compliance and the advisory, and we provide them together.',
+    a: 'Those services handle the returns themselves: your US filing, your UK Self Assessment, your company accounts. Cross-border advisory is the strategy that connects them: the treaty position behind a pension decision, the election that changes how a UK company is taxed in the US, the order in which reliefs are claimed. Most clients need both the compliance and the advisory, and we provide them together.',
   },
   {
     q: 'When should I get cross-border advice rather than just file?',
-    a: 'Before anything structural changes: moving country, taking a pension, starting or restructuring a company, selling property, or planning your estate. Advice taken before the event is almost always worth more than the same advice afterwards, because many cross-border positions — treaty elections, entity classifications, pension decisions — are far harder or impossible to fix once a return has been filed.',
+    a: 'Before anything structural changes: moving country, taking a pension, starting or restructuring a company, selling property, or planning your estate. Advice taken before the event is almost always worth more than the same advice afterwards, because many cross-border positions (treaty elections, entity classifications, pension decisions) are far harder or impossible to fix once a return has been filed.',
   },
   {
     q: 'Do you work alongside my existing advisors?',
@@ -48,7 +48,7 @@ export default function CrossBorderAdvisoryPillar() {
       url={URL}
       eyebrow="Cross-Border Advisory"
       title="Cross-border tax advisory between the US and UK"
-      answer="Cross-border advisory is the planning layer above annual filing: treaty positions, pensions, business structuring and the timing decisions that only matter when the US and UK tax systems apply to you at once. It is where the real money is saved or lost — through reliefs claimed in the right order, elections made on time, and structures chosen with both systems in view. We provide it alongside the compliance work, so strategy and filing stay joined up."
+      answer="Cross-border advisory is the planning layer above annual filing: treaty positions, pensions, business structuring and the timing decisions that only matter when the US and UK tax systems apply to you at once. It is where the real money is saved or lost, through reliefs claimed in the right order, elections made on time, and structures chosen with both systems in view. We provide it alongside the compliance work, so strategy and filing stay joined up."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory' },
@@ -68,14 +68,14 @@ export default function CrossBorderAdvisoryPillar() {
     >
       <ProseBlock>
         <p>
-          Most tax problems between the US and UK are not filing errors &mdash; they are planning gaps. The
+          Most tax problems between the US and UK are not filing errors. They are planning gaps. The
           return simply records a decision that was already made: how a company was set up, when a pension was
           drawn, whether a treaty position was claimed. By the time the return is due, the expensive choices
           have usually been taken.
         </p>
         <p>
           <strong>Cross-border advisory moves the thinking upstream.</strong> It is the work of deciding how
-          income, pensions, businesses and assets should sit across two systems before the event &mdash; so the
+          income, pensions, businesses and assets should sit across two systems before the event, so the
           treaty is used where it helps, elections are made on time, and reliefs line up rather than collide.
           We provide this alongside the compliance, because strategy that isn&rsquo;t connected to the actual
           filings rarely survives contact with reality.

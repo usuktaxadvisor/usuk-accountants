@@ -11,9 +11,9 @@ const URL = 'https://www.usukaccountants.com/services';
 const icons = { bank: IconBank, globe: IconGlobeDoc, treaty: IconTreaty } as const;
 
 export const metadata: Metadata = {
-  title: 'Services — US & UK Tax and Accounting',
+  title: 'Services: US & UK Tax and Accounting',
   description:
-    'US expat tax, UK accounting and cross-border advisory under one roof — for expats, dual citizens, families and businesses between the US and the UK.',
+    'US expat tax, UK accounting and cross-border advisory under one roof, for expats, dual citizens, families and businesses between the US and the UK.',
   alternates: { canonical: URL },
 };
 
@@ -33,7 +33,7 @@ export default function ServicesHub() {
                 Two tax systems. One advisory firm.
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
-                We bring US tax, UK accounting and cross-border advisory together under one roof — so the people
+                We bring US tax, UK accounting and cross-border advisory together under one roof, so the people
                 and businesses living between the US and the UK have a single team that sees the whole picture.
               </p>
             </div>
@@ -70,14 +70,14 @@ export default function ServicesHub() {
               <Link href="/us-uk-tax-services" className="font-medium text-navy underline hover:text-gold">
                 complete US &amp; UK tax services overview
               </Link>{' '}
-              — the full cross-border picture in one place.
+              for the full cross-border picture in one place.
             </p>
           </Container>
         </Section>
 
         <CTASection
           title="Not sure which service you need?"
-          intro="Book a consultation and we'll point you to the right place — even if that's not us."
+          intro="Book a consultation and we'll point you to the right place, even if that's not us."
           tone="navy"
         />
       </main>

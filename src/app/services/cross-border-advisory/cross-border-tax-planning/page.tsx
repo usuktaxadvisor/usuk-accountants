@@ -20,19 +20,19 @@ const reviewedBy = authors.find((a) => a.slug === 'briana')!;
 const faqs = [
   {
     q: 'What does cross-border tax planning actually involve?',
-    a: 'It means deciding, before the tax year closes, how your income and gains should be reported across the US and UK so the two systems work together. In practice that covers which relief to use and in what order — the Foreign Tax Credit, the Foreign Earned Income Exclusion, treaty positions — plus the timing of income, bonuses, gains and pension draws, and how foreign accounts and investments are handled. The aim is a coordinated position rather than two returns prepared in isolation.',
+    a: 'It means deciding, before the tax year closes, how your income and gains should be reported across the US and UK so the two systems work together. In practice that covers which relief to use and in what order (the Foreign Tax Credit, the Foreign Earned Income Exclusion, treaty positions), plus the timing of income, bonuses, gains and pension draws, and how foreign accounts and investments are handled. The aim is a coordinated position rather than two returns prepared in isolation.',
   },
   {
     q: 'Why does the order of reliefs matter?',
-    a: 'Because using one relief can reduce or waste another. Claiming the Foreign Earned Income Exclusion, for example, can leave less income for the Foreign Tax Credit to work against and can affect credit carryovers. In a high-tax country like the UK the Foreign Tax Credit is often the better primary tool, but the right combination depends on your income mix and future plans — which is why it is a planning decision, not a default.',
+    a: 'Because using one relief can reduce or waste another. Claiming the Foreign Earned Income Exclusion, for example, can leave less income for the Foreign Tax Credit to work against and can affect credit carryovers. In a high-tax country like the UK the Foreign Tax Credit is often the better primary tool, but the right combination depends on your income mix and future plans, which is why it is a planning decision rather than a default.',
   },
   {
     q: 'Can timing really change my tax?',
-    a: 'Often, yes. The US and UK tax years run on different dates, treat some income differently, and recognise gains at different points. Decisions like when to realise a gain, take a bonus, or draw a pension can change which country taxes it first and whether relief is available — so the timing of an event, not just the event itself, affects the final bill.',
+    a: 'Often, yes. The US and UK tax years run on different dates, treat some income differently, and recognise gains at different points. Decisions like when to realise a gain, take a bonus, or draw a pension can change which country taxes it first and whether relief is available, so the timing of an event, not just the event itself, affects the final bill.',
   },
   {
     q: 'Is this the same as filing my returns?',
-    a: 'No — planning comes first, filing follows. We can prepare the returns too, but the value of planning is in the decisions made before the year closes. Tax planning sets the position; the return simply records it.',
+    a: 'No. Planning comes first, filing follows. We can prepare the returns too, but the value of planning is in the decisions made before the year closes. Tax planning sets the position; the return simply records it.',
   },
 ];
 
@@ -42,7 +42,7 @@ export default function CrossBorderTaxPlanning() {
       url={URL}
       eyebrow="Cross-Border Advisory"
       title="Cross-border tax planning"
-      answer="Cross-border tax planning coordinates how your income and gains are taxed across the US and UK before the year closes — sequencing the Foreign Tax Credit, FEIE and treaty positions, and timing income, gains and pension draws so the two systems work together rather than against each other. Done early, it prevents double taxation and wasted reliefs; done late, the options have usually already gone."
+      answer="Cross-border tax planning coordinates how your income and gains are taxed across the US and UK before the year closes, sequencing the Foreign Tax Credit, FEIE and treaty positions, and timing income, gains and pension draws so the two systems work together rather than against each other. Done early, it prevents double taxation and wasted reliefs; done late, the options have usually already gone."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory' },
@@ -67,7 +67,7 @@ export default function CrossBorderTaxPlanning() {
             <ProseBlock>
               <p>
                 When two tax systems apply to the same person, the difference between a good outcome and an
-                expensive one is rarely the return itself &mdash; it is the planning behind it. The same income
+                expensive one is rarely the return itself. It is the planning behind it. The same income
                 can be taxed efficiently or twice depending on which relief is claimed, in what order, and when
                 the income was recognised.
               </p>

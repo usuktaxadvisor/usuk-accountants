@@ -9,7 +9,7 @@ import { services } from '@/lib/site-data';
 const URL = 'https://www.usukaccountants.com/us-uk-tax-services';
 
 export const metadata: Metadata = {
-  title: 'US & UK Tax Services — Cross-Border Specialists',
+  title: 'US & UK Tax Services: Cross-Border Specialists',
   description:
     'US and UK tax services under one roof: US expat tax, UK accounting, cross-border planning and treaty advice for Americans in the UK, Britons in the US and dual citizens.',
   alternates: { canonical: URL },
@@ -23,10 +23,10 @@ const coreServices = services.filter((s) =>
     .some((k) => s.href?.includes(k)));
 
 const faqs = [
-  { q: 'What are US & UK tax services?', a: 'They are the combined tax and accounting services needed by people and businesses who fall under both the US and UK tax systems at once — US federal and state returns, FBAR and FATCA reporting, UK Self Assessment and company accounts, and the cross-border planning that coordinates the two. The defining feature is that both jurisdictions are handled together, by one firm, rather than by separate US and UK accountants working in isolation.' },
-  { q: 'Who needs specialist US–UK tax services?', a: 'Americans living in the UK, British citizens in the US, dual citizens, green card holders, and businesses operating across both countries. Anyone who files — or should be filing — with both the IRS and HMRC benefits from having the two sides coordinated, because that is where double taxation is avoided and reliefs are claimed in the right order.' },
-  { q: 'What makes you specialist rather than a general accountant?', a: 'A general UK accountant handles HMRC but typically outsources or avoids the US side; a US preparer rarely understands UK rules. Our entire focus is the intersection — genuine US expertise and real UK accounting capability in one firm — so the two returns are prepared together and actually agree.' },
-  { q: 'How does pricing work?', a: 'We offer paid consultations (£350 individual, £550 business). Service pricing is bespoke and based on complexity, with a written quote provided before any work begins — so you always know the cost in advance.' },
+  { q: 'What are US & UK tax services?', a: 'They are the combined tax and accounting services needed by people and businesses who fall under both the US and UK tax systems at once: US federal and state returns, FBAR and FATCA reporting, UK Self Assessment and company accounts, and the cross-border planning that coordinates the two. The defining feature is that both jurisdictions are handled together, by one firm, rather than by separate US and UK accountants working in isolation.' },
+  { q: 'Who needs specialist US–UK tax services?', a: 'Americans living in the UK, British citizens in the US, dual citizens, green card holders, and businesses operating across both countries. Anyone who files, or should be filing, with both the IRS and HMRC benefits from having the two sides coordinated, because that is where double taxation is avoided and reliefs are claimed in the right order.' },
+  { q: 'What makes you specialist rather than a general accountant?', a: 'A general UK accountant handles HMRC but typically outsources or avoids the US side; a US preparer rarely understands UK rules. Our entire focus is the intersection (genuine US expertise and real UK accounting capability in one firm), so the two returns are prepared together and actually agree.' },
+  { q: 'How does pricing work?', a: 'We offer paid consultations (£350 individual, £550 business). Service pricing is bespoke and based on complexity, with a written quote provided before any work begins, so you always know the cost in advance.' },
   { q: 'Do you only work with people near your offices?', a: 'No. We are based in London, Manchester and the New York area, but most clients work with us remotely through a secure process, wherever they are in the UK, the US or internationally.' },
 ];
 
@@ -36,7 +36,7 @@ export default function UsUkTaxServices() {
       url={URL}
       eyebrow="US & UK Tax Services"
       title="Specialist US & UK tax services"
-      answer="US & UK tax services cover everything required by people and businesses caught between both tax systems: US expat tax, FBAR and FATCA, UK accounting and Self Assessment, cross-border tax planning and international tax advisory. The defining feature is that both jurisdictions are handled together by one firm. We are a specialist US–UK practice — genuine US and UK expertise under one roof — for Americans in the UK, Britons in the US, dual citizens and international businesses."
+      answer="US & UK tax services cover everything required by people and businesses caught between both tax systems: US expat tax, FBAR and FATCA, UK accounting and Self Assessment, cross-border tax planning and international tax advisory. The defining feature is that both jurisdictions are handled together by one firm. We are a specialist US–UK practice with genuine US and UK expertise under one roof, for Americans in the UK, Britons in the US, dual citizens and international businesses."
       crumbs={[
         { label: 'US & UK Tax Services', href: URL },
       ]}
@@ -55,15 +55,15 @@ export default function UsUkTaxServices() {
     >
       <ProseBlock>
         <p>
-          When you fall under two tax systems, the hardest part isn&rsquo;t either return on its own &mdash;
-          it&rsquo;s making them work together. A US accountant who doesn&rsquo;t know UK rules and a UK
+          When you fall under two tax systems, the hardest part is rarely either return on its own.
+          It is making them work together. A US accountant who doesn&rsquo;t know UK rules and a UK
           accountant who avoids the IRS will each do their half, but nobody owns the join, and that is exactly
           where double taxation and missed reliefs happen.
         </p>
         <p>
           <strong>Specialist US&ndash;UK tax services exist to own that join.</strong> We bring genuine US tax
           expertise and real UK accounting capability into one firm, so your US filing, your UK compliance and
-          the cross-border planning between them are handled as a single, coordinated piece of work &mdash;
+          the cross-border planning between them are handled as a single, coordinated piece of work,
           whether you are an individual, a family, or a business operating across both countries.
         </p>
       </ProseBlock>

@@ -1,7 +1,7 @@
 import { Container } from '@/components/library/primitives';
 import { normaliseCrumbs, type Crumb } from '@/lib/schema';
 
-/** Visual breadcrumb trail. Pairs with breadcrumbSchema() for the structured data — both run the same normaliser. */
+/** Visual breadcrumb trail. Pairs with breadcrumbSchema() for the structured data. Both run the same normaliser. */
 export function Breadcrumbs({ crumbs: raw }: { crumbs: Crumb[] }) {
   if (raw.length === 0) return null;
   const crumbs = normaliseCrumbs(raw);

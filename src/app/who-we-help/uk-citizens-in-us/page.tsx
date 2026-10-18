@@ -11,7 +11,7 @@ const URL = 'https://www.usukaccountants.com/who-we-help/uk-citizens-in-us';
 export const metadata: Metadata = {
   title: 'UK Tax Accountant for Britons Living in the US',
   description:
-    'Specialist help for UK citizens in the US: US federal and state returns, ongoing UK obligations, the US–UK treaty and residency — handled together so nothing falls between the two systems.',
+    'Specialist help for UK citizens in the US: US federal and state returns, ongoing UK obligations, the US–UK treaty and residency, handled together so nothing falls between the two systems.',
   alternates: { canonical: URL },
 };
 
@@ -23,10 +23,10 @@ const relevant = services.filter((s) =>
     .some((k) => s.href?.includes(k)));
 
 const faqs = [
-  { q: 'I moved from the UK to the US — do I still have UK tax obligations?', a: 'Possibly. It depends on your UK residence status under the Statutory Residence Test, any UK income you keep (such as rental property or a UK business), and how your departure was handled. Many Britons in the US retain some UK filing requirement, and getting residency right is essential.' },
-  { q: 'Do I need to file US taxes as a UK citizen in the US?', a: 'If you are a US tax resident — typically via a green card or the substantial-presence test — you file US federal and usually state returns on worldwide income. The US–UK treaty and foreign tax credits help avoid double taxation.' },
+  { q: 'I moved from the UK to the US. Do I still have UK tax obligations?', a: 'Possibly. It depends on your UK residence status under the Statutory Residence Test, any UK income you keep (such as rental property or a UK business), and how your departure was handled. Many Britons in the US retain some UK filing requirement, and getting residency right is essential.' },
+  { q: 'Do I need to file US taxes as a UK citizen in the US?', a: 'If you are a US tax resident (typically via a green card or the substantial-presence test), you file US federal and usually state returns on worldwide income. The US–UK treaty and foreign tax credits help avoid double taxation.' },
   { q: 'What happens to my UK ISAs and pensions now I live in the US?', a: 'This is a common pitfall. ISAs are not tax-free in US eyes and some UK funds are treated as PFICs with punitive US reporting. UK pensions interact with US tax via the treaty. We plan for these specifically.' },
-  { q: 'Can one firm handle both my US and UK sides?', a: 'Yes — that is exactly our model. Rather than a US preparer and a separate UK accountant who never speak, we coordinate both so reliefs line up and you are not taxed twice.' },
+  { q: 'Can one firm handle both my US and UK sides?', a: 'Yes. That is exactly our model. Rather than a US preparer and a separate UK accountant who never speak, we coordinate both so reliefs line up and you are not taxed twice.' },
 ];
 
 export default function UkCitizensInUs() {
@@ -35,7 +35,7 @@ export default function UkCitizensInUs() {
       url={URL}
       eyebrow="Who we help"
       title="Tax help for UK citizens living in the US"
-      answer="As a Briton in the US you'll usually file US federal and state returns on worldwide income, while possibly keeping UK obligations on property, investments or pensions left behind. UK ISAs and funds can trigger punitive US reporting if mishandled. We coordinate both sides — US filing, UK residency and the treaty — so nothing falls through the gap."
+      answer="As a Briton in the US you'll usually file US federal and state returns on worldwide income, while possibly keeping UK obligations on property, investments or pensions left behind. UK ISAs and funds can trigger punitive US reporting if mishandled. We coordinate both sides (US filing, UK residency and the treaty) so nothing falls through the gap."
       crumbs={[
         { label: 'Who We Help', href: '/who-we-help' },
         { label: 'UK Citizens in the US', href: URL },
@@ -50,7 +50,7 @@ export default function UkCitizensInUs() {
       <ProseBlock>
         <p>
           Relocating from the UK to the US brings a tax position most general accountants aren&rsquo;t equipped for.
-          You step into the US system &mdash; federal and state returns on worldwide income &mdash; while your UK
+          You step into the US system, with federal and state returns on worldwide income, while your UK
           affairs don&rsquo;t simply switch off.
         </p>
         <p>

@@ -20,7 +20,7 @@ export interface PageShellProps {
   url: string;
   eyebrow?: string;
   title: string;
-  /** Answer-first lead — 40–60 words. Marked .speakable for AI/voice extraction. */
+  /** Answer-first lead, 40–60 words. Marked .speakable for AI/voice extraction. */
   answer: string;
   crumbs: Crumb[];
 
@@ -141,7 +141,7 @@ export function PageShell({
 
         <CTASection
           title={ctaTitle ?? 'Tell us about your situation'}
-          intro={ctaIntro ?? 'Email us a short description of your circumstances — which country you file in, what has prompted the question and the years involved — and a US–UK specialist will reply with what we would need and a written quote. Work of this kind is handled by email, so every answer is documented. If you want detailed personal advice first, a 30-minute consultation can be booked (£350 individual, £550 business).'}
+          intro={ctaIntro ?? 'Email us a short description of your circumstances (which country you file in, what has prompted the question and the years involved) and a US–UK specialist will reply with what we would need and a written quote. Work of this kind is handled by email, so every answer is documented. If you want detailed personal advice first, a 30-minute consultation can be booked (£350 individual, £550 business).'}
           tone="navy"
         />
       </main>

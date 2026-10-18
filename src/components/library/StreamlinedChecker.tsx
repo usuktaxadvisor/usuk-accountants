@@ -13,7 +13,7 @@ import { IconArrowRight, IconCheck, IconShield } from '@/components/ui/icons';
  * Hard gates (ALL must hold to be eligible at all):
  *   - US person (citizen / green card holder / resident) with an SSN or ITIN.
  *   - Conduct was NON-WILLFUL (negligence, inadvertence, mistake, or good-faith
- *     misunderstanding — not intentional concealment / evasion).
+ *     misunderstanding, not intentional concealment / evasion).
  *   - NOT under IRS civil examination or criminal investigation, and the IRS has
  *     not already contacted you about the delinquency.
  *
@@ -137,15 +137,15 @@ export default function StreamlinedChecker() {
 
               {o.kind === 'sfop' && (
                 <>
-                  <h2 className="mt-5 font-display text-2xl font-semibold text-ink">You may qualify — Foreign Offshore track</h2>
+                  <h2 className="mt-5 font-display text-2xl font-semibold text-ink">You may qualify: Foreign Offshore track</h2>
                   <p className="mt-3 text-[15px] leading-relaxed text-muted">
-                    Based on your answers, the Streamlined <strong>Foreign</strong> Offshore Procedures (SFOP) look like the likely path. For eligible non-residents this carries <strong>no</strong> Title 26 offshore penalty — typically you file three years of returns and six years of FBARs, paying any tax and interest due.
+                    Based on your answers, the Streamlined <strong>Foreign</strong> Offshore Procedures (SFOP) look like the likely path. For eligible non-residents this carries <strong>no</strong> Title 26 offshore penalty. Typically you file three years of returns and six years of FBARs, paying any tax and interest due.
                   </p>
                 </>
               )}
               {o.kind === 'sdop' && (
                 <>
-                  <h2 className="mt-5 font-display text-2xl font-semibold text-ink">You may qualify — Domestic Offshore track</h2>
+                  <h2 className="mt-5 font-display text-2xl font-semibold text-ink">You may qualify: Domestic Offshore track</h2>
                   <p className="mt-3 text-[15px] leading-relaxed text-muted">
                     Based on your answers, the Streamlined <strong>Domestic</strong> Offshore Procedures (SDOP) look like the likely path, because you do not appear to meet the non-residency test. This route involves a one-time 5% miscellaneous offshore penalty alongside the back filings.
                   </p>
@@ -154,13 +154,13 @@ export default function StreamlinedChecker() {
               {o.kind === 'not-us-person' && (
                 <>
                   <h2 className="mt-5 font-display text-2xl font-semibold text-ink">The Streamlined procedures may not apply</h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted">The programme is for US persons (with an SSN or ITIN). If your status is unclear — for example you may be an &ldquo;accidental American&rdquo; — it is worth confirming, as your filing position could be different from what you assume.</p>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted">The programme is for US persons (with an SSN or ITIN). If your status is unclear (for example you may be an &ldquo;accidental American&rdquo;), it is worth confirming, as your filing position could be different from what you assume.</p>
                 </>
               )}
               {o.kind === 'contacted' && (
                 <>
-                  <h2 className="mt-5 font-display text-2xl font-semibold text-ink">Streamlined is likely closed to you — but you still have options</h2>
-                  <p className="mt-3 text-[15px] leading-relaxed text-muted">Once the IRS has opened an examination, started a criminal investigation, or contacted you about the delinquency, the Streamlined programme is generally no longer available. This does <strong>not</strong> mean you are out of options — there are other resolution paths — but it is important to get advice before responding to the IRS.</p>
+                  <h2 className="mt-5 font-display text-2xl font-semibold text-ink">Streamlined is likely closed to you, but you still have options</h2>
+                  <p className="mt-3 text-[15px] leading-relaxed text-muted">Once the IRS has opened an examination, started a criminal investigation, or contacted you about the delinquency, the Streamlined programme is generally no longer available. This does <strong>not</strong> mean you are out of options (there are other resolution paths), but it is important to get advice before responding to the IRS.</p>
                 </>
               )}
               {o.kind === 'willful' && (
@@ -176,7 +176,7 @@ export default function StreamlinedChecker() {
                 <div className="mt-6 space-y-3 rounded-xl bg-porcelain p-5 text-sm">
                   <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span><strong>Returns:</strong> the most recent 3 years for which the due date has passed.</span></p>
                   <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span><strong>FBARs:</strong> the most recent 6 years for which the FBAR due date has passed.</span></p>
-                  <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span><strong>Certification:</strong> a signed non-willful statement (Form 14653 for foreign, 14654 for domestic) is central — getting the narrative right matters.</span></p>
+                  <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span><strong>Certification:</strong> a signed non-willful statement (Form 14653 for foreign, 14654 for domestic) is central. Getting the narrative right matters.</span></p>
                 </div>
               )}
 

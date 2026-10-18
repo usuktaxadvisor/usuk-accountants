@@ -9,7 +9,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/us-uk-tax-treaty';
 
 export const metadata: Metadata = {
-  title: 'US–UK Tax Treaty Explained — Pensions & Residency',
+  title: 'US–UK Tax Treaty Explained: Pensions & Residency',
   description:
     'How the US–UK tax treaty coordinates tax between the two countries: pension provisions, the residency tie-breaker and the saving clause that keeps US citizens taxable.',
   alternates: { canonical: URL },
@@ -25,11 +25,11 @@ const faqs = [
   },
   {
     q: 'Does the treaty mean I do not owe US tax?',
-    a: 'No — and this surprises many people. The treaty contains a "saving clause" under which the US reserves the right to tax its citizens and green card holders broadly as if the treaty were not in place. So US citizens in the UK still file US returns and remain subject to US tax; the treaty and the foreign tax reliefs work to prevent the same income being taxed twice, rather than exempting US citizens outright.',
+    a: 'No, and this surprises many people. The treaty contains a "saving clause" under which the US reserves the right to tax its citizens and green card holders broadly as if the treaty were not in place. So US citizens in the UK still file US returns and remain subject to US tax; the treaty and the foreign tax reliefs work to prevent the same income being taxed twice, rather than exempting US citizens outright.',
   },
   {
     q: 'How does the treaty treat pensions?',
-    a: 'The treaty contains specific provisions dealing with UK and US pensions, generally aimed at preventing the same pension income from being taxed twice and at giving cross-border recognition to certain pension arrangements. How any particular pension is treated depends on its type, how and when it pays out, and your circumstances — so pensions are an area to review individually rather than assume a single rule applies.',
+    a: 'The treaty contains specific provisions dealing with UK and US pensions, generally aimed at preventing the same pension income from being taxed twice and at giving cross-border recognition to certain pension arrangements. How any particular pension is treated depends on its type, how and when it pays out, and your circumstances, so pensions are an area to review individually rather than assume a single rule applies.',
   },
   {
     q: 'What is the residency tie-breaker?',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: 'Do I still need to file if the treaty covers my income?',
-    a: 'Almost always yes. Treaty benefits generally have to be claimed and documented on your US return, not assumed — and because of the saving clause, US citizens file regardless. Relying on the treaty without filing, or without claiming the benefit correctly, is a common and avoidable mistake.',
+    a: 'Almost always yes. Treaty benefits generally have to be claimed and documented on your US return, not assumed. Because of the saving clause, US citizens file regardless. Relying on the treaty without filing, or without claiming the benefit correctly, is a common and avoidable mistake.',
   },
 ];
 
@@ -51,7 +51,7 @@ export default function UsUkTaxTreaty() {
       url={URL}
       eyebrow="US Expat Tax · US–UK Treaty"
       title="The US–UK tax treaty explained"
-      answer="The US–UK tax treaty coordinates how the two countries tax the same income, with the aim of preventing double taxation. Its most important features for Americans in the UK are its pension provisions, the residency tie-breaker rules for people resident in both countries, and the saving clause — which lets the US keep taxing its citizens broadly as if the treaty were not there. The treaty works alongside the Foreign Tax Credit and FEIE to prevent double tax; it does not exempt US citizens from filing or from US tax."
+      answer="The US–UK tax treaty coordinates how the two countries tax the same income, with the aim of preventing double taxation. Its most important features for Americans in the UK are its pension provisions, the residency tie-breaker rules for people resident in both countries, and the saving clause, which lets the US keep taxing its citizens broadly as if the treaty were not there. The treaty works alongside the Foreign Tax Credit and FEIE to prevent double tax; it does not exempt US citizens from filing or from US tax."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -64,11 +64,11 @@ export default function UsUkTaxTreaty() {
       service={{
         url: URL,
         name: 'US–UK Tax Treaty Planning',
-        description: 'Advising US persons in the UK on how the US–UK tax treaty affects their position — including pensions, residency and the saving clause — and claiming treaty benefits correctly.',
+        description: 'Advising US persons in the UK on how the US–UK tax treaty affects their position, including pensions, residency and the saving clause, and claiming treaty benefits correctly.',
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Wondering how the treaty applies to you?"
-      ctaIntro="Pensions, dual residency and treaty claims are where cross-border tax gets genuinely intricate. email us and we'll explain exactly how the treaty affects your position."
+      ctaIntro="Pensions, dual residency and treaty claims are where cross-border tax gets genuinely intricate. Email us and we'll explain exactly how the treaty affects your position."
     >
       <Section tone="white">
         <Container>
@@ -77,22 +77,22 @@ export default function UsUkTaxTreaty() {
               <p>
                 The <strong>US–UK tax treaty</strong> is the agreement that sits behind almost everything in
                 cross-border tax. Its purpose is to <strong>coordinate</strong> how the United States and the United
-                Kingdom tax the same income, so that — between the treaty and the foreign tax reliefs — you are not
+                Kingdom tax the same income, so that, between the treaty and the foreign tax reliefs, you are not
                 taxed twice on the same money.
               </p>
               <p>
-                But there is one feature everyone needs to understand first, because it overturns the most common
+                One feature needs to be understood before any of the rest, because it overturns the most common
                 assumption. The treaty contains a <strong>&ldquo;saving clause&rdquo;</strong>, under which the US
                 keeps the right to tax its <strong>citizens and green card holders broadly as if the treaty did not
-                exist</strong>. In other words, the treaty does <em>not</em> switch off US tax for Americans in the
-                UK. They still file, and still fall under US tax — the treaty and reliefs simply stop the same income
+                exist</strong>. So the treaty does <em>not</em> switch off US tax for Americans in the
+                UK. They still file, and still fall under US tax. The treaty and reliefs simply stop the same income
                 being taxed twice.
               </p>
               <p>
                 Within that framework, two areas matter most for the people we advise: <strong>pensions</strong>,
                 where the treaty has specific provisions, and the <strong>residency tie-breaker</strong>, which
                 decides your treaty residence when both countries consider you resident. Both are genuinely
-                fact-specific — which is why this is advice territory, not a one-size rule.
+                fact-specific, which is why this is advice territory rather than a one-size rule.
               </p>
             </div>
             <div className="lg:pt-2">
@@ -132,7 +132,7 @@ export default function UsUkTaxTreaty() {
               <strong>1. Pensions.</strong> The treaty contains specific provisions for UK and US pensions, broadly
               aimed at preventing the same pension income from being taxed twice and at giving cross-border
               recognition to certain arrangements. How any <em>particular</em> pension is treated depends on its
-              type, how and when it pays out, and your wider position — lump sums, employer schemes and personal
+              type, how and when it pays out, and your wider position: lump sums, employer schemes and personal
               pensions do not all behave the same way. This is the single most common area where people are given
               confident but wrong answers, so we treat each pension on its own facts rather than applying a blanket
               rule.
@@ -140,7 +140,7 @@ export default function UsUkTaxTreaty() {
             <p>
               <strong>2. The residency tie-breaker.</strong> Each country has its own rules for who is a tax
               resident, and it is entirely possible to be resident in both at once. When that happens, the treaty&rsquo;s
-              tie-breaker rules decide — for treaty purposes — which country you are resident in, looking at factors
+              tie-breaker rules decide, for treaty purposes, which country you are resident in, looking at factors
               such as where your permanent home and centre of vital interests lie. That answer then shapes how
               different income is taxed.
             </p>
@@ -162,7 +162,7 @@ export default function UsUkTaxTreaty() {
               The big one: <strong>&ldquo;the treaty means I don&rsquo;t owe US tax.&rdquo;</strong> The saving clause
               says otherwise. Others we correct often: assuming a <strong>UK pension is automatically US-tax-free</strong>
               {' '}(it depends entirely on the pension and the facts); believing the treaty <strong>replaces the need
-              to file</strong> (it does not — and benefits are generally claimed on the return); and treating the
+              to file</strong> (it does not, and benefits are generally claimed on the return); and treating the
               treaty as a substitute for the <strong>Foreign Tax Credit or FEIE</strong> rather than a framework that
               works alongside them.
             </p>
@@ -186,7 +186,7 @@ export default function UsUkTaxTreaty() {
         steps={[
           { title: 'Establish residence', description: 'We work out your residence position in both countries and apply the tie-breaker where both treat you as resident.' },
           { title: 'Review pensions & income', description: 'We look at how the treaty affects your pensions and specific income types on their own facts.' },
-          { title: 'Claim benefits correctly', description: 'We claim available treaty benefits on your US return, properly documented — never just assumed.' },
+          { title: 'Claim benefits correctly', description: 'We claim available treaty benefits on your US return, properly documented, never just assumed.' },
           { title: 'Coordinate the whole', description: 'We align the treaty with the Foreign Tax Credit, FEIE and your UK filings so the full position works.' },
         ]}
       />

@@ -166,11 +166,11 @@ export default function PayeRefundEstimator() {
             <div className="mt-4 space-y-2 text-sm">
               <p className="flex items-start gap-2 text-muted">
                 <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
-                <span>HMRC allows overpayment claims going back 4 tax years — you may have more to reclaim than just this year.</span>
+                <span>HMRC allows overpayment claims going back 4 tax years, so you may have more to reclaim than just this year.</span>
               </p>
               <p className="flex items-start gap-2 text-muted">
                 <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
-                <span>As a US citizen, a UK tax refund does not reduce your US filing obligation — you still file Form 1040 and may need to adjust your Foreign Tax Credit.</span>
+                <span>As a US citizen, a UK tax refund does not reduce your US filing obligation. You still file Form 1040 and may need to adjust your Foreign Tax Credit.</span>
               </p>
             </div>
 

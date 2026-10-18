@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: 'Why do Americans in the UK often end up owing no US tax?',
-    a: 'Because UK income tax rates are generally higher than US rates, the UK tax you pay is often more than the US tax due on the same income. The Foreign Tax Credit lets you offset the US liability with that UK tax, so many Americans in the UK owe little or no US tax — though they must still file.',
+    a: 'Because UK income tax rates are generally higher than US rates, the UK tax you pay is often more than the US tax due on the same income. The Foreign Tax Credit lets you offset the US liability with that UK tax, so many Americans in the UK owe little or no US tax, though they must still file.',
   },
   {
     q: 'What are excess foreign tax credits, and can I carry them forward?',
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'Should I use the Foreign Tax Credit or the Foreign Earned Income Exclusion?',
-    a: 'It depends on your situation, and the two are not interchangeable. The FEIE excludes earned income up to an annually-set limit; the FTC credits foreign tax paid against your US tax. For many Americans in higher-tax countries like the UK the FTC works better and preserves credits, but the right choice — and whether to combine them — depends on your income mix and goals. It is worth getting advice before electing, as switching back after revoking the FEIE has restrictions.',
+    a: 'It depends on your situation, and the two are not interchangeable. The FEIE excludes earned income up to an annually-set limit; the FTC credits foreign tax paid against your US tax. For many Americans in higher-tax countries like the UK the FTC works better and preserves credits, but the right choice, including whether to combine them, depends on your income mix and goals. It is worth getting advice before electing, as switching back after revoking the FEIE has restrictions.',
   },
   {
     q: 'Can I claim the FEIE and the Foreign Tax Credit on the same income?',
@@ -64,7 +64,7 @@ export default function ForeignTaxCredit() {
       url={URL}
       eyebrow="US Expat Tax · Foreign Tax Credit"
       title="The Foreign Tax Credit for Americans in the UK"
-      answer="The US Foreign Tax Credit (claimed on Form 1116) gives you a dollar-for-dollar credit for income tax you have already paid to the UK, offsetting your US tax on the same income. Because UK tax rates are generally higher than US rates, the credit usually eliminates double taxation — and often leaves Americans in the UK with excess credits to carry forward. You must still file a US return to claim it."
+      answer="The US Foreign Tax Credit (claimed on Form 1116) gives you a dollar-for-dollar credit for income tax you have already paid to the UK, offsetting your US tax on the same income. Because UK tax rates are generally higher than US rates, the credit usually eliminates double taxation, and often leaves Americans in the UK with excess credits to carry forward. You must still file a US return to claim it."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -81,7 +81,7 @@ export default function ForeignTaxCredit() {
         serviceType: 'Tax Planning',
       }}
       ctaTitle="Make sure you are claiming the right relief"
-      ctaIntro="Choosing the Foreign Tax Credit over the FEIE — or combining them correctly — can change what you owe. email us and we'll model your position."
+      ctaIntro="Choosing the Foreign Tax Credit over the FEIE, or combining them correctly, can change what you owe. Email us and we'll model your position."
     >
       <Section tone="white">
         <Container>
@@ -89,20 +89,20 @@ export default function ForeignTaxCredit() {
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
                 The <strong>Foreign Tax Credit</strong> is the most powerful tool most Americans in the UK have for
-                avoiding double taxation. It is a <strong>dollar-for-dollar credit</strong> — not a deduction — for
+                avoiding double taxation. It is a <strong>dollar-for-dollar credit</strong>, not a deduction, for
                 income tax you have already paid to the UK, claimed on <strong>IRS Form 1116</strong> and set against
                 the US tax on the same income.
               </p>
               <p>
-                Here is why it matters so much in the UK specifically: <strong>UK income tax rates are generally
+                It matters most in the UK for one reason: <strong>UK income tax rates are generally
                 higher than US rates</strong>. So the UK tax you have already paid is often more than the US tax due
-                on that income. The credit offsets your US liability with that UK tax — which is why so many
+                on that income. The credit offsets your US liability with that UK tax, which is why so many
                 Americans in the UK end up owing little or no US tax, even though they must still file a return every
                 year.
               </p>
               <p>
                 When the UK tax exceeds the US tax on the same income, the unused portion becomes an{' '}
-                <strong>excess credit</strong>. These are not necessarily lost — they can generally be carried back
+                <strong>excess credit</strong>. These are not necessarily lost: they can generally be carried back
                 one year and carried forward up to ten, within the same income category. Used well, they can shelter
                 future US tax.
               </p>
@@ -144,7 +144,7 @@ export default function ForeignTaxCredit() {
               This is the most important decision in most American-in-the-UK returns. The{' '}
               <strong>Foreign Earned Income Exclusion (FEIE)</strong> excludes earned income up to an annually-set
               limit; the <strong>Foreign Tax Credit</strong> credits the foreign tax you paid against your US tax.
-              They are not interchangeable, and the wrong choice can cost you — both now and in future years, because
+              They are not interchangeable, and the wrong choice can cost you both now and in future years, because
               revoking a FEIE election carries restrictions on switching back.
             </p>
           </div>
@@ -168,17 +168,17 @@ export default function ForeignTaxCredit() {
             <h2 className="font-display text-2xl font-semibold text-ink">Common mistakes we see</h2>
             <p>
               The errors that cost people most are: trying to claim the FEIE and the Foreign Tax Credit on the{' '}
-              <strong>same income</strong> (you cannot — they can only apply to different amounts); putting income in
+              <strong>same income</strong> (you cannot; they can only apply to different amounts); putting income in
               the <strong>wrong category</strong> on Form 1116, which distorts the credit; <strong>ignoring
               carryforwards</strong> and leaving usable credits on the table; and electing the FEIE in an early year
-              without realising the Foreign Tax Credit would have served better — then facing restrictions on
+              without realising the Foreign Tax Credit would have served better, then facing restrictions on
               switching.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">Related forms and reliefs</h2>
             <p>
               The Foreign Tax Credit (Form 1116) sits alongside the <strong>FEIE</strong> (Form 2555) and the{' '}
               <strong>US–UK tax treaty</strong>. The art is using them in the right combination and order for your
-              income mix — which is exactly what coordinated US–UK advice provides.
+              income mix, which is what coordinated US–UK advice provides.
             </p>
           </div>
         </Container>
@@ -189,7 +189,7 @@ export default function ForeignTaxCredit() {
         title="The right relief, claimed correctly"
         steps={[
           { title: 'Review', description: 'We map your income by type and source, and your UK tax paid, to see where the credit applies.' },
-          { title: 'Compare', description: 'We model the Foreign Tax Credit against the FEIE — and combinations — to find your best position.' },
+          { title: 'Compare', description: 'We model the Foreign Tax Credit against the FEIE, and combinations of the two, to find your best position.' },
           { title: 'Claim', description: 'We prepare Form 1116 correctly by income category, capturing any carrybacks and carryforwards.' },
           { title: 'Coordinate', description: 'We align it with your UK filings and the treaty so the whole picture works together.' },
         ]}
@@ -203,7 +203,7 @@ export default function ForeignTaxCredit() {
             href: '/resources/compare/foreign-tax-credit-vs-tax-treaty',
             description: 'Two tools for avoiding double taxation',
           },
-          { label: "FEIE vs Foreign Tax Credit — side-by-side comparison", href: "/resources/compare/feie-vs-foreign-tax-credit", description: "Compare the two mechanisms directly" },
+          { label: "FEIE vs Foreign Tax Credit, side by side", href: "/resources/compare/feie-vs-foreign-tax-credit", description: "Compare the two mechanisms directly" },
           {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',

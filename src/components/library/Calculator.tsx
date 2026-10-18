@@ -14,7 +14,7 @@ function formatGBP(n: number) {
 }
 
 // Simplified illustrative estimate of US tax offset by UK tax via Foreign Tax Credit.
-// Not tax advice — gives a directional figure to drive the consultation.
+// Not tax advice. Gives a directional figure to drive the consultation.
 function estimate(income: number, ukRatePct: number) {
   const ukTax = income * (ukRatePct / 100);
   // Illustrative US liability before credits (rough effective banding)
@@ -52,7 +52,7 @@ export function Calculator() {
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-softwhite/80">
               See how the Foreign Tax Credit and US–UK treaty can offset your US
               liability against UK tax already paid. Most clients legally owe tax
-              in only one place — this shows you roughly where you stand.
+              in only one place. This shows you roughly where you stand.
             </p>
             <ul className="mt-6 space-y-2.5">
               {[
@@ -167,7 +167,7 @@ export function Calculator() {
                     </button>
                   </div>
                   <p className="text-xs text-softwhite/70">
-                    No spam. Estimate only — your specialist confirms exact figures.
+                    No spam. Estimate only. Your specialist confirms exact figures.
                   </p>
                 </div>
               ) : (

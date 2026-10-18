@@ -104,10 +104,10 @@ export default function CrossBorderCgtEstimator() {
           <IconPlanning className="h-6 w-6" />
         </span>
         <h2 className="mt-5 font-display text-2xl font-semibold text-ink">
-          UK vs US capital gains — estimate your position
+          UK vs US capital gains: estimate your position
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
-          The US and UK calculate the same capital gain differently — different exemptions, different
+          The US and UK calculate the same capital gain differently: different exemptions, different
           rates, and different cost-basis rules. This estimates your likely UK CGT and US federal
           capital gains tax on the same disposal, and whether the Foreign Tax Credit will cover the
           overlap.
@@ -132,7 +132,7 @@ export default function CrossBorderCgtEstimator() {
 
           {assetType === 'property_main' && (
             <div>
-              <label htmlFor="prr" className={labelClass}>Principal Private Residence Relief — % of gain covered (%)</label>
+              <label htmlFor="prr" className={labelClass}>Principal Private Residence Relief: % of gain covered (%)</label>
               <input id="prr" inputMode="decimal" value={prrPct} onChange={(e) => setPrrPct(e.target.value)} placeholder="e.g. 100" className={inputClass} />
               <p className={hintClass}>100% if it was always your main home. Less if you rented it out or had periods of absence. PRR does not apply for US purposes.</p>
             </div>
@@ -219,14 +219,14 @@ export default function CrossBorderCgtEstimator() {
 
             {doubleLayerRisk && (
               <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
-                <strong>Double-tax layer likely.</strong> The UK CGT does not fully offset the US liability — residual US tax of {fmt(netUsTaxAfterFtc)} is estimated. Planning the timing and structure of the disposal can affect this.
+                <strong>Double-tax layer likely.</strong> The UK CGT does not fully offset the US liability. Residual US tax of {fmt(netUsTaxAfterFtc)} is estimated. Planning the timing and structure of the disposal can affect this.
               </div>
             )}
 
             <div className="mt-4 space-y-2 rounded-xl bg-porcelain p-4 text-sm">
-              <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span>Currency movement between purchase and sale creates a separate US taxable gain or loss — not captured above.</span></p>
+              <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span>Currency movement between purchase and sale creates a separate US taxable gain or loss, not captured above.</span></p>
               <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span>The 3.8% NIIT may apply to investment gains even after the FTC.</span></p>
-              {assetType === 'property_other' && <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span>US depreciation recapture (Section 1250) on rental property can increase US tax — not modelled here.</span></p>}
+              {assetType === 'property_other' && <p className="flex items-start gap-2 text-ink"><IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" /><span>US depreciation recapture (Section 1250) on rental property can increase US tax, not modelled here.</span></p>}
             </div>
 
             <p className="mt-5 text-xs leading-relaxed text-muted">

@@ -55,7 +55,7 @@ This is the part that's specific to the UK and that generic "FEIE vs FTC" articl
 That has two consequences:
 
 1. The UK tax you pay usually generates enough Foreign Tax Credit to eliminate your US tax on that income anyway, so you often don't *need* to exclude it.
-2. Using the FTC frequently leaves you with surplus credits to carry forward, which can be valuable later, for example against a future [UK pension lump sum](/services/us-expat-tax/us-uk-tax-treaty) or other US tax. The FEIE generates no such carryforward.
+2. Using the FTC frequently leaves you with surplus credits to carry forward, which can be valuable later, for example against a future [UK pension lump sum](/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us) or other US tax. The FEIE generates no such carryforward.
 
 ## The Child Tax Credit trap
 

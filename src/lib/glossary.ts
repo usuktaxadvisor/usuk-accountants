@@ -99,7 +99,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'streamlined-filing',
     term: 'Streamlined Filing Compliance Procedures',
     short:
-      'The Streamlined Procedures are an IRS amnesty programme letting US taxpayers who failed to file returns or FBARs non-wilfully catch up — typically penalty-free — by filing a limited number of back years and a certification of non-wilful conduct.',
+      'The Streamlined Procedures are an IRS amnesty programme letting US taxpayers who failed to file returns or FBARs non-wilfully catch up, without the usual late-filing penalties where the conditions are met, by filing a limited number of back years and a certification of non-wilful conduct.',
     long:
       'Designed for taxpayers whose failure to file was non-wilful (they simply did not know), the Streamlined Procedures require filing three years of amended/late returns and six years of FBARs, plus a certification explaining the non-wilful conduct. The offshore version (for those living abroad) generally carries no penalties; the domestic version carries a reduced penalty. Coming forward before the IRS makes contact preserves eligibility.',
     category: 'US Tax',

@@ -20,7 +20,7 @@ const reviewedBy = authors.find((a) => a.slug === 'kristina')!;
 const faqs = [
   {
     q: 'Who needs to file a Self Assessment tax return?',
-    a: 'You generally need to file if you are self-employed, a partner in a partnership, a company director with untaxed income, a landlord with rental income, or have significant income from savings, investments, dividends or abroad — or other income not fully taxed at source. HMRC also requires returns in various other situations, so if you are unsure it is worth checking rather than assuming.',
+    a: 'You generally need to file if you are self-employed, a partner in a partnership, a company director with untaxed income, a landlord with rental income, or have significant income from savings, investments, dividends or abroad, or other income not fully taxed at source. HMRC also requires returns in various other situations, so if you are unsure it is worth checking rather than assuming.',
   },
   {
     q: 'What is the Self Assessment deadline?',
@@ -36,11 +36,11 @@ const faqs = [
   },
   {
     q: 'Can you help reduce my Self Assessment bill?',
-    a: 'We make sure you claim every allowance, relief and allowable expense you are entitled to — from pension contributions to legitimate business costs and reliefs relevant to your situation — so you pay the right amount and nothing more. Good preparation is about accuracy and entitlement, not aggressive schemes.',
+    a: 'We make sure you claim every allowance, relief and allowable expense you are entitled to, from pension contributions to legitimate business costs and reliefs relevant to your situation, so you pay the right amount and nothing more. Good preparation is about accuracy and entitlement, not aggressive schemes.',
   },
   {
-    q: 'I am a US citizen in the UK — how does Self Assessment fit with my US return?',
-    a: 'You may need to file both a UK Self Assessment return and a US federal return on the same income. The two systems interact through the Foreign Tax Credit, the Foreign Earned Income Exclusion and the US–UK treaty. Preparing them together — as we do — is what keeps you compliant in both countries without paying twice.',
+    q: 'I am a US citizen in the UK. How does Self Assessment fit with my US return?',
+    a: 'You may need to file both a UK Self Assessment return and a US federal return on the same income. The two systems interact through the Foreign Tax Credit, the Foreign Earned Income Exclusion and the US–UK treaty. Preparing them together, as we do, is what keeps you compliant in both countries without paying twice.',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function SelfAssessment() {
       url={URL}
       eyebrow="UK Accounting · Self Assessment"
       title="Self Assessment tax returns"
-      answer="Self Assessment is how individuals report income to HMRC that is not fully taxed at source — covering the self-employed, company directors, landlords, and those with significant investment or foreign income. The online filing deadline is 31 January following the 5 April tax-year-end, and tax owed is generally due the same day, with payments on account due 31 January and 31 July. For US citizens in the UK, the UK return often sits alongside a US return on the same income, coordinated through the Foreign Tax Credit and treaty."
+      answer="Self Assessment is how individuals report income to HMRC that is not fully taxed at source, covering the self-employed, company directors, landlords, and those with significant investment or foreign income. The online filing deadline is 31 January following the 5 April tax-year-end, and tax owed is generally due the same day, with payments on account due 31 January and 31 July. For US citizens in the UK, the UK return often sits alongside a US return on the same income, coordinated through the Foreign Tax Credit and treaty."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'UK Accounting', href: '/services/uk-accounting' },
@@ -82,13 +82,13 @@ export default function SelfAssessment() {
               <p>
                 The dates are fixed and worth knowing. The UK tax year ends on <strong>5 April</strong>, and the{' '}
                 <strong>online return is due by the following 31 January</strong>, along with any tax owed. On top of
-                that, many people make <strong>payments on account</strong> — advance instalments due{' '}
-                <strong>31 January and 31 July</strong> — which can make a first bill larger than expected.
+                that, many people make <strong>payments on account</strong>, advance instalments due{' '}
+                <strong>31 January and 31 July</strong>, which can make a first bill larger than expected.
               </p>
               <p>
                 Penalties for late filing are <strong>automatic</strong>, so the real value is in preparing early and
                 accurately. And if you are a <strong>US citizen in the UK</strong>, your Self Assessment rarely
-                stands alone — it usually has to be coordinated with a US return on the same income, which is exactly
+                stands alone. It usually has to be coordinated with a US return on the same income, which is exactly
                 where a US–UK firm earns its keep.
               </p>
             </div>
@@ -126,7 +126,7 @@ export default function SelfAssessment() {
           <div className="mx-auto max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
             <h2 className="font-display text-2xl font-semibold text-ink">Deadlines and payments on account</h2>
             <p>
-              The <strong>31 January</strong> online deadline is the one everyone knows — but{' '}
+              The <strong>31 January</strong> online deadline is the one everyone knows, though{' '}
               <strong>payments on account</strong> are what surprise people. Each is normally half of your previous
               year&rsquo;s tax bill, paid in advance on <strong>31 January and 31 July</strong>. That means a
               first-time filer can face the balance for the year just ended <em>and</em> the first instalment toward
@@ -134,7 +134,7 @@ export default function SelfAssessment() {
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">Claiming what you are entitled to</h2>
             <p>
-              A good return is not just submitted on time — it claims every <strong>allowance, relief and allowable
+              A good return does more than arrive on time. It claims every <strong>allowance, relief and allowable
               expense</strong> you are due, from pension contributions to legitimate business costs. The aim is
               simple: pay the correct amount, and not a penny more, on <strong>current rules</strong> for the year.
             </p>
@@ -149,8 +149,8 @@ export default function SelfAssessment() {
             <p>
               The recurring ones: <strong>leaving it to January</strong> and rushing; being caught out by{' '}
               <strong>payments on account</strong>; <strong>missing allowable expenses</strong> and overpaying;
-              forgetting to declare <strong>all sources of income</strong>, including foreign income; and — for US
-              citizens — filing the UK return well while <strong>overlooking the US return</strong> that needs to
+              forgetting to declare <strong>all sources of income</strong>, including foreign income; and, for US
+              citizens, filing the UK return well while <strong>overlooking the US return</strong> that needs to
               align with it.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">For US citizens in the UK</h2>

@@ -85,7 +85,7 @@ export default function TakeHomePayCalculator() {
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           Enter a gross salary in each system to compare the proportion you keep after the main income
-          taxes and social contributions. This is a directional comparison for weighing a move — enter
+          taxes and social contributions. This is a directional comparison for weighing a move. Enter
           each salary in its own currency.
         </p>
 
@@ -168,7 +168,7 @@ export default function TakeHomePayCalculator() {
 
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Indicative only. The UK figures use {TAX_YEAR_LABEL} rates (England/Wales/NI; Scotland differs).
-          The US figure is a simplified single-filer estimate — real US tax depends on filing status,
+          The US figure is a simplified single-filer estimate. Real US tax depends on filing status,
           deductions, and your state. This compares <span className="italic">domestic</span> take-home; it
           does not model the cross-border case where US citizens in the UK file in both systems.
         </p>
@@ -177,9 +177,9 @@ export default function TakeHomePayCalculator() {
       <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">Planning a move across the Atlantic?</p>
         <p className="mt-2 text-sm text-muted">
-          Take-home pay is only part of it — if you&rsquo;re American, you&rsquo;ll likely file in both
-          countries. We help you understand the real after-tax picture before you move. The first
-          consultation is free.
+          Take-home pay is only part of it. If you&rsquo;re American, you&rsquo;ll likely file in both
+          countries. We help you understand the real after-tax picture before you move. A focused 30-minute
+          consultation is &pound;350.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link

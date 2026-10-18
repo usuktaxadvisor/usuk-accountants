@@ -1,5 +1,5 @@
 /* ============================================================
-   US UK Accountants — Component Library
+   US UK Accountants: Component Library
    Import anything from '@/components/library'
    ============================================================ */
 

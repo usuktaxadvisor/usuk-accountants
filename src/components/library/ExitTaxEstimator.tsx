@@ -45,7 +45,7 @@ function assess(expatType: ExpatType, netWorth: number, avgTax: number, complian
   } else { unknown = true; }
 
   if (compliant === false) {
-    triggers.push('You cannot certify 5 years of US tax compliance — this alone makes you a covered expatriate regardless of wealth');
+    triggers.push('You cannot certify 5 years of US tax compliance. This alone makes you a covered expatriate regardless of wealth');
   } else if (compliant === true) {
     safeTests.push('You can certify 5 years of US tax compliance');
   } else { unknown = true; }
@@ -93,7 +93,7 @@ export default function ExitTaxEstimator() {
           <IconPassport className="h-6 w-6" />
         </span>
         <h2 className="mt-5 font-display text-2xl font-semibold text-ink">
-          Exit tax — would you be a covered expatriate?
+          Exit tax: would you be a covered expatriate?
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           US citizens who renounce citizenship and long-term green card holders who abandon their
@@ -111,7 +111,7 @@ export default function ExitTaxEstimator() {
             <RadioGroup<ExpatType> name="expatType" value={expatType} onChange={setExpatType} options={[
               { value: 'citizen', label: 'US citizenship (renunciation)', hint: 'Covers those born with US citizenship or who naturalised' },
               { value: 'long_term_gc', label: 'Long-term green card (abandonment)', hint: 'Long-term = held a green card in at least 8 of the last 15 years' },
-              { value: 'neither', label: 'Neither — I am researching', hint: 'We will show you the framework for planning purposes' },
+              { value: 'neither', label: 'Neither, I am researching', hint: 'We will show you the framework for planning purposes' },
             ]} />
           </div>
 
@@ -132,9 +132,9 @@ export default function ExitTaxEstimator() {
               <div>
                 <label className={labelClass}>Can you certify 5 years of full US tax compliance?</label>
                 <RadioGroup<'yes' | 'no' | 'unsure'> name="compliant" value={compliant} onChange={setCompliant} options={[
-                  { value: 'yes', label: 'Yes — I have filed all required returns and paid all tax due for the last 5 years', hint: 'Includes FBARs, Form 8938, and all information returns' },
-                  { value: 'no', label: 'No — I have missed returns, FBARs, or have unpaid tax', hint: 'Non-compliance alone makes you a covered expatriate regardless of net worth' },
-                  { value: 'unsure', label: "I'm not certain", hint: 'Common — many people are unsure about information return filings (FBAR, 5471, 3520 etc.)' },
+                  { value: 'yes', label: 'Yes, I have filed all required returns and paid all tax due for the last 5 years', hint: 'Includes FBARs, Form 8938, and all information returns' },
+                  { value: 'no', label: 'No, I have missed returns, FBARs, or have unpaid tax', hint: 'Non-compliance alone makes you a covered expatriate regardless of net worth' },
+                  { value: 'unsure', label: "I'm not certain", hint: 'Common: many people are unsure about information return filings (FBAR, 5471, 3520 etc.)' },
                 ]} />
               </div>
             </>
@@ -157,9 +157,9 @@ export default function ExitTaxEstimator() {
             </p>
             <div className="mt-4 space-y-3 rounded-xl bg-porcelain p-5 text-sm">
               {[
-                { title: 'Test 1 — Net worth', body: 'Worldwide net worth on the date of expatriation at or above $2,000,000. This threshold has never been inflation-adjusted.' },
-                { title: 'Test 2 — Average annual tax', body: 'Average net US income tax for the 5 preceding years at or above ' + fmt(AVG_TAX_THRESHOLD_2025) + ' (2025 indexed amount).' },
-                { title: 'Test 3 — Compliance certification', body: 'Failure to certify 5 years of full US tax compliance on Form 8854. This is the most commonly missed trigger — it does not require high income or wealth.' },
+                { title: 'Test 1: Net worth', body: 'Worldwide net worth on the date of expatriation at or above $2,000,000. This threshold has never been inflation-adjusted.' },
+                { title: 'Test 2: Average annual tax', body: 'Average net US income tax for the 5 preceding years at or above ' + fmt(AVG_TAX_THRESHOLD_2025) + ' (2025 indexed amount).' },
+                { title: 'Test 3: Compliance certification', body: 'Failure to certify 5 years of full US tax compliance on Form 8854. This is the most commonly missed trigger: it does not require high income or wealth.' },
               ].map((t) => (
                 <p key={t.title} className="flex items-start gap-2 text-ink">
                   <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
@@ -222,7 +222,7 @@ export default function ExitTaxEstimator() {
             )}
 
             <p className="mt-5 text-xs leading-relaxed text-muted">
-              Educational screen only. Uses 2025 indexed thresholds. Does not model the actual exit tax calculation, deferred compensation elections, or dual-citizen exceptions. Renouncing US citizenship is irreversible — always take specialist advice before proceeding.
+              Educational screen only. Uses 2025 indexed thresholds. Does not model the actual exit tax calculation, deferred compensation elections, or dual-citizen exceptions. Renouncing US citizenship is irreversible, so always take specialist advice before proceeding.
             </p>
 
             <div className="mt-5 flex flex-wrap gap-3 text-sm">

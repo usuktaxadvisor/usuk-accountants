@@ -24,9 +24,9 @@ const relevant = services.filter((s) =>
 
 const faqs = [
   { q: 'How is UK rental income taxed if I am a US citizen?', a: 'It is taxed in both systems, but rarely twice. You report the rent to HMRC through Self Assessment and to the IRS on Schedule E, then the Foreign Tax Credit generally offsets the US tax with the UK tax already paid. The complication is that the US requires you to depreciate the property and applies its own rules for allowable expenses, so the taxable figures rarely match between the two returns.' },
-  { q: 'What is depreciation recapture and why does it matter?', a: 'US rules require you to depreciate a rental property each year, reducing your taxable rental income. When you sell, that depreciation is "recaptured" and taxed at up to 25% — even if you never knowingly claimed it, because the US treats it as taken regardless. Many landlords are caught out because the UK has no equivalent, so there is often no UK tax to credit against the US recapture charge.' },
+  { q: 'What is depreciation recapture and why does it matter?', a: 'US rules require you to depreciate a rental property each year, reducing your taxable rental income. When you sell, that depreciation is "recaptured" and taxed at up to 25%, even if you never knowingly claimed it, because the US treats it as taken regardless. Many landlords are caught out because the UK has no equivalent, so there is often no UK tax to credit against the US recapture charge.' },
   { q: 'Do I have to report my UK rental account on an FBAR?', a: 'If rent flows through a UK bank account and your foreign accounts together exceed $10,000 at any point in the year, that account is reportable on the FBAR. Property held through a UK company adds further US reporting, which is why structure matters before you buy.' },
-  { q: 'Can a currency gain on my mortgage be taxed?', a: 'Yes. Under Section 988, repaying or refinancing a sterling mortgage can create a US-taxable foreign-exchange gain if the dollar strengthened since you borrowed — taxed as ordinary income, with no UK equivalent. It is one of the least-known traps for US-citizen landlords in the UK, and one we plan for directly.' },
+  { q: 'Can a currency gain on my mortgage be taxed?', a: 'Yes. Under Section 988, repaying or refinancing a sterling mortgage can create a US-taxable foreign-exchange gain if the dollar strengthened since you borrowed, taxed as ordinary income, with no UK equivalent. It is one of the least-known traps for US-citizen landlords in the UK, and one we plan for directly.' },
 ];
 
 export default function Landlords() {
@@ -35,7 +35,7 @@ export default function Landlords() {
       url={URL}
       eyebrow="Who we help"
       title="Cross-border tax for landlords & property investors"
-      answer="If you own rental property and have a foot in both the US and UK tax systems, your rent is reportable on both sides — to HMRC through Self Assessment and to the IRS on Schedule E — but double taxation is usually avoidable through the Foreign Tax Credit. The real risks are US depreciation recapture, Section 988 mortgage currency gains, and mismatched expense rules. We coordinate both returns so nothing is missed."
+      answer="If you own rental property and have a foot in both the US and UK tax systems, your rent is reportable on both sides (to HMRC through Self Assessment and to the IRS on Schedule E), but double taxation is usually avoidable through the Foreign Tax Credit. The real risks are US depreciation recapture, Section 988 mortgage currency gains, and mismatched expense rules. We coordinate both returns so nothing is missed."
       crumbs={[
         { label: 'Who We Help', href: '/who-we-help' },
         { label: 'Landlords', href: URL },
@@ -51,12 +51,12 @@ export default function Landlords() {
         <p>
           Rental property is one of the most common reasons a cross-border tax position turns complicated.
           The same property is taxed by HMRC and the IRS, but on different figures, under different rules,
-          and on different timelines &mdash; and the two systems do not automatically talk to each other.
+          and on different timelines, and the two systems do not automatically talk to each other.
         </p>
         <p>
           <strong>Double taxation is usually avoidable; the surprises are not, unless you plan for them.</strong>{' '}
           US depreciation that the UK doesn&rsquo;t recognise, a recapture charge on sale with no UK tax to
-          credit against it, a Section 988 currency gain on a remortgage &mdash; these are the issues that
+          credit against it, a Section 988 currency gain on a remortgage: these are the issues that
           catch landlords out, and the ones we get right by handling both returns together.
         </p>
       </ProseBlock>

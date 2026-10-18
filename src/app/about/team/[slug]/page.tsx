@@ -18,7 +18,7 @@ export async function generateMetadata(
   const author = authors.find((a) => a.slug === slug);
   if (!author) return { title: 'Team member not found' };
   return {
-    title: `${author.name} — ${author.role}`,
+    title: `${author.name}, ${author.role}`,
     description: metaDescription(author.bio),
     alternates: { canonical: `https://www.usukaccountants.com/about/team/${author.slug}` },
   };

@@ -11,7 +11,7 @@ const URL = 'https://www.usukaccountants.com/services/us-expat-tax';
 export const metadata: Metadata = {
   title: 'US Expat Tax Services for Americans in the UK',
   description:
-    'US tax for Americans in the UK and abroad: federal returns, FBAR, FATCA, Streamlined Filing, FEIE and the Foreign Tax Credit — prepared with your UK position in view.',
+    'US tax for Americans in the UK and abroad: federal returns, FBAR, FATCA, Streamlined Filing, FEIE and the Foreign Tax Credit, prepared with your UK position in view.',
   alternates: { canonical: URL },
 };
 
@@ -26,7 +26,7 @@ const usServices = services.filter((s) =>
 const faqs = [
   {
     q: 'Do Americans living in the UK still have to file US taxes?',
-    a: 'Yes. The US taxes its citizens on worldwide income regardless of where they live, so Americans in the UK must file a US federal return every year — even if they owe nothing after reliefs like the Foreign Earned Income Exclusion or Foreign Tax Credit. Many also have to file an FBAR.',
+    a: 'Yes. The US taxes its citizens on worldwide income regardless of where they live, so Americans in the UK must file a US federal return every year, even if they owe nothing after reliefs like the Foreign Earned Income Exclusion or Foreign Tax Credit. Many also have to file an FBAR.',
   },
   {
     q: 'What is the difference between FBAR and FATCA?',
@@ -34,11 +34,11 @@ const faqs = [
   },
   {
     q: 'Will I be taxed twice on the same income?',
-    a: 'Usually not, if it is handled correctly. The Foreign Tax Credit, the Foreign Earned Income Exclusion and the US–UK tax treaty exist to prevent double taxation. The key is claiming the right relief in the right order — which is exactly what coordinated US–UK advice ensures.',
+    a: 'Usually not, if it is handled correctly. The Foreign Tax Credit, the Foreign Earned Income Exclusion and the US–UK tax treaty exist to prevent double taxation. The key is claiming the right relief in the right order, which is what coordinated US–UK advice ensures.',
   },
   {
     q: "I haven't filed US taxes in years. What can I do?",
-    a: 'If your failure to file was non-willful, the IRS Streamlined Filing Compliance Procedures let you catch up — typically three years of returns and six years of FBARs — without penalties. We handle Streamlined cases regularly and can bring you back into compliance.',
+    a: 'If your failure to file was non-willful, the IRS Streamlined Filing Compliance Procedures let you catch up without the usual late-filing penalties where the conditions are met, typically three years of returns and six years of FBARs. We handle Streamlined cases regularly and can bring you back into compliance.',
   },
 ];
 
@@ -48,7 +48,7 @@ export default function UsExpatTaxPillar() {
       url={URL}
       eyebrow="US Expat Tax"
       title="US tax for Americans in the UK and abroad"
-      answer="US citizens and green card holders must file a US federal tax return on worldwide income wherever they live, and often an FBAR for foreign accounts over $10,000. Reliefs like the FEIE, Foreign Tax Credit and the US–UK treaty prevent double taxation — when claimed correctly. We handle it all, coordinated with your UK filings."
+      answer="US citizens and green card holders must file a US federal tax return on worldwide income wherever they live, and often an FBAR for foreign accounts over $10,000. Reliefs like the FEIE, Foreign Tax Credit and the US–UK treaty prevent double taxation when claimed correctly. We handle it all, coordinated with your UK filings."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -70,7 +70,7 @@ export default function UsExpatTaxPillar() {
         <p>
           Being American doesn&rsquo;t stop at the border. The US taxes its citizens on their worldwide income, so
           whether you moved to London last year or have lived in the UK for a decade, you still have annual US
-          filing obligations — returns, and often foreign-account reporting on top.
+          filing obligations: returns, and often foreign-account reporting on top.
         </p>
         <p>
           <strong>We specialise in getting this right for people who live between two systems.</strong> That means

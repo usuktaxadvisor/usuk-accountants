@@ -17,7 +17,7 @@ import { IconArrowRight, IconCheck, IconShield } from '@/components/ui/icons';
  *     and is tested at the highest point in the year, not the year-end balance.
  *   - Deadline: April 15, with an automatic extension to October 15 (no request
  *     needed).
- *   - Filed electronically on FinCEN Form 114 via the BSA E-Filing System —
+ *   - Filed electronically on FinCEN Form 114 via the BSA E-Filing System,
  *     separate from the federal tax return.
  *
  * This is an educational screening tool, NOT advice and NOT a determination.
@@ -45,14 +45,14 @@ const STEPS: StepDef[] = [
     question:
       'Do you have a financial interest in, or signature authority over, one or more foreign financial accounts?',
     helper:
-      'Foreign financial accounts include non-US bank, savings, brokerage and certain pension or investment accounts. Signature authority counts even without ownership — for example, the ability to direct transactions on an employer, family or business account.',
+      'Foreign financial accounts include non-US bank, savings, brokerage and certain pension or investment accounts. Signature authority counts even without ownership, for example, the ability to direct transactions on an employer, family or business account.',
   },
   {
     id: 'overThreshold',
     question:
       'Did the combined maximum value of all those accounts exceed US$10,000 at any single point during the year?',
     helper:
-      'This is the aggregate of every account\u2019s highest balance during the year, converted to US dollars — not the year-end balance. Even a brief spike over $10,000 (a property sale, a payroll deposit) crosses the threshold for the whole year.',
+      'This is the aggregate of every account\u2019s highest balance during the year, converted to US dollars, not the year-end balance. Even a brief spike over $10,000 (a property sale, a payroll deposit) crosses the threshold for the whole year.',
   },
 ];
 
@@ -96,13 +96,13 @@ export default function FbarChecker() {
   if (!likelyRequired && done) {
     if (answers.usPerson === 'no') {
       notRequiredReason =
-        'The FBAR applies to US persons. Based on your answer, the US FBAR rules may not apply to you — though your home country may have its own reporting rules.';
+        'The FBAR applies to US persons. Based on your answer, the US FBAR rules may not apply to you, though your home country may have its own reporting rules.';
     } else if (answers.hasAccounts === 'no') {
       notRequiredReason =
         'The FBAR reports foreign financial accounts. If you hold no foreign accounts and have no signature authority over any, there is generally nothing to report this year.';
     } else if (answers.overThreshold === 'no') {
       notRequiredReason =
-        'The FBAR is only triggered when your combined foreign accounts exceed US$10,000 at some point in the year. If you stayed under that aggregate at all times, an FBAR is generally not required for the year — but keep an eye on the threshold, as a single large deposit can cross it.';
+        'The FBAR is only triggered when your combined foreign accounts exceed US$10,000 at some point in the year. If you stayed under that aggregate at all times, an FBAR is generally not required for the year, but keep an eye on the threshold, as a single large deposit can cross it.';
     }
   }
 
@@ -173,11 +173,11 @@ export default function FbarChecker() {
               <div className="mt-6 space-y-3 rounded-xl bg-porcelain p-5 text-sm">
                 <p className="flex items-start gap-2 text-ink">
                   <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
-                  <span><strong>Deadline:</strong> 15 April, with an automatic extension to 15 October — no request needed.</span>
+                  <span><strong>Deadline:</strong> 15 April, with an automatic extension to 15 October, no request needed.</span>
                 </p>
                 <p className="flex items-start gap-2 text-ink">
                   <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
-                  <span><strong>How:</strong> filed electronically as FinCEN Form 114 through the BSA E-Filing System — separately from your tax return.</span>
+                  <span><strong>How:</strong> filed electronically as FinCEN Form 114 through the BSA E-Filing System, separately from your tax return.</span>
                 </p>
                 <p className="flex items-start gap-2 text-ink">
                   <IconCheck className="mt-0.5 h-4 w-4 shrink-0 text-gold-antique" />
@@ -185,8 +185,8 @@ export default function FbarChecker() {
                 </p>
               </div>
               <p className="mt-5 text-sm leading-relaxed text-muted">
-                If you have missed FBARs in prior years, do not simply back-file without advice —
-                the IRS Streamlined Filing programme exists for exactly this and can avoid
+                If you have missed FBARs in prior years, do not simply back-file without advice.
+                The IRS Streamlined Filing programme exists for exactly this and can avoid
                 penalties when handled correctly.
               </p>
             </>
@@ -200,7 +200,7 @@ export default function FbarChecker() {
               </h2>
               <p className="mt-3 text-[15px] leading-relaxed text-muted">{notRequiredReason}</p>
               <p className="mt-4 text-sm leading-relaxed text-muted">
-                This is a quick screen, not a determination — the rules around signature authority,
+                This is a quick screen, not a determination. The rules around signature authority,
                 joint accounts and account types have edge cases. If anything about your situation
                 is borderline, it is worth a short conversation to be certain.
               </p>
