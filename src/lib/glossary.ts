@@ -221,7 +221,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     short:
       'The US–UK income tax treaty allocates taxing rights over cross-border income (wages, pensions, dividends, business profits) between the two countries and provides mechanisms to relieve double taxation. It is separate from the estate and gift tax treaty.',
     long:
-      'The income tax treaty sets rules for which country taxes particular income first and how relief is given, covering pensions, dividends, interest, royalties, employment, and business profits. For US citizens, the treaty saving clause preserves the US right to tax its citizens on worldwide income, which limits some treaty benefits and is why claims often require Form 8833. A separate 1980 treaty governs estate and gift tax.',
+      'The income tax treaty sets rules for which country taxes particular income first and how relief is given, covering pensions, dividends, interest, royalties, employment, and business profits. For US citizens, the treaty saving clause preserves the US right to tax its citizens on worldwide income, which limits some treaty benefits and is why claims often require Form 8833. A separate 1978 treaty governs estate and gift tax.',
     category: 'Cross-Border',
     related: [
       { label: 'Compare: Foreign Tax Credit vs US–UK Tax Treaty', href: '/resources/compare/foreign-tax-credit-vs-tax-treaty' },
@@ -321,7 +321,7 @@ export const glossaryTerms: GlossaryTerm[] = [
     slug: 'us-uk-estate-gift-tax-treaty',
     term: 'US–UK Estate and Gift Tax Treaty',
     short:
-      'A separate 1980 treaty (distinct from the income tax treaty) that allocates estate, gift, and inheritance tax rights between the US and UK using treaty-domicile tie-breakers. It survived the UK 2025 inheritance tax reforms.',
+      'A separate treaty signed in 1978 and in force since 1979 (distinct from the income tax treaty) that allocates estate, gift, and inheritance tax rights between the US and UK using treaty-domicile tie-breakers. It survived the UK 2025 inheritance tax reforms.',
     long:
       'This treaty governs death and gift taxes, not income. It uses a treaty-specific concept of domicile to assign primary taxing rights and provide credits, preventing the same estate being fully taxed by both countries. For a US citizen who is not also a UK national, it can limit UK exposure and even shorten the post-2025 departure tail, though UK real estate generally stays within UK inheritance tax.',
     category: 'Property & Estate',

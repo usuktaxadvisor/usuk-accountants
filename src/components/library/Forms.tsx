@@ -219,7 +219,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
     });
     setSubmitting(false);
     if (res.ok) {
-      analytics.bookingCompleted(data.situation, tierId);
+      // generate_lead is fired once inside submitLead(); do not fire it again here.
       if (typeof window !== 'undefined') window.location.href = '/thank-you/booking';
       else setDone(true);
     } else setSubmitError(res.error ?? 'Something went wrong. Please try again or call us.');
