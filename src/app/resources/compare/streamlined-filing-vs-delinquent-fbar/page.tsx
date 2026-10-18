@@ -9,20 +9,20 @@ import type { ComparisonTableData } from '@/lib/types';
 const url = '/resources/compare/streamlined-filing-vs-delinquent-fbar';
 
 export const metadata: Metadata = {
-  title: 'Streamlined Filing vs Delinquent FBAR Procedures | US UK Accountants',
+  title: 'Streamlined Filing vs Late FBAR Filing — Which Route?',
   description:
-    'Streamlined Filing and the Delinquent FBAR submission procedures are two different IRS catch-up routes. Learn which fits your situation as an American in the UK.',
+    'Streamlined Filing or simply filing late FBARs with reasonable cause? The IRS withdrew the Delinquent FBAR Submission Procedures in July 2026. Which route fits an American in the UK.',
   alternates: { canonical: url },
 };
 
 const faqs = [
   {
-    q: 'What is the difference between Streamlined Filing and the Delinquent FBAR procedures?',
-    a: 'Streamlined Filing is for taxpayers who need to correct both unreported income and missed information returns and can certify their conduct was non-willful. The Delinquent FBAR procedures are for taxpayers who reported and paid tax on all income but simply missed the FBAR itself.',
+    q: 'What is the difference between Streamlined Filing and filing late FBARs on their own?',
+    a: 'Streamlined Filing is for taxpayers who need to correct unreported income or missed returns and can certify non-willful conduct; a qualifying submission carries no FBAR or late-filing penalties. Filing late FBARs on their own, with the reason for late filing and a reasonable-cause record, is for taxpayers who reported and paid tax on all the income and only missed the report. The IRS withdrew its published Delinquent FBAR Submission Procedures on 1 July 2026, so that second route now rests on reasonable cause rather than a written safe harbour.',
   },
   {
     q: 'Which one do I use if I reported all my income but forgot the FBAR?',
-    a: 'That situation typically points to the Delinquent FBAR submission procedures, because the only gap is the missing foreign-account report rather than unreported income.',
+    a: 'That situation typically points to filing the late FBARs through FinCEN with the reason for late filing, and keeping a dated reasonable-cause note. A penalty is not automatic; the IRS assesses FBAR penalties only after an examination and its manual says a non-willful penalty should not be imposed where there was reasonable cause and accurate late FBARs are filed.',
   },
   {
     q: 'Which one do I use if I never filed US returns at all?',
@@ -30,18 +30,19 @@ const faqs = [
   },
   {
     q: 'Do both require a non-willful certification?',
-    a: 'Streamlined Filing requires a signed non-willful certification. The Delinquent FBAR procedures ask for a reason for filing late and are used when there is no unreported income and no examination underway.',
+    a: 'Streamlined Filing requires a signed non-willful certification (Form 14653). Filing late FBARs on their own asks only for the reason for late filing on the FinCEN form, but you should keep a fuller reasonable-cause note on file in case the IRS asks.',
   },
 ];
 
 const comparison: ComparisonTableData = {
-  columns: ['Streamlined Filing', 'Delinquent FBAR'],
+  columns: ['Streamlined Filing', 'Late FBAR with reasonable cause'],
   rows: [
     { label: 'For unreported income', values: [true, false] },
     { label: 'For missed FBARs only', values: [false, true] },
     { label: 'Amended / back tax returns involved', values: [true, false] },
     { label: 'Non-willful certification', values: [true, false] },
     { label: 'Best when all income was already reported', values: [false, true] },
+    { label: 'Written IRS no-penalty assurance', values: [true, false] },
   ],
 };
 
@@ -52,8 +53,8 @@ export default function StreamlinedVsDelinquentPage() {
     <PageShell
       url={url}
       eyebrow="Comparison"
-      title="Streamlined Filing vs Delinquent FBAR Procedures"
-      answer="Streamlined Filing and the Delinquent FBAR submission procedures are two separate IRS catch-up routes. Streamlined Filing corrects unreported income and missed returns with a non-willful certification; the Delinquent FBAR procedures are for people who reported all their income but simply missed the FBAR. The right route depends on whether income was left unreported."
+      title="Streamlined Filing vs filing late FBARs on their own"
+      answer="Two routes bring a missed FBAR back into compliance. Streamlined Filing corrects unreported income and missed returns with a non-willful certification; filing late FBARs on their own, with reasonable cause, is for people who reported all their income but missed the report. The IRS withdrew its Delinquent FBAR Submission Procedures on 1 July 2026, so the second route no longer carries a written no-penalty assurance. The deciding question is whether any income was left unreported."
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Compare', href: '/resources/compare' },
@@ -62,6 +63,7 @@ export default function StreamlinedVsDelinquentPage() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2025-01-15"
+      dateModified="2026-10-18"
       faqs={faqs}
       ctaTitle="Not sure which catch-up route fits?"
       ctaIntro="We assess your history and recommend the safest compliant route back."
@@ -70,9 +72,12 @@ export default function StreamlinedVsDelinquentPage() {
         <p className="speakable">
           Both routes bring you back into compliance, but they solve different problems.{' '}
           <Link href="/resources/glossary/streamlined-filing">Streamlined Filing</Link> is built for
-          under-reported income and missed returns. The{' '}
-          <Link href="/resources/glossary/delinquent-fbar">Delinquent FBAR</Link> procedures exist for the
-          narrower case where income was fully reported but the foreign-account report was overlooked.
+          under-reported income and missed returns. Filing a{' '}
+          <Link href="/resources/glossary/delinquent-fbar">delinquent FBAR</Link> on its own, with the reason for
+          late filing and a reasonable-cause record, is for the narrower case where income was fully reported but
+          the foreign-account report was overlooked. Until 1 July 2026 the IRS published Delinquent FBAR Submission
+          Procedures promising no penalty in that case; that page has been withdrawn, and the IRS now says a late
+          FBAR may attract a penalty depending on the facts.
         </p>
       </ProseBlock>
 
@@ -83,8 +88,9 @@ export default function StreamlinedVsDelinquentPage() {
           The deciding question is usually simple: was any income left off your US returns? If yes, and you can
           certify the omission was <Link href="/resources/glossary/willful-vs-non-willful">non-willful</Link>,
           Streamlined Filing is generally the route. If your income was always reported and paid, and the only
-          thing missing was the <Link href="/resources/glossary/fbar">FBAR</Link>, the Delinquent FBAR procedures
-          are typically the cleaner fit.
+          thing missing was the <Link href="/resources/glossary/fbar">FBAR</Link>, filing the late reports with a
+          documented reasonable cause is typically the proportionate fix — see our{' '}
+          <Link href="/resources/guides/delinquent-fbar">delinquent FBAR guide</Link> for the current position.
         </p>
         <p>
           Because the facts matter, we look at your full history before recommending a path — the wrong route can
@@ -106,7 +112,7 @@ export default function StreamlinedVsDelinquentPage() {
         title="At a glance"
         facts={[
           { label: 'Streamlined Filing', value: 'For unreported income + missed returns' },
-          { label: 'Delinquent FBAR', value: 'For missed FBARs where income was reported' },
+          { label: 'Late FBAR with reasonable cause', value: 'For missed FBARs where income was reported' },
           { label: 'Deciding factor', value: 'Was any income unreported?' },
           { label: 'Certification', value: 'Streamlined requires a non-willful statement' },
         ]}
@@ -115,8 +121,8 @@ export default function StreamlinedVsDelinquentPage() {
       <RelatedLinks
         title="Related resources"
         links={[
-          { label: 'Streamlined Filing service', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years penalty-free' },
-          { label: 'Delinquent FBAR guide', href: '/resources/guides/delinquent-fbar', description: 'The route back when only the FBAR was missed' },
+          { label: 'Streamlined Filing service', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years under the IRS procedures' },
+          { label: 'Delinquent FBAR guide', href: '/resources/guides/delinquent-fbar', description: 'How to file late FBARs after the July 2026 change' },
           { label: 'Streamlined eligibility checker', href: '/resources/calculators/streamlined-eligibility', description: 'Free tool: are you eligible?' },
           { label: 'Streamlined Filing (glossary)', href: '/resources/glossary/streamlined-filing', description: 'What the programme is' },
           { label: 'US Tax Returns hub', href: '/services/us-expat-tax/us-tax-returns/hub', description: 'The complete filing guide, in order' },

@@ -213,6 +213,7 @@ export default function FbarFiling() {
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
           },
           { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker', description: 'Free tool: do you need to file?' },
+          { label: 'Delinquent FBAR guide', href: '/resources/guides/delinquent-fbar', description: 'How to file late FBARs after the July 2026 IRS change' },
           { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years under the IRS Streamlined procedures' },
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Our full US tax service for the UK' },
           { label: 'US Citizens in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'How we help Americans abroad' },

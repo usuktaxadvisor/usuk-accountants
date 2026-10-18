@@ -109,7 +109,7 @@ export function Hero({
             <div className="mt-6 flex items-center justify-between rounded-lg bg-navy-ink/80 px-5 py-4">
               <div>
                 <p className="text-xs text-softwhite/60">Tax return preparation</p>
-                <p className="font-display text-2xl font-semibold text-gold-champagne">Fixed fees, quoted in writing</p>
+                <p className="font-display text-2xl font-semibold text-gold-champagne">Fees quoted in writing, case by case</p>
               </div>
               <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">US · UK · both</span>
             </div>

@@ -102,7 +102,7 @@ export default function UsExpatTaxPillar() {
       <ProcessSteps
         steps={[
           { title: 'Book a consultation', description: 'We review your situation, filing history and any catch-up needs.' },
-          { title: 'Fixed-scope quote', description: 'A clear proposal priced to your complexity before any work starts.' },
+          { title: 'Written quote', description: 'A clear proposal priced to your complexity before any work starts.' },
           { title: 'We prepare & review', description: 'Returns, FBAR and FATCA prepared by a US specialist and reviewed for accuracy.' },
           { title: 'Coordinated filing', description: 'Filed and aligned with your UK position so reliefs and credits line up.' },
         ]}
@@ -112,7 +112,7 @@ export default function UsExpatTaxPillar() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Fixed-scope quote before any work begins',
+          'Written quote before any work begins',
           'US filing coordinated with your UK return',
           'Specialist preparation and independent review',
         ]}

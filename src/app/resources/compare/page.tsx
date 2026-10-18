@@ -50,7 +50,7 @@ const COMPARISONS: Comparison[] = [
   },
   {
     title: 'Streamlined Filing vs Delinquent FBAR',
-    description: 'Streamlined Filing and the Delinquent FBAR submission procedures are two different IRS catch-up routes. Learn which fits your situation as an American in the UK.',
+    description: 'Streamlined Filing or filing late FBARs with reasonable cause: the two catch-up routes after the IRS withdrew the Delinquent FBAR Submission Procedures in July 2026.',
     href: '/resources/compare/streamlined-filing-vs-delinquent-fbar',
     useWhen: 'You are behind on US filings and need to know whether you missed only the FBAR, or the returns too.',
   },

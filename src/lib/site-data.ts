@@ -387,7 +387,7 @@ export const audiences: AudienceItem[] = [
 
 export const processSteps: ProcessStep[] = [
   { title: 'Book a consultation', description: 'A focused 30-minute paid consultation (£350) to understand your situation on both sides. Quick questions are answered free by email.' },
-  { title: 'Tailored plan', description: 'A clear, fixed-fee plan covering exactly what you need filed.' },
+  { title: 'Tailored plan', description: 'A clear written plan and quote covering exactly what you need filed.' },
   { title: 'We file & optimise', description: 'We prepare, review and submit — minimising tax legally.' },
   { title: 'Year-round support', description: 'Deadlines tracked and questions answered all year.' },
 ];

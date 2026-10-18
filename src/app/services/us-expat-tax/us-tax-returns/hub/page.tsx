@@ -35,7 +35,7 @@ const faqs = [
   },
   {
     q: 'I have missed several years - where do I start?',
-    a: 'It depends whether income was reported. If income was reported but FBARs were missed, the Delinquent FBAR procedures usually apply. If income was unreported, Streamlined Filing is often the right route.',
+    a: 'It depends whether income was reported. If income was reported but FBARs were missed, the late reports are filed through FinCEN with reasonable cause (the IRS withdrew its Delinquent FBAR Submission Procedures in July 2026). If income was unreported, Streamlined Filing is often the right route.',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function UsTaxReturnsHubPage() {
   const howToSteps = [
               { title: '1. File your annual Form 1040', description: 'Report worldwide income and apply the FEIE or foreign tax credit to avoid double taxation.' },
               { title: '2. Report foreign accounts (FBAR / Form 8938)', description: 'Separate information reports triggered by foreign account balances over the thresholds.' },
-              { title: '3. Catch up on any missed years', description: 'Use the Delinquent FBAR procedures or Streamlined Filing depending on whether income was reported.' },
+              { title: '3. Catch up on any missed years', description: 'File late FBARs with reasonable cause, or use Streamlined Filing, depending on whether income was reported.' },
               { title: '4. Plan forward', description: 'Set up a repeatable annual process so future filings are simple and on time.' },
             ];
 
@@ -114,7 +114,7 @@ export default function UsTaxReturnsHubPage() {
             facts={[
               { label: 'Annual return', value: 'Form 1040 (worldwide income)' },
               { label: 'Account report', value: 'FBAR - FinCEN Form 114' },
-              { label: 'Catch-up (income reported)', value: 'Delinquent FBAR procedures' },
+              { label: 'Catch-up (income reported)', value: 'Late FBARs with reasonable cause' },
               { label: 'Catch-up (income unreported)', value: 'Streamlined Filing' },
             ]}
           />

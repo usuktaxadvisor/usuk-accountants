@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     q: 'How much do UK accounting services cost?',
-    a: 'Fees are based on the complexity of your situation rather than a fixed template. After a £550 consultation we provide a clear, fixed-scope quote so you know exactly what you are paying before any work begins.',
+    a: 'Fees are based on the complexity of your situation rather than a fixed template. After a consultation we provide a clear written quote so you know exactly what you are paying before any work begins.',
   },
 ];
 
@@ -102,7 +102,7 @@ export default function UkAccountingPillar() {
       <ProcessSteps
         steps={[
           { title: 'Book a consultation', description: 'A short call to understand your UK and US position and what you need.' },
-          { title: 'Fixed-scope quote', description: 'A clear proposal priced to your complexity — no surprises.' },
+          { title: 'Written quote', description: 'A clear proposal priced to your complexity — no surprises.' },
           { title: 'We do the work', description: 'Accounts, returns and filings prepared, reviewed and coordinated across both jurisdictions.' },
           { title: 'Ongoing partnership', description: 'Proactive planning and support through every deadline, both sides of the Atlantic.' },
         ]}
@@ -112,7 +112,7 @@ export default function UkAccountingPillar() {
         fromLabel="Bespoke, complexity-based pricing"
         points={[
           '£550 30-minute consultation',
-          'Fixed-scope quote before any work begins',
+          'Written quote before any work begins',
           'Coordinated UK + US handling',
           'Premium advisory, not budget compliance',
         ]}

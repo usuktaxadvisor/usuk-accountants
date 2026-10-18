@@ -190,7 +190,7 @@ export default function StreamlinedFiling() {
           'Returns, FBARs and certification included',
           'Specialist preparation with independent review',
         ]}
-        note="Because Streamlined is a defined scope, we quote it as a single fixed fee after your consultation — no open-ended billing."
+        note="Streamlined is a defined scope, so once we have reviewed your facts we quote it in writing, case by case — no open-ended billing."
       />
 
       <RelatedLinks

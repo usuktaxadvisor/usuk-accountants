@@ -118,7 +118,7 @@ export const authors: Author[] = [
     name: 'Sal T.',
     role: 'Senior US & UK Tax Manager',
     initials: 'ST',
-    credentials: [],
+    credentials: ['ACCA', 'EA'],
     jurisdictions: ['US Federal', 'US State', 'UK'],
     bio: 'Sal is our Senior US & UK Tax Manager, responsible for managing and reviewing complex US\u2013UK cross-border tax matters across the practice. He supports US and UK tax compliance and planning, reviews tax returns and technical work for accuracy, and takes the lead on resolving complex cross-border tax issues. Sal provides senior technical oversight to the tax team, ensuring every piece of work meets both US and UK tax requirements before it reaches a client.',
     expertise: ['Cross-border tax review', 'US & UK tax compliance', 'Tax planning', 'Technical oversight', 'Complex US\u2013UK tax issues'],

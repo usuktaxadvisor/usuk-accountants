@@ -23,7 +23,7 @@ export default function Home() {
             <div className="mx-auto max-w-6xl">
               <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">What we prepare and file</p>
               <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Tax returns and compliance, US and UK, under one roof</h2>
-              <p className="mt-4 max-w-prose text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each with a fixed fee quoted in writing before we start.</p>
+              <p className="mt-4 max-w-prose text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each quoted in writing, case by case, before we start.</p>
               <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { label: 'US tax returns (Form 1040)', detail: 'Federal and state returns for US citizens and green card holders living in the UK.', href: '/services/us-expat-tax/us-tax-returns' },

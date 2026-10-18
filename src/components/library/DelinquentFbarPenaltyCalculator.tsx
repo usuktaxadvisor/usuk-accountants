@@ -18,11 +18,11 @@ function assess(income: IncomeReported, willful: Willful): Outcome | null {
   if (!income) return null;
   if (income === 'yes') {
     return {
-      route: 'Delinquent FBAR Submission Procedures',
+      route: 'File the late FBARs with reasonable cause',
       routeHref: '/resources/guides/delinquent-fbar',
-      exposure: 'Typically no penalty where income was properly reported and tax paid.',
+      exposure: 'No automatic penalty; relief depends on reasonable cause. The IRS withdrew its no-penalty Delinquent FBAR Submission Procedures on 1 July 2026.',
       summary:
-        'Because your foreign income was reported and tax was paid, late FBARs can usually be e-filed with a reasonable-cause statement, generally without penalty.',
+        'Because your foreign income was reported and tax was paid, the late FBARs can be e-filed through FinCEN with the reason for late filing, supported by a dated reasonable-cause note you keep on file. The IRS manual still directs examiners not to assert a non-willful penalty where there was reasonable cause and the accounts were properly reported.',
       tone: 'good',
     };
   }
@@ -39,10 +39,10 @@ function assess(income: IncomeReported, willful: Willful): Outcome | null {
   }
   return {
     route: 'Speak to a specialist before acting',
-    routeHref: '/book',
+    routeHref: '/contact',
     exposure: 'Willful cases can carry substantially higher exposure and may require the Voluntary Disclosure Practice.',
     summary:
-      'Where conduct may have been willful, or you are unsure, do not self-file. The right programme is highly fact-specific. Book a confidential consultation first.',
+      'Where conduct may have been willful, or you are unsure, do not self-file. The right programme is highly fact-specific. Contact us in confidence first.',
     tone: 'warning',
   };
 }
