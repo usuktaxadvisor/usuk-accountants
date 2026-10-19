@@ -332,7 +332,6 @@ export const footerColumns: NavColumn[] = [
       { label: 'US & UK Tax Services', href: '/us-uk-tax-services' },
       { label: 'About', href: '/about/team' },
       { label: 'Team', href: '/about/team' },
-      { label: 'Credentials', href: '/credentials' },
       { label: 'Reviews', href: '/reviews' },
       { label: 'Locations', href: '/locations' },
       { label: 'Pricing', href: '/pricing' },
