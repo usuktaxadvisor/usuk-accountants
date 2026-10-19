@@ -216,7 +216,6 @@ export const trustCenterPillars = [
   { icon: 'planning', title: 'Editorial standards', desc: 'Qualified authors, independent review and dated, sourced content.', href: '/editorial-policy' },
   { icon: 'check', title: 'Genuine reviews', desc: 'Verified-client reviews only, collected per FTC and CMA guidance.', href: '/review-policy' },
   { icon: 'globe', title: 'Privacy & data', desc: 'UK GDPR-aligned handling of your personal and financial data.', href: '/privacy' },
-  { icon: 'bank', title: 'Professional standards', desc: 'How US and UK tax credentials work, and what they mean for you.', href: '/credentials' },
   { icon: 'treaty', title: 'Professional conduct', desc: 'Engagement terms, AML compliance and confidentiality.', href: '/compliance' },
 ] as const;
 

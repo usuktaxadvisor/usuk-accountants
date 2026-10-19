@@ -75,7 +75,6 @@ export default function TrustCenterPage() {
           intro="Every policy here is upheld by named professionals on both sides of the Atlantic. Meet the team who'll handle your filings."
           tone="navy"
           primary={{ label: 'Meet the team', href: '/about/team' }}
-          secondary={{ label: 'See our credentials', href: '/credentials' }}
           showRating={false}
         />
       </main>
