@@ -5,13 +5,13 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
   return (
     <a
       href={`/about/case-studies/${study.slug}`}
-      className="group flex flex-col rounded-2xl border border-mist bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+      className="group flex flex-col rounded-card border border-mist bg-white p-7 transition-all duration-300 hover:border-gold/70 hover:shadow-e2"
     >
       <div className="mb-4 flex items-center gap-2 text-sm text-muted">
         {study.flag && <span className="text-lg" aria-hidden>{study.flag}</span>}
         {study.client}
       </div>
-      <h3 className="font-display text-xl font-semibold leading-snug text-ink">{study.title}</h3>
+      <h3 className="font-display text-display-sm text-ink">{study.title}</h3>
       <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{study.challenge}</p>
       {study.metrics.length > 0 && (
       <div className="mt-5 flex flex-wrap gap-4 border-t border-mist pt-5">
@@ -50,12 +50,12 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
         {study.client}
       </div>
 
-      <p className="mb-10 rounded-2xl border border-mist bg-porcelain p-5 text-sm text-muted">
+      <p className="mb-10 rounded-card border border-mist bg-porcelain p-5 text-sm text-muted">
         A real engagement, anonymised. Names, dates, figures and any other identifying details have been removed or
         generalised. The outcome reflects this client&rsquo;s own facts and is not a prediction for another case.
       </p>
       {study.metrics.length > 0 && (
-        <div className="mb-10 grid grid-cols-3 gap-4 rounded-2xl border border-mist bg-porcelain p-6">
+        <div className="mb-10 grid grid-cols-3 gap-4 rounded-card border border-mist bg-porcelain p-6">
           {study.metrics.map((m) => (
             <div key={m.label} className="text-center">
               <p className="font-display text-3xl font-semibold text-gold-antique tnum">{m.value}</p>
@@ -83,7 +83,7 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
       </p>
 
       <div className="mt-10 border-t border-mist pt-6">
-        <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">Services used</p>
+        <p className="kicker">Services used</p>
         <div className="mt-3 flex flex-wrap gap-2">
           {study.services.map((s) => (
             <a key={s.href} href={s.href} className="rounded-full bg-porcelain px-3.5 py-1.5 text-sm font-medium text-ink transition-colors hover:bg-gold/10">

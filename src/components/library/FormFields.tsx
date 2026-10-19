@@ -39,9 +39,9 @@ export function Field({
 }
 
 const inputBase =
-  'min-h-[48px] w-full rounded-lg border px-4 text-sm transition-colors focus:outline-none';
+  'min-h-[48px] w-full rounded-md border px-4 text-[15px] transition-colors focus:outline-none';
 const inputLight =
-  'border-mist bg-white text-ink placeholder:text-muted/60 focus:border-gold';
+  'border-navy-ink/20 bg-white text-ink placeholder:text-muted/60 focus:border-gold focus:ring-2 focus:ring-gold/25';
 const inputDark =
   'border-navy-slate bg-navy-ink/60 text-white placeholder:text-softwhite/40 focus:border-gold';
 const inputError = 'border-signal focus:border-signal';

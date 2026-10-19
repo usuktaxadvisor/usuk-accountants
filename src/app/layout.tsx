@@ -3,6 +3,7 @@ import { Belleza, Montserrat } from 'next/font/google';
 import Analytics from '@/components/Analytics';
 import { ConsentProvider } from '@/components/CookieConsent';
 import RevealObserver from '@/components/ui/RevealObserver';
+import ParallaxObserver from '@/components/ui/ParallaxObserver';
 import { JsonLd } from '@/components/library';
 import { organizationSchema, websiteSchema } from '@/lib/schema';
 import './globals.css';
@@ -134,6 +135,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Analytics />
           <RevealObserver />
+          <ParallaxObserver />
         </ConsentProvider>
       </body>
     </html>

@@ -45,6 +45,23 @@ export interface PageShellProps {
   ctaIntro?: string;
 }
 
+/** Picks the section photograph for the page header from the breadcrumb trail (or a location title). */
+function artClass(crumbs: Crumb[], title: string): string {
+  if (/manchester/i.test(title)) return 'art-manchester';
+  if (/new york/i.test(title)) return 'art-newyork';
+  if (/london/i.test(title)) return 'art-london';
+  const hrefs = crumbs.map((c) => c.href);
+  const has = (p: string) => hrefs.some((h) => h.startsWith(p));
+  if (has('/services/us-expat-tax')) return 'art-us-expat';
+  if (has('/services/uk-accounting')) return 'art-uk-accounting';
+  if (has('/services/cross-border-advisory')) return 'art-advisory';
+  if (has('/services')) return 'art-us-expat';
+  if (has('/who-we-help')) return 'art-who';
+  if (has('/about')) return 'art-about';
+  if (has('/resources')) return 'art-resources';
+  return 'art-about';
+}
+
 function toPersonInput(a: Author): PersonInput {
   return {
     slug: a.slug,
@@ -102,18 +119,19 @@ export function PageShell({
       <main>
         <Breadcrumbs crumbs={crumbs} />
 
-        {/* Answer-first hero */}
-        <header className={`bg-navy-ink bg-atlantic py-16 md:py-20 ${/manchester/i.test(title) ? "bg-loc-manchester" : /new york/i.test(title) ? "bg-loc-newyork" : /london/i.test(title) ? "bg-loc-london" : ""}`}>
+        {/* Answer-first hero: one photograph per section behind a navy wash, title set large. */}
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className={`page-header-art parallax-layer ${artClass(crumbs, title)}`} />
           <Container>
-            <div className="max-w-prose">
-              {eyebrow && <div className="mb-3"><Eyebrow tone="gold-light">{eyebrow}</Eyebrow></div>}
-              <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+            <div className="max-w-3xl">
+              {eyebrow && <div className="mb-5"><Eyebrow tone="gold-light">{eyebrow}</Eyebrow></div>}
+              <h1 className="font-display text-display-lg text-white">
                 {title}
               </h1>
-              <p className="speakable mt-6 text-lg leading-relaxed text-softwhite/85">
+              <p className="speakable mt-7 max-w-[62ch] text-lg leading-relaxed text-softwhite/85">
                 {answer}
               </p>
-              <div className="mt-8">
+              <div className="mt-9">
                 <AuthorByline author={author} date={dateModified ?? datePublished} reviewedBy={reviewedBy} />
               </div>
             </div>
@@ -130,7 +148,7 @@ export function PageShell({
           <div className="bg-porcelain py-16 md:py-20">
             <Container>
               <div className="mx-auto max-w-3xl">
-                <h2 className="mb-8 text-center font-display text-3xl font-semibold tracking-tight text-ink">
+                <h2 className="mb-10 text-center font-display text-display-md text-ink">
                   Frequently asked questions
                 </h2>
                 <FAQAccordion items={faqs} emitSchema={false} />

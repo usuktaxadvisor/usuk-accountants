@@ -86,7 +86,7 @@ export default function StreamlinedChecker() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         {step === 'usPerson' && (
           <>
             <h2 className="font-display text-2xl font-semibold text-ink">Are you a US person with an SSN or ITIN?</h2>

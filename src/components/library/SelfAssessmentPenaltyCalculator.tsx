@@ -76,7 +76,7 @@ export default function SelfAssessmentPenaltyCalculator() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         <h2 className="font-display text-2xl font-semibold text-ink">
           Your Self Assessment deadlines &amp; penalty estimate
         </h2>
@@ -189,7 +189,7 @@ export default function SelfAssessmentPenaltyCalculator() {
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
+      <div className="mt-6 rounded-card border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">Behind on a return, or facing penalties?</p>
         <p className="mt-2 text-sm text-muted">
           We file Self Assessment returns for cross-border clients and can often reduce penalties with a

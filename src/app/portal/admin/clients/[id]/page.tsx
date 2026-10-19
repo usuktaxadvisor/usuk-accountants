@@ -84,7 +84,7 @@ export default async function ClientDetail({ params, searchParams }: { params: P
 
   return (
     <div>
-      <h1 className="font-display text-3xl font-semibold text-ink">{client.displayName} <span className="ml-2 text-sm font-normal text-muted">{client.clientRef}</span></h1>
+      <h1 className="font-display text-display-md text-ink">{client.displayName} <span className="ml-2 text-sm font-normal text-muted">{client.clientRef}</span></h1>
       {email === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">The email to the client could not be sent — the record was saved; use “Send password-reset link” or contact them directly.</p> : null}
       {reset === 'sent' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-ink">Password-reset link emailed to the client (valid 24 hours).</p> : null}
       {reset === 'failed' ? <p className="mt-2 rounded-xl border border-mist bg-white px-4 py-3 text-sm text-red-700">Reset link created but the email could not be sent — check server logs.</p> : null}
@@ -99,14 +99,14 @@ export default async function ClientDetail({ params, searchParams }: { params: P
       <div className="mt-8 grid gap-8 md:grid-cols-2">
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Document requests</h2>
-          <form action={createRequest} className="mt-3 space-y-2 rounded-2xl border border-mist bg-white p-5">
+          <form action={createRequest} className="mt-3 space-y-2 rounded-card border border-mist bg-white p-5">
             <input name="title" required placeholder="e.g. 2025 UK P60" className="w-full rounded-xl border border-mist px-4 py-2.5 text-sm text-ink outline-none focus:border-navy-ink" />
             <input name="description" placeholder="Optional instructions for the client" className="w-full rounded-xl border border-mist px-4 py-2.5 text-sm text-ink outline-none focus:border-navy-ink" />
             <button className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white hover:bg-ink">Request document</button>
           </form>
           <div className="mt-3 space-y-2">
             {requests.map(r => (
-              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4">
+              <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4">
                 <p className="text-sm font-semibold text-ink">{r.title}</p>
                 <form action={setStatus} className="mt-2 flex items-center gap-2">
                   <input type="hidden" name="requestId" value={r.id} />
@@ -122,8 +122,8 @@ export default async function ClientDetail({ params, searchParams }: { params: P
         <section>
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Uploads</h2>
           <div className="mt-3 space-y-2">
-            {docs.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing uploaded yet.</p> : docs.map(d => (
-              <div key={d.id} className="rounded-2xl border border-mist bg-white px-5 py-4">
+            {docs.length === 0 ? <p className="rounded-card border border-mist bg-white p-5 text-sm text-muted">Nothing uploaded yet.</p> : docs.map(d => (
+              <div key={d.id} className="rounded-card border border-mist bg-white px-5 py-4">
                 <p className="text-sm font-semibold text-ink">{d.originalName}</p>
                 <p className="text-xs text-muted">{d.createdAt.toLocaleString('en-GB')} · {(d.sizeBytes / 1024 / 1024).toFixed(1)} MB · in Drive as “{d.storedName}”</p>
               </div>
@@ -145,7 +145,7 @@ export default async function ClientDetail({ params, searchParams }: { params: P
             <h3 className="text-xs font-semibold uppercase tracking-widest text-muted">Signature &amp; approval requests</h3>
             <div className="mt-2 space-y-2">
               {sigRequests.map(r => (
-                <a key={r.id} href={`/portal/admin/esign/${r.id}`} className="block rounded-2xl border border-mist bg-white px-5 py-3 hover:border-navy-ink">
+                <a key={r.id} href={`/portal/admin/esign/${r.id}`} className="block rounded-card border border-mist bg-white px-5 py-3 hover:border-navy-ink">
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <p className="text-sm font-semibold text-ink">{r.title} <span className="text-xs font-normal text-muted">· {SIG_ACTION_LABEL[r.action]} · sent {r.sentAt?.toLocaleString('en-GB') ?? '—'}</span></p>
                     <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-muted">{SIG_STATUS_LABEL[r.status]}</span>
@@ -156,10 +156,10 @@ export default async function ClientDetail({ params, searchParams }: { params: P
           </div>
         ) : null}
         <div className="mt-3 space-y-2">
-          {deliveries.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing sent for review yet.</p> : deliveries.map(d => {
+          {deliveries.length === 0 ? <p className="rounded-card border border-mist bg-white p-5 text-sm text-muted">Nothing sent for review yet.</p> : deliveries.map(d => {
             const resp = latestResponse(d.id);
             return (
-              <div key={d.id} className={`rounded-2xl border border-mist bg-white px-5 py-4 ${d.status === 'WITHDRAWN' ? 'opacity-60' : ''}`}>
+              <div key={d.id} className={`rounded-card border border-mist bg-white px-5 py-4 ${d.status === 'WITHDRAWN' ? 'opacity-60' : ''}`}>
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <p className="text-sm font-semibold text-ink">{d.title} <span className="ml-1 text-xs font-normal text-muted">v{d.version}{d.category ? ` · ${d.category}` : ''}</span></p>

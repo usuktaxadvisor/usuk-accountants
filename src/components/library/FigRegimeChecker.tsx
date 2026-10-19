@@ -37,7 +37,7 @@ export default function FigRegimeChecker() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         <h2 className="font-display text-2xl font-semibold text-ink">
           Could you claim the 4-year FIG regime?
         </h2>
@@ -136,7 +136,7 @@ export default function FigRegimeChecker() {
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
+      <div className="mt-6 rounded-card border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">New to the UK with foreign income?</p>
         <p className="mt-2 text-sm text-muted">
           Whether to claim the FIG regime, and how it interacts with your US filing if you&rsquo;re

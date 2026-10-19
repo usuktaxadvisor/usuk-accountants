@@ -42,7 +42,17 @@ const config: Config = {
       boxShadow: {
         e1: '0 1px 2px rgba(10,19,48,0.06)',
         e2: '0 8px 24px rgba(10,19,48,0.10)',
+        e3: '0 24px 60px -24px rgba(10,19,48,0.35)',
         gold: '0 12px 32px rgba(201,168,76,0.20)',
+      },
+      borderRadius: {
+        card: '0.875rem',
+      },
+      fontSize: {
+        'display-xl': ['clamp(2.5rem, 1.9rem + 2.9vw, 4.25rem)', { lineHeight: '1.05' }],
+        'display-lg': ['clamp(2.25rem, 1.7rem + 2.2vw, 3.5rem)', { lineHeight: '1.08' }],
+        'display-md': ['clamp(1.9rem, 1.5rem + 1.4vw, 2.75rem)', { lineHeight: '1.12' }],
+        'display-sm': ['clamp(1.5rem, 1.3rem + 0.8vw, 2rem)', { lineHeight: '1.2' }],
       },
       transitionTimingFunction: {
         premium: 'cubic-bezier(0.16,1,0.3,1)',
@@ -56,10 +66,15 @@ const config: Config = {
           '0%': { transform: 'translateX(-120%) skewX(-12deg)' },
           '100%': { transform: 'translateX(220%) skewX(-12deg)' },
         },
+        drift: {
+          '0%': { transform: 'translate3d(0,0,0)' },
+          '100%': { transform: 'translate3d(-50%,0,0)' },
+        },
       },
       animation: {
         'fade-rise': 'fade-rise 0.6s cubic-bezier(0.16,1,0.3,1) forwards',
         shimmer: 'shimmer 1.1s cubic-bezier(0.16,1,0.3,1) forwards',
+        drift: 'drift 90s linear infinite',
       },
     },
   },

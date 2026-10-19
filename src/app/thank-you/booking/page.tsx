@@ -35,7 +35,7 @@ export default async function BookingThankYou({
             <span className="mx-auto inline-flex h-16 w-16 items-center justify-center rounded-full bg-gold/15 text-gold-antique">
               <IconCheck className="h-8 w-8" />
             </span>
-            <h1 className="mt-6 font-display text-4xl font-semibold tracking-tight text-ink">
+            <h1 className="mt-6 font-display text-display-lg text-ink">
               {isPaidBooking ? 'Your consultation is confirmed' : 'Request received'}
             </h1>
             {isPaidBooking ? (

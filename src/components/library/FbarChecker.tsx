@@ -125,7 +125,7 @@ export default function FbarChecker() {
       </div>
 
       {!done && (
-        <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+        <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
           <h2 className="font-display text-2xl font-semibold leading-snug text-ink">
             {current.question}
           </h2>
@@ -156,7 +156,7 @@ export default function FbarChecker() {
       )}
 
       {done && (
-        <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+        <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
           {likelyRequired ? (
             <>
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">

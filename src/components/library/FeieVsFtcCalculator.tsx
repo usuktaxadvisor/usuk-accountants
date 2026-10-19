@@ -67,7 +67,7 @@ export default function FeieVsFtcCalculator() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         <h2 className="font-display text-2xl font-semibold text-ink">
           FEIE vs Foreign Tax Credit
         </h2>
@@ -160,7 +160,7 @@ export default function FeieVsFtcCalculator() {
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
+      <div className="mt-6 rounded-card border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">This is one of the most consequential choices you&rsquo;ll make</p>
         <p className="mt-2 text-sm text-muted">
           The FEIE and FTC interact in ways that play out over years, and switching between them has rules and

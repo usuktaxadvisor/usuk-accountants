@@ -65,11 +65,11 @@ export default function CalculatorHub() {
                 </>
               );
               return live ? (
-                <Link key={c.slug} href={`/resources/calculators/${c.slug}`} className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2">
+                <Link key={c.slug} href={`/resources/calculators/${c.slug}`} className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2">
                   {inner}
                 </Link>
               ) : (
-                <div key={c.slug} className="flex flex-col rounded-2xl border border-mist bg-white p-6 opacity-80">
+                <div key={c.slug} className="flex flex-col rounded-card border border-mist bg-white p-6 opacity-80">
                   {inner}
                 </div>
               );

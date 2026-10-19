@@ -76,7 +76,7 @@ export default async function Dashboard() {
     <div>
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="font-display text-3xl font-semibold text-ink">
+          <h1 className="font-display text-display-md text-ink">
             Welcome{client ? `, ${client.displayName.split(' ')[0]}` : ''}
           </h1>
           <p className="mt-1 text-sm text-muted">
@@ -94,8 +94,8 @@ export default async function Dashboard() {
         <section className="mt-10">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents requiring your action</h2>
           <div className="mt-3 space-y-2">
-            {sigOpen.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing to approve or sign right now.</p> : sigOpen.map(r => (
-              <div key={r.id} className="rounded-2xl border border-gold/40 bg-white px-5 py-4">
+            {sigOpen.length === 0 ? <p className="rounded-card border border-mist bg-white p-5 text-sm text-muted">Nothing to approve or sign right now.</p> : sigOpen.map(r => (
+              <div key={r.id} className="rounded-card border border-gold/40 bg-white px-5 py-4">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div>
                     <p className="text-sm font-semibold text-ink">{r.title}</p>
@@ -109,20 +109,20 @@ export default async function Dashboard() {
               const who = waitingOn(r);
               const done = signersOf(r.id).find(s => s.userId === session.uid && signerIsComplete(r.action, s.status));
               return (
-                <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+                <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4 text-sm">
                   <p className="font-semibold text-ink">{r.title}</p>
                   <p className="text-xs text-muted">{done ? 'You have completed your part · waiting for the other signer(s)' : who ? `Waiting for ${who} to complete their part first — we will email you when it is your turn` : 'Not yet your turn'} · {SIG_STATUS_LABEL[r.status]}</p>
                 </div>
               );
             })}
             {sigOtherOpen.map(r => (
-              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+              <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4 text-sm">
                 <p className="font-semibold text-ink">{r.title}</p>
                 <p className="text-xs text-muted">Being handled by another person on your account · {SIG_STATUS_LABEL[r.status]}</p>
               </div>
             ))}
             {sigDone.map(r => (
-              <div key={r.id} className="rounded-2xl border border-mist bg-white px-5 py-4 text-sm">
+              <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4 text-sm">
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <p><span className="font-semibold text-ink">{r.title}</span> <span className="text-xs text-muted">· completed {r.completedAt?.toLocaleDateString('en-GB') ?? ''}</span></p>
                   <div className="flex gap-2">
@@ -139,11 +139,11 @@ export default async function Dashboard() {
       <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents requested</h2>
       <div className="mt-3 space-y-3">
         {requests.length === 0 ? (
-          <p className="rounded-2xl border border-mist bg-white p-7 text-sm text-muted">
+          <p className="rounded-card border border-mist bg-white p-7 text-sm text-muted">
             No document requests yet. When our team needs something from you, it will appear here.
           </p>
         ) : requests.map(r => (
-          <div key={r.id} className="flex items-center justify-between gap-4 rounded-2xl border border-mist bg-white p-6">
+          <div key={r.id} className="flex items-center justify-between gap-4 rounded-card border border-mist bg-white p-6">
             <div>
               <p className="font-semibold text-ink">{r.title}</p>
               {r.description ? <p className="mt-0.5 text-sm text-muted">{r.description}</p> : null}
@@ -161,11 +161,11 @@ export default async function Dashboard() {
       <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents for your review</h2>
       <div className="mt-3 space-y-2">
         {deliveries.length === 0 ? (
-          <p className="rounded-2xl border border-mist bg-white p-6 text-sm text-muted">Nothing for you to review yet. When we&apos;ve prepared something for you, it will appear here and we&apos;ll email you.</p>
+          <p className="rounded-card border border-mist bg-white p-6 text-sm text-muted">Nothing for you to review yet. When we&apos;ve prepared something for you, it will appear here and we&apos;ll email you.</p>
         ) : deliveries.map(d => {
           const resp = myResponse(d.id);
           return (
-            <div key={d.id} className="rounded-2xl border border-mist bg-white px-6 py-5">
+            <div key={d.id} className="rounded-card border border-mist bg-white px-6 py-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div>
                   <p className="text-sm font-semibold text-ink">{d.title}</p>
@@ -189,9 +189,9 @@ export default async function Dashboard() {
       <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents submitted</h2>
       <div className="mt-3 space-y-2">
         {docs.length === 0 ? (
-          <p className="rounded-2xl border border-mist bg-white p-6 text-sm text-muted">Nothing submitted yet.</p>
+          <p className="rounded-card border border-mist bg-white p-6 text-sm text-muted">Nothing submitted yet.</p>
         ) : docs.map(d => (
-          <div key={d.id} className="flex items-center justify-between gap-4 rounded-2xl border border-mist bg-white px-6 py-4">
+          <div key={d.id} className="flex items-center justify-between gap-4 rounded-card border border-mist bg-white px-6 py-4">
             <div>
               <p className="text-sm font-semibold text-ink">{d.originalName}</p>
               <p className="text-xs text-muted">{d.createdAt.toLocaleDateString('en-GB')} · {(d.sizeBytes/1024/1024).toFixed(1)} MB</p>

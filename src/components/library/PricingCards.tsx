@@ -31,7 +31,7 @@ export function PricingCards({ tiers }: { tiers: PricingTier[] }) {
           return (
             <article
               key={tier.name}
-              className={`relative flex flex-col rounded-2xl border p-8 transition-all duration-300 ${
+              className={`relative flex flex-col rounded-card border p-8 transition-all duration-300 ${
                 tier.featured
                   ? 'border-gold bg-navy-ink text-white shadow-gold'
                   : 'border-mist bg-white text-ink hover:border-gold hover:shadow-e2'
@@ -68,7 +68,7 @@ export function PricingCards({ tiers }: { tiers: PricingTier[] }) {
                 href={tier.cta.href}
                 className={`mt-8 inline-flex items-center justify-center rounded-lg px-6 py-3 text-sm font-semibold transition-all duration-200 ${
                   tier.featured
-                    ? 'bg-gradient-to-r from-gold to-gold-champagne text-navy-ink hover:-translate-y-0.5'
+                    ? 'btn-gold'
                     : 'border border-gold/60 text-gold-antique hover:bg-gold/10'
                 }`}
               >

@@ -96,13 +96,14 @@ export default async function ContactPage({
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema([{ label: 'Contact', href: '/contact' }])) }} />
 
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-about" />
           <Container>
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">
+              <p className="kicker kicker-light">
                 {isPrivateClient ? 'Private Client Advisory' : 'Contact us'}
               </p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <h1 className="mt-5 font-display text-display-lg text-white">
                 {isPrivateClient ? 'Request a confidential conversation' : 'Talk to a cross-border specialist'}
               </h1>
               {isPrivateClient && (
@@ -124,17 +125,18 @@ export default async function ContactPage({
           <Container>
             <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr]">
               {/* Form */}
-              <div className="rounded-2xl border border-mist bg-white p-7 sm:p-8">
-                <h2 className="font-display text-2xl font-semibold text-ink">Send us a message</h2>
-                <p className="mt-2 text-sm text-muted">Need detailed, personalised advice? <Link href="/book" className="font-medium text-gold-antique hover:underline">Book a paid consultation →</Link></p>
-                <div className="mt-6">
+              <div className="rounded-card border border-mist bg-white p-7 shadow-e2 sm:p-9">
+                <h2 className="font-display text-display-sm text-ink">Send us a message</h2>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">A few lines is enough: which country you file in, what has prompted the question and the years involved. A specialist replies by email within one business day with what we would need and a written quote.</p>
+                <p className="mt-2 text-sm text-muted">Need detailed, personalised advice first? <Link href="/book" className="font-medium text-gold-antique hover:underline">Book a paid consultation</Link></p>
+                <div className="mt-7">
                   <ContactForm />
                 </div>
               </div>
 
               {/* NAP / offices */}
               <aside className="space-y-5">
-                <div className="rounded-2xl border border-mist bg-porcelain p-6">
+                <div className="rounded-card border border-mist bg-porcelain p-6">
                   <div className="flex items-center gap-2">
                     <span className="text-xl" aria-hidden>{SITE.phones.uk.flag}</span>
                     <h3 className="font-display text-lg font-semibold text-ink">United Kingdom</h3>
@@ -148,7 +150,7 @@ export default async function ContactPage({
                   <Link href="/locations/manchester" className="mt-1 block text-sm font-semibold text-navy hover:text-gold">View Manchester office →</Link>
                 </div>
 
-                <div className="rounded-2xl border border-mist bg-porcelain p-6">
+                <div className="rounded-card border border-mist bg-porcelain p-6">
                   <div className="flex items-center gap-2">
                     <span className="text-xl" aria-hidden>{SITE.phones.us.flag}</span>
                     <h3 className="font-display text-lg font-semibold text-ink">United States</h3>
@@ -161,7 +163,7 @@ export default async function ContactPage({
                   <Link href="/locations/new-york" className="mt-3 block text-sm font-semibold text-navy hover:text-gold">View New York office →</Link>
                 </div>
 
-                <Link href="/book" className="group flex items-center justify-between rounded-2xl bg-navy-ink p-6 text-white transition-colors hover:bg-navy-royal">
+                <Link href="/book" className="group flex items-center justify-between rounded-card bg-navy-ink p-6 text-white transition-colors hover:bg-navy-royal">
                   <span>
                     <span className="block font-display text-lg font-semibold">Book a consultation</span>
                     <span className="mt-1 block text-sm text-softwhite/70">30 minutes</span>
@@ -177,10 +179,10 @@ export default async function ContactPage({
         {/* FIND US: office locations. Manchester has a verified Google Business Profile. */}
         <section className="bg-navy-ink py-16 md:py-20">
           <Container>
-            <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">
+            <p className="kicker kicker-light">
               Find us
             </p>
-            <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+            <h2 className="mt-3 font-display text-display-md text-white">
               Our offices
             </h2>
             <p className="mt-4 max-w-2xl text-base leading-relaxed text-softwhite/80">
@@ -200,7 +202,7 @@ export default async function ContactPage({
                 return (
                   <div
                     key={office.id}
-                    className="flex flex-col rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8"
+                    className="flex flex-col rounded-card border border-white/10 bg-white/[0.03] p-6 sm:p-8"
                   >
                     <div className="flex items-baseline gap-3">
                       <span className="text-lg" aria-hidden>

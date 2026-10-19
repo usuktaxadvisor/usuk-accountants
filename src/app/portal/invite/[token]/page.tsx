@@ -15,7 +15,7 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
   if (!inv) {
     return (
       <div className="mx-auto max-w-md">
-        <h1 className="font-display text-3xl font-semibold text-ink">Invitation not valid</h1>
+        <h1 className="font-display text-display-md text-ink">Invitation not valid</h1>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           This activation link has expired or was already used. Please email
           hello@usukaccountants.com and we&rsquo;ll send you a fresh one.
@@ -41,12 +41,12 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
 
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="font-display text-3xl font-semibold text-ink">Set your password</h1>
+      <h1 className="font-display text-display-md text-ink">Set your password</h1>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         Welcome to the US UK Accountants client portal. Choose a password of at least 10 characters
         — a short phrase works well.
       </p>
-      <form action={activate} className="mt-6 space-y-4 rounded-2xl border border-mist bg-white p-7 shadow-e2">
+      <form action={activate} className="mt-6 space-y-4 rounded-card border border-mist bg-white p-7 shadow-e2">
         <label className="block">
           <span className="text-sm font-semibold text-ink">New password</span>
           <input name="password" type="password" required minLength={10} autoComplete="new-password"

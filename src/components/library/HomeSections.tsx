@@ -30,7 +30,7 @@ import type { ServiceItem, Testimonial, FaqItem } from '@/lib/types';
 
 const pillarIcons = { bank: IconBank, globe: IconGlobeDoc, treaty: IconTreaty } as const;
 
-/* ---------- Dual-pillar split ---------- */
+/* ---------- Three practice areas: editorial columns, not boxes ---------- */
 export function Pillars({
   pillars = defaultPillars,
   eyebrow = 'Two specialisms, one firm',
@@ -43,42 +43,32 @@ export function Pillars({
   return (
     <Section tone="white">
       <Container>
-        <Reveal className="mx-auto mb-12 max-w-2xl text-center">
+        <Reveal className="mx-auto mb-14 max-w-2xl text-center">
           <SectionHeading eyebrow={eyebrow} title={title} align="center" />
         </Reveal>
-        <Reveal stagger className="grid gap-6 md:grid-cols-3">
+        <Reveal className="rule-cols grid md:grid-cols-3">
           {pillars.map((p) => {
             const Icon = pillarIcons[p.iconKey];
             return (
-              <article
-                key={p.title}
-                className={`group relative overflow-hidden rounded-2xl border bg-white p-8 shadow-e1 transition-all duration-300 hover:-translate-y-0.5 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2 ${
-                  p.featured ? 'border-gold ring-1 ring-gold/30' : 'border-mist'
-                }`}
-              >
+              <article key={p.title} className="relative px-0 py-8 md:px-8 md:py-2 first:md:pl-0 last:md:pr-0">
                 {p.featured && (
-                  <>
-                    <span className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-gold/10 blur-3xl" />
-                    <span className="absolute right-5 top-5 rounded-full bg-gold/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-gold-antique transition-colors duration-300 group-hover:bg-gold/20 group-hover:text-gold">Most popular</span>
-                  </>
+                  <span className="absolute left-0 top-0 h-px w-10 bg-gold md:top-2" aria-hidden />
                 )}
-                <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold/10 text-gold-antique transition-all duration-300 group-hover:bg-gold/20 group-hover:text-gold">
-                  <Icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-5 font-display text-xl font-semibold text-ink transition-colors duration-300 group-hover:text-white">{p.title}</h3>
-                <p className="mt-3 text-[15px] leading-relaxed text-muted transition-colors duration-300 group-hover:text-softwhite/80">{p.description}</p>
-                <ul className="mt-6 space-y-2">
+                <Icon className="h-7 w-7 text-gold-antique" />
+                <h3 className="mt-5 font-display text-display-sm text-ink">{p.title}</h3>
+                <p className="mt-3 text-[15px] leading-relaxed text-muted">{p.description}</p>
+                <ul className="mt-6 space-y-2.5">
                   {p.links.map((l) => (
                     <li key={l.label}>
-                      <Link href={l.href} className="inline-flex items-center gap-1.5 text-sm font-medium text-muted transition-colors duration-300 hover:text-gold-antique group-hover:text-softwhite/90 group-hover:hover:text-gold">
-                        <span className="text-gold">·</span> {l.label}
+                      <Link href={l.href} className="inline-flex items-center gap-2 text-sm font-medium text-ink transition-colors hover:text-gold-antique">
+                        <span aria-hidden className="h-px w-3 bg-gold" /> {l.label}
                       </Link>
                     </li>
                   ))}
                 </ul>
-                <Link href={p.href} className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique transition-colors duration-300 group-hover:text-gold">
+                <Link href={p.href} className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-gold-antique transition-colors hover:text-gold">
                   Explore {p.title}
-                  <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                  <IconArrowRight className="h-4 w-4" />
                 </Link>
               </article>
             );
@@ -89,7 +79,7 @@ export function Pillars({
   );
 }
 
-/* ---------- Who We Help ---------- */
+/* ---------- Who We Help: photographic tiles with the title set on the picture ---------- */
 export function WhoWeHelp({
   audiences = defaultAudiences,
   eyebrow = 'Who we help',
@@ -105,28 +95,34 @@ export function WhoWeHelp({
         <Reveal className="mb-12 max-w-2xl">
           <SectionHeading eyebrow={eyebrow} title={title} />
         </Reveal>
-        <Reveal stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {audiences.map((a) => (
-            <Link
-              key={a.title}
-              href={a.href}
-              className="group rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-navy-ink hover:bg-navy-ink hover:shadow-e2"
-            >
-              {AUDIENCE_IMG[a.href] ? (
-                <Image src={`/images/atlantic/${AUDIENCE_IMG[a.href][0]}.jpg`} alt={AUDIENCE_IMG[a.href][1]} width={1200} height={1600} sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="img-card-banner-6" />
-              ) : (
-                <span className="text-2xl" aria-hidden>{a.flag}</span>
-              )}
-              <div>
-                <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">{a.title}</h3>
-                <p className="mt-1 text-sm leading-relaxed text-muted transition-colors duration-300 group-hover:text-softwhite/80">{a.description}</p>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-antique transition-colors duration-300 group-hover:text-gold">
+        <Reveal className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {audiences.map((a) => {
+            const img = AUDIENCE_IMG[a.href];
+            return (
+              <Link
+                key={a.title}
+                href={a.href}
+                className="group relative isolate flex min-h-[300px] flex-col justify-end overflow-hidden rounded-card bg-navy-ink p-6 text-white shadow-e1 transition-shadow duration-300 hover:shadow-e3"
+              >
+                {img && (
+                  <Image
+                    src={`/images/atlantic/${img[0]}.jpg`}
+                    alt={img[1]}
+                    fill
+                    sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw"
+                    className="-z-10 object-cover transition-transform duration-[1200ms] ease-premium group-hover:scale-[1.03]"
+                  />
+                )}
+                <span aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-navy-ink via-navy-ink/55 to-navy-ink/5" />
+                <h3 className="font-display text-display-sm text-white">{a.title}</h3>
+                <p className="mt-2 max-w-[34ch] text-sm leading-relaxed text-softwhite/85">{a.description}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-champagne">
                   See how we help
                   <IconArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </Reveal>
       </Container>
     </Section>
@@ -151,29 +147,26 @@ export function ProcessStats({
         <Reveal className="mb-12 max-w-2xl">
           <SectionHeading eyebrow={eyebrow} title={title} />
         </Reveal>
-        <Reveal stagger className="grid gap-6 md:grid-cols-4">
+        <Reveal as="ol" className="grid gap-x-8 gap-y-10 md:grid-cols-4">
           {steps.map((s, i) => (
-            <div key={s.title} className="relative">
-              {i < steps.length - 1 && (
-                <span className="absolute right-0 top-6 hidden h-px w-1/2 translate-x-1/2 bg-gradient-to-r from-gold/50 to-transparent md:block" />
-              )}
-              <span className="font-display text-2xl font-semibold text-gold">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="mt-3 font-display text-lg font-semibold text-ink">{s.title}</h3>
+            <li key={s.title} className="relative border-t border-navy-ink/15 pt-5">
+              <span className="font-display text-display-sm text-gold-antique tnum">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="mt-3 font-display text-xl text-ink">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{s.description}</p>
-            </div>
+            </li>
           ))}
         </Reveal>
       </Container>
 
-      <Reveal className="mx-auto mt-16 max-w-container px-6">
-        <div className="grid gap-px overflow-hidden rounded-2xl border border-navy-slate bg-navy-slate sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s) => (
-            <div key={s.label} className="bg-navy-ink p-8 text-center">
-              <p className="font-display text-4xl font-semibold text-gold-champagne tnum">{s.value}</p>
-              <p className="mt-2 text-sm text-softwhite/70">{s.label}</p>
+      <Reveal className="mx-auto mt-20 max-w-container px-6">
+        <dl className="grid overflow-hidden rounded-card bg-navy-ink sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map((s, i) => (
+            <div key={s.label} className={`p-8 text-center ${i > 0 ? 'border-t border-softwhite/10 sm:border-t-0 sm:border-l' : ''}`}>
+              <dd className="font-display text-display-md text-gold-champagne tnum">{s.value}</dd>
+              <dt className="mt-2 text-sm text-softwhite/70">{s.label}</dt>
             </div>
           ))}
-        </div>
+        </dl>
       </Reveal>
     </Section>
   );
@@ -195,7 +188,7 @@ export function ServicesSection({
         <Reveal className="mb-12 max-w-2xl">
           <SectionHeading eyebrow={eyebrow} title={title} />
         </Reveal>
-        <Reveal stagger>
+        <Reveal>
           <ServiceGrid services={services} columns={3} />
         </Reveal>
       </Container>
@@ -220,7 +213,7 @@ export function TestimonialsSection({
         <Reveal className="mb-12 max-w-2xl">
           <SectionHeading eyebrow={eyebrow} title={title} />
         </Reveal>
-        <Reveal stagger>
+        <Reveal>
           <TestimonialGrid testimonials={testimonials} />
         </Reveal>
       </Container>
@@ -240,7 +233,7 @@ export function FAQSection({
   emitSchema?: boolean;
 }) {
   return (
-    <Section tone="porcelain">
+    <Section tone="white">
       <Container>
         <div className="mx-auto max-w-3xl">
           <Reveal className="mb-12 text-center">

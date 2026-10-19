@@ -73,7 +73,7 @@ export default async function ComingSoon(
             <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">
               Page in progress
             </p>
-            <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-ink">
+            <h1 className="mt-3 font-display text-display-lg text-ink">
               {title}
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted">

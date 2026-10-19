@@ -21,11 +21,12 @@ export default function WhoWeHelpHub() {
       <Header />
       <main>
         <Breadcrumbs crumbs={crumbs} />
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-who" />
           <Container>
             <div className="max-w-prose">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-eyebrow text-gold">Who we help</p>
-              <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+              <p className="mb-3 kicker kicker-light">Who we help</p>
+              <h1 className="font-display text-display-lg text-white">
                 Specialists for your exact cross-border situation
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -44,7 +45,7 @@ export default function WhoWeHelpHub() {
                 <a
                   key={a.href}
                   href={a.href}
-                  className="group flex items-start gap-4 rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+                  className="group flex items-start gap-4 rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
                 >
                   <span className="text-2xl" aria-hidden="true">{a.flag}</span>
                   <span>

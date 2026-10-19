@@ -31,7 +31,7 @@ export default async function AdminHome({ searchParams }: { searchParams: Promis
     <div>
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h1 className="font-display text-3xl font-semibold text-ink">Clients</h1>
+          <h1 className="font-display text-display-md text-ink">Clients</h1>
           <p className="mt-1 text-sm text-muted">
             {pendingReview.length === 0 ? 'No uploads awaiting review.' : `${pendingReview.length} upload${pendingReview.length === 1 ? '' : 's'} awaiting review.`}
           </p>
@@ -52,10 +52,10 @@ export default async function AdminHome({ searchParams }: { searchParams: Promis
       </div>
       <div className="mt-4 space-y-2">
         {rows.length === 0 ? (
-          <p className="rounded-2xl border border-mist bg-white p-7 text-sm text-muted">{view === 'archived' ? 'No archived clients.' : 'No clients yet — create the first with “New client”.'}</p>
+          <p className="rounded-card border border-mist bg-white p-7 text-sm text-muted">{view === 'archived' ? 'No archived clients.' : 'No clients yet — create the first with “New client”.'}</p>
         ) : rows.map(c => (
           <Link key={c.id} href={`/portal/admin/clients/${c.id}`}
-            className="flex items-center justify-between gap-4 rounded-2xl border border-mist bg-white px-6 py-4 transition-colors hover:border-navy-ink">
+            className="flex items-center justify-between gap-4 rounded-card border border-mist bg-white px-6 py-4 transition-colors hover:border-navy-ink">
             <div>
               <p className="font-semibold text-ink">{c.name} <span className="ml-2 text-xs font-normal text-muted">{c.ref}</span></p>
               <p className="text-xs text-muted">{Number(c.openRequests)} open request(s) · {Number(c.uploads)} document(s)</p>

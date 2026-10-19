@@ -16,7 +16,7 @@ export default function MegaMenu({ panels, feature, onMouseEnter }: MegaMenuProp
       <div className="mx-auto grid max-w-container grid-cols-3 gap-8 px-6 py-8">
         {panels.map((panel) => (
           <div key={panel.heading}>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">
+            <p className="mb-3 kicker">
               {panel.heading}
             </p>
             <ul className="grid grid-cols-2 gap-x-4 gap-y-2">
@@ -36,7 +36,7 @@ export default function MegaMenu({ panels, feature, onMouseEnter }: MegaMenuProp
 
         {feature && (
           <div className="rounded-xl bg-navy-ink p-6 text-white">
-            <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">
+            <p className="kicker kicker-light">
               {feature.eyebrow}
             </p>
             <p className="mt-2 font-display text-xl font-semibold">{feature.title}</p>

@@ -52,7 +52,7 @@ export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
 
   if (sent) {
     return (
-      <div className="rounded-2xl border border-gold/40 bg-gold/10 p-8 text-center">
+      <div className="rounded-card border border-gold/40 bg-gold/10 p-8 text-center">
         <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold-antique">
           <IconCheck className="h-6 w-6" />
         </span>
@@ -227,7 +227,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
 
   if (done) {
     return (
-      <div className="rounded-2xl border border-gold/40 bg-gold/10 p-8 text-center">
+      <div className="rounded-card border border-gold/40 bg-gold/10 p-8 text-center">
         <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold-antique">
           <IconCheck className="h-6 w-6" />
         </span>
@@ -242,7 +242,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
   }
 
   return (
-    <div className="rounded-2xl border border-mist bg-white p-6 sm:p-8">
+    <div className="rounded-card border border-mist bg-white p-6 sm:p-8">
       {/* Progress */}
       <div className="mb-7">
         <div className="mb-3 flex items-center justify-between text-xs font-medium text-muted">

@@ -129,7 +129,7 @@ export default function CompareIndex() {
               <Link
                 key={c.href}
                 href={c.href}
-                className="group flex flex-col rounded-2xl border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
+                className="group flex flex-col rounded-card border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
               >
                 <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">
                   {c.title}
@@ -154,7 +154,7 @@ export default function CompareIndex() {
             title="Which comparison do you need?"
             intro="If you know your situation but not the terminology, match it here."
           />
-          <dl className="mt-8 divide-y divide-mist rounded-2xl border border-mist bg-white">
+          <dl className="mt-8 divide-y divide-mist rounded-card border border-mist bg-white">
             {COMPARISONS.map((c) => (
               <div key={c.href} className="grid gap-2 px-7 py-5 sm:grid-cols-[1fr_auto] sm:items-center sm:gap-6">
                 <dt className="text-sm leading-relaxed text-ink">{c.useWhen}</dt>
@@ -178,7 +178,7 @@ export default function CompareIndex() {
               <Link
                 key={c.href}
                 href={c.href}
-                className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+                className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
               >
                 <h3 className="font-display text-lg font-semibold text-ink">{c.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{c.description}</p>

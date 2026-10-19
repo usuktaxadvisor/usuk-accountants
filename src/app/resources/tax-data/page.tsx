@@ -49,7 +49,7 @@ function DataTable({ title, figures, id }: { title: string; figures: TaxFigure[]
   return (
     <div id={id} className="mt-12 scroll-mt-24">
       <h2 className="font-display text-2xl font-semibold tracking-tight text-ink">{title}</h2>
-      <div className="mt-5 overflow-x-auto rounded-2xl border border-mist">
+      <div className="mt-5 overflow-x-auto rounded-card border border-mist">
         <table className="w-full text-left text-sm">
           <thead className="bg-porcelain">
             <tr>

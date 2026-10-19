@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function LeaveAReviewPage() {
   return (
     <main className="mx-auto max-w-2xl px-6 py-16 sm:py-20">
-      <h1 className="font-display text-3xl font-semibold text-ink sm:text-4xl">Leave a review</h1>
+      <h1 className="font-display text-display-md text-ink">Leave a review</h1>
       <p className="mt-4 text-[15px] leading-relaxed text-muted">
         Thank you for taking the time. Please share your honest experience of working with
         us — positive or critical, it genuinely helps us and helps others decide. We only

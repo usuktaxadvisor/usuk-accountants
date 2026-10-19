@@ -110,7 +110,7 @@ function GuideCard({ card, cta }: { card: Card; cta: string }) {
   return (
     <Link
       href={card.href}
-      className="group flex flex-col rounded-2xl border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
+      className="group flex flex-col rounded-card border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
     >
       {card.kicker ? (
         <span className="mb-3 text-xs font-semibold uppercase tracking-eyebrow text-gold-antique transition-colors duration-300 group-hover:text-gold">
@@ -189,7 +189,7 @@ export default function GuidesIndex() {
               <Link
                 key={c.href}
                 href={c.href}
-                className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+                className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
               >
                 <h3 className="font-display text-lg font-semibold text-ink">{c.title}</h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{c.description}</p>

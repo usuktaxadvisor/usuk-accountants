@@ -21,6 +21,7 @@ export { PricingCards } from './PricingCards';
 /* Sections */
 export { TrustBar } from './TrustBar';
 export { CTASection } from './CTASection';
+export { AtlanticStrip } from './AtlanticStrip';
 export { FAQAccordion } from './FAQAccordion';
 export { ComparisonTable } from './ComparisonTable';
 export { Hero } from './Hero';

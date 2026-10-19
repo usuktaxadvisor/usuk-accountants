@@ -55,7 +55,7 @@ export default function LocationsHub() {
               <Link
                 key={o.id}
                 href={`/locations/${o.id}`}
-                className="group rounded-2xl border border-mist bg-white p-8 shadow-e1 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold"
+                className="group rounded-card border border-mist bg-white p-8 shadow-e1 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-gold"
               >
                 <p className="font-display text-2xl font-semibold text-ink group-hover:text-navy">
                   {o.flag} {o.label}

@@ -27,7 +27,7 @@ export function PolicyPage({
         <Container>
           <div className="max-w-prose">
             <Eyebrow tone="gold-light">{eyebrow}</Eyebrow>
-            <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <h1 className="mt-3 font-display text-display-lg text-white">
               {title}
             </h1>
             {lastUpdated && (

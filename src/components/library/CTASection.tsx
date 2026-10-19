@@ -20,7 +20,7 @@ interface CTASectionProps {
 
 /**
  * Full-width closing CTA band. Reusable on every page.
- * - tone="navy"     → dark band with ambient arc (homepage / service pages)
+ * - tone="navy"     → dark band over the consultation-room photograph (parallax art layer)
  * - tone="gold"     → gold band, navy text (high-emphasis landing pages)
  * - tone="porcelain"→ light band (mid-page soft CTA)
  */
@@ -37,34 +37,41 @@ export function CTASection({
   const isNavy = tone === 'navy';
   const isGold = tone === 'gold';
 
-  const bg = isNavy ? 'bg-navy-ink bg-cta-chairs' : isGold ? 'bg-gradient-to-r from-gold to-gold-champagne' : 'bg-porcelain';
+  const bg = isNavy ? 'bg-navy-ink' : isGold ? 'bg-gold' : 'bg-porcelain';
   const titleColor = isGold ? 'text-navy-ink' : isNavy ? 'text-white' : 'text-ink';
   const introColor = isGold ? 'text-navy-ink/80' : isNavy ? 'text-softwhite/85' : 'text-muted';
 
   return (
-    <section id={id} className={`relative overflow-hidden ${bg} py-20 md:py-28`}>
+    <section id={id} className={`relative isolate overflow-hidden ${bg} py-24 md:py-32`}>
       {isNavy && (
-        <svg
-          className="pointer-events-none absolute inset-0 h-full w-full opacity-30"
-          viewBox="0 0 1440 400"
-          preserveAspectRatio="xMidYMid slice"
-          aria-hidden="true"
-        >
-          <path d="M-100 320 C 420 100, 1020 100, 1540 320" fill="none" stroke="#C9A84C" strokeWidth="1" opacity="0.5" />
-        </svg>
+        <>
+          <div
+            aria-hidden="true"
+            data-parallax="0.1"
+            className="parallax-layer bg-cta-chairs pointer-events-none absolute -inset-y-10 inset-x-0 -z-10"
+          />
+          <svg
+            className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-30"
+            viewBox="0 0 1440 400"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            <path d="M-100 320 C 420 100, 1020 100, 1540 320" fill="none" stroke="#C9A84C" strokeWidth="1" opacity="0.5" />
+          </svg>
+        </>
       )}
 
       <div className="relative mx-auto max-w-2xl px-6 text-center">
-        <h2 className={`font-display text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl ${titleColor}`}>
+        <h2 className={`font-display text-display-lg ${titleColor}`}>
           {title}
         </h2>
-        {intro && <p className={`mt-5 text-lg ${introColor}`}>{intro}</p>}
+        {intro && <p className={`mt-6 text-lg leading-relaxed ${introColor}`}>{intro}</p>}
 
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
           {isGold ? (
             <a
               href={primary.href}
-              className="group inline-flex min-h-[56px] items-center justify-center gap-2 rounded-lg bg-navy-ink px-8 py-4 text-base font-semibold text-white shadow-e1 transition-all duration-200 hover:-translate-y-0.5"
+              className="group inline-flex min-h-[56px] items-center justify-center gap-2 rounded-md bg-navy-ink px-8 py-4 text-base font-semibold text-white transition-colors hover:bg-navy-royal"
             >
               {primary.label}
               <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />

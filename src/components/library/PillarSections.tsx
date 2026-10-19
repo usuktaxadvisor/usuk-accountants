@@ -32,7 +32,7 @@ export function WhoItsFor({
           <SectionHeading title={title} align="center" />
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">
             {items.map((it) => (
-              <li key={it} className="flex items-start gap-3 rounded-xl border border-mist bg-white p-4 text-[15px] text-ink">
+              <li key={it} className="flex items-start gap-3 rounded-card border border-mist bg-white p-4 text-[15px] text-ink">
                 <IconCheck className="mt-0.5 h-5 w-5 shrink-0 text-gold" /> {it}
               </li>
             ))}
@@ -51,15 +51,15 @@ export function ProcessSteps({
     <Section tone="white">
       <Container>
         <SectionHeading eyebrow={eyebrow} title={title} />
-        <div className="mt-10 grid gap-6 md:grid-cols-3 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-x-8 gap-y-10 md:grid-cols-3 lg:grid-cols-4">
           {steps.map((s, i) => (
-            <div key={s.title} className="relative">
-              <span className="font-display text-2xl font-semibold text-gold">{String(i + 1).padStart(2, '0')}</span>
-              <h3 className="mt-3 font-display text-lg font-semibold text-ink">{s.title}</h3>
+            <li key={s.title} className="relative border-t border-navy-ink/15 pt-5">
+              <span className="font-display text-display-sm text-gold-antique tnum">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="mt-3 font-display text-xl text-ink">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">{s.description}</p>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </Container>
     </Section>
   );
@@ -73,8 +73,8 @@ export function InvestmentBand({
     <Section tone="navy">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Investment</p>
-          <p className="mt-4 font-display text-3xl font-semibold text-white sm:text-4xl">{fromLabel}</p>
+          <p className="kicker kicker-light kicker-center">Investment</p>
+          <p className="mt-4 font-display text-display-md text-white">{fromLabel}</p>
           <p className="mt-3 text-softwhite/75">Fees reflect the complexity of your situation, never a one-size template.</p>
           <ul className="mx-auto mt-8 grid max-w-xl gap-2 text-left sm:grid-cols-2">
             {points.map((p) => (
@@ -98,8 +98,8 @@ export function KeyFacts({
   title = 'At a glance', facts,
 }: { title?: string; facts: { label: string; value: string }[] }) {
   return (
-    <div className="rounded-2xl border border-mist bg-porcelain p-6">
-      <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">{title}</p>
+    <div className="rounded-card border border-mist bg-porcelain p-6">
+      <p className="kicker">{title}</p>
       <dl className="mt-4 space-y-3">
         {facts.map((f) => (
           <div key={f.label} className="flex justify-between gap-4 border-b border-mist pb-3 last:border-0 last:pb-0">
@@ -108,6 +108,13 @@ export function KeyFacts({
           </div>
         ))}
       </dl>
+      <div className="mt-5 border-t border-navy-ink/10 pt-4">
+        <p className="text-sm text-muted">Not sure how this applies to you?</p>
+        <Link href="/contact" className="mt-1 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-antique transition-colors hover:text-gold">
+          Email us a few lines about your situation
+          <IconArrowRight className="h-4 w-4" />
+        </Link>
+      </div>
     </div>
   );
 }
@@ -126,10 +133,10 @@ export function RelatedLinks({
             <Link
               key={l.href}
               href={l.href}
-              className="group flex items-center justify-between gap-4 rounded-xl border border-mist bg-porcelain p-5 transition-all duration-200 hover:border-gold hover:shadow-e1"
+              className="group flex items-center justify-between gap-4 rounded-card border border-mist bg-porcelain p-5 transition-all duration-200 hover:border-gold hover:shadow-e1"
             >
               <span>
-                <span className="block font-display text-base font-semibold text-ink">{l.label}</span>
+                <span className="block font-display text-lg text-ink">{l.label}</span>
                 {l.description && <span className="mt-1 block text-sm text-muted">{l.description}</span>}
               </span>
               <IconArrowRight className="h-4 w-4 shrink-0 text-gold transition-transform group-hover:translate-x-0.5" />

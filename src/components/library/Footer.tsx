@@ -29,7 +29,7 @@ export default function Footer() {
 
           {footerColumns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-eyebrow text-gold">{col.title}</p>
+              <p className="mb-4 text-sm font-semibold text-gold-champagne">{col.title}</p>
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
@@ -43,9 +43,9 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="mt-12 flex flex-col items-start justify-between gap-5 rounded-2xl border border-navy-slate bg-navy-royal/40 p-7 md:flex-row md:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-5 rounded-card border border-softwhite/15 p-7 md:flex-row md:items-center">
           <div>
-            <p className="font-display text-xl font-semibold text-white">Cross-border tax tips, no noise</p>
+            <p className="font-display text-display-sm text-white">Cross-border tax tips, no noise</p>
             <p className="mt-1 text-sm text-softwhite/70">Deadlines and planning insights for US–UK filers. Monthly.</p>
           </div>
           <div className="w-full max-w-md">

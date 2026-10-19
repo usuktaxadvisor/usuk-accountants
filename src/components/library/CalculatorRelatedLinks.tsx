@@ -49,7 +49,7 @@ export default function CalculatorRelatedLinks({
   if (!hasAny) return null;
 
   return (
-    <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-mist bg-porcelain p-7">
+    <div className="mx-auto mt-8 max-w-2xl rounded-card border border-mist bg-porcelain p-7">
       <p className="font-display text-lg font-semibold text-ink">Keep going</p>
       <p className="mt-1 text-sm text-muted">
         Explore the services, definitions and tools related to this calculator.
