@@ -10,7 +10,7 @@ const URL = 'https://www.usukaccountants.com/services/uk-accounting/vat-returns'
 export const metadata: Metadata = {
   title: 'UK VAT Returns & VAT Registration',
   description:
-    'When a UK business must register for VAT, how Making Tax Digital returns work, common mistakes, and how we handle VAT — including cross-border and US-owned businesses.',
+    'When a UK business must register for VAT, how Making Tax Digital returns work, common mistakes, and how we handle VAT, including cross-border and US-owned businesses.',
   alternates: { canonical: URL },
 };
 
@@ -36,11 +36,11 @@ const faqs = [
   },
   {
     q: 'Which VAT scheme is right for my business?',
-    a: 'There are several — standard VAT accounting, the Flat Rate Scheme, cash accounting and annual accounting among them — each suiting different business types and cash-flow patterns. The right choice depends on your margins, customers and admin capacity. We assess which scheme leaves you better off.',
+    a: 'There are several, including standard VAT accounting, the Flat Rate Scheme, cash accounting and annual accounting, each suiting different business types and cash-flow patterns. The right choice depends on your margins, customers and admin capacity. We assess which scheme leaves you better off.',
   },
   {
     q: 'Do I charge VAT on sales to US or overseas customers?',
-    a: 'Often the treatment differs for overseas sales — the place-of-supply rules determine whether UK VAT applies, and many exports of goods or services to customers outside the UK are zero-rated or outside the scope of UK VAT. The rules are detailed and depend on what you sell and to whom, so cross-border sales are worth reviewing carefully.',
+    a: 'Often the treatment differs for overseas sales. The place-of-supply rules determine whether UK VAT applies, and many exports of goods or services to customers outside the UK are zero-rated or outside the scope of UK VAT. The rules are detailed and depend on what you sell and to whom, so cross-border sales are worth reviewing carefully.',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function VatReturns() {
       url={URL}
       eyebrow="UK Accounting · VAT"
       title="VAT returns and VAT registration"
-      answer="UK businesses must register for VAT once their VAT-taxable turnover exceeds the current HMRC threshold over a rolling twelve months (or is expected to within thirty days). Registered businesses charge VAT, reclaim VAT on costs, and file VAT returns — usually quarterly — digitally under Making Tax Digital. The threshold and standard rate are set by HMRC and can change. Choosing the right VAT scheme, and handling cross-border sales correctly, can make a real difference to what you pay."
+      answer="UK businesses must register for VAT once their VAT-taxable turnover exceeds the current HMRC threshold over a rolling twelve months (or is expected to within thirty days). Registered businesses charge VAT, reclaim VAT on costs, and file VAT returns, usually quarterly, digitally under Making Tax Digital. The threshold and standard rate are set by HMRC and can change. Choosing the right VAT scheme, and handling cross-border sales correctly, can make a real difference to what you pay."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'UK Accounting', href: '/services/uk-accounting' },
@@ -75,8 +75,8 @@ export default function VatReturns() {
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
                 <strong>VAT</strong> is the tax businesses charge on most goods and services. Once your{' '}
-                <strong>VAT-taxable turnover</strong> passes the <strong>current registration threshold</strong> —
-                measured over a rolling twelve months — you must register with HMRC, start charging VAT, and file{' '}
+                <strong>VAT-taxable turnover</strong> passes the <strong>current registration threshold</strong>,
+                measured over a rolling twelve months, you must register with HMRC, start charging VAT, and file{' '}
                 <strong>VAT returns</strong>. You can also register voluntarily below the threshold where it works in
                 your favour.
               </p>
@@ -84,7 +84,7 @@ export default function VatReturns() {
                 Registered businesses normally file <strong>quarterly</strong>, reporting the VAT charged on sales
                 against the VAT reclaimable on purchases, and paying HMRC the difference (or receiving a refund). All
                 of this must now be done digitally under <strong>Making Tax Digital</strong>, using compatible
-                software — manual returns are no longer permitted.
+                software. Manual returns are no longer permitted.
               </p>
               <p>
                 VAT is also where the right <strong>scheme</strong> and correct <strong>cross-border treatment</strong>
@@ -126,7 +126,7 @@ export default function VatReturns() {
           <div className="mx-auto max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
             <h2 className="font-display text-2xl font-semibold text-ink">Registration and Making Tax Digital</h2>
             <p>
-              Registration is triggered by turnover, not profit, on a <strong>rolling twelve-month</strong> basis —
+              Registration is triggered by turnover, not profit, on a <strong>rolling twelve-month</strong> basis,
               which means it can creep up on a growing business mid-year. Once registered, you keep{' '}
               <strong>digital records</strong> and file through <strong>MTD-compatible software</strong>. Getting the
               software and process right from the start saves a great deal of correction later.
@@ -157,7 +157,7 @@ export default function VatReturns() {
             <p>
               If you sell to customers outside the UK, VAT gets more involved. The <strong>place-of-supply</strong>{' '}
               rules decide whether UK VAT applies at all, and many exports are zero-rated or outside its scope.
-              Getting this right matters for businesses trading between the UK and the US — and it is exactly the kind
+              Getting this right matters for businesses trading between the UK and the US, and it is exactly the kind
               of cross-border detail we are built to handle.
             </p>
           </div>
@@ -168,7 +168,7 @@ export default function VatReturns() {
         eyebrow="How we handle it"
         title="VAT, set up and run properly"
         steps={[
-          { title: 'Assess registration', description: 'We track your turnover against the current threshold and advise when — or whether — to register.' },
+          { title: 'Assess registration', description: 'We track your turnover against the current threshold and advise when, or whether, to register.' },
           { title: 'Choose the scheme', description: 'We model the schemes for your business and pick the one that leaves you better off.' },
           { title: 'Set up MTD', description: 'We get your digital records and compatible software working so filing is clean.' },
           { title: 'File every quarter', description: 'We prepare and submit accurate VAT returns on time, handling any cross-border treatment correctly.' },

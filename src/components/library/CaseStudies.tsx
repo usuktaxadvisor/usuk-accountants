@@ -51,7 +51,8 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
       </div>
 
       <p className="mb-10 rounded-2xl border border-mist bg-porcelain p-5 text-sm text-muted">
-        Illustrative scenario. The facts are representative of matters we handle and do not describe a specific client.
+        A real engagement, anonymised. Names, dates, figures and any other identifying details have been removed or
+        generalised. The outcome reflects this client&rsquo;s own facts and is not a prediction for another case.
       </p>
       {study.metrics.length > 0 && (
         <div className="mb-10 grid grid-cols-3 gap-4 rounded-2xl border border-mist bg-porcelain p-6">
@@ -93,7 +94,7 @@ export function CaseStudyDetail({ study }: { study: CaseStudy }) {
       </div>
 
       <p className="mt-8 text-xs text-muted">
-        An illustrative scenario showing how we approach this type of matter. It is not a description of a specific client, and outcomes depend on individual circumstances; nothing here is a guarantee of results.
+        An anonymised client matter. Outcomes depend on the facts of each case and are not a guarantee of future results.
       </p>
     </article>
   );

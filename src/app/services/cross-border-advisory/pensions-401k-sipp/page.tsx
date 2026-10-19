@@ -8,7 +8,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/cross-border-advisory/pensions-401k-sipp';
 
 export const metadata: Metadata = {
-  title: 'US–UK Pension Tax — 401(k), SIPP & the 25% Lump Sum',
+  title: 'US–UK Pension Tax: 401(k), SIPP & the 25% Lump Sum',
   description:
     'How US and UK pensions are taxed across the Atlantic: 401(k)s, IRAs, UK workplace pensions and SIPPs, the treaty pension provisions, and the contested US treatment of the UK 25% tax-free lump sum.',
   alternates: { canonical: URL },
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Is the UK 25% tax-free lump sum taxable in the US?',
-    a: 'This is genuinely contested. The conservative, IRS-aligned view is that the saving clause overrides the treaty\u2019s pension article, so the lump sum is US-taxable despite being tax-free in the UK. A minority position argues a specific treaty article exempts it — but relying on it requires disclosure on Form 8833 and carries audit risk. The correct answer depends on your facts, and we set out both positions plainly so you can decide with the risks understood.',
+    a: 'This is genuinely contested. The conservative, IRS-aligned view is that the saving clause overrides the treaty\u2019s pension article, so the lump sum is US-taxable despite being tax-free in the UK. A minority position argues a specific treaty article exempts it, but relying on it requires disclosure on Form 8833 and carries audit risk. The correct answer depends on your facts, and we set out both positions plainly so you can decide with the risks understood.',
   },
   {
     q: 'Can my SIPP or workplace pension create US reporting?',
@@ -42,7 +42,7 @@ export default function Pensions401kSipp() {
       url={URL}
       eyebrow="Cross-Border Advisory"
       title="US–UK pension tax: 401(k), SIPP & the 25% lump sum"
-      answer="Pensions are one of the most error-prone areas of US–UK tax. The treaty aims to prevent the same pension income being taxed twice, but the treatment of a 401(k), IRA, UK workplace pension or SIPP depends on its type, how it pays out, and the saving clause. The US treatment of the UK 25% tax-free lump sum is genuinely contested — we set out the conservative and minority positions plainly so you decide with the risks understood."
+      answer="Pensions are one of the most error-prone areas of US–UK tax. The treaty aims to prevent the same pension income being taxed twice, but the treatment of a 401(k), IRA, UK workplace pension or SIPP depends on its type, how it pays out, and the saving clause. The US treatment of the UK 25% tax-free lump sum is genuinely contested. We set out the conservative and minority positions plainly so you decide with the risks understood."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'Cross-Border Advisory', href: '/services/cross-border-advisory' },
@@ -67,7 +67,7 @@ export default function Pensions401kSipp() {
             <ProseBlock>
               <p>
                 Pensions sit at the hardest intersection of US and UK tax. The treaty offers real protection
-                against double taxation, but it is detailed and qualified &mdash; and the saving clause means a
+                against double taxation, but it is detailed and qualified, and the saving clause means a
                 US citizen cannot simply assume a UK pension is treated the way the UK treats it. The same
                 arrangement can be straightforward or surprisingly complex depending on its type and how it pays.
               </p>
@@ -75,7 +75,7 @@ export default function Pensions401kSipp() {
                 <strong>The 25% tax-free lump sum is the clearest example.</strong> Tax-free in the UK, its US
                 treatment is genuinely disputed: the conservative reading taxes it, a minority position exempts
                 it via the treaty, and the difference turns on the saving clause and a disclosure on Form 8833.
-                We do not pretend this is settled &mdash; we explain both positions, the audit and reporting
+                We do not pretend this is settled. We explain both positions, the audit and reporting
                 implications, and help you choose the course your facts support.
               </p>
             </ProseBlock>
@@ -124,7 +124,7 @@ export default function Pensions401kSipp() {
           'Conservative and alternative positions explained plainly',
           'Reporting handled, including Form 8833 where required',
         ]}
-        note="Where a position is contested, we recommend the conservative, IRS-aligned course unless your specific facts justify otherwise — and we always explain the audit and disclosure implications first."
+        note="Where a position is contested, we recommend the conservative, IRS-aligned course unless your specific facts justify otherwise, and we always explain the audit and disclosure implications first."
       />
 
       <RelatedLinks

@@ -11,7 +11,7 @@ const URL = 'https://www.usukaccountants.com/who-we-help/startups-founders';
 export const metadata: Metadata = {
   title: 'US–UK Tax for Startups, Founders & Contractors',
   description:
-    'Cross-border accounting for founders, startups and contractors: UK company set-up and Corporation Tax, plus the US side for American owners — Form 5471, GILTI and elections.',
+    'Cross-border accounting for founders, startups and contractors: UK company set-up and Corporation Tax, plus the US side for American owners: Form 5471, GILTI and elections.',
   alternates: { canonical: URL },
 };
 
@@ -23,10 +23,10 @@ const relevant = services.filter((s) =>
     .some((k) => s.href?.includes(k)));
 
 const faqs = [
-  { q: 'I am American and want to run a UK limited company — what is the catch?', a: 'A UK limited company owned by a US citizen is usually a "controlled foreign corporation" for US purposes. That brings Form 5471 reporting (with a penalty starting at $10,000 for non-filing) and potential current US tax on the company\u2019s profits under the GILTI/NCTI rules, even before you take money out. None of this stops you incorporating — but the decision should be modelled across both systems first.' },
-  { q: 'Should I be a sole trader or a limited company?', a: 'For a UK-only business the answer turns on profit level and risk. For an American in the UK it is more involved, because a limited company triggers US CFC reporting while a sole trader does not — but a sole trader pays UK National Insurance and may face US self-employment tax considerations. The right answer depends on your numbers and your US status, which is exactly what we model.' },
-  { q: 'What is the check-the-box election?', a: 'It lets the owner of a UK company choose how it is treated for US tax — as a corporation or as a "disregarded" pass-through entity. Done deliberately it can simplify a US owner\u2019s position and avoid GILTI complexity; done without modelling it can create self-employment tax exposure and a deemed liquidation. It is powerful and irreversible for five years, so it should never be filed casually.' },
-  { q: 'Can you handle both the UK accounts and the US filing?', a: 'Yes — that is the point of working with us. We prepare the UK company accounts, Corporation Tax and payroll, and the US owner\u2019s Form 5471, GILTI calculation and personal return, coordinated so the UK tax credits correctly against the US position. One team, both jurisdictions.' },
+  { q: 'I am American and want to run a UK limited company. What is the catch?', a: 'A UK limited company owned by a US citizen is usually a "controlled foreign corporation" for US purposes. That brings Form 5471 reporting (with a penalty starting at $10,000 for non-filing) and potential current US tax on the company\u2019s profits under the GILTI/NCTI rules, even before you take money out. None of this stops you incorporating, but the decision should be modelled across both systems first.' },
+  { q: 'Should I be a sole trader or a limited company?', a: 'For a UK-only business the answer turns on profit level and risk. For an American in the UK it is more involved, because a limited company triggers US CFC reporting while a sole trader does not, but a sole trader pays UK National Insurance and may face US self-employment tax considerations. The right answer depends on your numbers and your US status, which is exactly what we model.' },
+  { q: 'What is the check-the-box election?', a: 'It lets the owner of a UK company choose how it is treated for US tax, either as a corporation or as a "disregarded" pass-through entity. Done deliberately it can simplify a US owner\u2019s position and avoid GILTI complexity; done without modelling it can create self-employment tax exposure and a deemed liquidation. It is powerful and irreversible for five years, so it should never be filed casually.' },
+  { q: 'Can you handle both the UK accounts and the US filing?', a: 'Yes. That is the point of working with us. We prepare the UK company accounts, Corporation Tax and payroll, and the US owner\u2019s Form 5471, GILTI calculation and personal return, coordinated so the UK tax credits correctly against the US position. One team, both jurisdictions.' },
 ];
 
 export default function StartupsFounders() {
@@ -49,13 +49,13 @@ export default function StartupsFounders() {
     >
       <ProseBlock>
         <p>
-          The way you structure a cross-border business shapes your tax for years &mdash; and for an American
+          The way you structure a cross-border business shapes your tax for years, and for an American
           founder, a routine UK incorporation can quietly create US reporting obligations and current tax on
           profit you haven&rsquo;t even drawn. The decisions that look purely operational (sole trader vs limited
           company, when to incorporate, how to pay yourself) all have a US dimension.
         </p>
         <p>
-          <strong>The goal isn&rsquo;t to avoid incorporating &mdash; it&rsquo;s to incorporate with both systems in view.</strong>{' '}
+          <strong>The aim is to incorporate with both systems in view.</strong>{' '}
           Elections like check-the-box and Section 962 can transform the US position of a UK company, but only
           if chosen deliberately and on time. We bring the UK accounting and the US tax together so founders
           make these calls with the full picture.

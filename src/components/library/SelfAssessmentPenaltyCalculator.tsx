@@ -22,7 +22,7 @@ function buildPenalties(monthsLate: number, taxOwed: number): PenaltyLine[] {
   lines.push({
     label: 'Immediate fixed penalty',
     amount: SA_PENALTIES.initialLateFiling,
-    note: 'Charged the moment you miss the deadline — even if you owe no tax.',
+    note: 'Charged the moment you miss the deadline, even if you owe no tax.',
   });
 
   if (monthsLate >= 3) {
@@ -108,9 +108,9 @@ export default function SelfAssessmentPenaltyCalculator() {
         <div className="mt-6 rounded-xl border border-mist bg-porcelain p-5">
           <p className="text-sm font-semibold text-ink">Key dates for {ukTaxYearLabel(startYear)}</p>
           <ul className="mt-3 space-y-2 text-sm text-muted">
-            <li><span className="font-medium text-ink">31 October {filingYear}</span> — paper return deadline.</li>
-            <li><span className="font-medium text-ink">31 January {filingYear}</span> — online return deadline and balancing payment due.</li>
-            <li><span className="font-medium text-ink">31 July {filingYear}</span> — second payment on account (if applicable).</li>
+            <li><span className="font-medium text-ink">31 October {filingYear}</span>: paper return deadline.</li>
+            <li><span className="font-medium text-ink">31 January {filingYear}</span>: online return deadline and balancing payment due.</li>
+            <li><span className="font-medium text-ink">31 July {filingYear}</span>: second payment on account (if applicable).</li>
           </ul>
         </div>
 
@@ -141,7 +141,7 @@ export default function SelfAssessmentPenaltyCalculator() {
         </div>
 
         <label className="mt-6 block text-xs font-semibold uppercase tracking-eyebrow text-muted">
-          Tax owed (optional — improves the 6 &amp; 12-month estimate)
+          Tax owed (optional, improves the 6 &amp; 12-month estimate)
         </label>
         <div className="mt-2 flex items-center rounded-lg border border-mist bg-porcelain px-3">
           <span className="text-muted">£</span>
@@ -160,7 +160,7 @@ export default function SelfAssessmentPenaltyCalculator() {
             Estimated late-filing penalties
           </p>
           {penalties.length === 0 ? (
-            <p className="mt-2 text-lg font-semibold">No filing penalty — you&rsquo;re on time.</p>
+            <p className="mt-2 text-lg font-semibold">No filing penalty, you&rsquo;re on time.</p>
           ) : (
             <>
               <p className="mt-1 font-display text-3xl font-semibold">£{total.toLocaleString()}</p>

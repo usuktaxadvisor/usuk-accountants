@@ -7,17 +7,17 @@ import type {
    publication (confirmed with each team member, July 2026).
    Credentials flow into Person schema hasCredential via
    credentials-data.ts. Never publish unverified credentials or
-   fabricated reviews — doing so breaks EEAT and, for reviews,
+   fabricated reviews: doing so breaks EEAT and, for reviews,
    may breach FTC/CMA rules.
    ------------------------------------------------------------ */
 
-/** Press logos — EMPTY until the firm has genuine, verifiable coverage. Do NOT invent outlets. */
+/** Press logos: EMPTY until the firm has genuine, verifiable coverage. Do NOT invent outlets. */
 export const pressItems: PressItem[] = [];
 
-/** Press quotes — EMPTY until real, attributable coverage exists. Do NOT invent quotes or outlets. */
+/** Press quotes: EMPTY until real, attributable coverage exists. Do NOT invent quotes or outlets. */
 export const pressFeatures: PressItem[] = [];
 
-export const reviews: Review[] = []; // GENUINE reviews only — empty until verified reviews exist. Do NOT invent.
+export const reviews: Review[] = []; // GENUINE reviews only: empty until verified reviews exist. Do NOT invent.
 
 export const reviewSummary = {
   average: null as number | null,
@@ -94,7 +94,7 @@ export const authors: Author[] = [
     credentials: ['ACCA', 'ACA'],
     jurisdictions: ['US Federal', 'UK', 'US-UK Treaty'],
     yearsExperience: 3,
-    bio: 'Sam is the founder and lead advisor of US UK Accountants, and sets the direction for how the firm handles tax on both sides of the Atlantic. Dual-qualified as an ACCA and ACA accountant, Sam leads the most complex cross-border engagements personally \u2014 from Streamlined Filing and treaty positions to the structuring questions that arise when someone is taxable in both the US and the UK. Sam works most closely with founders, high-net-worth individuals and dual citizens who need a single advisor able to see the whole picture rather than one side of it, and oversees the standards every other member of the team works to.',
+    bio: 'Sam is the founder and lead advisor of US UK Accountants, and sets the direction for how the firm handles tax on both sides of the Atlantic. Dual-qualified as an ACCA and ACA accountant, Sam leads the most complex cross-border engagements personally, from Streamlined Filing and treaty positions to the structuring questions that arise when someone is taxable in both the US and the UK. Sam works most closely with founders, high-net-worth individuals and dual citizens who need a single advisor able to see the whole picture rather than one side of it, and oversees the standards every other member of the team works to.',
     expertise: ['US-UK cross-border strategy', 'Streamlined Filing', 'US-UK treaty planning', 'high-net-worth advisory', 'business structuring'],
     sameAs: [
       { label: 'LinkedIn', href: '#' },
@@ -121,7 +121,7 @@ export const authors: Author[] = [
     credentials: ['CPA'],
     jurisdictions: ['US Federal', 'US State'],
     yearsExperience: 3,
-    bio: 'Briana is a Senior US Accountant and CPA who leads the US side of the practice \u2014 from everyday federal and state returns for Americans living in the UK to the cases where a straightforward return isn\u2019t enough. Her work spans FBAR and FATCA reporting, the Foreign Earned Income Exclusion and Foreign Tax Credit, Streamlined Filing catch-up submissions, Form 5471 for US owners of UK companies, and GILTI and Subpart F analysis. Briana works with individual US citizens and Green Card holders \u2014 employees, remote workers and families \u2014 as well as founders and long-term expats whose affairs have outgrown a simple 1040, and she is the senior reviewer of US work across the team, making sure double-tax relief is claimed in full and every filing is done correctly.',
+    bio: 'Briana is a Senior US Accountant and CPA who leads the US side of the practice, from everyday federal and state returns for Americans living in the UK to the cases where a straightforward return isn\u2019t enough. Her work spans FBAR and FATCA reporting, the Foreign Earned Income Exclusion and Foreign Tax Credit, Streamlined Filing catch-up submissions, Form 5471 for US owners of UK companies, and GILTI and Subpart F analysis. Briana works with individual US citizens and Green Card holders (employees, remote workers and families) as well as founders and long-term expats whose affairs have outgrown a simple 1040, and she is the senior reviewer of US work across the team, making sure double-tax relief is claimed in full and every filing is done correctly.',
     expertise: ['US expat returns', 'FBAR & FATCA reporting', 'Foreign Tax Credit & FEIE', 'Streamlined Filing', 'Form 5471', 'GILTI & Subpart F', 'US state returns', 'dual-citizen taxation'],
     sameAs: [{ label: 'LinkedIn', href: '#' }],
     reviewedBy: 'Sam H., ACCA ACA',
@@ -134,7 +134,7 @@ export const authors: Author[] = [
     credentials: ['ACA'],
     jurisdictions: ['UK', 'HMRC'],
     yearsExperience: 2,
-    bio: 'Sarah is a UK Chartered Accountant (ACA) who runs the compliance backbone of the UK practice: statutory company accounts, Self Assessment, VAT returns and payroll. She makes sure the numbers are right and filed on time \u2014 the unglamorous work that a good firm has to get flawlessly correct. Sarah supports UK limited companies, contractors and individuals, including the many who also have US reporting obligations, and works closely with the US team so both sides of a client\u2019s filings line up rather than contradict each other.',
+    bio: 'Sarah is a UK Chartered Accountant (ACA) who runs the compliance backbone of the UK practice: statutory company accounts, Self Assessment, VAT returns and payroll. She makes sure the numbers are right and filed on time, the unglamorous work that a good firm has to get flawlessly correct. Sarah supports UK limited companies, contractors and individuals, including the many who also have US reporting obligations, and works closely with the US team so both sides of a client\u2019s filings line up rather than contradict each other.',
     expertise: ['UK company accounts', 'Self Assessment', 'VAT returns', 'payroll', 'UK compliance'],
     sameAs: [{ label: 'LinkedIn', href: '#' }],
     reviewedBy: 'Kristina, CTA',
@@ -147,7 +147,7 @@ export const authors: Author[] = [
     credentials: ['CTA'],
     jurisdictions: ['UK', 'HMRC'],
     yearsExperience: 2,
-    bio: 'Kristina is a Chartered Tax Adviser (CTA) \u2014 the UK\u2019s senior tax qualification \u2014 and leads the firm\u2019s UK tax planning and advisory work. She focuses on Corporation Tax, Self Assessment for complex cases, and the residence and domicile questions that decide how much UK tax someone actually owes. Kristina advises company directors, landlords and internationally mobile individuals, and is often the person who works out how a UK position should be framed so that it also holds up against the client\u2019s US filing.',
+    bio: 'Kristina is a Chartered Tax Adviser (CTA), the UK\u2019s senior tax qualification, and leads the firm\u2019s UK tax planning and advisory work. She focuses on Corporation Tax, Self Assessment for complex cases, and the residence and domicile questions that decide how much UK tax someone actually owes. Kristina advises company directors, landlords and internationally mobile individuals, and is often the person who works out how a UK position should be framed so that it also holds up against the client\u2019s US filing.',
     expertise: ['Corporation Tax', 'UK tax planning', 'residence & domicile (SRT)', 'landlord & property tax', 'Self Assessment (complex)'],
     sameAs: [{ label: 'LinkedIn', href: '#' }],
     reviewedBy: 'Sarah J., ACA',
@@ -173,7 +173,7 @@ export const authors: Author[] = [
     credentials: ['ACCA'],
     jurisdictions: ['UK', 'US'],
     yearsExperience: 3,
-    bio: 'Nicola is an ACCA-qualified accountant responsible for quality assurance and internal review across the firm\u2019s cross-border work. Before a filing leaves the firm, it is checked against professional standards on both the US and UK sides \u2014 and that review process is Nicola\u2019s remit. She focuses on documentation, regulatory compliance and consistency, making sure that the position taken on a client\u2019s US return and their UK return are coherent and defensible. It is the assurance layer that lets the firm stand behind the work it delivers.',
+    bio: 'Nicola is an ACCA-qualified accountant responsible for quality assurance and internal review across the firm\u2019s cross-border work. Before a filing leaves the firm, it is checked against professional standards on both the US and UK sides, and that review process is Nicola\u2019s remit. She focuses on documentation, regulatory compliance and consistency, making sure that the position taken on a client\u2019s US return and their UK return are coherent and defensible. It is the assurance layer that lets the firm stand behind the work it delivers.',
     expertise: ['quality assurance', 'regulatory compliance', 'file & peer review', 'documentation standards', 'cross-border consistency'],
     sameAs: [{ label: 'LinkedIn', href: '#' }],
     reviewedBy: 'Sam H., ACCA ACA',

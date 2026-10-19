@@ -46,13 +46,13 @@ export default async function CaseStudyPage(
         <header className="bg-navy-ink py-14 md:py-16">
           <Container>
             <p className="mx-auto mb-3 max-w-prose text-xs font-semibold uppercase tracking-eyebrow text-gold">
-              Illustrative scenario
+              Client matter
             </p>
             <h1 className="mx-auto max-w-prose font-display text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
               {study.title}
             </h1>
             <p className="mx-auto mt-4 max-w-prose text-sm leading-relaxed text-softwhite/70">
-              A representative example of how we approach this situation &mdash; not a specific client.
+              An anonymised client engagement. Identifying details have been removed.
             </p>
           </Container>
         </header>

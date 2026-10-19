@@ -15,7 +15,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/services/us-expat-tax/us-tax-returns/hub';
 
 export const metadata: Metadata = {
-  title: 'US Tax Returns from the UK — Resource Hub',
+  title: 'US Tax Returns from the UK: Resource Hub',
   description:
     'The complete resource hub for US tax returns from the UK: Form 1040, FBAR, delinquent-FBAR catch-up, Streamlined Filing, calculators and glossary.',
   alternates: { canonical: url },
@@ -128,7 +128,7 @@ export default function UsTaxReturnsHubPage() {
           { label: 'US vs UK tax return', href: '/resources/compare/us-tax-return-vs-uk-tax-return', description: 'How the two systems differ' },
               { label: 'US Tax Returns service', href: '/services/us-expat-tax/us-tax-returns', description: 'Our core return-preparation service page.' },
               { label: 'FBAR Filing', href: '/services/us-expat-tax/fbar-filing', description: 'Reporting foreign financial accounts to FinCEN.' },
-              { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Penalty-reduced catch-up for non-willful cases.' },
+              { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'The IRS catch-up route for non-willful cases.' },
               { label: 'Delinquent FBAR Guide', href: '/resources/guides/delinquent-fbar', description: 'How to file late FBARs the right way.' },
               { label: 'Delinquent FBAR Penalty Estimator', href: '/resources/calculators/delinquent-fbar-penalty', description: 'Estimate exposure by scenario.' },
               { label: 'Glossary: US Tax Return (Form 1040)', href: '/resources/glossary/us-tax-return-1040', description: 'Plain-English definition.' },

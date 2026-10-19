@@ -8,7 +8,7 @@ import { SITE, staffedOffices } from '@/lib/site-data';
 import { breadcrumbSchema } from '@/lib/schema';
 
 export const metadata: Metadata = {
-  title: 'Contact Us — US & UK Tax Enquiries',
+  title: 'Contact Us | US & UK Tax Enquiries',
   description:
     'Send an enquiry to US UK Accountants or email hello@usukaccountants.com. Tell us which country you file in and what you need, and a cross-border specialist will reply.',
   alternates: { canonical: 'https://www.usukaccountants.com/contact' },
@@ -22,7 +22,7 @@ const localBusinessSchema = [
     '@context': 'https://schema.org',
     '@type': 'AccountingService',
     '@id': `${SITE_URL}/contact/#london`,
-    name: 'US UK Accountants — London',
+    name: 'US UK Accountants, London',
     parentOrganization: { '@id': ORG_ID },
     url: SITE_URL,
     email: SITE.email,
@@ -43,7 +43,7 @@ const localBusinessSchema = [
     '@type': 'AccountingService',
     '@id': `${SITE_URL}/contact/#manchester`,
     name: 'US UK Expats Tax Specialist',
-    alternateName: 'US UK Accountants — Manchester',
+    alternateName: 'US UK Accountants, Manchester',
     parentOrganization: { '@id': ORG_ID },
     url: SITE_URL,
     email: SITE.email,
@@ -63,7 +63,7 @@ const localBusinessSchema = [
     '@context': 'https://schema.org',
     '@type': 'AccountingService',
     '@id': `${SITE_URL}/contact/#new-york`,
-    name: 'US UK Accountants — New York',
+    name: 'US UK Accountants, New York',
     parentOrganization: { '@id': ORG_ID },
     url: SITE_URL,
     email: SITE.email,
@@ -108,9 +108,9 @@ export default async function ContactPage({
               {isPrivateClient && (
                 <p className="mt-4 rounded-xl border border-gold/40 bg-gold/10 px-5 py-4 text-sm leading-relaxed text-softwhite/90">
                   Private Client Advisory enquiries are handled personally by our senior team, in strict
-                  confidence. Tell us broadly what you&rsquo;d like to discuss — estate, exit, restructuring
-                  or complex cross-border matters — and we&rsquo;ll arrange a private conversation and quote
-                  to scope.
+                  confidence. Tell us broadly what you&rsquo;d like to discuss, whether that is estate,
+                  exit, restructuring or another complex cross-border matter, and we&rsquo;ll arrange a
+                  private conversation and a quote to scope.
                 </p>
               )}
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -174,7 +174,7 @@ export default async function ContactPage({
           <p className="mt-10 text-center text-xs text-muted">US UK Accountants Ltd · Registered in England &amp; Wales, Company No. 17336015</p>
           </Container>
         </div>
-        {/* FIND US — office locations. Manchester has a verified Google Business Profile. */}
+        {/* FIND US: office locations. Manchester has a verified Google Business Profile. */}
         <section className="bg-navy-ink py-16 md:py-20">
           <Container>
             <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">

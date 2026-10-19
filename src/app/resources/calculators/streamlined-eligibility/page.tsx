@@ -44,7 +44,7 @@ export default function StreamlinedPage() {
       url={URL}
       eyebrow="Calculator"
       title="Streamlined Filing Eligibility"
-      answer="If you are a US person who has fallen behind on returns or FBARs and it was not deliberate, the IRS Streamlined Filing Compliance Procedures may let you catch up penalty-free (foreign track) or with a 5% penalty (domestic track). This checker screens the key eligibility gates — US-person status, no prior IRS contact, non-willful conduct, and the non-residency test — and indicates the likely path."
+      answer="If you are a US person who has fallen behind on returns or FBARs and it was not deliberate, the IRS Streamlined Filing Compliance Procedures may let you catch up without the usual late-filing penalties (foreign track) or with a 5% penalty (domestic track). This checker screens the key eligibility gates — US-person status, no prior IRS contact, non-willful conduct, and the non-residency test — and indicates the likely path."
       crumbs={[
         { label: 'Resources', href: '/resources' },
         { label: 'Calculators', href: '/resources/calculators' },

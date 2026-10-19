@@ -55,7 +55,7 @@ export default function LateFilingPenaltyEstimator() {
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           Enter the US tax you still owe and how many months late the return is. This gives an
-          indicative maximum of the two main IRS civil penalties — it does not include interest,
+          indicative maximum of the two main IRS civil penalties. It does not include interest,
           and assumes US tax is actually due after reliefs.
         </p>
         <div className="mt-7 space-y-5">
@@ -64,7 +64,7 @@ export default function LateFilingPenaltyEstimator() {
             <input id="tax" inputMode="decimal" value={tax} onChange={e => setTax(e.target.value)}
               placeholder="e.g. 4,000" className={inputCls} />
             <p className="mt-1.5 text-xs text-muted">
-              The unpaid balance — not your income. If the Foreign Tax Credit or FEIE eliminates your US tax, enter 0.
+              The unpaid balance, not your income. If the Foreign Tax Credit or FEIE eliminates your US tax, enter 0.
             </p>
           </div>
           <div>
@@ -117,7 +117,7 @@ export default function LateFilingPenaltyEstimator() {
             <p className="mt-6 text-xs leading-relaxed text-muted">
               Educational estimate using headline IRS penalty rates. Excludes interest (which compounds daily),
               any reduction once an instalment agreement is in place, and penalty relief such as First-Time Abate
-              or reasonable cause — all of which can change the real figure. Penalties also interact with the
+              or reasonable cause, all of which can change the real figure. Penalties also interact with the
               Streamlined and delinquent-FBAR routes, which can remove them for those who qualify.
             </p>
             <div className="mt-5 flex flex-wrap gap-3 text-sm">

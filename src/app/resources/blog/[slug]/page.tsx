@@ -1,13 +1,24 @@
 import type { Metadata } from 'next';
 import { metaDescription } from '@/lib/seo-text';
-import { notFound } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 import { PageShell, Section, Container } from '@/components/library';
 import { getAllPostSlugs, getPostBySlug } from '@/lib/blog';
 
 const BASE = 'https://www.usukaccountants.com/resources/blog';
 
+/**
+ * Retired post slugs and where they now live. This route matches before the
+ * site-wide catch-all, so consolidated articles have to redirect from here.
+ */
+const RETIRED: Record<string, string> = {
+  // Consolidated 19 Oct 2026: duplicated the 25% lump-sum article.
+  'uk-pension-lump-sum-us-tax': '/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us',
+};
+
 export function generateStaticParams() {
-  return getAllPostSlugs().map((slug) => ({ slug }));
+  // Retired slugs are pre-rendered too, so the redirect below is served
+  // instead of a 404 for links and bookmarks that still point at them.
+  return [...getAllPostSlugs(), ...Object.keys(RETIRED)].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -16,6 +27,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (RETIRED[slug]) return { alternates: { canonical: `https://www.usukaccountants.com${RETIRED[slug]}` } };
   const post = await getPostBySlug(slug);
   if (!post) return { title: 'Article not found' };
   const url = `${BASE}/${slug}`;
@@ -52,6 +64,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (RETIRED[slug]) permanentRedirect(RETIRED[slug]);
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 

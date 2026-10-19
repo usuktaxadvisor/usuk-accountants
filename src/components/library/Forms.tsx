@@ -13,7 +13,7 @@ function isEmail(v: string) {
 }
 
 /* ============================================================
-   1. ContactForm — full enquiry form (contact page, service pages)
+   1. ContactForm: full enquiry form (contact page, service pages)
    ============================================================ */
 export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
   const [data, setData] = useState({ name: '', email: '', situation: '', message: '', consent: false });
@@ -56,7 +56,7 @@ export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
         <span className="mx-auto inline-flex h-12 w-12 items-center justify-center rounded-full bg-gold/20 text-gold-antique">
           <IconCheck className="h-6 w-6" />
         </span>
-        <h3 className="mt-4 font-display text-xl font-semibold text-ink">Thank you — message received</h3>
+        <h3 className="mt-4 font-display text-xl font-semibold text-ink">Message received, thank you</h3>
         <p className="mt-2 text-sm text-muted">A cross-border specialist will reply within one business day.</p>
       </div>
     );
@@ -98,7 +98,7 @@ export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
 }
 
 /* ============================================================
-   2. LeadCaptureForm — compact inline email capture (guides, calculators, blog)
+   2. LeadCaptureForm: compact inline email capture (guides, calculators, blog)
    ============================================================ */
 export function LeadCaptureForm({
   cta = 'Get the guide',
@@ -139,7 +139,7 @@ export function LeadCaptureForm({
   if (sent) {
     return (
       <p className={`flex items-center gap-2 text-sm font-medium ${tone === 'dark' ? 'text-gold-champagne' : 'text-gold-antique'}`}>
-        <IconCheck className="h-4 w-4" /> On its way — check your inbox.
+        <IconCheck className="h-4 w-4" /> On its way. Please check your inbox.
       </p>
     );
   }
@@ -173,7 +173,7 @@ export function LeadCaptureForm({
 }
 
 /* ============================================================
-   3. BookingForm — multi-step consultation form with progress
+   3. BookingForm: multi-step consultation form with progress
    ============================================================ */
 const STEPS = ['Your situation', 'Your details', 'Confirm'];
 
@@ -233,7 +233,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
         </span>
         <h3 className="mt-4 font-display text-xl font-semibold text-ink">Request received</h3>
         <p className="mt-2 text-sm text-muted">
-          Thanks — we&apos;ve received your details at {data.email} and a specialist will email you shortly
+          Thanks, we&apos;ve received your details at {data.email} and a specialist will email you shortly
           with available times and a secure link to confirm and pay for your £350 consultation. Prefer a
           quick answer at no charge? Just reply with your question.
         </p>
@@ -271,7 +271,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
           <Field label="Email" htmlFor="b-email" required error={errors.email}>
             <TextInput id="b-email" type="email" inputMode="email" value={data.email} onChange={(v) => set('email', v)} error={errors.email} autoComplete="email" />
           </Field>
-          <Field label="Phone" htmlFor="b-phone" hint="Optional — helps us reach you across timezones.">
+          <Field label="Phone" htmlFor="b-phone" hint="Optional, and it helps us reach you across timezones.">
             <TextInput id="b-phone" type="tel" inputMode="tel" value={data.phone} onChange={(v) => set('phone', v)} autoComplete="tel" />
           </Field>
         </div>

@@ -8,7 +8,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/payroll';
 
 export const metadata: Metadata = {
-  title: 'UK Payroll Services — PAYE, RTI & Auto-Enrolment',
+  title: 'UK Payroll Services: PAYE, RTI & Auto-Enrolment',
   description:
     'Running UK payroll means operating PAYE, reporting to HMRC in real time (RTI), and meeting pension auto-enrolment duties. Learn what is involved, common mistakes, and how we run payroll for UK and cross-border employers.',
   alternates: { canonical: URL },
@@ -20,7 +20,7 @@ const reviewedBy = authors.find((a) => a.slug === 'kristina')!;
 const faqs = [
   {
     q: 'What does running UK payroll involve?',
-    a: 'It means operating PAYE (Pay As You Earn) — calculating each employee\u2019s income tax and National Insurance, deducting them from pay, and paying them to HMRC. You must report each pay run to HMRC in real time under RTI, provide payslips, and meet pension auto-enrolment duties. It runs every pay period, not just at year-end.',
+    a: 'It means operating PAYE (Pay As You Earn): calculating each employee\u2019s income tax and National Insurance, deducting them from pay, and paying them to HMRC. You must report each pay run to HMRC in real time under RTI, provide payslips, and meet pension auto-enrolment duties. It runs every pay period, not just at year-end.',
   },
   {
     q: 'What is RTI (Real Time Information)?',
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: 'Can you handle payroll for employees working across the US and UK?',
-    a: 'Yes — and this is where it gets technical. Employees who move between or work across the US and UK can raise questions of where tax and social security are due, including totalization considerations. These situations need care to avoid double withholding or missed obligations, and are exactly the cross-border cases we are set up to handle.',
+    a: 'Yes, and this is where it gets technical. Employees who move between or work across the US and UK can raise questions of where tax and social security are due, including totalization considerations. These situations need care to avoid double withholding or missed obligations, and are exactly the cross-border cases we are set up to handle.',
   },
 ];
 
@@ -50,7 +50,7 @@ export default function Payroll() {
       url={URL}
       eyebrow="UK Accounting · Payroll"
       title="UK payroll, PAYE and auto-enrolment"
-      answer="Running UK payroll means operating PAYE — calculating and deducting income tax and National Insurance from employees' pay and paying it to HMRC — while reporting every pay run in real time under RTI and meeting pension auto-enrolment duties. It runs each pay period, with a defined year-end process (P60s and benefit reporting). Rates and thresholds are set by the government and change yearly. Cross-border employees working across the US and UK raise additional tax and social-security questions we handle."
+      answer="Running UK payroll means operating PAYE: calculating and deducting income tax and National Insurance from employees' pay and paying it to HMRC, while reporting every pay run in real time under RTI and meeting pension auto-enrolment duties. It runs each pay period, with a defined year-end process (P60s and benefit reporting). Rates and thresholds are set by the government and change yearly. Cross-border employees working across the US and UK raise additional tax and social-security questions we handle."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'UK Accounting', href: '/services/uk-accounting' },
@@ -63,7 +63,7 @@ export default function Payroll() {
       service={{
         url: URL,
         name: 'UK Payroll Services',
-        description: 'Fully managed UK payroll — PAYE, RTI reporting, auto-enrolment and year-end — for employers including those with cross-border US/UK employees.',
+        description: 'Fully managed UK payroll (PAYE, RTI reporting, auto-enrolment and year-end) for employers including those with cross-border US/UK employees.',
         serviceType: 'Payroll',
       }}
       ctaTitle="Want payroll handled, accurately and on time?"
@@ -74,21 +74,21 @@ export default function Payroll() {
           <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr]">
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
-                Running payroll in the UK means operating <strong>PAYE</strong> — working out each employee&rsquo;s{' '}
+                Running payroll in the UK means operating <strong>PAYE</strong>, working out each employee&rsquo;s{' '}
                 <strong>income tax and National Insurance</strong>, deducting them from pay, and passing them to{' '}
                 <strong>HMRC</strong>. Unlike most tax tasks, it does not wait for year-end: it happens every single
                 pay period, and it has to be right every time.
               </p>
               <p>
-                Two things make it more than just arithmetic. First, <strong>RTI</strong> — you must report every pay
+                Two things make it more than just arithmetic. First, <strong>RTI</strong>: you must report every pay
                 run to HMRC <strong>on or before payday</strong>, not annually. Second, <strong>auto-enrolment</strong>
-                {' '}— you must enrol eligible staff into a workplace pension and contribute, with duties at each pay
+                {' '}requires you to enrol eligible staff into a workplace pension and contribute, with duties at each pay
                 run. Miss either and penalties follow.
               </p>
               <p>
                 Even a <strong>single-director company</strong> usually runs payroll for the director&rsquo;s salary,
                 and how that salary combines with dividends is worth planning. And where employees work{' '}
-                <strong>across the US and UK</strong>, payroll stops being routine — which is precisely the kind of
+                <strong>across the US and UK</strong>, payroll stops being routine, and that is precisely the kind of
                 case we are built for.
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function Payroll() {
                 title="Payroll at a glance"
                 facts={[
                   { label: 'System', value: 'PAYE' },
-                  { label: 'Reporting', value: 'RTI — on or before payday' },
+                  { label: 'Reporting', value: 'RTI, on or before payday' },
                   { label: 'Pensions', value: 'Auto-enrolment duties' },
                   { label: 'Frequency', value: 'Every pay period' },
                   { label: 'Year-end', value: 'P60s + benefit reporting' },
@@ -126,14 +126,14 @@ export default function Payroll() {
           <div className="mx-auto max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
             <h2 className="font-display text-2xl font-semibold text-ink">PAYE, RTI and the pay run</h2>
             <p>
-              Each pay run, payroll calculates gross-to-net for every employee — tax, National Insurance, pension and
-              any other deductions — produces <strong>payslips</strong>, and files the <strong>RTI submission</strong>
+              Each pay run, payroll calculates gross-to-net for every employee (tax, National Insurance, pension and
+              any other deductions), produces <strong>payslips</strong>, and files the <strong>RTI submission</strong>
               {' '}to HMRC on or before payday. The amounts are then paid over to HMRC on the required schedule. Doing
               this on <strong>current rates</strong> each year is essential, because thresholds shift annually.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">Auto-enrolment and year-end</h2>
             <p>
-              Alongside the pay run sit <strong>auto-enrolment</strong> duties — assessing eligibility, enrolling
+              Alongside the pay run sit <strong>auto-enrolment</strong> duties: assessing eligibility, enrolling
               staff, contributing, and handling opt-outs and re-enrolment. At <strong>year-end</strong>, payroll is
               finalised, <strong>P60s</strong> are issued, and taxable benefits are reported. We keep all of this
               running so it is never a scramble.

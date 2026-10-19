@@ -19,7 +19,7 @@ function usFederalApprox(income: number): number {
 }
 
 type Result = {
-  recommendation: 'FTC likely' | 'FEIE worth modelling' | 'Depends — model both';
+  recommendation: 'FTC likely' | 'FEIE worth modelling' | 'Depends, model both';
   reason: string;
   usTaxApprox: number;
   ukTaxApprox: number;
@@ -47,7 +47,7 @@ function evaluate(earned: number, unearned: number, ukEffRate: number): Result {
     reason =
       'With relatively low foreign tax on earned income under the exclusion cap and no unearned income, the FEIE could remove US tax on your salary. The Foreign Tax Credit may still compete, so both are worth modelling.';
   } else {
-    recommendation = 'Depends — model both';
+    recommendation = 'Depends, model both';
     reason =
       'Your mix of earned and unearned income, the UK rate, and the exclusion cap make this a genuine toss-up that should be modelled on your actual figures rather than estimated.';
   }
@@ -80,7 +80,7 @@ export default function FeieVsFtcCalculator() {
         <div className="mt-6 grid gap-6 sm:grid-cols-2">
           <div>
             <label className="block text-xs font-semibold uppercase tracking-eyebrow text-muted">
-              Earned income ($ — salary, self-employment)
+              Earned income in $ (salary, self-employment)
             </label>
             <div className="mt-2 flex items-center rounded-lg border border-mist bg-porcelain px-3">
               <span className="text-muted">$</span>
@@ -96,7 +96,7 @@ export default function FeieVsFtcCalculator() {
           </div>
           <div>
             <label className="block text-xs font-semibold uppercase tracking-eyebrow text-muted">
-              Unearned income ($ — dividends, rent, gains)
+              Unearned income in $ (dividends, rent, gains)
             </label>
             <div className="mt-2 flex items-center rounded-lg border border-mist bg-porcelain px-3">
               <span className="text-muted">$</span>
@@ -142,10 +142,10 @@ export default function FeieVsFtcCalculator() {
                 <li>Potential excess foreign tax credit: ${r.excessCredit.toLocaleString()} (may carry forward)</li>
               )}
               {r.overCap && (
-                <li>Earned income exceeds the ~${FEIE_CAP.toLocaleString()} FEIE cap — the excess isn&rsquo;t excludable.</li>
+                <li>Earned income exceeds the ~${FEIE_CAP.toLocaleString()} FEIE cap, so the excess isn&rsquo;t excludable.</li>
               )}
               {r.hasUnearned && (
-                <li>The FEIE does not cover your unearned income — only the FTC can relieve that.</li>
+                <li>The FEIE does not cover your unearned income, only the FTC can relieve that.</li>
               )}
             </ul>
           </div>
@@ -154,8 +154,8 @@ export default function FeieVsFtcCalculator() {
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Indicative only, using coarse effective-rate assumptions and the 2024 FEIE cap. It does not model
           the interaction with the child tax credit, the FEIE&rsquo;s five-year revocation rule, housing
-          exclusions, state tax, or self-employment tax. The right choice — and it is often a multi-year
-          decision, not a single-year one — depends on your specific facts. Treat this as a prompt for advice,
+          exclusions, state tax, or self-employment tax. The right choice (and it is often a multi-year
+          decision, not a single-year one) depends on your specific facts. Treat this as a prompt for advice,
           not the answer.
         </p>
       </div>
@@ -164,8 +164,8 @@ export default function FeieVsFtcCalculator() {
         <p className="font-display text-lg font-semibold text-ink">This is one of the most consequential choices you&rsquo;ll make</p>
         <p className="mt-2 text-sm text-muted">
           The FEIE and FTC interact in ways that play out over years, and switching between them has rules and
-          costs. Before you choose, it&rsquo;s worth modelling both on your real numbers. The first
-          consultation is free.
+          costs. Before you choose, it&rsquo;s worth modelling both on your real numbers. A focused 30-minute
+          consultation is &pound;350.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">
           <Link

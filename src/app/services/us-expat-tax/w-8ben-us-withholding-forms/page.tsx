@@ -21,7 +21,7 @@ const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 const faqs = [
   {
     q: 'What is Form W-8BEN?',
-    a: 'Form W-8BEN is the IRS certificate a non-US individual gives to a US payer — a broker, a client, a publisher or a platform — to confirm that they are not a US person and, where the US–UK tax treaty allows, to claim a reduced rate of US withholding tax on US-source income such as dividends, interest and royalties. It is kept by the payer, not filed with the IRS.',
+    a: 'Form W-8BEN is the IRS certificate a non-US individual gives to a US payer (a broker, a client, a publisher or a platform) to confirm that they are not a US person and, where the US–UK tax treaty allows, to claim a reduced rate of US withholding tax on US-source income such as dividends, interest and royalties. It is kept by the payer, not filed with the IRS.',
   },
   {
     q: 'Who should NOT use Form W-8BEN?',
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: 'How long is a W-8BEN valid?',
-    a: 'A W-8BEN is valid from the date it is signed until the end of the third following calendar year, unless a change in circumstances makes it incorrect sooner — for example moving to the US or becoming a US person. A form signed in 2026 is generally valid until 31 December 2029.',
+    a: 'A W-8BEN is valid from the date it is signed until the end of the third following calendar year, unless a change in circumstances makes it incorrect sooner, for example moving to the US or becoming a US person. A form signed in 2026 is generally valid until 31 December 2029.',
   },
   {
     q: 'Does a W-8BEN mean I have no US tax to pay?',
@@ -81,7 +81,7 @@ export default function W8BenForms() {
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Been asked for a W-8BEN, W-8BEN-E or W-9?"
-      ctaIntro="Tell us who is asking and what the income is. We confirm the right form, complete it with the correct treaty claim, and tell you whether anything else follows — by email, with a written record."
+      ctaIntro="Tell us who is asking and what the income is. We confirm the right form, complete it with the correct treaty claim, and tell you whether anything else follows, by email, with a written record."
     >
       <Section tone="white">
         <Container>

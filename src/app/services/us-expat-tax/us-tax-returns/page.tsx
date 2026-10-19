@@ -21,11 +21,11 @@ const reviewedBy = authors.find((a) => a.slug === 'sal-t')!;
 const faqs = [
   {
     q: 'Do US citizens living in the UK have to file US tax returns?',
-    a: 'Yes. The United States taxes its citizens and green card holders on their worldwide income regardless of where they live, so Americans in the UK must file a US federal return (Form 1040) every year — even if they owe nothing after reliefs such as the Foreign Earned Income Exclusion or the Foreign Tax Credit. This is known as citizenship-based taxation.',
+    a: 'Yes. The United States taxes its citizens and green card holders on their worldwide income regardless of where they live, so Americans in the UK must file a US federal return (Form 1040) every year, even if they owe nothing after reliefs such as the Foreign Earned Income Exclusion or the Foreign Tax Credit. This is known as citizenship-based taxation.',
   },
   {
     q: 'Do I still have to file if I owe no US tax?',
-    a: 'Usually yes. The filing obligation is separate from whether tax is due. Most Americans in the UK owe little or no US tax once reliefs are applied, but they are still required to file the return — and often FBAR and FATCA reports alongside it.',
+    a: 'Usually yes. The filing obligation is separate from whether tax is due. Most Americans in the UK owe little or no US tax once reliefs are applied, but they are still required to file the return, and often FBAR and FATCA reports alongside it.',
   },
   {
     q: 'What is the US tax filing deadline for Americans abroad?',
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'How do I avoid being taxed twice on the same income?',
-    a: 'Through the Foreign Earned Income Exclusion, the Foreign Tax Credit and the US–UK tax treaty. Used correctly and in the right combination, these reliefs mean most Americans in the UK are not taxed twice on the same income — but the right approach depends on your income mix.',
+    a: 'Through the Foreign Earned Income Exclusion, the Foreign Tax Credit and the US–UK tax treaty. Used correctly and in the right combination, these reliefs mean most Americans in the UK are not taxed twice on the same income, but the right approach depends on your income mix.',
   },
   {
     q: 'Do I need to file a US state return as well?',
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: 'What other US filings might I need besides the 1040?',
-    a: 'Commonly the FBAR (FinCEN Form 114) for foreign accounts, Form 8938 under FATCA for foreign assets, Form 2555 for the Foreign Earned Income Exclusion, Form 1116 for the Foreign Tax Credit, and — for company owners — Form 5471. Which apply depends on your circumstances, and they should be prepared together so they stay consistent.',
+    a: 'Commonly the FBAR (FinCEN Form 114) for foreign accounts, Form 8938 under FATCA for foreign assets, Form 2555 for the Foreign Earned Income Exclusion, Form 1116 for the Foreign Tax Credit, and, for company owners, Form 5471. Which apply depends on your circumstances, and they should be prepared together so they stay consistent.',
   },
 ];
 
@@ -51,7 +51,7 @@ export default function UsTaxReturns() {
       url={URL}
       eyebrow="US Expat Tax · US Tax Returns"
       title="US tax returns for Americans in the UK"
-      answer="US citizens and green card holders must file a US federal tax return (Form 1040) on their worldwide income every year, wherever they live — this is citizenship-based taxation. Americans in the UK get an automatic filing extension to 15 June, and reliefs such as the Foreign Earned Income Exclusion, the Foreign Tax Credit and the US–UK treaty usually mean little or no US tax is actually owed. You must still file, often alongside FBAR and FATCA reports."
+      answer="US citizens and green card holders must file a US federal tax return (Form 1040) on their worldwide income every year, wherever they live. This is citizenship-based taxation. Americans in the UK get an automatic filing extension to 15 June, and reliefs such as the Foreign Earned Income Exclusion, the Foreign Tax Credit and the US–UK treaty usually mean little or no US tax is actually owed. You must still file, often alongside FBAR and FATCA reports."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -68,7 +68,7 @@ export default function UsTaxReturns() {
         serviceType: 'Tax Preparation',
       }}
       ctaTitle="Need to file your US return from the UK?"
-      ctaIntro="Whether you are up to date or just realising you should have been filing, email us and we'll map exactly what you need to file — and make sure you are not taxed twice."
+      ctaIntro="Whether you are up to date or just realising you should have been filing, email us and we'll map what you need to file, and claim the reliefs that prevent the same income being taxed in both countries."
     >
       <Section tone="white">
         <Container>
@@ -78,14 +78,14 @@ export default function UsTaxReturns() {
                 The United States is one of the very few countries that taxes its citizens on their{' '}
                 <strong>worldwide income regardless of where they live</strong>. This is called{' '}
                 <strong>citizenship-based taxation</strong>, and it means that if you are a US citizen or green card
-                holder living in the UK, you must file a <strong>US federal tax return (Form 1040) every year</strong>
-                — even if all your income is British and you have not set foot in the US.
+                holder living in the UK, you must file a <strong>US federal tax return (Form 1040) every year</strong>,
+                even if all your income is British and you have not set foot in the US.
               </p>
               <p>
                 The part that reassures most people: filing a return is <strong>not</strong> the same as owing tax.
                 Because of the Foreign Earned Income Exclusion, the Foreign Tax Credit and the US–UK treaty, the
                 majority of Americans in the UK end up owing <strong>little or no US tax</strong>. But the obligation
-                to <em>file</em> remains — and often comes with FBAR and FATCA reports alongside.
+                to <em>file</em> remains, and often comes with FBAR and FATCA reports alongside.
               </p>
               <p>
                 There is also a timing point worth knowing: Americans abroad get an <strong>automatic extension to
@@ -134,7 +134,7 @@ export default function UsTaxReturns() {
               The <Link href="/services/us-expat-tax/foreign-tax-credit" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Tax Credit</Link>{' '}
               and the{' '}
               <Link href="/services/us-expat-tax/foreign-earned-income-exclusion" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">Foreign Earned Income Exclusion</Link>{' '}
-              are the two main ways to avoid paying tax twice — the choice between them matters, and the{' '}
+              are the two main ways to avoid paying tax twice. The choice between them matters, and the{' '}
               <Link href="/services/us-expat-tax/us-uk-tax-treaty" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">US–UK tax treaty</Link>{' '}
               sits alongside them for pensions and specific income types.
             </p>
@@ -173,8 +173,8 @@ export default function UsTaxReturns() {
         title="One coordinated US filing, done properly"
         steps={[
           { title: 'Understand', description: 'We review your income, residency, accounts and assets to see exactly what you must file.' },
-          { title: 'Optimise reliefs', description: 'We apply the FEIE, Foreign Tax Credit and treaty in the right combination so you are not taxed twice.' },
-          { title: 'Prepare everything', description: 'Federal return, any state return, and FBAR/FATCA where needed — prepared together and kept consistent.' },
+          { title: 'Optimise reliefs', description: 'We apply the FEIE, Foreign Tax Credit and treaty in the combination that fits your facts, to relieve double taxation as far as the rules allow.' },
+          { title: 'Prepare everything', description: 'Federal return, any state return, and FBAR/FATCA where needed, prepared together and kept consistent.' },
           { title: 'Review & file', description: 'Prepared by a US specialist and independently reviewed, then filed with a clear record for you.' },
         ]}
       />

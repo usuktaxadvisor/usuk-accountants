@@ -85,7 +85,7 @@ export default function CorporationTaxCalculator() {
 
         <p className="mt-4 text-xs leading-relaxed text-muted">
           Indicative only, for a single standalone company on {TAX_YEAR_LABEL} rates. The limits are
-          shared between associated companies and short/long accounting periods adjust them — and for a
+          shared between associated companies and short/long accounting periods adjust them, and for a
           US owner, the same profit can also face US tax under the GILTI/NCTI rules. We model both sides.
         </p>
       </div>
@@ -93,7 +93,7 @@ export default function CorporationTaxCalculator() {
       <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">Own a UK company as a US citizen?</p>
         <p className="mt-2 text-sm text-muted">
-          UK Corporation Tax is only half the picture — the same profits can trigger US tax under
+          UK Corporation Tax is only half the picture. The same profits can trigger US tax under
           GILTI/NCTI. We coordinate both so you don&rsquo;t overpay. The first consultation is £350 for a focused 30 minutes.
         </p>
         <div className="mt-4 flex flex-wrap gap-3">

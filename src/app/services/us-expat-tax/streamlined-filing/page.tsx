@@ -21,7 +21,7 @@ const reviewedBy = authors.find((a) => a.slug === 'briana')!;
 const faqs = [
   {
     q: 'Who qualifies for the Streamlined Filing Compliance Procedures?',
-    a: 'US taxpayers whose failure to file was non-willful — meaning a genuine misunderstanding rather than deliberate evasion. Americans living abroad use the Streamlined Foreign Offshore Procedures, under which the IRS does not impose failure-to-file or FBAR penalties, provided the eligibility conditions are met and the package is complete and accurate.',
+    a: 'US taxpayers whose failure to file was non-willful, meaning a genuine misunderstanding rather than deliberate evasion. Americans living abroad use the Streamlined Foreign Offshore Procedures, under which the IRS does not impose failure-to-file or FBAR penalties, provided the eligibility conditions are met and the package is complete and accurate.',
   },
   {
     q: 'How many years do I need to file under Streamlined?',
@@ -29,15 +29,15 @@ const faqs = [
   },
   {
     q: 'Will I have to pay penalties?',
-    a: 'For Americans living abroad who qualify under the Streamlined Foreign Offshore Procedures, the penalty is waived — you pay any tax due plus interest, but not the failure-to-file or FBAR penalties that would otherwise apply. Getting the non-willful certification right is essential.',
+    a: 'For Americans living abroad who qualify under the Streamlined Foreign Offshore Procedures, the usual late-filing penalties are not applied where the conditions are met: you pay any tax due plus interest, but not the failure-to-file or FBAR penalties that would otherwise apply. Getting the non-willful certification right is essential.',
   },
   {
     q: 'What happens if I keep ignoring it?',
-    a: 'The Streamlined programme is a voluntary disclosure route and may not stay open, or available to you, indefinitely. If the IRS contacts you first, you generally lose access to it. Coming forward proactively is almost always the better position — and the sooner the better.',
+    a: 'The Streamlined programme is a voluntary disclosure route and may not stay open, or available to you, indefinitely. If the IRS contacts you first, you generally lose access to it. Coming forward proactively is almost always the better position, and the sooner the better.',
   },
   {
     q: 'Can you handle the whole Streamlined process for me?',
-    a: 'Yes. We assess your eligibility, prepare the required returns and FBARs, draft the non-willful certification, and file the complete package — handled by a US specialist and independently reviewed. Most clients find it far less daunting than expected.',
+    a: 'Yes. We assess your eligibility, prepare the required returns and FBARs, draft the non-willful certification, and file the complete package, all handled by a US specialist and independently reviewed. Most clients find it far less daunting than expected.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function StreamlinedFiling() {
       url={URL}
       eyebrow="US Expat Tax · Streamlined Filing"
       title="Streamlined Filing service for Americans in the UK"
-      answer="The IRS Streamlined Filing Compliance Procedures let Americans abroad whose non-compliance was non-wilful catch up under a procedure that waives the usual late-filing penalties where the conditions are met — typically three years of tax returns and six years of FBARs, plus a non-willful certification. It is the standard route back into compliance, and we handle the entire process for you."
+      answer="The IRS Streamlined Filing Compliance Procedures let Americans abroad whose non-compliance was non-wilful catch up under a procedure that waives the usual late-filing penalties where the conditions are met. That typically means three years of tax returns and six years of FBARs, plus a non-willful certification. It is the standard route back into compliance, and we handle the entire process for you."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -60,7 +60,7 @@ export default function StreamlinedFiling() {
       service={{
         url: URL,
         name: 'IRS Streamlined Filing Compliance Procedures',
-        description: 'IRS Streamlined Foreign Offshore catch-up for non-willful Americans abroad — three years of returns, six years of FBARs and the non-willful certification.',
+        description: 'IRS Streamlined Foreign Offshore catch-up for non-willful Americans abroad: three years of returns, six years of FBARs and the non-willful certification.',
         serviceType: 'Tax Compliance',
       }}
       ctaTitle="Come into compliance with confidence"
@@ -106,7 +106,7 @@ export default function StreamlinedFiling() {
         <Container>
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display text-2xl font-semibold text-ink">Streamlined Foreign vs Streamlined Domestic</h2>
-            <p className="mt-3 text-muted">There are two Streamlined tracks. Which one applies depends chiefly on whether you meet the non-residency test — broadly, whether you have been living outside the US. Most Americans in the UK fall under the Foreign procedure, under which the IRS does not charge the failure-to-file or FBAR penalties where the eligibility conditions are met.</p>
+            <p className="mt-3 text-muted">There are two Streamlined tracks. Which one applies depends chiefly on whether you meet the non-residency test, broadly whether you have been living outside the US. Most Americans in the UK fall under the Foreign procedure, under which the IRS does not charge the failure-to-file or FBAR penalties where the eligibility conditions are met.</p>
           </div>
           <div className="mx-auto mt-8 max-w-3xl">
             <ComparisonTable
@@ -133,7 +133,7 @@ export default function StreamlinedFiling() {
         <Container>
           <div className="mx-auto max-w-3xl">
             <h2 className="font-display text-2xl font-semibold text-ink">What to prepare</h2>
-            <p className="mt-3 text-muted">Having these to hand makes the process faster. Do not worry if some are missing — part of the eligibility review is identifying what is needed and how to obtain it.</p>
+            <p className="mt-3 text-muted">Having these to hand makes the process faster. Do not worry if some are missing. Part of the eligibility review is identifying what is needed and how to obtain it.</p>
             <ul className="mt-4 space-y-2 text-muted">
               <li>Income records for the last three years (employment, self-employment, pensions, investments).</li>
               <li>Foreign account statements or balances for each of the last six years, for the FBARs.</li>
@@ -151,11 +151,11 @@ export default function StreamlinedFiling() {
             <h2 className="font-display text-2xl font-semibold text-ink">Who does not qualify</h2>
             <p className="mt-3 text-muted">Streamlined is designed for genuine, non-willful oversights. It is generally not available where:</p>
             <ul className="mt-4 space-y-2 text-muted">
-              <li>The failure to file was willful — a deliberate choice to avoid filing rather than a good-faith misunderstanding.</li>
+              <li>The failure to file was willful, a deliberate choice to avoid filing rather than a good-faith misunderstanding.</li>
               <li>The IRS has already opened an examination or investigation into your returns.</li>
               <li>The IRS has already contacted you about the delinquency.</li>
             </ul>
-            <p className="mt-3 text-sm text-muted">If any of these apply, other routes may exist — but Streamlined itself is unlikely to be the right one, and specialist advice is essential.</p>
+            <p className="mt-3 text-sm text-muted">If any of these apply, other routes may exist, but Streamlined itself is unlikely to be the right one, and specialist advice is essential.</p>
           </div>
         </Container>
       </Section>
@@ -190,7 +190,7 @@ export default function StreamlinedFiling() {
           'Returns, FBARs and certification included',
           'Specialist preparation with independent review',
         ]}
-        note="Streamlined is a defined scope, so once we have reviewed your facts we quote it in writing, case by case — no open-ended billing."
+        note="Streamlined is a defined scope, so once we have reviewed your facts we quote it in writing, case by case, with no open-ended billing."
       />
 
       <RelatedLinks

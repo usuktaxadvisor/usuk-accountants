@@ -8,7 +8,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/uk-accounting/bookkeeping';
 
 export const metadata: Metadata = {
-  title: 'Bookkeeping Services — Xero & QuickBooks',
+  title: 'Bookkeeping Services with Xero & QuickBooks',
   description:
     'Cloud bookkeeping on Xero or QuickBooks for UK and cross-border businesses: what good bookkeeping involves, Making Tax Digital, common mistakes and dual-currency records.',
   alternates: { canonical: URL },
@@ -20,7 +20,7 @@ const reviewedBy = authors.find((a) => a.slug === 'sarah-j')!;
 const faqs = [
   {
     q: 'What does bookkeeping actually involve?',
-    a: 'Bookkeeping is the ongoing recording and categorising of every financial transaction your business makes — sales, purchases, expenses, payments and receipts — and reconciling them against your bank. It keeps your records accurate and up to date, which is what every other filing (VAT, accounts, tax returns) depends on.',
+    a: 'Bookkeeping is the ongoing recording and categorising of every financial transaction your business makes (sales, purchases, expenses, payments and receipts) and reconciling them against your bank. It keeps your records accurate and up to date, which is what every other filing (VAT, accounts, tax returns) depends on.',
   },
   {
     q: 'Why is good bookkeeping so important?',
@@ -50,7 +50,7 @@ export default function Bookkeeping() {
       url={URL}
       eyebrow="UK Accounting · Bookkeeping"
       title="Bookkeeping that everything else relies on"
-      answer="Bookkeeping is the ongoing recording, categorising and bank-reconciling of every transaction your business makes. It is the foundation beneath your VAT returns, year-end accounts and tax returns — all of which are only as accurate as the books behind them. We work with cloud platforms such as Xero and QuickBooks, keeping records live and Making-Tax-Digital ready, and can maintain dual-currency records for clients operating across the US and UK."
+      answer="Bookkeeping is the ongoing recording, categorising and bank-reconciling of every transaction your business makes. It is the foundation beneath your VAT returns, year-end accounts and tax returns, all of which are only as accurate as the books behind them. We work with cloud platforms such as Xero and QuickBooks, keeping records live and Making-Tax-Digital ready, and can maintain dual-currency records for clients operating across the US and UK."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'UK Accounting', href: '/services/uk-accounting' },
@@ -75,14 +75,14 @@ export default function Bookkeeping() {
             <div className="max-w-prose space-y-4 text-[17px] leading-relaxed text-muted [&_strong]:text-ink">
               <p>
                 <strong>Bookkeeping</strong> is the quiet engine of everything else. It is the ongoing work of{' '}
-                <strong>recording and categorising every transaction</strong> — sales, purchases, expenses, receipts
-                — and <strong>reconciling</strong> them against your bank, so your numbers are always accurate and
+                <strong>recording and categorising every transaction</strong> (sales, purchases, expenses, receipts)
+                and <strong>reconciling</strong> them against your bank, so your numbers are always accurate and
                 current.
               </p>
               <p>
                 It matters because <strong>every other filing depends on it</strong>. Your VAT returns, year-end
                 accounts, Corporation Tax and Self Assessment are only as reliable as the books underneath them.
-                Messy records mean errors, higher fees and deadline panic; clean records mean the opposite — and
+                Messy records mean errors, higher fees and deadline panic; clean records mean the opposite, and
                 better decisions all year round.
               </p>
               <p>
@@ -129,13 +129,13 @@ export default function Bookkeeping() {
               Keeping your books in <strong>cloud software</strong> does more than tidy the admin. Bank feeds pull
               transactions in automatically, receipts can be captured digitally, and the records connect straight to{' '}
               <strong>Making Tax Digital</strong> filing. That means you are already set up for MTD for VAT, and
-              positioned for <strong>MTD for Income Tax Self Assessment</strong> as it rolls out — no scramble when
+              positioned for <strong>MTD for Income Tax Self Assessment</strong> as it rolls out, with no scramble when
               the rules tighten.
             </p>
             <h2 className="font-display text-2xl font-semibold text-ink">Catching up a backlog</h2>
             <p>
               If your books have slipped, that is common and fixable. We bring backlogged records up to date,
-              reconcile historic transactions, and then keep them current. The key is acting <strong>early</strong> —
+              reconcile historic transactions, and then keep them current. The key is acting <strong>early</strong>:
               a backlog caught mid-year is routine; the same backlog discovered at a deadline is an emergency.
             </p>
           </div>
@@ -156,7 +156,7 @@ export default function Bookkeeping() {
             <p>
               Good bookkeeping is rarely the most glamorous service, but it is the one that quietly saves the most.
               Accurate, current books reduce your year-end accountancy time, cut the risk of errors and penalties
-              across VAT and tax, and — most valuably — give you real numbers to make decisions on during the year,
+              across VAT and tax, and, most valuably, give you real numbers to make decisions on during the year,
               not just a verdict after it.
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function Bookkeeping() {
           { title: 'Set up software', description: 'We set up or migrate you to Xero or QuickBooks with bank feeds and the right chart of accounts.' },
           { title: 'Record & reconcile', description: 'We keep transactions recorded, categorised and reconciled to the bank on a regular cycle.' },
           { title: 'Keep you MTD-ready', description: 'Your records stay digital and compatible, ready for VAT and future MTD requirements.' },
-          { title: 'Feed the bigger picture', description: 'Clean books flow into your VAT, accounts and tax — and into dual-currency reporting where needed.' },
+          { title: 'Feed the bigger picture', description: 'Clean books flow into your VAT, accounts and tax, and into dual-currency reporting where needed.' },
         ]}
       />
 

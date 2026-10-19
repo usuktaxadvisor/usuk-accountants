@@ -31,7 +31,7 @@ export default async function BookPage({
   const isBusiness = tier.id === 'business';
 
   const reassurances = [
-    `${tier.durationLabel} private consultation — ${tier.price}`,
+    `${tier.durationLabel} private consultation at ${tier.price}`,
     'Speak directly to a cross-border specialist',
     'Clear next steps for your exact situation',
     'Written quote before any work begins',
@@ -74,12 +74,12 @@ export default async function BookPage({
             <div className="relative max-w-2xl">
               <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">{tier.name}</p>
               <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                {isBusiness ? 'Plan your cross-border position with confidence' : 'Let\u2019s simplify your US–UK taxes'}
+                {isBusiness ? 'Plan your cross-border position with confidence' : 'Simplify your US–UK taxes'}
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
                 {isBusiness
                   ? `A ${tier.durationLabel} working session (${tier.price}) on structure, exposure and strategy for your business across both tax systems. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`
-                  : `Choose a time that suits you for a focused ${tier.durationLabel} private consultation with a specialist \u2014 ${tier.price}, with a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`}
+                  : `Choose a time that suits you for a focused ${tier.durationLabel} private consultation with a specialist at ${tier.price}, giving you a clear view of exactly where you stand. Prefer to ask a quick question first? Email us and we\u2019ll answer general queries free.`}
               </p>
               <div className="mt-6 flex flex-wrap gap-3 text-sm">
                 {CONSULTATION_TIERS.filter((t) => t.id !== 'private').map((t) => (
@@ -118,7 +118,7 @@ export default async function BookPage({
                 <div className="mt-8 rounded-2xl border border-mist bg-porcelain p-6">
                   <p className="text-sm font-medium text-ink">Specialists in both tax systems, not generalists</p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
-                    One team handles your US and UK position together &mdash; so your reliefs line up and nothing
+                    One team handles your US and UK position together, so your reliefs line up and nothing
                     falls between the two systems. Your {tier.price} {isBusiness ? 'strategy session' : 'consultation'} is a
                     dedicated {tier.durationLabel} with a cross-border specialist, focused entirely on your situation.
                   </p>
@@ -141,7 +141,7 @@ export default async function BookPage({
                 <div className="mt-4 rounded-xl border border-gold/30 bg-gold/5 p-5 text-sm">
                   <p className="font-medium text-ink">Just a quick question?</p>
                   <p className="mt-2 leading-relaxed text-muted">
-                    General queries are answered free by email &mdash; no booking needed. The {tier.price}{' '}
+                    General queries are answered free by email, with no booking needed. The {tier.price}{' '}
                     {isBusiness ? 'strategy session' : 'consultation'} is for a dedicated, in-depth {tier.durationLabel} on your specific situation.
                   </p>
                   <a href={`mailto:${SITE.email}`} className="mt-3 inline-block font-semibold text-navy hover:text-gold">
@@ -172,7 +172,7 @@ export default async function BookPage({
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     You&rsquo;ll pick a time, pay securely, and receive a calendar invite with a private video
                     link. We&rsquo;ll ask a few short questions in advance so the specialist arrives already
-                    briefed on your situation &mdash; no time wasted on background.
+                    briefed on your situation, so no time is wasted on background.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-mist bg-white p-6">
@@ -180,7 +180,7 @@ export default async function BookPage({
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     A focused {tier.durationLabel} with a cross-border specialist who understands both
                     systems. We&rsquo;ll address your specific questions, flag the risks that matter, and give you
-                    a clear view of your US&ndash;UK position &mdash; in plain English.
+                    a clear view of your US&ndash;UK position, in plain English.
                   </p>
                 </div>
                 <div className="rounded-2xl border border-mist bg-white p-6">
@@ -211,7 +211,7 @@ export default async function BookPage({
                   </div>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     Everything you share is treated in strict confidence and handled in line with UK GDPR.
-                    Payment is processed securely by our payment provider &mdash; we never see or store your card
+                    Payment is processed securely by our payment provider, so we never see or store your card
                     details. Read our{' '}
                     <Link href="/privacy" className="font-medium text-navy hover:text-gold">privacy policy</Link>.
                   </p>
@@ -224,7 +224,7 @@ export default async function BookPage({
                 <a href={`mailto:${SITE.email}`} className="font-medium text-navy hover:text-gold">
                   Email us your question free
                 </a>{' '}at{' '}<span className="font-medium text-navy">{SITE.email}</span>{' '}
-                &mdash; we answer general queries at no charge.
+                and we answer general queries at no charge.
               </p>
             </div>
           </Container>

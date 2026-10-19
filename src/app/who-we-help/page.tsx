@@ -7,7 +7,7 @@ import { IconArrowRight } from '@/components/ui/icons';
 const URL = 'https://www.usukaccountants.com/who-we-help';
 
 export const metadata: Metadata = {
-  title: 'Who We Help — US & UK Cross-Border Clients',
+  title: 'Who We Help: US & UK Cross-Border Clients',
   description:
     'Specialist tax and accounting for Americans in the UK, Britons in the US, dual citizens, cross-border families, business owners and high-net-worth individuals.',
   alternates: { canonical: URL },

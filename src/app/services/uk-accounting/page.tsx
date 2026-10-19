@@ -11,7 +11,7 @@ const URL = 'https://www.usukaccountants.com/services/uk-accounting';
 export const metadata: Metadata = {
   title: 'UK Accounting Services for US-Connected Clients',
   description:
-    'UK company accounts, Corporation Tax, VAT, payroll and Self Assessment for individuals and businesses with US connections — coordinated with your US tax position.',
+    'UK company accounts, Corporation Tax, VAT, payroll and Self Assessment for individuals and businesses with US connections, coordinated with your US tax position.',
   alternates: { canonical: URL },
 };
 
@@ -30,11 +30,11 @@ const faqs = [
   },
   {
     q: 'What UK accounting services do you provide?',
-    a: 'Company accounts and Corporation Tax for limited companies, VAT registration and returns, payroll and PAYE, bookkeeping, and Self Assessment for individuals, directors, landlords and the self-employed — all handled with your US position in mind where relevant.',
+    a: 'Company accounts and Corporation Tax for limited companies, VAT registration and returns, payroll and PAYE, bookkeeping, and Self Assessment for individuals, directors, landlords and the self-employed, all handled with your US position in mind where relevant.',
   },
   {
     q: 'Can you coordinate my UK accounts with my US tax return?',
-    a: 'Yes — that coordination is the core of what we do. We make sure UK and US filings are consistent, foreign tax credits and treaty positions are claimed correctly, and you are not taxed twice on the same income.',
+    a: 'Yes, that coordination is the core of what we do. We make sure UK and US filings are consistent, foreign tax credits and treaty positions are claimed correctly, and you are not taxed twice on the same income.',
   },
   {
     q: 'How much do UK accounting services cost?',
@@ -70,7 +70,7 @@ export default function UkAccountingPillar() {
         <p>
           Most accountants handle UK compliance in isolation. But if you are a US citizen running a UK company,
           a dual citizen with rental income on both sides, or a business trading across the Atlantic, your UK
-          accounts and your US tax return are connected — decisions on one side change the outcome on the other.
+          accounts and your US tax return are connected, and decisions on one side change the outcome on the other.
         </p>
         <p>
           <strong>We handle the UK side properly and coordinate it with your US position</strong>, so you stay
@@ -102,7 +102,7 @@ export default function UkAccountingPillar() {
       <ProcessSteps
         steps={[
           { title: 'Book a consultation', description: 'A short call to understand your UK and US position and what you need.' },
-          { title: 'Written quote', description: 'A clear proposal priced to your complexity — no surprises.' },
+          { title: 'Written quote', description: 'A clear proposal priced to your complexity, with no surprises.' },
           { title: 'We do the work', description: 'Accounts, returns and filings prepared, reviewed and coordinated across both jurisdictions.' },
           { title: 'Ongoing partnership', description: 'Proactive planning and support through every deadline, both sides of the Atlantic.' },
         ]}

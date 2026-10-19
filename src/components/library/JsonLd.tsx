@@ -1,6 +1,6 @@
 /**
  * Renders one or more JSON-LD schema objects into the document.
- * Server component — schema lands in the initial HTML for crawlers + AI engines.
+ * Server component: schema lands in the initial HTML for crawlers + AI engines.
  */
 export function JsonLd({ schema }: { schema: object | object[] }) {
   const items = Array.isArray(schema) ? schema : [schema];

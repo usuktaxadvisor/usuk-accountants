@@ -103,7 +103,7 @@ export default function DelinquentFbarPenaltyCalculator() {
         </div>
       )}
       <p className="mt-5 text-xs text-slate-400">
-        Estimates only. Every situation is fact-specific — speak to a specialist before acting.
+        Estimates only. Every situation is fact-specific. Speak to a specialist before acting.
       </p>
     </div>
   );
