@@ -22,7 +22,7 @@ export function ReviewSummary({
   breakdown: { stars: number; pct: number }[];
 }) {
   return (
-    <div className="grid items-center gap-8 rounded-2xl border border-mist bg-porcelain p-8 sm:grid-cols-[auto_1fr]">
+    <div className="grid items-center gap-8 rounded-card border border-mist bg-porcelain p-8 sm:grid-cols-[auto_1fr]">
       <div className="text-center sm:border-r sm:border-mist sm:pr-8">
         <p className="font-display text-5xl font-semibold text-ink tnum">{average.toFixed(1)}</p>
         <div className="mt-2 flex justify-center"><Stars rating={Math.round(average)} /></div>
@@ -45,7 +45,7 @@ export function ReviewSummary({
 
 export function ReviewCard({ review }: { review: Review }) {
   return (
-    <figure className="flex flex-col rounded-2xl border border-mist bg-white p-6">
+    <figure className="flex flex-col rounded-card border border-mist bg-white p-6">
       <div className="mb-3 flex items-center justify-between">
         <Stars rating={review.rating} />
         {review.source && (

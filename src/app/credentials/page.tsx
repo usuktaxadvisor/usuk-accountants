@@ -26,11 +26,12 @@ export default function CredentialsPage() {
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-about" />
           <Container>
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Professional standards</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="kicker kicker-light">Professional standards</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 Credentials that matter in cross-border tax
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -46,7 +47,7 @@ export default function CredentialsPage() {
           <Container>
             <div className="space-y-4">
               {bodies.map((b) => (
-                <div key={b.abbr} className="flex flex-col gap-4 rounded-2xl border border-mist bg-white p-7 sm:flex-row sm:items-center">
+                <div key={b.abbr} className="flex flex-col gap-4 rounded-card border border-mist bg-white p-7 sm:flex-row sm:items-center">
                   <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-navy-ink font-display text-base font-semibold text-gold-champagne">
                     {b.abbr}
                   </div>

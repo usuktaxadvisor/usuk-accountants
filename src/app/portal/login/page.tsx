@@ -26,7 +26,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
 
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="font-display text-3xl font-semibold text-ink">Client login</h1>
+      <h1 className="font-display text-display-md text-ink">Client login</h1>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         Access is by invitation from our team. If you don&rsquo;t yet have login details, please
         contact us at hello@usukaccountants.com.
@@ -36,7 +36,7 @@ export default async function LoginPage({ searchParams }: { searchParams: Promis
           Those details didn&rsquo;t match. Please check and try again.
         </p>
       ) : null}
-      <form action={doLogin} className="mt-6 space-y-4 rounded-2xl border border-mist bg-white p-7 shadow-e2">
+      <form action={doLogin} className="mt-6 space-y-4 rounded-card border border-mist bg-white p-7 shadow-e2">
         <label className="block">
           <span className="text-sm font-semibold text-ink">Email</span>
           <input name="email" type="email" required autoComplete="email"

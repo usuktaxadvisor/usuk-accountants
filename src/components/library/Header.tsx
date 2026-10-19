@@ -75,7 +75,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Link
               href="/contact"
-              className="hidden whitespace-nowrap rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink shadow-e1 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold sm:inline-block"
+              className="btn-gold hidden whitespace-nowrap rounded-md px-5 py-2.5 text-sm font-semibold sm:inline-block"
             >
               Contact us
             </Link>
@@ -133,14 +133,14 @@ export default function Header() {
           <Link
             href="/contact"
             onClick={() => setOpen(false)}
-            className="mt-6 block rounded-lg bg-gradient-to-r from-gold to-gold-champagne py-3.5 text-center font-semibold text-navy-ink"
+            className="btn-gold mt-6 block rounded-md py-3.5 text-center font-semibold"
           >
             Contact us
           </Link>
           <Link
             href="/portal/login"
             onClick={() => setOpen(false)}
-            className="mt-3 block rounded-lg border border-navy/30 py-3.5 text-center font-semibold text-navy"
+            className="mt-3 block rounded-md border border-navy/30 py-3.5 text-center font-semibold text-navy"
           >
             Client Login
           </Link>

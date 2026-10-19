@@ -4,27 +4,20 @@ import { IconArrowRight } from '@/components/ui/icons';
 export function TeamCard({ member }: { member: TeamMember }) {
   const { name, role, credentials, jurisdictions, initials, href } = member;
   return (
-    <article className="group rounded-2xl border border-mist bg-white p-7 transition-all duration-300 hover:border-gold hover:shadow-e2">
+    <article className="group rounded-card border border-mist bg-white p-7 transition-all duration-300 hover:border-gold/70 hover:shadow-e2">
       <div className="flex items-center gap-4">
-        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-navy-ink font-display text-lg font-semibold text-gold-champagne">
+        <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-navy-ink font-display text-lg text-gold-champagne">
           {initials}
         </span>
         <div>
-          <h3 className="font-display text-lg font-semibold text-ink">{name}</h3>
+          <h3 className="font-display text-display-sm text-ink">{name}</h3>
           <p className="text-sm text-muted">{role}</p>
         </div>
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-2">
-        {credentials.map((c) => (
-          <span
-            key={c}
-            className="rounded-full bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold-antique"
-          >
-            {c}
-          </span>
-        ))}
-      </div>
+      {credentials.length > 0 && (
+        <p className="mt-5 text-sm font-medium text-gold-antique">{credentials.join(' \u00b7 ')}</p>
+      )}
 
       {jurisdictions && jurisdictions.length > 0 && (
         <p className="mt-4 text-sm text-muted">

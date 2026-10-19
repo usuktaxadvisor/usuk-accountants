@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { JsonLd } from '@/components/library';
 import { faqSchema } from '@/lib/schema';
@@ -7,7 +6,7 @@ import {
   Header, Footer, MobileBar,
   Hero, TrustBar, Pillars, Calculator, ServicesSection,
   WhoWeHelp, ProcessStats, TestimonialsSection, FAQSection, CTASection,
-  Section, Container, ConsultationTiers,
+  Section, Container, ConsultationTiers, AtlanticStrip, Eyebrow,
 } from '@/components/library';
 
 export default function Home() {
@@ -21,10 +20,10 @@ export default function Home() {
         <Section tone="white">
           <Container>
             <div className="mx-auto max-w-6xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">What we prepare and file</p>
-              <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Tax returns and compliance, US and UK, under one roof</h2>
-              <p className="mt-4 max-w-prose text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each quoted in writing, case by case, before we start.</p>
-              <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              <Eyebrow className="mb-4">What we prepare and file</Eyebrow>
+              <h2 className="font-display text-display-md text-ink">Tax returns and compliance, US and UK, under one roof</h2>
+              <p className="mt-5 max-w-prose text-lg leading-relaxed text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each quoted in writing, case by case, before we start.</p>
+              <ul className="mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { label: 'US tax returns (Form 1040)', detail: 'Federal and state returns for US citizens and green card holders living in the UK.', href: '/services/us-expat-tax/us-tax-returns' },
                   { label: 'UK Self Assessment', detail: 'HMRC returns for the self-employed, landlords, high earners and people with US income.', href: '/services/uk-accounting/self-assessment' },
@@ -35,10 +34,10 @@ export default function Home() {
                   { label: 'W-8BEN, W-8BEN-E and W-9', detail: 'The right US withholding form, with treaty rates applied where they apply.', href: '/services/us-expat-tax/w-8ben-us-withholding-forms' },
                   { label: 'Late and catch-up US filings', detail: 'Delinquent FBARs and late returns where the Streamlined route does not apply.', href: '/resources/guides/delinquent-fbar' },
                 ].map((s) => (
-                  <li key={s.href} className="rounded-2xl border border-mist bg-white p-5 transition-colors hover:border-navy-ink">
-                    <Link href={s.href} className="block">
-                      <span className="font-semibold text-ink">{s.label}</span>
-                      <span className="mt-2 block text-sm text-muted">{s.detail}</span>
+                  <li key={s.href} className="border-t border-navy-ink/15 pt-4">
+                    <Link href={s.href} className="group block">
+                      <span className="font-display text-xl text-ink transition-colors group-hover:text-gold-antique">{s.label}</span>
+                      <span className="mt-2 block text-sm leading-relaxed text-muted">{s.detail}</span>
                     </Link>
                   </li>
                 ))}
@@ -49,6 +48,7 @@ export default function Home() {
         <Pillars />
         <Calculator />
         <ServicesSection />
+        <AtlanticStrip />
         <WhoWeHelp />
         <Section tone="white">
           <Container>
@@ -57,18 +57,6 @@ export default function Home() {
         </Section>
         <ProcessStats />
         <TestimonialsSection />
-        <section className="bg-navy-ink py-16 md:py-20">
-          <div className="mx-auto grid max-w-6xl gap-5 px-6 sm:grid-cols-2">
-            <figure>
-              <Image src="/images/atlantic/bridge-london.jpg" alt="Tower Bridge in London at dusk, its walkways traced in warm golden light" width={1800} height={1013} sizes="(min-width: 640px) 50vw, 100vw" className="h-64 w-full rounded-2xl object-cover sm:h-80" />
-              <figcaption className="mt-3 text-sm font-semibold tracking-wide text-softwhite/70">LONDON</figcaption>
-            </figure>
-            <figure>
-              <Image src="/images/atlantic/loc-newyork.jpg" alt="Brooklyn Bridge at dusk with the warm lights of Lower Manhattan beyond" width={1800} height={1013} sizes="(min-width: 640px) 50vw, 100vw" className="h-64 w-full rounded-2xl object-cover sm:h-80" />
-              <figcaption className="mt-3 text-sm font-semibold tracking-wide text-softwhite/70">NEW YORK</figcaption>
-            </figure>
-          </div>
-        </section>
         <FAQSection />
         <CTASection
           title="Ready to simplify your US–UK taxes?"

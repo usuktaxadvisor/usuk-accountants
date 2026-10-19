@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Header, Footer, Section, Container, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
+import { Header, Footer, Section, Container, SectionHeading, CTASection, Breadcrumbs, JsonLd, AtlanticStrip } from '@/components/library';
 import { breadcrumbSchema } from '@/lib/schema';
 import { authors } from '@/lib/authority-data';
 import { credentialCodesFor } from '@/lib/credentials-data';
@@ -20,11 +20,12 @@ export default function TeamPage() {
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-about" />
           <Container>
-            <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Our team</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+            <div className="max-w-3xl">
+              <p className="kicker kicker-light">Our team</p>
+              <h1 className="mt-5 font-display text-display-lg text-white">
                 Led by cross-border tax specialists
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -43,19 +44,15 @@ export default function TeamPage() {
                 <a
                   key={a.slug}
                   href={`/about/team/${a.slug}`}
-                  className="group rounded-2xl border border-mist bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+                  className="group rounded-card border border-mist bg-white p-7 transition-all duration-300 hover:border-gold/70 hover:shadow-e2"
                 >
-                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-navy-ink font-display text-lg font-semibold text-gold-champagne">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-gold/50 bg-navy-ink font-display text-lg text-gold-champagne">
                     {a.initials}
                   </span>
-                  <h2 className="mt-5 font-display text-lg font-semibold text-ink">{a.name}</h2>
+                  <h2 className="mt-5 font-display text-display-sm text-ink">{a.name}</h2>
                   <p className="text-sm text-muted">{a.role}</p>
                   {credentialCodesFor(a.slug).length > 0 && (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {credentialCodesFor(a.slug).map((c) => (
-                        <span key={c} className="rounded-full bg-gold/10 px-2.5 py-1 text-xs font-semibold text-gold-antique">{c}</span>
-                      ))}
-                    </div>
+                    <p className="mt-3 text-sm font-medium text-gold-antique">{credentialCodesFor(a.slug).join(' \u00b7 ')}</p>
                   )}
                   <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-muted">{a.bio}</p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-gold-antique">
@@ -67,6 +64,8 @@ export default function TeamPage() {
             </div>
           </Container>
         </Section>
+
+        <AtlanticStrip tone="white" eyebrow="Where our clients are" title="Between London, Manchester and New York" intro="Our clients live on both sides of the Atlantic. The team prepares the US and UK sides together, and every filing is reviewed by a second specialist before it goes out." />
 
         <CTASection
           title="Work with specialists who know both systems"

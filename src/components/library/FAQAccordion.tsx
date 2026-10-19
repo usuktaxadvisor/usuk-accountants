@@ -35,7 +35,7 @@ export function FAQAccordion({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       )}
-      <div className="divide-y divide-mist overflow-hidden rounded-2xl border border-mist bg-white">
+      <div className="divide-y divide-mist overflow-hidden rounded-card border border-mist bg-white">
         {items.map((f, i) => {
           const isOpen = open === i;
           return (

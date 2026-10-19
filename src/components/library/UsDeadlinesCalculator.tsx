@@ -78,7 +78,7 @@ export default function UsDeadlinesCalculator() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         <h2 className="font-display text-2xl font-semibold text-ink">Your US filing dates as an American abroad</h2>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           Choose the tax year you are filing for. These are the standard dates for a calendar-year US filer living overseas.

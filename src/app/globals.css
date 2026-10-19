@@ -30,12 +30,14 @@ body {
 }
 
 /* Scroll reveal — hidden state applies only once JS is confirmed (html.js),
-   so content is never invisible for crawlers or if a script fails. */
+   so content is never invisible for crawlers or if a script fails.
+   Deliberately quiet: a short fade with a 10px rise, slower easing, and
+   no stagger choreography on every grid. One reveal per section. */
 html.js .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(10px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 html.js .reveal.is-visible {
@@ -43,23 +45,166 @@ html.js .reveal.is-visible {
   transform: translateY(0);
 }
 
-/* Staggered children */
+/* Staggered children: kept for the few grids that still use it, but with a
+   gentler rise and a narrower delay band so the group reads as one gesture. */
 html.js .reveal-stagger > * {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 html.js .reveal-stagger.is-visible > * {
   opacity: 1;
   transform: translateY(0);
 }
 .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0ms; }
-.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 70ms; }
-.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 140ms; }
-.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 210ms; }
-.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 280ms; }
-.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 350ms; }
+.reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 60ms; }
+.reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 120ms; }
+.reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 180ms; }
+.reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 240ms; }
+.reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 300ms; }
+
+/* ============================================================
+   Kicker — the small gold line above a heading.
+   Sentence case, a short rule, no tracking games.
+   ============================================================ */
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #A8893A;
+}
+.kicker::before {
+  content: '';
+  display: inline-block;
+  width: 1.75rem;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.8;
+}
+.kicker-light { color: #E2CE92; }
+.kicker-center { justify-content: center; }
+
+/* ============================================================
+   Buttons — solid gold on navy text. No gradient, no shimmer.
+   ============================================================ */
+.btn-gold {
+  background-color: #C9A84C;
+  color: #0A1330;
+  box-shadow: 0 1px 2px rgba(10, 19, 48, 0.08);
+  transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+}
+.btn-gold:hover { background-color: #D7B965; box-shadow: 0 10px 24px -10px rgba(201, 168, 76, 0.55); }
+.btn-gold:active { transform: translateY(1px); }
+
+/* ============================================================
+   Atlantic strip — one continuous, slowly drifting row of destination
+   photography. Two identical tracks sit side by side; the row translates
+   by half its width and loops, so the motion never jumps.
+   Pauses on hover, on keyboard focus within, when the user toggles it,
+   and entirely under prefers-reduced-motion (static grid instead).
+   ============================================================ */
+.strip {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.strip-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  animation: drift var(--strip-duration, 110s) linear infinite;
+  will-change: transform;
+}
+.strip:hover .strip-track,
+.strip:focus-within .strip-track,
+.strip[data-paused='true'] .strip-track {
+  animation-play-state: paused;
+}
+.strip-item {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(240px, 28vw, 420px);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #16264F;
+}
+.strip-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  filter: saturate(0.92) contrast(1.02);
+}
+.strip-item figcaption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  padding: 2.25rem 1rem 0.9rem;
+  background: linear-gradient(180deg, rgba(10, 19, 48, 0) 0%, rgba(10, 19, 48, 0.78) 100%);
+  color: #EAEDF5;
+  font-size: 0.8125rem;
+  letter-spacing: 0.02em;
+}
+.strip-item figcaption span { color: #E2CE92; }
+
+/* ============================================================
+   Parallax — a small, slow vertical drift on decorative layers only.
+   The JS sets --py in pixels (clamped to ±28px). Content never moves.
+   ============================================================ */
+.parallax-layer {
+  transform: translate3d(0, var(--py, 0px), 0);
+  will-change: transform;
+}
+
+/* ============================================================
+   Page header backdrops — one photograph per section, behind a navy
+   wash so headlines keep full contrast. The image fades toward the
+   copy column; the right-hand third carries the picture.
+   ============================================================ */
+.page-header {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #0A1330;
+}
+.page-header-art {
+  position: absolute;
+  top: -32px;
+  bottom: -32px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background-size: cover;
+  background-position: center 40%;
+  opacity: 0.42;
+  -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 45%, #000 100%);
+          mask-image: linear-gradient(90deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 45%, #000 100%);
+}
+.page-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(10, 19, 48, 0.15) 0%, rgba(10, 19, 48, 0) 40%, rgba(10, 19, 48, 0.6) 100%);
+}
+.art-us-expat { background-image: url('/images/atlantic/bd-us-expat.webp'); }
+.art-uk-accounting { background-image: url('/images/atlantic/bd-uk-accounting.webp'); }
+.art-advisory { background-image: url('/images/atlantic/bd-advisory.webp'); }
+.art-resources { background-image: url('/images/atlantic/bd-resources.webp'); }
+.art-about { background-image: url('/images/atlantic/bd-about.webp'); }
+.art-who { background-image: url('/images/atlantic/bd-who.webp'); }
+.art-london { background-image: url('/images/atlantic/loc-london-bg.webp'); }
+.art-manchester { background-image: url('/images/atlantic/loc-manchester-bg.webp'); }
+.art-newyork { background-image: url('/images/atlantic/loc-newyork-bg.webp'); }
+
+/* Hairline rules between editorial columns (pillars) */
+.rule-cols > * + * { border-top: 1px solid #EDEFF4; }
+@media (min-width: 768px) {
+  .rule-cols > * + * { border-top: 0; border-left: 1px solid #EDEFF4; }
+}
 
 /* Focus visibility */
 :focus-visible {
@@ -82,6 +227,11 @@ html.js .reveal-stagger.is-visible > * {
     opacity: 1 !important;
     transform: none !important;
   }
+  .parallax-layer { transform: none !important; }
+  /* The strip stops drifting and shows as a static, scrollable row. */
+  .strip { -webkit-mask-image: none; mask-image: none; overflow-x: auto; }
+  .strip-track { animation: none !important; }
+  .strip-track > .strip-dup { display: none; }
 }
 
 /* ---------- Blog article body (Markdown-rendered HTML) ---------- */

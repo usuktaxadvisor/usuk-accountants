@@ -72,8 +72,8 @@ export default async function BookPage({
           </svg>
           <Container>
             <div className="relative max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">{tier.name}</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="kicker kicker-light">{tier.name}</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 {isBusiness ? 'Plan your cross-border position with confidence' : 'Simplify your US–UK taxes'}
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -115,7 +115,7 @@ export default async function BookPage({
                   ))}
                 </ul>
 
-                <div className="mt-8 rounded-2xl border border-mist bg-porcelain p-6">
+                <div className="mt-8 rounded-card border border-mist bg-porcelain p-6">
                   <p className="text-sm font-medium text-ink">Specialists in both tax systems, not generalists</p>
                   <p className="mt-3 text-sm leading-relaxed text-muted">
                     One team handles your US and UK position together, so your reliefs line up and nothing
@@ -161,13 +161,13 @@ export default async function BookPage({
         <div className="border-t border-mist bg-porcelain py-16 md:py-20">
           <Container>
             <div className="mx-auto max-w-4xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">What to expect</p>
-              <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink">
+              <p className="kicker">What to expect</p>
+              <h2 className="mt-3 font-display text-display-md text-ink">
                 Your consultation, end to end
               </h2>
 
               <div className="mt-10 grid gap-6 md:grid-cols-3">
-                <div className="rounded-2xl border border-mist bg-white p-6">
+                <div className="rounded-card border border-mist bg-white p-6">
                   <p className="font-display text-lg font-semibold text-ink">Before</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     You&rsquo;ll pick a time, pay securely, and receive a calendar invite with a private video
@@ -175,7 +175,7 @@ export default async function BookPage({
                     briefed on your situation, so no time is wasted on background.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-mist bg-white p-6">
+                <div className="rounded-card border border-mist bg-white p-6">
                   <p className="font-display text-lg font-semibold text-ink">During</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     A focused {tier.durationLabel} with a cross-border specialist who understands both
@@ -183,7 +183,7 @@ export default async function BookPage({
                     a clear view of your US&ndash;UK position, in plain English.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-mist bg-white p-6">
+                <div className="rounded-card border border-mist bg-white p-6">
                   <p className="font-display text-lg font-semibold text-ink">After</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">
                     You&rsquo;ll leave knowing your next steps. If you&rsquo;d like us to handle the work,
@@ -193,7 +193,7 @@ export default async function BookPage({
               </div>
 
               <div className="mt-8 grid gap-6 sm:grid-cols-2">
-                <div className="rounded-2xl border border-mist bg-white p-6">
+                <div className="rounded-card border border-mist bg-white p-6">
                   <div className="flex items-center gap-2">
                     <IconShield className="h-4 w-4 text-gold" aria-hidden />
                     <p className="font-display text-base font-semibold text-ink">Cancellation &amp; refunds</p>
@@ -204,7 +204,7 @@ export default async function BookPage({
                     always try to move you to another time where we can.
                   </p>
                 </div>
-                <div className="rounded-2xl border border-mist bg-white p-6">
+                <div className="rounded-card border border-mist bg-white p-6">
                   <div className="flex items-center gap-2">
                     <IconShield className="h-4 w-4 text-gold" aria-hidden />
                     <p className="font-display text-base font-semibold text-ink">Confidential &amp; secure</p>

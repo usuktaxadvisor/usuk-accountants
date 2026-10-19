@@ -8,7 +8,7 @@ export default function NotFound() {
         <Container>
           <div className="mx-auto max-w-prose text-center">
             <p className="font-display text-6xl font-semibold text-gold">404</p>
-            <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink">
+            <h1 className="mt-4 font-display text-display-md text-ink">
               We couldn&rsquo;t find that page
             </h1>
             <p className="mt-4 text-muted">

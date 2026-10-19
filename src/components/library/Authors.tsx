@@ -18,24 +18,24 @@ export function AuthorByline({
   reviewedBy?: Author;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-xl border border-mist bg-porcelain p-4">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-navy-ink font-display text-sm font-semibold text-gold-champagne">
+    <div className="inline-flex items-center gap-3 border-l-2 border-gold/70 pl-4">
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-gold/50 bg-navy-ink font-display text-sm text-gold-champagne">
         {author.initials}
       </span>
       <div className="text-sm">
         <p>
-          <span className="text-muted">By </span>
-          <a href={`/about/team/${author.slug}`} className="font-semibold text-ink hover:text-gold-antique">{author.name}</a>
-          <span className="text-muted">, {author.role}</span>
+          <span className="text-softwhite/60">By </span>
+          <a href={`/about/team/${author.slug}`} className="font-semibold text-white hover:text-gold-champagne">{author.name}</a>
+          <span className="text-softwhite/60">, {author.role}</span>
         </p>
-        <p className="mt-0.5 text-xs text-muted">
+        <p className="mt-0.5 text-xs text-softwhite/60">
           {credentialCodesFor(author.slug).length > 0 && (
             <>{credentialCodesFor(author.slug).join(' · ')}
               {reviewedBy ? ' · ' : ''}</>
           )}
           {reviewedBy ? (
             <>Reviewed by{' '}
-              <a href={`/about/team/${reviewedBy.slug}`} className="font-medium text-ink hover:text-gold-antique">
+              <a href={`/about/team/${reviewedBy.slug}`} className="font-medium text-softwhite hover:text-gold-champagne">
                 {reviewedBy.name}
               </a>
             </>
@@ -70,7 +70,7 @@ export function AuthorProfile({ author }: { author: Author }) {
           {author.initials}
         </span>
         <div>
-          <h1 className="font-display text-3xl font-semibold tracking-tight text-ink">{author.name}</h1>
+          <h1 className="font-display text-display-md text-ink">{author.name}</h1>
           <p className="mt-1 text-muted">{author.role}</p>
           {credentialCodesFor(author.slug).length > 0 && (
             <div className="mt-3 flex flex-wrap gap-2">
@@ -86,7 +86,7 @@ export function AuthorProfile({ author }: { author: Author }) {
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">Areas of expertise</p>
+          <p className="kicker">Areas of expertise</p>
           <ul className="mt-3 space-y-2">
             {author.expertise.map((e) => (
               <li key={e} className="flex items-start gap-2 text-sm text-muted">
@@ -96,7 +96,7 @@ export function AuthorProfile({ author }: { author: Author }) {
           </ul>
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">At a glance</p>
+          <p className="kicker">At a glance</p>
           <dl className="mt-3 space-y-2 text-sm">
             {credentialCodesFor(author.slug).length > 0 && (
               <div className="flex justify-between border-b border-mist pb-2">
@@ -120,7 +120,7 @@ export function AuthorProfile({ author }: { author: Author }) {
 
       {author.sameAs && author.sameAs.filter((s) => s.href && s.href !== '#').length > 0 && (
         <div className="mt-8 border-t border-mist pt-6">
-          <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">Verify &amp; connect</p>
+          <p className="kicker">Verify &amp; connect</p>
           <div className="mt-3 flex flex-wrap gap-2">
             {author.sameAs.filter((s) => s.href && s.href !== '#').map((s) => (
               <a key={s.label} href={s.href} className="inline-flex items-center gap-1.5 rounded-full bg-porcelain px-3.5 py-1.5 text-sm font-medium text-ink transition-colors hover:bg-gold/10">

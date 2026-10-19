@@ -52,7 +52,7 @@ const ukDates = [
 
 function DateTable({ title, rows }: { title: string; rows: { date: string; label: string }[] }) {
   return (
-    <div className="rounded-2xl border border-mist bg-white p-7 shadow-e1">
+    <div className="rounded-card border border-mist bg-white p-7 shadow-e1">
       <h3 className="font-display text-xl font-semibold text-ink">{title}</h3>
       <ul className="mt-5 space-y-4">
         {rows.map((r) => (

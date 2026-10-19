@@ -26,7 +26,7 @@ export function ComparisonTable({ data }: { data: ComparisonTableData }) {
   const { columns, rows, highlightColumn } = data;
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-mist">
+    <div className="overflow-hidden rounded-card border border-mist">
       {/* Desktop / tablet */}
       <table className="hidden w-full border-collapse sm:table">
         <thead>

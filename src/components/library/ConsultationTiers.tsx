@@ -12,8 +12,8 @@ export function ConsultationTiers({ heading = true }: { heading?: boolean }) {
     <div>
       {heading && (
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold-antique">Consultations</p>
-          <h2 className="mt-3 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <p className="kicker">Consultations</p>
+          <h2 className="mt-3 font-display text-display-md text-ink">
             Choose the right conversation
           </h2>
           <p className="mt-4 text-muted">
@@ -28,7 +28,7 @@ export function ConsultationTiers({ heading = true }: { heading?: boolean }) {
           <div
             key={tier.id}
             className={[
-              'flex min-w-0 flex-col rounded-2xl border p-6 sm:p-7',
+              'flex min-w-0 flex-col rounded-card border p-6 sm:p-7',
               tier.featured
                 ? 'border-gold bg-navy-ink text-white shadow-xl lg:-mt-3 lg:mb-3'
                 : 'border-mist bg-white',

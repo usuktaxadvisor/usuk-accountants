@@ -78,7 +78,7 @@ export default function ManchesterLocation() {
       <Section tone="porcelain">
         <Container>
           <SectionHeading eyebrow="Manchester office" title="Find us" />
-          <div className="mx-auto mt-8 max-w-xl rounded-2xl border border-mist bg-white p-8 text-center shadow-e1">
+          <div className="mx-auto mt-8 max-w-xl rounded-card border border-mist bg-white p-8 text-center shadow-e1">
             <p className="font-display text-xl font-semibold text-ink">{office.label} office</p>
             {office.gbpName && (
               <p className="mt-1 text-sm text-muted">{office.gbpName}</p>

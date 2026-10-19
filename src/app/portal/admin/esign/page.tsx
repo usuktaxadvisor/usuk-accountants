@@ -17,7 +17,7 @@ export default async function EsignDashboard({ searchParams }: { searchParams: P
   return (
     <div>
       <Link href="/portal/admin" className="text-xs font-semibold uppercase tracking-widest text-muted">← Staff area</Link>
-      <h1 className="mt-2 font-display text-3xl font-semibold text-ink">Signatures &amp; approvals</h1>
+      <h1 className="mt-2 font-display text-display-md text-ink">Signatures &amp; approvals</h1>
       <form className="mt-4 flex flex-wrap gap-2 text-sm">
         <select name="status" defaultValue={status ?? 'open'} className="rounded-xl border border-mist px-3 py-2">
           <option value="open">Open (awaiting / viewed / partially signed)</option><option value="all">All</option>
@@ -27,8 +27,8 @@ export default async function EsignDashboard({ searchParams }: { searchParams: P
         <button className="rounded-xl bg-navy-ink px-4 py-2 font-semibold text-white">Filter</button>
       </form>
       <div className="mt-4 space-y-2">
-        {rows.length === 0 ? <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-muted">Nothing here.</p> : rows.map(({ req, clientName, clientRef }) => (
-          <a key={req.id} href={`/portal/admin/esign/${req.id}`} className="block rounded-2xl border border-mist bg-white px-5 py-4 hover:border-navy-ink">
+        {rows.length === 0 ? <p className="rounded-card border border-mist bg-white p-5 text-sm text-muted">Nothing here.</p> : rows.map(({ req, clientName, clientRef }) => (
+          <a key={req.id} href={`/portal/admin/esign/${req.id}`} className="block rounded-card border border-mist bg-white px-5 py-4 hover:border-navy-ink">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-sm font-semibold text-ink">{req.title}</p>

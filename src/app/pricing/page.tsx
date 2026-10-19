@@ -133,7 +133,7 @@ export default function PricingPage() {
             These are honest starting points, not binding quotes. Your fee is confirmed in writing
             before any work begins and reflects the real complexity of your situation.
           </p>
-          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-mist">
+          <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-card border border-mist">
             <table className="w-full text-left text-sm">
               <thead className="bg-porcelain">
                 <tr>

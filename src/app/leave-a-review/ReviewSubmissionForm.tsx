@@ -49,7 +49,7 @@ export function ReviewSubmissionForm() {
 
   if (sent) {
     return (
-      <div className="rounded-2xl border border-gold/40 bg-gold/10 p-8 text-center">
+      <div className="rounded-card border border-gold/40 bg-gold/10 p-8 text-center">
         <p className="font-display text-xl font-semibold text-ink">Thank you — review received.</p>
         <p className="mt-2 text-sm text-muted">
           Our team will read and verify it shortly. Once approved, it will appear on our

@@ -43,12 +43,13 @@ export default async function CaseStudyPage(
           { label: study.title, href: `/about/case-studies/${study.slug}` },
         ]} />
 
-        <header className="bg-navy-ink py-14 md:py-16">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-about" />
           <Container>
-            <p className="mx-auto mb-3 max-w-prose text-xs font-semibold uppercase tracking-eyebrow text-gold">
+            <p className="mx-auto mb-3 max-w-prose kicker kicker-light kicker-center">
               Client matter
             </p>
-            <h1 className="mx-auto max-w-prose font-display text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+            <h1 className="mx-auto max-w-prose font-display text-display-md text-white">
               {study.title}
             </h1>
             <p className="mx-auto mt-4 max-w-prose text-sm leading-relaxed text-softwhite/70">

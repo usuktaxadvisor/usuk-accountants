@@ -65,7 +65,7 @@ export default function GlossaryIndex() {
                     <Link
                       key={t.slug}
                       href={`/resources/glossary/${t.slug}`}
-                      className="group rounded-2xl border border-mist bg-white p-6 shadow-e1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-ink hover:shadow-gold"
+                      className="group rounded-card border border-mist bg-white p-6 shadow-e1 transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-ink hover:shadow-gold"
                     >
                       <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">
                         {t.term}

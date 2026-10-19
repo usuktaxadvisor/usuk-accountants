@@ -79,7 +79,7 @@ export default function TakeHomePayCalculator() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         <h2 className="font-display text-2xl font-semibold text-ink">
           Compare take-home pay: UK vs US
         </h2>
@@ -174,7 +174,7 @@ export default function TakeHomePayCalculator() {
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
+      <div className="mt-6 rounded-card border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">Planning a move across the Atlantic?</p>
         <p className="mt-2 text-sm text-muted">
           Take-home pay is only part of it. If you&rsquo;re American, you&rsquo;ll likely file in both

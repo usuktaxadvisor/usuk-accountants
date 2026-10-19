@@ -27,7 +27,7 @@ export function TrustBar({ tone = 'porcelain', credentials = defaultCreds }: Tru
 
   return (
     <section className={`border-b border-mist ${bg}`}>
-      <div className="mx-auto flex max-w-container flex-col items-center gap-5 px-6 py-7 md:flex-row md:justify-center md:gap-x-10">
+      <div className="mx-auto flex max-w-container flex-col items-center gap-5 px-6 py-6 md:flex-row md:justify-center md:gap-x-10">
         {/* Rating: only when genuine reviews exist */}
         {hasReviews && ratingValue != null && (
           <div className="flex items-center gap-2">
@@ -45,8 +45,8 @@ export function TrustBar({ tone = 'porcelain', credentials = defaultCreds }: Tru
         {/* Genuine differentiators */}
         <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-2">
           {signals.map((s) => (
-            <span key={s.label} className="inline-flex items-center gap-2 text-sm font-medium text-muted">
-              <s.icon className="h-4 w-4 text-gold" aria-hidden="true" />
+            <span key={s.label} className="inline-flex items-center gap-2 text-sm text-muted">
+              <s.icon className="h-4 w-4 text-gold-antique" aria-hidden="true" />
               {s.label}
             </span>
           ))}

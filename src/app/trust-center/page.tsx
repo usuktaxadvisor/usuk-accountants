@@ -36,8 +36,8 @@ export default function TrustCenterPage() {
           </svg>
           <Container>
             <div className="relative max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Trust &amp; transparency</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="kicker kicker-light">Trust &amp; transparency</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 Trust Center
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -56,7 +56,7 @@ export default function TrustCenterPage() {
                   <a
                     key={p.title}
                     href={p.href}
-                    className="group rounded-2xl border border-mist bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+                    className="group rounded-card border border-mist bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
                   >
                     <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique transition-transform duration-300 group-hover:scale-105">
                       <Icon className="h-6 w-6" />

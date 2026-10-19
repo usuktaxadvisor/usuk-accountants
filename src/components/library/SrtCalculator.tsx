@@ -152,7 +152,7 @@ export default function SrtCalculator() {
         </div>
       </div>
 
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         {step === 'days' && (
           <>
             <h2 className="font-display text-2xl font-semibold text-ink">How many days will you spend in the UK this tax year?</h2>

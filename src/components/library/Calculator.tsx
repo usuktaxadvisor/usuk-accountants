@@ -43,10 +43,10 @@ export function Calculator() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           {/* Copy */}
           <div>
-            <p className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-eyebrow text-gold">
+            <p className="mb-3 inline-flex items-center gap-2 kicker kicker-light">
               <IconCalculator className="h-4 w-4" /> Free interactive tool
             </p>
-            <h2 className="font-display text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
+            <h2 className="font-display text-display-md text-white">
               Estimate your US–UK double-tax position in 60 seconds
             </h2>
             <p className="mt-5 max-w-lg text-lg leading-relaxed text-softwhite/80">
@@ -68,7 +68,7 @@ export function Calculator() {
           </div>
 
           {/* Calculator */}
-          <div className="rounded-2xl border border-navy-slate bg-navy-royal/60 p-6 backdrop-blur-sm sm:p-8">
+          <div className="rounded-card border border-navy-slate bg-navy-royal/60 p-6 backdrop-blur-sm sm:p-8">
             <div className="space-y-6">
               <div>
                 <div className="mb-2 flex items-center justify-between">
@@ -116,7 +116,7 @@ export function Calculator() {
 
               {/* Result */}
               <div className="rounded-xl bg-navy-ink/80 p-5">
-                <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">
+                <p className="kicker kicker-light">
                   Estimated double-tax relief
                 </p>
                 <p className="mt-1 font-display text-4xl font-semibold text-gold-champagne tnum">
@@ -161,7 +161,7 @@ export function Calculator() {
                         });
                         setSent(true);
                       }}
-                      className="inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 font-semibold text-navy-ink transition-all duration-200 hover:-translate-y-0.5 hover:shadow-gold"
+                      className="btn-gold inline-flex min-h-[48px] shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-md px-5 font-semibold"
                     >
                       Send it <IconArrowRight className="h-4 w-4" />
                     </button>
@@ -177,7 +177,7 @@ export function Calculator() {
                   </p>
                   <Link
                     href="/book"
-                    className="mt-3 inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-gold to-gold-champagne px-5 py-2.5 text-sm font-semibold text-navy-ink"
+                    className="btn-gold mt-3 inline-flex items-center gap-2 rounded-md px-5 py-2.5 text-sm font-semibold"
                   >
                     Book a consultation <IconArrowRight className="h-4 w-4" />
                   </Link>

@@ -21,11 +21,12 @@ export default function CaseStudiesPage() {
       <Header />
       <main>
         <Breadcrumbs crumbs={crumbs} />
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-about" />
           <Container>
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Client matters</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="kicker kicker-light">Client matters</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 How we approach cross-border problems
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">

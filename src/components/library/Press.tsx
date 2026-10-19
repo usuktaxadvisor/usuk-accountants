@@ -40,7 +40,7 @@ export function PressQuotes({ items }: { items: PressItem[] }) {
   return (
     <div className="grid gap-5 md:grid-cols-2">
       {items.map((p) => (
-        <figure key={p.outlet} className="rounded-2xl border border-mist bg-white p-7">
+        <figure key={p.outlet} className="rounded-card border border-mist bg-white p-7">
           <blockquote className="font-display text-lg font-medium leading-relaxed text-ink">
             &ldquo;{p.quote}&rdquo;
           </blockquote>

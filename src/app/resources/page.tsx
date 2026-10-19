@@ -30,11 +30,12 @@ export default function ResourcesHub() {
       <Header />
       <main>
         <Breadcrumbs crumbs={crumbs} />
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-resources" />
           <Container>
             <div className="max-w-prose">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-eyebrow text-gold">Resources</p>
-              <h1 className="font-display text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl">
+              <p className="mb-3 kicker kicker-light">Resources</p>
+              <h1 className="font-display text-display-lg text-white">
                 Free tools and guides for life between two tax systems
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -68,11 +69,11 @@ export default function ResourcesHub() {
                   </>
                 );
                 return s.live ? (
-                  <a key={s.href} href={s.href} className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2">
+                  <a key={s.href} href={s.href} className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2">
                     {inner}
                   </a>
                 ) : (
-                  <div key={s.href} className="flex flex-col rounded-2xl border border-mist bg-white p-6 opacity-80">
+                  <div key={s.href} className="flex flex-col rounded-card border border-mist bg-white p-6 opacity-80">
                     {inner}
                   </div>
                 );
@@ -92,7 +93,7 @@ export default function ResourcesHub() {
             <div className="mt-10 grid gap-5 md:grid-cols-3">
             <Link
               href="/resources/compare/fbar-vs-form-8938"
-              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+              className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
             >
               <div className="flex items-center justify-between">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
@@ -107,7 +108,7 @@ export default function ResourcesHub() {
             </Link>
             <Link
               href="/resources/compare/streamlined-filing-vs-delinquent-fbar"
-              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+              className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
             >
               <div className="flex items-center justify-between">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
@@ -122,7 +123,7 @@ export default function ResourcesHub() {
             </Link>
             <Link
               href="/resources/compare/us-tax-return-vs-uk-tax-return"
-              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+              className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
             >
               <div className="flex items-center justify-between">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
@@ -137,7 +138,7 @@ export default function ResourcesHub() {
             </Link>
             <Link
               href="/resources/compare/foreign-tax-credit-vs-tax-treaty"
-              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+              className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
             >
               <div className="flex items-center justify-between">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
@@ -152,7 +153,7 @@ export default function ResourcesHub() {
             </Link>
             <Link
               href="/resources/compare/feie-vs-foreign-tax-credit"
-              className="group flex flex-col rounded-2xl border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
+              className="group flex flex-col rounded-card border border-mist bg-porcelain p-6 transition-all duration-300 hover:-translate-y-1 hover:border-gold hover:shadow-e2"
             >
               <div className="flex items-center justify-between">
                 <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
@@ -173,9 +174,9 @@ export default function ResourcesHub() {
           <Container>
             <SectionHeading eyebrow="IRS Forms" title="IRS Forms knowledge centre" intro="Plain-English explanations of the key US information returns for expats and dual filers." />
             <div className="mt-10 grid gap-5 md:grid-cols-3">
-              <Link href="/resources/forms" className="group rounded-2xl border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">All IRS forms</span><span className="mt-1 block text-sm text-slate-600">Browse the full forms library <IconArrowRight className="inline h-4 w-4" /></span></Link>
-              <Link href="/resources/forms/form-8938" className="group rounded-2xl border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">Form 8938</span><span className="mt-1 block text-sm text-slate-600">FATCA statement of foreign financial assets <IconArrowRight className="inline h-4 w-4" /></span></Link>
-              <Link href="/resources/forms/form-2555" className="group rounded-2xl border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">Form 2555</span><span className="mt-1 block text-sm text-slate-600">Foreign earned income exclusion <IconArrowRight className="inline h-4 w-4" /></span></Link>
+              <Link href="/resources/forms" className="group rounded-card border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">All IRS forms</span><span className="mt-1 block text-sm text-slate-600">Browse the full forms library <IconArrowRight className="inline h-4 w-4" /></span></Link>
+              <Link href="/resources/forms/form-8938" className="group rounded-card border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">Form 8938</span><span className="mt-1 block text-sm text-slate-600">FATCA statement of foreign financial assets <IconArrowRight className="inline h-4 w-4" /></span></Link>
+              <Link href="/resources/forms/form-2555" className="group rounded-card border border-slate-200 p-6 hover:border-slate-300"><IconGlobeDoc className="h-6 w-6 text-brand-600" /><span className="mt-4 block font-semibold">Form 2555</span><span className="mt-1 block text-sm text-slate-600">Foreign earned income exclusion <IconArrowRight className="inline h-4 w-4" /></span></Link>
             </div>
           </Container>
         </Section>

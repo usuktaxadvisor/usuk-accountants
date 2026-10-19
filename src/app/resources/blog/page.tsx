@@ -86,7 +86,7 @@ export default function BlogIndex() {
       <Section tone="white">
         <Container>
           {posts.length === 0 ? (
-            <div className="rounded-2xl border border-mist bg-porcelain p-10 text-center">
+            <div className="rounded-card border border-mist bg-porcelain p-10 text-center">
               <p className="text-muted">New articles are on the way — check back shortly.</p>
             </div>
           ) : (
@@ -104,7 +104,7 @@ export default function BlogIndex() {
                       <Link
                         key={p.slug}
                         href={`/resources/blog/${p.slug}`}
-                        className="group flex flex-col rounded-2xl border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
+                        className="group flex flex-col rounded-card border border-mist bg-white p-7 shadow-e1 transition-all duration-300 hover:-translate-y-1 hover:bg-navy-ink hover:shadow-gold"
                       >
                         <h3 className="font-display text-lg font-semibold text-ink transition-colors duration-300 group-hover:text-white">
                           {p.title}

@@ -19,11 +19,12 @@ export default function CompliancePage() {
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-uk-accounting" />
           <Container>
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Professional conduct</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="kicker kicker-light">Professional conduct</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 Compliance &amp; professional standards
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -37,7 +38,7 @@ export default function CompliancePage() {
           <Container>
             <div className="grid gap-5 md:grid-cols-2">
               {complianceItems.map((item) => (
-                <div key={item.title} className="rounded-2xl border border-mist bg-white p-7">
+                <div key={item.title} className="rounded-card border border-mist bg-white p-7">
                   <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gold/10 text-gold-antique">
                     <IconShield className="h-6 w-6" />
                   </span>

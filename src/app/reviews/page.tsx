@@ -19,11 +19,12 @@ export default function ReviewsPage() {
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-about" />
           <Container>
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold uppercase tracking-eyebrow text-gold">Client reviews</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="kicker kicker-light">Client reviews</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 What our clients say
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -48,7 +49,7 @@ export default function ReviewsPage() {
                 <ReviewGrid reviews={reviews} />
               </>
             ) : (
-              <div className="mx-auto max-w-2xl rounded-2xl border border-mist bg-porcelain p-10 text-center">
+              <div className="mx-auto max-w-2xl rounded-card border border-mist bg-porcelain p-10 text-center">
                 <h2 className="font-display text-2xl font-semibold text-ink">
                   We&rsquo;re building our public review profile
                 </h2>

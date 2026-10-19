@@ -4,7 +4,7 @@ import { IconStar } from '@/components/ui/icons';
 export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
   const { quote, name, role, flag, rating = 5 } = testimonial;
   return (
-    <figure className="flex flex-col rounded-2xl border border-mist bg-porcelain p-7">
+    <figure className="flex flex-col rounded-card border border-mist bg-porcelain p-7">
       <span className="font-display text-5xl leading-none text-gold/40" aria-hidden>“</span>
       <div className="mb-3 flex text-gold" aria-hidden>
         {Array.from({ length: rating }).map((_, i) => (

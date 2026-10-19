@@ -13,19 +13,24 @@ export function Container({
   return <div className={`mx-auto max-w-container px-6 ${className}`}>{children}</div>;
 }
 
-/* ---------- Eyebrow ---------- */
+/* ---------- Eyebrow (kicker) ----------
+   A short gold rule and a sentence-case label. The rule is the brand's
+   arc reduced to a line; the label says what the section is, nothing more. */
 export function Eyebrow({
   children,
   tone = 'gold',
+  align = 'left',
   className = '',
 }: {
   children: ReactNode;
   tone?: 'gold' | 'gold-light';
+  align?: 'left' | 'center';
   className?: string;
 }) {
-  const color = tone === 'gold-light' ? 'text-gold' : 'text-gold-antique';
+  const color = tone === 'gold-light' ? 'kicker-light' : '';
+  const centre = align === 'center' ? 'kicker-center w-full' : '';
   return (
-    <p className={`text-xs font-semibold uppercase tracking-eyebrow ${color} ${className}`}>
+    <p className={`kicker ${color} ${centre} ${className}`}>
       {children}
     </p>
   );
@@ -38,6 +43,7 @@ export function SectionHeading({
   intro,
   align = 'left',
   tone = 'dark',
+  size = 'md',
   className = '',
 }: {
   eyebrow?: string;
@@ -45,18 +51,24 @@ export function SectionHeading({
   intro?: string;
   align?: 'left' | 'center';
   tone?: 'dark' | 'light';
+  size?: 'md' | 'lg';
   className?: string;
 }) {
   const titleColor = tone === 'light' ? 'text-white' : 'text-ink';
   const introColor = tone === 'light' ? 'text-softwhite/80' : 'text-muted';
   const alignment = align === 'center' ? 'mx-auto text-center' : '';
+  const scale = size === 'lg' ? 'text-display-lg' : 'text-display-md';
   return (
     <div className={`max-w-2xl ${alignment} ${className}`}>
-      {eyebrow && <Eyebrow tone={tone === 'light' ? 'gold-light' : 'gold'} className="mb-3">{eyebrow}</Eyebrow>}
-      <h2 className={`font-display text-3xl font-semibold tracking-tight sm:text-4xl ${titleColor}`}>
+      {eyebrow && (
+        <Eyebrow tone={tone === 'light' ? 'gold-light' : 'gold'} align={align} className="mb-4">
+          {eyebrow}
+        </Eyebrow>
+      )}
+      <h2 className={`font-display ${scale} ${titleColor}`}>
         {title}
       </h2>
-      {intro && <p className={`mt-4 text-lg leading-relaxed ${introColor}`}>{intro}</p>}
+      {intro && <p className={`mt-5 text-lg leading-relaxed ${introColor}`}>{intro}</p>}
     </div>
   );
 }
@@ -67,17 +79,16 @@ type ButtonSize = 'sm' | 'md' | 'lg';
 
 const sizeMap: Record<ButtonSize, string> = {
   sm: 'px-5 py-2.5 text-sm min-h-[40px]',
-  md: 'px-7 py-3.5 text-base min-h-[48px]',
+  md: 'px-7 py-3.5 text-[15px] min-h-[48px]',
   lg: 'px-8 py-4 text-base min-h-[56px]',
 };
 
 const variantMap: Record<ButtonVariant, string> = {
-  primary:
-    'bg-gradient-to-r from-gold to-gold-champagne text-navy-ink shadow-e1 hover:-translate-y-0.5 hover:shadow-gold',
+  primary: 'btn-gold',
   secondary:
-    'border border-gold/60 text-gold-antique hover:bg-gold/10',
+    'border border-navy-ink/25 text-navy-ink hover:border-navy-ink hover:bg-navy-ink/[0.04]',
   'secondary-light':
-    'border border-gold/60 text-gold hover:bg-gold/10',
+    'border border-softwhite/35 text-white hover:border-gold-champagne hover:text-gold-champagne',
   urgency: 'bg-signal text-white hover:bg-crimson',
   ghost: 'text-gold-antique hover:text-gold',
 };
@@ -98,17 +109,16 @@ export function Button({
   variant?: ButtonVariant;
   size?: ButtonSize;
   withArrow?: boolean;
+  /** Retained for call-site compatibility; the primary button no longer shimmers. */
   shimmer?: boolean;
   className?: string;
   type?: 'button' | 'submit';
   onClick?: () => void;
 }) {
-  const cls = `group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-lg font-semibold transition-all duration-200 ${sizeMap[size]} ${variantMap[variant]} ${className}`;
+  void shimmer;
+  const cls = `group relative inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-all duration-200 ${sizeMap[size]} ${variantMap[variant]} ${className}`;
   const inner = (
     <>
-      {shimmer && (
-        <span className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-white/40 blur-md animate-shimmer" />
-      )}
       {children}
       {withArrow && (
         <IconArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -152,7 +162,7 @@ export function Section({
   const bg =
     tone === 'navy' ? 'bg-navy-ink' : tone === 'porcelain' ? 'bg-porcelain' : 'bg-white';
   return (
-    <section id={id} className={`${bg} py-20 md:py-28 ${className}`}>
+    <section id={id} className={`${bg} py-20 md:py-28 lg:py-32 ${className}`}>
       {children}
     </section>
   );

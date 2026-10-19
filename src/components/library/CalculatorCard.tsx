@@ -24,7 +24,7 @@ export function CalculatorCard({
   return (
     <a
       href={href}
-      className={`group flex flex-col rounded-2xl border p-7 transition-all duration-300 hover:-translate-y-1 ${
+      className={`group flex flex-col rounded-card border p-7 transition-all duration-300 hover:-translate-y-1 ${
         dark
           ? 'border-navy-slate bg-navy-ink text-white hover:border-gold'
           : 'border-mist bg-white text-ink hover:border-gold hover:shadow-e2'

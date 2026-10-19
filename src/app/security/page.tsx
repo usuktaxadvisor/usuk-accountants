@@ -19,14 +19,15 @@ export default function SecurityPage() {
       <Header />
       <Breadcrumbs crumbs={crumbs} />
       <main>
-        <header className="bg-navy-ink py-16 md:py-20">
+        <header className="page-header py-20 md:py-28">
+          <div aria-hidden="true" data-parallax="0.1" className="page-header-art parallax-layer art-uk-accounting" />
           <Container>
             <div className="max-w-2xl">
               <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold/15 text-gold">
                 <IconShield className="h-6 w-6" />
               </span>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-eyebrow text-gold">Security</p>
-              <h1 className="mt-3 font-display text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+              <p className="mt-5 kicker kicker-light">Security</p>
+              <h1 className="mt-3 font-display text-display-lg text-white">
                 Your data, protected
               </h1>
               <p className="mt-5 text-lg leading-relaxed text-softwhite/85">
@@ -40,7 +41,7 @@ export default function SecurityPage() {
           <Container>
             <div className="grid gap-5 md:grid-cols-2">
               {securityMeasures.map((m) => (
-                <div key={m.title} className="flex gap-4 rounded-2xl border border-mist bg-white p-7">
+                <div key={m.title} className="flex gap-4 rounded-card border border-mist bg-white p-7">
                   <span className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gold/10 text-gold-antique">
                     <IconCheck className="h-5 w-5" />
                   </span>
@@ -56,7 +57,7 @@ export default function SecurityPage() {
 
         <Section tone="porcelain">
           <Container>
-            <div className="mx-auto max-w-prose rounded-2xl border border-signal/30 bg-signal/[0.04] p-7">
+            <div className="mx-auto max-w-prose rounded-card border border-signal/30 bg-signal/[0.04] p-7">
               <h2 className="font-display text-xl font-semibold text-ink">How to spot a scam in our name</h2>
               <p className="mt-3 text-[15px] leading-relaxed text-muted">
                 We will never ask for your Social Security number, ITIN, passwords or full bank details by email or text. We never request payment to a personal account. Sensitive documents are only ever exchanged through our secure portal. If anything claiming to be from us looks off, contact us directly using the number on this site before responding.

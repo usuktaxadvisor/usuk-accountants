@@ -37,7 +37,7 @@ export default function CorporationTaxCalculator() {
 
   return (
     <div className="mx-auto max-w-2xl">
-      <div className="rounded-2xl border border-mist bg-white p-8 shadow-e1">
+      <div className="rounded-card border border-mist bg-white p-8 shadow-e1">
         <h2 className="font-display text-2xl font-semibold text-ink">
           Estimate your UK Corporation Tax
         </h2>
@@ -90,7 +90,7 @@ export default function CorporationTaxCalculator() {
         </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-mist bg-porcelain p-6">
+      <div className="mt-6 rounded-card border border-mist bg-porcelain p-6">
         <p className="font-display text-lg font-semibold text-ink">Own a UK company as a US citizen?</p>
         <p className="mt-2 text-sm text-muted">
           UK Corporation Tax is only half the picture. The same profits can trigger US tax under

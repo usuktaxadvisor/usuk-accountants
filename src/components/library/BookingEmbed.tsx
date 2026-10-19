@@ -45,7 +45,7 @@ function ConsultationSummary({ tierId }: { tierId?: TierId }) {
 
 function SchedulerSkeleton() {
   return (
-    <div className="flex min-h-[560px] items-center justify-center rounded-2xl border border-mist bg-white" role="status" aria-live="polite">
+    <div className="flex min-h-[560px] items-center justify-center rounded-card border border-mist bg-white" role="status" aria-live="polite">
       <div className="text-center">
         <div className="mx-auto h-8 w-8 animate-spin rounded-full border-2 border-mist border-t-navy" aria-hidden />
         <p className="mt-3 text-sm text-muted">Loading available times...</p>
@@ -57,7 +57,7 @@ function SchedulerSkeleton() {
 function DirectBookingPanel({ url, tierId }: { url: string; tierId: TierId }) {
   const tier = tierFor(tierId);
   return (
-    <div className="flex min-h-[560px] items-center justify-center rounded-2xl border border-mist bg-porcelain/60 px-6">
+    <div className="flex min-h-[560px] items-center justify-center rounded-card border border-mist bg-porcelain/60 px-6">
       <div className="max-w-md text-center">
         <p className="font-display text-xl font-semibold text-ink">Book on our secure scheduling page</p>
         <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -105,7 +105,7 @@ export default function BookingEmbed({
           <iframe
             title={`Book: ${tier.name} (${tier.durationLabel})`}
             src={embedSrc}
-            className={`h-[680px] w-full overflow-hidden rounded-2xl border border-mist bg-white ${loaded ? 'block' : 'hidden'}`}
+            className={`h-[680px] w-full overflow-hidden rounded-card border border-mist bg-white ${loaded ? 'block' : 'hidden'}`}
             loading="lazy"
             onLoad={() => { setLoaded(true); analytics.bookingEmbedLoaded(tierId); }}
           />

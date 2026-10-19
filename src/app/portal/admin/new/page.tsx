@@ -46,9 +46,9 @@ export default async function NewClientPage() {
 
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="font-display text-3xl font-semibold text-ink">New client</h1>
+      <h1 className="font-display text-display-md text-ink">New client</h1>
       <p className="mt-2 text-sm text-muted">Creates the client record and emails their activation link.</p>
-      <form action={createClient} className="mt-6 space-y-4 rounded-2xl border border-mist bg-white p-7 shadow-e2">
+      <form action={createClient} className="mt-6 space-y-4 rounded-card border border-mist bg-white p-7 shadow-e2">
         <label className="block"><span className="text-sm font-semibold text-ink">First name</span>
           <input name="firstName" required className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
         <label className="block"><span className="text-sm font-semibold text-ink">Last name</span>

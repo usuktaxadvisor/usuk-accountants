@@ -36,17 +36,17 @@ export default async function DeleteClientPage({ params, searchParams }: { param
   return (
     <div className="mx-auto max-w-3xl">
       <Link href={`/portal/admin/clients/${id}`} className="text-xs font-semibold uppercase tracking-widest text-muted">← {a.client.name}</Link>
-      <h1 className="mt-2 font-display text-3xl font-semibold text-ink">{headline}</h1>
+      <h1 className="mt-2 font-display text-display-md text-ink">{headline}</h1>
       <p className="mt-2 text-sm text-ink">{archiveMode ? 'Archiving hides the client from the working list, removes portal access for its people and voids any open signing requests. Everything else — documents, signature evidence, audit trail, Drive files — stays exactly as it is, and the client can be restored later.' : a.reason}</p>
 
-      <dl className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2 rounded-2xl border border-mist bg-white p-5 text-sm sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
+      <dl className="mt-6 grid grid-cols-1 gap-x-6 gap-y-2 rounded-card border border-mist bg-white p-5 text-sm sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
         {rows.map(([k, v]) => (<div key={k} className="contents"><dt className="text-muted">{k}</dt><dd className="text-ink">{v}</dd></div>))}
       </dl>
 
       {!archiveMode ? (
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
-          <div className="rounded-2xl border border-mist bg-porcelain p-4 text-sm"><p className="font-semibold text-ink">Will be kept</p><ul className="mt-2 list-disc pl-5 text-xs text-ink">{a.retained.map(x => <li key={x}>{x}</li>)}</ul></div>
-          <div className="rounded-2xl border border-mist bg-porcelain p-4 text-sm"><p className="font-semibold text-ink">Will be removed</p>{a.deletable.length ? <ul className="mt-2 list-disc pl-5 text-xs text-ink">{a.deletable.map(x => <li key={x}>{x}</li>)}</ul> : <p className="mt-2 text-xs text-muted">Nothing — archive only.</p>}</div>
+          <div className="rounded-card border border-mist bg-porcelain p-4 text-sm"><p className="font-semibold text-ink">Will be kept</p><ul className="mt-2 list-disc pl-5 text-xs text-ink">{a.retained.map(x => <li key={x}>{x}</li>)}</ul></div>
+          <div className="rounded-card border border-mist bg-porcelain p-4 text-sm"><p className="font-semibold text-ink">Will be removed</p>{a.deletable.length ? <ul className="mt-2 list-disc pl-5 text-xs text-ink">{a.deletable.map(x => <li key={x}>{x}</li>)}</ul> : <p className="mt-2 text-xs text-muted">Nothing — archive only.</p>}</div>
         </div>
       ) : null}
 
