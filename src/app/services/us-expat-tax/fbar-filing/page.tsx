@@ -41,7 +41,15 @@ const faqs = [
   },
   {
     q: 'I have missed FBARs in previous years. What should I do?',
-    a: 'Do not simply back-file without advice. The IRS Streamlined Filing Compliance Procedures exist for non-willful filers who have fallen behind and, handled correctly, can bring you current without the usual late-filing penalties where the conditions are met. This is the kind of situation worth a consultation before you act.',
+    a: 'It depends on one question: was the income from the accounts on your US returns? If yes, the missing reports can be filed late through FinCEN with the reason for late filing given on the form, and a penalty is not automatic. If no, late FBARs alone will not fix it; the IRS Streamlined Foreign Offshore Procedures are the usual route for non-willful filers, and a qualifying submission is not subject to FBAR or late-filing penalties. The IRS removed its Delinquent FBAR Submission Procedures page in July 2026, so the route you choose matters more than it did.',
+  },
+  {
+    q: 'What do I write as the reason for filing an FBAR late?',
+    a: 'There is no cover letter. The FinCEN form asks why the report is late: you choose a listed reason, or select "Other" and type up to 750 characters. Say what the accounts are, why the report was missed, how and when you found out, and that every year due has now been filed. Keep it factual and keep a fuller dated note for your own records. Our guide to the FBAR late filing explanation has two worked examples.',
+  },
+  {
+    q: 'Should I talk to an accountant about a late FBAR?',
+    a: 'If the only issue is a missed report and the income was on your returns, many people file themselves. Speak to a cross-border specialist first if income was unreported, balances were large, you are unsure which UK accounts count (pensions, ISAs, joint or business accounts), or the IRS or FinCEN has already written to you. Choosing the wrong route is the costly mistake, not the filing itself.',
   },
 ];
 
@@ -73,6 +81,7 @@ export default function FbarFiling() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-06-25"
+      dateModified="2026-10-20"
       faqs={faqs}
       service={{
         url: URL,
@@ -214,6 +223,7 @@ export default function FbarFiling() {
           },
           { label: 'FBAR Checker', href: '/resources/calculators/fbar-checker', description: 'Free tool: do you need to file?' },
           { label: 'Delinquent FBAR guide', href: '/resources/guides/delinquent-fbar', description: 'How to file late FBARs after the July 2026 IRS change' },
+          { label: 'FBAR late filing explanation', href: '/resources/guides/fbar-late-filing-explanation', description: 'What to write in the reason box, with worked examples' },
           { label: 'Streamlined Filing', href: '/services/us-expat-tax/streamlined-filing', description: 'Catch up on missed years under the IRS Streamlined procedures' },
           { label: 'US Expat Tax', href: '/services/us-expat-tax', description: 'Our full US tax service for the UK' },
           { label: 'US Citizens in the UK', href: '/who-we-help/us-citizens-in-uk', description: 'How we help Americans abroad' },

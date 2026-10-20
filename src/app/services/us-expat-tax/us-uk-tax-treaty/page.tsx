@@ -40,6 +40,22 @@ const faqs = [
     a: 'The saving clause is the provision that allows the United States to continue taxing its citizens and green card holders as if the treaty did not exist, with limited exceptions. It is the reason the treaty does not simply switch off US taxation for Americans in the UK, and why citizenship-based taxation still applies despite the treaty.',
   },
   {
+    q: 'When was the US–UK tax treaty signed and when did it take effect?',
+    a: 'The current income tax convention was signed on 24 July 2001, amended by a protocol signed on 19 July 2002, and entered into force on 31 March 2003. It took effect in the UK from 6 April 2003 for income tax and capital gains tax, and in the US from 1 January 2004 for most taxes. It replaced the 1975 convention. HMRC publishes the consolidated text and guidance in its Double Taxation Relief Manual at DT19850.',
+  },
+  {
+    q: 'Do I need Form 8833 to claim a treaty benefit?',
+    a: 'Usually, yes. When you take a position on your US return that relies on the treaty to override the normal US rules, for example on a pension or on residence under the tie-breaker, you disclose it on Form 8833 attached to Form 1040. The instructions list exceptions where disclosure is not required. Failing to file a required Form 8833 carries a $1,000 penalty for an individual, and the treaty position itself can be questioned.',
+  },
+  {
+    q: 'Is there a separate US–UK estate and gift tax treaty?',
+    a: 'Yes. The income tax treaty does not cover inheritance tax or US estate and gift tax. Those are governed by a separate convention signed in 1978 and in force from 1979, which decides which country has the primary right to tax an estate and how credit is given. It matters for Americans with UK assets and for UK residents with US assets or a US spouse.',
+  },
+  {
+    q: 'Does the treaty cover social security and National Insurance?',
+    a: 'No. Social security is dealt with by the separate US–UK Totalization Agreement, in force since 1985, which decides whether you pay US social security or UK National Insurance on employment and self-employment income, and lets you combine contribution periods for benefit entitlement. A certificate of coverage from the country whose system applies is the evidence you attach to the other country’s return.',
+  },
+  {
     q: 'Do I still need to file if the treaty covers my income?',
     a: 'Almost always yes. Treaty benefits generally have to be claimed and documented on your US return, not assumed. Because of the saving clause, US citizens file regardless. Relying on the treaty without filing, or without claiming the benefit correctly, is a common and avoidable mistake.',
   },
@@ -51,7 +67,7 @@ export default function UsUkTaxTreaty() {
       url={URL}
       eyebrow="US Expat Tax · US–UK Treaty"
       title="The US–UK tax treaty explained"
-      answer="The US–UK tax treaty coordinates how the two countries tax the same income, with the aim of preventing double taxation. Its most important features for Americans in the UK are its pension provisions, the residency tie-breaker rules for people resident in both countries, and the saving clause, which lets the US keep taxing its citizens broadly as if the treaty were not there. The treaty works alongside the Foreign Tax Credit and FEIE to prevent double tax; it does not exempt US citizens from filing or from US tax."
+      answer="The US–UK income tax treaty, signed on 24 July 2001 and in force since 31 March 2003, coordinates how the two countries tax the same income, with the aim of preventing double taxation. Its most important features for Americans in the UK are its pension provisions, the residency tie-breaker rules for people resident in both countries, and the saving clause, which lets the US keep taxing its citizens broadly as if the treaty were not there. The treaty works alongside the Foreign Tax Credit and FEIE to prevent double tax; it does not exempt US citizens from filing or from US tax."
       crumbs={[
         { label: 'Services', href: '/services' },
         { label: 'US Expat Tax', href: '/services/us-expat-tax' },
@@ -60,6 +76,7 @@ export default function UsUkTaxTreaty() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-06-25"
+      dateModified="2026-10-20"
       faqs={faqs}
       service={{
         url: URL,

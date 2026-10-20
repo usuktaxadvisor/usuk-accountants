@@ -32,6 +32,10 @@ const faqs = [
     a: 'The standard deadline is 15 April, but US persons living abroad receive an automatic extension to 15 June to file. A further extension to 15 October is available on request. Any US tax owed is still due by 15 April, so interest can accrue from then even when the filing deadline is later.',
   },
   {
+    q: 'How much can I exclude under the Foreign Earned Income Exclusion?',
+    a: 'For the 2025 tax year, filed in 2026, the maximum Foreign Earned Income Exclusion is $130,000 per person, claimed on Form 2555. It applies to salary and self-employment income only, not to pensions, rental or investment income, and you must meet either the bona fide residence test or the 330-day physical presence test. For most Americans employed in the UK, where UK tax is higher than US tax, the Foreign Tax Credit on Form 1116 gives a better result than the exclusion, and the two cannot be used on the same income.',
+  },
+  {
     q: 'How do I avoid being taxed twice on the same income?',
     a: 'Through the Foreign Earned Income Exclusion, the Foreign Tax Credit and the US–UK tax treaty. Used correctly and in the right combination, these reliefs mean most Americans in the UK are not taxed twice on the same income, but the right approach depends on your income mix.',
   },
@@ -60,6 +64,7 @@ export default function UsTaxReturns() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-06-25"
+      dateModified="2026-10-20"
       faqs={faqs}
       service={{
         url: URL,
