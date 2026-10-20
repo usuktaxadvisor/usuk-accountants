@@ -44,6 +44,13 @@ const GUIDES: Card[] = [
       'How to file late FBARs from the UK after the IRS removed the Delinquent FBAR Submission Procedures page in July 2026: your routes, reasonable cause, penalties and what to say.',
     href: '/resources/guides/delinquent-fbar',
   },
+  {
+    title: 'FBAR late filing explanation: what to write in the reason box',
+    kicker: 'Catching up',
+    description:
+      'There is no FBAR cover letter. The FinCEN form asks why the report is late, with a list of reasons and a 750 character "Other" box. What to choose, what to write, two worked examples, and what to keep on file.',
+    href: '/resources/guides/fbar-late-filing-explanation',
+  },
 ];
 
 const COMPARISONS: Card[] = [

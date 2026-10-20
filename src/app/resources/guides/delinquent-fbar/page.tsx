@@ -81,7 +81,7 @@ export default function DelinquentFbarGuidePage() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2025-01-15"
-      dateModified="2026-10-18"
+      dateModified="2026-10-20"
       faqs={faqs}
       ctaTitle="Not sure which route applies to you?"
       ctaIntro="Tell us by email which years you think are missing and whether the income was on your US returns. We will say which route fits and quote in writing before any work begins."
@@ -154,7 +154,9 @@ export default function DelinquentFbarGuidePage() {
           System, the form itself asks for the reason it is late: you choose from a list (for example, that you did not
           know you had to file) or select &ldquo;Other&rdquo; and give a short written explanation, which the IRS
           manual notes is limited to 750 characters. That box is the only explanation FinCEN sees. Searches for a &ldquo;delinquent FBAR cover letter&rdquo; or &ldquo;sample
-          letter&rdquo; usually end in templates written for the old procedure; we do not recommend copying one.
+          letter&rdquo; usually end in templates written for the old procedure; we do not recommend copying one. Our
+          separate guide on the <Link href="/resources/guides/fbar-late-filing-explanation">FBAR late filing explanation</Link> sets
+          out what the box should contain, with two worked examples of the structure.
         </p>
         <p>
           Keep the explanation factual and short: what the accounts are, why the filing was missed, and that you have
@@ -278,6 +280,7 @@ export default function DelinquentFbarGuidePage() {
           <RelatedLinks
             title="Related tools and pages"
             links={[
+              { label: 'FBAR late filing explanation', href: '/resources/guides/fbar-late-filing-explanation', description: 'What to write in the reason box on the form, with worked examples.' },
               { label: 'FBAR filing service', href: '/services/us-expat-tax/fbar-filing', description: 'Preparation and e-filing of current and late FBARs.' },
               { label: 'Streamlined Filing service', href: '/services/us-expat-tax/streamlined-filing', description: 'For non-willful cases with unreported income.' },
               { label: 'FBAR checker', href: '/resources/calculators/fbar-checker', description: 'Check whether you need to file an FBAR at all.' },

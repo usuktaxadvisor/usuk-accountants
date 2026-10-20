@@ -116,7 +116,7 @@ export default function UsExpatTaxPillar() {
           'US filing coordinated with your UK return',
           'Specialist preparation and independent review',
         ]}
-        note="Streamlined catch-up filing is quoted as a fixed package after your consultation."
+        note="Streamlined catch-up filing is quoted in writing, case by case, once we have reviewed your years and accounts."
       />
 
       <RelatedLinks

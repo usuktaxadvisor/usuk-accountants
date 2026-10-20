@@ -3,8 +3,8 @@ import { notFound } from 'next/navigation';
 import {
   Header, Footer, Container, CTASection, CaseStudyDetail, JsonLd, Breadcrumbs,
 } from '@/components/library';
-import { caseStudies } from '@/lib/authority-data';
-import { breadcrumbSchema } from '@/lib/schema';
+import { caseStudies, authors } from '@/lib/authority-data';
+import { breadcrumbSchema, articleSchema } from '@/lib/schema';
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -36,6 +36,16 @@ export default async function CaseStudyPage(
         { label: 'Case studies', href: '/about/case-studies' },
         { label: study.title, href: `/about/case-studies/${study.slug}` },
       ])} />
+      <JsonLd schema={articleSchema({
+        url: `/about/case-studies/${study.slug}`,
+        headline: study.title,
+        description: study.challenge,
+        author: authors.find((a) => a.slug === 'sam-h')!,
+        reviewedBy: authors.find((a) => a.slug === 'sal-t')!,
+        datePublished: '2026-06-24',
+        dateModified: '2026-10-19',
+        about: study.services.map((l) => ({ name: l.label, url: l.href })),
+      })} />
       <Header />
       <main>
         <Breadcrumbs crumbs={[

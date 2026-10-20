@@ -36,6 +36,18 @@ const faqs = [
     a: 'The Streamlined programme is a voluntary disclosure route and may not stay open, or available to you, indefinitely. If the IRS contacts you first, you generally lose access to it. Coming forward proactively is almost always the better position, and the sooner the better.',
   },
   {
+    q: 'Is the Streamlined procedure still open in 2026?',
+    a: 'Yes. The IRS page for US taxpayers residing outside the United States (the Streamlined Foreign Offshore Procedures) was updated on 11 July 2026 and the procedure remains available. The IRS can change or end it at any time, and it closes to you once the IRS has opened an examination or contacted you about the missing years, which is why coming forward early matters.',
+  },
+  {
+    q: 'What is Form 14653?',
+    a: 'Form 14653 is the certification that goes with a Streamlined Foreign Offshore submission. You sign it under penalties of perjury, confirming that you meet the non-residency requirement and setting out, in your own words, why the failure to file was non-willful. We draft it from your facts and you review every line before signing; it is your statement, not ours.',
+  },
+  {
+    q: 'I filed my returns but missed the FBARs. Do I still need Streamlined?',
+    a: 'Usually not. If the income from your foreign accounts was on your US returns and the tax was paid, the missing FBARs can be filed late through FinCEN with the reason for late filing given on the form. Streamlined is for cases where income or returns were also missed. Our delinquent FBAR guide and the guide to the late filing explanation cover that route.',
+  },
+  {
     q: 'Can you handle the whole Streamlined process for me?',
     a: 'Yes. We assess your eligibility, prepare the required returns and FBARs, draft the non-willful certification, and file the complete package, all handled by a US specialist and independently reviewed. Most clients find it far less daunting than expected.',
   },
@@ -56,6 +68,7 @@ export default function StreamlinedFiling() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-01-20"
+      dateModified="2026-10-20"
       faqs={faqs}
       service={{
         url: URL,
@@ -183,11 +196,11 @@ export default function StreamlinedFiling() {
       />
 
       <InvestmentBand
-        fromLabel="Fixed-package pricing, quoted upfront"
+        fromLabel="Quoted in writing, case by case"
         points={[
-          'Confidential £350 eligibility consultation',
-          'One fixed price for the full Streamlined package',
-          'Returns, FBARs and certification included',
+          'Eligibility review included, by email, before you commit',
+          'One written quote for the whole Streamlined package',
+          'Returns, FBARs and the Form 14653 certification included',
           'Specialist preparation with independent review',
         ]}
         note="Streamlined is a defined scope, so once we have reviewed your facts we quote it in writing, case by case, with no open-ended billing."
@@ -201,6 +214,8 @@ export default function StreamlinedFiling() {
             href: '/resources/compare/streamlined-filing-vs-delinquent-fbar',
             description: 'Which catch-up route fits your situation',
           },
+          { label: 'Delinquent FBAR guide', href: '/resources/guides/delinquent-fbar', description: 'Filing late FBARs after the July 2026 IRS change' },
+          { label: 'FBAR late filing explanation', href: '/resources/guides/fbar-late-filing-explanation', description: 'What the reason box on the form should say' },
           {
             label: 'US Tax Returns hub',
             href: '/services/us-expat-tax/us-tax-returns/hub',

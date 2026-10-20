@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     q: 'What are the Form 8938 thresholds?',
-    a: 'The reporting thresholds are higher than the FBAR\u2019s $10,000 and vary by your filing status and whether you live inside or outside the United States, and they are notably higher for those living abroad. Because the exact figures depend on your circumstances and can change, it is worth confirming your specific threshold rather than assuming. We will tell you whether you cross it.',
+    a: 'For a US person living abroad who files as single or married filing separately, Form 8938 is required if specified foreign financial assets exceed $200,000 on the last day of the year or $300,000 at any point during the year. For married filing jointly abroad the figures are $400,000 and $600,000. Thresholds for people living in the US are much lower ($50,000 and $75,000 single). These are IRS figures, not indexed each year; our tax data page links to the source. We will tell you whether you cross it.',
   },
   {
     q: 'What counts as a specified foreign financial asset?',
@@ -73,6 +73,7 @@ export default function FatcaCompliance() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-06-25"
+      dateModified="2026-10-20"
       faqs={faqs}
       service={{
         url: URL,

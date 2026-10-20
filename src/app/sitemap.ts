@@ -32,6 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/us-expat-tax/us-tax-returns',
   '/services/us-expat-tax/us-tax-returns/hub',
   '/resources/guides/delinquent-fbar',
+  '/resources/guides/fbar-late-filing-explanation',
   '/resources/calculators/delinquent-fbar-penalty',
     '/services/us-expat-tax/form-5471',
     '/services/us-expat-tax/us-uk-tax-treaty',
