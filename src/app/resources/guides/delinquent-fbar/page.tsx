@@ -16,7 +16,7 @@ import { authors } from '@/lib/authority-data';
 const url = '/resources/guides/delinquent-fbar';
 
 export const metadata: Metadata = {
-  title: 'Delinquent FBAR Guide: How to File Late FBARs (2026)',
+  title: 'Delinquent FBAR Guide: Filing Late FBARs (2026)',
   description:
     'How to file late FBARs from the UK after the IRS removed the Delinquent FBAR Submission Procedures page in July 2026: your three routes, reasonable cause, penalties and what the reason for late filing should say.',
   alternates: { canonical: url },

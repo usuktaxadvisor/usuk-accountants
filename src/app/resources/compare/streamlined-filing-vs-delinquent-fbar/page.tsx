@@ -9,7 +9,7 @@ import type { ComparisonTableData } from '@/lib/types';
 const url = '/resources/compare/streamlined-filing-vs-delinquent-fbar';
 
 export const metadata: Metadata = {
-  title: 'Streamlined Filing vs Late FBAR Filing — Which Route?',
+  title: 'Streamlined Filing vs Late FBAR: Which Route?',
   description:
     'Streamlined Filing or simply filing late FBARs with reasonable cause? The IRS removed the Delinquent FBAR Submission Procedures page in July 2026. Which route fits an American in the UK.',
   alternates: { canonical: url },

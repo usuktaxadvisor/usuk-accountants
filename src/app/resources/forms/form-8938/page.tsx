@@ -13,7 +13,7 @@ import {
 const url = '/resources/forms/form-8938';
 
 export const metadata: Metadata = {
-  title: 'IRS Form 8938 (Statement of Specified Foreign Financial Assets) | US UK Accountants',
+  title: 'IRS Form 8938: Specified Foreign Assets Guide',
   description:
     'What IRS Form 8938 is, why it exists under FATCA, who generally files it, and how it relates to the FBAR and your US tax return for Americans in the UK.',
   alternates: { canonical: url },

@@ -13,7 +13,7 @@ import {
 const url = '/resources/forms/form-2555';
 
 export const metadata: Metadata = {
-  title: 'IRS Form 2555 (Foreign Earned Income Exclusion) | US UK Accountants',
+  title: 'IRS Form 2555 (Foreign Earned Income Exclusion)',
   description:
     'What IRS Form 2555 is, why it exists, who generally files it, and how the Foreign Earned Income Exclusion works for Americans living and working in the UK.',
   alternates: { canonical: url },

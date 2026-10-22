@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/corporation-tax';
 
 export const metadata: Metadata = {
-  title: 'UK Corporation Tax Estimator — Including Marginal Relief',
+  title: 'UK Corporation Tax Estimator (Marginal Relief)',
   description:
     'Free UK Corporation Tax calculator. Estimate your company\u2019s Corporation Tax including the small-profits rate, main rate, and marginal relief between the limits — plus the US angle for American owners.',
   alternates: { canonical: URL },

@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/paye-refund';
 
 export const metadata: Metadata = {
-  title: 'UK PAYE Tax Refund Estimator — Have You Overpaid HMRC?',
+  title: 'UK PAYE Tax Refund Estimator',
   description: 'Emergency tax codes, multiple jobs, and mid-year job changes often leave employees overpaying HMRC. Estimate whether you are due a UK income tax refund — and how much HMRC owes you.',
   alternates: { canonical: URL },
 };

@@ -1,5 +1,5 @@
 ---
-seoTitle: "Delinquent FBAR vs Streamlined Filing: Which Route?"
+seoTitle: "Delinquent FBAR vs Streamlined: Which Route?"
 title: "Delinquent FBAR vs Streamlined Filing: Which Route Fixes a Missed FBAR?"
 description: "Filed your US returns but missed the FBAR? Since the IRS removed the Delinquent FBAR Submission Procedures page from irs.gov in early July 2026, choosing between filing late FBARs with reasonable cause and the Streamlined programme matters more than it did. Here is how to tell which route fits."
 date: "2026-07-28"

@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/fbar-checker';
 
 export const metadata: Metadata = {
-  title: 'FBAR Requirement Checker — Do You Need to File FinCEN 114?',
+  title: 'FBAR Requirement Checker (FinCEN 114)',
   description:
     'Free FBAR checker for US persons abroad and dual citizens. Answer three questions to see whether you must file FinCEN Form 114 this year, plus the deadline and how to file.',
   alternates: { canonical: URL },

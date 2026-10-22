@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/us-expat-refund';
 
 export const metadata: Metadata = {
-  title: 'US Expat Tax Refund Estimator — Are You Owed a US Refund?',
+  title: 'US Expat Tax Refund Estimator',
   description:
     'Americans in the UK often overpay US tax through withholding or estimated payments. Estimate whether you are owed a US federal tax refund after applying the Foreign Tax Credit or FEIE — and how much.',
   alternates: { canonical: URL },

@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/feie-vs-ftc';
 
 export const metadata: Metadata = {
-  title: 'FEIE vs Foreign Tax Credit Calculator — Which Is Better?',
+  title: 'FEIE vs Foreign Tax Credit Calculator',
   description:
     'Free FEIE vs Foreign Tax Credit comparison for Americans in the UK. A directional guide to which relief is likely to leave you better off — and why the Foreign Tax Credit usually wins in a high-tax country like the UK.',
   alternates: { canonical: URL },

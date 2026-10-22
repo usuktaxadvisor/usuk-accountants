@@ -1,5 +1,5 @@
 ---
-seoTitle: "How to Amend an FBAR (and What Happens After Filing)"
+seoTitle: "How to Amend an FBAR and What Happens Next"
 title: "How to Amend an FBAR, and What Actually Happens After You File One"
 description: "Found a mistake on an FBAR you have already filed? Or wondering what happens after you submit FinCEN Form 114? Here is how to file an amended FBAR, what the BSA identifier is for, and what to expect afterwards."
 date: "2026-10-18"

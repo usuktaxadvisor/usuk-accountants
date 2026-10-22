@@ -9,7 +9,7 @@ import type { ComparisonTableData } from '@/lib/types';
 const url = '/resources/compare/foreign-tax-credit-vs-tax-treaty';
 
 export const metadata: Metadata = {
-  title: 'Foreign Tax Credit vs US–UK Tax Treaty | US UK Accountants',
+  title: 'Foreign Tax Credit vs US–UK Tax Treaty',
   description:
     'The foreign tax credit and the US–UK tax treaty are different tools for avoiding double taxation. Learn how they work and how they interact for Americans in the UK.',
   alternates: { canonical: url },

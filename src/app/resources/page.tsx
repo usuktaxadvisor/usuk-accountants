@@ -7,7 +7,7 @@ import { IconCalculator, IconGlobeDoc, IconTreaty, IconPlanning, IconArrowRight 
 const URL = 'https://www.usukaccountants.com/resources';
 
 export const metadata: Metadata = {
-  title: 'Resources — US–UK Tax Guides, Calculators & Glossary',
+  title: 'US–UK Tax Guides, Calculators & Glossary',
   description:
     'Free cross-border tax resources: interactive calculators, plain-English guides, and a glossary of US and UK tax terms for expats, dual citizens and businesses.',
   alternates: { canonical: URL },

@@ -1,5 +1,5 @@
 ---
-seoTitle: "Check-the-Box Election (Form 8832) for a UK Company"
+seoTitle: "Check-the-Box Election (Form 8832): UK Company"
 title: "Check-the-Box (Form 8832) for a UK Limited Company: When It Helps a US Owner"
 description: "A check-the-box election can reclassify a single-owner UK limited company as a disregarded entity for US tax, removing Form 5471 and GILTI/NCTI. But it brings self-employment tax and a deemed liquidation. This guide covers when it helps and when it hurts."
 date: "2026-06-27"
