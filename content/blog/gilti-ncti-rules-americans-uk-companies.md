@@ -1,4 +1,5 @@
 ---
+seoTitle: "GILTI and NCTI for Americans with UK Companies"
 title: "GILTI and NCTI Rules for Americans with UK Companies"
 description: "GILTI, renamed NCTI for tax years beginning after 2025, can tax a US owner of a UK limited company on profits left inside the company. Here's how the regime works, what the rename changed, and the elections that reduce the hit."
 date: "2026-06-27"

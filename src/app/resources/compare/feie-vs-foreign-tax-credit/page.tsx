@@ -9,7 +9,7 @@ import type { ComparisonTableData } from '@/lib/types';
 const url = '/resources/compare/feie-vs-foreign-tax-credit';
 
 export const metadata: Metadata = {
-  title: 'FEIE vs Foreign Tax Credit: Which Should You Use? | US UK Accountants',
+  title: 'FEIE vs Foreign Tax Credit: Which to Use?',
   description:
     'The Foreign Earned Income Exclusion and the Foreign Tax Credit are two different ways to avoid double taxation. Learn how each mechanism works, who each suits, and how they interact for Americans in the UK.',
   alternates: { canonical: url },

@@ -1,4 +1,5 @@
 ---
+seoTitle: "W-8BEN Explained for UK Residents"
 title: "W-8BEN Explained for UK Residents Receiving US Income"
 description: "A US broker, client or platform has asked you for a W-8BEN. Here is what the form does, who should use it, who must not, what the US–UK treaty rate is for dividends, interest and royalties, and when a W-8BEN-E or W-9 applies instead."
 date: "2026-10-05"

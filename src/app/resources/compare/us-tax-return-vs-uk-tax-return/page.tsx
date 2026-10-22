@@ -9,7 +9,7 @@ import type { ComparisonTableData } from '@/lib/types';
 const url = '/resources/compare/us-tax-return-vs-uk-tax-return';
 
 export const metadata: Metadata = {
-  title: 'US Tax Return vs UK Tax Return: How They Differ | US UK Accountants',
+  title: 'US Tax Return vs UK Tax Return: How They Differ',
   description:
     'US and UK tax returns work on different principles — citizenship-based vs residence-based taxation. Learn how the two systems differ for Americans in the UK.',
   alternates: { canonical: url },

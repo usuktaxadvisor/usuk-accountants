@@ -1,5 +1,5 @@
 ---
-seoTitle: "Holding UK Property Through a Company as a US Citizen"
+seoTitle: "UK Property Through a Company as a US Citizen"
 title: "Holding UK Property Through a Company: Should a US Citizen Do It?"
 description: "Holding UK property through a limited company can solve some UK tax problems but often creates bigger US ones: Form 5471, CFC rules, and lost reliefs. Here's how to weigh the structure for a US citizen, where it helps, and where it backfires."
 date: "2026-06-27"

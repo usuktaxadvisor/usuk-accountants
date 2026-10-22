@@ -24,7 +24,7 @@ export async function generateMetadata({
   if (!t) return { title: 'Term not found' };
   const url = `${BASE}/${slug}`;
   // Keep the <title> under ~60 characters: only include short expansions.
-  const expansion = t.expansion && t.expansion.length <= 30 ? ` (${t.expansion})` : '';
+  const expansion = t.expansion && t.expansion.length <= 22 ? ` (${t.expansion})` : '';
   const title = `${t.term}${expansion} — Definition`;
   const description = metaDescription(t.short);
   return {

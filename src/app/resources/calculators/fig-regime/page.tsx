@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/fig-regime';
 
 export const metadata: Metadata = {
-  title: '4-Year FIG Regime Checker — UK Foreign Income & Gains Relief',
+  title: '4-Year FIG Regime Checker (UK FIG Relief)',
   description:
     'Free checker for the UK\u2019s 4-year Foreign Income & Gains (FIG) regime that replaced the remittance basis on 6 April 2025. See if you qualify for relief on foreign income and gains as a new UK resident.',
   alternates: { canonical: URL },

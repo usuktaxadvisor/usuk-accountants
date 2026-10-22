@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/exit-tax';
 
 export const metadata: Metadata = {
-  title: 'US Exit Tax Calculator — Covered Expatriate Screen (Form 8854)',
+  title: 'US Exit Tax Calculator (Form 8854)',
   description:
     'Planning to renounce US citizenship or give up your green card? Screen whether you would be a covered expatriate under IRC §877A and understand the exit tax consequences before you act.',
   alternates: { canonical: URL },

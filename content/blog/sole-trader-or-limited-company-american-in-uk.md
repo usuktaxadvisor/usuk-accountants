@@ -1,5 +1,5 @@
 ---
-seoTitle: "Sole Trader or Limited Company for an American in UK"
+seoTitle: "Sole Trader or Limited Company: Americans in UK"
 title: "Sole Trader or Limited Company for an American in the UK?"
 description: "For a US citizen in the UK, the sole-trader-versus-limited-company decision is more than a UK question. Your structure choice has major US tax consequences (Form 5471, GILTI, self-employment tax). Here's how to think about it on both sides of the Atlantic."
 date: "2026-06-27"

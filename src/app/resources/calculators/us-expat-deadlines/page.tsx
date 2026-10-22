@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/us-expat-deadlines';
 
 export const metadata: Metadata = {
-  title: 'US Expat Tax Deadlines Calculator — Your Filing Dates Abroad',
+  title: 'US Expat Tax Deadlines Calculator',
   description:
     'Free US expat tax deadline tool. See your filing and payment dates as an American abroad: the automatic June extension, Form 4868 to October, the December extension and the FBAR deadline.',
   alternates: { canonical: URL },

@@ -1,5 +1,5 @@
 ---
-seoTitle: "Section 988 Mortgage Currency Gain for Americans in UK"
+seoTitle: "Section 988 Mortgage Currency Gain Explained"
 title: "The Foreign Mortgage Currency-Gain Trap (Section 988) for Americans in the UK"
 description: "Repaying or refinancing a sterling mortgage can create a separate US tax bill under Section 988, taxed as ordinary income, even if your property sale is otherwise tax-free. Here's how this currency-gain trap works and why it surprises so many Americans."
 date: "2026-06-27"

@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/double-tax-estimator';
 
 export const metadata: Metadata = {
-  title: 'US/UK Double-Tax Estimator — Will You Be Taxed Twice?',
+  title: 'US/UK Double-Tax Estimator',
   description:
     'Free estimator for Americans in the UK and dual citizens: see whether your income risks being taxed twice and how much relief the Foreign Tax Credit and US–UK treaty may provide.',
   alternates: { canonical: URL },

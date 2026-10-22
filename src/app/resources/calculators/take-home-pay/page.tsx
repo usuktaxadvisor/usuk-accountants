@@ -6,7 +6,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/resources/calculators/take-home-pay';
 
 export const metadata: Metadata = {
-  title: 'US vs UK Take-Home Pay Calculator — Compare Net Salary',
+  title: 'US vs UK Take-Home Pay Calculator',
   description:
     'Free US vs UK take-home pay comparison. See what proportion of a salary you keep after income tax and social contributions in each country — a directional tool for weighing a transatlantic move.',
   alternates: { canonical: URL },

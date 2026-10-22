@@ -9,7 +9,7 @@ import { authors } from '@/lib/authority-data';
 const URL = 'https://www.usukaccountants.com/services/us-expat-tax/fatca-compliance';
 
 export const metadata: Metadata = {
-  title: 'FATCA Compliance & Form 8938 for Americans in the UK',
+  title: 'FATCA Compliance & Form 8938 for Americans in UK',
   description:
     'FATCA requires US persons with foreign financial assets above set thresholds to file Form 8938 with their tax return. Learn what counts, how it differs from the FBAR, common mistakes, and how we handle it.',
   alternates: { canonical: URL },

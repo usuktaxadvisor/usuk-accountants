@@ -13,7 +13,7 @@ import {
 const url = '/resources/forms/form-1116';
 
 export const metadata: Metadata = {
-  title: 'IRS Form 1116 (Foreign Tax Credit) | US UK Accountants',
+  title: 'IRS Form 1116 (Foreign Tax Credit)',
   description:
     'What IRS Form 1116 is, why it exists, who generally files it, and how it uses foreign taxes paid to relieve double taxation for Americans in the UK.',
   alternates: { canonical: url },

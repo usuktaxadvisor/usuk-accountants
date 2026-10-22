@@ -9,7 +9,7 @@ import type { ComparisonTableData } from '@/lib/types';
 const url = '/resources/compare/fbar-vs-form-8938';
 
 export const metadata: Metadata = {
-  title: 'FBAR vs Form 8938: What Is the Difference? | US UK Accountants',
+  title: 'FBAR vs Form 8938: What Is the Difference?',
   description:
     'FBAR and Form 8938 are two separate US foreign-account reports. Learn who files each, how they differ, and why many Americans in the UK must file both.',
   alternates: { canonical: url },
