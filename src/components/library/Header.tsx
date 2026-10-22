@@ -38,7 +38,7 @@ export default function Header() {
           </div>
           <div className="flex items-center gap-4">
             <span className="text-gold">US &amp; UK cross-border specialists · London · Manchester · New York</span>
-            <Link href="/portal/login" className="transition-colors hover:text-gold">Client Login</Link>
+            <Link href="/portal/login" rel="nofollow" className="transition-colors hover:text-gold">Client Login</Link>
           </div>
         </div>
       </div>
@@ -139,6 +139,7 @@ export default function Header() {
           </Link>
           <Link
             href="/portal/login"
+            rel="nofollow"
             onClick={() => setOpen(false)}
             className="mt-3 block rounded-md border border-navy/30 py-3.5 text-center font-semibold text-navy"
           >

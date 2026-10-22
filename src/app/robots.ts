@@ -10,7 +10,10 @@ import type { MetadataRoute } from 'next';
  * policy is ever tightened.
  */
 export default function robots(): MetadataRoute.Robots {
-  const allowAll = { allow: '/' };
+  // The client portal (login, dashboards) and API routes are private and carry
+  // noindex; disallowing them stops crawlers fetching them at all, which keeps
+  // them out of Bing/Google "important page uses noindex" reports.
+  const allowAll = { allow: '/', disallow: ['/portal/', '/api/'] };
   return {
     rules: [
       { userAgent: '*', ...allowAll },
