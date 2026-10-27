@@ -3,6 +3,7 @@ seoTitle: "Self-Employed in the UK: Your US Tax Obligations"
 title: "Self-Employed in the UK? Your US Tax Obligations Explained"
 description: "An American self-employed in the UK files in both countries, but the US-UK Totalization Agreement usually exempts you from US self-employment tax. Here's how your UK and US obligations fit together, and the certificate of coverage that saves you 15.3%."
 date: "2026-06-27"
+updated: "2026-10-27"
 author: "sam-h"
 reviewedBy: "kristina"
 category: "Business & Self-Employment"
@@ -82,6 +83,16 @@ One useful benefit point: your UK National Insurance contributions count toward 
 - **Relying on old National Insurance guidance** that predates the Class 2 abolition.
 - **Letting the certificate lapse.** A certificate covers a stated period, so check its dates and renew it before it expires.
 
+## Sources
+
+- [IRS, About Schedule C (Form 1040), Profit or Loss from Business](https://www.irs.gov/forms-pubs/about-schedule-c-form-1040)
+- [IRS, About Schedule SE (Form 1040), Self-Employment Tax](https://www.irs.gov/forms-pubs/about-schedule-se-form-1040)
+- [IRS, About Form 2555, Foreign Earned Income](https://www.irs.gov/forms-pubs/about-form-2555)
+- [IRS, About Form 1116, Foreign Tax Credit](https://www.irs.gov/forms-pubs/about-form-1116)
+- [Social Security Administration, US-UK Totalization Agreement (certificates of coverage)](https://www.ssa.gov/international/Agreement_Pamphlets/uk.html)
+- [GOV.UK, Self-employed National Insurance rates](https://www.gov.uk/self-employed-national-insurance-rates)
+- [GOV.UK, Register for Self Assessment](https://www.gov.uk/register-for-self-assessment)
+
 ## Related reading
 
 - [Sole trader or limited company for an American in the UK?](/resources/blog/sole-trader-or-limited-company-american-in-uk): whether to stay self-employed or incorporate.
@@ -89,8 +100,8 @@ One useful benefit point: your UK National Insurance contributions count toward 
 - [FEIE or Foreign Tax Credit: which should I use in the UK?](/resources/blog/feie-or-foreign-tax-credit-uk): choosing the right income-tax relief.
 
 
-**Try the calculator:** [UK Statutory Residence Test Calculator](/resources/calculators/srt-residence), a quick, free way to sense-check your position before you book.
+**Try the calculator:** [UK Statutory Residence Test Calculator](/resources/calculators/srt-residence), a quick, free way to sense-check your position before you get in touch.
 
 ---
 
-*This article is general information, not personalised advice. Your exact UK and US obligations as a self-employed American depend on your residence, profit and circumstances, and the certificate-of-coverage process must be kept current. [Book a consultation](/book) and we'll make sure your UK and US filings align and you claim every exemption you're entitled to.*
+*This article is general information, not personalised advice. Your exact UK and US obligations as a self-employed American depend on your residence, profit and circumstances, and the certificate-of-coverage process must be kept current. [Email us](/contact) and we will make sure your UK and US filings align and you claim every exemption you are entitled to.*

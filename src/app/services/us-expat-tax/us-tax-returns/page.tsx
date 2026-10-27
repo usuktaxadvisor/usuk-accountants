@@ -188,6 +188,8 @@ export default function UsTaxReturns() {
         title="Further reading"
         links={[
           { label: 'Running a UK company as a US citizen', href: '/resources/blog/running-a-uk-limited-company-as-a-us-citizen', description: 'Every US obligation a UK Ltd creates' },
+          { label: 'Freelancer and contractor US tax forms', href: '/resources/blog/freelancer-contractor-uk-us-tax-forms', description: 'Schedule C, Form 2555 or 1116, FBAR and 8938 for UK freelancers' },
+          { label: 'Selling a UK home as a US citizen', href: '/resources/blog/selling-uk-home-as-us-citizen', description: 'The exclusion, the currency gain and the UK 60-day rule' },
           { label: 'Self-employed in the UK as an American', href: '/resources/blog/self-employed-in-uk-us-tax-obligations', description: 'Your US obligations and the SE-tax exemption' },
         ]}
       />

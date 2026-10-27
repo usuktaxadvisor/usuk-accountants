@@ -180,6 +180,8 @@ export default function SelfAssessment() {
         title="Further reading"
         links={[
           { label: 'US tax on UK rental income', href: '/resources/blog/us-tax-on-uk-rental-income', description: 'For American landlords filing in both countries' },
+          { label: 'Self-employed in the UK as an American', href: '/resources/blog/self-employed-in-uk-us-tax-obligations', description: 'Self Assessment, Schedule C and the certificate of coverage' },
+          { label: 'Freelancer and contractor US tax forms', href: '/resources/blog/freelancer-contractor-uk-us-tax-forms', description: 'The US forms a UK freelancer actually files' },
           { label: 'Selling a UK home as a US citizen', href: '/resources/blog/selling-uk-home-as-us-citizen', description: 'Why a tax-free UK sale can still trigger US tax' },
         ]}
       />

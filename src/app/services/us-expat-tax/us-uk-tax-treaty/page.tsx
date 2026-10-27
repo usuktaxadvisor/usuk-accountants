@@ -217,6 +217,7 @@ export default function UsUkTaxTreaty() {
             description: 'The complete step-by-step guide to filing your US return from the UK, in order.',
           },
           { label: 'Do I pay US tax on my UK pension?', href: '/resources/blog/do-i-pay-us-tax-on-my-uk-pension', description: 'How the IRS treats UK pensions' },
+          { label: 'IRS Form 8833 explained', href: '/resources/blog/irs-form-8833-explained', description: 'When a treaty position must be disclosed, and the penalty if it is not' },
           { label: 'Is the 25% lump sum taxable in the US?', href: '/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us', description: 'The contested treaty question, explained' },
           { label: 'UK corporation tax vs US tax', href: '/resources/blog/uk-corporation-tax-and-us-tax-interact', description: 'Double-taxation mechanics for company owners' },
           { label: 'US-UK estate & gift tax treaty', href: '/resources/blog/us-uk-estate-gift-tax-treaty', description: 'The separate death-tax treaty explained' },

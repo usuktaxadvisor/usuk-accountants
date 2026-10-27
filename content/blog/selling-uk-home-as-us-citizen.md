@@ -3,6 +3,7 @@ seoTitle: "Selling a UK Home as a US Citizen: CGT & §121"
 title: "Selling a UK Home as a US Citizen: Capital Gains and the §121 Exclusion"
 description: "Selling your UK home as an American can be tax-free in the UK under Private Residence Relief, but the US only excludes $250k/$500k under Section 121, and a separate Section 988 mortgage gain can still bite. This guide explains how it really works."
 date: "2026-06-27"
+updated: "2026-10-27"
 author: "sam-h"
 reviewedBy: "briana"
 category: "Property, Gains & Estate"
@@ -77,6 +78,15 @@ If your sale does attract UK capital gains tax, which is common for a property t
 - Ignoring currency effects that inflate the USD gain.
 - Selling before modelling. By completion, the planning options are gone.
 
+## Sources
+
+- [IRS, Topic no. 701, Sale of your home](https://www.irs.gov/taxtopics/tc701)
+- [IRS, Publication 523, Selling Your Home](https://www.irs.gov/forms-pubs/about-publication-523)
+- Internal Revenue Code section 121 (exclusion of gain on a principal residence) and section 988 (foreign currency transactions, which is where a mortgage repaid in sterling can produce a US gain).
+- [IRS, About Form 1116, Foreign Tax Credit](https://www.irs.gov/forms-pubs/about-form-1116)
+- [GOV.UK, Tax when you sell your home (Private Residence Relief)](https://www.gov.uk/tax-sell-home)
+- [GOV.UK, Tax when you sell property, including the 60-day reporting rule for UK residents and non-residents](https://www.gov.uk/tax-sell-property)
+
 ## Related reading
 
 - [The Section 988 mortgage currency gain trap](/resources/blog/section-988-mortgage-currency-gain): the mortgage charge the exclusion doesn't cover.
@@ -85,4 +95,4 @@ If your sale does attract UK capital gains tax, which is common for a property t
 
 ---
 
-*This article is general information, not personalised advice. Whether your UK home sale produces US tax depends on your gain, your history of letting, your mortgage, and currency movements, and the best moves are made before you complete. [Book a consultation](/book) and we'll model the US and UK tax on your sale while there's still time to plan.*
+*This article is general information, not personalised advice. Whether your UK home sale produces US tax depends on your gain, your history of letting, your mortgage, and currency movements, and the best moves are made before you complete. [Email us](/contact) and we will model the US and UK tax on your sale in writing while there is still time to plan.*

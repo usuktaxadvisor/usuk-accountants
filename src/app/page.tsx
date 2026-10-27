@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { JsonLd } from '@/components/library';
-import { faqSchema } from '@/lib/schema';
+import { faqSchema, speakableSchema } from '@/lib/schema';
 import { faqs as siteFaqs } from '@/lib/site-data';
 import {
   Header, Footer, MobileBar,
@@ -12,7 +12,7 @@ import {
 export default function Home() {
   return (
     <>
-      <JsonLd schema={[faqSchema(siteFaqs)]} />
+      <JsonLd schema={[faqSchema(siteFaqs), speakableSchema('/', ['.speakable'])]} />
       <Header />
       <main>
         <Hero primaryCta={{ label: 'Contact us', href: '/contact' }} />
@@ -22,7 +22,7 @@ export default function Home() {
             <div className="mx-auto max-w-6xl">
               <Eyebrow className="mb-4">What we prepare and file</Eyebrow>
               <h2 className="font-display text-display-md text-ink">Tax returns and compliance, US and UK, under one roof</h2>
-              <p className="mt-5 max-w-prose text-lg leading-relaxed text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each quoted in writing, case by case, before we start.</p>
+              <p className="speakable mt-5 max-w-prose text-lg leading-relaxed text-muted">Most of our clients come to us for the filings themselves. These are the returns and reports we prepare every year, each quoted in writing, case by case, before we start.</p>
               <ul className="mt-10 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
                 {[
                   { label: 'US tax returns (Form 1040)', detail: 'Federal and state returns for US citizens and green card holders living in the UK.', href: '/services/us-expat-tax/us-tax-returns' },
