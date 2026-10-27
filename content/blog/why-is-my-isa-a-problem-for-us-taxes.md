@@ -3,6 +3,7 @@ seoTitle: "Why Is My ISA a Problem for US Taxes? PFIC Rules"
 title: "Why Is My ISA a Problem for US Taxes? PFIC Rules Explained"
 description: "ISAs are tax-free in the UK, but for US citizens they can be a costly trap. Most funds inside a Stocks and Shares ISA are PFICs, triggering punitive US tax and Form 8621. This guide explains what that means and how to think about it."
 date: "2026-06-26"
+updated: "2026-10-27"
 author: "sam-h"
 reviewedBy: "briana"
 category: "Cross-Border"
@@ -69,7 +70,7 @@ There's also a further wrinkle. Depending on how a particular ISA platform holds
 
 Don't panic, and don't make a hasty sale. The right move depends on what's inside the ISA, how big it is, and how long you've held it. If you've held PFIC funds and haven't been reporting them, the [Streamlined Filing](/services/us-expat-tax/streamlined-filing) procedures often allow non-willful taxpayers to catch up (typically three years of returns and six years of FBARs), frequently without the usual late-filing penalties where the conditions are met. The sooner it's addressed, the more options you have.
 
-> A good first step is simply understanding your exposure. Our [team can review your ISA holdings](/book) and tell you whether you're looking at a simple fix or a more involved cleanup. The first conversation is a £350 30-minute consultation.
+> A good first step is simply understanding your exposure. [Email us](/contact) what your ISA holds and we will tell you in writing whether you are looking at a simple fix or a more involved cleanup, with a fixed fee quoted before any work starts.
 
 ## Common mistakes we see
 
@@ -78,6 +79,14 @@ Don't panic, and don't make a hasty sale. The right move depends on what's insid
 - Selling everything in a panic, which can crystallise exactly the punitive treatment you were trying to avoid. Timing matters.
 - Confusing a cash ISA with a stocks-and-shares ISA. The cash version is mostly harmless; the funds version is the issue.
 
+## Sources
+
+- [IRS, About Form 8621, Information Return by a Shareholder of a Passive Foreign Investment Company](https://www.irs.gov/forms-pubs/about-form-8621)
+- [IRS, About Form 3520 and Form 3520-A, foreign trust reporting](https://www.irs.gov/forms-pubs/about-form-3520)
+- IRS, Revenue Procedure 2020-17, reporting relief for certain tax-favoured foreign trusts.
+- [GOV.UK, Individual Savings Accounts (ISAs)](https://www.gov.uk/individual-savings-accounts)
+- [FinCEN, Report of Foreign Bank and Financial Accounts (FBAR)](https://www.fincen.gov/report-foreign-bank-and-financial-accounts)
+
 ## Related reading
 
 - [What happens if I haven't filed US taxes while living in the UK?](/resources/blog/havent-filed-us-taxes-living-in-uk): how to catch up if you've held an unreported ISA for years.
@@ -85,4 +94,4 @@ Don't panic, and don't make a hasty sale. The right move depends on what's insid
 
 ---
 
-*This article is general information, not personalised advice, and the foreign-trust treatment of ISAs in particular is genuinely contested among practitioners. What's right for you depends on what your ISA holds and your wider US filing position. [Book a consultation](/book) and we'll review your specific holdings before you make any moves.*
+*This article is general information, not personalised advice, and the foreign-trust treatment of ISAs in particular is genuinely contested among practitioners. What's right for you depends on what your ISA holds and your wider US filing position. [Email us](/contact) and we will review your specific holdings in writing before you make any moves.*

@@ -255,6 +255,8 @@ export default function FbarLateFilingExplanationPage() {
               { label: 'FBAR filing service', href: '/services/us-expat-tax/fbar-filing', description: 'Preparation and e-filing of current, late and amended FBARs.' },
               { label: 'Streamlined Filing service', href: '/services/us-expat-tax/streamlined-filing', description: 'For non willful cases where income was also unreported.' },
               { label: 'How to amend an FBAR', href: '/resources/blog/how-to-amend-an-fbar', description: 'When an account was left off a report you did file.' },
+              { label: 'Streamlined filing explained', href: '/resources/blog/streamlined-filing-explained', description: 'The three returns, six FBARs and certification, step by step.' },
+              { label: 'Delinquent FBAR vs Streamlined', href: '/resources/blog/delinquent-fbar-vs-streamlined-filing', description: 'Which catch up route fits which facts.' },
               { label: 'FBAR checker', href: '/resources/calculators/fbar-checker', description: 'Work through the $10,000 threshold test.' },
             ]}
           />

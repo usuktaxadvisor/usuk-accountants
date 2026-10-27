@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Header, Footer, Container, Section, SectionHeading, CTASection } from '@/components/library';
+import { Header, Footer, Container, Section, SectionHeading, CTASection, FAQSection } from '@/components/library';
 import { Breadcrumbs } from '@/components/library';
 import { JsonLd } from '@/components/library';
 import { breadcrumbSchema } from '@/lib/schema';
@@ -23,6 +23,15 @@ export const metadata: Metadata = {
     'US expat tax, UK accounting and cross-border advisory under one roof, for expats, dual citizens, families and businesses between the US and the UK.',
   alternates: { canonical: URL },
 };
+
+const FAQ_TITLE = 'Questions about our services';
+const faqs = [
+  { q: 'Do you handle both the US and the UK side, or just one?', a: 'Both, in one firm. We prepare US federal and state returns, UK Self Assessment and company filings, and the cross-border reporting that sits between them (FBAR, Form 8938, treaty positions), so the two countries are worked together rather than by two separate advisers.' },
+  { q: 'How do you charge?', a: 'Every piece of work is quoted in writing, as a fixed fee, before we start. The quote is based on the years, forms and countries involved, and it does not change unless the scope changes, which we agree with you first.' },
+  { q: 'How do we work together?', a: 'By email, with a secure portal for documents. That keeps every figure, question and answer in writing for you to refer back to, and it suits clients in any time zone. We do not deal with the IRS or HMRC on your behalf; we prepare what needs filing and you stay in control of your own affairs.' },
+  { q: 'I have missed US filings for several years. Where do I start?', a: 'Start with the Streamlined Foreign Offshore Procedures page, which explains the IRS catch up route for people living outside the US, and the FBAR filing page for the account reports that go with it. If you are not sure which route applies, tell us your situation and we will set out the options in writing.' },
+  { q: 'Do you give investment or financial advice?', a: 'No. We are a tax and accounting firm and are not authorised to give investment or financial advice. We explain the tax consequences of a decision; the decision itself stays with you or your financial adviser.' },
+];
 
 export default function ServicesHub() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Services', href: '/services' }];
@@ -91,9 +100,11 @@ export default function ServicesHub() {
           </Container>
         </Section>
 
+        <FAQSection faqs={faqs} emitSchema eyebrow="Common questions" title={FAQ_TITLE} />
+
         <CTASection
           title="Not sure which service you need?"
-          intro="Book a consultation and we'll point you to the right place, even if that's not us."
+          intro="Email us a few lines about your situation and we'll point you to the right place, even if that's not us."
           tone="navy"
         />
       </main>

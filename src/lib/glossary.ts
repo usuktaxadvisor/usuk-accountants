@@ -46,8 +46,11 @@ export const glossaryTerms: GlossaryTerm[] = [
     category: 'Reporting',
     related: [
       { label: 'FATCA compliance service', href: '/services/us-expat-tax/fatca-compliance' },
+      { label: 'Form 8938', href: '/resources/glossary/form-8938' },
+      { label: 'Compare: FBAR vs Form 8938', href: '/resources/compare/fbar-vs-form-8938' },
       { label: 'Do I need to file an FBAR?', href: '/resources/blog/do-i-need-to-file-an-fbar' },
     ],
+    sameAs: ['https://www.irs.gov/businesses/corporations/foreign-account-tax-compliance-act-fatca', 'https://www.irs.gov/forms-pubs/about-form-8938'],
   },
   {
     slug: 'form-8938',

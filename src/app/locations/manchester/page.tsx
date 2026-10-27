@@ -12,9 +12,9 @@ const URL = 'https://www.usukaccountants.com/locations/manchester';
 const office = OFFICES.find((o) => o.id === 'manchester')!;
 
 export const metadata: Metadata = {
-  title: 'US & UK Tax Accountants in Manchester',
+  title: 'Tax Advisor in Manchester for US and UK Tax',
   description:
-    'US–UK tax services in Manchester for Americans in the North West, dual citizens and cross-border businesses: US expat returns, FBAR, FATCA, UK accounting and tax advice.',
+    'Looking for a tax advisor in Manchester who handles both US and UK tax? US UK Accountants prepares US expat returns, FBAR and FATCA, UK Self Assessment and cross-border advice for clients across Greater Manchester, by email.',
   alternates: { canonical: URL },
 };
 
@@ -26,10 +26,12 @@ const manchesterServices = services.filter((s) =>
     .some((k) => s.href?.includes(k)));
 
 const faqs = [
-  { q: 'Do you have a Manchester office?', a: `Yes. Our Manchester office is on ${office.street}, ${office.locality} ${office.postalCode}. We work with clients across Greater Manchester and the wider North West, in person and remotely, and you can reach the team on ${office.phone}.` },
-  { q: 'Why is the Manchester listing named "US UK Expats Tax Specialist"?', a: 'Our Manchester branch operates under the Google Business Profile name "US UK Expats Tax Specialist". It is the same firm — US UK Accountants Ltd — and the same specialist US–UK service; the local listing name simply reflects how North West clients most often search for cross-border expat tax help.' },
-  { q: 'Can you help Americans living in Manchester with US taxes?', a: 'Yes — this is core to what we do. We prepare US federal returns, FBAR and FATCA filings, Streamlined catch-up filings and treaty positions for Americans across Greater Manchester, coordinated with their UK Self Assessment so reliefs line up and they are not taxed twice.' },
-  { q: 'Do I need to come to the Manchester office in person?', a: 'No. Many North West clients work with us entirely remotely through our secure document process, which suits Manchester\u2019s large population of remote and hybrid workers. Others prefer to meet in the city centre — both work, and the advice is the same either way.' },
+  { q: 'What does a tax advisor in Manchester do that a general accountant does not?', a: 'A general accountant handles UK returns. A cross-border tax advisor handles the UK return and the US return together, so the Foreign Tax Credit, the treaty and the account reporting line up and you are not taxed twice. If you or your business has any US connection, that second half is the part that matters.' },
+  { q: 'Do you have a Manchester office?', a: `Yes. Our Manchester office is on ${office.street}, ${office.locality} ${office.postalCode}. Most Manchester clients work with us by email and through our secure portal, and you can reach the team on ${office.phone}.` },
+  { q: 'Can you help Americans living in Manchester with US taxes?', a: 'Yes, this is core to what we do. We prepare US federal returns, FBAR and FATCA filings, Streamlined catch up filings and treaty positions for Americans across Greater Manchester, coordinated with their UK Self Assessment so reliefs line up.' },
+  { q: 'Do you help Manchester businesses with US owners or US customers?', a: 'Yes. UK companies with US shareholders, US companies with staff or sales in the North West, and the owners themselves: Form 5471, GILTI, UK accounts and Corporation Tax, VAT and sales tax, and the structuring questions that connect them.' },
+  { q: 'Why is the Manchester listing named "US UK Expats Tax Specialist"?', a: 'Our Manchester branch operates under the Google Business Profile name "US UK Expats Tax Specialist". It is the same firm, US UK Accountants Ltd, and the same specialist US and UK service; the local listing name reflects how North West clients most often search for cross-border expat tax help.' },
+  { q: 'How do I get started?', a: 'Email us a few lines about your situation. We reply in writing with what applies to you and, where work is needed, a fixed fee quoted before anything starts. There is no need to visit the office.' },
 ];
 
 export default function ManchesterLocation() {
@@ -37,8 +39,8 @@ export default function ManchesterLocation() {
     <PageShell
       url={URL}
       eyebrow="Locations · Manchester"
-      title="US & UK tax services in Manchester"
-      answer={`Our Manchester office provides specialist US–UK cross-border tax and accounting for Americans in the North West, dual citizens, and international businesses. From ${office.street}, ${office.locality} ${office.postalCode}, we handle US expat tax, FBAR and FATCA, UK accounting and HMRC compliance, and international tax advisory — both US and UK expertise under one roof. Reach the Manchester team on ${office.phone}.`}
+      title="Tax advisor in Manchester for US and UK tax"
+      answer={`US UK Accountants is a Manchester tax advisor for people and businesses with a foot in both countries: Americans in the North West, dual citizens, Britons with US income, and companies with US owners or operations. From ${office.street}, ${office.locality} ${office.postalCode}, we prepare US expat returns, FBAR and FATCA reports, UK Self Assessment and company filings, and give the cross-border advice in between, all by email with a fixed fee agreed first.`}
       crumbs={[
         { label: 'Locations', href: '/locations' },
         { label: 'Manchester', href: URL },
@@ -46,32 +48,34 @@ export default function ManchesterLocation() {
       author={author}
       reviewedBy={reviewedBy}
       datePublished="2026-08-11"
+      dateModified="2026-10-27"
       faqs={faqs}
-      ctaTitle="Speak to our Manchester team"
-      ctaIntro="Email us with US–UK specialists at our Manchester office or remotely."
+      ctaTitle="Email our Manchester team"
+      ctaIntro="A few lines about your situation is enough. We reply in writing with what applies to you."
     >
       <JsonLd schema={localBusinessSchema('manchester')!} />
 
       <ProseBlock>
         <p>
-          Manchester has become one of the UK&rsquo;s most internationally-connected cities &mdash; a hub for
-          media at MediaCityUK, a fast-growing technology and digital sector, and a student and research
-          population drawn from the University of Manchester, Manchester Metropolitan and Salford. With that
-          global pull comes a tax problem most accountants aren&rsquo;t built for: a US citizen in the North West
-          files with both the IRS and HMRC, and a Manchester business with US owners or operations sits across
-          two systems at once. That intersection is our entire focus.
+          Most people searching for a tax advisor in Manchester need one of two things: a UK return done
+          properly, or help with a US connection their current accountant cannot handle. We do both, in one
+          firm. A US citizen in Didsbury or Altrincham files with the IRS and HMRC every year. A Manchester
+          company with an American shareholder has Form 5471 and GILTI to think about on top of its UK
+          accounts. A British consultant with US clients has withholding forms and treaty positions to get
+          right. That intersection is our entire focus.
         </p>
         <p>
-          <strong>From our Manchester office, we provide genuine US and UK expertise under one roof.</strong> Not a
-          UK accountant outsourcing the American side, nor a US preparer guessing at UK rules &mdash; one team
-          that handles US expat tax, UK accounting, and the cross-border advisory that connects them, for
-          Americans, dual citizens and businesses across Greater Manchester and the wider North West.
+          <strong>What you get from us:</strong> US federal and state returns, UK Self Assessment, FBAR and
+          Form 8938 reporting, Streamlined catch up filings for missed years, UK company accounts and
+          Corporation Tax, and written cross-border advice on pensions, property, the US UK treaty and
+          business structure. Every piece of work is quoted as a fixed fee in writing before it starts.
         </p>
         <p>
-          Much of the North West&rsquo;s American community works remotely or in hybrid roles for employers on
-          both sides of the Atlantic. Our secure, fully remote document process is built for exactly that &mdash;
-          so whether you prefer to meet in the city centre or handle everything online, the service and the
-          quality of advice are identical.
+          Manchester is one of the UK&rsquo;s most internationally connected cities, with media at MediaCityUK,
+          a fast growing technology sector, and universities drawing staff and researchers from the US. Many of
+          the Americans here work remotely or in hybrid roles for employers on both sides of the Atlantic. Our
+          secure document process is built for exactly that, so the whole engagement runs by email and you
+          never need to come into the office unless you want to.
         </p>
       </ProseBlock>
 
@@ -109,12 +113,12 @@ export default function ManchesterLocation() {
       <WhoItsFor
         title="We help Manchester clients who are…"
         items={[
+          'Anyone in Greater Manchester who needs a tax advisor for both US and UK tax',
           'Americans living and working across Greater Manchester',
           'Dual US–UK citizens in the North West',
           'Manchester media, tech and digital businesses with US owners or operations',
           'Remote and hybrid workers employed on both sides of the Atlantic',
           'University staff, researchers and postgraduates from the US',
-          'Anyone in the North West who files with both the IRS and HMRC',
         ]}
       />
 

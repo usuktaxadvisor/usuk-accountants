@@ -180,6 +180,23 @@ export function personSchema(p: PersonInput) {
   };
 }
 
+/* ---------- ProfilePage (team member pages): wraps the Person as mainEntity ---------- */
+export function profilePageSchema(p: PersonInput, dateModified?: string) {
+  const person = personSchema(p);
+  const { '@context': _ctx, ...personNoCtx } = person;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    '@id': `${SITE.url}/about/team/${p.slug}/#profile`,
+    url: `${SITE.url}/about/team/${p.slug}`,
+    name: `${p.name}, ${p.role}`,
+    ...(dateModified ? { dateModified } : {}),
+    isPartOf: { '@id': WEBSITE_ID },
+    about: { '@id': ORG_ID },
+    mainEntity: personNoCtx,
+  };
+}
+
 /* ---------- Article / page authorship + review (the EEAT signal) ---------- */
 export interface SchemaEntity { name: string; url: string }
 

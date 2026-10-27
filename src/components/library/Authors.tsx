@@ -1,7 +1,7 @@
 import type { Author } from '@/lib/types';
 import { IconCheck, IconArrowRight } from '@/components/ui/icons';
 import { credentialCodesFor } from '@/lib/credentials-data';
-import { personSchema } from '@/lib/schema';
+import { profilePageSchema } from '@/lib/schema';
 import { JsonLd } from '@/components/library/JsonLd';
 
 /**
@@ -49,9 +49,9 @@ export function AuthorByline({
   );
 }
 
-/** Full author/team-member profile page body with Person + sameAs schema. */
+/** Full team member profile page body with ProfilePage schema wrapping the Person entity. */
 export function AuthorProfile({ author }: { author: Author }) {
-  const schema = personSchema({
+  const schema = profilePageSchema({
     slug: author.slug,
     name: author.name,
     role: author.role,

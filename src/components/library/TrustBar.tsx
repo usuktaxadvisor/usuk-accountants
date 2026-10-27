@@ -11,7 +11,7 @@ interface TrustBarProps {
 
 /**
  * Honest trust bar. Shows genuine, verifiable signals only:
- * both tax systems, two staffed offices, named specialists, secure process.
+ * both tax systems, offices in the UK and the US, named specialists, secure process.
  * Star rating renders ONLY when real reviews exist (trust-data gated).
  * Professional-body badges render ONLY if verified credentials are supplied.
  */

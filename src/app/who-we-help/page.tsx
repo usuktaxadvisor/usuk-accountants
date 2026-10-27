@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
+import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd, FAQSection } from '@/components/library';
 import { breadcrumbSchema } from '@/lib/schema';
 import { audiences } from '@/lib/site-data';
 import { IconArrowRight } from '@/components/ui/icons';
@@ -12,6 +12,15 @@ export const metadata: Metadata = {
     'Specialist tax and accounting for Americans in the UK, Britons in the US, dual citizens, cross-border families, business owners and high-net-worth individuals.',
   alternates: { canonical: URL },
 };
+
+const FAQ_TITLE = 'Questions about who we help';
+const faqs = [
+  { q: 'I am an American living in the UK. Do I still have to file US tax returns?', a: 'Yes. US citizens and green card holders file a US return every year wherever they live, and report their non US accounts once they pass the thresholds. UK tax already paid is usually taken into account through the Foreign Tax Credit or the Foreign Earned Income Exclusion, so most people pay little or nothing twice, but the return still has to be filed.' },
+  { q: 'I am British and moved to the US. What changes?', a: 'Once you are US resident you file US federal and state returns on your worldwide income, including UK income such as rent, pensions and interest. Your UK position depends on the Statutory Residence Test and may involve a split year and a final Self Assessment return. We prepare both sides together.' },
+  { q: 'Do you work with businesses as well as individuals?', a: 'Yes. We act for UK companies with US owners, US companies with UK operations, and the owners themselves, including Form 5471, GILTI, company accounts and Corporation Tax, and the structuring questions that connect them.' },
+  { q: 'What if my situation does not fit one of these groups?', a: 'Most clients sit across two or three of them, for example a dual citizen who owns a company and holds a UK pension. Tell us your facts by email and we will set out what applies to you in writing.' },
+  { q: 'Do you give investment or financial advice?', a: 'No. We are a tax and accounting firm and are not authorised to give investment or financial advice. We explain the tax consequences; the investment decisions stay with you or your financial adviser.' },
+];
 
 export default function WhoWeHelpHub() {
   const crumbs = [{ label: 'Home', href: '/' }, { label: 'Who We Help', href: '/who-we-help' }];
@@ -61,9 +70,11 @@ export default function WhoWeHelpHub() {
           </Container>
         </Section>
 
+        <FAQSection faqs={faqs} emitSchema eyebrow="Common questions" title={FAQ_TITLE} />
+
         <CTASection
           title="Not sure which describes you?"
-          intro="Book a consultation and we'll point you to the right approach for your situation."
+          intro="Email us a few lines about your situation and we'll point you to the right approach."
           tone="navy"
         />
       </main>

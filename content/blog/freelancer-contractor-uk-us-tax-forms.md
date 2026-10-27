@@ -3,6 +3,7 @@ seoTitle: "UK Freelancer or Contractor: US Tax Forms You Need"
 title: "Freelancer or Contractor in the UK: What US Tax Forms Do You Need?"
 description: "An American freelancing or contracting in the UK won't get a 1099 from UK clients, but still self-reports to the IRS. Here's the exact checklist of US forms you need, why the UK works differently, and the contractor-versus-employee question."
 date: "2026-06-27"
+updated: "2026-10-27"
 author: "sam-h"
 reviewedBy: "briana"
 category: "Business & Self-Employment"
@@ -82,6 +83,16 @@ The classification turns on the substance of the relationship (control, mutualit
 - **Assuming a "contractor" label settles the classification.** Substance governs.
 - **Forgetting FBAR/Form 8938** on UK business and personal accounts.
 
+## Sources
+
+- [IRS, About Schedule C (Form 1040)](https://www.irs.gov/forms-pubs/about-schedule-c-form-1040)
+- [IRS, About Schedule SE (Form 1040)](https://www.irs.gov/forms-pubs/about-schedule-se-form-1040)
+- [IRS, About Form 2555, Foreign Earned Income](https://www.irs.gov/forms-pubs/about-form-2555)
+- [IRS, About Form 8938, Statement of Specified Foreign Financial Assets](https://www.irs.gov/forms-pubs/about-form-8938)
+- [FinCEN, Report of Foreign Bank and Financial Accounts (FBAR)](https://www.fincen.gov/report-foreign-bank-and-financial-accounts)
+- [Social Security Administration, US-UK Totalization Agreement](https://www.ssa.gov/international/Agreement_Pamphlets/uk.html)
+- [GOV.UK, Employment status](https://www.gov.uk/employment-status)
+
 ## Related reading
 
 - [Self-employed in the UK? Your US tax obligations explained](/resources/blog/self-employed-in-uk-us-tax-obligations): the tax and Totalization mechanics in depth.
@@ -89,8 +100,8 @@ The classification turns on the substance of the relationship (control, mutualit
 - [FEIE or Foreign Tax Credit: which should I use in the UK?](/resources/blog/feie-or-foreign-tax-credit-uk): choosing between Form 2555 and Form 1116.
 
 
-**Try the calculator:** [US Expat Tax Deadlines Calculator](/resources/calculators/us-expat-deadlines), a quick, free way to sense-check your position before you book.
+**Try the calculator:** [US Expat Tax Deadlines Calculator](/resources/calculators/us-expat-deadlines), a quick, free way to sense-check your position before you get in touch.
 
 ---
 
-*This article is general information, not personalised advice. Your exact US forms depend on your income, accounts, and how you use the available reliefs, and the contractor-versus-employee question can be genuinely fact-specific. [Book a consultation](/book) and we'll confirm precisely what you need to file as a freelancer or contractor in the UK.*
+*This article is general information, not personalised advice. Your exact US forms depend on your income, accounts, and how you use the available reliefs, and the contractor-versus-employee question can be genuinely fact-specific. [Email us](/contact) and we will confirm in writing what you need to file as a freelancer or contractor in the UK.*

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd } from '@/components/library';
+import { Header, Footer, Container, Section, SectionHeading, CTASection, Breadcrumbs, JsonLd, FAQSection } from '@/components/library';
 import { breadcrumbSchema } from '@/lib/schema';
 import { IconCalculator, IconGlobeDoc, IconTreaty, IconPlanning, IconArrowRight } from '@/components/ui/icons';
 
@@ -20,6 +20,15 @@ const sections = [
   { icon: IconGlobeDoc, title: 'Insights & Guides', description: 'Plain-English articles on US expat tax, UK accounting and cross-border planning — written and reviewed by our team.', href: '/resources/blog', live: true },
   { icon: IconPlanning, title: 'Glossary', description: 'Clear definitions of the US and UK tax terms that matter — FBAR, FEIE, SRT, PFIC and more.', href: '/resources/glossary', live: true },
   { icon: IconGlobeDoc, title: 'Tax Data Centre', description: 'Every US and UK figure that matters — FEIE, FBAR, FATCA, rates, treaty articles and deadlines — each with its official IRS or HMRC source.', href: '/resources/tax-data', live: true },
+];
+
+const FAQ_TITLE = 'Questions about our resources';
+const faqs = [
+  { q: 'Are the guides and calculators free to use?', a: 'Yes. Everything in the resources section is free and does not require an account. The calculators give an indication based on the figures you enter; they are not a substitute for a prepared return.' },
+  { q: 'Who writes the guides, and are they checked?', a: 'Each guide and article is written by a named member of our team and reviewed by a second qualified person before publication. The author and reviewer are shown on every page, with the date it was last updated.' },
+  { q: 'Where do the figures come from?', a: 'The thresholds, rates and deadlines come from the official IRS, FinCEN and HMRC sources, and each figure in the Tax Data Centre links to the page it was taken from. We update them when the authorities publish changes.' },
+  { q: 'Which guide should I read first if I have missed US filings?', a: 'Start with the Delinquent FBAR guide and the FBAR late filing explanation guide, then the Streamlined Foreign Offshore Procedures page. Together they explain the catch up routes and what a late filing needs to say.' },
+  { q: 'Can I rely on a guide instead of getting advice?', a: 'The guides explain the rules in plain English, but they cannot know your facts. For anything you are going to file or decide, get written advice on your own position first.' },
 ];
 
 export default function ResourcesHub() {
@@ -181,9 +190,11 @@ export default function ResourcesHub() {
           </Container>
         </Section>
 
+        <FAQSection faqs={faqs} emitSchema eyebrow="Common questions" title={FAQ_TITLE} />
+
         <CTASection
           title="Prefer to just ask a specialist?"
-          intro="Book a consultation and get answers specific to your situation."
+          intro="Email us your question and we'll come back with an answer specific to your situation."
           tone="navy"
         />
       </main>

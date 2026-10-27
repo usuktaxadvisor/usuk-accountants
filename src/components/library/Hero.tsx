@@ -69,7 +69,7 @@ export function Hero({
           <h1 className="font-display text-display-xl text-white">
             {title}
           </h1>
-          <p className="mt-7 max-w-[56ch] text-lg leading-relaxed text-softwhite/85">{intro}</p>
+          <p className="speakable mt-7 max-w-[56ch] text-lg leading-relaxed text-softwhite/85">{intro}</p>
 
           <div className="mt-9 flex flex-wrap items-center gap-3">
             <a

@@ -3,6 +3,7 @@ seoTitle: "IRS Form 8833 Explained: Who Must File and When"
 title: "IRS Form 8833 Explained: Who Must File It and When Is It Required?"
 description: "A clear guide to IRS Form 8833 for Americans in the UK: what a treaty-based return position is, who must disclose, the penalties, and how it interacts with the FTC, FEIE, FBAR and FATCA."
 date: "2026-07-08"
+updated: "2026-10-27"
 author: "sam-h"
 reviewedBy: "sal-t"
 category: "US Expat Tax & Treaty"
@@ -81,6 +82,21 @@ If you take a treaty-based position that requires disclosure and fail to file Fo
 
 Form 8833 sits at the intersection of two tax systems and a treaty with a saving clause. It is an area where confident-sounding but wrong positions are common. If you are weighing a treaty position, particularly around pensions, residency, or Green Card status, professional advice is how you avoid penalties and defend your position if questioned.
 
+## Sources
+
+- [IRS, About Form 8833, Treaty-Based Return Position Disclosure](https://www.irs.gov/forms-pubs/about-form-8833)
+- [IRS, Claiming tax treaty benefits](https://www.irs.gov/individuals/international-taxpayers/claiming-tax-treaty-benefits)
+- [IRS, United Kingdom tax treaty documents (2001 convention and 2002 protocol)](https://www.irs.gov/businesses/international-businesses/united-kingdom-tax-treaty-documents)
+- Internal Revenue Code sections 6114 (disclosure of treaty-based return positions) and 6712 (penalty for failure to disclose).
+- HMRC International Manual, DT19850 onwards, USA double taxation agreement.
+
+## Related reading
+
+- [US-UK tax treaty explained](/resources/blog/us-uk-tax-treaty-explained): the convention this form discloses positions under.
+- [US-UK Tax Treaty service](/services/us-expat-tax/us-uk-tax-treaty): our advisory service for treaty positions and disclosures.
+- [W-8BEN and US withholding forms](/services/us-expat-tax/w-8ben-us-withholding-forms): where treaty rates are claimed on US-source income instead.
+- [FATCA and Form 8938](/services/us-expat-tax/fatca-compliance): the reporting that a treaty position never switches off.
+
 > This article is general information, not personal tax advice. Treaty positions depend heavily on individual facts, and the correct approach varies. For your situation, consult a qualified US-UK cross-border tax adviser.
 
-If you are considering a treaty position on your US return, [book a consultation](/book?tier=individual) with our cross-border specialists. We will assess whether Form 8833 applies to you and how to document it correctly. You may also find our guide to the [US-UK tax treaty](/resources/blog/us-uk-tax-treaty-explained) helpful.
+If you are considering a treaty position on your US return, [email us](/contact) and we will assess in writing whether Form 8833 applies to you and how to document it correctly. You may also find our guide to the [US-UK tax treaty](/resources/blog/us-uk-tax-treaty-explained) helpful.
