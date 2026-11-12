@@ -197,7 +197,7 @@ export async function verifyUploadedFile(
   if (Number(meta.data.size ?? -1) !== expectedSize) return { ok: false, reason: 'Size mismatch' };
   const token = await accessToken();
   const headRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`, {
-    headers: { Authorization: `Bearer ${token}`, Range: 'bytes=0-511' },
+    headers: { Authorization: `Bearer ${token}`, Range: 'bytes=0-1023' },
   });
   const head = Buffer.from(await headRes.arrayBuffer());
   return { ok: true, name: meta.data.name ?? '', head };

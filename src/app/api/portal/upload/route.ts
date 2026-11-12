@@ -25,7 +25,7 @@ export async function POST(req: Request) {
   if (session.role !== 'CLIENT' || !session.clientId)
     return NextResponse.json({ error: 'Not found' }, { status: 404 });
 
-  if (!rateLimit(`upload:${session.uid}`, 20, 10 * 60_000))
+  if (!rateLimit(`upload:${session.uid}`, 40, 10 * 60_000))
     return NextResponse.json({ error: 'Too many uploads — please wait a few minutes.' }, { status: 429 });
 
   let form: FormData;
