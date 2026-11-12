@@ -5,8 +5,11 @@ import { getAllGlossarySlugs } from '@/lib/glossary';
 
 const base = 'https://www.usukaccountants.com';
 
+// lastModified is only emitted where we hold a real date (blog front matter).
+// Stamping every URL with the build time told Google the whole site changed on
+// every deploy, so it stopped trusting lastmod and left pages un-recrawled for
+// months. No date is better than a false one.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
 
   const staticPages = [
     '', '/book', '/contact',
@@ -79,7 +82,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/editorial-policy', '/review-policy', '/privacy',
   ].map((path) => ({
     url: `${base}${path}`,
-    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority:
       path === '' ? 1
@@ -90,28 +92,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const authorPages = authors.map((a) => ({
     url: `${base}/about/team/${a.slug}`,
-    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   const casePages = caseStudies.map((c) => ({
     url: `${base}/about/case-studies/${c.slug}`,
-    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   const glossaryPages = getAllGlossarySlugs().map((slug) => ({
     url: `${base}/resources/glossary/${slug}`,
-    lastModified: now,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   const blogPages = getAllPostsMeta().map((p) => ({
     url: `${base}/resources/blog/${p.slug}`,
-    lastModified: p.updated ? new Date(p.updated) : (p.date ? new Date(p.date) : now),
+    ...(p.updated || p.date ? { lastModified: new Date(p.updated || p.date) } : {}),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));

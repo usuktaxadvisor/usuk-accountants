@@ -50,7 +50,7 @@ export function AtlanticStrip({
           {track.map((f, i) => {
             const dup = i >= FRAMES.length;
             return (
-              <figure key={`${f.src}-${i}`} className={`strip-item ${dup ? 'strip-dup' : ''}`} aria-hidden={dup || undefined}>
+              <figure key={`strip-frame-${i}`} className={`strip-item ${dup ? 'strip-dup' : ''}`} aria-hidden={dup || undefined}>
                 <Image
                   src={f.src}
                   alt={dup ? '' : f.alt}
