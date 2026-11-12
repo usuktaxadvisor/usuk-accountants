@@ -106,7 +106,7 @@ export default function Page() {
           covering a different facet of a cross-border tax position. They form part of the broader{' '}
           <Link href="/resources/glossary/fatca">foreign asset reporting</Link> framework and connect to
           the wider{' '}
-          <Link href="/services/us-tax-returns/hub">US tax returns</Link> service.
+          <Link href="/services/us-expat-tax/us-tax-returns/hub">US tax returns</Link> service.
         </p>
       </ProseBlock>
     </PageShell>

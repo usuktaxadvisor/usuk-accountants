@@ -158,7 +158,7 @@ export default function Page() {
           },
           {
             label: 'US Tax Returns hub',
-            href: '/services/us-tax-returns/hub',
+            href: '/services/us-expat-tax/us-tax-returns/hub',
             description: 'Where trust and gift reporting fits in your annual filing.',
           },
           {
