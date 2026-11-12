@@ -36,3 +36,28 @@ describe('upload validation', () => {
     expect(validateUpload('doc.pdf', 'image/png', PDF).ok).toBe(false);
   });
 });
+
+describe('real-world PDFs (bank statements)', () => {
+  const body = Buffer.alloc(64, 1);
+  const pdf = (pre = '') => Buffer.concat([Buffer.from(pre), Buffer.from('%PDF-1.4\n'), body]);
+  it('accepts PDF MIME variants some browsers report', () => {
+    for (const m of ['application/x-pdf', 'application/acrobat', 'text/pdf', 'APPLICATION/PDF', ''])
+      expect(validateUpload('statement.pdf', m, pdf()).ok).toBe(true);
+  });
+  it('accepts a PDF whose header follows a BOM or blank line', () => {
+    expect(validateUpload('statement.pdf', 'application/pdf', pdf('﻿')).ok).toBe(true);
+    expect(validateUpload('statement.pdf', 'application/pdf', pdf('\r\n')).ok).toBe(true);
+  });
+  it('accepts names with trailing spaces or upper-case extensions', () => {
+    expect(validateUpload('statement.pdf ', 'application/pdf', pdf())).toMatchObject({ ok: true, safeName: 'statement.pdf' });
+    expect(validateUpload('M&S Statement.PDF', 'application/pdf', pdf())).toMatchObject({ ok: true, ext: 'pdf' });
+  });
+  it('names a real PDF saved without an extension as .pdf', () => {
+    expect(validateUpload('Statement', 'application/pdf', pdf())).toMatchObject({ ok: true, ext: 'pdf', safeName: 'Statement.pdf' });
+  });
+  it('still refuses non-PDF content without an extension, and an EXE disguised as PDF', () => {
+    expect(validateUpload('Statement', 'application/octet-stream', EXE).ok).toBe(false);
+    expect(validateUpload('invoice.pdf', 'application/x-pdf', EXE).ok).toBe(false);
+    expect(validateUpload('hidden', 'application/pdf', Buffer.concat([Buffer.alloc(2000, 1), Buffer.from('%PDF-')])).ok).toBe(false);
+  });
+});

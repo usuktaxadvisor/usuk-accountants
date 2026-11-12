@@ -3,7 +3,7 @@ import { and, eq } from 'drizzle-orm';
 import { createHmac } from 'node:crypto';
 import { portalSession } from '@/lib/portal/auth';
 import { db, tables } from '@/lib/portal/db';
-import { sanitiseFilename, MAX_BYTES } from '@/lib/portal/validate';
+import { sanitiseFilename, extensionOf, MAX_BYTES, ACCEPTED_TYPES_MESSAGE } from '@/lib/portal/validate';
 import { createResumableSession } from '@/lib/portal/drive';
 import { rateLimit } from '@/lib/portal/ratelimit';
 
@@ -20,16 +20,19 @@ export async function POST(req: Request) {
   const session = await portalSession();
   if (!session) return NextResponse.json({ error: 'Not signed in' }, { status: 401 });
   if (session.role !== 'CLIENT' || !session.clientId) return NextResponse.json({ error: 'Not found' }, { status: 404 });
-  if (!rateLimit(`upload:${session.uid}`, 20, 10 * 60_000)) return NextResponse.json({ error: 'Too many uploads — please wait a few minutes.' }, { status: 429 });
+  if (!rateLimit(`upload:${session.uid}`, 40, 10 * 60_000)) return NextResponse.json({ error: 'Too many uploads — please wait a few minutes.' }, { status: 429 });
 
   let body: { requestId?: string; filename?: string; size?: number; mime?: string };
   try { body = await req.json(); } catch { return NextResponse.json(GENERIC, { status: 400 }); }
   const requestId = String(body.requestId ?? '');
   const size = Number(body.size ?? 0);
   const mime = String(body.mime || 'application/octet-stream');
-  const safeName = sanitiseFilename(String(body.filename ?? ''));
-  const ext = safeName.includes('.') ? safeName.split('.').pop()!.toLowerCase() : '';
-  if (!requestId || !ALLOWED_EXT.has(ext)) return NextResponse.json({ error: 'File type not accepted' }, { status: 400 });
+  let safeName = sanitiseFilename(String(body.filename ?? ''));
+  let ext = extensionOf(safeName);
+  // No extension but the browser says PDF: name it .pdf. The content is still checked after upload.
+  if (!ext && !safeName.includes('.') && /pdf/i.test(mime)) { safeName = `${safeName}.pdf`; ext = 'pdf'; }
+  if (!requestId) return NextResponse.json(GENERIC, { status: 400 });
+  if (!ALLOWED_EXT.has(ext)) return NextResponse.json({ error: ACCEPTED_TYPES_MESSAGE }, { status: 400 });
   if (!Number.isFinite(size) || size <= 0 || size > MAX_BYTES()) return NextResponse.json({ error: `File exceeds ${process.env.UPLOAD_MAX_MB ?? 25} MB limit` }, { status: 400 });
 
   const [request] = await db.select({ id: tables.documentRequests.id }).from(tables.documentRequests)
