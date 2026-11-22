@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { PageShell, Section, Container } from '@/components/library';
 import { JsonLd } from '@/components/library/JsonLd';
 import { definedTermSetSchema } from '@/lib/schema';
-import { glossaryTerms, glossaryByCategory } from '@/lib/glossary';
+import { listedGlossaryTerms, glossaryByCategory } from '@/lib/glossary';
 import { authors } from '@/lib/authority-data';
 
 const URL = 'https://www.usukaccountants.com/resources/glossary';
@@ -29,7 +29,7 @@ const faqs = [
 export default function GlossaryIndex() {
   const grouped = glossaryByCategory();
   const setSchema = definedTermSetSchema(
-    glossaryTerms.map((t) => ({ slug: t.slug, term: t.term, definition: t.short })),
+    listedGlossaryTerms().map((t) => ({ slug: t.slug, term: t.term, definition: t.short })),
   );
 
   return (

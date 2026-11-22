@@ -17,6 +17,12 @@ export interface GlossaryTerm {
   category: 'US Tax' | 'UK Tax' | 'Cross-Border' | 'Reporting' | 'Entity & Business' | 'Property & Estate';
   related?: { label: string; href: string }[];
   sameAs?: string[];
+  /**
+   * Set when this entry covers the same term as another entry. The page stays
+   * live at its URL, but its canonical points to the main entry and it is left
+   * out of the sitemap and of listings, so search engines see one page per term.
+   */
+  canonicalSlug?: string;
 }
 
 export const glossaryTerms: GlossaryTerm[] = [
@@ -865,6 +871,7 @@ export const glossaryTerms: GlossaryTerm[] = [
   },
   {
     slug: 'form-3520a',
+    canonicalSlug: 'form-3520-a',
     term: 'Form 3520-A',
     expansion: 'Annual Return of a Foreign Trust With a US Owner',
     short: 'Form 3520-A is the annual information return for a foreign trust with a US owner. For Americans in the UK it can be triggered by certain UK pensions, trusts, and arrangements the IRS treats as foreign trusts.',
@@ -911,10 +918,47 @@ export function getAllGlossarySlugs(): string[] {
   return glossaryTerms.map((t) => t.slug);
 }
 
+/** Terms shown in listings and the sitemap: one entry per term. */
+export function listedGlossaryTerms(): GlossaryTerm[] {
+  return glossaryTerms.filter((t) => !t.canonicalSlug);
+}
+
+export function getListedGlossarySlugs(): string[] {
+  return listedGlossaryTerms().map((t) => t.slug);
+}
+
+/**
+ * Related terms for a glossary page. Takes the neighbours either side of the
+ * term within its category (wrapping round), so every term is linked from
+ * several others. Always taking the first few of a category left the rest with
+ * one or two internal links.
+ */
+export function siblingGlossaryTerms(slug: string, count = 6): GlossaryTerm[] {
+  const current = getGlossaryTerm(slug);
+  if (!current) return [];
+  const home = current.canonicalSlug ?? current.slug;
+  const pool = listedGlossaryTerms()
+    .filter((t) => t.category === current.category)
+    .sort((a, b) => a.term.localeCompare(b.term));
+  const at = pool.findIndex((t) => t.slug === home);
+  const others = pool.filter((t) => t.slug !== home);
+  if (others.length <= count) return others;
+  const start = at < 0 ? 0 : at;
+  const half = Math.floor(count / 2);
+  const picked: GlossaryTerm[] = [];
+  for (let i = 0; i < count; i++) {
+    const offset = i < half ? i - half : i - half + 1;
+    const idx = (((start + offset) % pool.length) + pool.length) % pool.length;
+    const t = pool[idx];
+    if (t.slug !== home && !picked.includes(t)) picked.push(t);
+  }
+  return picked;
+}
+
 export function glossaryByCategory(): [string, GlossaryTerm[]][] {
   const order = ['US Tax', 'UK Tax', 'Cross-Border', 'Reporting', 'Entity & Business', 'Property & Estate'];
   const groups = new Map<string, GlossaryTerm[]>();
-  for (const t of glossaryTerms) {
+  for (const t of listedGlossaryTerms()) {
     if (!groups.has(t.category)) groups.set(t.category, []);
     groups.get(t.category)!.push(t);
   }

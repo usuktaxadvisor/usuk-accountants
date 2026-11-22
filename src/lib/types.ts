@@ -120,6 +120,8 @@ export interface Review {
 export interface CaseStudy {
   slug: string;
   title: string;
+  /** Shorter <title> for search results (50 characters at most). */
+  metaTitle?: string;
   client: string;
   flag?: string;
   challenge: string;

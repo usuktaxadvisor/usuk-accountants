@@ -48,6 +48,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'dual-citizen-company-structuring',
     title: 'A dual citizen UK company, structured for both tax systems',
+    metaTitle: 'Dual citizen UK company structuring: case study',
     client: 'Dual US-UK citizen, SaaS founder',
     flag: '\u{1F310}',
     challenge: 'A founder with a UK limited company faced potential GILTI exposure and Form 5471 obligations on the US side, with no coordination between their UK accountant and US preparer.',
@@ -67,6 +68,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: 'us-to-uk-relocation',
     title: 'A clean first-year transition from New York to Edinburgh',
+    metaTitle: 'New York to Edinburgh relocation: case study',
     client: 'UK national returning from the US',
     flag: '\u{1F1EC}\u{1F1E7}',
     challenge: 'A returning UK national needed to manage a split tax year, residual US filing obligations, and UK residency from the same point of contact.',

@@ -17,7 +17,7 @@ export async function generateMetadata(
   const study = caseStudies.find((c) => c.slug === slug);
   if (!study) return { title: 'Case study not found' };
   return {
-    title: study.title,
+    title: study.metaTitle ?? study.title,
     description: study.challenge,
     alternates: { canonical: `https://www.usukaccountants.com/about/case-studies/${study.slug}` },
   };
