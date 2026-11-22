@@ -17,6 +17,12 @@ export interface GlossaryTerm {
   category: 'US Tax' | 'UK Tax' | 'Cross-Border' | 'Reporting' | 'Entity & Business' | 'Property & Estate';
   related?: { label: string; href: string }[];
   sameAs?: string[];
+  /** Extra plain-English sections shown under the main definition. */
+  sections?: { heading: string; body: string[] }[];
+  /** Official pages the figures and rules on this entry were checked against. */
+  sources?: { label: string; href: string }[];
+  /** Month the entry was last checked against its sources, e.g. 'November 2026'. */
+  checked?: string;
   /**
    * Set when this entry covers the same term as another entry. The page stays
    * live at its URL, but its canonical points to the main entry and it is left
@@ -72,6 +78,38 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'FATCA compliance service', href: '/services/us-expat-tax/fatca-compliance' },
       { label: 'Form 8938 explained', href: '/resources/forms/form-8938' },
     ],
+    sections: [
+      {
+        "heading": "The thresholds",
+        "body": [
+          "If you live abroad and do not file a joint return, you file Form 8938 when your specified foreign financial assets are worth more than $200,000 on the last day of the tax year, or more than $300,000 at any time during it. For a married couple filing jointly who live abroad, the figures are $400,000 and $600,000.",
+          "The thresholds are much lower if you live in the United States: more than $50,000 on the last day of the year or more than $75,000 at any time, and $100,000 and $150,000 for a joint return. This matters in the year you move, because which set applies depends on whether you meet the IRS test for living abroad."
+        ]
+      },
+      {
+        "heading": "Penalty for not filing",
+        "body": [
+          "The penalty for a late or incomplete Form 8938 is $10,000. If the form is still not filed 90 days after the IRS sends a notice, a further $10,000 is charged for each 30 days, up to a maximum of $50,000 on top."
+        ]
+      },
+      {
+        "heading": "How it sits beside the FBAR",
+        "body": [
+          "Form 8938 goes to the IRS with your tax return. The FBAR goes to FinCEN and has its own $10,000 threshold. Filing one does not replace the other, and many Americans in the UK with pensions, savings and investments have to file both."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "IRS: Do I need to file Form 8938?",
+        "href": "https://www.irs.gov/businesses/corporations/do-i-need-to-file-form-8938-statement-of-specified-foreign-financial-assets"
+      },
+      {
+        "label": "IRS: International information reporting penalties",
+        "href": "https://www.irs.gov/payments/international-information-reporting-penalties"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'feie',
@@ -172,6 +210,38 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'Form 5471 explained', href: '/resources/blog/form-5471-explained-americans-uk' },
       { label: 'Form 5471 service', href: '/services/us-expat-tax/form-5471' },
     ],
+    sections: [
+      {
+        "heading": "Who has to file",
+        "body": [
+          "The instructions set out five categories of filer. In broad terms they cover a US citizen or resident who is an officer or director of a foreign company when a US person acquires a 10% stake, a US person whose own holding crosses the 10% mark, a US person who controls the company by holding more than 50% of the votes or value, and US shareholders of a controlled foreign corporation.",
+          "An American who owns all of a UK limited company will normally fall into the control and controlled foreign corporation categories, which carry the fullest set of schedules. More than one category can apply to the same person in the same year."
+        ]
+      },
+      {
+        "heading": "How and when it is filed",
+        "body": [
+          "Form 5471 is not sent in on its own. It is attached to your income tax return and is due when that return is due, including extensions."
+        ]
+      },
+      {
+        "heading": "Penalty for not filing",
+        "body": [
+          "The penalty is $10,000 for each late or incomplete form. If it is still outstanding 90 days after the IRS sends a notice, a further $10,000 is charged for each 30 days, up to a maximum of $50,000 on top."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "IRS: Instructions for Form 5471",
+        "href": "https://www.irs.gov/instructions/i5471"
+      },
+      {
+        "label": "IRS: International information reporting penalties",
+        "href": "https://www.irs.gov/payments/international-information-reporting-penalties"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'check-the-box',
@@ -185,6 +255,39 @@ export const glossaryTerms: GlossaryTerm[] = [
     related: [
       { label: 'Check-the-box election for a UK company', href: '/resources/blog/check-the-box-election-uk-limited-company' },
     ],
+    sections: [
+      {
+        "heading": "The starting position for a UK company",
+        "body": [
+          "If no election is made, a foreign entity whose members all have limited liability is treated as a corporation for US tax. A UK public limited company is on the IRS list of entities that are always corporations, so it cannot make the election at all."
+        ]
+      },
+      {
+        "heading": "Timing",
+        "body": [
+          "The election is made on Form 8832. It cannot take effect more than 75 days before the date the form is filed, or more than 12 months after it. Relief for a late election is available where there is reasonable cause and the request is made within 3 years and 75 days of the date you want it to take effect."
+        ]
+      },
+      {
+        "heading": "The 60 month rule",
+        "body": [
+          "Once an entity has elected to change its classification, it generally cannot change it again by election for 60 months. In practice the decision should be treated as a long-term one."
+        ]
+      },
+      {
+        "heading": "Paperwork afterwards",
+        "body": [
+          "A copy of Form 8832 is attached to the entity's federal tax or information return for the year of the election."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "IRS: Form 8832 and its instructions",
+        "href": "https://www.irs.gov/pub/irs-pdf/f8832.pdf"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'section-962-election',
@@ -223,6 +326,38 @@ export const glossaryTerms: GlossaryTerm[] = [
     related: [
       { label: 'Self-employed in the UK: US tax obligations', href: '/resources/blog/self-employed-in-uk-us-tax-obligations' },
     ],
+    sections: [
+      {
+        "heading": "If you are self-employed",
+        "body": [
+          "For the self-employed, cover follows where you live. A self-employed person who lives in the UK is covered by the UK system, and one who lives in the United States is covered by the US system."
+        ]
+      },
+      {
+        "heading": "The certificate of coverage",
+        "body": [
+          "A certificate of coverage is the proof that you are exempt from contributions in the other country. If you are covered in the UK, the certificate comes from HM Revenue and Customs and can be requested online through GOV.UK.",
+          "A self-employed person relying on the exemption attaches a copy of the certificate to their US tax return every year. US employers keep the certificate on file in case the IRS asks for it."
+        ]
+      },
+      {
+        "heading": "No Form 8833 for this",
+        "body": [
+          "Relying on the Totalization Agreement is one of the treaty claims the IRS does not ask you to disclose on Form 8833."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "US Social Security Administration: Totalization Agreement with the United Kingdom",
+        "href": "https://www.ssa.gov/international/Agreement_Pamphlets/uk.html"
+      },
+      {
+        "label": "IRS: Form 8833 and its instructions",
+        "href": "https://www.irs.gov/pub/irs-pdf/f8833.pdf"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'us-uk-tax-treaty',
@@ -262,6 +397,41 @@ export const glossaryTerms: GlossaryTerm[] = [
     related: [
       { label: 'Is the 25% UK lump sum taxable in the US?', href: '/resources/blog/is-the-25-percent-uk-lump-sum-taxable-in-the-us' },
     ],
+    sections: [
+      {
+        "heading": "When Form 8833 is needed",
+        "body": [
+          "You take a treaty-based return position when you say that a US tax treaty overrules or changes a rule in the Internal Revenue Code. When you do that, the position has to be disclosed on Form 8833, attached to your tax return, unless the IRS has waived reporting for that kind of claim."
+        ]
+      },
+      {
+        "heading": "When it is not needed",
+        "body": [
+          "The form's instructions waive reporting for several common claims. These include a treaty reducing or changing the tax on pensions, annuities, social security and other public pensions, on employment income, and on the income of students, trainees, teachers, artists and athletes. The effect of a Social Security Totalization Agreement is also waived.",
+          "Whether a waiver covers your claim depends on exactly which treaty article you rely on and how, so it is worth checking before leaving the form off."
+        ]
+      },
+      {
+        "heading": "Dual residents and green card holders",
+        "body": [
+          "If you are resident in both countries under each country's own law and the treaty tie-breaker treats you as a UK resident, you can claim treaty benefits as a UK resident. For that period you file Form 1040-NR with Form 8833 attached.",
+          "There is a catch for long-term green card holders. If you have held a green card in at least 8 of the last 15 tax years and claim to be resident in the other country under the treaty, you are treated as having ended your US residency. That can bring the expatriation rules into play and a Form 8854 filing."
+        ]
+      },
+      {
+        "heading": "Penalty for leaving it off",
+        "body": [
+          "The penalty for failing to disclose a position that should have been reported is $1,000 for each failure, or $10,000 for a C corporation."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "IRS: Form 8833 and its instructions",
+        "href": "https://www.irs.gov/pub/irs-pdf/f8833.pdf"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'section-121-exclusion',
@@ -382,11 +552,37 @@ export const glossaryTerms: GlossaryTerm[] = [
     short:
       'National Insurance is the UK social security contribution system, funding the state pension and certain benefits. For cross-border workers, the US–UK Totalization Agreement decides whether NI or US Social Security applies.',
     long:
-      'NI is paid by employees, employers, and the self-employed to build entitlement to the UK state pension and some benefits. For someone working across both countries, the Totalization Agreement prevents double social-security charges by assigning liability to one system. A US citizen self-employed in the UK generally pays UK NI rather than US self-employment tax, evidenced by a certificate of coverage. (Class 2 self-employed NI was abolished from April 2024.)',
+      'NI is paid by employees, employers, and the self-employed to build entitlement to the UK state pension and some benefits. For someone working across both countries, the Totalization Agreement prevents double social-security charges by assigning liability to one system. A US citizen self-employed in the UK generally pays UK NI rather than US self-employment tax, evidenced by a certificate of coverage. Most self-employed people no longer pay Class 2 contributions; they are treated as paid once profits reach the small profits threshold.',
     category: 'UK Tax',
     related: [
       { label: 'Self-employed in the UK: US tax obligations', href: '/resources/blog/self-employed-in-uk-us-tax-obligations' },
     ],
+    sections: [
+      {
+        "heading": "Self-employed rates for 2026 to 2027",
+        "body": [
+          "If your profits are £7,105 or more, Class 2 contributions are treated as having been paid, which protects your National Insurance record without you paying them. If your profits are below £7,105 you do not have to pay anything, but you can choose to pay voluntary Class 2 contributions at £3.65 a week.",
+          "Class 4 contributions are due on profits above £12,570. The rate is 6% on profits between £12,570 and £50,270, and 2% on profits above £50,270."
+        ]
+      },
+      {
+        "heading": "Proving which country you pay in",
+        "body": [
+          "If you work across both countries, the proof that you pay in the UK and not in the US is a certificate of coverage from HM Revenue and Customs. A self-employed American in the UK attaches a copy to their US tax return each year."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "GOV.UK: Self-employed National Insurance rates",
+        "href": "https://www.gov.uk/self-employed-national-insurance-rates"
+      },
+      {
+        "label": "US Social Security Administration: Totalization Agreement with the United Kingdom",
+        "href": "https://www.ssa.gov/international/Agreement_Pamphlets/uk.html"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'corporation-tax',
@@ -425,6 +621,38 @@ export const glossaryTerms: GlossaryTerm[] = [
     related: [
       { label: 'Who we help: US citizens in the UK', href: '/who-we-help/us-citizens-in-uk' },
     ],
+    sections: [
+      {
+        "heading": "When US tax residence actually ends",
+        "body": [
+          "Your status does not change because you have moved away or simply handed the card back. It continues until you formally give it up, which is done on Form I-407, or until there is a final administrative or judicial decision that the card has been revoked or abandoned.",
+          "Until then the IRS treats you as a US resident who is taxed on worldwide income."
+        ]
+      },
+      {
+        "heading": "Using the treaty while you still hold the card",
+        "body": [
+          "If you are resident in both countries and the treaty tie-breaker points to the UK, you can choose to be treated as a UK resident for US income tax. You then file Form 1040-NR with Form 8833 attached instead of Form 1040."
+        ]
+      },
+      {
+        "heading": "The long-term resident trap",
+        "body": [
+          "If you have held a green card in at least 8 of the last 15 tax years and claim treaty residence in another country, you are treated as having ended your US residency. The expatriation rules and Form 8854 then have to be considered, so this is a step to look at carefully before you take it."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "IRS Publication 4588: Tax guide for green card holders",
+        "href": "https://www.irs.gov/pub/irs-pdf/p4588.pdf"
+      },
+      {
+        "label": "IRS: Form 8833 and its instructions",
+        "href": "https://www.irs.gov/pub/irs-pdf/f8833.pdf"
+      }
+    ],
+    checked: 'November 2026',
   },
   {
     slug: 'accidental-american',
@@ -599,6 +827,49 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'Form 3520 explained', href: '/resources/forms/form-3520' },
       { label: 'FATCA', href: '/resources/glossary/fatca' },
     ],
+    sections: [
+      {
+        "heading": "Who is responsible",
+        "body": [
+          "The form is the trust's return, but the responsibility sits with the US owner. Each US owner has to make sure the trust files Form 3520-A and gives the required statements to its US owners and beneficiaries."
+        ]
+      },
+      {
+        "heading": "When it is due",
+        "body": [
+          "Form 3520-A is due by the 15th day of the 3rd month after the end of the trust's tax year, so 15 March for a calendar year trust. The trust can ask for more time on Form 7004. An extension for your own income tax return does not extend Form 3520-A."
+        ]
+      },
+      {
+        "heading": "If the trustees do not file",
+        "body": [
+          "Where the trust does not file, the US owner completes a substitute Form 3520-A and attaches it to their own Form 3520 by the Form 3520 due date. Doing this on time is what protects the owner from the penalty for the trust's failure."
+        ]
+      },
+      {
+        "heading": "Penalty",
+        "body": [
+          "The initial penalty is the greater of $10,000 or 5% of the gross value of the trust assets treated as owned by the US person at the end of the year. Further penalties can follow if the form is still missing more than 90 days after an IRS notice."
+        ]
+      },
+      {
+        "heading": "Arrangements that are exempt",
+        "body": [
+          "Revenue Procedure 2020-17 exempts certain tax-favoured foreign trusts from Form 3520-A where its conditions are met. These are trusts set up to provide pension, retirement, medical, disability or educational benefits. The exemption does not remove FBAR or Form 8938 reporting, and whether a particular UK arrangement qualifies depends on its terms."
+        ]
+      }
+    ],
+    sources: [
+      {
+        "label": "IRS: Instructions for Form 3520-A",
+        "href": "https://www.irs.gov/pub/irs-pdf/i3520a.pdf"
+      },
+      {
+        "label": "IRS: International information reporting penalties",
+        "href": "https://www.irs.gov/payments/international-information-reporting-penalties"
+      }
+    ],
+    checked: 'November 2026',
   },
 
   {
