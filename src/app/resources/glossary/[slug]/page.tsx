@@ -86,6 +86,43 @@ export default async function GlossaryTermPage({
             <h2 className="mb-3 font-display text-xl font-semibold text-ink">In more detail</h2>
             <p className="text-base leading-relaxed text-ink">{t.long}</p>
 
+            {t.sections?.map((sec) => (
+              <div key={sec.heading} className="mt-8">
+                <h2 className="mb-3 font-display text-xl font-semibold text-ink">{sec.heading}</h2>
+                <div className="space-y-4">
+                  {sec.body.map((para) => (
+                    <p key={para} className="text-base leading-relaxed text-ink">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            ))}
+
+            {t.sources && t.sources.length > 0 && (
+              <div className="mt-10 rounded-lg border border-mist bg-porcelain p-5">
+                <h2 className="mb-3 font-display text-lg font-semibold text-ink">Official sources</h2>
+                <ul className="space-y-2">
+                  {t.sources.map((src) => (
+                    <li key={src.href}>
+                      <a
+                        href={src.href}
+                        rel="noopener"
+                        className="text-sm font-semibold text-navy underline underline-offset-4 hover:text-gold"
+                      >
+                        {src.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+                {t.checked && (
+                  <p className="mt-3 text-sm text-muted">
+                    Checked against these sources in {t.checked}.
+                  </p>
+                )}
+              </div>
+            )}
+
             {t.related && t.related.length > 0 && (
               <div className="mt-10">
                 <h2 className="mb-4 font-display text-xl font-semibold text-ink">Read more</h2>
