@@ -1,1 +1,6 @@
-{ "crons": [ { "path": "/api/portal/esign/cron", "schedule": "0 8 * * *" } ] }
+{
+  "crons": [
+    { "path": "/api/portal/esign/cron", "schedule": "0 8 * * *" },
+    { "path": "/api/indexnow/cron", "schedule": "17 6 * * 1" }
+  ]
+}
