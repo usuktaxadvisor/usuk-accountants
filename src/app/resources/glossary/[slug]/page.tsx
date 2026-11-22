@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { PageShell, Section, Container } from '@/components/library';
 import { JsonLd } from '@/components/library/JsonLd';
 import { definedTermSchema } from '@/lib/schema';
-import { getGlossaryTerm, getAllGlossarySlugs, glossaryTerms } from '@/lib/glossary';
+import { getGlossaryTerm, getAllGlossarySlugs, siblingGlossaryTerms } from '@/lib/glossary';
 import { authors } from '@/lib/authority-data';
 import { metaDescription } from '@/lib/seo-text';
 
@@ -22,10 +22,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const t = getGlossaryTerm(slug);
   if (!t) return { title: 'Term not found' };
-  const url = `${BASE}/${slug}`;
-  // Keep the <title> under ~60 characters: only include short expansions.
+  const url = `${BASE}/${t.canonicalSlug ?? slug}`;
+  // The layout adds " | US UK Accountants" (20 characters), so the page title
+  // must stay within 50. Drop the expansion first, then the suffix.
   const expansion = t.expansion && t.expansion.length <= 22 ? ` (${t.expansion})` : '';
-  const title = `${t.term}${expansion} — Definition`;
+  const candidates = [`${t.term}${expansion} — Definition`, `${t.term} — Definition`, t.term];
+  const title = candidates.find((c) => c.length <= 50) ?? t.term;
   const description = metaDescription(t.short);
   return {
     title,
@@ -53,9 +55,7 @@ export default async function GlossaryTermPage({
 
   const url = `${BASE}/${slug}`;
 
-  const siblings = glossaryTerms
-    .filter((x) => x.category === t.category && x.slug !== t.slug)
-    .slice(0, 4);
+  const siblings = siblingGlossaryTerms(t.slug);
 
   return (
     <PageShell

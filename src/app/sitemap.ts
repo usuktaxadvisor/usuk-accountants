@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { authors, caseStudies } from '@/lib/authority-data';
 import { getAllPostsMeta } from '@/lib/blog';
-import { getAllGlossarySlugs } from '@/lib/glossary';
+import { getListedGlossarySlugs } from '@/lib/glossary';
 
 const base = 'https://www.usukaccountants.com';
 
@@ -102,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const glossaryPages = getAllGlossarySlugs().map((slug) => ({
+  const glossaryPages = getListedGlossarySlugs().map((slug) => ({
     url: `${base}/resources/glossary/${slug}`,
     changeFrequency: 'monthly' as const,
     priority: 0.6,
