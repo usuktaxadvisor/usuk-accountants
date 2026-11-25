@@ -6,9 +6,9 @@ import { validateUpload } from '@/lib/portal/validate';
 import { uploadToProcessedFolder, deleteDriveFile } from '@/lib/portal/drive';
 import { rateLimit } from '@/lib/portal/ratelimit';
 import { audit } from '@/lib/portal/audit';
-import { notifyClientOfDelivery } from '@/lib/portal/notify';
 import { DELIVERY_CATEGORIES, canReplace, getDeliveryForStaff } from '@/lib/portal/deliveries';
-import { supersedeRequestsForDelivery } from '@/lib/portal/esign-store';
+import { recordDelivery } from '@/lib/portal/delivery-record';
+import { deliveryStoredName } from '@/lib/portal/delivery-upload';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
@@ -63,44 +63,17 @@ export async function POST(req: Request) {
   if (!verdict.ok) return NextResponse.json({ error: verdict.reason }, { status: 400 });
 
   const version = previous ? previous.version + 1 : 1;
-  const stamp = new Date().toISOString().slice(0, 10);
-  const storedName = `${stamp}_v${version}_${verdict.safeName}`;
+  const storedName = deliveryStoredName(version, verdict.safeName);
   const mime = file.type || 'application/octet-stream';
 
   let driveFileId: string | null = null;
   try {
     driveFileId = await uploadToProcessedFolder(clientId, storedName, mime, buf);
-    const [row] = await db.insert(tables.deliveries).values({
-      clientId,
-      title: previous ? previous.title : title,
-      category: previous ? previous.category : category,
-      note,
-      driveFileId,
-      originalName: file.name.slice(0, 255),
-      storedName,
-      mimeType: mime,
-      sizeBytes: buf.length,
-      version,
-      supersedesId: previous?.id ?? null,
-      uploadedById: session.uid,
-    }).returning({ id: tables.deliveries.id, title: tables.deliveries.title });
-
-    if (previous) {
-      await db.update(tables.deliveries)
-        .set({ status: 'WITHDRAWN', withdrawnAt: new Date(), updatedAt: new Date() })
-        .where(eq(tables.deliveries.id, previous.id));
-      await audit(session.uid, 'DELIVERY_REPLACED', { targetType: 'delivery', targetId: previous.id, meta: { clientId, replacedBy: row.id, version } });
-      // Any open signature request on the old version is superseded — a client can never sign v1 while v2 exists.
-      const superseded = await supersedeRequestsForDelivery(previous.id, session.uid, 'Document replaced by a new version', row.id);
-      if (superseded.length) await audit(session.uid, 'ESIGN_REQUESTS_SUPERSEDED', { targetType: 'delivery', targetId: previous.id, meta: { requests: superseded } });
-    }
-
-    const emailed = await notifyClientOfDelivery(clientId, row.title, note);
-    await audit(session.uid, 'DELIVERY_CREATED', {
-      targetType: 'delivery', targetId: row.id,
-      meta: { clientId, version, sizeBytes: buf.length, ext: verdict.ext, clientEmailed: emailed },
+    const out = await recordDelivery({
+      uid: session.uid, clientId, previous, title, category, note,
+      driveFileId, originalName: file.name, storedName, mime, sizeBytes: buf.length, version, ext: verdict.ext,
     });
-    return NextResponse.json({ ok: true, id: row.id, version, clientEmailed: emailed });
+    return NextResponse.json({ ok: true, ...out });
   } catch (e) {
     console.error('[portal:delivery]', e instanceof Error ? e.message : e); // server-side only
     if (driveFileId) await deleteDriveFile(driveFileId); // never leave an orphan file that the DB doesn't know about

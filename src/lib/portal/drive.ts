@@ -164,10 +164,19 @@ async function accessToken(): Promise<string> {
   return t.token;
 }
 
+/** Which of the client's two folders a large upload lands in: client uploads → Incoming, staff deliveries → Processed. */
+export type UploadTarget = 'incoming' | 'processed';
+
+async function targetFolderId(clientId: string, target: UploadTarget): Promise<string> {
+  if (target === 'processed') return ensureProcessedFolder(clientId);
+  return (await ensureClientFolders(clientId)).incomingFolderId;
+}
+
 export async function createResumableSession(
   clientId: string, storedName: string, mimeType: string, sizeBytes: number, origin: string,
+  target: UploadTarget = 'incoming',
 ): Promise<string> {
-  const { incomingFolderId } = await ensureClientFolders(clientId);
+  const incomingFolderId = await targetFolderId(clientId, target);
   const token = await accessToken();
   const res = await fetch('https://www.googleapis.com/upload/drive/v3/files?uploadType=resumable', {
     method: 'POST',
@@ -185,20 +194,22 @@ export async function createResumableSession(
   return location;
 }
 
-/** Verify a finished upload: it must sit in this client's Incoming folder, match the size, and pass a magic-byte check. */
+/** Verify a finished upload: it must sit in this client's target folder (Incoming by default), match the size, and pass a magic-byte check. */
 export async function verifyUploadedFile(
-  clientId: string, fileId: string, expectedSize: number,
+  clientId: string, fileId: string, expectedSize: number, target: UploadTarget = 'incoming',
 ): Promise<{ ok: true; name: string; head: Buffer } | { ok: false; reason: string }> {
-  const { incomingFolderId } = await ensureClientFolders(clientId);
+  const incomingFolderId = await targetFolderId(clientId, target);
   const drive = driveClient();
   const meta = await drive.files.get({ fileId, fields: 'id,name,size,parents,trashed' }).catch(() => null);
   if (!meta?.data?.id) return { ok: false, reason: 'File not found' };
+  if (meta.data.trashed) return { ok: false, reason: 'File not found' };
   if (!(meta.data.parents ?? []).includes(incomingFolderId)) return { ok: false, reason: 'File is not in your folder' };
   if (Number(meta.data.size ?? -1) !== expectedSize) return { ok: false, reason: 'Size mismatch' };
   const token = await accessToken();
   const headRes = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?alt=media`, {
     headers: { Authorization: `Bearer ${token}`, Range: 'bytes=0-1023' },
   });
+  if (!headRes.ok) return { ok: false, reason: 'File could not be read' };
   const head = Buffer.from(await headRes.arrayBuffer());
   return { ok: true, name: meta.data.name ?? '', head };
 }

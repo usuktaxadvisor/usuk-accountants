@@ -4,12 +4,16 @@ import { useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 const ACCEPT = '.pdf,.jpg,.jpeg,.png,.doc,.docx,.xls,.xlsx,.csv';
+const DIRECT_LIMIT = 4 * 1024 * 1024; // above this, Vercel's request-body limit applies → streamed path
+const MAX_MB = 25; // matches the server's default UPLOAD_MAX_MB; the server enforces the real limit
+const MAX_BYTES = MAX_MB * 1024 * 1024;
 
 /**
  * Staff: send a document to a client for review (or replace an existing
  * version when supersedesId is given). Posts multipart to
  * /api/portal/deliveries; the server validates, uploads to Drive and emails
- * the client. Nothing Drive-related is handled here.
+ * the client. Files over 4 MB are streamed to a one-file upload session the
+ * server opens, then verified server-side before the client is emailed.
  */
 export default function DeliveryUploadForm({ clientId, categories, supersedesId, compact }: {
   clientId: string; categories: readonly string[]; supersedesId?: string; compact?: boolean;
@@ -26,10 +30,34 @@ export default function DeliveryUploadForm({ clientId, categories, supersedesId,
     if (supersedesId) form.set('supersedesId', supersedesId);
     const file = form.get('file');
     if (!(file instanceof File) || file.size === 0) { setState('error'); setMessage('Choose a file first.'); return; }
-    if (file.size > 4 * 1024 * 1024) { setState('error'); setMessage('Files over 4 MB are not yet supported on this path — compress the PDF or split it.'); return; }
+    if (file.size > MAX_BYTES) { setState('error'); setMessage(`This file is over ${MAX_MB} MB. Compress the PDF or split it, then try again.`); return; }
     setState('sending'); setMessage('');
     try {
-      const res = await fetch('/api/portal/deliveries', { method: 'POST', body: form });
+      let res: Response;
+      if (file.size > DIRECT_LIMIT) {
+        // Large file: stream it straight to secure storage, then ask the server to verify and send it.
+        const mime = file.type || 'application/octet-stream';
+        setMessage('Uploading large file…');
+        const s = await fetch('/api/portal/deliveries/session', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ clientId, filename: file.name, size: file.size, mime, supersedesId }),
+        });
+        const sess = (await s.json().catch(() => ({}))) as { sessionUrl?: string; storedName?: string; sig?: string; error?: string };
+        if (!s.ok || !sess.sessionUrl) { setState('error'); setMessage(sess.error ?? 'Something went wrong. Please try again.'); return; }
+        const put = await fetch(sess.sessionUrl, { method: 'PUT', headers: { 'Content-Type': mime }, body: file });
+        const uploaded = (await put.json().catch(() => ({}))) as { id?: string };
+        if (!put.ok || !uploaded.id) { setState('error'); setMessage('Upload was interrupted. Nothing was sent to the client. Please try again.'); return; }
+        res = await fetch('/api/portal/deliveries/complete', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            clientId, supersedesId, fileId: uploaded.id, storedName: sess.storedName, sig: sess.sig,
+            size: file.size, originalName: file.name, mime,
+            title: String(form.get('title') ?? ''), category: String(form.get('category') ?? ''), note: String(form.get('note') ?? ''),
+          }),
+        });
+      } else {
+        res = await fetch('/api/portal/deliveries', { method: 'POST', body: form });
+      }
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string; clientEmailed?: boolean; version?: number };
       if (res.ok && data.ok) {
         setState('done');
