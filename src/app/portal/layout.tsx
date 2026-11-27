@@ -11,7 +11,7 @@ export default function PortalLayout({ children }: { children: React.ReactNode }
     <div className="flex min-h-screen flex-col bg-porcelain">
       <header className="bg-navy-ink">
         <div className="mx-auto flex h-[4.5rem] max-w-6xl items-center justify-between gap-4 px-5 sm:px-8">
-          <Link href="/portal" className="group flex items-baseline gap-3" aria-label="US UK Accountants client portal home">
+          <Link href="/" className="group flex items-baseline gap-3" aria-label="US UK Accountants website home">
             <span className="font-brand text-xl tracking-wide text-white sm:text-2xl">
               US UK <span className="text-gold">Accountants</span>
             </span>
