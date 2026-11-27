@@ -50,6 +50,19 @@ export function requestEmailHtml(firstName: string, title: string, link: string)
   <p>Kind regards,<br/>US UK Accountants</p></div>`;
 }
 
+/** Reminder for one or more outstanding document requests. Every value is escaped. */
+export function reminderEmailHtml(firstName: string, titles: string[], link: string): string {
+  const items = titles.map(t => `<li style="margin:6px 0">${escapeHtml(t)}</li>`).join('');
+  return `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#111">
+  <h2 style="font-weight:600">A reminder about your documents</h2>
+  <p>Dear ${escapeHtml(firstName)},</p>
+  <p>We are still waiting for ${titles.length === 1 ? 'this item' : 'these items'} in your client portal:</p>
+  <ul style="font-size:16px;font-weight:600;padding-left:20px">${items}</ul>
+  <p>Please sign in and upload ${titles.length === 1 ? 'it' : 'them'} when you can. If something does not exist, just say so in the portal so we can update the request.</p>
+  <p style="margin:28px 0"><a href="${link}" style="background:#0A1330;color:#fff;padding:12px 22px;border-radius:10px;text-decoration:none">Open your portal</a></p>
+  <p>Kind regards,<br/>US UK Accountants</p></div>`;
+}
+
 export function resetEmailHtml(firstName: string, link: string): string {
   return `<div style="font-family:Georgia,serif;max-width:560px;margin:0 auto;color:#111">
   <h2 style="font-weight:600">Reset your portal password</h2>
