@@ -1,4 +1,4 @@
-import { pgTable, pgEnum, text, uuid, timestamp, integer, jsonb, uniqueIndex, bigserial } from 'drizzle-orm/pg-core';
+import { pgTable, pgEnum, text, uuid, timestamp, integer, jsonb, uniqueIndex, bigserial, date } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const roleEnum = pgEnum('role', ['CLIENT', 'STAFF', 'ADMIN']);
@@ -299,4 +299,47 @@ export const identityVerifications = pgTable('identity_verifications', {
   providerRef: text('provider_ref'), // KBA provider transaction id, if any
   note: text('note'), // e.g. "UK passport checked on video call" — no document numbers
   validUntil: timestamp('valid_until', { withTimezone: true }),
+});
+
+/* ═══════════════════════════ Engagements, deadlines, staff notes (0005) ═══════════════════════════
+ * Staff-only records behind the client overview. An engagement is one service for one tax year
+ * (e.g. UK Self Assessment 2025/26). Statutory deadlines are generated from rules in
+ * src/lib/portal/engagements.ts and saved here; staff can add their own. Notes are internal and
+ * never served to a client session.
+ */
+export const engagements = pgTable('engagements', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  clientId: uuid('client_id').notNull().references(() => clients.id),
+  service: text('service').notNull(),
+  title: text('title').notNull(),
+  taxYear: text('tax_year').notNull(),
+  status: text('status').notNull().default('IN_PROGRESS'), // PLANNED | IN_PROGRESS | AWAITING_CLIENT | IN_REVIEW | FILED | COMPLETED | ON_HOLD
+  recurring: integer('recurring').notNull().default(0),
+  nextAction: text('next_action'),
+  rolledFromId: uuid('rolled_from_id'),
+  createdById: uuid('created_by_id').references(() => users.id),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).notNull().defaultNow(),
+  completedAt: timestamp('completed_at', { withTimezone: true }),
+}, (t) => [uniqueIndex('engagements_client_service_year_uq').on(t.clientId, t.service, t.taxYear)]);
+
+export const engagementDeadlines = pgTable('engagement_deadlines', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  engagementId: uuid('engagement_id').notNull().references(() => engagements.id),
+  clientId: uuid('client_id').notNull().references(() => clients.id),
+  label: text('label').notNull(),
+  dueDate: date('due_date', { mode: 'string' }).notNull(),
+  kind: text('kind').notNull().default('FILING'), // FILING | PAYMENT | REGISTRATION | INTERNAL
+  source: text('source').notNull().default('MANUAL'), // RULE | MANUAL
+  ruleKey: text('rule_key'),
+  doneAt: timestamp('done_at', { withTimezone: true }),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [uniqueIndex('engagement_deadlines_rule_uq').on(t.engagementId, t.ruleKey)]);
+
+export const clientNotes = pgTable('client_notes', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  clientId: uuid('client_id').notNull().references(() => clients.id),
+  authorId: uuid('author_id').notNull().references(() => users.id),
+  body: text('body').notNull(),
+  createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
