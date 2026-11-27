@@ -116,10 +116,10 @@ export default function SignFlow({ requestId }: { requestId: string }) {
   function clear() { const c = canvasRef.current; if (!c) return; c.getContext('2d')?.clearRect(0, 0, c.width, c.height); hasInk.current = false; }
 
   if (stage === 'loading') return <p className="text-sm text-muted">Loading your document…</p>;
-  if (stage === 'error') return <p className="rounded-2xl border border-mist bg-white p-5 text-sm text-ink" role="alert">{msg}</p>;
+  if (stage === 'error') return <p className="rounded-md border border-mist bg-white p-5 text-sm text-ink" role="alert">{msg}</p>;
   // Closed before it was ever loaded (expired / voided / superseded / declined): say so plainly instead of a blank page.
   if (stage === 'closed' && !b) return (
-    <section className="rounded-2xl border border-mist bg-white p-5 text-sm text-ink" role="status">
+    <section className="rounded-md border border-mist bg-white p-5 text-sm text-ink" role="status">
       <p className="font-semibold">{msg}</p>
       <p className="mt-1 text-muted">It can no longer be approved or signed. If you were expecting to act on it, please contact us and we will send a fresh request.</p>
       <Link href="/portal" className="mt-3 inline-block font-semibold text-navy-ink underline">Back to your portal</Link>
@@ -139,11 +139,11 @@ export default function SignFlow({ requestId }: { requestId: string }) {
       </ol>
 
       {!b.signer.myTurn && stage !== 'done' && stage !== 'closed' ? (
-        <p className="rounded-2xl border border-mist bg-porcelain p-4 text-sm text-ink">Another signer needs to complete this before you. We will email you when it is your turn. You can still review the document below.</p>
+        <p className="rounded-md border border-mist bg-porcelain p-4 text-sm text-ink">Another signer needs to complete this before you. We will email you when it is your turn. You can still review the document below.</p>
       ) : null}
 
       {/* Documents — always visible so the client can re-read at any step */}
-      <section className="rounded-2xl border border-mist bg-white p-4 sm:p-5">
+      <section className="rounded-md border border-mist bg-white p-4 sm:p-5">
         <p className="text-xs font-semibold uppercase tracking-widest text-muted">Document{b.documents.length > 1 ? 's' : ''} to {actionLabel}</p>
         {b.request.message ? <p className="mt-2 border-l-2 border-gold pl-3 text-sm text-ink">{b.request.message}</p> : null}
         <div className="mt-3 space-y-3">
@@ -156,69 +156,69 @@ export default function SignFlow({ requestId }: { requestId: string }) {
                   <a href={docUrl(d, true)} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">Download</a>
                 </div>
               </div>
-              <iframe title={d.title} src={docUrl(d)} className="mt-2 h-[60vh] w-full rounded-xl border border-mist bg-porcelain" />
+              <iframe title={d.title} src={docUrl(d)} className="mt-2 h-[60vh] w-full rounded-md border border-mist bg-porcelain" />
             </div>
           ))}
         </div>
       </section>
 
       {stage === 'review' && b.signer.myTurn ? (
-        <section className="rounded-2xl border border-mist bg-white p-4 sm:p-5">
+        <section className="rounded-md border border-mist bg-white p-4 sm:p-5">
           <label className="flex items-start gap-3 text-sm text-ink"><input type="checkbox" className="mt-1" checked={reviewed} onChange={e => setReviewed(e.target.checked)} /> I have reviewed the document{b.documents.length > 1 ? 's' : ''} above and had the chance to download and print {b.documents.length > 1 ? 'them' : 'it'}.</label>
-          <details className="mt-4 rounded-xl border border-mist bg-porcelain p-3 text-xs text-ink" open>
+          <details className="mt-4 rounded-md border border-mist bg-porcelain p-3 text-xs text-ink" open>
             <summary className="cursor-pointer text-sm font-semibold">Electronic signature consent</summary>
             <pre className="mt-2 whitespace-pre-wrap font-sans">{b.consent.text}</pre>
           </details>
           <label className="mt-3 flex items-start gap-3 text-sm text-ink"><input type="checkbox" className="mt-1" checked={consentTick} onChange={e => setConsentTick(e.target.checked)} /> I agree to use electronic records and signatures as set out above.</label>
           <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" disabled={!reviewed || !consentTick || busy} onClick={acceptConsent} className="rounded-xl bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">Continue</button>
-            <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-xl border border-mist px-4 py-2.5 text-sm font-semibold text-ink">I can&apos;t {actionLabel} this</button>
+            <button type="button" disabled={!reviewed || !consentTick || busy} onClick={acceptConsent} className="rounded-md bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">Continue</button>
+            <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-md border border-mist px-4 py-2.5 text-sm font-semibold text-ink">I can&apos;t {actionLabel} this</button>
           </div>
         </section>
       ) : null}
 
       {stage === 'code' ? (
-        <section className="rounded-2xl border border-mist bg-white p-4 sm:p-5">
+        <section className="rounded-md border border-mist bg-white p-4 sm:p-5">
           <p className="text-sm font-semibold text-ink">Confirm it&apos;s you</p>
           <p className="mt-1 text-sm text-muted">{codeSent || 'We are sending a 6-digit code to your email address.'}</p>
           <div className="mt-3 flex flex-wrap items-center gap-2">
-            <input inputMode="numeric" autoComplete="one-time-code" maxLength={6} value={code} onChange={e => setCode(e.target.value.replace(/\D/g, ''))} placeholder="6-digit code" className="w-40 rounded-xl border border-mist px-3 py-2 text-lg tracking-widest" />
-            <button type="button" disabled={code.length !== 6 || busy} onClick={verifyCode} className="rounded-xl bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">Verify</button>
+            <input inputMode="numeric" autoComplete="one-time-code" maxLength={6} value={code} onChange={e => setCode(e.target.value.replace(/\D/g, ''))} placeholder="6-digit code" className="w-40 rounded-md border border-mist px-3 py-2 text-lg tracking-widest" />
+            <button type="button" disabled={code.length !== 6 || busy} onClick={verifyCode} className="rounded-md bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">Verify</button>
             <button type="button" disabled={busy} onClick={sendCode} className="text-sm font-semibold text-navy-ink underline">Send a new code</button>
           </div>
         </section>
       ) : null}
 
       {stage === 'approve' ? (
-        <section className="rounded-2xl border border-mist bg-white p-4 sm:p-5">
+        <section className="rounded-md border border-mist bg-white p-4 sm:p-5">
           <p className="text-sm font-semibold text-ink">Your approval</p>
           <p className="mt-1 text-sm text-muted">By approving you confirm the document is correct and complete to the best of your knowledge{b.request.action === 'APPROVAL_AND_SIGNATURE' ? ', before signing the authorisation in the next step' : ''}.</p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" disabled={busy} onClick={approve} className="rounded-xl bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">I approve this document</button>
-            <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-xl border border-mist px-4 py-2.5 text-sm font-semibold text-ink">Something needs changing</button>
+            <button type="button" disabled={busy} onClick={approve} className="rounded-md bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">I approve this document</button>
+            <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-md border border-mist px-4 py-2.5 text-sm font-semibold text-ink">Something needs changing</button>
           </div>
         </section>
       ) : null}
 
       {stage === 'sign' ? (
-        <section className="rounded-2xl border border-mist bg-white p-4 sm:p-5">
+        <section className="rounded-md border border-mist bg-white p-4 sm:p-5">
           <p className="text-sm font-semibold text-ink">Your signature</p>
           <p className="mt-1 text-sm text-ink">You are signing as <strong>{b.signer.fullName}</strong>.{' '}
             <button type="button" onClick={() => setNameHelp(v => !v)} className="text-xs font-semibold text-navy-ink underline">My name is incorrect</button></p>
-          {nameHelp ? <p className="mt-2 rounded-xl border border-mist bg-porcelain px-4 py-3 text-xs text-ink" role="note">Your signature must be in the name we hold for you. If this name is wrong, please do not sign yet — contact US UK Accountants (hello@usukaccountants.com) and we will correct your record first.</p> : null}
+          {nameHelp ? <p className="mt-2 rounded-md border border-mist bg-porcelain px-4 py-3 text-xs text-ink" role="note">Your signature must be in the name we hold for you. If this name is wrong, please do not sign yet — contact US UK Accountants (hello@usukaccountants.com) and we will correct your record first.</p> : null}
           <div className="mt-2 flex gap-2 text-sm">
-            <button type="button" onClick={() => setMethod('TYPED')} className={`rounded-xl px-4 py-2 font-semibold ${method === 'TYPED' ? 'bg-navy-ink text-white' : 'border border-mist text-ink'}`}>Type</button>
-            <button type="button" onClick={() => setMethod('DRAWN')} className={`rounded-xl px-4 py-2 font-semibold ${method === 'DRAWN' ? 'bg-navy-ink text-white' : 'border border-mist text-ink'}`}>Draw</button>
+            <button type="button" onClick={() => setMethod('TYPED')} className={`rounded-md px-4 py-2 font-semibold ${method === 'TYPED' ? 'bg-navy-ink text-white' : 'border border-mist text-ink'}`}>Type</button>
+            <button type="button" onClick={() => setMethod('DRAWN')} className={`rounded-md px-4 py-2 font-semibold ${method === 'DRAWN' ? 'bg-navy-ink text-white' : 'border border-mist text-ink'}`}>Draw</button>
           </div>
           {method === 'TYPED' ? (
             <div className="mt-3">
               <label className="text-xs text-muted" htmlFor="typed-signature">Signature name (your registered name — you may adjust capitalisation or spacing)</label>
-              <input id="typed-signature" value={typed} onChange={e => setTyped(e.target.value)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm" aria-label="Type your full name" />
-              <p className="mt-2 rounded-xl border border-mist bg-porcelain px-4 py-3 font-serif text-2xl italic text-navy-ink">{typed || ' '}</p>
+              <input id="typed-signature" value={typed} onChange={e => setTyped(e.target.value)} className="mt-1 w-full rounded-md border border-mist px-3 py-2 text-sm" aria-label="Type your full name" />
+              <p className="mt-2 rounded-md border border-mist bg-porcelain px-4 py-3 font-serif text-2xl italic text-navy-ink">{typed || ' '}</p>
             </div>
           ) : (
             <div className="mt-3">
-              <canvas ref={canvasRef} width={600} height={180} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerLeave={up} className="w-full touch-none rounded-xl border border-mist bg-porcelain" aria-label="Draw your signature" />
+              <canvas ref={canvasRef} width={600} height={180} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerLeave={up} className="w-full touch-none rounded-md border border-mist bg-porcelain" aria-label="Draw your signature" />
               <button type="button" onClick={clear} className="mt-1 text-xs font-semibold text-navy-ink underline">Clear</button>
             </div>
           )}
@@ -227,33 +227,33 @@ export default function SignFlow({ requestId }: { requestId: string }) {
           ))}
           <label className="mt-4 flex items-start gap-3 text-sm text-ink"><input type="checkbox" className="mt-1" checked={intent} onChange={e => setIntent(e.target.checked)} /> I am <strong>{b.signer.fullName}</strong> and I intend this {method === 'DRAWN' ? 'drawn signature' : 'signature'} to be my legally binding electronic signature on {b.documents.length > 1 ? 'these documents' : 'this document'}.</label>
           <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" disabled={busy || !intent} onClick={sign} className="rounded-xl bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{busy ? 'Signing…' : 'Sign now'}</button>
-            <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-xl border border-mist px-4 py-2.5 text-sm font-semibold text-ink">I can&apos;t sign this</button>
+            <button type="button" disabled={busy || !intent} onClick={sign} className="rounded-md bg-navy-ink px-5 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{busy ? 'Signing…' : 'Sign now'}</button>
+            <button type="button" onClick={() => setDeclineOpen(v => !v)} className="rounded-md border border-mist px-4 py-2.5 text-sm font-semibold text-ink">I can&apos;t sign this</button>
           </div>
         </section>
       ) : null}
 
       {declineOpen && stage !== 'done' && stage !== 'closed' ? (
-        <section className="rounded-2xl border border-mist bg-porcelain p-4 sm:p-5">
+        <section className="rounded-md border border-mist bg-porcelain p-4 sm:p-5">
           <p className="text-sm font-semibold text-ink">Tell us what needs changing</p>
-          <textarea value={declineReason} onChange={e => setDeclineReason(e.target.value)} rows={3} className="mt-2 w-full rounded-xl border border-mist px-3 py-2 text-sm" />
-          <button type="button" disabled={busy} onClick={decline} className="mt-2 rounded-xl border border-red-700 px-4 py-2 text-sm font-semibold text-red-700">Send to our team</button>
+          <textarea value={declineReason} onChange={e => setDeclineReason(e.target.value)} rows={3} className="mt-2 w-full rounded-md border border-mist px-3 py-2 text-sm" />
+          <button type="button" disabled={busy} onClick={decline} className="mt-2 rounded-md border border-red-700 px-4 py-2 text-sm font-semibold text-red-700">Send to our team</button>
         </section>
       ) : null}
 
       {stage === 'done' ? (
-        <section className="rounded-2xl border border-gold/40 bg-gold/5 p-4 sm:p-5">
+        <section className="rounded-md border border-gold/40 bg-gold/5 p-4 sm:p-5">
           <p className="text-sm font-semibold text-ink">{msg || (b.request.status === 'COMPLETED' ? 'Completed.' : 'Your part is done.')}</p>
           {b.request.status === 'COMPLETED' || b.request.sealedAvailable ? (
             <div className="mt-3 flex flex-wrap gap-2">
-              <a href={`/api/portal/esign/requests/${requestId}/signed?download=1`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white">{b.request.action === 'APPROVAL' ? 'Download approved copy' : 'Download signed copy'}</a>
-              <a href={`/api/portal/esign/requests/${requestId}/evidence?format=pdf`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink">{b.request.action === 'APPROVAL' ? 'Download approval record' : 'Download signature record'}</a>
+              <a href={`/api/portal/esign/requests/${requestId}/signed?download=1`} className="rounded-md bg-navy-ink px-4 py-2 text-sm font-semibold text-white">{b.request.action === 'APPROVAL' ? 'Download approved copy' : 'Download signed copy'}</a>
+              <a href={`/api/portal/esign/requests/${requestId}/evidence?format=pdf`} className="rounded-md border border-mist px-4 py-2 text-sm font-semibold text-ink">{b.request.action === 'APPROVAL' ? 'Download approval record' : 'Download signature record'}</a>
             </div>
           ) : <p className="mt-1 text-sm text-muted">{b.request.action === 'APPROVAL' ? 'We will email you when everyone has approved and your approval record is ready.' : 'We will email you when everyone has signed and your signed copy is ready.'}</p>}
           <Link href="/portal" className="mt-3 inline-block text-sm font-semibold text-navy-ink underline">Back to your portal</Link>
         </section>
       ) : null}
-      {stage === 'closed' ? <p className="rounded-2xl border border-mist bg-white p-4 text-sm text-ink" role="status">{msg}</p> : null}
+      {stage === 'closed' ? <p className="rounded-md border border-mist bg-white p-4 text-sm text-ink" role="status">{msg}</p> : null}
       {msg && stage !== 'done' && stage !== 'closed' ? <p className="text-sm text-red-700" role="alert">{msg}</p> : null}
     </div>
   );

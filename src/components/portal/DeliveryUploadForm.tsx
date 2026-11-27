@@ -73,23 +73,23 @@ export default function DeliveryUploadForm({ clientId, categories, supersedesId,
   }
 
   return (
-    <form ref={formRef} onSubmit={onSubmit} className={compact ? 'mt-2 flex flex-wrap items-center gap-2' : 'mt-3 space-y-2 rounded-2xl border border-mist bg-white p-5'}>
+    <form ref={formRef} onSubmit={onSubmit} className={compact ? 'mt-2 flex flex-wrap items-center gap-2' : 'mt-3 space-y-2 rounded-md border border-mist bg-white p-5'}>
       {!supersedesId ? (
         <>
           <input name="title" required maxLength={160} placeholder="e.g. 2025 US Tax Return — draft for your approval"
-            className="w-full rounded-xl border border-mist px-4 py-2.5 text-sm text-ink outline-none focus:border-navy-ink" />
+            className="w-full rounded-md border border-mist px-4 py-2.5 text-sm text-ink outline-none focus:border-navy-ink" />
           <div className="flex gap-2">
-            <select name="category" defaultValue={categories[0]} className="rounded-xl border border-mist px-3 py-2.5 text-sm text-ink">
+            <select name="category" defaultValue={categories[0]} className="rounded-md border border-mist px-3 py-2.5 text-sm text-ink">
               {categories.map(c => <option key={c} value={c}>{c}</option>)}
             </select>
             <input name="note" maxLength={2000} placeholder="Optional note to the client"
-              className="flex-1 rounded-xl border border-mist px-4 py-2.5 text-sm text-ink outline-none focus:border-navy-ink" />
+              className="flex-1 rounded-md border border-mist px-4 py-2.5 text-sm text-ink outline-none focus:border-navy-ink" />
           </div>
         </>
       ) : null}
       <input name="file" type="file" accept={ACCEPT} required className="text-sm text-ink file:mr-3 file:rounded-lg file:border file:border-mist file:bg-white file:px-3 file:py-1.5 file:text-xs file:font-semibold" />
       <button type="submit" disabled={state === 'sending'}
-        className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink disabled:opacity-60">
+        className="rounded-md bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink disabled:opacity-60">
         {state === 'sending' ? 'Sending…' : supersedesId ? 'Replace with new version' : 'Send for client review'}
       </button>
       {message ? <p className={`text-xs ${state === 'error' ? 'text-red-700' : 'text-muted'}`} role="status">{message}</p> : null}

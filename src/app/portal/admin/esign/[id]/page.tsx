@@ -50,21 +50,21 @@ export default async function SignatureRecord({ params }: { params: Promise<{ id
       </div>
 
       <section className="mt-6 grid gap-4 md:grid-cols-2">
-        <div className="rounded-card border border-mist bg-white p-5">
+        <div className="rounded-md border border-mist bg-white p-5">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents (frozen)</h2>
           {deliveries.map(d => <div key={d.id} className="mt-2 text-sm"><p className="font-semibold text-ink">{d.title} <span className="text-xs font-normal text-muted">v{d.deliveryVersion}{d.requiresSignature ? '' : ' · review only'}</span></p><p className="break-all font-mono text-[11px] text-muted">SHA-256 {d.frozenSha256}</p><p className="text-xs text-muted">{d.frozenSizeBytes} bytes · frozen {fmt(d.frozenAt)} · <a className="underline" href={`/api/portal/esign/requests/${request.id}/file?doc=${d.deliveryId}`} target="_blank" rel="noopener">open original</a></p></div>)}
-          {request.sealedSha256 ? <div className="mt-3 rounded-xl bg-porcelain p-3 text-sm"><p className="font-semibold text-ink">Sealed signed PDF</p><p className="break-all font-mono text-[11px] text-muted">SHA-256 {request.sealedSha256}</p><a className="text-xs font-semibold text-navy-ink underline" href={`/api/portal/esign/requests/${request.id}/signed?download=1`}>Download signed PDF</a></div> : null}
+          {request.sealedSha256 ? <div className="mt-3 rounded-md bg-porcelain p-3 text-sm"><p className="font-semibold text-ink">Sealed signed PDF</p><p className="break-all font-mono text-[11px] text-muted">SHA-256 {request.sealedSha256}</p><a className="text-xs font-semibold text-navy-ink underline" href={`/api/portal/esign/requests/${request.id}/signed?download=1`}>Download signed PDF</a></div> : null}
         </div>
-        <div className="rounded-card border border-mist bg-white p-5">
+        <div className="rounded-md border border-mist bg-white p-5">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Signers</h2>
           {signers.map(s => <div key={s.id} className="mt-2 text-sm"><p className="font-semibold text-ink">{s.sequence}. {s.fullName} <span className="text-xs font-normal text-muted">{s.email} · {s.status.toLowerCase()}</span></p>
             <p className="text-xs text-muted">viewed {fmt(s.viewedAt)} · consent {fmt(s.consentedAt)} ({s.consentVersion ?? '—'}) · code verified {fmt(s.otpVerifiedAt)} · approved {fmt(s.approvedAt)} · signed {fmt(s.signedAt)}{s.signatureMethod ? ` (${s.signatureMethod.toLowerCase()})` : ''}{s.ip ? ` · IP ${s.ip}` : ''}{s.authMethod ? ` · ${s.authMethod}` : ''}{s.identityVerificationId ? ' · identity verification on file' : ''}</p>
-            {s.declineReason ? <p className="mt-1 rounded-xl bg-red-50 p-2 text-xs text-red-800">Declined: {s.declineReason}</p> : null}</div>)}
+            {s.declineReason ? <p className="mt-1 rounded-md bg-red-50 p-2 text-xs text-red-800">Declined: {s.declineReason}</p> : null}</div>)}
           {fields.length ? <p className="mt-3 text-xs text-muted">{fields.length} field{fields.length === 1 ? '' : 's'} placed: {fields.map(f => `${f.type.toLowerCase()}${f.page === 9999 ? ' (last page)' : f.page === 0 ? ' (signing page)' : ` (p${f.page})`}`).join(', ')}</p> : null}
         </div>
       </section>
 
-      <section className="mt-4 rounded-card border border-mist bg-white p-5">
+      <section className="mt-4 rounded-md border border-mist bg-white p-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Signature record · event log ({events.length}) · chain {chain.ok ? 'verified' : `BROKEN at #${chain.at + 1}`}</h2>
           <div className="flex gap-2">
