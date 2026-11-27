@@ -32,21 +32,21 @@ export default async function ForgotPage({ searchParams }: { searchParams: Promi
 
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="font-display text-display-md text-ink">Reset your password</h1>
+      <h1 className="font-brand text-[2rem] font-normal leading-tight text-navy-ink sm:text-[2.4rem]">Reset your password</h1>
       {sent ? (
-        <p className="mt-4 rounded-card border border-mist bg-white p-6 text-sm leading-relaxed text-ink">
+        <p className="mt-4 rounded-md border border-mist bg-white p-6 text-sm leading-relaxed text-ink">
           If that email address has a portal account, a reset link is on its way (valid for 24 hours). Check your spam folder if it doesn&rsquo;t arrive within a few minutes.
         </p>
       ) : (
         <>
           <p className="mt-2 text-sm leading-relaxed text-muted">Enter the email address you use for the portal and we&rsquo;ll send you a link to choose a new password.</p>
-          <form action={requestReset} className="mt-6 space-y-4 rounded-card border border-mist bg-white p-7 shadow-e2">
+          <form action={requestReset} className="mt-6 space-y-4 rounded-md border border-mist bg-white p-7 shadow-e2">
             <label className="block">
               <span className="text-sm font-semibold text-ink">Email</span>
               <input name="email" type="email" required autoComplete="email"
-                className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none transition-colors focus:border-navy-ink" />
+                className="mt-1.5 w-full rounded-md border border-mist px-4 py-2.5 text-ink outline-none transition-colors focus:border-navy-ink" />
             </label>
-            <button type="submit" className="w-full rounded-xl bg-navy-ink px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink">Send reset link</button>
+            <button type="submit" className="w-full rounded-md bg-navy-ink px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink">Send reset link</button>
           </form>
         </>
       )}

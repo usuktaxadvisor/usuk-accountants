@@ -15,7 +15,7 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
   if (!inv) {
     return (
       <div className="mx-auto max-w-md">
-        <h1 className="font-display text-display-md text-ink">Invitation not valid</h1>
+        <h1 className="font-brand text-[2rem] font-normal leading-tight text-navy-ink sm:text-[2.4rem]">Invitation not valid</h1>
         <p className="mt-3 text-sm leading-relaxed text-muted">
           This activation link has expired or was already used. Please email
           hello@usukaccountants.com and we&rsquo;ll send you a fresh one.
@@ -41,23 +41,23 @@ export default async function InvitePage({ params }: { params: Promise<{ token: 
 
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="font-display text-display-md text-ink">Set your password</h1>
+      <h1 className="font-brand text-[2rem] font-normal leading-tight text-navy-ink sm:text-[2.4rem]">Set your password</h1>
       <p className="mt-2 text-sm leading-relaxed text-muted">
         Welcome to the US UK Accountants client portal. Choose a password of at least 10 characters
         — a short phrase works well.
       </p>
-      <form action={activate} className="mt-6 space-y-4 rounded-card border border-mist bg-white p-7 shadow-e2">
+      <form action={activate} className="mt-6 space-y-4 rounded-md border border-mist bg-white p-7 shadow-e2">
         <label className="block">
           <span className="text-sm font-semibold text-ink">New password</span>
           <input name="password" type="password" required minLength={10} autoComplete="new-password"
-            className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none transition-colors focus:border-navy-ink" />
+            className="mt-1.5 w-full rounded-md border border-mist px-4 py-2.5 text-ink outline-none transition-colors focus:border-navy-ink" />
         </label>
         <label className="block">
           <span className="text-sm font-semibold text-ink">Repeat password</span>
           <input name="password2" type="password" required minLength={10} autoComplete="new-password"
-            className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none transition-colors focus:border-navy-ink" />
+            className="mt-1.5 w-full rounded-md border border-mist px-4 py-2.5 text-ink outline-none transition-colors focus:border-navy-ink" />
         </label>
-        <button type="submit" className="w-full rounded-xl bg-navy-ink px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink">
+        <button type="submit" className="w-full rounded-md bg-navy-ink px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink">
           Activate account
         </button>
       </form>

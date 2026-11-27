@@ -46,16 +46,16 @@ export default async function NewClientPage() {
 
   return (
     <div className="mx-auto max-w-md">
-      <h1 className="font-display text-display-md text-ink">New client</h1>
+      <h1 className="font-brand text-[2rem] font-normal leading-tight text-navy-ink sm:text-[2.4rem]">New client</h1>
       <p className="mt-2 text-sm text-muted">Creates the client record and emails their activation link.</p>
-      <form action={createClient} className="mt-6 space-y-4 rounded-card border border-mist bg-white p-7 shadow-e2">
+      <form action={createClient} className="mt-6 space-y-4 rounded-md border border-mist bg-white p-7 shadow-e2">
         <label className="block"><span className="text-sm font-semibold text-ink">First name</span>
-          <input name="firstName" required className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
+          <input name="firstName" required className="mt-1.5 w-full rounded-md border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
         <label className="block"><span className="text-sm font-semibold text-ink">Last name</span>
-          <input name="lastName" className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
+          <input name="lastName" className="mt-1.5 w-full rounded-md border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
         <label className="block"><span className="text-sm font-semibold text-ink">Email</span>
-          <input name="email" type="email" required className="mt-1.5 w-full rounded-xl border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
-        <button className="w-full rounded-xl bg-navy-ink px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink">Create &amp; send invitation</button>
+          <input name="email" type="email" required className="mt-1.5 w-full rounded-md border border-mist px-4 py-2.5 text-ink outline-none focus:border-navy-ink" /></label>
+        <button className="w-full rounded-md bg-navy-ink px-4 py-3 text-sm font-semibold text-white transition-colors hover:bg-ink">Create &amp; send invitation</button>
       </form>
     </div>
   );

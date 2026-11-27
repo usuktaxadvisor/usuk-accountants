@@ -8,16 +8,12 @@ import { DELIVERY_STATUS_LABEL, canClientAccess, canClientRespond, listDeliverie
 import { listRequestsForClient } from '@/lib/portal/esign-store';
 import { canClientApprove } from '@/lib/portal/members';
 import { SIG_ACTION_LABEL, SIG_STATUS_LABEL, isOpen, signerIsComplete, signerMayAct, type SigAction } from '@/lib/portal/esign';
+import RequestCard from '@/components/portal/classic/RequestCard';
+import { EmptyNote, PageTitle, Pill, SectionTitle, btn, fileSize, shortDate } from '@/components/portal/classic/ui';
+import { nestFiles } from '@/lib/portal/request-view';
 
 export const dynamic = 'force-dynamic';
 
-const STATUS_LABEL: Record<string, string> = {
-  REQUESTED: 'Awaiting your upload',
-  UPLOADED: 'Uploaded — with our team',
-  RECEIVED: 'Received',
-  UNDER_REVIEW: 'Under review',
-  COMPLETED: 'Completed',
-};
 
 export default async function Dashboard() {
   const session = await portalSession();
@@ -72,134 +68,153 @@ export default async function Dashboard() {
     await signOut({ redirectTo: '/portal/login' });
   }
 
+  const items = nestFiles(requests, docs);
+  const needed = items.filter(i => i.status === 'REQUESTED' || i.status === 'UNDER_REVIEW');
+  const withUs = items.filter(i => i.status === 'UPLOADED' || i.status === 'RECEIVED');
+  const complete = items.filter(i => i.status === 'COMPLETED');
+  const receivedCount = items.length - open.length;
+  const pct = items.length ? Math.round((receivedCount / items.length) * 100) : 0;
+  const reviewsDue = mayApprove ? awaiting.length : 0;
+  const actionCount = open.length + reviewsDue + sigOpen.length;
+  const firstName = client ? client.displayName.split(' ')[0] : '';
+  const fileHref = (fileId: string) => `/api/portal/documents/${fileId}/file`;
+
   return (
     <div>
-      <div className="flex items-start justify-between gap-4">
-        <div>
-          <h1 className="font-display text-display-md text-ink">
-            Welcome{client ? `, ${client.displayName.split(' ')[0]}` : ''}
-          </h1>
-          <p className="mt-1 text-sm text-muted">
-            {(() => { const parts = [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, awaiting.length && mayApprove ? `${awaiting.length} document${awaiting.length === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} document${sigOpen.length === 1 ? '' : 's'} to approve or sign` : null].filter(Boolean); return parts.length ? parts.join(' · ') + '.' : 'Nothing is waiting on you right now.'; })()}
-          </p>
-        </div>
-        <form action={doLogout}>
-          <button className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">
-            Log out
-          </button>
-        </form>
-      </div>
+      <PageTitle title={`Welcome${firstName ? `, ${firstName}` : ''}`}
+        meta={actionCount
+          ? [open.length ? `${open.length} document${open.length === 1 ? '' : 's'} to upload` : null, reviewsDue ? `${reviewsDue} document${reviewsDue === 1 ? '' : 's'} to review` : null, sigOpen.length ? `${sigOpen.length} to approve or sign` : null].filter(Boolean).join(' · ') + '.'
+          : 'Nothing is waiting on you right now. We will email you when we need anything.'}>
+        <form action={doLogout}><button className={btn.secondary}>Log out</button></form>
+      </PageTitle>
 
-      {sigOpen.length || sigDone.length || sigOtherOpen.length || sigWaiting.length ? (
-        <section className="mt-10">
-          <h2 className="text-xs font-semibold uppercase tracking-widest text-muted">Documents requiring your action</h2>
-          <div className="mt-3 space-y-2">
-            {sigOpen.length === 0 ? <p className="rounded-card border border-mist bg-white p-5 text-sm text-muted">Nothing to approve or sign right now.</p> : sigOpen.map(r => (
-              <div key={r.id} className="rounded-card border border-gold/40 bg-white px-5 py-4">
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div>
-                    <p className="text-sm font-semibold text-ink">{r.title}</p>
-                    <p className="text-xs text-muted">Sent {r.sentAt?.toLocaleDateString('en-GB') ?? ''} · {SIG_STATUS_LABEL[r.status]}{r.dueAt ? ` · please complete by ${r.dueAt.toLocaleDateString('en-GB')}` : ''}</p>
-                  </div>
-                  <a href={`/portal/sign/${r.id}`} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white hover:bg-ink">{SIG_ACTION_LABEL[r.action]}</a>
+      {items.length ? (
+        <div className="mt-8 rounded-md border border-mist bg-white px-6 py-5">
+          <div className="flex flex-wrap items-baseline justify-between gap-2">
+            <p className="text-sm text-ink"><span className="font-brand text-2xl text-navy-ink">{receivedCount}</span> of {items.length} requested documents received</p>
+            <p className="text-xs text-muted">{complete.length} checked and complete</p>
+          </div>
+          <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-mist" role="progressbar" aria-valuenow={pct} aria-valuemin={0} aria-valuemax={100} aria-label="Documents received">
+            <div className="h-full rounded-full bg-gradient-to-r from-gold-antique to-gold" style={{ width: `${pct}%` }} />
+          </div>
+        </div>
+      ) : null}
+
+      {sigOpen.length || sigWaiting.length || sigOtherOpen.length ? (
+        <section className="mt-12">
+          <SectionTitle title="To approve or sign" count={sigOpen.length} note="Please read each document carefully before you approve or sign it." />
+          <div className="mt-4 space-y-3">
+            {sigOpen.map(r => (
+              <div key={r.id} className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-gold/50 bg-white px-5 py-4">
+                <div className="min-w-0">
+                  <p className="text-[15px] font-semibold text-navy-ink">{r.title}</p>
+                  <p className="mt-1 text-xs text-muted">Sent {shortDate(r.sentAt)}{r.dueAt ? <> · please complete by <span className="font-semibold text-ink">{shortDate(r.dueAt)}</span></> : null}</p>
                 </div>
+                <a href={`/portal/sign/${r.id}`} className={btn.primary}>{SIG_ACTION_LABEL[r.action]}</a>
               </div>
             ))}
             {sigWaiting.map(r => {
               const who = waitingOn(r);
               const done = signersOf(r.id).find(s => s.userId === session.uid && signerIsComplete(r.action, s.status));
               return (
-                <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4 text-sm">
-                  <p className="font-semibold text-ink">{r.title}</p>
-                  <p className="text-xs text-muted">{done ? 'You have completed your part · waiting for the other signer(s)' : who ? `Waiting for ${who} to complete their part first — we will email you when it is your turn` : 'Not yet your turn'} · {SIG_STATUS_LABEL[r.status]}</p>
+                <div key={r.id} className="rounded-md border border-mist bg-white px-5 py-4 text-sm">
+                  <p className="font-semibold text-navy-ink">{r.title}</p>
+                  <p className="mt-1 text-xs text-muted">{done ? 'You have completed your part. Waiting for the other signer.' : who ? `Waiting for ${who} to complete their part first. We will email you when it is your turn.` : 'Not yet your turn.'}</p>
                 </div>
               );
             })}
             {sigOtherOpen.map(r => (
-              <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4 text-sm">
-                <p className="font-semibold text-ink">{r.title}</p>
-                <p className="text-xs text-muted">Being handled by another person on your account · {SIG_STATUS_LABEL[r.status]}</p>
-              </div>
-            ))}
-            {sigDone.map(r => (
-              <div key={r.id} className="rounded-card border border-mist bg-white px-5 py-4 text-sm">
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <p><span className="font-semibold text-ink">{r.title}</span> <span className="text-xs text-muted">· completed {r.completedAt?.toLocaleDateString('en-GB') ?? ''}</span></p>
-                  <div className="flex gap-2">
-                    {r.sealedDriveFileId ? <a href={`/api/portal/esign/requests/${r.id}/signed?download=1`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">{r.action === 'APPROVAL' ? 'Approved copy' : 'Signed copy'}</a> : null}
-                    <a href={`/api/portal/esign/requests/${r.id}/evidence?format=pdf`} className="rounded-lg border border-mist px-3 py-1.5 text-xs font-semibold text-ink hover:border-navy-ink">{r.action === 'APPROVAL' ? 'Approval record' : 'Signature record'}</a>
-                  </div>
-                </div>
+              <div key={r.id} className="rounded-md border border-mist bg-white px-5 py-4 text-sm">
+                <p className="font-semibold text-navy-ink">{r.title}</p>
+                <p className="mt-1 text-xs text-muted">Being handled by another person on your account · {SIG_STATUS_LABEL[r.status]}</p>
               </div>
             ))}
           </div>
         </section>
       ) : null}
 
-      <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents requested</h2>
-      <div className="mt-3 space-y-3">
-        {requests.length === 0 ? (
-          <p className="rounded-card border border-mist bg-white p-7 text-sm text-muted">
-            No document requests yet. When our team needs something from you, it will appear here.
-          </p>
-        ) : requests.map(r => (
-          <div key={r.id} className="flex items-center justify-between gap-4 rounded-card border border-mist bg-white p-6">
-            <div>
-              <p className="font-semibold text-ink">{r.title}</p>
-              {r.description ? <p className="mt-0.5 text-sm text-muted">{r.description}</p> : null}
-              {r.deadline ? <p className="mt-1 text-xs text-muted">Needed by {r.deadline.toLocaleDateString('en-GB')}</p> : null}
-            </div>
-            <div className="flex shrink-0 flex-col items-end gap-2">
-              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${r.status === 'REQUESTED' ? 'bg-gold/10 text-gold-antique' : 'bg-mist text-muted'}`}>
-                {STATUS_LABEL[r.status] ?? r.status}
-              </span>
-              {(r.status === 'REQUESTED' || r.status === 'UPLOADED') ? <UploadButton requestId={r.id} /> : null}
-            </div>
-          </div>
-        ))}
-      </div>
-      <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents for your review</h2>
-      <div className="mt-3 space-y-2">
-        {deliveries.length === 0 ? (
-          <p className="rounded-card border border-mist bg-white p-6 text-sm text-muted">Nothing for you to review yet. When we&apos;ve prepared something for you, it will appear here and we&apos;ll email you.</p>
-        ) : deliveries.map(d => {
-          const resp = myResponse(d.id);
-          return (
-            <div key={d.id} className="rounded-card border border-mist bg-white px-6 py-5">
-              <div className="flex flex-wrap items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm font-semibold text-ink">{d.title}</p>
-                  <p className="text-xs text-muted">{d.sentAt.toLocaleDateString('en-GB')}{d.category ? ` · ${d.category}` : ''} · {(d.sizeBytes / 1024 / 1024).toFixed(1)} MB</p>
-                  {d.note ? <p className="mt-2 text-sm text-ink">{d.note}</p> : null}
+      {deliveries.length ? (
+        <section className="mt-12">
+          <SectionTitle title="Prepared for you" count={deliveries.length} note="Documents our team has prepared. Open each one, then let us know it looks right or what should change." />
+          <div className="mt-4 space-y-3">
+            {deliveries.map(d => {
+              const resp = myResponse(d.id);
+              const due = canClientRespond(d.status);
+              return (
+                <div key={d.id} className={`rounded-md border bg-white px-5 py-4 ${due && mayApprove ? 'border-gold/50' : 'border-mist'}`}>
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="min-w-0">
+                      <p className="text-[15px] font-semibold text-navy-ink">{d.title}</p>
+                      <p className="mt-1 text-xs text-muted">{shortDate(d.sentAt)}{d.category ? ` · ${d.category}` : ''} · {fileSize(d.sizeBytes)}</p>
+                      {d.note ? <p className="mt-2 text-sm leading-relaxed text-ink">{d.note}</p> : null}
+                    </div>
+                    <Pill tone={due ? 'action' : d.status === 'APPROVED' ? 'done' : 'neutral'}>{DELIVERY_STATUS_LABEL[d.status]}</Pill>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <a href={`/api/portal/deliveries/${d.id}/file`} target="_blank" rel="noopener" className={btn.primary}>View document</a>
+                    <a href={`/api/portal/deliveries/${d.id}/file?download=1`} className={btn.secondary}>Download</a>
+                  </div>
+                  {due ? (mayApprove ? <DeliveryResponseForm deliveryId={d.id} /> : <p className="mt-3 text-xs text-muted">Awaiting the account holder&apos;s response. Your access is view only.</p>) : resp ? (
+                    <p className="mt-3 text-xs text-muted">{resp.respondedById === session.uid ? 'You' : 'Another person on your account'} {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {shortDate(resp.createdAt)}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
+                  ) : null}
                 </div>
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${canClientRespond(d.status) ? 'bg-gold/10 text-gold-antique' : 'bg-mist text-muted'}`}>{DELIVERY_STATUS_LABEL[d.status]}</span>
-              </div>
-              <div className="mt-3 flex flex-wrap gap-2">
-                <a href={`/api/portal/deliveries/${d.id}/file`} target="_blank" rel="noopener" className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink">View document</a>
-                <a href={`/api/portal/deliveries/${d.id}/file?download=1`} className="rounded-xl border border-mist px-4 py-2 text-sm font-semibold text-ink transition-colors hover:border-navy-ink">Download</a>
-              </div>
-              {canClientRespond(d.status) ? (mayApprove ? <DeliveryResponseForm deliveryId={d.id} /> : <p className="mt-3 text-xs text-muted">Awaiting the account holder&apos;s response. Your access is view-only.</p>) : resp ? (
-                <p className="mt-3 text-xs text-muted">{resp.respondedById === session.uid ? 'You' : 'Another person on your account'} {resp.decision === 'APPROVED' ? 'approved this' : 'requested changes'} on {resp.createdAt.toLocaleDateString('en-GB')}.{resp.comment ? ` “${resp.comment}”` : ''}</p>
-              ) : null}
-            </div>
-          );
-        })}
-      </div>
-
-      <h2 className="mt-10 text-xs font-semibold uppercase tracking-widest text-muted">Documents submitted</h2>
-      <div className="mt-3 space-y-2">
-        {docs.length === 0 ? (
-          <p className="rounded-card border border-mist bg-white p-6 text-sm text-muted">Nothing submitted yet.</p>
-        ) : docs.map(d => (
-          <div key={d.id} className="flex items-center justify-between gap-4 rounded-card border border-mist bg-white px-6 py-4">
-            <div>
-              <p className="text-sm font-semibold text-ink">{d.originalName}</p>
-              <p className="text-xs text-muted">{d.createdAt.toLocaleDateString('en-GB')} · {(d.sizeBytes/1024/1024).toFixed(1)} MB</p>
-            </div>
-            <span className="rounded-full bg-mist px-3 py-1 text-xs font-semibold text-muted">{STATUS_LABEL[d.status] ?? d.status}</span>
+              );
+            })}
           </div>
-        ))}
-      </div>
+        </section>
+      ) : null}
+
+      <section className="mt-12">
+        <SectionTitle title="Documents we need from you" count={needed.length}
+          note={needed.length ? 'Upload each item against its request. You can select several files at once.' : undefined} />
+        <div className="mt-4 grid items-start gap-3 lg:grid-cols-2">
+          {needed.length === 0 ? <EmptyNote>{items.length ? 'Thank you. We have everything we asked for so far.' : 'No document requests yet. When our team needs something from you, it will appear here.'}</EmptyNote> : needed.map(i => (
+            <RequestCard key={i.id} item={i} audience="client" fileHref={fileHref}
+              actions={<div className="flex w-full flex-wrap items-center justify-between gap-2">
+                <span className="text-xs text-muted">{i.status === 'UNDER_REVIEW' ? 'We have your upload and may need a little more. Add anything extra here.' : 'PDF, photos, Word or Excel, up to 25 MB each.'}</span>
+                <UploadButton requestId={i.id} />
+              </div>} />
+          ))}
+        </div>
+      </section>
+
+      {withUs.length ? (
+        <section className="mt-12">
+          <SectionTitle title="With our team" count={withUs.length} note="Received and being checked. You can still add a missing page." />
+          <div className="mt-4 grid items-start gap-3 lg:grid-cols-2">
+            {withUs.map(i => (
+              <RequestCard key={i.id} item={i} audience="client" fileHref={fileHref} collapsedAfter={3}
+                actions={i.status === 'UPLOADED' ? <UploadButton requestId={i.id} /> : undefined} />
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {complete.length || sigDone.length ? (
+        <section className="mt-12">
+          <details className="group">
+            <summary className="cursor-pointer list-none marker:hidden">
+              <SectionTitle title="Completed" count={complete.length + sigDone.length}>
+                <span className="text-xs font-semibold text-navy-ink"><span className="group-open:hidden">Show</span><span className="hidden group-open:inline">Hide</span></span>
+              </SectionTitle>
+            </summary>
+            <div className="mt-4 space-y-3">
+              {sigDone.map(r => (
+                <div key={r.id} className="flex flex-wrap items-center justify-between gap-3 rounded-md border border-mist bg-white px-5 py-3 text-sm">
+                  <p><span className="font-semibold text-navy-ink">{r.title}</span> <span className="text-xs text-muted">· completed {shortDate(r.completedAt)}</span></p>
+                  <div className="flex gap-2">
+                    {r.sealedDriveFileId ? <a href={`/api/portal/esign/requests/${r.id}/signed?download=1`} className={btn.small}>{r.action === 'APPROVAL' ? 'Approved copy' : 'Signed copy'}</a> : null}
+                    <a href={`/api/portal/esign/requests/${r.id}/evidence?format=pdf`} className={btn.small}>{r.action === 'APPROVAL' ? 'Approval record' : 'Signature record'}</a>
+                  </div>
+                </div>
+              ))}
+              <div className="grid items-start gap-3 lg:grid-cols-2">
+                {complete.map(i => <RequestCard key={i.id} item={i} audience="client" fileHref={fileHref} collapsedAfter={3} />)}
+              </div>
+            </div>
+          </details>
+        </section>
+      ) : null}
     </div>
   );
 }

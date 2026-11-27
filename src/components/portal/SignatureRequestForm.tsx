@@ -60,20 +60,20 @@ export default function SignatureRequestForm({ clientId, deliveries, hasIdv, sig
 
   if (!pdfs.length) return null;
   return (
-    <div className="mt-3 rounded-2xl border border-mist bg-white p-4">
+    <div className="mt-3 rounded-md border border-mist bg-white p-4">
       <button type="button" onClick={() => setOpen(v => !v)} className="text-sm font-semibold text-navy-ink">{open ? '− ' : '+ '}Require client action (approve / sign)</button>
       {open ? (
         <div className="mt-3 space-y-3 text-sm">
-          <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Request title, e.g. 2025 US Tax Return — approval and e-file authorisation" className="w-full rounded-xl border border-mist px-3 py-2" />
+          <input value={title} onChange={e => setTitle(e.target.value)} placeholder="Request title, e.g. 2025 US Tax Return — approval and e-file authorisation" className="w-full rounded-md border border-mist px-3 py-2" />
           <div className="grid gap-3 sm:grid-cols-2">
             <label className="block text-xs font-semibold text-muted">Action required
-              <select value={action} onChange={e => setAction(e.target.value as typeof action)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink">
+              <select value={action} onChange={e => setAction(e.target.value as typeof action)} className="mt-1 w-full rounded-md border border-mist px-3 py-2 text-sm text-ink">
                 <option value="APPROVAL">Approval only</option><option value="SIGNATURE">Signature</option><option value="APPROVAL_AND_SIGNATURE">Approval + signature</option>
               </select></label>
             <label className="block text-xs font-semibold text-muted">Document type
-              <select value={kind} onChange={e => setKind(e.target.value)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink">{KINDS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
+              <select value={kind} onChange={e => setKind(e.target.value)} className="mt-1 w-full rounded-md border border-mist px-3 py-2 text-sm text-ink">{KINDS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
           </div>
-          {isIrs && !hasIdv ? <p className="rounded-xl border border-red-200 bg-red-50 p-3 text-xs text-red-800">IRS rules (Pub. 1345) require a recorded identity verification before Form 8878/8879 can be e-signed remotely. Record one below, or ask the client to print, sign by hand and upload the form.</p> : null}
+          {isIrs && !hasIdv ? <p className="rounded-md border border-red-200 bg-red-50 p-3 text-xs text-red-800">IRS rules (Pub. 1345) require a recorded identity verification before Form 8878/8879 can be e-signed remotely. Record one below, or ask the client to print, sign by hand and upload the form.</p> : null}
           <fieldset><legend className="text-xs font-semibold text-muted">Who must {action === 'APPROVAL' ? 'approve' : 'sign'}</legend>
             {signers.map(s => { const pos = signerOrder.indexOf(s.userId); return (
               <div key={s.userId} className="mt-1 flex flex-wrap items-center gap-2">
@@ -82,7 +82,7 @@ export default function SignatureRequestForm({ clientId, deliveries, hasIdv, sig
               </div>); })}
             {signerOrder.length > 1 ? (
               <label className="mt-2 block text-xs font-semibold text-muted">Signing order
-                <select value={order} onChange={e => setOrder(e.target.value as typeof order)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink sm:w-auto">
+                <select value={order} onChange={e => setOrder(e.target.value as typeof order)} className="mt-1 w-full rounded-md border border-mist px-3 py-2 text-sm text-ink sm:w-auto">
                   <option value="PARALLEL">Parallel — everyone can sign at any time</option><option value="SEQUENTIAL">Sequential — one after another, in the numbered order</option>
                 </select></label>
             ) : null}
@@ -94,16 +94,16 @@ export default function SignatureRequestForm({ clientId, deliveries, hasIdv, sig
           {action !== 'APPROVAL' ? (
             <div className="grid gap-3 sm:grid-cols-2">
               <label className="block text-xs font-semibold text-muted">Signature goes on
-                <select value={signOn} onChange={e => setSignOn(e.target.value)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink">{pdfs.map(d => <option key={d.id} value={d.id}>{d.title} v{d.version}</option>)}</select></label>
+                <select value={signOn} onChange={e => setSignOn(e.target.value)} className="mt-1 w-full rounded-md border border-mist px-3 py-2 text-sm text-ink">{pdfs.map(d => <option key={d.id} value={d.id}>{d.title} v{d.version}</option>)}</select></label>
               <label className="block text-xs font-semibold text-muted">Where
-                <select value={preset} onChange={e => setPreset(e.target.value)} className="mt-1 w-full rounded-xl border border-mist px-3 py-2 text-sm text-ink">{PRESETS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
+                <select value={preset} onChange={e => setPreset(e.target.value)} className="mt-1 w-full rounded-md border border-mist px-3 py-2 text-sm text-ink">{PRESETS.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select></label>
             </div>
           ) : null}
-          <input value={ack} onChange={e => setAck(e.target.value)} placeholder="Optional acknowledgement the client must tick, e.g. I confirm all my income sources have been disclosed" className="w-full rounded-xl border border-mist px-3 py-2" />
-          <textarea value={message} onChange={e => setMessage(e.target.value)} rows={2} placeholder="Optional message shown to the client" className="w-full rounded-xl border border-mist px-3 py-2" />
-          <label className="block text-xs font-semibold text-muted">Due date (optional) <input type="date" value={dueAt} onChange={e => setDueAt(e.target.value)} className="ml-2 rounded-xl border border-mist px-3 py-1.5 text-sm text-ink" /></label>
+          <input value={ack} onChange={e => setAck(e.target.value)} placeholder="Optional acknowledgement the client must tick, e.g. I confirm all my income sources have been disclosed" className="w-full rounded-md border border-mist px-3 py-2" />
+          <textarea value={message} onChange={e => setMessage(e.target.value)} rows={2} placeholder="Optional message shown to the client" className="w-full rounded-md border border-mist px-3 py-2" />
+          <label className="block text-xs font-semibold text-muted">Due date (optional) <input type="date" value={dueAt} onChange={e => setDueAt(e.target.value)} className="ml-2 rounded-md border border-mist px-3 py-1.5 text-sm text-ink" /></label>
           <div className="flex items-center gap-3">
-            <button type="button" disabled={state === 'sending' || (isIrs && !hasIdv)} onClick={submit} className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">{state === 'sending' ? 'Freezing & sending…' : 'Send to client'}</button>
+            <button type="button" disabled={state === 'sending' || (isIrs && !hasIdv)} onClick={submit} className="rounded-md bg-navy-ink px-4 py-2 text-sm font-semibold text-white disabled:opacity-50">{state === 'sending' ? 'Freezing & sending…' : 'Send to client'}</button>
             {msg ? <p className={`text-xs ${state === 'error' ? 'text-red-700' : 'text-ink'}`} role="status">{msg}</p> : null}
           </div>
         </div>

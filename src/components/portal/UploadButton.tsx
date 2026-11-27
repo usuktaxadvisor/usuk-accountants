@@ -77,7 +77,7 @@ export default function UploadButton({ requestId }: { requestId: string }) {
         onChange={(e) => onPick(e.target.files)} />
       <button type="button" disabled={state === 'uploading'}
         onClick={() => inputRef.current?.click()}
-        className="rounded-xl bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink disabled:opacity-60">
+        className="rounded-md bg-navy-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-ink disabled:opacity-60">
         {state === 'uploading' ? 'Uploading…' : state === 'done' ? 'Upload more' : 'Upload documents'}
       </button>
       {message ? (
