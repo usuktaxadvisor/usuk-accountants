@@ -187,6 +187,7 @@ export default function UsTaxReturns() {
       <RelatedLinks
         title="Further reading"
         links={[
+          { label: 'How to file a US return from the UK', href: '/resources/blog/form-1040-guide-americans-living-in-uk', description: 'Step by step: thresholds, dates, what to gather and the reports' },
           { label: 'Running a UK company as a US citizen', href: '/resources/blog/running-a-uk-limited-company-as-a-us-citizen', description: 'Every US obligation a UK Ltd creates' },
           { label: 'Freelancer and contractor US tax forms', href: '/resources/blog/freelancer-contractor-uk-us-tax-forms', description: 'Schedule C, Form 2555 or 1116, FBAR and 8938 for UK freelancers' },
           { label: 'Selling a UK home as a US citizen', href: '/resources/blog/selling-uk-home-as-us-citizen', description: 'The exclusion, the currency gain and the UK 60-day rule' },
