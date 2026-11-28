@@ -32,9 +32,17 @@ export async function clientActivity(clientId: string, base: string): Promise<Ac
   const audits = await db.select({ a: tables.auditLogs, f: tables.users.firstName, l: tables.users.lastName, e: tables.users.email })
     .from(tables.auditLogs).leftJoin(tables.users, eq(tables.users.id, tables.auditLogs.actorUserId))
     .where(and(
-      inArray(tables.auditLogs.action, ['STATUS_CHANGE', 'REQUEST_REMINDER_SENT', 'REQUEST_DEADLINE_SET', 'ENGAGEMENT_CREATED', 'ENGAGEMENT_UPDATED', 'ENGAGEMENT_ROLLED_OVER', 'DEADLINE_ADDED', 'DEADLINE_DONE', 'DEADLINE_REOPENED', 'RESET_LINK_SENT', 'CLIENT_MEMBER_ADDED', 'CLIENT_MEMBER_REMOVED', 'IDV_RECORDED']),
+      inArray(tables.auditLogs.action, ['STATUS_CHANGE', 'REQUEST_REMINDER_SENT', 'REQUEST_DEADLINE_SET', 'ENGAGEMENT_CREATED', 'ENGAGEMENT_UPDATED', 'ENGAGEMENT_ROLLED_OVER', 'DEADLINE_ADDED', 'DEADLINE_DONE', 'DEADLINE_REOPENED', 'RESET_LINK_SENT', 'CLIENT_MEMBER_ADDED', 'CLIENT_MEMBER_REMOVED', 'IDV_RECORDED', 'REQUEST_REMOVED']),
       ids.length ? sql`(${tables.auditLogs.meta}->>'clientId' = ${clientId} or ${inArray(tables.auditLogs.targetId, ids)})` : sql`${tables.auditLogs.meta}->>'clientId' = ${clientId}`,
     ));
+  // A removed request is no longer in the table; its audit record keeps the title for the rest of its history.
+  for (const x of audits) {
+    const m = (x.a.meta ?? {}) as Record<string, unknown>;
+    if (x.a.action === 'REQUEST_REMOVED' && x.a.targetId && typeof m.title === 'string') {
+      reqTitle.set(x.a.targetId, m.title);
+      if (typeof m.requestedAt === 'string') out.push({ at: new Date(m.requestedAt), kind: 'request', text: `Requested “${m.title}”`, who: null, href: `${base}/requests` });
+    }
+  }
   for (const x of audits) {
     const m = (x.a.meta ?? {}) as Record<string, unknown>;
     const who = name(x.f, x.l, x.e) ?? 'System';
@@ -54,6 +62,7 @@ export async function clientActivity(clientId: string, base: string): Promise<Ac
       case 'CLIENT_MEMBER_ADDED': text = 'Person added to the client'; kind = 'access'; break;
       case 'CLIENT_MEMBER_REMOVED': text = 'Person removed from the client'; kind = 'access'; break;
       case 'IDV_RECORDED': text = 'Identity verification recorded'; kind = 'signature'; break;
+      case 'REQUEST_REMOVED': text = `Removed request “${String(m.title ?? 'request')}”${m.reason ? ` (${String(m.reason)})` : ''}. The client was not emailed`; break;
     }
     if (text) out.push({ at: x.a.createdAt, kind, text, who, href: kind === 'engagement' ? `${base}/engagements` : kind === 'access' ? `${base}/people` : `${base}/requests` });
   }
