@@ -23,10 +23,10 @@ export default function ContactThankYou() {
               Message received
             </h1>
             <p className="mt-4 text-lg leading-relaxed text-muted">
-              Thank you for getting in touch. A cross-border specialist will reply within one business day. In the meantime, feel free to explore our free resources.
+              Thank you for getting in touch. A cross-border specialist will reply by email within one business day. Please check your junk folder if you do not see our reply. There is nothing else you need to do for now.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Button href="/book">Book a consultation</Button>
+              <Button href="/services">See what we prepare and file</Button>
               <Button href="/trust-center" variant="secondary">Why clients trust us</Button>
             </div>
           </div>

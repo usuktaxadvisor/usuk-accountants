@@ -102,11 +102,12 @@ export default function BookingEmbed({
         <div className="relative">
           {!loaded && !timedOut && <SchedulerSkeleton />}
           {!loaded && timedOut && <DirectBookingPanel url={bookingUrl} tierId={tierId} />}
+          {/* No loading="lazy" here: the frame is display:none until it loads, and a lazy frame
+              with no layout box is never fetched, so the calendar never appeared. */}
           <iframe
             title={`Book: ${tier.name} (${tier.durationLabel})`}
             src={embedSrc}
             className={`h-[680px] w-full overflow-hidden rounded-card border border-mist bg-white ${loaded ? 'block' : 'hidden'}`}
-            loading="lazy"
             onLoad={() => { setLoaded(true); analytics.bookingEmbedLoaded(tierId); }}
           />
         </div>

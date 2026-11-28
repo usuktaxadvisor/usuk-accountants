@@ -53,8 +53,8 @@ export const analytics = {
       currency: 'GBP',
     }),
 
-  contactSubmitted: (situation?: string) =>
-    track('generate_lead', { lead_type: 'contact', situation, value: 1, currency: 'GBP' }),
+  contactSubmitted: (situation?: string, source?: string) =>
+    track('generate_lead', { lead_type: 'contact', situation, source, value: 1, currency: 'GBP' }),
 
   leadCaptured: (source: string) =>
     track('generate_lead', { lead_type: 'lead_magnet', source }),
@@ -86,10 +86,11 @@ export async function submitLead(payload: {
   source?: string;
 }): Promise<{ ok: boolean; error?: string }> {
   try {
+    const page = typeof window !== 'undefined' ? window.location.pathname.slice(0, 200) : undefined;
     const res = await fetch('/api/lead', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ ...payload, page }),
     });
     const data = await res.json().catch(() => ({ ok: false }));
 
@@ -98,7 +99,7 @@ export async function submitLead(payload: {
         const tier = payload.source?.includes('business') ? 'business' : 'individual';
         analytics.bookingCompleted(payload.situation, tier);
       }
-      else if (payload.type === 'contact') analytics.contactSubmitted(payload.situation);
+      else if (payload.type === 'contact') analytics.contactSubmitted(payload.situation, payload.source);
       else if (payload.type === 'lead') analytics.leadCaptured(payload.source ?? 'unknown');
       else if (payload.type === 'newsletter') analytics.newsletterSubscribed(payload.source ?? 'footer');
     }

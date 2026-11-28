@@ -15,7 +15,7 @@ function isEmail(v: string) {
 /* ============================================================
    1. ContactForm: full enquiry form (contact page, service pages)
    ============================================================ */
-export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
+export function ContactForm({ tone = 'light', source = 'contact_form' }: { tone?: 'light' | 'dark'; source?: string }) {
   const [data, setData] = useState({ name: '', email: '', situation: '', message: '', consent: false });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [sent, setSent] = useState(false);
@@ -41,13 +41,13 @@ export function ContactForm({ tone = 'light' }: { tone?: 'light' | 'dark' }) {
       email: data.email,
       situation: data.situation,
       message: data.message,
-      source: 'contact_form',
+      source,
     });
     setSubmitting(false);
     if (res.ok) {
       if (typeof window !== 'undefined') window.location.href = '/thank-you/contact';
       else setSent(true);
-    } else setSubmitError(res.error ?? 'Something went wrong. Please try again or call us.');
+    } else setSubmitError(res.error ?? 'Something went wrong. Please try again, or email hello@usukaccountants.com.');
   };
 
   if (sent) {
@@ -222,7 +222,7 @@ export function BookingForm({ tierId = 'individual' }: { tierId?: 'individual' |
       // generate_lead is fired once inside submitLead(); do not fire it again here.
       if (typeof window !== 'undefined') window.location.href = '/thank-you/booking';
       else setDone(true);
-    } else setSubmitError(res.error ?? 'Something went wrong. Please try again or call us.');
+    } else setSubmitError(res.error ?? 'Something went wrong. Please try again, or email hello@usukaccountants.com.');
   };
 
   if (done) {
