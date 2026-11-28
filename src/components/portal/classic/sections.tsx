@@ -18,6 +18,8 @@ const FLASH: Record<string, [string, 'ok' | 'bad']> = {
   saved: ['Saved.', 'ok'], requested: ['Request added and the client has been emailed.', 'ok'], reminded: ['Reminder emailed to the primary contact.', 'ok'],
   'reset-sent': ['Password-reset link emailed (valid 24 hours).', 'ok'], 'engagement-added': ['Engagement added with its statutory deadlines.', 'ok'],
   'note-added': ['Note saved. Notes are visible to staff only.', 'ok'],
+  'request-removed': ['Request removed. The client was not emailed; the removal is kept in Notes & activity.', 'ok'],
+  'remove-refused': ['That request was not removed. Only a request still waiting for the client, with nothing uploaded, can be removed.', 'bad'],
   'email-failed': ['Saved, but the email could not be sent. Contact the client directly or try again.', 'bad'],
   failed: ['That could not be saved. Refresh the page and try again.', 'bad'], missing: ['Please fill in the required field.', 'bad'],
   nothing: ['There is nothing outstanding to remind the client about.', 'bad'], duplicate: ['This client already has that service for that year.', 'bad'],

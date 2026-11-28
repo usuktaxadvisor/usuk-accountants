@@ -8,14 +8,16 @@ import { audit } from '@/lib/portal/audit';
 import { notifyClientOfRequest, requestBase } from '@/lib/portal/notify';
 import { createInvitation } from '@/lib/portal/invite';
 import { sendPortalEmail, resetEmailHtml, reminderEmailHtml } from '@/lib/portal/email';
-import { setRequestStatus } from '@/lib/portal/request-view';
+import { removeEmptyRequest, setRequestStatus } from '@/lib/portal/request-view';
 import { clientExists, type Section } from '@/lib/portal/client-overview';
 import { createEngagement, getEngagementForClient } from '@/lib/portal/engagement-store';
 import { ENGAGEMENT_STATUSES, isService, normaliseTaxYear } from '@/lib/portal/engagements';
 
 /**
  * Staff actions for the client sections. Every action re-checks the staff role, that the client exists,
- * and that any record it touches belongs to that client. Nothing here deletes a record.
+ * and that any record it touches belongs to that client. Nothing here deletes a record, with one exception:
+ * a document request still waiting on the client with nothing uploaded (made by mistake or twice) can be
+ * removed, and its details are kept in the audit log.
  */
 
 const SECTIONS: Section[] = ['people', 'requests', 'files', 'work', 'signatures', 'engagements', 'activity'];
@@ -71,6 +73,13 @@ export async function setRequestDeadlineAction(f: FormData) {
     .where(and(eq(tables.documentRequests.id, requestId), eq(tables.documentRequests.clientId, client.id))).returning({ id: tables.documentRequests.id });
   if (updated.length) await audit(s.uid, 'REQUEST_DEADLINE_SET', { targetType: 'request', targetId: requestId, meta: { clientId: client.id, deadline: raw || null } });
   back(client.id, f, updated.length ? 'saved' : 'failed');
+}
+
+/** Removes a document request made by mistake or twice. Refused if anything has been uploaded to it. */
+export async function removeRequestAction(f: FormData) {
+  const { s, client } = await staffClient(f);
+  const result = await removeEmptyRequest(s.uid, client.id, str(f, 'requestId', 64), str(f, 'reason', 200));
+  back(client.id, f, result === 'removed' ? 'request-removed' : 'remove-refused');
 }
 
 /** Emails the primary contact a reminder for one outstanding request, or for all of them. */

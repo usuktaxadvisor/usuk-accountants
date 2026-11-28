@@ -4,11 +4,11 @@ import { and, desc, eq, inArray } from 'drizzle-orm';
 import { db, tables } from '@/lib/portal/db';
 import { clientExists } from '@/lib/portal/client-overview';
 import { listMembers } from '@/lib/portal/members';
-import { requestItemsForClient } from '@/lib/portal/request-view';
+import { canRemoveRequest, requestItemsForClient } from '@/lib/portal/request-view';
 import RequestCard, { type RequestItem } from '@/components/portal/classic/RequestCard';
 import { EmptyNote, REQUEST_STATUS, REQUEST_STATUS_ORDER, btn, shortDate } from '@/components/portal/classic/ui';
 import { Ctx, Flash, SectionHead, SubHead } from '@/components/portal/classic/sections';
-import { createRequestAction, remindAction, setRequestDeadlineAction, setRequestStatusAction } from '../actions';
+import { createRequestAction, remindAction, removeRequestAction, setRequestDeadlineAction, setRequestStatusAction } from '../actions';
 
 export const dynamic = 'force-dynamic';
 
@@ -117,6 +117,19 @@ export default async function RequestsSection({ params, searchParams }: { params
                 </form>
               ) : null}
               {statusForm(i)}
+              {!archived && canRemoveRequest(i) ? (
+                <details className="w-full">
+                  <summary className="cursor-pointer text-xs text-muted underline decoration-dotted underline-offset-2">Remove this request</summary>
+                  <form action={removeRequestAction} className="mt-2 flex flex-wrap items-center gap-1.5">
+                    <Ctx clientId={id} section="requests" /><input type="hidden" name="requestId" value={i.id} />
+                    <label className="sr-only" htmlFor={`rm-${i.id}`}>Reason</label>
+                    <input id={`rm-${i.id}`} name="reason" maxLength={200} placeholder="Reason, e.g. duplicate of another request"
+                      className="min-w-0 flex-1 rounded-md border border-mist bg-white px-2 py-1 text-xs text-ink" />
+                    <button className={btn.small}>Yes, remove it</button>
+                  </form>
+                  <p className="mt-1 text-xs text-muted">For a request made by mistake or twice. Nothing has been uploaded to it. The client is not emailed, and the removal stays in Notes &amp; activity.</p>
+                </details>
+              ) : null}
             </>} />
           </div>
         ))}
