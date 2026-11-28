@@ -38,6 +38,11 @@ export default async function BookPage({
     'Quick questions? Email us free instead',
   ];
 
+  // Consultations are paused until after 15 December 2026 (the calendar has no earlier
+  // times). Say so plainly, with the email route, instead of leaving visitors to find
+  // an empty calendar. The notice removes itself once the date has passed.
+  const consultationsPaused = Date.now() < Date.UTC(2026, 11, 16);
+
   const bookingSchema = breadcrumbSchema([
     { label: 'Home', href: '/' },
     { label: 'Book a Consultation', href: '/book' },
@@ -104,6 +109,16 @@ export default async function BookPage({
 
         <div className="bg-white py-16 md:py-20">
           <Container>
+            {consultationsPaused ? (
+              <div role="note" className="mb-10 rounded-card border border-gold/50 bg-gold/10 px-6 py-5">
+                <p className="font-display text-lg font-semibold text-ink">The next consultation times are after 15 December 2026</p>
+                <p className="mt-2 text-[15px] leading-relaxed text-muted">
+                  You can reserve one of those times below. If you need US or UK returns prepared sooner, you do not need a consultation to start:{' '}
+                  <Link href="/contact" className="font-semibold text-gold-antique underline underline-offset-2 hover:text-gold">send us your enquiry</Link>{' '}
+                  and we will reply by email with what we would need and a written quote.
+                </p>
+              </div>
+            ) : null}
             <div className="grid gap-10 lg:grid-cols-[1fr_1.4fr]">
               {/* Reassurance rail */}
               <aside>

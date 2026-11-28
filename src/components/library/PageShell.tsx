@@ -6,7 +6,8 @@ import { JsonLd } from '@/components/library/JsonLd';
 import { FAQAccordion } from '@/components/library/FAQAccordion';
 import { AuthorByline } from '@/components/library/Authors';
 import { CTASection } from '@/components/library/CTASection';
-import { Container, Eyebrow } from '@/components/library/primitives';
+import { EnquirySection } from '@/components/library/EnquirySection';
+import { Container, Eyebrow, Button } from '@/components/library/primitives';
 import {
   breadcrumbSchema, faqSchema,
   personSchema, articleSchema, speakableSchema, serviceSchema,
@@ -112,6 +113,10 @@ export function PageShell({
   if (service) schemas.push(serviceSchema(service));
   if (howTo?.steps?.length) schemas.push(howToSchema(howTo));
 
+  // Individual service pages close with the enquiry form itself rather than a link to it.
+  const servicePath = url.replace(/^https?:\/\/[^/]+/, '');
+  const isServicePage = /^\/services\/[^/]+\/[^/]+/.test(servicePath);
+
   return (
     <>
       <JsonLd schema={schemas} />
@@ -134,6 +139,11 @@ export function PageShell({
               <div className="mt-9">
                 <AuthorByline author={author} date={dateModified ?? datePublished} reviewedBy={reviewedBy} />
               </div>
+              {isServicePage ? (
+                <div className="mt-8">
+                  <Button href="#enquire" size="lg" withArrow>Enquire about this service</Button>
+                </div>
+              ) : null}
             </div>
           </Container>
         </header>
@@ -157,11 +167,19 @@ export function PageShell({
           </div>
         ) : null}
 
-        <CTASection
-          title={ctaTitle ?? 'Tell us about your situation'}
-          intro={ctaIntro ?? 'Email us a short description of your circumstances (which country you file in, what has prompted the question and the years involved) and a US–UK specialist will reply with what we would need and a written quote. Work of this kind is handled by email, so every answer is documented. If you want detailed personal advice first, a 30-minute consultation can be booked (£350 individual, £550 business).'}
-          tone="navy"
-        />
+        {isServicePage ? (
+          <EnquirySection
+            title={ctaTitle ?? 'Tell us what you need filed'}
+            intro={ctaIntro ?? 'Send us a short description of your circumstances and a US–UK specialist will reply by email with what we would need and a written quote. Work of this kind is handled by email, so every answer is documented.'}
+            source={`service:${servicePath}`}
+          />
+        ) : (
+          <CTASection
+            title={ctaTitle ?? 'Tell us about your situation'}
+            intro={ctaIntro ?? 'Email us a short description of your circumstances (which country you file in, what has prompted the question and the years involved) and a US–UK specialist will reply with what we would need and a written quote. Work of this kind is handled by email, so every answer is documented. If you want detailed personal advice first, a 30-minute consultation can be booked (£350 individual, £550 business).'}
+            tone="navy"
+          />
+        )}
       </main>
       <Footer />
     </>
