@@ -883,7 +883,7 @@ export const glossaryTerms: GlossaryTerm[] = [
       { label: 'US tax returns for Americans in the UK', href: '/services/us-expat-tax/us-tax-returns' },
       { label: 'Foreign Tax Credit', href: '/resources/glossary/foreign-tax-credit' },
       { label: 'FEIE', href: '/resources/glossary/feie' },
-      { label: 'Form 1040 guide for Americans in the UK', href: '/resources/blog/form-1040-guide-americans-living-in-uk' },
+      { label: 'How to file a US tax return from the UK', href: '/resources/blog/form-1040-guide-americans-living-in-uk' },
     ],
     sameAs: ['https://www.irs.gov/forms-pubs/about-form-1040', 'https://en.wikipedia.org/wiki/Form_1040'],
   },
